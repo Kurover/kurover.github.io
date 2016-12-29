@@ -1,0 +1,105 @@
+p{
+	text-align:Justify;
+}
+h1, h2, h3, h4, h5, h6{
+	text-decoration:underline;
+	margin-bottom:-4px;
+}
+.about{
+	text-decoration:underline;
+	margin-bottom:0px;
+}
+body{	
+	background-color:silver;
+	padding-left:12%;
+	padding-top:0%;
+	padding-right:12%;
+	padding-bottom:10%;
+	font-family:Verdana
+}
+p img{
+	position:relative;
+	border: 4px solid black;
+}
+
+/* customStyle/CSS */
+font1 {
+	font-family: FuturistFW;
+}
+date{
+	font-size:10px;
+	text-decoration:bold;
+}
+.entrybody{
+	padding:5px;
+	background-color:white
+}
+.entry{
+	margin-left:5%;
+	margin-right:20%;
+	margin-top:3%;
+	margin-bottom:5%;
+	text-align:justify;
+}
+.navbar{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+	overflow: hidden;
+	background-color: #444444;
+}
+.navbaralign{
+	float:left;
+}
+.navbarlist {
+	float: center;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+.navbarlist:hover {
+    background-color: #111111;
+}
+.navbarlisttitle {
+	color:#6cb534;
+	background-color:white;
+	float: center;
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navbarbottom{
+	position: relative;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+	overflow: hidden;
+	float: left;
+	left: -50%;
+}
+.navbarbottomcenter{
+	float: left;
+	left: 50%;
+	position: relative;
+}
+.navbarlistbottom {
+	background-color:#444444;
+	float: center;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 8px 8px;
+    text-decoration: none;
+}
+.current{
+	background-color:white;
+	color:#6cb534;
+}
+.current:hover{
+	background-color:#dddddd;
+	color:#444444;
+}
