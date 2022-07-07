@@ -1,147 +1,111 @@
-p{
-	text-align:Justify;
-}
-h1, h2, h3, h4, h5, h6{
-	text-decoration:underline;
-	margin-bottom:-4px;
-}
-.about{
-	text-decoration:underline;
-	margin-bottom:0px;
-}
 body{	
-	background-color:silver;
-	padding-left:12%;
-	padding-top:0%;
-	padding-right:12%;
-	padding-bottom:10%;
-	font-family:Verdana
+    margin: 0;
+	background-color: #0B0E0F;
+    font-family: 'Pixel04b03';
+    font-size: 16px;
 }
-p img{
-	border: 4px solid black;
+a{
+    text-decoration: none;
+}
+a:link{
+    color: green;
+}
+a:visited{
+    color: slategray;
+}
+a:hover{
+    color: limegreen;
+}
+a:active{
+    color: peachpuff;
 }
 
-/* customStyle/CSS */
-font1 {
-	font-family: FuturistFW;
+/*Top Navbar*/
+.nav-top{
+    z-index: 10;
+    background-color: #141414;
+    position: fixed;
+    width: 100%;
+    overflow: hidden;
+    box-sizing: content-box;
+    border-bottom: 2px solid slategray;
 }
-date{
-	font-size:10px;
-	text-decoration:bold;
+.nav-top a{
+    background-color: lightslategrey;
+    color: whitesmoke;
+    float: left;
+    display: block;
+    width: 18%;
+    max-width: 7em;
+    padding: 0.4em 0.3em;
+    margin: 0.4em;
+    overflow: hidden;
+    text-align: center;
+    text-decoration: none;
 }
-.entrybody{
-	padding:5px;
-	background-color:white
+.nav-top a.active{
+    background-color: whitesmoke;
+    color: lightslategrey;
+}
+.nav-top a.active:hover{
+    background-color: lightskyblue;
+}
+.nav-top a:hover{
+    background-color: lightskyblue;
+}
+.nav-top a:active{
+    background-color: dodgerblue;
+}
+.nav-top a.title{
+    color: whitesmoke;
+    background-color: transparent;
+    outline: 2px solid slategray;
+}
+.nav-top a.font{
+    background-color: slategray;
+    float: right;
+}
+.nav-top a.font:hover{
+    background-color: royalblue;
+}
+
+/*Content Body*/
+.entry-body{
+    width: 90%;
+    height: 100%;
+    padding: 6em 0 2em 0;
+    margin: auto;
 }
 .entry{
-	margin-left:5%;
-	margin-right:20%;
-	margin-top:3%;
-	margin-bottom:5%;
-	text-align:justify;
-}
-/* Navigation Bar */
-.navbar{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-	overflow: hidden;
-	background-color: #444444;
-}
-.navbaralign{
-	float:left;
-}
-.navbarlist {
-	float: center;
-    display: block;
+    background-color: #141414;
     color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-.navbarlist:hover {
-    background-color: #111111;
-}
-.navbarlisttitle {
-	color:#6cb534;
-	background-color:white;
-	float: center;
-    display: block;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+    max-width: 50em;
+    margin: auto;
+    margin-bottom: 1em;
+    padding: 1em 2em 2em 2em;
+    border: 1px solid gray;
 }
 
-.navbarbottom{
-	position: relative;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-	overflow: hidden;
-	float: left;
-	left: -50%;
-	border: 4px solid white;
-}
-.navbarbottomcenter{
-	float: left;
-	left: 50%;
-	position: relative;
-}
-.navbarlistbottom {
-	background-color:#444444;
-	float: center;
+/*Content CSS*/
+.entry .title{
     display: block;
-    color: white;
     text-align: center;
-    padding: 8px 8px;
-    text-decoration: none;
+    text-decoration: underline;
 }
-.navbarlistbottom:hover {
-    background-color: #111111;
-}
-
-.current{
-	background-color:white;
-	color:#6cb534;
-}
-.current:hover{
-	background-color:#dddddd;
-	color:#444444;
-}
-/* Dropdown */
-li.dropdown {
-    display: inline-block;
-}
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-}
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
+.content{
     display: block;
-    text-align: left;
+    float: left;
+    height: 128px;
+    width: 128px;
+    margin: 0 24px 32px 0;
 }
-.dropdown-content a:hover {
-	background-color: #dddddd;
-	color:#444444;
+.content .image{
+    background-color: #0B0E0F;
+    border: 1px solid;
+    height: 100%;
 }
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.race{
-	text-decoration:none;
-}
-.bio{
-	text-decoration:none;
-}
-.biodesc{
-	padding-left:25%;
-	padding-bottom:10%;
-	position:relative;
+.content .caption{
+    background-color: slategray;
+    border: 1px solid;
+    text-align: center;
 }

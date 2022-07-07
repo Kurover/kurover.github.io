@@ -1,6 +1,14 @@
+# Main Objective #
+- [ ] Revamp website
+- [ ] Contact detail page
+- [ ] Art gallery
+
+
+# OLD LIST #
+
 #To-Do list for the site
 Will organise more in the future.
-  
+
 **Priority : High**  
 - [ ] Add index page for each blog entry.  
 - [ ] Add a custom background image.  
