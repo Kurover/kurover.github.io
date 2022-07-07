@@ -5,16 +5,23 @@ html {
 }
 body {
   background: #0B0E0F;
-  margin: 24px auto;
+  margin: auto;
+  margin-top: 24px;
+  margin-bottom: 10%;
   width: 80%;
 }
-@media only screen and (max-width: 427px) {
+@media only screen and (max-width: 810px) {  
+  body {
+    width: 90%;
+  }
+}
+@media only screen and (max-width: 427px) {  
   body {
     width: 100%;
   }
 }
 
-/*Nearest Neighbor upscaling for pixel-art based render*/
+/*Nearest Neighbor upscaling for pixel art based render*/
 img {
   image-rendering: pixelated
 }
@@ -38,8 +45,6 @@ a:active {
 h1 {
   font-size: 32px;
   text-decoration: underline;
-}
-h1 {
   margin-bottom: 0;
 }
 h1:first-child {
@@ -48,6 +53,9 @@ h1:first-child {
 h2 {
   font-size: 24px;
   text-decoration: underline;
+  margin-bottom: 0;
+}
+h3 {
   margin-bottom: 0;
 }
 p:last-child {
@@ -88,14 +96,22 @@ p:last-child {
 .caption {
   margin-top: 0;
 }
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 810px) {
   .web {
     display: none;
   }
 }
-@media only screen and (min-width: 801px) {
+@media only screen and (min-width: 811px) {
   .mobile {
     display: none;
+  }
+}
+@media only screen and (max-width: 427px) {
+  h1, h2, h3 {
+    text-align: center;
+  }
+  .caption {
+    text-align: center;
   }
 }
 
@@ -112,7 +128,7 @@ p:last-child {
 .nav-entry {
   background: darkslategray;
   float: left;
-  width: min(19%, 92px);
+  width: 92px;
   padding: 8px 8px;
   margin: 8px 4px;
   overflow: hidden;
@@ -151,11 +167,6 @@ p:last-child {
 .nav-title:hover {
   background: transparent;
 }
-@media only screen and (max-width: 427px) {
-  .nav-entry {
-    padding: 8px 4px;
-  }
-}
 
 /*Dropdown Menu*/
 .menu-dropdown {
@@ -163,22 +174,46 @@ p:last-child {
   cursor: default;
 }
 .dropdown-lab {
-  display: none;
-  background: darkslategray;
+  visibility: hidden;
   position: absolute;
+  width: 92px;
   margin: 8px 0 0 -8px;
   cursor: pointer;
+  transform-origin: top;
+  transform: scaleY(0);
+  transition: transform 0.1s, visibility 0.2s;
 }
-.dropdown-lab a {
+
+.dropdown-lab-entry a {
   display: block;
-  width: 92px;
-  padding: 8px 8px;
+  background: darkslategray;
+  width: 100%;
+  padding: 8px;
+}
+.dropdown-lab-entry a:hover {
+  background: darkolivegreen;
 }
 .menu-dropdown:hover .dropdown-lab {
-  display: block;
+  z-index: 100;
+  visibility: visible;
+  transform: scaleY(100%);
+  transition: transform 0.1s, visibility 0.2s;
 }
-.dropdown-lab a:hover {
-  background: darkolivegreen;
+
+@media only screen and (max-width: 520px) {
+  .nav-entry,
+  .dropdown-lab {
+    width: 72px;
+  }
+}
+@media only screen and (max-width: 427px) {
+  .nav-title {
+    display: none;
+  }
+  .nav-entry,
+  .dropdown-lab{
+    width: 80px;
+  }
 }
 
 /*Content Body*/
@@ -201,6 +236,9 @@ p:last-child {
 .container-profile-img {
   float: left;
   margin: 0 24px 32px 0;
+  height: 128px;
+  width: 128px;
+  border: 2px solid whitesmoke;
 }
 @media only screen and (max-width: 427px) {
   .container-profile-img {
@@ -208,11 +246,6 @@ p:last-child {
     margin: auto;
     margin-bottom: 38px;
   }
-}
-.container-profile-img {
-  height: 128px;
-  width: 128px;
-  border: 2px solid whitesmoke;
 }
 .profile-img {
   background: #0B0E0F;
@@ -255,6 +288,13 @@ p:last-child {
 }
 
 /*Control Panel entry*/
+.state-about-on {
+  display: block;
+  color: whitesmoke;
+}
+#state-about:checked ~ .nav-control-panel .state-about-on {
+  display: none;
+}
 .hidden-section {
   visibility: hidden;
   opacity: 0;
@@ -300,21 +340,14 @@ p:last-child {
 }
 
 /*Negative margin to compensate the border taking up spaces*/
+.about-contact {
+  margin-top: -1px;
+}
 .about-sample {
-  margin: -1px auto 0 auto;
+  margin-top: -98px;
 }
-.about-art {
-  margin: -2px auto 0 auto;
-}
-.about-web {
-  margin: -66px auto 0 auto;
-}
-#state-about:checked ~ div .state-about-on {
-  display: none;
-}
-.state-about-on {
-  display: block;
-  color: whitesmoke;
+.about-trivia {
+  margin-top: -98px;
 }
 
 /*About:Entry*/
@@ -324,7 +357,7 @@ p:last-child {
   flex-wrap: nowrap;
 }
 .container-sample-section {
-  padding: 16px;
+  padding: 8px;
   width: 100%;
   margin: auto;
 }
@@ -336,67 +369,63 @@ p:last-child {
 .container-sample-section img:hover {
   z-index: 10;
   outline: 8px solid black;
-  transform: scale(140%);
+  transform: scale(100%);
 }
 .gal-r img:hover {
   transform-origin: right;
-  transform: scale(150%);
+  transform: scale(180%);
 }
 .gal-c img:hover {
   background-color: black;
-  transform: scale(210%)
+  transform: scale(250%)
 }
 .gal-l img:hover {
   transform-origin: left;
-  transform: scale(140%);
+  transform: scale(170%);
 }
-.container-art,
+.container-contact,
 .container-sample,
-.container-web {
+.container-trivia {
   opacity: 0;
   transition: opacity 0.5s 0.25s;
 }
 
 #state-about-sample:checked ~ .about-sample,
-#state-about-art:checked ~ .about-art,
-#state-about-web:checked ~ .about-web {
+#state-about-contact:checked ~ .about-contact,
+#state-about-trivia:checked ~ .about-trivia {
   visibility: visible;
   transform: scaleY(1);
   height: 100%;
   opacity: 100;
   transition: transform 0.5s, opacity 0.5s, visibility 0.5s, height 0.5s;
 }
-#state-about-art:checked ~ div .container-art,
+#state-about-contact:checked ~ div .container-contact,
 #state-about-sample:checked ~ div .container-sample,
-#state-about-web:checked ~ div .container-web {
+#state-about-trivia:checked ~ div .container-trivia {
   opacity: 100;
 }
 #state-about-sample:checked ~ div .btn-sample,
-#state-about-art:checked ~ div .btn-art,
-#state-about-web:checked ~ div .btn-web {
+#state-about-contact:checked ~ div .btn-contact,
+#state-about-trivia:checked ~ div .btn-trivia {
   color: whitesmoke;
   background: darkolivegreen;
 }
 #state-about-sample:checked ~ div .btn-sample:hover,
-#state-about-art:checked ~ div .btn-art:hover,
-#state-about-web:checked ~ div .btn-web:hover {
+#state-about-contact:checked ~ div .btn-contact:hover,
+#state-about-trivia:checked ~ div .btn-trivia:hover {
   color: darkolivegreen;
   background: whitesmoke;
 }
 #state-about:checked ~ .hidden-section {
   transition: transform 0.75s, opacity 0.25s, visibility 0.75s, height 0.5s;
 }
-@media only screen and (max-width: 427px) {
-  .ctrl-entry-main {
-    padding: 0 12px;
-    padding-right: 4px;
-  }
+@media only screen and (max-width: 810px) {
   .about-section {
     padding: 32px;
     box-shadow: 4px 0 inset gray;
   }
-  #state-about-art:checked ~ .about-art,
-  #state-about-web:checked ~ .about-web {
+  #state-about-contact:checked ~ .about-contact,
+  #state-about-trivia:checked ~ .about-trivia {
     padding: 24px
   }
   .container-sample {
@@ -410,7 +439,7 @@ p:last-child {
   }
   .container-sample-section img:hover {
     transform-origin: center;
-    transform: scale(115%);
+    transform: scale(130%);
     outline: 8px solid black;
   }
 }
