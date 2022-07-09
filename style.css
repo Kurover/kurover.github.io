@@ -17,6 +17,9 @@ a:active{color:peachpuff}
 h1{font-size: 32px;margin: 0;text-decoration: underline}
 h2{font-size: 24px;margin: 0;text-decoration: underline}
 p:last-child{margin-bottom: 0}
+/*Use "web" to display only on desktop, vice-versa*/
+@media only screen and (max-width: 799px) {.web{display:none}}
+@media only screen and (min-width: 800px) {.mobile{display:none}}
 
 /*Top Navbar*/
 .nav-top-body{
@@ -36,10 +39,11 @@ p:last-child{margin-bottom: 0}
     transition: background-color 0.2s;
     background-color: darkslategray;
     float: left;
-    width: 18%;
+    width: 16%;
     max-width: 92px;
     padding: 8px 8px;
     margin: 8px 4px;
+    overflow: hidden;
     text-align: center;
     text-decoration: none;
 }
@@ -84,6 +88,8 @@ p:last-child{margin-bottom: 0}
 }
 .menu-dropdown:hover .dropdown-lab{display: block}
 .dropdown-lab a:hover{background-color: darkolivegreen}
+@media only screen and (max-width: 800px){.nav-entry{width: 18%;padding:8px 3px;}}
+@media only screen and (max-width: 400px){.nav-entry{width: 20%;padding:8px 2px;}}
 
 /*Content Body*/
 .entry-body{
@@ -97,6 +103,7 @@ p:last-child{margin-bottom: 0}
     max-width: 832px;
     margin: auto;
     margin-top: 32px;
+    margin-bottom: 32px;
     padding: 32px 32px;
     outline: 1px solid gray;
 }
@@ -113,6 +120,7 @@ p:last-child{margin-bottom: 0}
     float: left;
     margin: 0 24px 32px 0;
 }
+@media only screen and (max-width: 427px){.container-about .gallery{float: none;margin: auto;margin-bottom: 38px;}}
 .gallery{
     display: block;
     height: 128px;
@@ -152,7 +160,7 @@ p:last-child{margin-bottom: 0}
 .nav-shortcut{
     z-index:1;
 	position:fixed;
-	bottom:20px;
+	bottom:30px;
     width:232px;
 	height:52px;
 	margin-left:-178px;
