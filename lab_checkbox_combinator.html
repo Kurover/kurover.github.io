@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<link rel="icon" href="favicon.png">
+<title>Lab CSS Combinator</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="lab_checkbox_combinator.css">  
+<link rel="stylesheet" href="font.css"> 
+
+<body>
+<div class="entry-body">
+<div class="entry">
+
+<!-- Fake checkbox to act as a "button" -->       
+<label class="link" style="color:skyblue" for="content-lever">This text is a toggleable checkbox!</label>
+<input type="checkbox" id="content-lever">
+<div class="content-entry">This is the content</div>
+<hr> <!-- END -->
+<!-- Reveal object remotely-->
+<div class="testbox"></div> Hover to this orange square to reveal something below the barrier.
+<p>=== I AM A CODE BARRIER ===</p>
+<div class="testbox-entry">I like cats.</div>
+<hr> <!-- END -->
+<div class="content-entry">Much barrier, so wow. This is the power of "~"</div>
+</div>
+
+<div class="entry">
+    <!--Hidden Radio button-radio-->
+    <input class="switches" type="radio" id="switchA" name="folderA">  
+    <input class="switches" type="radio" id="switchB" name="folderA" checked>
+    <input class="switches" type="radio" id="switchC" name="folderA">
+    <!--END-->
+    
+    <label class="button-radio testboxA link" for="switchA">
+        <div class="testbox2"></div></label>
+    <!--Set middle to 34% width because computer simply cant divide by 3, smh-->
+    <label class="button-radio testboxB link" style="width: 34%" for="switchB">
+        <div class="testbox2"></div></label>
+    <label class="button-radio testboxC link" for="switchC">
+        <div class="testbox2"></div></label>
+
+<center>Click on these colors!</center>
+<br>
+<div class="entryA">
+Essence that has been solidified can be treated as a portable natural essence bank. This isn't actually efficient as extracting the essence from the "gem" extort energy from the user. Similar on how fire burn wood to turn it into charcoal. It feels efficient to use, but the creation of it does balance out into negative.
+</div>
+<div class="entryB">
+Sail has soared, wind has roared. The ship is once again surf the mighty ocean in search of glory. Day after day, the wave erodes her deck. With humanity help, she can endure these obstacle without risk of breaking down. Such beauty of engineering shall bring her to the enchanted land she sought after.
+</div>
+<div class="entryC">
+Once upon a time, there's a lady who stumbled across a giant pool of water. Seemingly enchanted by it, the lady took a sip of the water. To this day, there has been no clue on that lady whereabouts. The pool of water, however, still exist. Yet no one has been tragically went missing since then.
+</div>
+
+</div>
+
+<!--THIRD ENTRY-->
+<div class="entry">
+<input class="switches" type="radio" id="switchC" name="folderA">
+<label class="link" for="switchC" style="color:skyblue;">This is also the Third option</label><br>
+The option can be synced to other option on the second entry. Well it's just that it's the same trigger target ID. Although the CSS "checked" targetting doesn't work on multiple label, only the first child. Unless I'm missing something.
+</div>
+
+</div>
+<div class="nav-shortcut">
+    <a href="index.html">Return <img src="favicon.png"></a>
+</div>
+</body>

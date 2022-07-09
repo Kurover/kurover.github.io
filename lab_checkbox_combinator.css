@@ -1,0 +1,58 @@
+/*
+Hi there, welcome to jank!
+The "+" sign will apply a CSS ONLY AFTER the X to Y
+The "~" sign will apply ALL CSS AFTER the X to Y
+Try changing the combinator to see the result.
+*/
+
+    /*FIRST ENTRY*/
+#content-lever{
+    display: none;
+}    
+.content-entry {
+    display: none;
+    background-color: darkslategray;
+}
+#content-lever:checked ~ .content-entry {
+    display: block;
+}
+.testbox{
+    background-color: darkorange;
+    width: 120px;
+    height: 40px;
+    margin: 8px;
+}
+.testbox-entry{
+    display: none;
+}
+.testbox:hover ~ .testbox-entry {
+    display:block;
+}
+
+    /*SECOND ENTRY*/
+.button-radio{
+    position: static;
+    width: 33%;
+    float: left;
+    margin: auto;
+    transition: 0.2s;
+}
+.testbox2{
+    width: 40px;
+    height: 40px;
+    margin: auto;
+}
+.testboxA{background-color: darkgray;}
+.testboxB{background-color: slategray;}
+.testboxC{background-color: darkslategray;}
+.switches{display:none}
+.entryA{display:none}
+.entryB{display:none}
+.entryC{display:none}
+
+#switchA:checked ~ .entryA {display: block}
+#switchB:checked ~ .entryB {display: block}
+#switchC:checked ~ .entryC {display: block}
+#switchA:checked ~ .testboxA{background-color: lavender;outline: 3px solid crimson}
+#switchB:checked ~ .testboxB{background-color: lavender;outline: 3px solid crimson}
+#switchC:checked ~ .testboxC{background-color: lavender;outline: 3px solid crimson}

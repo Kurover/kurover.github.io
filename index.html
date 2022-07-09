@@ -1,42 +1,63 @@
 <!DOCTYPE html>
 <html>
 <link rel="icon" href="favicon.png">
-<title>Home</title>
+<title>Zan.cs.site</title>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="style.css"> 
 <link rel="stylesheet" href="font.css"> 
 
 <body>
-
-<div class="nav-top">
-    <a class="title">Zanster</a>
-    <a class="active" href="#">About</a>
-    <a class="#" href="#">Under</a>
-    <a class="#" href="#">WIP</a>
-    <a class="font" href="http://04.jp.org">Font Credit</a>
+<!--Navigation bar-->
+<div class=nav-top-body>
+    <div class="nav-top">
+        <a class="nav-entry title">Zan.cs.site</a>
+        <a class="nav-entry active" href="#">About</a>
+        <a class="nav-entry" href="#">Gallery</a>
+        <a class="nav-entry" href="#">WIP</a>
+        <a class="nav-entry extra" href="04.jp.org">Font Credit</a>
+        <div class="nav-entry extra menu-dropdown">
+            Practice
+            <div class="dropdown-lab">
+                <a href="lab_checkbox_combinator.html"> Checkbox as Button</a>
+                <a href="#">Placeholder</a>
+                <a href="#">To Test</a>
+                <a href="#">Multi List</a>
+            </div>
+        </div>
+    </div>
 </div>
- 
- <div class="entry-body">
+<!--Content-->
+<div class="entry-body">
     <div class="entry">
-        <h1 class="title">Hello!</h1>
-            <div class="content">
-                <div class="image">128px</div>
-                <div class="caption">Caption</div>
+        <div class="container-about">
+            <div class="gallery">
+                <div class="image">
+                    <!--Hidden radio selector-->
+                    <input class="hide" type="radio" id="pp1" name="folderPP" checked>  
+                    <input class="hide" type="radio" id="pp2" name="folderPP">
+                    <input class="hide" type="radio" id="pp3" name="folderPP">
+                    <!--Image cycle-->
+                    <img class="pp1img" src="img/profile_picture1.png">
+                    <img class="pp2img" src="img/profile_picture2.png">
+                    <img class="pp3img" src="img/profile_picture3.png">
+                    <!--Substitute for radio selector because rASteR CiRclE iN my pIxEL aRT???-->    
+                    <label class="button-img-select pp1txt" for="pp1">Main</label>
+                    <label class="button-img-select pp2txt" for="pp2">Alt1</label>
+                    <label class="button-img-select pp3txt" for="pp3">Alt2</label>
+                </div>
             </div>
-        Hi, this is the field. <br>
-        And I am a potato.  <br>
-        Do you like potato? <br>4<br>5<br>6<br>7<br>8<br>9<br>10
+        <h1>Greetings!</h1>
+        <p>Hello, this is Zan, also known as Kurover. I'm a pixel artist who mainly draw art and animation from Touhou Project.</p>
+        <p>This website is powered with HTML/CSS with no JavaScript because long and round-about journey sometimes more fun than one would think. Or you simply have too much time in your hands, no in-between.</p>
+        <p>Will I step up the game and make this portfolio thingie into single <u>HTML WITH ONLY CSS?</u> Sounds like torture, I'm in! I'm backing down and split it up first. I shouldn't chew more than I can swallow.</p>
+        <p>Heads up, Chromium browser applies anti-aliasing to the font, which isn't gucchi for sharp pixelated font. Can't seem to disable it either so yeah.</p>
+        <p>Talk's over, let's get into the action! Well at least until some of the website finished.</p>
+        </div>
     </div>
-    <div class="entry">
-        <h1 class="title">Welcome</h1>
-            <div class="content">
-                <div class="image">128px</div>
-                <div class="caption">Caption</div>
-            </div>
-        Field is welcomed. <br>
-        You can be a potato. <br>
-        Do you want to be a potato? <br><br><br><br><br> You can visit my <a href="https://twitter.com/Cloverift">Twitter</a>! <br> Oh also, visit <a href="https://kurover.github.io/GroundLeaf">kurover.github.io/GroundLeaf</a>!
-    </div>
- </div>
-  
+
+</div>
+<!-- Slider Shortcut on bottom left -->
+<div class="nav-shortcut">
+    <a href="https://kurover.github.io/GroundLeaf">Groundleaf Wiki<img src="favicon.png"></a>
+</div>
 </body>
