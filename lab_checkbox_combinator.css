@@ -1,58 +1,63 @@
 /*
-Hi there, welcome to jank!
-The "+" sign will apply a CSS ONLY AFTER the X to Y
-The "~" sign will apply ALL CSS AFTER the X to Y
-Try changing the combinator to see the result.
-*/
+ * Hi there, welcome to jank!
+ * The "+" sign will apply a CSS ONLY AFTER the X to Y
+ * The "~" sign will apply ALL CSS AFTER the X to Y
+ * Try changing the combinator to see the result.
+ */
 
-    /*FIRST ENTRY*/
-#content-lever{
-    display: none;
-}    
-.content-entry {
-    display: none;
-    background-color: darkslategray;
+  /*FIRST ENTRY*/
+.orangebox{
+  background-color: darkorange;
+  width: 120px;
+  height: 40px;
+  margin: 8px;
 }
-#content-lever:checked ~ .content-entry {
-    display: block;
+.hidden-content-1{
+  display: none;
+  color: darkorange;
 }
-.testbox{
-    background-color: darkorange;
-    width: 120px;
-    height: 40px;
-    margin: 8px;
-}
-.testbox-entry{
-    display: none;
-}
-.testbox:hover ~ .testbox-entry {
-    display:block;
+.orangebox:hover ~ .hidden-content-1 {
+  display:block;
 }
 
-    /*SECOND ENTRY*/
-.button-radio{
-    position: static;
-    width: 33%;
-    float: left;
-    margin: auto;
-    transition: 0.2s;
+  /* SECOND ENTRY*/
+.hidden-content-2 {
+  display: none;
+  color: skyblue;
 }
-.testbox2{
-    width: 40px;
-    height: 40px;
-    margin: auto;
+#content-lever:checked ~ .hidden-content-2 {
+  display: block;
 }
-.testboxA{background-color: darkgray;}
-.testboxB{background-color: slategray;}
-.testboxC{background-color: darkslategray;}
-.switches{display:none}
-.entryA{display:none}
-.entryB{display:none}
-.entryC{display:none}
 
-#switchA:checked ~ .entryA {display: block}
-#switchB:checked ~ .entryB {display: block}
-#switchC:checked ~ .entryC {display: block}
-#switchA:checked ~ .testboxA{background-color: lavender;outline: 3px solid crimson}
-#switchB:checked ~ .testboxB{background-color: lavender;outline: 3px solid crimson}
-#switchC:checked ~ .testboxC{background-color: lavender;outline: 3px solid crimson}
+  /*THIRD ENTRY*/
+.btn-radio-sel{
+  height: 30px;
+  width: 33%;
+  float: left;
+  margin: auto;
+  transition: 0.2s;
+}
+
+.btn-1{background-color: darkgray;}
+.btn-2{background-color: slategray;}
+.btn-3{background-color: darkslategray;}
+.text-box-1{display:none}
+.text-box-2{display:none}
+.text-box-3{display:none}
+
+#switchA:checked ~ div .text-box-1 {display: block}
+#switchB:checked ~ div .text-box-2 {display: block}
+#switchC:checked ~ div .text-box-3 {display: block}
+#switchA:checked ~ div .btn-1{background-color: lavender;outline: 3px solid crimson}
+#switchB:checked ~ .btn-2{background-color: lavender;outline: 3px solid crimson}
+#switchC:checked ~ .btn-3{background-color: lavender;outline: 3px solid crimson}
+
+  /* switchC will not work because the <INPUT> element is inside previous container. */
+  /* Code below can use #switchA too. The current one is for demonstration.*/
+
+.switchA-class:checked ~ div .btn-1 p{outline: 3px solid crimson}
+.switchC-class:checked ~ div .btn-3 p{outline: 3px solid crimson}
+
+  /* Hmmm */
+.orangebox:hover ~ .hidden-content-11{display:block !important; color: crimson !important}
+.switchA-class:checked ~ div .hidden-content-11 p{display: inline-block !important}
