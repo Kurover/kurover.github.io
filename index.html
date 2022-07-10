@@ -1,66 +1,71 @@
 <!DOCTYPE html>
 <html>
-<link rel="icon" href="favicon.png">
-<title>Zanster | Kurover Home</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=yes"/>
-<link rel="stylesheet" href="style.css"> 
-<link rel="stylesheet" href="font.css"> 
+
+<head>
+  <link rel="icon" href="favicon.png">
+  <title>Zanster | Kurover Home</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=yes" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="font.css">
+</head>
 
 <body>
-<!--Navigation bar-->
-<header>
-<div class=nav-top-body>
-    <div class="nav-top">
-        <a class="nav-entry title"><div class="web">Zan-cs.site</div><div class="mobile">cs.site</div></a>
+  <!--Navigation bar-->
+  <header>
+    <div class="nav-top-body">
+      <div class="nav-top">
+        <a class="nav-entry title">
+          <div class="web">Zan-cs.site</div>
+          <div class="mobile">cs.site</div>
+        </a>
         <a class="nav-entry active" href="#">About</a>
-        <a class="nav-entry" href="#">Wippity</a>
-        <a class="nav-entry" href="#">Wippy</a>
+        <a class="nav-entry" href="#">#Gallery</a>
+        <a class="nav-entry" href="#">#Project</a>
         <a class="nav-entry extra" href="04.jp.org">Font Credit</a>
         <div class="nav-entry extra menu-dropdown">
-            Practice
-            <div class="dropdown-lab">
-                <a href="lab_checkbox_combinator.html"> Checkbox as Button</a>
-                <a href="#">Placeholder</a>
-                <a href="#">To Test</a>
-                <a href="#">Multi List</a>
-            </div>
+          CSS Lab
+          <div class="dropdown-lab">
+            <a href="lab_grid.html"> Grid Layout </a>
+            <a href="lab_checkbox_combinator.html"> Checkbox Combinator </a>
+          </div>
         </div>
+      </div>
     </div>
-</div>
-</header>
-<!--Content-->
-<div class="entry-body">
+  </header>
+  <!--Content-->
+  <div class="entry-body">
     <div class="entry">
-        <div class="container-about">
-            <div class="gallery">
-                <div class="image">
-                    <!--Hidden radio selector-->
-                    <input class="hide" type="radio" id="pp1" name="folderPP" checked>  
-                    <input class="hide" type="radio" id="pp2" name="folderPP">
-                    <input class="hide" type="radio" id="pp3" name="folderPP">
-                    <!--Image cycle-->
-                    <img class="pp1img" src="img/profile_picture1.png" alt="My main profile picture across the interweb.">
-                    <img class="pp2img" src="img/profile_picture2.png" alt="Old alt profile and still more used than the newer one.">
-                    <img class="pp3img" src="img/profile_picture3.png" alt="New shiny alt pic. So far only used for Discord.">
-                    <!--Substitute for radio selector because rASteR CiRclE iN my pIxEL aRT???-->    
-                    <label class="button-img-select pp1txt" for="pp1">Main</label>
-                    <label class="button-img-select pp2txt" for="pp2">Alt1</label>
-                    <label class="button-img-select pp3txt" for="pp3">Alt2</label>
-                </div>
-            </div>
+      <div class="container-profile-img">
+        <!--Hidden radio selector. Don't put it in profile-img container because it can't be used to call CSS combinator outside of its container.-->
+        <input class="hide" type="radio" id="pp-1" name="btn-pp" checked>
+        <input class="hide" type="radio" id="pp-2" name="btn-pp">
+        <input class="hide" type="radio" id="pp-3" name="btn-pp">
+        <!--Images. Separate their classes for CSS magic button-->
+        <div class="profile-img">
+          <img class="img-pp-1" src="img/profile_picture1.png" alt="My main profile picture across the interweb.">
+          <img class="img-pp-2" src="img/profile_picture2.png" alt="Old alt profile and still more used than the newer one.">
+          <img class="img-pp-3" src="img/profile_picture3.png" alt="New shiny alt pic. So far only used for Discord.">
         </div>
-        <h1>Greetings!</h1>
-        <p>Hello, this is Zan, also known as Kurover. I'm a pixel artist who mainly draw art and animation from Touhou Project.</p>
-        <p>This website is powered with HTML/CSS with no JavaScript because, sometimes, long and round-about journey are more fun than one would think of. Or maybe you simply have too much time in your hands, no in-between.</p>
-        <p>Will I step up the game and make this portfolio thingie into a single <u>HTML WITH ONLY CSS?</u> Sounds like torture, I'm in! Though... I'm backing down for now and split it up into multiple html first. I shouldn't really chew more than I can swallow.</p>
-        <p class="web">Heads up, desktop Chromium browser will apply anti-aliasing to the font, which isn't gucchi for the sharp pixelated font I use. Can't seem to disable it either so yeah.</p>
-        <p>Talk's over, let's get into the action! Well at least until some of the website finished.</p>
+        <!--Radio selector text for the radio button above, which is hidden-->
+        <label class="btn-pp sel-1" for="pp-1">Main</label>
+        <label class="btn-pp sel-2" for="pp-2">Alt1</label>
+        <label class="btn-pp sel-3" for="pp-3">Alt2</label>
+      </div>
+      <h1 class="no-margin">Greetings!</h1>
+      <p>Hello, this is Zan, also known as Kurover. I'm a pixel artist who mainly draw art and animation from Touhou Project.</p>
+      <p>This website is powered with HTML/CSS with no JavaScript because, sometimes, long and round-about journey are more fun than one would think of. Or maybe you simply have too much time in your hands, no in-between.</p>
+      <p>Will I step up the game and make this portfolio thingie into a single <u>HTML WITH ONLY CSS?</u> Sounds like torture, I'm in! Though... I'm backing down for now and split it up into multiple html first. I shouldn't really chew more than I can swallow.</p>
+      <p class="web">Heads up, desktop Chromium browser will apply anti-aliasing to the font, which isn't gucchi for the sharp pixelated font I use. Can't seem to disable it either so yeah.</p>
+      <p>Talk's over, let's get into the action! Well at least until some of the website finished.</p>
     </div>
 
-</div>
-<!-- Slider Shortcut on bottom left -->
-<div class="nav-shortcut web">
+  </div>
+  <!-- Desktop slider shortcut on bottom left, currently disabled because well, it contain another unfinished work, hehe.
+  <div class="nav-shortcut web hide">
     <a href="https://kurover.github.io/GroundLeaf">Groundleaf Wiki<img src="favicon.png"></a>
-</div>
+  </div>
+  -->
 </body>
+
+</html>

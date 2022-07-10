@@ -1,197 +1,317 @@
-html{
-    font-family:'Pixel04b03';
-    font-smooth: never;
-    font-smoothing: unset;
-    -webkit-font-smoothing: none;
-    -moz-osx-font-smoothing: unset;
+html {
+  font-family: 'Pixel04b03';
+  font-smooth: never;
+  font-smoothing: unset;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: unset;
 }
-body{margin:0;background-color:#0B0E0F}
-img{image-rendering: pixelated} /*Nearest Neighbour upscaling for pixel-art based render*/
-.hide{display:none}
-.link{cursor:pointer}
-a{text-decoration:none}
-a:link{color:green}
-a:visited{color:slategray}
-a:hover{color:limegreen}
-a:active{color:peachpuff}
-h1{font-size: 32px;margin: 0;text-decoration: underline}
-h2{font-size: 24px;margin: 0;text-decoration: underline}
-p:last-child{margin-bottom: 0}
+body {
+  margin: 0;
+  background-color: #0B0E0F
+}
+
+/*Nearest Neighbor upscaling for pixel-art based render*/
+img {
+  image-rendering: pixelated
+}
+.hide {
+  display: none;
+}
+.hidera {
+  display: none !important
+}
+.link {
+  cursor: pointer !important;
+}
+.highlight:hover {
+  color:whitesmoke !important
+}
+.no-margin {
+  margin: 0;
+}
+.no-padding {
+  padding: 0;
+}
+a {
+  text-decoration: none
+}
+a:link {
+  color: green
+}
+a:visited {
+  color: slategray
+}
+a:hover {
+  color: limegreen
+}
+a:active {
+  color: peachpuff
+}
+h1 {
+  font-size: 32px;
+  text-decoration: underline
+}
+h1:first-child {
+  margin: 0
+}
+h2 {
+  font-size: 24px;
+  text-decoration: underline
+}
+h2:first-child {
+  margin: 0
+}
+p:last-child {
+  margin-bottom: 0
+}
+p.caption {
+  margin-top: 0;
+}
+
 /*Use "web" to display only on desktop, vice-versa*/
-@media only screen and (max-width: 800px) {.web{display:none}}
-@media only screen and (min-width: 801px) {.mobile{display:none}}
+
+@media only screen and (max-width: 800px) {
+  .web {
+    display: none !important
+  }
+}
+@media only screen and (min-width: 801px) {
+  .mobile {
+    display: none !important
+  }
+}
 
 /*Top Navbar*/
-.nav-top-body{
-    width: 90%;
-    margin: auto;
-    margin-top: 32px;
+.nav-top-body {
+  width: 90%;
+  margin: auto;
+  margin-top: 32px;
 }
-.nav-top{
-    background-color: #141414;
-    max-width: 896px;
-    height: 48px;
-    margin: auto;
-    overflow: hidden;
-    border-bottom: 1px solid whitesmoke;
+.nav-top {
+  background-color: #141414;
+  max-width: 896px;
+  height: 48px;
+  margin: auto;
+  overflow: hidden;
+  border-bottom: 1px solid whitesmoke;
 }
-.nav-entry{
-    transition: background-color 0.2s;
-    background-color: darkslategray;
-    float: left;
-    width: 16%;
-    max-width: 92px;
-    padding: 8px 8px;
-    margin: 8px 4px;
-    overflow: hidden;
-    text-align: center;
-    text-decoration: none;
+.nav-entry {
+  transition: background-color 0.2s;
+  background-color: darkslategray;
+  float: left;
+  width: 16%;
+  max-width: 92px;
+  padding: 8px 8px;
+  margin: 8px 4px;
+  overflow: hidden;
+  text-align: center;
+  text-decoration: none;
 }
-.nav-top a{color: whitesmoke}
-.nav-entry.active{
-    background-color: darkolivegreen;
-    color: whitesmoke;
-    height: 24px;
+.nav-top a {
+  color: whitesmoke
 }
-.nav-entry.active:hover{background-color:whitesmoke;color:darkslategray}
-.nav-entry:hover{background-color: darkolivegreen}
-.nav-entry.title{
-    color: whitesmoke;
-    background-color: transparent;
-    outline: 1px solid slategray;
-    cursor: default;
+.nav-entry.active {
+  background-color: darkolivegreen;
+  color: whitesmoke;
+  height: 24px;
 }
-.nav-entry.extra{
-    background-color: #25355A;
-    float: right;
+.nav-entry.active:hover {
+  background-color: whitesmoke;
+  color: darkslategray
 }
-.nav-entry.extra:hover{
-    background-color: darkolivegreen;
+.nav-entry:hover {
+  background-color: darkolivegreen
 }
-/*Dropdown menu*/
-.menu-dropdown{
-    color: whitesmoke;
-    cursor: default;
+.nav-entry.title {
+  color: whitesmoke;
+  background-color: transparent;
+  outline: 1px solid slategray;
+  cursor: default;
 }
-.dropdown-lab{
-    display: none;
-    background-color: darkslategray;
-    position: absolute;
-    margin: 8px 0 0 -8px;
-    cursor: pointer;
+.nav-entry.extra {
+  background-color: #25355A;
+  float: right;
 }
-.dropdown-lab a{
-    display: block;
-    width: 92px;
-    padding: 8px 8px;
-    transition: 0.2s;
+.nav-entry.extra:hover {
+  background-color: darkolivegreen;
 }
-.menu-dropdown:hover .dropdown-lab{display: block}
-.dropdown-lab a:hover{background-color: darkolivegreen}
-@media only screen and (max-width: 800px){.nav-entry{width: 18%;padding:8px 3px;}}
-@media only screen and (max-width: 400px){.nav-entry{width: 20%;padding:8px 2px;}}
-@media only screen and (max-width: 800px){.dropdown-lab{margin: 8px 0 0 -3px;}}
-@media only screen and (max-width: 800px){.dropdown-lab a{padding: 8px 3px}}
+
+/*Dropdown Menu*/
+.menu-dropdown {
+  color: whitesmoke;
+  cursor: default;
+}
+.dropdown-lab {
+  display: none;
+  background-color: darkslategray;
+  position: absolute;
+  margin: 8px 0 0 -8px;
+  cursor: pointer;
+}
+.dropdown-lab a {
+  display: block;
+  width: 92px;
+  padding: 8px 8px;
+  transition: 0.2s;
+}
+.menu-dropdown:hover .dropdown-lab {
+  display: block
+}
+.dropdown-lab a:hover {
+  background-color: darkolivegreen
+}
+@media only screen and (max-width: 800px) {
+  .nav-entry {
+    width: 18%;
+    padding: 8px 3px;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .nav-entry {
+    width: 20%;
+    padding: 8px 2px;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .dropdown-lab {
+    margin: 8px 0 0 -3px;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .dropdown-lab a {
+    padding: 8px 3px
+  }
+}
 
 /*Content Body*/
-.entry-body{
-    width: 90%;
-    height: 100%;
-    margin: auto;
+.entry-body {
+  width: 90%;
+  height: 100%;
+  margin: auto;
 }
-.entry{
-    background-color: #141414;
-    color: whitesmoke;
-    max-width: 832px;
-    margin: auto;
-    margin-top: 32px;
-    margin-bottom: 32px;
-    padding: 32px 32px;
-    outline: 1px solid gray;
+.entry {
+  background-color: #141414;
+  color: whitesmoke;
+  max-width: 832px;
+  margin: auto;
+  margin-top: 32px;
+  margin-bottom: 32px;
+  padding: 32px 32px;
+  outline: 1px solid gray;
 }
 
 /*Content CSS*/
-.entry .title{
-    display: block;
-    text-align: center;
-    text-decoration: underline;
+.entry .title {
+  display: block;
+  text-align: center;
+  text-decoration: underline;
 }
 
-/*Profile picture*/
-.container-about .gallery{
-    float: left;
-    margin: 0 24px 32px 0;
+/*Profile Picture*/
+.container-profile-img {
+  float: left;
+  margin: 0 24px 32px 0;
 }
-@media only screen and (max-width: 427px){.container-about .gallery{float: none;margin: auto;margin-bottom: 38px;}}
-.gallery{
-    display: block;
-    height: 128px;
-    width: 128px;
+@media only screen and (max-width: 427px) {
+  .container-profile-img {
+    float: none;
+    margin: auto;
+    margin-bottom: 38px;
+  }
 }
-.gallery .image{
-    background-color: #0B0E0F;
-    outline: 1px solid whitesmoke;
-    height: 100%;
+.container-profile-img {
+  display: block;
+  height: 128px;
+  width: 128px;
 }
-.gallery .image img{
-    width: 128px;
-    height: 128px;
+.profile-img {
+  background-color: #0B0E0F;
+  outline: 1px solid whitesmoke;
+  height: 128px;
 }
+.profile-img img {
+  width: 128px;
+  height: 128px;
+}
+
 /*CSS object selector*/
-.button-img-select{
-    outline: 1px solid whitesmoke;
-    line-height: 24px;
-    width: 33.33%;
-    float: left;
-    text-align: center;
-    cursor: pointer;
-    transition: 0.2s;
+.btn-pp {
+  outline: 1px solid whitesmoke;
+  line-height: 24px;
+  width: 33.33%;
+  float: left;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.2s;
 }
-.pp1img{display:none}
-.pp2img{display:none}
-.pp3img{display:none}
-#pp1:checked~.pp1img{display:block}
-#pp2:checked~.pp2img{display:block}
-#pp3:checked~.pp3img{display:block}
-#pp1:checked~.pp1txt{color:limegreen}
-#pp2:checked~.pp2txt{color:limegreen}
-#pp3:checked~.pp3txt{color:limegreen}
-.button-img-select:hover{color:darkolivegreen}
+.img-pp-1, .img-pp-2, .img-pp-3 {
+  display: none
+}
+#pp-1:checked ~ div .img-pp-1 {
+  display: block
+}
+#pp-2:checked ~ div .img-pp-2 {
+  display: block
+}
+#pp-3:checked ~ div .img-pp-3 {
+  display: block
+}
+#pp-1:checked ~ label.sel-1 {
+  color: limegreen
+}
+#pp-2:checked ~ label.sel-2 {
+  color: limegreen
+}
+#pp-3:checked ~ label.sel-3 {
+  color: limegreen
+}
+.btn-pp:hover {
+  color: darkolivegreen 
+}
+#pp-1:checked ~ label.sel-1:hover {
+  color: greenyellow
+}
+#pp-2:checked ~ label.sel-2:hover {
+  color: greenyellow
+}
+#pp-3:checked ~ label.sel-3:hover {
+  color: greenyellow
+}
 
 /*Shortcut Slider on bottom left*/
-.nav-shortcut{
-    z-index:1;
-	position:fixed;
-	bottom:30px;
-    width:232px;
-	height:52px;
-	margin-left:-178px;
-	padding:4px;
-	transition:0.4s;
-}		
-.nav-shortcut a{
-	position:fixed;
-	width:190px;
-	text-align:center;
-    line-height:32px;
-	padding:10px;
-	padding-left:30px;
-	transition:0.4s;
+.nav-shortcut {
+  z-index: 1;
+  position: fixed;
+  bottom: 30px;
+  width: 232px;
+  height: 52px;
+  margin-left: -178px;
+  padding: 4px;
+  transition: 0.4s;
 }
-.nav-shortcut img{
-    float:right;
-    width:32px;
+.nav-shortcut a {
+  position: fixed;
+  width: 190px;
+  text-align: center;
+  line-height: 32px;
+  padding: 10px;
+  padding-left: 30px;
+  transition: 0.4s;
 }
-.nav-shortcut a:hover{
-	background-color:#141414;
-	outline:1px solid;
-	transition: 0.2s;
+.nav-shortcut img {
+  float: right;
+  width: 32px;
 }
-.nav-shortcut a:active{
-    outline:1px solid;
-    transform: 0.2s;
+.nav-shortcut a:hover {
+  background-color: #141414;
+  outline: 1px solid;
+  transition: 0.2s;
 }
-.nav-shortcut:hover{
-    margin-left:-28px;
-    transition:0.2s;
+.nav-shortcut a:active {
+  outline: 1px solid;
+  transform: 0.2s;
+}
+.nav-shortcut:hover {
+  margin-left: -28px;
+  transition: 0.2s;
 }
