@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="icon" href="favicon.png">
+<title>Lab CSS Combinator</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="lab_grid.css">  
+<link rel="stylesheet" href="font.css"> 
+</head>
+<body>
+<div class="entry-body">
+
+<div class="entry">
+ <h1>Simple and minimal code</h1>
+ <p class="caption">Great for fixed column and row quantity. Add a bit more code and it will fit perfectly.</p>
+  <main class="testA-grid-box">
+    <article class="testA-grid col-4">Column Wide 4-span. Looks weird if not enough article to fill</article>
+    <article class="testA-grid">I am Groot!</article>
+    <article class="testA-grid">This is gallery</article>
+    <article class="testA-grid">Maria speaking</article>
+    <article class="testA-grid col-2">Column Wide 2-span but not as wide</article>
+  </main>
+<p>Above is Main/Article, below is Divs. Pretty much the same but less organized to look at in the code. At least that's what I think it is.</p>
+  <div class="testA-grid-box">
+    <div class="testA-grid col-4">You can use div, obviously</div>
+    <div class="testA-grid">My name is column A</div>
+    <div class="testA-grid">My name is column 2</div>
+    <div class="testA-grid">My name is column Third</div>
+    <div class="testA-grid">My name is For The Column</div>
+    <div class="testA-grid">I'm alone</div>
+  </div>
+</div>
+<div class="entry">
+ 
+  <h1>Simple 2</h1>
+  <p class="caption">Main width will be applied if all column has fixed width.</p>
+  <main class="testB-grid-box">
+    <article class="testB-grid col-3">1</article>
+    <article class="testB-grid row-2">2</article>
+    <article class="testB-grid">3</article>
+    <article class="testB-grid row-2">4</article>
+    <article class="testB-grid">5</article>
+  </main> 
+  
+</div>
+<div class="entry">
+ 
+  <h1>Automated Repeat</h1>
+  <p class="caption">Repeat with 1 fraction column size.</p>
+  <main class="testC-grid-box">
+    <article class="testC-grid col-2">1</article>
+    <article class="testC-grid">2</article>
+    <article class="testC-grid">3</article>
+    <article class="testC-grid row-3">4</article>
+    <article class="testC-grid col-2">5</article>
+    <article class="testC-grid">6</article>
+    <article class="testC-grid">7</article>
+    <article class="testC-grid">8</article>
+    <article class="testC-grid col-3">9</article>
+  </main> 
+  
+</div>
+
+
+</div>
+
+<div class="nav-shortcut">
+<a href="index.html">Return <img src="favicon.png"></a>
+</div>
+
+</body>
+</html>

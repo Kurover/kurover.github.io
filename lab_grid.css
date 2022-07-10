@@ -1,0 +1,47 @@
+  /* General Stuff */
+.col-1{grid-column: span 1}
+.col-2{grid-column: span 2}
+.col-3{grid-column: span 3}
+.col-4{grid-column: span 4}
+.row-1{grid-row: span 1}
+.row-2{grid-row: span 2}
+.row-3{grid-row: span 3}
+.row-4{grid-row: span 4}
+
+article{
+  background-color: darkslategray;
+}
+.testA-grid-box div{
+  background-color: darkslateblue;
+}
+
+  /* Test Number 1 */
+.testA-grid-box{
+  display: grid;
+  grid-gap: 16px;
+}
+.testA-grid{
+  padding: 16px;
+}
+
+  /* Test Number 2 */
+.testB-grid-box{
+  display: grid;
+  grid-gap: 16px;
+  grid-template-columns: 50px 200px 80px;
+  grid-template-rows: 50px auto 100px;
+}
+.testB-grid{
+  padding: 16px;
+}
+
+  /* Test Number 3 */
+.testC-grid-box{
+  display: grid;
+  grid-gap: 16px;
+  grid-template-columns: repeat(5, 1fr) ;
+  /* width: 90%; */
+}
+.testC-grid{
+  padding: 16px;
+}
