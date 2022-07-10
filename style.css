@@ -6,7 +6,8 @@ html {
   -moz-osx-font-smoothing: unset;
 }
 body {
-  margin: 0;
+  width: 92%;
+  margin: auto;
   background-color: #0B0E0F
 }
 
@@ -81,17 +82,12 @@ p.caption {
   }
 }
 
-/*Top Navbar*/
-.nav-top-body {
-  width: 90%;
-  margin: auto;
-  margin-top: 32px;
-}
-.nav-top {
+.nav-bar {
   background-color: #141414;
   max-width: 896px;
   height: 48px;
   margin: auto;
+  margin-top: 32px;
   overflow: hidden;
   border-bottom: 1px solid whitesmoke;
 }
@@ -107,7 +103,7 @@ p.caption {
   text-align: center;
   text-decoration: none;
 }
-.nav-top a {
+.nav-bar a {
   color: whitesmoke
 }
 .nav-entry.active {
@@ -184,11 +180,6 @@ p.caption {
 }
 
 /*Content Body*/
-.entry-body {
-  width: 90%;
-  height: 100%;
-  margin: auto;
-}
 .entry {
   background-color: #141414;
   color: whitesmoke;
@@ -196,7 +187,7 @@ p.caption {
   margin: auto;
   margin-top: 32px;
   margin-bottom: 32px;
-  padding: 32px 32px;
+  padding: 32px;
   outline: 1px solid gray;
 }
 
@@ -245,16 +236,22 @@ p.caption {
   transition: 0.2s;
 }
 .img-pp-1, .img-pp-2, .img-pp-3 {
-  display: none
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.35s;
 }
 #pp-1:checked ~ div .img-pp-1 {
-  display: block
+  visibility: visible;
+  opacity: 100%;
 }
 #pp-2:checked ~ div .img-pp-2 {
-  display: block
+  visibility: visible;
+    opacity: 100%;
 }
 #pp-3:checked ~ div .img-pp-3 {
-  display: block
+  visibility: visible;
+    opacity: 100%;
 }
 #pp-1:checked ~ label.sel-1 {
   color: limegreen
@@ -276,6 +273,28 @@ p.caption {
 }
 #pp-3:checked ~ label.sel-3:hover {
   color: greenyellow
+}
+
+/*Story Time?*/
+.btn-history-time {
+  color: limegreen
+}
+.section-history-time {
+  visibility: hidden;
+  margin: 0;
+  padding: 0 32px;
+  opacity: 0%;
+  height: 0;
+  overflow: hidden auto;
+  transition: 0.5s;
+}
+#state-history-time:checked ~ div .section-history-time {
+  visibility: visible;
+  margin-top: 12px;
+  padding: 32px;
+  opacity: 100%;
+  height: max(192px);
+  transition: 0.5s;
 }
 
 /*Shortcut Slider on bottom left*/
