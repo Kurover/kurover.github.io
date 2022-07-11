@@ -190,12 +190,12 @@ p.caption {
   padding: 32px;
   outline: 1px solid gray;
 }
-
-/*Content CSS*/
-.entry .title {
-  display: block;
-  text-align: center;
-  text-decoration: underline;
+@media only screen and (max-width: 427px) {
+  .entry {
+    padding: 16px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
 }
 
 /*Profile Picture*/
@@ -295,6 +295,12 @@ p.caption {
   opacity: 100%;
   height: max(192px);
   transition: 0.5s;
+}
+@media only screen and (max-width: 800px) {
+  #state-history-time:checked ~ div .section-history-time {
+    padding: 16px 8px;
+    border: 1px 0px solid white;
+  }
 }
 
 /*Shortcut Slider on bottom left*/
