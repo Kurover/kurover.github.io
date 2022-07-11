@@ -1,31 +1,83 @@
 html {
   font-family: 'Pixel04b03';
-  font-smooth: never;
-  font-smoothing: unset;
   -webkit-font-smoothing: none;
   -moz-osx-font-smoothing: unset;
 }
 body {
   width: 92%;
   margin: auto;
-  background-color: #0B0E0F
+  background: #0B0E0F
 }
 
 /*Nearest Neighbor upscaling for pixel-art based render*/
 img {
   image-rendering: pixelated
 }
+
+/*Base Rule*/
+a {
+  text-decoration: none;
+}
+a:link {
+  color: green;
+}
+a:visited {
+  color: slategray;
+}
+a:hover {
+  color: limegreen;
+}
+a:active {
+  color: peachpuff;
+}
+h1 {
+  font-size: 32px;
+  text-decoration: underline;
+}
+h1:first-child {
+  margin: 0;
+}
+h2 {
+  font-size: 24px;
+  text-decoration: underline;
+}
+h2:first-child {
+  margin: 0;
+}
+p:last-child {
+  margin-bottom: 0;
+}
+/*Utility CSS*/
 .hide {
   display: none;
 }
-.hidera {
-  display: none !important
+.hidaraja {
+  display: none !important;
 }
 .link {
-  cursor: pointer !important;
+  cursor: pointer;
+  color: limegreen;
+  transition: 0.2s;
+}
+.link:hover {
+  color: whitesmoke;
+}
+.link:active {
+  color: darkolivegreen;
+}
+.selection {
+  cursor: pointer;
+  color: whitesmoke;
+  transition: 0.2s;
+}
+.selection:hover {
+  color: limegreen;
+}
+.selection:active {
+  color: darkolivegreen;
 }
 .highlight:hover {
-  color:whitesmoke !important
+  color:whitesmoke
 }
 .no-margin {
   margin: 0;
@@ -33,57 +85,25 @@ img {
 .no-padding {
   padding: 0;
 }
-a {
-  text-decoration: none
-}
-a:link {
-  color: green
-}
-a:visited {
-  color: slategray
-}
-a:hover {
-  color: limegreen
-}
-a:active {
-  color: peachpuff
-}
-h1 {
-  font-size: 32px;
-  text-decoration: underline
-}
-h1:first-child {
-  margin: 0
-}
-h2 {
-  font-size: 24px;
-  text-decoration: underline
-}
-h2:first-child {
-  margin: 0
-}
-p:last-child {
-  margin-bottom: 0
-}
-p.caption {
+.caption {
   margin-top: 0;
 }
 
 /*Use "web" to display only on desktop, vice-versa*/
-
 @media only screen and (max-width: 800px) {
   .web {
-    display: none !important
+    display: none;
   }
 }
 @media only screen and (min-width: 801px) {
   .mobile {
-    display: none !important
+    display: none;
   }
 }
 
+/*Navigation Bar*/
 .nav-bar {
-  background-color: #141414;
+  background: #141414;
   max-width: 896px;
   height: 48px;
   margin: auto;
@@ -92,8 +112,8 @@ p.caption {
   border-bottom: 1px solid whitesmoke;
 }
 .nav-entry {
-  transition: background-color 0.2s;
-  background-color: darkslategray;
+  transition: background 0.2s;
+  background: darkslategray;
   float: left;
   width: 16%;
   max-width: 92px;
@@ -106,30 +126,30 @@ p.caption {
 .nav-bar a {
   color: whitesmoke
 }
-.nav-entry.active {
-  background-color: darkolivegreen;
+.nav-active {
+  background: darkolivegreen;
   color: whitesmoke;
   height: 24px;
 }
-.nav-entry.active:hover {
-  background-color: whitesmoke;
-  color: darkslategray
+.nav-active:hover {
+  background: whitesmoke;
+  color: darkslategray;
 }
 .nav-entry:hover {
-  background-color: darkolivegreen
+  background: darkolivegreen;
 }
-.nav-entry.title {
+.nav-title {
   color: whitesmoke;
-  background-color: transparent;
+  background: transparent;
   outline: 1px solid slategray;
   cursor: default;
 }
-.nav-entry.extra {
-  background-color: #25355A;
+.nav-extra {
+  background: #25355A;
   float: right;
 }
-.nav-entry.extra:hover {
-  background-color: darkolivegreen;
+.nav-extra:hover {
+  background: darkolivegreen;
 }
 
 /*Dropdown Menu*/
@@ -139,7 +159,7 @@ p.caption {
 }
 .dropdown-lab {
   display: none;
-  background-color: darkslategray;
+  background: darkslategray;
   position: absolute;
   margin: 8px 0 0 -8px;
   cursor: pointer;
@@ -151,10 +171,10 @@ p.caption {
   transition: 0.2s;
 }
 .menu-dropdown:hover .dropdown-lab {
-  display: block
+  display: block;
 }
 .dropdown-lab a:hover {
-  background-color: darkolivegreen
+  background: darkolivegreen;
 }
 @media only screen and (max-width: 800px) {
   .nav-entry {
@@ -175,13 +195,13 @@ p.caption {
 }
 @media only screen and (max-width: 800px) {
   .dropdown-lab a {
-    padding: 8px 3px
+    padding: 8px 3px;
   }
 }
 
 /*Content Body*/
 .entry {
-  background-color: #141414;
+  background: #141414;
   color: whitesmoke;
   max-width: 832px;
   margin: auto;
@@ -192,9 +212,9 @@ p.caption {
 }
 @media only screen and (max-width: 427px) {
   .entry {
-    padding: 16px;
     margin-top: 24px;
     margin-bottom: 24px;
+    padding: 16px;
   }
 }
 
@@ -211,18 +231,21 @@ p.caption {
   }
 }
 .container-profile-img {
-  display: block;
   height: 128px;
   width: 128px;
 }
 .profile-img {
-  background-color: #0B0E0F;
+  background: #0B0E0F;
   outline: 1px solid whitesmoke;
   height: 128px;
 }
 .profile-img img {
+  position: absolute;
+  visibility: hidden;
   width: 128px;
   height: 128px;
+  opacity: 0;
+  transition: 0.35s;
 }
 
 /*CSS object selector*/
@@ -232,111 +255,104 @@ p.caption {
   width: 33.33%;
   float: left;
   text-align: center;
-  cursor: pointer;
-  transition: 0.2s;
 }
-.img-pp-1, .img-pp-2, .img-pp-3 {
-  position: absolute;
-  visibility: hidden;
-  opacity: 0;
-  transition: 0.35s;
+.btn-expandable:hover {
+  box-shadow: 0 2px;
 }
 #pp-1:checked ~ div .img-pp-1 {
   visibility: visible;
-  opacity: 100%;
+  opacity: 100;
 }
 #pp-2:checked ~ div .img-pp-2 {
   visibility: visible;
-    opacity: 100%;
+  opacity: 100;
 }
 #pp-3:checked ~ div .img-pp-3 {
   visibility: visible;
-    opacity: 100%;
+  opacity: 100;
 }
-#pp-1:checked ~ label.sel-1 {
-  color: limegreen
+#pp-1:checked ~ label.pp-sel-1 {
+  color: limegreen;
 }
-#pp-2:checked ~ label.sel-2 {
-  color: limegreen
+#pp-2:checked ~ label.pp-sel-2 {
+  color: limegreen;
 }
-#pp-3:checked ~ label.sel-3 {
-  color: limegreen
+#pp-3:checked ~ label.pp-sel-3 {
+  color: limegreen;
 }
-.btn-pp:hover {
-  color: darkolivegreen 
+#pp-1:checked ~ label.pp-sel-1:hover {
+  color: whitesmoke;
 }
-#pp-1:checked ~ label.sel-1:hover {
-  color: greenyellow
+#pp-2:checked ~ label.pp-sel-2:hover {
+  color: whitesmoke;
 }
-#pp-2:checked ~ label.sel-2:hover {
-  color: greenyellow
-}
-#pp-3:checked ~ label.sel-3:hover {
-  color: greenyellow
+#pp-3:checked ~ label.pp-sel-3:hover {
+  color: whitesmoke;
 }
 
 /*Story Time?*/
-.btn-history-time {
-  color: limegreen
-}
 .section-history-time {
   visibility: hidden;
   margin: 0;
   padding: 0 32px;
-  opacity: 0%;
+  opacity: 0;
   height: 0;
-  overflow: hidden auto;
+  overflow: auto;
   transition: 0.5s;
+}
+@media only screen and (max-width: 800px) {
+  .section-history-time {
+    padding: 0 8px;
+  }
 }
 #state-history-time:checked ~ div .section-history-time {
   visibility: visible;
   margin-top: 12px;
   padding: 32px;
-  opacity: 100%;
-  height: max(192px);
+  opacity: 100;
+  height: 192px;
   transition: 0.5s;
+}
+#state-history-time:checked ~ div .btn-history {
+  box-shadow: 0 4px;
 }
 @media only screen and (max-width: 800px) {
   #state-history-time:checked ~ div .section-history-time {
     padding: 16px 8px;
-    border: 1px 0px solid white;
   }
 }
 
 /*Shortcut Slider on bottom left*/
 .nav-shortcut {
-  z-index: 1;
+  z-index: 100;
   position: fixed;
-  bottom: 30px;
-  width: 232px;
-  height: 52px;
-  margin-left: -178px;
-  padding: 4px;
+  left: 0;
+  bottom: 32px;
+  height: 48px;
+  margin-left: -232px;
+  padding: 8px 24px;
   transition: 0.4s;
 }
 .nav-shortcut a {
-  position: fixed;
-  width: 190px;
-  text-align: center;
-  line-height: 32px;
-  padding: 10px;
-  padding-left: 30px;
-  transition: 0.4s;
+  float: left;
+  width: 256px;
+  text-align: right;
+  line-height: 48px;
+  transition: inherit;
 }
 .nav-shortcut img {
   float: right;
-  width: 32px;
+  margin-left: 16px;
+  width: 48px;
+}
+.nav-shortcut:hover {
+  margin-left: -76px;
 }
 .nav-shortcut a:hover {
-  background-color: #141414;
+  background: #141414;
   outline: 1px solid;
-  transition: 0.2s;
 }
 .nav-shortcut a:active {
   outline: 1px solid;
   transform: 0.2s;
-}
-.nav-shortcut:hover {
-  margin-left: -28px;
-  transition: 0.2s;
 }

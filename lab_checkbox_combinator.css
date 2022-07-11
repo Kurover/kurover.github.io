@@ -7,7 +7,7 @@
 
   /*FIRST ENTRY*/
 .orangebox{
-  background-color: darkorange;
+  background: darkorange;
   width: 120px;
   height: 40px;
   margin: 8px;
@@ -38,9 +38,9 @@
   transition: 0.2s;
 }
 
-.btn-1{background-color: darkgray;}
-.btn-2{background-color: slategray;}
-.btn-3{background-color: darkslategray;}
+.btn-1{background: darkgray;}
+.btn-2{background: slategray;}
+.btn-3{background: darkslategray;}
 .text-box-1{display:none}
 .text-box-2{display:none}
 .text-box-3{display:none}
@@ -48,9 +48,9 @@
 #switchA:checked ~ div .text-box-1 {display: block}
 #switchB:checked ~ div .text-box-2 {display: block}
 #switchC:checked ~ div .text-box-3 {display: block}
-#switchA:checked ~ div .btn-1{background-color: lavender;outline: 3px solid crimson}
-#switchB:checked ~ .btn-2{background-color: lavender;outline: 3px solid crimson}
-#switchC:checked ~ .btn-3{background-color: lavender;outline: 3px solid crimson}
+#switchA:checked ~ div .btn-1{background: lavender;box-shadow: 0 4px}
+#switchB:checked ~ .btn-2{background: lavender;box-shadow: 0 4px}
+#switchC:checked ~ .btn-3{background: lavender;box-shadow: 0 4px}
 
   /* switchC will not work because the <INPUT> element is inside previous container. */
   /* Code below can use #switchA too. The current one is for demonstration.*/
@@ -59,5 +59,5 @@
 .switchC-class:checked ~ div .btn-3 p{outline: 3px solid crimson}
 
   /* Hmmm */
-.orangebox:hover ~ .hidden-content-11{display:block !important; color: crimson !important}
-.switchA-class:checked ~ div .hidden-content-11 p{display: inline-block !important}
+.orangebox:hover ~ .hidden-content-11{display:block; color: crimson}
+.switchA-class:checked ~ div .hidden-content-11 p{display: inline-block}

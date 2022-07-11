@@ -29,7 +29,7 @@
     <h1>Scriptless button to toggle thing</h1>
     <p class="caption">Technically a "script" but we divinitely don't talk about that.</p>
     <!-- Fake checkbox to act as a "button" -->
-    <label class="link highlight" style="color:skyblue" for="content-lever">This paragraph is a toggleable checkbox!</label>
+    <label class="link" for="content-lever">This paragraph is a toggleable checkbox!</label>
     <input class="hide" type="checkbox" id="content-lever">
     <div class="hidden-content-2"><p>This is the content</p></div>
     <hr><p>=== I AM A PARAGRAPH OF CODE BARRIER ===</p>
@@ -67,10 +67,10 @@
   <!--FOURTH ENTRY-->
   <div class="entry">
     <h1>Interact on other container (above)</h1>
-    <p><label class="btn-1 link highlight" for="switchA" style="color:skyblue; background-color: transparent !important">
+    <p><label class="btn-1 link" for="switchA" style="background-color: transparent">
       This is First option
     </label></p>
-    <p><label class="btn-3 link highlight" for="switchC" style="color:skyblue; background-color: transparent!important">
+    <p><label class="btn-3 link" for="switchC" style="background-color: transparent">
       While this is the Third option
     </label></p>
     <p> `label` target seems to work even if it's outside the container. CSS "checked" targetting, however, doesn't work outside of the container nor previous object. Combinator CSS limitation pretty much.</p>
