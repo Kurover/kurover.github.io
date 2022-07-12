@@ -6,8 +6,14 @@ html {
 body {
   background: #0B0E0F;
   margin: auto;
-  padding: 32px 0;
+  padding-top: 32px;
+  padding-bottom: 96px;
   width: 92%;
+}
+@media only screen and (max-width: 427px) {
+  body {
+    padding-bottom: 32px;
+  }
 }
 
 /*Nearest Neighbor upscaling for pixel-art based render*/
@@ -332,7 +338,7 @@ p:last-child {
   flex-wrap: nowrap;
 }
 .gallery-small-section {
-  padding: 2%;
+  padding: 1%;
   width: 100%;
   margin: auto;
 }
@@ -343,9 +349,21 @@ p:last-child {
   outline: 1px solid gray;
 }
 .gallery-small-section img:hover {
-  z-index: 5;
-  transform: scale(130%);
+  z-index: 10;
+  transform: scale(140%);
   outline: 8px solid black;
+}
+.gal-r img:hover {
+  transform-origin: right;
+  transform: scale(140%);
+}
+.gal-c img:hover {
+  background-color: black;
+  transform: scale(200%)
+}
+.gal-l img:hover {
+  transform-origin: left;
+  transform: scale(140%);
 }
 #state-about-sample:checked ~ .about-sample {
   overflow: visible;
@@ -367,7 +385,7 @@ p:last-child {
   color: whitesmoke;
   background: darkolivegreen;
 }
-#state-about-sample:checked ~ div .btn-sample,
+#state-about-sample:checked ~ div .btn-sample:hover,
 #state-about-art:checked ~ div .btn-art:hover,
 #state-about-website:checked ~ div .btn-website:hover {
   color: darkolivegreen;
@@ -397,8 +415,9 @@ p:last-child {
     margin: 8px 0;
   }
   .gallery-small-section img:hover {
-    transform: scale(110%);
-    outline: 4px solid black;
+    transform-origin: center;
+    transform: scale(120%);
+    outline: 8px solid black;
   }
 }
 
