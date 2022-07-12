@@ -30,8 +30,6 @@
       </div>
     </nav>
   </header>
-  <!-- Story Time checkbox/state -->
-  <input class="hide" type="checkbox" id="state-history-time">
   <div class="entry">
     <div class="container-profile-img">
       <!--Hidden radio selector. Don't put it in profile-img container because it can't be used to call CSS combinator outside of its container.-->
@@ -53,20 +51,25 @@
     <p class="caption">"4k art? Apologies but, best I could do is around 128x128 px."</p>
     <p>Hello, this is Zan, also known as Kurover. I'm a pixel artist who mainly draw art and animation from Touhou Project.</p>
     <p>In here, I have set you up a quick overview about the creation I've made.. once I actually construct the showcase of course.</p>
+
   </div>
   
-  <input class="hide" type="radio" id="state-about" name="btn-about" checked>
-  <input class="hide" type="radio" id="state-about-history" name="btn-about">
+  <input class="hide" type="radio" id="state-about" name="btn-about">
+  <input class="hide" type="radio" id="state-about-sample" name="btn-about" checked>
+  <input class="hide" type="radio" id="state-about-art" name="btn-about">
   <input class="hide" type="radio" id="state-about-website" name="btn-about">
   
   <div class="nav-bar nav-control-panel ctrl-about">
     <label class="ctrl-entry-main" for="state-about">
       <div class="link state-about-on">Close</div>
-      <div class="web">About.page: More</div>
-      <div class="mobile">:More</div>
+      <div class="web">.About .Trivia</div>
+      <div class="mobile">.Trivia</div>
     </label>
-    <label class="btn-history selection ctrl-entry" for="state-about-history">
-      History
+    <label class="btn-sample selection ctrl-entry" for="state-about-sample">
+      Sample
+    </label>
+    <label class="btn-art selection ctrl-entry" for="state-about-art">
+      Artsy
     </label>
     <label class="btn-website selection ctrl-entry" for="state-about-website">
       Website
@@ -75,21 +78,28 @@
   
   <!--Order the entry right to left for the animation-->  
   <div class="entry hidden-section about-section about-website">
-    <h1>&lt;div class= "website"&gt;</h1>
+    <h2 class="no-margin">&lt;div class= "website"&gt;</h2>
     <p class="caption">"20kb home page, take it or leave it."</p>
-    <p>For all the intellectuals out there, yes, this website is exclusively powered with HTML/CSS. Sometimes, long and round-about journey are more fun than one would think of, or maybe you simply have too much time in your hands, no in-between (gosh help I could finish all these button "script" 800% faster with js.)</p>
+    <p>..at least when you exclude the sample tab. For all the intellectuals out there, yes, this website is exclusively powered with HTML/CSS. Sometimes, long and round-about journey are more fun than one would think of, or maybe you simply have too much time in your hands, no in-between (gosh help I could finish all these button "script" 800% faster with js.)</p>
+    <p>Adding mobile view support and designing around them even for a tiny bit is hell. Respect to you front-end devs out there with this kind of job.</p>
     <p>My end goal with the website is to make a micro-pocket-sized portfolio page written with limitation (A.K.A. no script) to match the spirit of my pixel art journey! Of course, exception will be made toward raster art I'm showcasing here. </p>
-    <p>I learned a lot about CSS during the process of creating this site, well, website creation in general. It's what make learning a bit more fun in my opinion, learning stuff while you go. I do hope that I can achieve a well interactive site where you can easily receive relevant information without getting overwhelmed by other junk floating around.</p>
-    <p>While it is true that limiting myself against using javascript would be detrimental with the process, at the very least, I could still achieve a fraction of the success for my own gain.</p>
-    <p class="web">By the way, if you're interested behind the magic CSS button below the profile picture whatsoever, go help yourself to the lab menu, then choose the first option. Open your inspect tool and start digging!</p>
+    <p>I do hope that I can achieve a well interactive site where you can easily receive relevant information without getting overwhelmed by other junk floating around. Not saying I wouldn't add floating junk around, of course.</p>
   </div>
   
-  <div class="entry hidden-section about-section about-history">
-    <h1>Once upon a time</h1>
+  <div class="entry hidden-section about-section about-art">
+    <h2 class="no-margin">Once upon a time</h2>
     <p class="caption">"There was an internet junky on its chair."</p>
     <p>Art was once just a hobby of mine since 2013. It all started by me, innocently, scrolling through Facebook timeline and saw one of my, well, "friend of a friend", drew this amazing piece of anime art, not sure what it was but amazing nontheless. Then, it struck me, wouldn't it be cool if I also could do the thing whatever they're doing?</p>
-    <p>With 1 art piece per month ratio after a year of training after then, we jump ahead 5 revolution later toward the end of year 2017. There, I dipped my flimsy little toes into pixel art and it was the most fun experience I've ever had in the world of artistry.</p>
-    <p>Now we are here. Trying a bit into writing, while also keeping up with the drawing. Oh, I guess HTML/CSS too, eh? Oh uh, photography and video editing? Err.. doll making- ok I guess I do have a fair share of problems in my hand.</p>
+    <p>With 1 real art piece per month ratio even to this day, we jump ahead 5 revolution away toward the end of year 2017. At this time, I dipped my flimsy little toes into pixel art and it was the most fun experience I've ever had in the world of artistry. A change of pace, for a magic space.</p>
+    <p>And now we are here. Trying a bit into writing, while also keeping up with the drawing. Oh, I guess HTML/CSS too, eh? Oh uh, photography and video editing? Ok, I guess I do have a fair share of problems in my hand.</p>
+  </div>
+  
+  <div style="padding: 0;max-width: 896px;" class="entry hidden-section about-section about-sample">
+    <div class="gallery-small">
+        <div class="gallery-small-section"><img src="img/gallery/touhou_cirno.gif"></div>
+        <div class="gallery-small-section"><img src="img/gallery/touhou_rumia.gif"></div>
+        <div class="gallery-small-section"><img src="img/gallery/touhou_spood2.gif"></div>
+    </div>
   </div>
   
   <div class="nav-shortcut web hidaja">
