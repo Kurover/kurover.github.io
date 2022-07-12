@@ -4,9 +4,10 @@ html {
   -moz-osx-font-smoothing: unset;
 }
 body {
-  width: 92%;
+  background: #0B0E0F;
   margin: auto;
-  background: #0B0E0F
+  padding: 32px 0;
+  width: 92%;
 }
 
 /*Nearest Neighbor upscaling for pixel-art based render*/
@@ -51,7 +52,7 @@ p:last-child {
 .hide {
   display: none;
 }
-.hidaraja {
+.hidaja {
   display: none !important;
 }
 .link {
@@ -102,7 +103,6 @@ p:last-child {
   max-width: 896px;
   height: 48px;
   margin: auto;
-  margin-top: 32px;
   overflow: hidden;
   border-bottom: 1px solid whitesmoke;
 }
@@ -142,7 +142,8 @@ p:last-child {
 }
 .nav-title {
   background: transparent;
-  outline: 1px solid slategray;
+  height: 17px;
+  border: 1px solid slategray;
   cursor: default;
 }
 .nav-title:hover {
@@ -199,7 +200,7 @@ p:last-child {
   max-width: 832px;
   margin: auto;
   margin-top: 32px;
-  margin-bottom: 8px;
+  margin-bottom: 32px;
   padding: 32px;
   border: 1px solid gray;
 }
@@ -225,10 +226,10 @@ p:last-child {
 .container-profile-img {
   height: 128px;
   width: 128px;
+  border: 2px solid whitesmoke;
 }
 .profile-img {
   background: #0B0E0F;
-  outline: 1px solid whitesmoke;
   height: 128px;
 }
 .profile-img img {
@@ -242,7 +243,7 @@ p:last-child {
 
 /*Profile Picture CSS object selector*/
 .btn-pp {
-  outline: 1px solid whitesmoke;
+  outline: 2px solid whitesmoke;
   line-height: 24px;
   width: 33.33%;
   float: left;
@@ -280,7 +281,8 @@ p:last-child {
 }
 .nav-control-panel {
   color: whitesmoke;
-  margin-top: 8px;
+  margin-top: -32px;
+  margin-bottom: 1px;
   height: 32px;
   border: none;
 }
@@ -293,7 +295,7 @@ p:last-child {
   text-align: center;
   box-shadow: 8px 0 inset;
   border: 1px solid;
-  overflow: auto;
+  overflow: hidden;
 }
 .ctrl-entry {
   display: inline-block;
@@ -303,24 +305,37 @@ p:last-child {
   height: 32px;
   line-height: 32px;
   text-align: center;
-  overflow: auto;
+  overflow: hidden;
 }
 .ctrl-entry:hover {
   color: whitesmoke;
-  background-color: darkolivegreen;
+  background: darkolivegreen;
 }
 .about-section {
-  margin: 0 auto;
+  margin: 0 inherit;
   box-shadow: 8px 0 inset gray;
-  border-left: none;
+}
+/*Negative margin to compensate the border taking up space*/
+.about-history {
+  margin: -2px auto;
+}
+.about-website {
+  margin: -1px auto;
 }
 
+#state-about:checked ~ div .state-about-on {
+  display: none;
+}
+.state-about-on {
+  display: block;
+  color: whitesmoke;
+}
 /*About:Entry*/
+
 #state-about-history:checked ~ .about-history,
 #state-about-website:checked ~ .about-website {
   visibility: visible;
   opacity: 100;
-  margin-bottom: 64px;
   padding: 32px;
   height: 256px;
 }
