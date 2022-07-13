@@ -30,35 +30,38 @@
       </div>
     </nav>
   </header>
+  <!-- Main Entry -->
   <div class="entry">
     <div class="container-profile-img">
-      <!--Hidden radio selector. Don't put it in profile-img container because it can't be used to call CSS combinator outside of its container.-->
+      <!-- Pic: States -->
       <input class="hide" type="radio" id="pp-1" name="btn-pp" checked>
       <input class="hide" type="radio" id="pp-2" name="btn-pp">
       <input class="hide" type="radio" id="pp-3" name="btn-pp">
-      <!--Images. Separate their classes for CSS magic button-->
+      <!-- Pic: Container -->
       <div class="profile-img">
         <img class="img-pp-1" src="img/profile_picture1.png" alt="My main profile picture across the interweb.">
         <img class="img-pp-2" src="img/profile_picture2.png" alt="Old alt profile and still more used than the newer one.">
         <img class="img-pp-3" src="img/profile_picture3.png" alt="New shiny alt pic. So far only used for Discord.">
       </div>
-      <!--Radio selector text for the radio button above, which is hidden-->
+      <!-- Pic: Text button -->
       <label class="btn-pp selection pp-sel-1" for="pp-1">Main</label>
       <label class="btn-pp selection pp-sel-2" for="pp-2">Alt1</label>
       <label class="btn-pp selection pp-sel-3" for="pp-3">Alt2</label>
     </div>
+    <!-- Pic: Content-->
     <h1 class="no-margin">Welcome</h1>
     <p class="caption">"4k art? Apologies but, best I could do is around 128x128 px."</p>
     <p>Hello, this is Zan, also known as Kurover. I'm a pixel artist who mainly draw art and animation from Touhou Project.</p>
     <p>In here, I have set you up a quick overview about the creation I've made.. once I actually construct the showcase of course.</p>
-
   </div>
   
+  <!-- Trivia: States -->
   <input class="hide" type="radio" id="state-about" name="btn-about">
   <input class="hide" type="radio" id="state-about-sample" name="btn-about" checked>
   <input class="hide" type="radio" id="state-about-art" name="btn-about">
-  <input class="hide" type="radio" id="state-about-website" name="btn-about">
+  <input class="hide" type="radio" id="state-about-web" name="btn-about">
   
+  <!-- Trivia: Nav bar -->
   <div class="nav-bar nav-control-panel ctrl-about">
     <label class="ctrl-entry-main" for="state-about">
       <div class="link state-about-on">Close</div>
@@ -71,40 +74,41 @@
     <label class="btn-art selection ctrl-entry" for="state-about-art">
       Artsy
     </label>
-    <label class="btn-website selection ctrl-entry" for="state-about-website">
+    <label class="btn-web selection ctrl-entry" for="state-about-web">
       Website
     </label>
   </div>
-  
-  <!--Order the entry right to left for the animation-->  
-  <div class="entry hidden-section about-section about-website">
-    <h2 class="no-margin">&lt;div class= "website"&gt;</h2>
-    <p class="caption">"20kb home page, take it or leave it."</p>
-    <p>..at least when you exclude the sample tab. For all the intellectuals out there, yes, this website is exclusively powered with HTML/CSS. Sometimes, long and round-about journey are more fun than one would think of, or maybe you simply have too much time in your hands, no in-between (gosh help I could finish all these button "script" 800% faster with js.)</p>
-    <p>Adding mobile view support and designing around them even for a tiny bit is hell. Respect to you front-end devs out there with this kind of job.</p>
-    <p>My end goal with the website is to make a micro-pocket-sized portfolio page written with limitation (A.K.A. no script) to match the spirit of my pixel art journey! Of course, exception will be made toward raster art I'm showcasing here. </p>
-    <p>I do hope that I can achieve a well interactive site where you can easily receive relevant information without getting overwhelmed by other junk floating around. Not saying I wouldn't add floating junk around, of course.</p>
-  </div>
-  
-  <div class="entry hidden-section about-section about-art">
-    <h2 class="no-margin">Once upon a time</h2>
-    <p class="caption">"There was an internet junky on its chair."</p>
-    <p>Art was once just a hobby of mine since 2013. It all started by me, innocently, scrolling through Facebook timeline and saw one of my, well, "friend of a friend", drew this amazing piece of anime art, not sure what it was but amazing nontheless. Then, it struck me, wouldn't it be cool if I also could do the thing whatever they're doing?</p>
-    <p>With 1 real art piece per month ratio even to this day, we jump ahead 5 revolution away toward the end of year 2017. At this time, I dipped my flimsy little toes into pixel art and it was the most fun experience I've ever had in the world of artistry. A change of pace, for a magic space.</p>
-    <p>And now we are here. Trying a bit into writing, while also keeping up with the drawing. Oh, I guess HTML/CSS too, eh? Oh uh, photography and video editing? Ok, I guess I do have a fair share of problems in my hand.</p>
-  </div>
-  
+  <!-- Trivia: Sample -->
   <div style="padding: 0;max-width: 896px;" class="entry hidden-section about-section about-sample">
-    <div class="gallery-small">
-        <div class="gallery-small-section gal-l"><img src="img/gallery/touhou_cirno.gif"></div>
-        <div class="gallery-small-section gal-c"><img src="img/gallery/touhou_grassroot2.gif"></div>
-        <div class="gallery-small-section gal-r"><img src="img/gallery/touhou_spood2.gif"></div>
+    <div class="container-sample">
+      <h2 class="hide">Art Sample</h2>
+      <div class="container-sample-section gal-l"><img src="img/gallery/touhou_cirno.gif" alt="19-9-2019 | Cirno day animation"></div>
+      <div class="container-sample-section gal-c"><img src="img/gallery/touhou_grassroot2.gif" alt="08-6-2022 | Sekibanki animation after year of not posting anything"></div>
+      <div class="container-sample-section gal-r"><img src="img/gallery/touhou_spood2.gif" alt="14-3-2021 | Yamame and Kisume hangout"></div>
+    </div>
+  </div>
+  <!-- Trivia: Art -->
+  <div class="entry hidden-section about-section about-art">
+    <div class="container-art">
+      <h2 class="no-margin">Once upon a time</h2>
+      <p class="caption">"There was an internet junky on its chair."</p>
+      <p>Art was once just a hobby of mine since 2013. It all started by me, innocently, scrolling through Facebook timeline and saw one of my, well, "friend of a friend", drew this amazing piece of anime art, not sure what it was but amazing nontheless. Then, it struck me, wouldn't it be cool if I also could do the thing whatever they're doing?</p>
+      <p>With 1 real art piece per month ratio even to this day, we jump ahead 5 revolution away toward the end of year 2017. At this time, I dipped my flimsy little toes into pixel art and it was the most fun experience I've ever had in the world of artistry. A change of pace, for a magic space.</p>
+      <p>And now we are here. Trying a bit into writing, while also keeping up with the drawing. Oh, I guess HTML/CSS too, eh? Oh uh, photography and video editing? Ok, I guess I do have a fair share of problems in my hand.</p> 
+    </div>
+  </div>
+  <!-- Trivia: Web -->
+  <div class="entry hidden-section about-section about-web">
+    <div class="container-web">
+      <h2 class="no-margin">&lt;div class= "website"&gt;</h2>
+      <p class="caption">"20kb home page, take it or leave it."</p>
+      <p>..at least when you exclude the sample tab. For all the intellectuals out there, yes, this website is exclusively powered with HTML/CSS. Sometimes, long and round-about journey are more fun than one would think of, or maybe you simply have too much time in your hands, no in-between (gosh help I could finish all these button "script" 800% faster with js.)</p>
+      <p>Adding mobile view support and designing around them even for a tiny bit is hell. Respect to you front-end devs out there with this kind of job.</p>
+      <p>My end goal with the website is to make a micro-pocket-sized portfolio page written with limitation (A.K.A. no script) to match the spirit of my pixel art journey! Of course, exception will be made toward raster art I'm showcasing here. </p>
+      <p>I do hope that I can achieve a well interactive site where you can easily receive relevant information without getting overwhelmed by other junk floating around. Not saying I wouldn't add floating junk around, of course.</p>
     </div>
   </div>
   
-  <div class="nav-shortcut web hidaja">
-    <a href="https://kurover.github.io/GroundLeaf">Groundleaf Wiki<img src="favicon.png"></a>
-  </div>
 </body>
 
 </html>

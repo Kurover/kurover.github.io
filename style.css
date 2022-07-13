@@ -5,14 +5,12 @@ html {
 }
 body {
   background: #0B0E0F;
-  margin: auto;
-  padding-top: 32px;
-  padding-bottom: 96px;
-  width: 92%;
+  margin: 24px auto;
+  width: 80%;
 }
 @media only screen and (max-width: 427px) {
   body {
-    padding-bottom: 32px;
+    width: 100%;
   }
 }
 
@@ -65,24 +63,18 @@ p:last-child {
 .link {
   cursor: pointer;
   color: limegreen;
-  transition: 0.2s;
+  transition: color 0.1s;
 }
 .link:hover {
   color: greenyellow;
 }
-.link:active {
-  color: darkolivegreen;
-}
 .selection {
   cursor: pointer;
   color: whitesmoke;
-  transition: 0.2s;
+  transition: color 0.1s;
 }
 .selection:hover {
   color: limegreen;
-}
-.selection:active {
-  color: darkolivegreen;
 }
 .no-margin {
   margin: 0;
@@ -115,9 +107,9 @@ p:last-child {
   margin: auto;
   overflow: hidden;
   border-bottom: 1px solid whitesmoke;
+  transition: background 0.1s, color 0.1s;
 }
 .nav-entry {
-  transition: 0.2s;
   background: darkslategray;
   float: left;
   width: min(19%, 92px);
@@ -126,13 +118,13 @@ p:last-child {
   overflow: hidden;
   text-align: center;
   text-decoration: none;
+  transition: inherit;
 }
 .nav-bar a {
-  color: whitesmoke
+  color: whitesmoke;
 }
 .nav-active {
   background: darkolivegreen;
-  color: whitesmoke;
   height: 24px;
 }
 .nav-entry:hover {
@@ -181,7 +173,6 @@ p:last-child {
   display: block;
   width: 92px;
   padding: 8px 8px;
-  transition: 0.2s;
 }
 .menu-dropdown:hover .dropdown-lab {
   display: block;
@@ -190,22 +181,19 @@ p:last-child {
   background: darkolivegreen;
 }
 
-
 /*Content Body*/
 .entry {
   background: #141414;
   color: whitesmoke;
   max-width: 832px;
-  margin: auto;
-  margin-top: 32px;
-  margin-bottom: 32px;
+  margin: 32px auto;
   padding: 32px;
   border: 1px solid gray;
 }
 @media only screen and (max-width: 427px) {
   .entry {
     margin-top: 24px;
-    padding: 16px;
+    padding: 24px;
   }
 }
 
@@ -232,11 +220,10 @@ p:last-child {
 }
 .profile-img img {
   position: absolute;
-  visibility: hidden;
   width: 128px;
   height: 128px;
   opacity: 0;
-  transition: 0.35s;
+  transition: opacity 0.5s;
 }
 
 /*Profile Picture CSS object selector*/
@@ -253,7 +240,7 @@ p:last-child {
 #pp-1:checked ~ div .img-pp-1,
 #pp-2:checked ~ div .img-pp-2,
 #pp-3:checked ~ div .img-pp-3 {
-  visibility: visible;
+  z-index: 1;
   opacity: 100;
 }
 #pp-1:checked ~ label.pp-sel-1,
@@ -269,13 +256,11 @@ p:last-child {
 
 /*Control Panel entry*/
 .hidden-section {
-  z-index: -100;
   visibility: hidden;
   opacity: 0;
-  padding: 0 32px;
   height: 0;
-  overflow: auto;
-  transition: 0.75s;
+  transform-origin: top;
+  transform: scaleY(0);
 }
 .nav-control-panel {
   color: whitesmoke;
@@ -304,24 +289,25 @@ p:last-child {
   line-height: 32px;
   text-align: center;
   overflow: hidden;
+  transition: inherit;
 }
 .ctrl-entry:hover {
   color: whitesmoke;
   background: darkolivegreen;
 }
 .about-section {
-  margin: 0 inherit;
   box-shadow: 8px 0 inset gray;
 }
+
 /*Negative margin to compensate the border taking up spaces*/
 .about-sample {
-  margin: -2px auto;
+  margin: -1px auto 0 auto;
 }
 .about-art {
-  margin: -2px auto;
+  margin: -2px auto 0 auto;
 }
-.about-website {
-  margin: -1px auto;
+.about-web {
+  margin: -66px auto 0 auto;
 }
 #state-about:checked ~ div .state-about-on {
   display: none;
@@ -332,64 +318,73 @@ p:last-child {
 }
 
 /*About:Entry*/
-.gallery-small {
+.container-sample {
   display: flex;
   width: 100%;
   flex-wrap: nowrap;
 }
-.gallery-small-section {
-  padding: 1%;
+.container-sample-section {
+  padding: 16px;
   width: 100%;
   margin: auto;
 }
-.gallery-small-section img {
+.container-sample-section img {
   width: 100%;
-  margin: auto;
-  transition: 0.4s;
   outline: 1px solid gray;
+  transition: transform-origin 0.75s, transform 0.5s, background 0.25s, outline 0.25s;
 }
-.gallery-small-section img:hover {
+.container-sample-section img:hover {
   z-index: 10;
-  transform: scale(140%);
   outline: 8px solid black;
+  transform: scale(140%);
 }
 .gal-r img:hover {
   transform-origin: right;
-  transform: scale(140%);
+  transform: scale(150%);
 }
 .gal-c img:hover {
   background-color: black;
-  transform: scale(200%)
+  transform: scale(210%)
 }
 .gal-l img:hover {
   transform-origin: left;
   transform: scale(140%);
 }
-#state-about-sample:checked ~ .about-sample {
-  overflow: visible;
-  visibility: visible;
-  opacity: 100;
-  height: 100%;
-  transition: 0.5s;
+.container-art,
+.container-sample,
+.container-web {
+  opacity: 0;
+  transition: opacity 0.5s 0.25s;
 }
+
+#state-about-sample:checked ~ .about-sample,
 #state-about-art:checked ~ .about-art,
-#state-about-website:checked ~ .about-website {
+#state-about-web:checked ~ .about-web {
   visibility: visible;
+  transform: scaleY(1);
+  height: 100%;
   opacity: 100;
-  padding: 32px;
-  height: 256px;
+  transition: transform 0.5s, opacity 0.5s, visibility 0.5s, height 0.5s;
+}
+#state-about-art:checked ~ div .container-art,
+#state-about-sample:checked ~ div .container-sample,
+#state-about-web:checked ~ div .container-web {
+  opacity: 100;
 }
 #state-about-sample:checked ~ div .btn-sample,
 #state-about-art:checked ~ div .btn-art,
-#state-about-website:checked ~ div .btn-website {
+#state-about-web:checked ~ div .btn-web {
   color: whitesmoke;
   background: darkolivegreen;
 }
 #state-about-sample:checked ~ div .btn-sample:hover,
 #state-about-art:checked ~ div .btn-art:hover,
-#state-about-website:checked ~ div .btn-website:hover {
+#state-about-web:checked ~ div .btn-web:hover {
   color: darkolivegreen;
   background: whitesmoke;
+}
+#state-about:checked ~ .hidden-section {
+  transition: transform 0.75s, opacity 0.25s, visibility 0.75s, height 0.5s;
 }
 @media only screen and (max-width: 427px) {
   .ctrl-entry-main {
@@ -397,26 +392,25 @@ p:last-child {
     padding-right: 4px;
   }
   .about-section {
-    padding: 0 16px;
+    padding: 32px;
     box-shadow: 4px 0 inset gray;
   }
   #state-about-art:checked ~ .about-art,
-  #state-about-website:checked ~ .about-website {
-    padding: 16px;
+  #state-about-web:checked ~ .about-web {
+    padding: 24px
   }
-  .gallery-small {
+  .container-sample {
     width: auto;
     flex-wrap: wrap;
     padding: 16px 10%; 
-    margin: 0;
   }
-  .gallery-small-section {
+  .container-sample-section {
     padding: 0;
     margin: 8px 0;
   }
-  .gallery-small-section img:hover {
+  .container-sample-section img:hover {
     transform-origin: center;
-    transform: scale(120%);
+    transform: scale(115%);
     outline: 8px solid black;
   }
 }
@@ -428,16 +422,16 @@ p:last-child {
   left: 0;
   bottom: 32px;
   height: 48px;
-  margin-left: -232px;
   padding: 8px 24px;
-  transition: 0.4s;
+  transform: translateX(-232px);
+  transition: transform 0.25s;
 }
 .nav-shortcut a {
   float: left;
   width: 256px;
   text-align: right;
   line-height: 48px;
-  transition: inherit;
+  transition: background 0.25s;
 }
 .nav-shortcut img {
   float: right;
@@ -445,13 +439,11 @@ p:last-child {
   width: 48px;
 }
 .nav-shortcut:hover {
-  margin-left: -76px;
+  transform: translateX(-76px);
+}
+.nav-shortcut:hover a {
+  background: #141414;
 }
 .nav-shortcut a:hover {
-  background: #141414;
   outline: 1px solid;
-}
-.nav-shortcut a:active {
-  outline: 1px solid;
-  transform: 0.2s;
 }
