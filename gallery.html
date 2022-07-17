@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zanster | Kurover Home</title>
+  <link rel="icon" href="favicon.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="font.css">
+</head>
+
+<body>
+  <header>
+    <nav class="nav-bar">
+      <a class="nav-entry nav-title">
+        <span class="web">Zan-cs.site</span>
+        <span class="mobile">cs.site</span>
+      </a>
+      <a class="nav-entry" href="index.html">About</a>
+      <a class="nav-entry nav-active" href="#">Gallery</a>
+      <div class="nav-entry nav-extra menu-dropdown">
+        Links
+        <div class="dropdown-lab">
+          <div class="dropdown-lab-entry">
+            <a href="https://twitter.com/Cloverift"> Twitter </a>
+            <a href="http://04.jp.org"> Font Credit </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  
+  <div class="entry">
+    <div class="container-profile-img">
+      <div class="profile-img">
+        <img src="img/illith.png" style="opacity: 100;">
+      </div>
+      <span class="btn-pp no-select" style="width: 128px; display: block;">Illith</span>
+    </div>
+    <h1 class="no-margin">Welcome: Gallery</h1>
+    <p>Hello, Illith here, welcome to the gallery!</p>
+    <p>Below you can choose which category of art you'd like to see. Because we got no script to prevent the hidden stuff from loading, everything should be downloaded already. 5.2mb worth of pictures and animation!</p>
+    <p>Fun fact, these pixel art and animation showcase gallery is pretty much 75% of my creator's art in total. Pretty disappointing number, isn't it?</p>
+    <p>There are more Raster art that is not showcased here. It's the best for your eyesight, really. Jokes aside, my creator didn't really draw that much of raster art after he "dipped his toes" or whatever into pixel art. Might be allergic to it, who knows.</p>
+  </div>
+  
+  <input class="hide" type="radio" id="state-gal" name="btn-gal" checked>
+  <input class="hide" type="radio" id="state-gal-anim" name="btn-gal">
+  <input class="hide" type="radio" id="state-gal-pixel" name="btn-gal" >
+  <input class="hide" type="radio" id="state-gal-raster" name="btn-gal">
+  
+  <div class="nav-bar nav-control-panel">
+    <label class="ctrl-entry-main" for="state-gal">
+      <span class="link state-gal-on">Close</span>
+      <span>Category</span>
+    </label>
+    <label class="btn-anim selection ctrl-entry" for="state-gal-anim">
+      Anim
+    </label>
+    <label class="btn-pixel selection ctrl-entry" for="state-gal-pixel">
+      Pixelart
+    </label>
+    <label class="btn-raster selection ctrl-entry" for="state-gal-raster">
+      Rasterart
+    </label>
+  </div>
+  
+  <div class="entry hidden-section gal-anim">
+    <div class="gallery container-anim">
+      <div class="gallery-section"> <img src="img/gallery/oc_clover1.gif"> </div>
+      <div class="gallery-section"> <img src="img/gallery/oc_stylla1.gif"> </div>
+      <div class="gallery-section"> <img src="img/gallery/touhou_grassroot1.gif"> </div>
+    </div>
+    <hr>
+    <div class="gallery container-anim">
+      <div class="gallery-section"> <img src="img/gallery/touhou_youmu2.gif"> </div>
+      <div class="gallery-section"> <img src="img/gallery/touhou_spood2.gif"> </div>
+      <div class="gallery-section"> <img src="img/gallery/touhou_cirno.gif"> </div>
+    </div>
+    <hr>
+    <div class="gallery container-anim">
+      <div class="gallery-section gal-zoom-1"> <img src="img/gallery/touhou_alice.gif"> </div>
+      <div class="gallery-section"> <img src="img/gallery/touhou_spood1.gif"> </div>
+      <div class="gallery-section"> <img src="img/gallery/touhou_rumia.gif"> </div>
+    </div>
+    <hr>
+    <div class="gallery container-anim">
+      <div class="gallery-section gal-zoom-1"> <img src="img/gallery/touhou_kooshy.gif"> </div>
+      <div class="gallery-section gal-zoom-2"> <img src="img/gallery/touhou_grassroot2.gif"> </div>
+    </div>
+    
+  </div>  
+  <div class="entry hidden-section gal-pixel">
+    <div class="gallery container-pixel">
+      <div class="gallery-section gal-w gal-zoom-1"> <img src="img/gallery/touhou_whale.png"> </div>
+      <div class="gallery-section gal-zoom-2"> <img src="img/gallery/touhou_trio18.png"> </div>
+    </div>
+    <hr>
+    <div class="gallery container-pixel">
+      <div class="gallery-section gal-zoom-1"> <img src="img/gallery/oc_trio.png"> </div>
+    </div>
+    <hr>
+    <div class="gallery container-pixel">
+      <div class="gallery-section"> <img src="img/gallery/oc_sprite1.png"> </div>
+      <div class="gallery-section"> <img src="img/gallery/oc_sprite2.png"> </div>
+      <div class="gallery-section"> <img src="img/gallery/touhou_youmu.png"> </div>
+    </div>
+  </div>  
+  
+  <div class="entry hidden-section gal-raster">
+    <div class="gallery container-raster">
+      <div class="gallery-section"> <img src="img/gallery/oc_clover2.jpg"> </div>
+      <div class="gallery-section"> <img src="img/gallery/oc_stylla2.jpg"> </div>
+    </div>    
+    <hr>
+    <div class="gallery container-raster">
+      <div class="gallery-section"> <img src="img/gallery/touhou_koosh2.jpg"> </div>
+      <div class="gallery-section"> <img src="img/gallery/touhou_eternity.jpg"> </div>
+    </div>    
+    <hr>
+    <div class="gallery container-raster">
+      <div class="gallery-section"> <img src="img/gallery/arknight_oc.jpg"> </div>
+      <div class="gallery-section"> <img src="img/gallery/arknight_sus1.jpg"> </div>
+      <div class="gallery-section"> <img src="img/gallery/arknight_sus2.jpg"> </div>
+    </div>
+  </div>
+  
+</body>

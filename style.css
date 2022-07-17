@@ -23,7 +23,7 @@ body {
 
 /*Nearest Neighbor upscaling for pixel art based render*/
 img {
-  image-rendering: pixelated
+  image-rendering: pixelated;
 }
 
 /*Base Rule*/
@@ -84,12 +84,17 @@ p:last-child {
 .selection:hover {
   color: limegreen;
 }
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+}
 .no-margin {
   margin: 0;
 }
 .no-padding {
   padding: 0;
 }
+
 .center {
   text-align: center;
 }
@@ -124,6 +129,8 @@ p:last-child {
   overflow: hidden;
   border-bottom: 1px solid whitesmoke;
   transition: background 0.1s, color 0.1s;
+  user-select: none;
+  -webkit-user-select: none;
 }
 .nav-entry {
   background: darkslategray;
@@ -172,6 +179,10 @@ p:last-child {
 .menu-dropdown {
   color: whitesmoke;
   cursor: default;
+  transition: 0.1s 0.25s;
+}
+.menu-dropdown:hover {
+  transition: 0.1s;
 }
 .dropdown-lab {
   visibility: hidden;
@@ -181,7 +192,7 @@ p:last-child {
   cursor: pointer;
   transform-origin: top;
   transform: scaleY(0);
-  transition: transform 0.1s, visibility 0.2s;
+  transition: transform 0.1s 0.25s, visibility 0.2s 0.25s;
 }
 
 .dropdown-lab-entry a {
@@ -288,17 +299,20 @@ p:last-child {
 }
 
 /*Control Panel entry*/
-.state-about-on {
+.state-about-on,
+.state-gal-on{
   display: block;
   color: whitesmoke;
 }
-#state-about:checked ~ .nav-control-panel .state-about-on {
+#state-about:checked ~ .nav-control-panel .state-about-on,
+#state-gal:checked ~ .nav-control-panel .state-gal-on {
   display: none;
 }
 .hidden-section {
   visibility: hidden;
   opacity: 0;
   height: 0;
+  box-shadow: 8px 0 inset gray;
   transform-origin: top;
   transform: scaleY(0);
 }
@@ -335,64 +349,84 @@ p:last-child {
   color: whitesmoke;
   background: darkolivegreen;
 }
-.about-section {
-  box-shadow: 8px 0 inset gray;
-}
 
 /*Negative margin to compensate the border taking up spaces*/
-.about-contact {
+.about-contact,
+.gal-anim{
   margin-top: -1px;
 }
-.about-sample {
-  margin-top: -98px;
-}
-.about-trivia {
+.about-sample,
+.about-trivia,
+.gal-pixel,
+.gal-raster {
   margin-top: -98px;
 }
 
 /*About:Entry*/
-.container-sample {
+.container-sample,
+.gallery {
   display: flex;
   width: 100%;
   flex-wrap: nowrap;
 }
-.container-sample-section {
+.container-sample-section,
+.gallery-section {
   padding: 8px;
   width: 100%;
   margin: auto;
 }
-.container-sample-section img {
+.container-sample-section img,
+.gallery-section img{
   width: 100%;
   outline: 1px solid gray;
   transition: transform-origin 0.75s, transform 0.5s, background 0.25s, outline 0.25s;
 }
-.container-sample-section img:hover {
+.container-sample-section img:hover,
+.gallery-section img:hover{
   z-index: 10;
+  background: black;
   outline: 8px solid black;
-  transform: scale(100%);
+  transform: scale(125%);
+}
+.container-raster img {
+  image-rendering: auto;
 }
 .gal-r img:hover {
   transform-origin: right;
-  transform: scale(180%);
+  transform: scale(175%);
 }
 .gal-c img:hover {
-  background-color: black;
   transform: scale(250%)
 }
 .gal-l img:hover {
   transform-origin: left;
-  transform: scale(170%);
+  transform: scale(175%);
+}
+.gal-w img:hover {
+  background: white;
+}
+.gal-zoom-1 img:hover {
+  transform: scale(110%);
+}
+.gal-zoom-2 img:hover {
+  transform: scale(150%);
 }
 .container-contact,
 .container-sample,
-.container-trivia {
+.container-trivia,
+.container-anim,
+.container-pixel,
+.container-raster {
   opacity: 0;
   transition: opacity 0.5s 0.25s;
 }
 
 #state-about-sample:checked ~ .about-sample,
 #state-about-contact:checked ~ .about-contact,
-#state-about-trivia:checked ~ .about-trivia {
+#state-about-trivia:checked ~ .about-trivia,
+#state-gal-anim:checked ~ .gal-anim,
+#state-gal-pixel:checked ~ .gal-pixel,
+#state-gal-raster:checked ~ .gal-raster {
   visibility: visible;
   transform: scaleY(1);
   height: 100%;
@@ -401,26 +435,36 @@ p:last-child {
 }
 #state-about-contact:checked ~ div .container-contact,
 #state-about-sample:checked ~ div .container-sample,
-#state-about-trivia:checked ~ div .container-trivia {
+#state-about-trivia:checked ~ div .container-trivia,
+#state-gal-anim:checked ~ div .container-anim,
+#state-gal-pixel:checked ~ div .container-pixel,
+#state-gal-raster:checked ~ div .container-raster {
   opacity: 100;
 }
 #state-about-sample:checked ~ div .btn-sample,
 #state-about-contact:checked ~ div .btn-contact,
-#state-about-trivia:checked ~ div .btn-trivia {
+#state-about-trivia:checked ~ div .btn-trivia,
+#state-gal-anim:checked ~ div .btn-anim,
+#state-gal-pixel:checked ~ div .btn-pixel,
+#state-gal-raster:checked ~ div .btn-raster {
   color: whitesmoke;
   background: darkolivegreen;
 }
 #state-about-sample:checked ~ div .btn-sample:hover,
 #state-about-contact:checked ~ div .btn-contact:hover,
-#state-about-trivia:checked ~ div .btn-trivia:hover {
+#state-about-trivia:checked ~ div .btn-trivia:hover,
+#state-gal-anim:checked ~ div .btn-anim:hover,
+#state-gal-pixel:checked ~ div .btn-pixel:hover,
+#state-gal-raster:checked ~ div .btn-raster:hover {
   color: darkolivegreen;
   background: whitesmoke;
 }
-#state-about:checked ~ .hidden-section {
+#state-about:checked ~ .hidden-section,
+#state-gal:checked ~ .hidden-section{
   transition: transform 0.75s, opacity 0.25s, visibility 0.75s, height 0.5s;
 }
 @media only screen and (max-width: 810px) {
-  .about-section {
+  .hidden-section {
     padding: 32px;
     box-shadow: 4px 0 inset gray;
   }
@@ -428,18 +472,21 @@ p:last-child {
   #state-about-trivia:checked ~ .about-trivia {
     padding: 24px
   }
-  .container-sample {
+  .container-sample,
+  .gallery {
     width: auto;
     flex-wrap: wrap;
     padding: 16px 10%; 
   }
-  .container-sample-section {
+  .container-sample-section,
+  .gallery-section{
     padding: 0;
     margin: 8px 0;
   }
-  .container-sample-section img:hover {
+  .container-sample-section img:hover,
+  .gallery-section img:hover{
     transform-origin: center;
-    transform: scale(130%);
+    transform: scale(125%);
     outline: 8px solid black;
   }
 }
