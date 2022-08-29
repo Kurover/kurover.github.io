@@ -1,0 +1,57 @@
+# The VTuber Model Project
+This journal contain my journey through creating my first VTuber model, AI-llith.
+Once the project is finished, I will publish it as a blog post in my website.. which is another problem to solve later because there's no blog section whatsoever.
+
+ETC DATA : 
+- 5hr/2d concept art (inc. reference search)
+- 2hr/1d sketch
+- 3.5hr/1d from sketch to outline
+- 6hr/2d Coloring
+- ~13hr/2d Rig
+
+# 21 August 2022 - Late Night
+First thing first, I need to pave the foundation. I personally start from rough idea and basic features for the model. I decided with futuristic android with steam punk aesthetic, sort of. We'll see how it turn out at the end but for now it'll suffice.
+
+Lore-wise, I made it into an AI that has been here for long. It simply branched out into separate project and made into both "physical" and virtual model for, well, entertainment purposes. Which in actuality just a proof of concept project.
+
+After completing the text dump, I continue working on the concept art. Tomorrow, hopefully, I get the rough sketch for all the important bits, mainly front and back view; accessory detail, and facial feature. After that I'm going to look for "VTubing for dummies" or something.
+
+# 23 August 2022 - Early Morning
+Finished the concept art sketch today. I will have to think about the color later. Leaning to blue/purple focus with orange accent. Will definitely go with lighter value since it's modern-esque steampunk style.
+
+After skimming the web about VTuber model creation, I think I can do this in like a week at least if I'm not doing anything extra.
+
+Trivia - I have watched a couple of my friends rig their models before and I learned a lot from them. Lots of process that I can personally optimize here and there with Live2D, we'll see.
+
+## Night
+Software recap time. For the assets, I'll be using my trusty Krita. Rigging seems to be locked with Live2D Cubism. Looks like they got the monopoly in this market. The free version is serviceable, probably won't touch the pro unless I'm going ham with this line of work. As for the tracking software, I'll be using VTube Studio.
+
+Before I do anything funny, I'll familiarise myself with Live2D Cubism first. I grabbed the free version sample, Hiyori Momose, to reverse engineer this whole shenanigan. Seems like I need two monitors to efficiently work with this beast. One is doable but it'll slow the progress quite a bit, honestly.
+
+And wow, holy layers, look at those! Well not as bad of an UI as 200 keyframe animation I suppose but still. The layers are... surprisingly simple? This is pretty much me trying to draw in 2015 who is paranoid of replacing/overriding vector lines because they are honestly quite terrible to work with if not separated. Allright, confidence boost! Not looking forward to the meshing process though.
+
+# 25 August 2022 - Early Morning
+Sketch is done. I decided to have whole non-clothed model and vice versa. The rigged will be clothed because I think the free version of Live2D won't allow me to (easily) achieve dynamic model change. Had to do a lot of improv and improvisation along the way since I got a bunch of ideas with the body design. The arm is now assymetric, right hand is normal human-like hand, while the left one is a simple crab pincher. "Saving the materials and processing power" as the lore reason. Torso is now hollow, though the inside is semi-enclosed like PC Tower Cooling gaps. The foot is now turned into a spring mechanism, so a whole leg has three parts each.
+
+## Morning
+Just realized something crucial, layer limit. I could only get up to 100 layers with free version, yikes. Change of plan, we'll simplify this crap like true pixel artist that we are!
+
+Just cross-checked and never mind! The sample is over-engineered. I have ~50 layers slot left if I simplify the rig. Main issue from the sample is that it has a lot of clustered tiny little detail on the face, mainly eyebrow. Safe~!
+
+## Night
+Currently doing the colors. So far I'm liking the result. I made a mistake of merging the base color layer with the outline here, woops. I wanted to load the backup outline but I suppose living of my mistake can be a good thing since I actually lack the experience of fixing an outline that has been replaced with fill color.
+
+There's a couple of method I find comfy to do in order to continue rendering. It's either multiply coloring or just redraw the line along the way. The latter I like because I can give more flare to the outlines, take too much time though so I did the first one the most.
+
+Trivia - I showed my work progress of the model to my friend. They seem to wonder why I don't use mirroring feature to draw. I suppose I can understand the neatness and symmetry of it; and maybe working with the mesh become easier too (this one I will be the judge later.) without getting too mouthful about it, mirroring only help the result, not the user. At least in term of drawing. Will definitely use it in interest of time however.
+
+# 26 August 2022 - Morning
+Whose idea is this to make majority of the body material out of metal... That took a while. Model is completed! Sans the rest of the clothing except the shirt area. Doesn't matter, a lot of the time, VTubers only show their face down to the shoulder max.
+
+Now to the fun part, rig 'a magic. Honestly don't know where to start but top to bottom it is!
+
+## Noon
+It's... noon already. I didn't really track the time it took for me to go to this point but wow, what an experience. 6-7 hours I think, I managed to familiarize myself with Live2D and finished the head tracking. The rest would probably need another +6 hours.
+
+## Midnight
+Just as the time passes through the day, I finally finished the rig. Now to house clean the website and add the first entry to the blog post!

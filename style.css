@@ -21,7 +21,7 @@ body {
   }
 }
 
-/*Nearest Neighbor upscaling for pixel art based render*/
+/*Nearest Horsebor upscaling for pixel art based render*/
 img {
   image-rendering: pixelated;
 }
@@ -43,25 +43,39 @@ a:active {
   color: darkslategray;
 }
 h1 {
-  font-size: 32px;
   text-decoration: underline;
-  margin-bottom: 0;
+  font-size: 40px;
 }
 h1:first-child {
-  margin: 0;
+  margin-top: 0;
 }
 h2 {
-  font-size: 24px;
-  text-decoration: underline;
-  margin-bottom: 0;
+  font-size: 32px;
+  margin-top: 64px;
+  margin-bottom: 16px;
 }
 h3 {
-  margin-bottom: 0;
+  font-size: 24px;
+  margin-top: 48px;
+  margin-bottom: 16px;
 }
+
 p:last-child {
   margin-bottom: 0;
 }
+details summary {
+  cursor: pointer;
+  color: limegreen;
+}
+details {
+  border: 1px solid slategray;
+  padding: 8px;
+}
+
 /*Utility CSS*/
+.font-consolas {
+  font-family: 'consolas';
+}
 .hide {
   display: none;
 }
@@ -91,15 +105,26 @@ p:last-child {
 .no-margin {
   margin: 0;
 }
+.no-margin-top {
+  margin-top: 0;
+}
+.no-margin-bot {
+  margin-bottom: 0;
+}
 .no-padding {
   padding: 0;
 }
-
 .center {
   text-align: center;
 }
 .caption {
   margin-top: 0;
+}
+.img-caption{
+  opacity: 75%;
+  font-size: 14px;
+  margin-top: 4px;
+  text-align: center;
 }
 @media only screen and (max-width: 810px) {
   .web {
@@ -112,10 +137,7 @@ p:last-child {
   }
 }
 @media only screen and (max-width: 427px) {
-  h1, h2, h3 {
-    text-align: center;
-  }
-  .caption {
+  h1, h2, h3, .caption {
     text-align: center;
   }
 }
@@ -128,27 +150,30 @@ p:last-child {
   margin: auto;
   overflow: hidden;
   border-bottom: 1px solid whitesmoke;
-  transition: background 0.1s, color 0.1s;
+  transition: background 0.1s, color 0.1s, width 0.1s;
   user-select: none;
   -webkit-user-select: none;
 }
 .nav-entry {
+  display: block;
   background: darkslategray;
   float: left;
   width: 92px;
-  padding: 8px 8px;
+  padding: 8px;
   margin: 8px 4px;
   overflow: hidden;
   text-align: center;
   text-decoration: none;
   transition: inherit;
+  cursor: pointer;
 }
-.nav-bar a {
+.nav-bar a{
   color: whitesmoke;
 }
 .nav-active {
   background: darkolivegreen;
   height: 24px;
+  cursor: default;
 }
 .nav-entry:hover {
   background: darkolivegreen;
@@ -156,6 +181,9 @@ p:last-child {
 .nav-active:hover {
   background: whitesmoke;
   color: darkslategray;
+}
+.nav-active:hover span {
+  color: darkolivegreen;
 }
 .nav-extra {
   background: #25355A;
@@ -179,12 +207,8 @@ p:last-child {
 .menu-dropdown {
   color: whitesmoke;
   cursor: default;
-  transition: 0.1s 0.25s;
 }
-.menu-dropdown:hover {
-  transition: 0.1s;
-}
-.dropdown-lab {
+.dropdown-container {
   visibility: hidden;
   position: absolute;
   width: 92px;
@@ -194,36 +218,65 @@ p:last-child {
   transform: scaleY(0);
   transition: transform 0.1s 0.25s, visibility 0.2s 0.25s;
 }
-
-.dropdown-lab-entry a {
+.dropdown-container-entry {
   display: block;
   background: darkslategray;
+  color: whitesmoke;
   width: 100%;
+  line-height: 32px;
   padding: 8px;
 }
-.dropdown-lab-entry a:hover {
+.dropdown-container-active,
+.dropdown-container-entry:hover {
   background: darkolivegreen;
 }
-.menu-dropdown:hover .dropdown-lab {
+.dropdown-container-active:hover {
+  background: whitesmoke;
+  color: darkslategray;
+}
+.menu-dropdown:hover .dropdown-container {
   z-index: 100;
   visibility: visible;
   transform: scaleY(100%);
   transition: transform 0.1s, visibility 0.2s;
 }
-
-@media only screen and (max-width: 520px) {
-  .nav-entry,
-  .dropdown-lab {
-    width: 72px;
+/*Mobile View*/
+@media only screen and (max-width: 768px) {
+  .nav-entry {
+    width: 76px;
+  }
+  .nav-active,
+  .nav-entry:hover {
+    width: 92px;
   }
 }
-@media only screen and (max-width: 427px) {
+@media only screen and (max-width: 600px) {
+  .nav-entry {
+    width: 56px;
+    margin-left: 2px;
+    margin-right: 2px;
+  }
+  .nav-active,
+  .nav-entry:hover {
+    width: 76px;
+  }
+}
+@media only screen and (max-width: 450px) {
   .nav-title {
     display: none;
   }
-  .nav-entry,
-  .dropdown-lab{
-    width: 80px;
+  .nav-entry {
+    width: 72px;
+  }
+}
+@media only screen and (max-width: 375px) {
+  .nav-entry {
+    width: 56px;
+  }
+  .dropdown-container,
+  .nav-active,
+  .nav-entry:hover {
+    width: 64px;
   }
 }
 
@@ -239,7 +292,7 @@ p:last-child {
 @media only screen and (max-width: 427px) {
   .entry {
     margin-top: 24px;
-    padding: 24px;
+    padding: 8px;
   }
 }
 
@@ -411,6 +464,9 @@ p:last-child {
 .gal-zoom-2 img:hover {
   transform: scale(150%);
 }
+.gal-zoom-3 img:hover {
+  transform: scale(200%);
+}
 .container-contact,
 .container-sample,
 .container-trivia,
@@ -489,6 +545,109 @@ p:last-child {
     transform: scale(125%);
     outline: 8px solid black;
   }
+}
+
+/* Blog CSS */
+.blog-entry img {
+  display: block;
+  margin: auto;
+  border: 1px solid white;
+  width: 100%;
+  max-width: 600px;
+  image-rendering: auto;
+}
+.blog-list li a {
+  text-decoration: underline;
+  font-size: 24px;
+}
+.blog-txt-embed {
+  background: whitesmoke;
+  width: 100%;
+  height: 420px;
+}
+.blog-editor {
+  color: lightblue;
+}
+.table-of-contents {
+  border: 2px solid slategray;
+  padding: 8px 16px;
+}
+.table-of-contents h2 {
+  margin-top: 16px;
+}
+.table-of-contents a {
+  color: whitesmoke;
+}
+.table-of-contents a:hover {
+  color: limegreen;
+}
+
+/*Download CSS*/
+.entry-download h2 {
+  margin-top: 0;
+  text-align: center;
+  text-decoration: underline;
+}
+.entry-download h3 {
+  margin-top: 16px;
+}
+.download-preview-wide {
+  display: block;
+  width: 100%;
+  margin-bottom: 16px;
+}
+.download-preview-portrait {
+  display: block;
+  margin: auto;
+  margin-bottom: 16px;
+  width: 90%;
+  max-width: 512px;
+}
+.download-container {
+  border: 1px solid slategray;
+  padding: 16px;
+  margin: 16px auto;
+}
+.button-download {
+  display: inline-block; 
+}
+.button-download a {
+  display: block;
+  border-left: 8px solid whitesmoke;
+  background: darkolivegreen;
+  color: whitesmoke;
+  padding: 18px 24px;
+  text-align: center;
+  transition: color 0.2s, background 0.2s;
+}
+.button-download:hover a {
+  background: whitesmoke;
+  color: darkolivegreen;
+}
+
+/*Shortcut Back to Top*/
+.back-to-top {
+  position: fixed;
+  border: 2px solid slategray;
+  font-size: 32px;
+  width: 32px;
+  height: 32px;
+  right: 5%;
+  bottom: 5%;
+  background-color: darkslategray;
+}
+.back-to-top a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding-left: 2px;
+  padding-top: 8px;
+  line-height: 32px;
+  transition: color 0.1s;
+}
+.back-to-top:hover a {
+  color: whitesmoke;
+  transition: color 0.1s;
 }
 
 /*Shortcut Slider on bottom left*/

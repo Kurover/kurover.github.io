@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zanster | Kurover Home</title>
+  <title>Zanster Website</title>
   <link rel="icon" href="favicon.png">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="font.css">
@@ -13,19 +13,24 @@
 <body>
   <header>
     <nav class="nav-bar">
-      <a class="nav-entry nav-title">
+      <div class="nav-entry nav-title"> 
         <span class="web">Zan-cs.site</span>
         <span class="mobile">cs.site</span>
-      </a>
+      </div>
       <a class="nav-entry nav-active" href="#">About</a>
       <a class="nav-entry" href="gallery.html">Gallery</a>
+      <div class="nav-entry menu-dropdown">
+        More
+        <div class="dropdown-container">
+          <a class="dropdown-container-entry" href="blog.html">Blog</a>
+          <a class="dropdown-container-entry" href="download.html">Files</a>
+        </div>
+      </div>
       <div class="nav-entry nav-extra menu-dropdown">
         Links
-        <div class="dropdown-lab">
-          <div class="dropdown-lab-entry">
-            <a href="https://twitter.com/Cloverift"> Twitter </a>
-            <a href="http://04.jp.org"> Font Credit </a>
-          </div>
+        <div class="dropdown-container">
+          <a class="dropdown-container-entry" href="https://twitter.com/Cloverift">Twitter</a>
+          <a class="dropdown-container-entry" href="http://04.jp.org">Font Credit</a>
         </div>
       </div>
     </nav>
@@ -39,9 +44,9 @@
       <input class="hide" type="radio" id="pp-3" name="btn-pp">
       <!-- Pic: Container -->
       <div class="profile-img">
-        <img class="img-pp-1" src="img/profile_picture1.png" alt="My main profile picture across the interweb.">
-        <img class="img-pp-2" src="img/profile_picture2.png" alt="Old alt profile and still more used than the newer one.">
-        <img class="img-pp-3" src="img/profile_picture3.png" alt="New shiny alt pic. So far only used for Discord.">
+        <img class="img-pp-1" src="img/profile_picture1.png" alt="Main Profile Picture">
+        <img class="img-pp-2" src="img/profile_picture2.png" alt="Old Profile Picture">
+        <img class="img-pp-3" src="img/profile_picture3.png" alt="Latest Profile Picture">
       </div>
       <!-- Pic: Text button -->
       <label class="btn-pp selection pp-sel-1" for="pp-1">Main</label>
@@ -52,7 +57,11 @@
     <h1 class="no-margin">Welcome</h1>
     <p class="caption">"4k art? Apologies but, best I could do is around 128x128 px."</p>
     <p>Hello, this is Zan, also known as Kurover. I'm a pixel artist who mainly draw art and animation from Touhou Project.</p>
-    <p>Currently, this website contain quick and basic information about my profile. There's also gallery page if you're interested to see more art I made.</p>
+    <p>This website is served for all sort of trinkets. May it be for a showcase, educational, and functional data. Gallery will lead you to well, gallery. Check the More! tab for blog post and downloadable files for you to use, like cursor and Live2D sample!</p>
+    <p>Recent Blog/Journal post:</p>
+    <ol>
+      <li><a href="blog_create-live2d.html">Creating Live2D Model For The First Time</a></li>
+    </ol>
   </div>
   
   <!-- Trivia: States -->
@@ -100,10 +109,10 @@
         <img src="img/gallery/touhou_cirno.gif" alt="19-9-2019 | Cirno day animation">
       </div>
       <div class="container-sample-section gal-c">
-        <img src="img/gallery/touhou_grassroot2.gif" alt="08-6-2022 | Sekibanki animation after year of not posting anything">
+        <img src="img/gallery/touhou_grassroot2.gif" alt="08-6-2022 | Sekibanki animation">
       </div>
       <div class="container-sample-section gal-r">
-        <img src="img/gallery/touhou_spood2.gif" alt="14-3-2021 | Yamame and Kisume hangout">
+        <img src="img/gallery/touhou_spood2.gif" alt="14-3-2021 | Yamame and Kisume hangout animation">
       </div>
     </div>
   </div>
@@ -116,8 +125,8 @@
       <p>Drawing art was once just a hobby of mine since 2013. It all started by me, innocently, scrolling through Facebook timeline and saw one of my, well, "friend of a friend", drew this amazing piece of anime art, not sure what it was but amazing nontheless. Then, it struck me, wouldn't it be cool if I also could do the thing whatever they're doing?</p>
       <p>With 1 fully finished art piece per month ratio even to this day, we jump ahead 5 revolution away toward the end of year 2017. At this time, I dipped my flimsy little toes into pixel art and it was the most fun experience I've ever had in the world of artistry. A change of pace, for a magic space.</p>
       <p>And now we are here. Trying a bit into writing, while also keeping up with the drawing. Oh, I guess HTML/CSS too, eh? Oh uh, photography and video editing? Ok, I guess I do have a fair share of problems in my hand.</p> 
-      <hr>
-      <h2 class="no-margin">About: Website</h2>
+
+      <h2 class="no-margin-bot">About: Website</h2>
       <p class="caption">"20kb home page, take it or leave it."</p>
       <p>..at least when you exclude the font and sample tab. For all the intellectuals out there, yes, this website is exclusively powered with HTML/CSS. Sometimes, long and round-about journey are more fun than one would think of, or maybe you simply have too much time in your hands, no in-between (gosh help I could finish all these button "script" 800% faster with js.)</p>
       <p>Adding mobile view support and designing around them even for a tiny bit is hell. Respect to you front-end devs out there with this kind of job.</p>

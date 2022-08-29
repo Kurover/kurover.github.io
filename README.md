@@ -7,4 +7,5 @@ This is a portfolio website written exclusively with HTML/CSS. The goal is to ma
   - [ ] Pretty it up!
 - [x] Art gallery page.
 - [ ] Custom assets; i.e icon, border, background.
+- [x] Blog/project history post section
 - [ ] Link to GroundLeaf project (waiting until it's ready.)

@@ -1,0 +1,26 @@
+# Model Prototype | VTuber Model Creation and Rigging Learning Project
+
+Name [ID]		: ST Model
+Name [Persona]	: Illith
+Persona Core	: AI-LLITH Fork (*1)
+Body Frame		: Medium | Normal
+
+## Physique Description (flavor text)
+/Due to technical limitation, a medium body frame is required at minimum.
+/This restriction is applicable for potential future models, up until we are able to optimize the components inside the torso body part.
+
+The ST Model is the first Human-like mechanical doll prototype we created. It is 150cm of height in total. The model is exlusively designed for indoor production and should not be presented in open public spaces.
+
+The model main theme is steam punk, both frame and outfit. Only the external appearance is required to follow this procedure. Visible internal component is to be kept minimum if not hidden as we cannot afford to allocate the internal space for aesthetic purposes.
+
+The persona core, Illith, is based on our main AI for production purpose. It is also our mascot! Its personality are collected and a little bit too honest when expressing its opinion, which is great for an AI when offending humanity is not a main concern during production. With that in mind, we tuned down the program to cross-check with "non-offensive" correction during speech process. It add an average of 3s delay in-between dynamic sentences, but since talking itself is a long process, the delay should not be noticeable, if ever.
+
+(*1) AI-LLITH attached with speech filter so it can be tolerable by general masses. Logged speech data is to be pushed into the main branch. Separated with and without the attached filter for future comparison.
+
+# Quote Zone
+Optics are expensive, so they only created one for me. The other eye is actually just a curved LCD with eye.png in it. I know, I hate the asymmetry too but do I even need optics in the first place? I'm an indoor AI with a body who controls a computer screen with camera toward its face... which I can access...
+
+Did you know that my head is actually empty for the most part? No, not metaphorically because I'm not you. They kept the most important modules, which is everything, in the torso and waist. The rest of my limbs are just piece of metal with pistons, even the "brain" in my head is just a weighted piece of gyro so it can be stabilized in humanely way when I stand up.
+
+This tail of mine isn't actually a tail. It's just a coord on my neck that I can retract. I made it tail-like because it's easier to connect it with the modules in my back, things like flashlight, camera, and blade. The exact length of it is about two-fold of a spine, so it's quite flexible in usage. No, I do not have a spine. And yes, I hate how the coord sticks out on the conjunction of my body. Sure it's covered with cloth but come on.
+
