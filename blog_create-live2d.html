@@ -149,7 +149,7 @@
       <p>In this line of work, we're looking for speed because oh boy you don't want to get stuck in a short-term project for more than 48 hours.</p>
       <section id="set-inf">
         <h3>Setting up the Infrastructure</h3>
-        <p>First thing I did was spamming auto mesh generator on every single parts, with little to no edit. Only when the mesh get too much. It's extremely messy overall but right now I'll be ignore optimizing it. Then, I soon found out that a couple of my layer has a stray pixel outside the bounding box, oops. Had to fix and re-export the broken layer. Quite easy to do, just drag and drop the .PNGs.</p>
+        <p>First thing I did was spamming auto mesh generator on every single parts, with little to no edit. Only when the mesh get too much. It's extremely messy overall but right now I'm not gonna bother optimizing it. Then, I soon found out that a couple of my layer has a stray pixel outside the bounding box, oops. Had to fix and re-export the broken layer. Quite easy to do, just drag and drop the .PNGs.</p>
         <p>A few of the layers require unique mesh (based on the sample), notably the face skin, things with edge that need to have detailed animation (front hair), object with physics (tend to be simpler with 3 main vertices). Did I adjust any of that? Absolutely not, at least not everything, only the face and hair, lol. It's not gonna be performant, but I didn't care. Oh, during this I found out how to glue two vertices! It's in the tool tab!</p>
         <p>Next up is setting the layer priority. I ordered it based on my original art layer for now, simple. While I'm at it, I assigned IDs to mainly the head layers. I think it'll be useful later. I did ignore the rest of the body part though, else I'm going to waste too much time.</p>
         <p>It's Deforming time! For now I treat it as a "folder for quick transform tool" since that's pretty much what it is anyway. I'll definitely stack this one up more later since that's how the sample do their job.</p>
@@ -160,7 +160,7 @@
       <section id="the-wor">
         <h3>The Work of Parameter</h3>
         <p>Now comes the part where I don't know how to structurize and write because I didn't really write anything about the process in the journal. You know, having a bit too much investment trying to rig the thing. Tangent aside, I'll recap what I did instead.</p>
-        <p>Starting with the most important yet the cheapest way to bring your work to live, the eyes. I grouped (deform folder) the lash with the eyeball, separating the iris. The iris is set to clip into the eyeball just so we don't have to worry clipping the iris out of bound.</p>
+        <p>Starting with the most important yet the cheapest way to bring your work to live, the eyes. I grouped (deform folder) the eye lash together with the eyeball, separating the iris. The iris is set to clip into the eyeball just so we don't have to worry clipping the iris out of bound.</p>
         <img src="img/blog/Create_Live2D/workeye.jpg" alt="Adjusting Eye Layer">
         <p class="img-caption">AeeUeghH</p>
         <p>Not sure how the parameter worked yet so I played around a bit. Quite simple if you have touched animation before, like bouncing ball in After Effect. I set up the Eyeball X and Y. After I'm done with it, I think I'm supposed to link the two together so w can get the in-between of X and Y.</p>
