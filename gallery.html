@@ -11,35 +11,36 @@
 </head>
 
 <body>
+  <a class="jump-to-main" tabindex="0" href="#top">SkipNav</a>
   <header>
     <nav class="nav-bar">
       <div class="nav-entry nav-title"> 
         <span class="web">Zan-cs.site</span>
         <span class="mobile">cs.site</span>
       </div>
-      <a class="nav-entry" href="index.html">About</a>
-      <a class="nav-entry nav-active" href="#">Gallery</a>
-      <div class="nav-entry menu-dropdown">
+      <a class="nav-entry" href="index.html" tabindex="0">About</a>
+      <a class="nav-entry active" href="gallery.html" tabindex="0">Gallery</a>
+      <div class="nav-entry menu-dropdown" tabindex="0">
         More
         <div class="dropdown-container">
-          <a class="dropdown-container-entry" href="blog.html">Blog</a>
-          <a class="dropdown-container-entry" href="download.html">Files</a>
+          <a class="dropdown-entry" href="blog.html" tabindex="0">Blog</a>
+          <a class="dropdown-entry" href="download.html" tabindex="0">Files</a>
         </div>
       </div>
-      <div class="nav-entry nav-extra menu-dropdown">
+      <div class="nav-entry extra menu-dropdown" tabindex="0">
         Links
         <div class="dropdown-container">
-          <a class="dropdown-container-entry" href="https://twitter.com/Cloverift">Twitter</a>
-          <a class="dropdown-container-entry" href="http://04.jp.org">Font Credit</a>
+          <a class="dropdown-entry" href="https://twitter.com/Cloverift" tabindex="0">Twitter</a>
+          <a class="dropdown-entry" href="http://04.jp.org" tabindex="0">Font Credit</a>
         </div>
       </div>
     </nav>
   </header>
   
-  <div class="entry">
+  <div class="entry" id="top">
     <div class="container-profile-img">
       <div class="profile-img">
-        <img src="img/illith.png" style="opacity: 100;">
+        <img style="opacity: 100;" src="img/illith.png" alt="Illith Avatar Picture">
       </div>
       <span class="btn-pp no-select" style="width: 128px; display: block;">Illith</span>
     </div>
@@ -50,10 +51,10 @@
     <p>There are more raster art that is not showcased here. It's the best for your eyesight, really. Jokes aside, my creator doesn't really draw that much of raster art after he "dipped his toes" or whatever into pixel art. Might be allergic to it, who knows.</p>
   </div>
   
-  <input class="hide" type="radio" id="state-gal" name="btn-gal" checked>
-  <input class="hide" type="radio" id="state-gal-anim" name="btn-gal">
-  <input class="hide" type="radio" id="state-gal-pixel" name="btn-gal" >
-  <input class="hide" type="radio" id="state-gal-raster" name="btn-gal">
+  <input class="hide-input" type="radio" id="state-gal" name="btn-gal" tabindex="0" checked>
+  <input class="hide-input" type="radio" id="state-gal-anim" name="btn-gal" tabindex="0">
+  <input class="hide-input" type="radio" id="state-gal-pixel" name="btn-gal" tabindex="0">
+  <input class="hide-input" type="radio" id="state-gal-raster" name="btn-gal" tabindex="0">
   
   <div class="nav-bar nav-control-panel">
     <label class="ctrl-entry-main" for="state-gal">

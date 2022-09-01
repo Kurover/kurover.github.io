@@ -12,25 +12,26 @@
 
 <body>
   <header>
+    <a class="jump-to-main" tabindex="0" href="#top">SkipNav</a>
     <nav class="nav-bar">
-      <div class="nav-entry nav-title"> 
+      <div class="nav-entry nav-title">
         <span class="web">Zan-cs.site</span>
         <span class="mobile">cs.site</span>
       </div>
-      <a class="nav-entry" href="index.html">About</a>
-      <a class="nav-entry" href="gallery.html">Gallery</a>
-      <div class="nav-entry nav-active menu-dropdown">
+      <a class="nav-entry" href="index.html" tabindex="0">About</a>
+      <a class="nav-entry" href="gallery.html" tabindex="0">Gallery</a>
+      <div class="nav-entry active menu-dropdown" tabindex="0">
         More
         <div class="dropdown-container">
-          <a class="dropdown-container-entry" href="blog.html">Blog</a>
-          <a class="dropdown-container-entry" href="download.html">Files</a>
+          <a class="dropdown-entry active" href="blog.html" tabindex="0">Blog</a>
+          <a class="dropdown-entry" href="download.html" tabindex="0">Files</a>
         </div>
       </div>
-      <div class="nav-entry nav-extra menu-dropdown">
+      <div class="nav-entry extra menu-dropdown" tabindex="0">
         Links
         <div class="dropdown-container">
-          <a class="dropdown-container-entry" href="https://twitter.com/Cloverift">Twitter</a>
-          <a class="dropdown-container-entry" href="http://04.jp.org">Font Credit</a>
+          <a class="dropdown-entry" href="https://twitter.com/Cloverift" tabindex="0">Twitter</a>
+          <a class="dropdown-entry" href="http://04.jp.org" tabindex="0">Font Credit</a>
         </div>
       </div>
     </nav>
@@ -50,21 +51,21 @@
     <section class="table-of-contents" id="top">
       <h2>Table of Contents</h2>
       <ol>
-        <li><a href="#pre-pro">Pre-Production</a></li>
-        <li><a href="#des-dra">Designing and Drawing a Character</a></li>
-        <li><a href="#pla-aro">Playing Around With Live2D Cubism</a></li>
-        <li><a href="#wor-aro">Working Around With Live2D Cubism</a></li>
+        <li><a href="#pre-pro" tabindex="0">Pre-Production</a></li>
+        <li><a href="#des-dra" tabindex="0">Designing and Drawing a Character</a></li>
+        <li><a href="#pla-aro" tabindex="0">Playing Around With Live2D Cubism</a></li>
+        <li><a href="#wor-aro" tabindex="0">Working Around With Live2D Cubism</a></li>
         <ol type="I">
-          <li><a href="#set-inf">Setting up the Infrastructure</a></li>
-          <li><a href="#the-wor">The Work</a></li>
+          <li><a href="#set-inf" tabindex="0">Setting up the Infrastructure</a></li>
+          <li><a href="#the-wor" tabindex="0">The Work</a></li>
         </ol>
-        <li><a href="#rev">Review</a></li>
+        <li><a href="#rev" tabindex="0">Review</a></li>
         <ol type="I">
-          <li><a href="#the-bad">Live2D Cubism - The Bad</a></li>
-          <li><a href="#the-goo">Live2D Cubism - The Good</a></li>
-          <li><a href="#closing">Closing</a></li>
+          <li><a href="#the-bad" tabindex="0">Live2D Cubism - The Bad</a></li>
+          <li><a href="#the-goo" tabindex="0">Live2D Cubism - The Good</a></li>
+          <li><a href="#closing" tabindex="0">Closing</a></li>
         </ol>
-        <li><a href="#ext">Extra</a></li>
+        <li><a href="#ext" tabindex="0">Extra</a></li>
       </ol>
     </section>
 
@@ -165,26 +166,26 @@
         <p class="img-caption">AeeUeghH</p>
         <p>Not sure how the parameter worked yet so I played around a bit. Quite simple if you have touched animation before, like bouncing ball in After Effect. I set up the Eyeball X and Y. After I'm done with it, I think I'm supposed to link the two together so we can animate the in-between of X and Y.</p>
         <p>I was wondering on how you animate the eye closing animation and I thought it's gonna be elaborate, which is kinda true if you think about it, but well you just squish the parts and overlap them on each other. So this is why you should over-extend your part with skin color since you can easily hide stuff with it. This method is especially true for the mouth I assume.</p>
-        <img src="img/blog/Create_Live2D/workeye2.gif" alt="Eye Look and Blink Animation">
+        <img src="img/blog/Create_Live2D/workeye2.gif" alt="Eye Look and Blink Animation Result">
         <p class="img-caption">It's okay</p>
         <p>With that done, guess what I did next? Hair animation. But wait, it's not just the hair, I also did the head deformation at the same time because I don't know what I'm doing. I couldn't really imagine how the hair move if the head is static. This ended up being... an all right move? Because this mean I can work with the mouth in all angles immediately. Not sure, feels backward honestly but here I am.</p>
         <p>I grouped the whole face layer then separate it into X+Y and Z deformer. I proceed to animate the X Y face. Just warping it until it look decent enough, nothing fancy. The Z rotation is pretty simple, just rotate 30 degree-ish.</p>
         <p>After that, I worked on the hair with gravity and perspective in mind. If she looks up, back hair went down. Look down, move it up. Tilting, rotate the side hair and deform the rest, etc.</p>
         <p>At this point I was wondering on how you make the hair bounces around when you move the head (in physic tab). Apparently there's a specific parameter for it. Set it up and you can let the program do the magic. Ahh, so it's simpler than I thought. I did that and now there's more deformer group than ever. Starting to worry about that deformer limit, not gonna lie.</p>
-        <img src="img/blog/Create_Live2D/workhead.gif">
+        <img src="img/blog/Create_Live2D/workhead.gif" alt="Head Animation Result">
         <p class="img-caption">Twirlll</p>
         <p>Hey proofreader, I wonder why the neck is animated already, and the mouth is closed?? <span class="blog-editor">Whose the <i>potato</i> that didn't record the progress?</span> I, uh, let's not talk about it. What we can talk about, though, letting our character here able to speak!</p>
         <p>This one is similar to animating the eye lash. One mistake I had here is that I made the skin texture a little bit too less. This make it trickier to hide the oral texture effectively. I could have edited the texture but no, I was too stubborn and decided to deform the whole thing manually lol. I managed to create 2 keyframe, normal and slight smile.</p>
         <img src="img/blog/Create_Live2D/mouthanim.gif">
-        <img style="border: none;" src="img/blog/Create_Live2D/mouth.png">
+        <img style="border: none;" src="img/blog/Create_Live2D/mouth.png" alt="Rigging the Mouth">
         <p class="img-caption">"Wait, it's all 2D?"</p>
         <p>With that, I'm pretty much finished with the head. Now then, for the rest of the activity, I noticed the process is more or less the same like what I did with the head. So we will not cover these as it get repetitive explaining the same stuff.</p>
         <p>Notable difference is that I set the "breath" (idle pose) parameter only to the tail, because well, computer doesn't breath like human do. Other physic parameter is merged together with the one for the hair due to the 30 limit. I accounted the modular body and animate it accordingly, see below.</p>
-        <img src="img/blog/Create_Live2D/waist.gif">
+        <img src="img/blog/Create_Live2D/waist.gif" alt="Waist Animation Result">
         <p class="img-caption">Hmm perspective</p>
-        <img src="img/blog/Create_Live2D/leg.gif">
+        <img src="img/blog/Create_Live2D/leg.gif" alt="Leg Animation Result">
         <p class="img-caption">Mechanical parts</p>
-        <img src="img/blog/Create_Live2D/full.gif">
+        <img src="img/blog/Create_Live2D/full.gif" alt="Full Body Rig/Animation Preview">
         <p class="img-caption">Full preview</p>
       </section>
     </section>
@@ -245,6 +246,6 @@
     </section> 
   </article>
   
-  <div class="back-to-top"><a href="#top">^</a></div>
+  <div class="jump-to-top"><a href="#top" tabindex="0">^</a></div>
   
 </body>

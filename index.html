@@ -12,31 +12,33 @@
 
 <body>
   <header>
+    <a class="jump-to-main" tabindex="0" href="#top">SkipNav</a>
+    <div class="input-trigger">Notice:<br>To navigate sub-tab. (Contact, Sample, etc.)<br>Navigate until the "Close" border is highlighted.<br>Use arrow key to change the tabs.<br>Press ESC to unlock scrolling.<br>I couldn't figure out how to activate "label" object.<br>Sorry for the acessibility jank.</div>
     <nav class="nav-bar">
       <div class="nav-entry nav-title"> 
         <span class="web">Zan-cs.site</span>
         <span class="mobile">cs.site</span>
       </div>
-      <a class="nav-entry nav-active" href="#">About</a>
-      <a class="nav-entry" href="gallery.html">Gallery</a>
-      <div class="nav-entry menu-dropdown">
+      <a class="nav-entry active" href="index.html" tabindex="0">About</a>
+      <a class="nav-entry" href="gallery.html" tabindex="0">Gallery</a>
+      <div class="nav-entry menu-dropdown" tabindex="0">
         More
         <div class="dropdown-container">
-          <a class="dropdown-container-entry" href="blog.html">Blog</a>
-          <a class="dropdown-container-entry" href="download.html">Files</a>
+          <a class="dropdown-entry" href="blog.html" tabindex="0">Blog</a>
+          <a class="dropdown-entry" href="download.html" tabindex="0">Files</a>
         </div>
       </div>
-      <div class="nav-entry nav-extra menu-dropdown">
+      <div class="nav-entry extra menu-dropdown" tabindex="0">
         Links
         <div class="dropdown-container">
-          <a class="dropdown-container-entry" href="https://twitter.com/Cloverift">Twitter</a>
-          <a class="dropdown-container-entry" href="http://04.jp.org">Font Credit</a>
+          <a class="dropdown-entry" href="https://twitter.com/Cloverift" tabindex="0">Twitter</a>
+          <a class="dropdown-entry" href="http://04.jp.org" tabindex="0">Font Credit</a>
         </div>
       </div>
     </nav>
   </header>
   <!-- Main Entry -->
-  <div class="entry">
+  <div class="entry" tabindex="-1" id="top">
     <div class="container-profile-img">
       <!-- Pic: States -->
       <input class="hide" type="radio" id="pp-1" name="btn-pp" checked>
@@ -65,11 +67,10 @@
   </div>
   
   <!-- Trivia: States -->
-  <input class="hide" type="radio" id="state-about" name="btn-about">
-  <input class="hide" type="radio" id="state-about-contact" name="btn-about">
-  <input class="hide" type="radio" id="state-about-sample" name="btn-about" checked>
-  <input class="hide" type="radio" id="state-about-trivia" name="btn-about">
-  
+  <input class="hide-input" type="radio" id="state-about" name="btn-about" tabindex="0">
+  <input class="hide-input" type="radio" id="state-about-contact" name="btn-about" tabindex="0">
+  <input class="hide-input" type="radio" id="state-about-sample" name="btn-about" tabindex="0" checked>
+  <input class="hide-input" type="radio" id="state-about-trivia" name="btn-about" tabindex="0">
   <!-- Trivia: Nav bar -->
   <div class="nav-bar nav-control-panel">
     <label class="ctrl-entry-main" for="state-about">
