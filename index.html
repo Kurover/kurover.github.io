@@ -11,9 +11,9 @@
 </head>
 
 <body>
+  <a class="jump-to-main" tabindex="0" href="#top">SkipNav</a>
+  <div class="notice-accessibility"><p class="no-margin">Notice:<br>To navigate sub-tab. (Contact, Sample, etc.), Tab-key navigate until the "Close" border is highlighted. Then, use the arrow key to switch tabs. Press ESC to unlock scrolling.</p><p>I couldn't figure out how to activate "label" object. Sorry for the accessibility jank.</p></div>
   <header>
-    <a class="jump-to-main" tabindex="0" href="#top">SkipNav</a>
-    <div class="input-trigger">Notice:<br>To navigate sub-tab. (Contact, Sample, etc.)<br>Navigate until the "Close" border is highlighted.<br>Use arrow key to change the tabs.<br>Press ESC to unlock scrolling.<br>I couldn't figure out how to activate "label" object.<br>Sorry for the acessibility jank.</div>
     <nav class="nav-bar">
       <div class="nav-entry nav-title"> 
         <span class="web">Zan-cs.site</span>
@@ -59,11 +59,15 @@
     <h1 class="no-margin">Welcome</h1>
     <p class="caption">"4k art? Apologies but, best I could do is around 128x128 px."</p>
     <p>Hello, this is Zan, also known as Kurover. I'm a pixel artist who mainly draw art and animation from Touhou Project.</p>
-    <p>This website is served for all sort of trinkets. May it be for a showcase, educational, and functional data. Gallery will lead you to well, gallery. Check the More! tab for blog post and downloadable files for you to use, like cursor and Live2D sample!</p>
-    <p>Recent Blog/Journal post:</p>
-    <ol>
-      <li><a href="blog_create-live2d.html">Creating Live2D Model For The First Time</a></li>
-    </ol>
+    <p>This website is served for all sort of trinkets. May it be for a showcase, educational, and functional data. Gallery will lead you to well, gallery. Check the "More" tab for blog post and downloadable files for you to use, like cursor and Live2D sample!</p>
+    <div class="about-extra-container">
+      <div class="container blog">
+        <p>Recent Blog/Journal post:</p>
+        <ol>
+          <li><a href="blog_create-live2d.html" tabindex="0">Creating Live2D Model For The First Time</a></li>
+        </ol>
+      </div>
+    </div>
   </div>
   
   <!-- Trivia: States -->
@@ -106,13 +110,13 @@
   <div class="entry hidden-section about-sample">
     <div class="container-sample">
       <h2 class="hide">Art Sample</h2>
-      <div class="container-sample-section gal-l">
+      <div class="container left">
         <img src="img/gallery/touhou_cirno.gif" alt="19-9-2019 | Cirno day animation">
       </div>
-      <div class="container-sample-section gal-c">
+      <div class="container center">
         <img src="img/gallery/touhou_grassroot2.gif" alt="08-6-2022 | Sekibanki animation">
       </div>
-      <div class="container-sample-section gal-r">
+      <div class="container right">
         <img src="img/gallery/touhou_spood2.gif" alt="14-3-2021 | Yamame and Kisume hangout animation">
       </div>
     </div>
@@ -128,8 +132,8 @@
       <p>And now we are here. Trying a bit into writing, while also keeping up with the drawing. Oh, I guess HTML/CSS too, eh? Oh uh, photography and video editing? Ok, I guess I do have a fair share of problems in my hand.</p> 
 
       <h2 class="no-margin-bot">About: Website</h2>
-      <p class="caption">"20kb home page, take it or leave it."</p>
-      <p>..at least when you exclude the font and sample tab. For all the intellectuals out there, yes, this website is exclusively powered with HTML/CSS. Sometimes, long and round-about journey are more fun than one would think of, or maybe you simply have too much time in your hands, no in-between (gosh help I could finish all these button "script" 800% faster with js.)</p>
+      <p class="caption">HTML5 For the win!</p>
+      <p>For all the intellectuals out there, yes, this website is exclusively powered with HTML/CSS. Sometimes, long and round-about journey are more fun than one would think of, or maybe you simply have too much time in your hands, no in-between (gosh help I could finish all these button "script" 800% faster with js.)</p>
       <p>Adding mobile view support and designing around them even for a tiny bit is hell. Respect to you front-end devs out there with this kind of job.</p>
       <p>My end goal with the website is to make a micro-pocket-sized portfolio page written with limitation (A.K.A. no script) to match the spirit of my pixel art journey! Of course, exception will be made toward raster art I'm showcasing here. </p>
       <p>I do hope that I can achieve a well interactive site where you can easily receive relevant information without getting overwhelmed by other junk floating around. Not saying I wouldn't add floating junk around, of course.</p>
