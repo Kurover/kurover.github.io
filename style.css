@@ -153,7 +153,8 @@ details {
   box-shadow: 8px 0 inset whitesmoke;
 }
 .notice-accessibility {
-  z-index: 100;
+  z-index: 1000;
+  visibility: hidden;
   opacity: 0;
   position: fixed;
   border: 4px solid gray;
@@ -162,7 +163,7 @@ details {
   left: 5%;
   bottom: 10%;
   max-width: 512px;
-  transition: background 0.2s, opacity 0.2s;
+  transition: background 0.2s, opacity 0.2s, visibility 0s 0.2s;
 }
 @media only screen and (max-width: 810px) {
   .notice-accessibility {
@@ -182,8 +183,10 @@ details {
   transform: translateY(64px);
 }
 .jump-to-main:focus ~ .notice-accessibility {
+  visibility:visible ;
   opacity: 1;
   background: darkslategray;
+  transition: background 0.2s, opacity 0.2s, visibility 0s;
 }
 
 /*Navigation Bar*/
