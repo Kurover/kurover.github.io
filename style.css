@@ -42,6 +42,9 @@ a:hover {
 a:active {
   color: darkslategray;
 }
+h1, h2, h3, h4, h5, h6 {
+  color: azure;
+}
 h1 {
   text-decoration: underline;
   font-size: 40px;
@@ -51,7 +54,7 @@ h1:first-child {
 }
 h2 {
   font-size: 32px;
-  margin-top: 64px;
+  margin-top: 48px;
   margin-bottom: 16px;
 }
 h3 {
@@ -63,13 +66,17 @@ h3 {
 p:last-child {
   margin-bottom: 0;
 }
-details summary {
-  cursor: pointer;
-  color: limegreen;
-}
 details {
   border: 1px solid slategray;
   padding: 8px;
+}
+details > summary {
+  cursor: pointer;
+  color: limegreen;
+}
+summary > h2 {
+  display: inline-block;
+  margin: 0;
 }
 
 /*Utility CSS*/
@@ -276,8 +283,8 @@ details {
   background: darkslategray;
   color: whitesmoke;
   width: 100%;
-  line-height: 32px;
-  padding: 8px;
+  padding: 16px 8px;
+  border-top: 2px solid #0B0E0F;
 }
 .menu-dropdown:hover .dropdown-container,
 .menu-dropdown:focus-within .dropdown-container {

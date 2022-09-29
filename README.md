@@ -8,4 +8,7 @@ This is a portfolio website written exclusively with HTML/CSS. The goal is to ma
 - [x] Art gallery page.
 - [ ] Custom assets; i.e icon, border, background.
 - [x] Blog/project history post section
+- [ ] Improve Jekyll integration
+
+## EX:
 - [ ] Link to GroundLeaf project (waiting until it's ready.)
