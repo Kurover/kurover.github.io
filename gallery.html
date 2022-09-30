@@ -14,25 +14,25 @@
   <a class="jump-to-main" tabindex="0" href="#top">SkipNav</a>
   <header>
     <nav class="nav-bar">
-      <div class="nav-entry nav-title"> 
-        <span class="web">Zan-cs.site</span>
-        <span class="mobile">cs.site</span>
+      <div class="nav-entry nav-entry--title"> 
+        <span class="web-only">Zan-cs.site</span>
+        <span class="mobile-only">cs.site</span>
       </div>
       <a class="nav-entry" href="https://kurover.github.io" tabindex="0">About</a>
-      <a class="nav-entry active" href="https://kurover.github.io/gallery" tabindex="0">Gallery</a>
-      <div class="nav-entry menu-dropdown" tabindex="0">
+      <a class="nav-entry nav-entry--active" href="https://kurover.github.io/gallery" tabindex="0">Gallery</a>
+      <div class="nav-entry nav-dropdown-button" tabindex="0">
         More
-        <div class="dropdown-container">
-          <a class="dropdown-entry" href="https://kurover.github.io/blog" tabindex="0">Blog</a>
-          <a class="dropdown-entry" href="https://kurover.github.io/download" tabindex="0">Files</a>
+        <div class="nav-dropdown-container">
+          <a class="nav-dropdown-entry" href="https://kurover.github.io/blog" tabindex="0">Blog</a>
+          <a class="nav-dropdown-entry" href="https://kurover.github.io/download" tabindex="0">Files</a>
         </div>
       </div>
-      <div class="nav-entry extra menu-dropdown" tabindex="0">
+      <div class="nav-entry nav-entry--right nav-dropdown-button" tabindex="0">
         Links
-        <div class="dropdown-container">
-          <a class="dropdown-entry" href="http://04.jp.org" tabindex="0">Font Credit</a>
-          <a class="dropdown-entry" href="https://github.com/Kurover/kurover.github.io" tabindex="0">Github Repo</a>
-          <a class="dropdown-entry" href="https://twitter.com/Cloverift" tabindex="0">Twitter</a>
+        <div class="nav-dropdown-container">
+          <a class="nav-dropdown-entry" href="http://04.jp.org" tabindex="0">Font Credit</a>
+          <a class="nav-dropdown-entry" href="https://github.com/Kurover/kurover.github.io" tabindex="0">Github Repo</a>
+          <a class="nav-dropdown-entry" href="https://twitter.com/Cloverift" tabindex="0">Twitter</a>
         </div>
       </div>
     </nav>
@@ -43,7 +43,7 @@
       <div class="profile-img">
         <img style="opacity: 100;" src="img/illith.png" alt="Illith Avatar Picture">
       </div>
-      <span class="btn-pp no-select" style="width: 128px; display: block;">Illith</span>
+      <span class="selector-pp no-select" style="width: 128px; display: block;">Illith</span>
     </div>
     <h1 class="no-margin">Welcome: Gallery</h1>
     <p>Hello, Illith here, welcome to the gallery!</p>
@@ -52,92 +52,93 @@
     <p>There are more raster art that is not showcased here. It's the best for your eyesight, really. Jokes aside, my creator doesn't really draw that much of raster art after he "dipped his toes" or whatever into pixel art. Might be allergic to it, who knows.</p>
   </div>
   
-  <input class="hide-input" type="radio" id="state-gal" name="btn-gal" tabindex="0" checked>
-  <input class="hide-input" type="radio" id="state-gal-anim" name="btn-gal" tabindex="0">
-  <input class="hide-input" type="radio" id="state-gal-pixel" name="btn-gal" tabindex="0">
-  <input class="hide-input" type="radio" id="state-gal-raster" name="btn-gal" tabindex="0">
+  <input class="hidden-input" type="radio" id="state-gal" name="selector-gal" tabindex="0" checked>
+  <input class="hidden-input" type="radio" id="state-gal-anim" name="selector-gal" tabindex="0">
+  <input class="hidden-input" type="radio" id="state-gal-pixel" name="selector-gal" tabindex="0">
+  <input class="hidden-input" type="radio" id="state-gal-raster" name="selector-gal" tabindex="0">
   
   <div class="nav-bar nav-control-panel">
     <label class="ctrl-entry-main" for="state-gal">
       <span class="link state-gal-on">Close</span>
-      <span class="web">Category</span>
-      <span class="mobile">Categ.</span>
+      <span class="web-only">Category</span>
+      <span class="mobile-only">Categ.</span>
     </label>
-    <label class="btn-anim selection ctrl-entry" for="state-gal-anim">
+    <label class="selector-anim selection ctrl-entry" for="state-gal-anim">
       Anim
     </label>
-    <label class="btn-pixel selection ctrl-entry" for="state-gal-pixel">
+    <label class="selector-pixel selection ctrl-entry" for="state-gal-pixel">
       Pixel
     </label>
-    <label class="btn-raster selection ctrl-entry" for="state-gal-raster">
+    <label class="selector-raster selection ctrl-entry" for="state-gal-raster">
       Raster
     </label>
   </div>
   
-  <div class="entry hidden-section gal-anim">
-    <div class="gallery anim">
-    <h1 class="hide">Gallery Animation</h1>
-      <div class="container"> <img src="img/gallery/oc_clover1.gif"> </div>
-      <div class="container"> <img src="img/gallery/oc_stylla1.gif"> </div>
-      <div class="container"> <img src="img/gallery/oc_stylla1b.gif"> </div>
+  <div class="entry entry--accordion gallery-animation" id="gal-anim">
+    <div class="container-gallery container-gallery--anim">
+    <h1 class="hidden">Gallery Animation</h1>
+      <div class="image-container"> <img src="img/gallery/oc_clover1.gif"> </div>
+      <div class="image-container"> <img src="img/gallery/oc_stylla1.gif"> </div>
+      <div class="image-container"> <img src="img/gallery/oc_stylla1b.gif"> </div>
     </div>
-    <div class="gallery anim">
-      <div class="container"> <img src="img/gallery/touhou_spood1.gif"> </div>
-      <div class="container"> <img src="img/gallery/touhou_spood2.gif"> </div>
-      <div class="container"> <img src="img/gallery/touhou_cirno.gif"> </div>
+    <div class="container-gallery container-gallery--anim">
+      <div class="image-container"> <img src="img/gallery/touhou_spood1.gif"> </div>
+      <div class="image-container"> <img src="img/gallery/touhou_spood2.gif"> </div>
+      <div class="image-container"> <img src="img/gallery/touhou_cirno.gif"> </div>
     </div>
-    <div class="gallery anim">
-      <div class="container"> <img src="img/gallery/touhou_youmu2.gif"> </div>
-      <div class="container"> <img src="img/gallery/touhou_kooshy.gif"> </div>
-      <div class="container"> <img src="img/gallery/touhou_rumia.gif"> </div>
+    <div class="container-gallery container-gallery--anim">
+      <div class="image-container"> <img src="img/gallery/touhou_youmu2.gif"> </div>
+      <div class="image-container"> <img src="img/gallery/touhou_kooshy.gif"> </div>
+      <div class="image-container"> <img src="img/gallery/touhou_rumia.gif"> </div>
     </div>
-    <div class="gallery anim">
-      <div class="container"> <img src="img/gallery/touhou_grassroot1.gif"> </div>
-      <div class="container zoom-2"> <img src="img/gallery/touhou_grassroot2.gif"> </div>
+    <div class="container-gallery container-gallery--anim">
+      <div class="image-container"> <img src="img/gallery/touhou_grassroot1.gif"> </div>
+      <div class="image-container zoom-medium"> <img src="img/gallery/touhou_grassroot2.gif"> </div>
     </div>
     
   </div>  
-  <div class="entry hidden-section gal-pixel">
-  <h1 class="hide">Gallery Pixel Art</h1>
-    <div class="gallery pixel">
-      <div class="container white"> <img src="img/gallery/touhou_whale.png"> </div>
-      <div class="container zoom-2"> <img src="img/gallery/touhou_trio18.png"> </div>
+  <div class="entry entry--accordion" id="gal-pixel">
+  <h1 class="hidden">Gallery Pixel Art</h1>
+    <div class="container-gallery container-gallery--pixel">
+      <div class="image-container white-background"> <img src="img/gallery/touhou_whale.png"> </div>
+      <div class="image-container zoom-medium"> <img src="img/gallery/touhou_trio18.png"> </div>
     </div>
-    <div class="gallery pixel">
-      <div class="container"> <img src="img/gallery/touhou_mokou.png"> </div>
+    <div class="container-gallery container-gallery--pixel">
+      <div class="image-container"> <img src="img/gallery/touhou_mokou.png"> </div>
     </div>
-    <div class="gallery pixel">
-      <div class="container white"> <img src="img/gallery/oc_sprite1.png"> </div>
-      <div class="container zoom-2"> <img src="img/gallery/oc_sprite2.png"> </div>
-      <div class="container zoom-2"> <img src="img/gallery/touhou_youmu.png"> </div>
+    <div class="container-gallery container-gallery--pixel">
+      <div class="image-container white-background"> <img src="img/gallery/oc_sprite1.png"> </div>
+      <div class="image-container zoom-medium"> <img src="img/gallery/oc_sprite2.png"> </div>
+      <div class="image-container zoom-medium"> <img src="img/gallery/touhou_youmu.png"> </div>
     </div>
-    <div class="gallery pixel">
-      <div class="container"> <img src="img/gallery/touhou_kyouko.png"> </div>
-      <div class="container white zoom-2"> <img src="img/gallery/touhou_koishi.png"> </div>
+    <div class="container-gallery container-gallery--pixel">
+      <div class="image-container"> <img src="img/gallery/touhou_kyouko.png"> </div>
+      <div class="image-container white-background zoom-medium"> <img src="img/gallery/touhou_koishi.png"> </div>
     </div>
-    <div class="gallery pixel">
-      <div class="container zoom-2"> <img src="img/gallery/touhou_marisa.png"> </div>
-      <div class="container zoom-2"> <img src="img/gallery/oc_trio.png"> </div>
+    <div class="container-gallery container-gallery--pixel">
+      <div class="image-container zoom-medium"> <img src="img/gallery/touhou_marisa.png"> </div>
+      <div class="image-container zoom-medium"> <img src="img/gallery/oc_trio.png"> </div>
     </div>
   </div>  
   
-  <div class="entry hidden-section gal-raster">
-  <h1 class="hide">Gallery Raster Art</h1>
-    <div class="gallery raster">
-      <div class="container"> <img src="img/gallery/oc_clover2.jpg"> </div>
-      <div class="container"> <img src="img/gallery/oc_stylla2.jpg"> </div>
+  <div class="entry entry--accordion" id="gal-raster">
+  <h1 class="hidden">Gallery Raster Art</h1>
+    <div class="container-gallery container-gallery--raster">
+      <div class="image-container"> <img src="img/gallery/oc_clover2.jpg"> </div>
+      <div class="image-container"> <img src="img/gallery/oc_stylla2.jpg"> </div>
     </div>    
-    <div class="gallery raster">
-      <div class="container"> <img src="img/gallery/touhou_koosh2.jpg"> </div>
-      <div class="container"> <img src="img/gallery/touhou_eternity.jpg"> </div>
+    <div class="container-gallery container-gallery--raster">
+      <div class="image-container"> <img src="img/gallery/touhou_koosh2.jpg"> </div>
+      <div class="image-container"> <img src="img/gallery/touhou_eternity.jpg"> </div>
     </div>    
-    <div class="gallery raster">
-      <div class="container"> <img src="img/gallery/arknight_sus1.jpg"> </div>
-      <div class="container"> <img src="img/gallery/arknight_sus2.jpg"> </div>
+    <div class="container-gallery container-gallery--raster">
+      <div class="image-container"> <img src="img/gallery/arknight_sus1.jpg"> </div>
+      <div class="image-container"> <img src="img/gallery/arknight_sus2.jpg"> </div>
     </div>
-    <div class="gallery raster">
-      <div class="container"> <img src="img/gallery/arknight_oc.jpg"> </div>
+    <div class="container-gallery container-gallery--raster">
+      <div class="image-container"> <img src="img/gallery/arknight_oc.jpg"> </div>
     </div>
   </div>
   
 </body>
+</html>

@@ -12,25 +12,21 @@ body {
 }
 @media only screen and (max-width: 810px) {  
   body {
-    width: 90%;
+    width: 95%;
   }
 }
-@media only screen and (max-width: 427px) {  
+@media only screen and (max-width: 450px) {  
   body {
     width: 100%;
   }
 }
 
-/*Nearest Horsebor upscaling for pixel art based render*/
+/*Base Rule*/
 img {
   image-rendering: pixelated;
 }
-
-/*Base Rule*/
 a {
   text-decoration: none;
-}
-a:link {
   color: green;
 }
 a:visited {
@@ -42,10 +38,8 @@ a:hover {
 a:active {
   color: darkslategray;
 }
-h1, h2, h3, h4, h5, h6 {
-  color: azure;
-}
 h1 {
+  color: azure;
   text-decoration: underline;
   font-size: 40px;
 }
@@ -53,16 +47,20 @@ h1:first-child {
   margin-top: 0;
 }
 h2 {
+  color: azure;
   font-size: 32px;
   margin-top: 48px;
   margin-bottom: 16px;
 }
 h3 {
+  color: azure;
   font-size: 24px;
   margin-top: 48px;
   margin-bottom: 16px;
 }
-
+h4, h5, h6 {
+  color: azure;
+}
 p:last-child {
   margin-bottom: 0;
 }
@@ -70,23 +68,19 @@ details {
   border: 1px solid slategray;
   padding: 8px;
 }
-details > summary {
+summary {
   cursor: pointer;
   color: limegreen;
-}
-summary > h2 {
-  display: inline-block;
-  margin: 0;
 }
 
 /*Utility CSS*/
 .font-consolas {
   font-family: 'consolas';
 }
-.hide {
+.hidden {
   display: none;
 }
-.hidaja {
+.override-hidden {
   display: none !important;
 }
 .link {
@@ -134,28 +128,28 @@ summary > h2 {
   text-align: center;
 }
 @media only screen and (max-width: 810px) {
-  .web {
+  .web-only {
     display: none;
   }
 }
 @media only screen and (min-width: 811px) {
-  .mobile {
+  .mobile-only {
     display: none;
   }
 }
-@media only screen and (max-width: 427px) {
+@media only screen and (max-width: 450px) {
   h1, h2, h3, .caption {
     text-align: center;
   }
 }
 
 /*Keyboard TAB Accessibility*/
-.hide-input {
+.hidden-input {
   z-index: -1000;
   opacity: 0;
   position: fixed;
 }
-.hide-input:focus ~ div .ctrl-entry-main {
+.hidden-input:focus ~ div .ctrl-entry-main {
   border: 1px solid whitesmoke;
   box-shadow: 8px 0 inset whitesmoke;
 }
@@ -183,7 +177,7 @@ summary > h2 {
   margin-top: -64px;
   padding: 8px;
   background: darkslategray;
-  color: whitesmoke !important;
+  color: whitesmoke;
   transition: transform 0.2s;
 }
 .jump-to-main:focus {
@@ -224,51 +218,48 @@ summary > h2 {
 .nav-bar a{
   color: whitesmoke;
 }
-.nav-entry.active {
+.nav-entry--active {
   background: darkolivegreen;
   height: 24px;
 }
 .nav-entry:hover,
-.nav-entry:focus,
-.dropdown-entry:hover,
-.dropdown-entry:focus,
-.dropdown-entry.active {
+.nav-entry:focus {
   background: darkolivegreen;
 }
-.nav-entry.active:hover,
-.nav-entry.active:focus,
-.dropdown-entry.active:hover,
-.dropdown-entry.active:focus {
+.nav-entry--active:hover,
+.nav-entry--active:focus {
   background: whitesmoke;
   color: darkslategray;
 }
-.nav-entry.active:hover span {
+.nav-entry--active:hover span {
   color: darkolivegreen;
 }
-.nav-entry.extra {
+
+/* Extra */
+.nav-entry--right {
   background: #25355A;
   float: right;
 }
-.nav-entry.extra:hover {
+.nav-entry--right:hover {
   background: darkolivegreen;
 }
-.nav-title {
+.nav-entry--title {
   color: greenyellow;
   background: transparent;
   line-height: 16px;
   border: 1px solid slategray;
   cursor: default;
 }
-.nav-title:hover {
+.nav-entry--title:hover {
   background: transparent;
 }
 
 /*Dropdown Menu*/
-.menu-dropdown {
+.nav-dropdown-button {
   color: whitesmoke;
   cursor: default;
 }
-.dropdown-container {
+.nav-dropdown-container {
   visibility: hidden;
   position: absolute;
   width: 92px;
@@ -278,7 +269,7 @@ summary > h2 {
   transform: scaleY(0);
   transition: transform 0.1s, visibility 0.2s;
 }
-.dropdown-entry {
+.nav-dropdown-entry {
   display: block;
   background: darkslategray;
   color: whitesmoke;
@@ -286,18 +277,28 @@ summary > h2 {
   padding: 16px 8px;
   border-top: 2px solid #0B0E0F;
 }
-.menu-dropdown:hover .dropdown-container,
-.menu-dropdown:focus-within .dropdown-container {
+.nav-dropdown-entry:hover,
+.nav-dropdown-entry:focus,
+.nav-dropdown-entry--active {
+  background: darkolivegreen;
+}
+.nav-dropdown-entry--active:hover,
+.nav-dropdown-entry--active:focus {
+  background: whitesmoke;
+  color: darkslategray;
+}
+.nav-dropdown-button:hover .nav-dropdown-container,
+.nav-dropdown-button:focus-within .nav-dropdown-container {
   z-index: 100;
   visibility: visible;
   transform: scaleY(100%);
 }
-/*Mobile View*/
+/*Mobile View of Navigation Bar and Dropdown*/
 @media only screen and (max-width: 768px) {
   .nav-entry {
     width: 76px;
   }
-  .nav-entry.active,
+  .nav-entry--active,
   .nav-entry:hover {
     width: 92px;
   }
@@ -308,27 +309,27 @@ summary > h2 {
     margin-left: 2px;
     margin-right: 2px;
   }
-  .dropdown-container,
-  .nav-entry.active,
+  .nav-dropdown-container,
+  .nav-entry--active,
   .nav-entry:hover {
     width: 76px;
   }
 }
 @media only screen and (max-width: 469px) {
-  .nav-title {
+  .nav-entry--title {
     display: none;
   }
-  .dropdown-container,
+  .nav-dropdown-container,
   .nav-entry {
     width: 76px;
   }
 }
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 390px) {
   .nav-entry {
     width: 56px;
   }
-  .dropdown-container,
-  .nav-entry.active,
+  .nav-dropdown-container,
+  .nav-entry--active,
   .nav-entry:hover {
     width: 64px;
   }
@@ -343,10 +344,10 @@ summary > h2 {
   padding: 32px;
   border: 1px solid gray;
 }
-@media only screen and (max-width: 427px) {
+@media only screen and (max-width: 450px) {
   .entry {
     margin-top: 24px;
-    padding: 8px;
+    padding: 16px 8px;
   }
 }
 
@@ -358,7 +359,7 @@ summary > h2 {
   width: 128px;
   border: 2px solid whitesmoke;
 }
-@media only screen and (max-width: 427px) {
+@media only screen and (max-width: 450px) {
   .container-profile-img {
     float: none;
     margin: auto;
@@ -369,7 +370,7 @@ summary > h2 {
   background: #0B0E0F;
   height: 128px;
 }
-.profile-img img {
+.profile-img > img {
   position: absolute;
   width: 128px;
   height: 128px;
@@ -378,14 +379,14 @@ summary > h2 {
 }
 
 /*Profile Picture CSS object selector*/
-.btn-pp {
+.selector-pp {
   outline: 2px solid whitesmoke;
   line-height: 24px;
   width: 33.33%;
   float: left;
   text-align: center;
 }
-.btn-expandable:hover {
+.selector-expandable:hover {
   box-shadow: 0 2px;
 }
 #pp-1:checked ~ div .img-pp-1,
@@ -411,7 +412,7 @@ summary > h2 {
   width: 100%;
   flex-wrap: nowrap;
 }
-.container.blog {
+.container--blog {
   padding: 16px;
   width: 100%;
   outline: 1px solid gray;
@@ -427,7 +428,7 @@ summary > h2 {
 #state-gal:checked ~ .nav-control-panel .state-gal-on {
   display: none;
 }
-.hidden-section {
+.entry--accordion {
   visibility: hidden;
   opacity: 0;
   height: 0;
@@ -470,86 +471,70 @@ summary > h2 {
 }
 
 /*Negative margin to compensate the border taking up spaces*/
-.about-contact,
-.gal-anim{
+#about-contact,
+#gal-anim{
   margin-top: -1px;
 }
-.about-sample,
-.about-trivia,
-.gal-pixel,
-.gal-raster {
+#about-sample,
+#about-miscellaneous,
+#gal-pixel,
+#gal-raster {
   margin-top: -98px;
 }
 
-/*About:Entry*/
+/*Gallery Entry*/
 .container-sample,
-.gallery {
+.container-gallery {
   display: flex;
   width: 100%;
   flex-wrap: nowrap;
 }
-.container-sample .container,
-.gallery .container {
+.image-container {
   padding: 8px;
   width: 100%;
   margin: auto;
+  align-content: center;
 }
-.container-sample .container img,
-.gallery .container img{
+.image-container img{
   width: 100%;
   outline: 1px solid gray;
   transition: transform-origin 0.75s, transform 0.5s, background 0.25s, outline 0.25s;
 }
-.container-sample .container img:hover,
-.gallery .container img:hover{
+.image-container img:hover {
   z-index: 10;
   background: black;
   outline: 8px solid black;
   transform: scale(125%);
 }
-.gallery.raster img {
+.container-gallery--raster img {
   image-rendering: auto;
 }
-/*Utility*/
-.container.right img:hover {
+.sample-right img:hover {
   transform-origin: right;
   transform: scale(175%);
 }
-.container.center img:hover {
+.sample-center img:hover {
   transform: scale(250%)
 }
-.container.left img:hover {
+.sample-left img:hover {
   transform-origin: left;
   transform: scale(175%);
 }
-.container.white img:hover {
-  background: white;
-}
-.container.zoom-1 img:hover {
-  transform: scale(110%);
-}
-.container.zoom-2 img:hover {
-  transform: scale(150%);
-}
-.container.zoom-3 img:hover {
-  transform: scale(200%);
-}
-/*END of Utility*/
 .container-contact,
 .container-sample,
 .container-trivia,
-.gallery.anim,
-.gallery.pixel,
-.gallery.raster {
+.container-gallery--anim,
+.container-gallery--pixel,
+.container-gallery--raster {
   opacity: 0;
   transition: opacity 0.5s 0.25s;
 }
-#state-about-sample:checked ~ .about-sample,
-#state-about-contact:checked ~ .about-contact,
-#state-about-trivia:checked ~ .about-trivia,
-#state-gal-anim:checked ~ .gal-anim,
-#state-gal-pixel:checked ~ .gal-pixel,
-#state-gal-raster:checked ~ .gal-raster {
+#state-about-sample:checked ~ #about-sample,
+#state-about-contact:checked ~ #about-contact,
+#state-about-trivia:checked ~ #about-miscellaneous,
+#state-gal-anim:checked ~ #gal-anim,
+#state-gal-pixel:checked ~ #gal-pixel,
+#state-gal-raster:checked ~ #gal-raster {
   visibility: visible;
   transform: scaleY(1);
   height: 100%;
@@ -559,40 +544,52 @@ summary > h2 {
 #state-about-contact:checked ~ div .container-contact,
 #state-about-sample:checked ~ div .container-sample,
 #state-about-trivia:checked ~ div .container-trivia,
-#state-gal-anim:checked ~ div .gallery.anim,
-#state-gal-pixel:checked ~ div .gallery.pixel,
-#state-gal-raster:checked ~ div .gallery.raster {
+#state-gal-anim:checked ~ div .container-gallery--anim,
+#state-gal-pixel:checked ~ div .container-gallery--pixel,
+#state-gal-raster:checked ~ div .container-gallery--raster {
   opacity: 100;
 }
-#state-about-sample:checked ~ div .btn-sample,
-#state-about-contact:checked ~ div .btn-contact,
-#state-about-trivia:checked ~ div .btn-trivia,
-#state-gal-anim:checked ~ div .btn-anim,
-#state-gal-pixel:checked ~ div .btn-pixel,
-#state-gal-raster:checked ~ div .btn-raster {
+#state-about-sample:checked ~ div .selector-sample,
+#state-about-contact:checked ~ div .selector-contact,
+#state-about-trivia:checked ~ div .selector-trivia,
+#state-gal-anim:checked ~ div .selector-anim,
+#state-gal-pixel:checked ~ div .selector-pixel,
+#state-gal-raster:checked ~ div .selector-raster {
   color: whitesmoke;
   background: darkolivegreen;
 }
-#state-about-sample:checked ~ div .btn-sample:hover,
-#state-about-contact:checked ~ div .btn-contact:hover,
-#state-about-trivia:checked ~ div .btn-trivia:hover,
-#state-gal-anim:checked ~ div .btn-anim:hover,
-#state-gal-pixel:checked ~ div .btn-pixel:hover,
-#state-gal-raster:checked ~ div .btn-raster:hover {
+#state-about-sample:checked ~ div .selector-sample:hover,
+#state-about-contact:checked ~ div .selector-contact:hover,
+#state-about-trivia:checked ~ div .selector-trivia:hover,
+#state-gal-anim:checked ~ div .selector-anim:hover,
+#state-gal-pixel:checked ~ div .selector-pixel:hover,
+#state-gal-raster:checked ~ div .selector-raster:hover {
   color: darkolivegreen;
   background: whitesmoke;
 }
-#state-about:checked ~ .hidden-section,
-#state-gal:checked ~ .hidden-section{
+#state-about:checked ~ .entry--accordion,
+#state-gal:checked ~ .entry--accordion{
   transition: transform 0.75s, opacity 0.25s, visibility 0.75s, height 0.5s;
 }
+.zoom-small img:hover {
+  transform: scale(110%);
+}
+.zoom-medium img:hover {
+  transform: scale(150%);
+}
+.zoom-large img:hover {
+  transform: scale(200%);
+}
+.white-background img:hover {
+  background: white;
+}
 @media only screen and (max-width: 810px) {
-  .hidden-section {
+  .entry--accordion {
     padding: 32px;
     box-shadow: 4px 0 inset gray;
   }
-  #state-about-contact:checked ~ .about-contact,
-  #state-about-trivia:checked ~ .about-trivia {
+  #state-about-contact:checked ~ #about-contact,
+  #state-about-trivia:checked ~ #about-miscellaneous {
     padding: 24px
   }
   .about-extra-container {
@@ -600,26 +597,39 @@ summary > h2 {
     flex-wrap: wrap;
   }
   .container-sample,
-  .gallery {
+  .container-gallery {
     width: auto;
     flex-wrap: wrap;
     padding: 0 8%; 
     margin: 0;
   }
-  .container-sample .container,
-  .gallery .container {
+  .image-container {
     padding: 0;
     margin: 8px 0;
   }
-  .container-sample .container img:hover,
-  .gallery .container img:hover {
+  .image-container img:hover {
     transform-origin: center;
     transform: scale(125%);
     outline: 8px solid black;
   }
 }
 
-/* Blog CSS */
+/*Other*/
+.table-of-contents {
+  border: 2px solid slategray;
+  padding: 8px 16px;
+}
+.table-of-contents a {
+  color: whitesmoke;
+}
+.table-of-contents a:hover {
+  color: limegreen;
+}
+.toc-header:first-child {
+  margin-top: 16px;
+}
+
+/*Blog CSS*/
 .blog-entry img {
   display: block;
   margin: auto;
@@ -640,29 +650,8 @@ summary > h2 {
 .blog-editor {
   color: lightblue;
 }
-.table-of-contents {
-  border: 2px solid slategray;
-  padding: 8px 16px;
-}
-.table-of-contents h2 {
-  margin-top: 16px;
-}
-.table-of-contents a {
-  color: whitesmoke;
-}
-.table-of-contents a:hover {
-  color: limegreen;
-}
 
 /*Download CSS*/
-.entry-download h2 {
-  margin-top: 0;
-  text-align: center;
-  text-decoration: underline;
-}
-.entry-download h3 {
-  margin-top: 16px;
-}
 .download-preview-wide {
   display: block;
   width: 100%;
@@ -695,6 +684,11 @@ summary > h2 {
 .button-download:hover a {
   background: whitesmoke;
   color: darkolivegreen;
+}
+.download-title {
+  margin-top: 0;
+  text-align: center;
+  text-decoration: underline;
 }
 
 /*Shortcut Back to Top*/

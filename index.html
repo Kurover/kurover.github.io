@@ -13,38 +13,40 @@
 <body>
   <a class="jump-to-main" tabindex="0" href="#top">SkipNav</a>
   <div class="notice-accessibility"><p class="no-margin">Notice:<br>To navigate sub-tab. (Contact, Sample, etc.), Tab-key navigate until the "Close" border is highlighted. Then, use the arrow key to switch tabs. Press ESC to unlock scrolling.</p><p>I couldn't figure out how to activate "label" object. Sorry for the accessibility jank.</p></div>
+  
   <header>
     <nav class="nav-bar">
-      <div class="nav-entry nav-title"> 
-        <span class="web">Zan-cs.site</span>
-        <span class="mobile">cs.site</span>
+      <div class="nav-entry nav-entry--title"> 
+        <span class="web-only">Zan-cs.site</span>
+        <span class="mobile-only">cs.site</span>
       </div>
-      <a class="nav-entry active" href="https://kurover.github.io" tabindex="0">About</a>
+      <a class="nav-entry nav-entry--active" href="https://kurover.github.io" tabindex="0">About</a>
       <a class="nav-entry" href="https://kurover.github.io/gallery" tabindex="0">Gallery</a>
-      <div class="nav-entry menu-dropdown" tabindex="0">
+      <div class="nav-entry nav-dropdown-button" tabindex="0">
         More
-        <div class="dropdown-container">
-          <a class="dropdown-entry" href="https://kurover.github.io/blog" tabindex="0">Blog</a>
-          <a class="dropdown-entry" href="https://kurover.github.io/download" tabindex="0">Files</a>
+        <div class="nav-dropdown-container">
+          <a class="nav-dropdown-entry" href="https://kurover.github.io/blog" tabindex="0">Blog</a>
+          <a class="nav-dropdown-entry" href="https://kurover.github.io/download" tabindex="0">Files</a>
         </div>
       </div>
-      <div class="nav-entry extra menu-dropdown" tabindex="0">
+      <div class="nav-entry nav-entry--right nav-dropdown-button" tabindex="0">
         Links
-        <div class="dropdown-container">
-          <a class="dropdown-entry" href="http://04.jp.org" tabindex="0">Font Credit</a>
-          <a class="dropdown-entry" href="https://github.com/Kurover/kurover.github.io" tabindex="0">Github Repo</a>
-          <a class="dropdown-entry" href="https://twitter.com/Cloverift" tabindex="0">Twitter</a>
+        <div class="nav-dropdown-container">
+          <a class="nav-dropdown-entry" href="http://04.jp.org" tabindex="0">Font Credit</a>
+          <a class="nav-dropdown-entry" href="https://github.com/Kurover/kurover.github.io" tabindex="0">Github Repo</a>
+          <a class="nav-dropdown-entry" href="https://twitter.com/Cloverift" tabindex="0">Twitter</a>
         </div>
       </div>
     </nav>
   </header>
+  
   <!-- Main Entry -->
   <div class="entry" tabindex="-1" id="top">
     <div class="container-profile-img">
       <!-- Pic: States -->
-      <input class="hide" type="radio" id="pp-1" name="btn-pp" checked>
-      <input class="hide" type="radio" id="pp-2" name="btn-pp">
-      <input class="hide" type="radio" id="pp-3" name="btn-pp">
+      <input class="hidden" type="radio" id="pp-1" name="selector-pp" checked>
+      <input class="hidden" type="radio" id="pp-2" name="selector-pp">
+      <input class="hidden" type="radio" id="pp-3" name="selector-pp">
       <!-- Pic: Container -->
       <div class="profile-img">
         <img class="img-pp-1" src="img/profile_picture1.png" alt="Main Profile Picture">
@@ -52,9 +54,9 @@
         <img class="img-pp-3" src="img/profile_picture3.png" alt="Latest Profile Picture">
       </div>
       <!-- Pic: Text button -->
-      <label class="btn-pp selection pp-sel-1" for="pp-1">Main</label>
-      <label class="btn-pp selection pp-sel-2" for="pp-2">Alt1</label>
-      <label class="btn-pp selection pp-sel-3" for="pp-3">Alt2</label>
+      <label class="selector-pp selection pp-sel-1" for="pp-1">Main</label>
+      <label class="selector-pp selection pp-sel-2" for="pp-2">Alt1</label>
+      <label class="selector-pp selection pp-sel-3" for="pp-3">Alt2</label>
     </div>
     <!-- Pic: Content-->
     <h1 class="no-margin">Welcome</h1>
@@ -62,7 +64,7 @@
     <p>Hello, this is Zan, also known as Kurover. I'm a pixel artist who mainly draw art and animation from Touhou Project.</p>
     <p>This website is served for all sort of trinkets. May it be for a landing page, product showcase, educational and functional data. Gallery will lead you to well, gallery. Check the "More" tab for blog post and downloadable files for you to use, like cursor and Live2D sample!</p>
     <div class="about-extra-container">
-      <div class="container blog">
+      <div class="container container--blog">
         <p>Recent Blog/Journal post:</p>
         <ol>
           <li><a href="https://kurover.github.io/blog_create-live2d" tabindex="0">Creating Live2D Model For The First Time</a></li>
@@ -72,29 +74,29 @@
   </div>
   
   <!-- Trivia: States -->
-  <input class="hide-input" type="radio" id="state-about" name="btn-about" tabindex="0">
-  <input class="hide-input" type="radio" id="state-about-contact" name="btn-about" tabindex="0">
-  <input class="hide-input" type="radio" id="state-about-sample" name="btn-about" tabindex="0" checked>
-  <input class="hide-input" type="radio" id="state-about-trivia" name="btn-about" tabindex="0">
+  <input class="hidden-input" type="radio" id="state-about" name="selector-about" tabindex="0">
+  <input class="hidden-input" type="radio" id="state-about-contact" name="selector-about" tabindex="0">
+  <input class="hidden-input" type="radio" id="state-about-sample" name="selector-about" tabindex="0" checked>
+  <input class="hidden-input" type="radio" id="state-about-trivia" name="selector-about" tabindex="0">
   <!-- Trivia: Nav bar -->
   <div class="nav-bar nav-control-panel">
     <label class="ctrl-entry-main" for="state-about">
       <span class="link state-about-on">Close</span>
       <span>Extra</span>
     </label>
-    <label class="btn-contact selection ctrl-entry" for="state-about-contact">
+    <label class="selector-contact selection ctrl-entry" for="state-about-contact">
       Contact
     </label>
-    <label class="btn-sample selection ctrl-entry" for="state-about-sample">
+    <label class="selector-sample selection ctrl-entry" for="state-about-sample">
       Sample
     </label>
-    <label class="btn-trivia selection ctrl-entry" for="state-about-trivia">
+    <label class="selector-trivia selection ctrl-entry" for="state-about-trivia">
       Misc.
     </label>
   </div>
   
   <!-- Extra: Contact -->
-  <div class="entry hidden-section about-contact">
+  <div class="entry entry--accordion" id="about-contact">
     <div class="container-contact">
       <h2 class="no-margin">Contact</h2>
       <ul>
@@ -107,25 +109,25 @@
   </div>
   
   <!-- Extra: Sample -->
-  <div class="entry hidden-section about-sample">
+  <div class="entry entry--accordion" id="about-sample">
     <div class="container-sample">
-      <h2 class="hide">Art Sample</h2>
-      <div class="container left">
+      <h2 class="hidden">Art Sample</h2>
+      <div class="image-container sample-left">
         <img src="img/gallery/touhou_cirno.gif" alt="19-9-2019 | Cirno day animation">
       </div>
-      <div class="container center">
+      <div class="image-container sample-center">
         <img src="img/gallery/touhou_grassroot2.gif" alt="08-6-2022 | Sekibanki animation">
       </div>
-      <div class="container right">
+      <div class="image-container sample-right">
         <img src="img/gallery/touhou_spood2.gif" alt="14-3-2021 | Yamame and Kisume hangout animation">
       </div>
     </div>
   </div>
   
   <!-- Extra: Trivia -->
-  <div class="entry hidden-section about-trivia">
+  <div class="entry entry--accordion" id="about-miscellaneous">
     <div class="container-trivia">
-      <h2 class="no-margin">About: Miscellaneous</h2>
+      <h2 class="no-margin-top">About: Miscellaneous</h2>
       <p>Contain word and sentences that detract from the core foundation of showcase. A fluff, or perhaps a lament that is originated from the writer themself. In other word, it's a section of self-answered question(s), from yours truly.</p>
       <h2 class="no-margin-bot">About: Art History</h2>
       <p class="caption">"Once upon a time, there was an internet junky on its chair."</p>
@@ -149,5 +151,4 @@
   </div>
   
 </body>
-
 </html>
