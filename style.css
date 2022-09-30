@@ -149,7 +149,7 @@ summary {
   opacity: 0;
   position: fixed;
 }
-.hidden-input:focus ~ div .ctrl-entry-main {
+.hidden-input:focus ~ div .sub-nav-entry--title {
   border: 1px solid whitesmoke;
   box-shadow: 8px 0 inset whitesmoke;
 }
@@ -276,6 +276,9 @@ summary {
   width: 100%;
   padding: 16px 8px;
   border-top: 2px solid #0B0E0F;
+}
+.nav-dropdown-entry--extra {
+  background: #25355A;
 }
 .nav-dropdown-entry:hover,
 .nav-dropdown-entry:focus,
@@ -407,25 +410,25 @@ summary {
 }
 
 /*About: Content*/
-.about-extra-container {
+.section-about-blog {
   display: flex;
   width: 100%;
   flex-wrap: nowrap;
 }
-.container--blog {
+.container-about-blog {
   padding: 16px;
   width: 100%;
   outline: 1px solid gray;
 }
 
-/*Control Panel entry*/
+/*Sub-Navigator*/
 .state-about-on,
 .state-gal-on{
   display: block;
   color: whitesmoke;
 }
-#state-about:checked ~ .nav-control-panel .state-about-on,
-#state-gal:checked ~ .nav-control-panel .state-gal-on {
+#state-about:checked ~ .nav-bar--sub-nav .state-about-on,
+#state-gal:checked ~ .nav-bar--sub-nav .state-gal-on {
   display: none;
 }
 .entry--accordion {
@@ -436,14 +439,26 @@ summary {
   transform-origin: top;
   transform: scaleY(0);
 }
-.nav-control-panel {
+.nav-bar--sub-nav {
   color: whitesmoke;
   margin-top: -32px;
   margin-bottom: 1px;
   height: 32px;
   border: none;
 }
-.ctrl-entry-main {
+.sub-nav-entry {
+  display: inline-block;
+  color: whitesmoke;
+  background: darkslategray;
+  width: min(22%, 96px);
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  overflow: hidden;
+  cursor: pointer;
+  transition: inherit;
+}
+.sub-nav-entry--title {
   display: inline-block;
   padding: 0 16px;
   padding-right: 8px;
@@ -454,18 +469,7 @@ summary {
   border: 1px solid gray;
   overflow: hidden;
 }
-.ctrl-entry {
-  display: inline-block;
-  color: whitesmoke;
-  background: darkslategray;
-  width: min(22%, 96px);
-  height: 32px;
-  line-height: 32px;
-  text-align: center;
-  overflow: hidden;
-  transition: inherit;
-}
-.ctrl-entry:hover {
+.sub-nav-entry:hover {
   color: whitesmoke;
   background: darkolivegreen;
 }
@@ -549,21 +553,21 @@ summary {
 #state-gal-raster:checked ~ div .container-gallery--raster {
   opacity: 100;
 }
-#state-about-sample:checked ~ div .selector-sample,
-#state-about-contact:checked ~ div .selector-contact,
-#state-about-trivia:checked ~ div .selector-trivia,
-#state-gal-anim:checked ~ div .selector-anim,
-#state-gal-pixel:checked ~ div .selector-pixel,
-#state-gal-raster:checked ~ div .selector-raster {
+#state-about-sample:checked ~ div #selector-sample,
+#state-about-contact:checked ~ div #selector-contact,
+#state-about-trivia:checked ~ div #selector-trivia,
+#state-gal-anim:checked ~ div #selector-anim,
+#state-gal-pixel:checked ~ div #selector-pixel,
+#state-gal-raster:checked ~ div #selector-raster {
   color: whitesmoke;
   background: darkolivegreen;
 }
-#state-about-sample:checked ~ div .selector-sample:hover,
-#state-about-contact:checked ~ div .selector-contact:hover,
-#state-about-trivia:checked ~ div .selector-trivia:hover,
-#state-gal-anim:checked ~ div .selector-anim:hover,
-#state-gal-pixel:checked ~ div .selector-pixel:hover,
-#state-gal-raster:checked ~ div .selector-raster:hover {
+#state-about-sample:checked ~ div #selector-sample:hover,
+#state-about-contact:checked ~ div #selector-contact:hover,
+#state-about-trivia:checked ~ div #selector-trivia:hover,
+#state-gal-anim:checked ~ div #selector-anim:hover,
+#state-gal-pixel:checked ~ div #selector-pixel:hover,
+#state-gal-raster:checked ~ div #selector-raster:hover {
   color: darkolivegreen;
   background: whitesmoke;
 }
@@ -664,7 +668,7 @@ summary {
   width: 90%;
   max-width: 512px;
 }
-.download-container {
+.container-download {
   border: 1px solid slategray;
   padding: 16px;
   margin: 16px auto;

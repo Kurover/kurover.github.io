@@ -11,9 +11,11 @@
 </head>
 
 <body>
+  <!-- Keyboard Nav Skip -->
   <a class="jump-to-main" tabindex="0" href="#top">SkipNav</a>
   <div class="notice-accessibility"><p class="no-margin">Notice:<br>To navigate sub-tab. (Contact, Sample, etc.), Tab-key navigate until the "Close" border is highlighted. Then, use the arrow key to switch tabs. Press ESC to unlock scrolling.</p><p>I couldn't figure out how to activate "label" object. Sorry for the accessibility jank.</p></div>
   
+  <!-- Navigation Bar -->
   <header>
     <nav class="nav-bar">
       <div class="nav-entry nav-entry--title"> 
@@ -32,9 +34,9 @@
       <div class="nav-entry nav-entry--right nav-dropdown-button" tabindex="0">
         Links
         <div class="nav-dropdown-container">
-          <a class="nav-dropdown-entry" href="http://04.jp.org" tabindex="0">Font Credit</a>
-          <a class="nav-dropdown-entry" href="https://github.com/Kurover/kurover.github.io" tabindex="0">Github Repo</a>
-          <a class="nav-dropdown-entry" href="https://twitter.com/Cloverift" tabindex="0">Twitter</a>
+          <a class="nav-dropdown-entry nav-dropdown-entry--extra" href="http://04.jp.org" tabindex="0">Font Credit</a>
+          <a class="nav-dropdown-entry nav-dropdown-entry--extra" href="https://github.com/Kurover/kurover.github.io" tabindex="0">Github Repo</a>
+          <a class="nav-dropdown-entry nav-dropdown-entry--extra" href="https://twitter.com/Cloverift" tabindex="0">Twitter</a>
         </div>
       </div>
     </nav>
@@ -42,6 +44,7 @@
   
   <!-- Main Entry -->
   <div class="entry" tabindex="-1" id="top">
+    <!-- Profile Pic Container -->
     <div class="container-profile-img">
       <!-- Pic: States -->
       <input class="hidden" type="radio" id="pp-1" name="selector-pp" checked>
@@ -63,8 +66,8 @@
     <p class="caption">"4k art? Apologies but, best I could do is around 128x128 px."</p>
     <p>Hello, this is Zan, also known as Kurover. I'm a pixel artist who mainly draw art and animation from Touhou Project.</p>
     <p>This website is served for all sort of trinkets. May it be for a landing page, product showcase, educational and functional data. Gallery will lead you to well, gallery. Check the "More" tab for blog post and downloadable files for you to use, like cursor and Live2D sample!</p>
-    <div class="about-extra-container">
-      <div class="container container--blog">
+    <div class="section-about-blog">
+      <div class="container-about-blog">
         <p>Recent Blog/Journal post:</p>
         <ol>
           <li><a href="https://kurover.github.io/blog_create-live2d" tabindex="0">Creating Live2D Model For The First Time</a></li>
@@ -73,29 +76,29 @@
     </div>
   </div>
   
-  <!-- Trivia: States -->
+  <!-- Sub Nav Bar: States -->
   <input class="hidden-input" type="radio" id="state-about" name="selector-about" tabindex="0">
   <input class="hidden-input" type="radio" id="state-about-contact" name="selector-about" tabindex="0">
   <input class="hidden-input" type="radio" id="state-about-sample" name="selector-about" tabindex="0" checked>
   <input class="hidden-input" type="radio" id="state-about-trivia" name="selector-about" tabindex="0">
-  <!-- Trivia: Nav bar -->
-  <div class="nav-bar nav-control-panel">
-    <label class="ctrl-entry-main" for="state-about">
-      <span class="link state-about-on">Close</span>
+  <!-- Sub Nav bar -->
+  <div class="nav-bar nav-bar--sub-nav">
+    <label class="sub-nav-entry--title" for="state-about">
+      <span class="state-about-on link">Close</span>
       <span>Extra</span>
     </label>
-    <label class="selector-contact selection ctrl-entry" for="state-about-contact">
+    <label class="sub-nav-entry" id="selector-contact" for="state-about-contact">
       Contact
     </label>
-    <label class="selector-sample selection ctrl-entry" for="state-about-sample">
+    <label class="sub-nav-entry" id="selector-sample" for="state-about-sample">
       Sample
     </label>
-    <label class="selector-trivia selection ctrl-entry" for="state-about-trivia">
+    <label class="sub-nav-entry" id="selector-trivia" for="state-about-trivia">
       Misc.
     </label>
   </div>
   
-  <!-- Extra: Contact -->
+  <!-- Sub: Contact -->
   <div class="entry entry--accordion" id="about-contact">
     <div class="container-contact">
       <h2 class="no-margin">Contact</h2>
@@ -108,7 +111,7 @@
     </div>
   </div>
   
-  <!-- Extra: Sample -->
+  <!-- Sub: Sample -->
   <div class="entry entry--accordion" id="about-sample">
     <div class="container-sample">
       <h2 class="hidden">Art Sample</h2>
@@ -124,7 +127,7 @@
     </div>
   </div>
   
-  <!-- Extra: Trivia -->
+  <!-- Sub: Trivia -->
   <div class="entry entry--accordion" id="about-miscellaneous">
     <div class="container-trivia">
       <h2 class="no-margin-top">About: Miscellaneous</h2>
