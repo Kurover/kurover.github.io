@@ -64,6 +64,9 @@ h4, h5, h6 {
 p:last-child {
   margin-bottom: 0;
 }
+ul li {
+  list-style-type: square;
+}
 details {
   border: 1px solid slategray;
   padding: 8px;
@@ -114,6 +117,9 @@ summary {
 }
 .no-padding {
   padding: 0;
+}
+.no-spacing {
+  
 }
 .center {
   text-align: center;
@@ -487,7 +493,7 @@ summary {
 }
 
 /*Gallery Entry*/
-.container-sample,
+.container-sample--images,
 .container-gallery {
   display: flex;
   width: 100%;
@@ -515,14 +521,14 @@ summary {
 }
 .sample-right img:hover {
   transform-origin: right;
-  transform: scale(175%);
+  transform: scale(200%);
 }
 .sample-center img:hover {
   transform: scale(250%)
 }
 .sample-left img:hover {
   transform-origin: left;
-  transform: scale(175%);
+  transform: scale(200%);
 }
 .container-contact,
 .container-sample,
@@ -600,7 +606,7 @@ summary {
     width: auto;
     flex-wrap: wrap;
   }
-  .container-sample,
+  .container-sample--images,
   .container-gallery {
     width: auto;
     flex-wrap: wrap;
