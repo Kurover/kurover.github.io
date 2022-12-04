@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zanster Website</title>
+  <title>Zan | Home</title>
   <meta property="og:url" content="https://kurover.github.io/"/>
   <meta property="og:site_name" content="Zanster Website"/>
   <meta property="og:title" content="Home Page"/>
@@ -27,7 +27,7 @@
 <body>
   <!-- Keyboard Nav Skip -->
   <a class="jump-to-main" tabindex="0" href="#top">SkipNav</a>
-  <div class="notice-accessibility"><p class="no-margin">Notice:<br>To navigate sub-tab. (Contact, Sample, etc.), Tab-key navigate until the "Close" border is highlighted. Then, use the arrow key to switch tabs. Press ESC to unlock scrolling.</p><p>I couldn't figure out how to activate "label" object. Sorry for the accessibility jank.</p></div>
+  <div class="notice-accessibility"><p class="no-margin">Notice:<br>To navigate sub-tab. (Contact, Sample, etc.), Tab-key navigate until the button is highlighted. Use the arrow key to switch tabs. ESC to unlock scrolling.</p><p>Jank I know, but hey it works!</p></div>
   
   <!-- Navigation Bar -->
   <header>
@@ -61,9 +61,9 @@
     <!-- Profile Pic Container -->
     <div class="container-profile-img">
       <!-- Pic: States -->
-      <input class="hidden" type="radio" id="pp-1" name="selector-pp" checked>
-      <input class="hidden" type="radio" id="pp-2" name="selector-pp">
-      <input class="hidden" type="radio" id="pp-3" name="selector-pp">
+      <input class="hidden-input" type="radio" id="pp-1" name="selector-pp" tabindex="0" checked>
+      <input class="hidden-input" type="radio" id="pp-2" name="selector-pp" tabindex="0">
+      <input class="hidden-input" type="radio" id="pp-3" name="selector-pp" tabindex="0">
       <!-- Pic: Container -->
       <div class="profile-img">
         <img class="img-pp-1" src="img/profile_picture1.png" alt="Main Profile Picture">
@@ -71,15 +71,16 @@
         <img class="img-pp-3" src="img/profile_picture3.png" alt="Latest Profile Picture">
       </div>
       <!-- Pic: Text button -->
-      <label class="selector-pp selection pp-sel-1" for="pp-1">Main</label>
-      <label class="selector-pp selection pp-sel-2" for="pp-2">Alt1</label>
-      <label class="selector-pp selection pp-sel-3" for="pp-3">Alt2</label>
+      <label class="selector-pp selection" for="pp-1" id="selector-pp1">Main</label>
+      <label class="selector-pp selection" for="pp-2" id="selector-pp2">Alt1</label>
+      <label class="selector-pp selection" for="pp-3" id="selector-pp3">Alt2</label>
     </div>
     <!-- Pic: Content-->
     <h1 class="no-margin">Welcome</h1>
     <p class="caption">"4k art? Apologies but, best I could do is around 128x128 px."</p>
     <p>Hello, this is Zan, also known as Kurover. I'm a pixel artist who mainly draw art and animation from Touhou Project.</p>
-    <p>This website is served for all sort of trinkets. May it be for a landing page, product showcase, educational and functional data. Gallery will lead you to well, gallery. Check the "More" tab for blog post and downloadable files for you to use, like cursor and Live2D sample!</p>
+    <p>This website is written for all sort of trinkets. May it be for a landing page, product showcase, educational, and functional data.
+    </p>
     <div class="section-about-blog">
       <div class="container-about-blog">
         <p>Recent Blog/Journal post:</p>
@@ -91,30 +92,30 @@
   </div>
   
   <!-- Sub Nav Bar: States -->
-  <input class="hidden-input" type="radio" id="state-about" name="selector-about" tabindex="0">
-  <input class="hidden-input" type="radio" id="state-about-contact" name="selector-about" tabindex="0">
-  <input class="hidden-input" type="radio" id="state-about-sample" name="selector-about" tabindex="0" checked>
-  <input class="hidden-input" type="radio" id="state-about-trivia" name="selector-about" tabindex="0">
+  <input class="hidden-input" type="radio" id="state-sub-nav-0" name="selector-accordion" tabindex="0">
+  <input class="hidden-input" type="radio" id="state-sub-nav-1" name="selector-accordion" tabindex="0">
+  <input class="hidden-input" type="radio" id="state-sub-nav-2" name="selector-accordion" tabindex="0" checked>
+  <input class="hidden-input" type="radio" id="state-sub-nav-3" name="selector-accordion" tabindex="0">
   <!-- Sub Nav bar -->
   <div class="nav-bar nav-bar--sub-nav">
-    <label class="sub-nav-entry--title" for="state-about">
-      <span class="state-about-on link">Close</span>
+    <label class="sub-nav-entry--title" id="selector-accordion-0" for="state-sub-nav-0">
+      <span class="sub-nav-entry--span link">Close</span>
       <span>Extra</span>
     </label>
-    <label class="sub-nav-entry" id="selector-contact" for="state-about-contact">
+    <label class="sub-nav-entry" id="selector-accordion-1" for="state-sub-nav-1">
       Contact
     </label>
-    <label class="sub-nav-entry" id="selector-sample" for="state-about-sample">
+    <label class="sub-nav-entry" id="selector-accordion-2" for="state-sub-nav-2">
       Sample
     </label>
-    <label class="sub-nav-entry" id="selector-trivia" for="state-about-trivia">
+    <label class="sub-nav-entry" id="selector-accordion-3" for="state-sub-nav-3">
       Misc.
     </label>
   </div>
   
   <!-- Sub: Contact -->
-  <div class="entry entry--accordion" id="about-contact">
-    <div class="container-contact">
+  <div class="entry entry--accordion" id="accordion-entry-1">
+    <div class="container-default">
       <h2 class="no-margin">Contact</h2>
       <ul>
         <li>Discord: Zan#6339</li>
@@ -134,12 +135,12 @@
   </div>
   
   <!-- Sub: Sample -->
-  <div class="entry entry--accordion" id="about-sample">
-    <div class="container-sample">
+  <div class="entry entry--accordion" id="accordion-entry-2">
+    <div class="container-default">
       <h2 class="no-margin">Animation Sample</h2>
       <p class="caption"><span class="mobile-only">Tap to zoom.</span><span class="web-only">Hover to zoom.</span></p>
       <hr>
-      <div class="container-sample--images">
+      <div class="container-gallery">
         <div class="image-container sample-left">
           <img src="img/gallery/touhou_patchy.gif" alt="Patchouli flower animation">
         </div>
@@ -161,18 +162,18 @@
   </div>
   
   <!-- Sub: Trivia -->
-  <div class="entry entry--accordion" id="about-miscellaneous">
-    <div class="container-trivia">
+  <div class="entry entry--accordion" id="accordion-entry-3">
+    <div class="container-default">
       <h2 class="no-margin-top">About: Miscellaneous</h2>
       <p>This section contain word and sentences that detract from the core relevancy of this website existence, somewhat. It's a fluff, or perhaps a lament that is originated from the writer themself. In other word, it's a section of self-answered question(s), from yours truly.</p>
       
       <h2 class="no-margin-bot">About: UserName</h2>
       <p class="caption">"I had a lot of names, it was a terrible idea."</p>
-      <p>Child and teenager me liked to use different name on online spaces. To name a couple, it's: Zanster, Zank3tsuken, Hall0wZan, TsubakiWhite, Pafu, (many other irrelevant name to my first one), and lastly, Kurover. I stopped randomly assign myself a name because it's simply not a good move if you want to gain a relevancy, which I am trying to do in world of content creator.</p>
-      <p>Thankfully, Zanster and Kurover are the only one you need to remember. I tried to just forget Kurover as a whole but it has too many attachment so I can't bring myself to do it.</p>
-      <p>So, where or what does the name Zanster come from? When I was a child, I loved a game called Monster Rancher 4. I remember feeling like a dead cocoon when my first monster, Garu died due to an old age. Anyway, there's a monster called 'Zan' in the game and it was cool as all heck, said me, a child. Unfortunately, I couldn't get it due to the summoning mechanic requiring you to have CD for it. Ever since then, I picked the name Zan to be my name. Probably a hard-coping mechanic for children me.</p>
-      <p>With that story, just combine the word 'Zan' with 'Gangster' (because it's cool) and voila, you get Zanster! I hade to do it because the online game I played back then requires your name to have a minimum of 4 characters.</p>
-      <p>As for Kurover, it come from the word Clover, which is spelled like it if you weebify it. I said weebify because the Japanese for Clover is ku-ro-ba. Clover is my second OC name that went through a lot of iteration, hence the attachment.</p>
+      <p>Little me liked to use different name on online spaces. To name a couple, it's: Zanster, Zank3tsuken, Hall0wZan, Koishift, TsubakiWhite, Pafu, (many other irrelevant name to my first one), and lastly, Kurover. I stopped randomly assign myself a name because it's simply not a good move if you want to gain a relevancy, which I am trying to do in world of content creator.</p>
+      <p>Thankfully, Zanster and Kurover are the only one you need to remember. I tried to forget Kurover as a whole but it has a bit too much attachment and prevalence so I can't bring myself to do it.</p>
+      <p>So, where does the name Zanster come from? When I was a pea, I loved this a game called Monster Rancher 4. There's a monster called 'Zan' in the game and it triggers all my edgy sensor. Unfortunately, I couldn't get it due to the summoning mechanic requiring you to have specific CD of it. Ever since then, I picked the name Zan to be my name. Probably a hard-coping mechanic for children me.</p>
+      <p>With that story, just combine the word 'Zan' with 'Gangster' (because it's edge +10) and voila, you get Zanster! I was forced to do it because the online game I played back then requires your name to have a minimum of 4 characters.</p>
+      <p>As for Kurover, it come from the word Clover, which is spelled like it if you weebify it. I said weebify because the Japanese for Clover is ku-ro-ba. Clover is also my second OC name that went through a lot of iteration.</p>
       
       <h2 class="no-margin-bot">About: Art History</h2>
       <p class="caption">"Once upon a time, there was an internet junky on its chair."</p>
@@ -184,8 +185,8 @@
       <p class="caption">"HTML5 For the win!"</p>
       <p>For all the intellectuals out there, yes, this website is exclusively powered with HTML/CSS. Sometimes, long and round-about journey are more fun than one would think of, or maybe you simply have too much time in your hands, no in-between (gosh help I could finish all these button "script" 800% faster with js.)</p>
       <p>Adding mobile view support and designing around them even for a tiny bit is hell. Respect to you front-end devs out there with this kind of job.</p>
-      <p>My end goal with the website is to make a micro-pocket-sized portfolio page written with limitation (A.K.A. no script) to match the spirit of my pixel art journey! Of course, exception will be made toward raster art I'm showcasing here. </p>
-      <p>I do hope that I can achieve a well interactive site where you can easily receive relevant information without getting overwhelmed by other junk floating around. Not saying I wouldn't add floating junk around, of course.</p>
+      <p>My end goal with the website is to make a micro-pocket-sized portfolio page written with limitation (A.K.A. no script lang) to match the spirit of my pixel art journey! </p>
+      <p>I do hope that I can achieve a well interactive site where you can easily receive relevant information without getting overwhelmed by other junk floating around. Not saying I wouldn't add floating junk around of course, hehe.</p>
       <h3>CSS Lab</h3>
       <p class="caption">Practice / test page with codes where I might forget how it work in the future. One day I'll look into it and receive confusion damage trying to decode it, let alone looking at it.</p>
       <ul>

@@ -155,10 +155,6 @@ summary {
   opacity: 0;
   position: fixed;
 }
-.hidden-input:focus ~ div .sub-nav-entry--title {
-  border: 1px solid whitesmoke;
-  box-shadow: 8px 0 inset whitesmoke;
-}
 .notice-accessibility {
   z-index: 1000;
   visibility: hidden;
@@ -404,14 +400,17 @@ summary {
   z-index: 1;
   opacity: 100;
 }
-#pp-1:checked ~ label.pp-sel-1,
-#pp-2:checked ~ label.pp-sel-2,
-#pp-3:checked ~ label.pp-sel-3 {
-  color: limegreen;
+#pp-1:checked ~ #selector-pp1,
+#pp-2:checked ~ #selector-pp2,
+#pp-3:checked ~ #selector-pp3 {
+  color: forestgreen;
 }
-#pp-1:checked ~ label.pp-sel-1:hover,
-#pp-2:checked ~ label.pp-sel-2:hover,
-#pp-3:checked ~ label.pp-sel-3:hover {
+#pp-1:checked ~ #selector-pp1:hover,
+#pp-1:focus ~ #selector-pp1,
+#pp-2:checked ~ #selector-pp2:hover,
+#pp-2:focus ~ #selector-pp2,
+#pp-3:checked ~ #selector-pp3:hover,
+#pp-3:focus ~ #selector-pp3 {
   color: greenyellow;
 }
 
@@ -428,15 +427,6 @@ summary {
 }
 
 /*Sub-Navigator*/
-.state-about-on,
-.state-gal-on{
-  display: block;
-  color: whitesmoke;
-}
-#state-about:checked ~ .nav-bar--sub-nav .state-about-on,
-#state-gal:checked ~ .nav-bar--sub-nav .state-gal-on {
-  display: none;
-}
 .entry--accordion {
   visibility: hidden;
   opacity: 0;
@@ -444,6 +434,10 @@ summary {
   box-shadow: 8px 0 inset gray;
   transform-origin: top;
   transform: scaleY(0);
+}
+.entry--accordion > div {
+  opacity: 0;
+  transition: opacity 0.5s 0.25s;
 }
 .nav-bar--sub-nav {
   color: whitesmoke;
@@ -475,25 +469,28 @@ summary {
   border: 1px solid gray;
   overflow: hidden;
 }
+.sub-nav-entry--span {
+  display: block;
+  color: whitesmoke;
+}
+#state-sub-nav-0:checked ~ .nav-bar--sub-nav .sub-nav-entry--span {
+  display: none;
+}
 .sub-nav-entry:hover {
   color: whitesmoke;
   background: darkolivegreen;
 }
 
 /*Negative margin to compensate the border taking up spaces*/
-#about-contact,
-#gal-anim{
+#accordion-entry-1{
   margin-top: -1px;
 }
-#about-sample,
-#about-miscellaneous,
-#gal-pixel,
-#gal-raster {
+#accordion-entry-2,
+#accordion-entry-3 {
   margin-top: -98px;
 }
 
-/*Gallery Entry*/
-.container-sample--images,
+/*Image Container*/
 .container-gallery {
   display: flex;
   width: 100%;
@@ -530,57 +527,46 @@ summary {
   transform-origin: left;
   transform: scale(200%);
 }
-.container-contact,
-.container-sample,
-.container-trivia,
-.container-gallery--anim,
-.container-gallery--pixel,
-.container-gallery--raster {
-  opacity: 0;
-  transition: opacity 0.5s 0.25s;
-}
-#state-about-sample:checked ~ #about-sample,
-#state-about-contact:checked ~ #about-contact,
-#state-about-trivia:checked ~ #about-miscellaneous,
-#state-gal-anim:checked ~ #gal-anim,
-#state-gal-pixel:checked ~ #gal-pixel,
-#state-gal-raster:checked ~ #gal-raster {
+
+/*Magic Key*/
+#state-sub-nav-1:checked ~ #accordion-entry-1,
+#state-sub-nav-2:checked ~ #accordion-entry-2,
+#state-sub-nav-3:checked ~ #accordion-entry-3 {
   visibility: visible;
   transform: scaleY(1);
   height: 100%;
   opacity: 100;
   transition: transform 0.5s, opacity 0.5s, visibility 0.5s, height 0.5s;
 }
-#state-about-contact:checked ~ div .container-contact,
-#state-about-sample:checked ~ div .container-sample,
-#state-about-trivia:checked ~ div .container-trivia,
-#state-gal-anim:checked ~ div .container-gallery--anim,
-#state-gal-pixel:checked ~ div .container-gallery--pixel,
-#state-gal-raster:checked ~ div .container-gallery--raster {
+#state-sub-nav-1:checked ~ #accordion-entry-1 div,
+#state-sub-nav-2:checked ~ #accordion-entry-2 div,
+#state-sub-nav-3:checked ~ #accordion-entry-3 div {
   opacity: 100;
 }
-#state-about-sample:checked ~ div #selector-sample,
-#state-about-contact:checked ~ div #selector-contact,
-#state-about-trivia:checked ~ div #selector-trivia,
-#state-gal-anim:checked ~ div #selector-anim,
-#state-gal-pixel:checked ~ div #selector-pixel,
-#state-gal-raster:checked ~ div #selector-raster {
+#state-sub-nav-1:checked ~ div #selector-accordion-1,
+#state-sub-nav-2:checked ~ div #selector-accordion-2,
+#state-sub-nav-3:checked ~ div #selector-accordion-3 {
   color: whitesmoke;
   background: darkolivegreen;
 }
-#state-about-sample:checked ~ div #selector-sample:hover,
-#state-about-contact:checked ~ div #selector-contact:hover,
-#state-about-trivia:checked ~ div #selector-trivia:hover,
-#state-gal-anim:checked ~ div #selector-anim:hover,
-#state-gal-pixel:checked ~ div #selector-pixel:hover,
-#state-gal-raster:checked ~ div #selector-raster:hover {
+#state-sub-nav-1:checked ~ div #selector-accordion-1:hover,
+#state-sub-nav-1:focus ~ div #selector-accordion-1,
+#state-sub-nav-2:checked ~ div #selector-accordion-2:hover,
+#state-sub-nav-2:focus ~ div #selector-accordion-2,
+#state-sub-nav-3:checked ~ div #selector-accordion-3:hover, 
+#state-sub-nav-3:focus ~ div #selector-accordion-3 {
   color: darkolivegreen;
   background: whitesmoke;
 }
-#state-about:checked ~ .entry--accordion,
-#state-gal:checked ~ .entry--accordion{
+#state-sub-nav-0:checked ~ .entry--accordion{
   transition: transform 0.75s, opacity 0.25s, visibility 0.75s, height 0.5s;
 }
+#state-sub-nav-0:focus ~ div .sub-nav-entry--title {
+  border: 1px solid whitesmoke;
+  box-shadow: 8px 0 inset whitesmoke;
+} 
+
+/*Gallery Utility*/
 .zoom-small img:hover {
   transform: scale(110%);
 }
@@ -593,6 +579,8 @@ summary {
 .white-background img:hover {
   background: white;
 }
+
+/*Sub-Entry Mobile View*/
 @media only screen and (max-width: 810px) {
   .entry--accordion {
     padding: 32px;
@@ -602,11 +590,6 @@ summary {
   #state-about-trivia:checked ~ #about-miscellaneous {
     padding: 24px
   }
-  .about-extra-container {
-    width: auto;
-    flex-wrap: wrap;
-  }
-  .container-sample--images,
   .container-gallery {
     width: auto;
     flex-wrap: wrap;
