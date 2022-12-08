@@ -26,8 +26,8 @@
 
 <body>
   <!-- Keyboard Nav Skip -->
-  <a class="jump-to-main" tabindex="0" href="#top">SkipNav</a>
-  <div class="notice-accessibility"><p class="no-margin">Notice:<br>To navigate sub-tab. (Contact, Sample, etc.), Tab-key navigate until the button is highlighted. Use the arrow key to switch tabs. ESC to unlock scrolling.</p><p>Jank I know, but hey it works!</p></div>
+  <a class="jump-to-main" href="#top">SkipNav</a>
+  <div class="notice-accessibility"><p class="no-margin">Notice:<br>To navigate sub-tab. (Contact, Sample, etc.), Tab-key navigate until the button is highlighted. Use the arrow key to switch tabs. TAB to unlock scrolling (if on Chromium, you can use ESC).</p><p>Jank I know, but hey it works!</p></div>
   
   <!-- Navigation Bar -->
   <header>
@@ -36,21 +36,21 @@
         <span class="web-only">Zan-cs.site</span>
         <span class="mobile-only">cs.site</span>
       </div>
-      <a class="nav-entry nav-entry--active" href="https://kurover.github.io" tabindex="0">About</a>
-      <a class="nav-entry" href="https://kurover.github.io/gallery" tabindex="0">Gallery</a>
+      <a class="nav-entry nav-entry--active" href="https://kurover.github.io">About</a>
+      <a class="nav-entry" href="https://kurover.github.io/gallery">Gallery</a>
       <div class="nav-entry nav-dropdown-button" tabindex="0">
         More
         <div class="nav-dropdown-container">
-          <a class="nav-dropdown-entry" href="https://kurover.github.io/blog" tabindex="0">Blog</a>
-          <a class="nav-dropdown-entry" href="https://kurover.github.io/download" tabindex="0">Files</a>
+          <a class="nav-dropdown-entry" href="https://kurover.github.io/blog">Blog</a>
+          <a class="nav-dropdown-entry" href="https://kurover.github.io/download">Files</a>
         </div>
       </div>
       <div class="nav-entry nav-entry--right nav-dropdown-button" tabindex="0">
         Links
         <div class="nav-dropdown-container">
-          <a class="nav-dropdown-entry nav-dropdown-entry--extra" href="http://04.jp.org" tabindex="0">Font Credit</a>
-          <a class="nav-dropdown-entry nav-dropdown-entry--extra" href="https://github.com/Kurover/kurover.github.io" tabindex="0">Github Repo</a>
-          <a class="nav-dropdown-entry nav-dropdown-entry--extra" href="https://twitter.com/Cloverift" tabindex="0">Twitter</a>
+          <a class="nav-dropdown-entry nav-dropdown-entry--extra" href="http://04.jp.org">Font Credit</a>
+          <a class="nav-dropdown-entry nav-dropdown-entry--extra" href="https://github.com/Kurover/kurover.github.io">Github Repo</a>
+          <a class="nav-dropdown-entry nav-dropdown-entry--extra" href="https://twitter.com/Cloverift">Twitter</a>
         </div>
       </div>
     </nav>
@@ -61,9 +61,9 @@
     <!-- Profile Pic Container -->
     <div class="container-profile-img">
       <!-- Pic: States -->
-      <input class="hidden-input" type="radio" id="pp-1" name="selector-pp" tabindex="0" checked>
-      <input class="hidden-input" type="radio" id="pp-2" name="selector-pp" tabindex="0">
-      <input class="hidden-input" type="radio" id="pp-3" name="selector-pp" tabindex="0">
+      <input class="hidden-input" type="radio" id="pp-1" name="selector-pp" checked>
+      <input class="hidden-input" type="radio" id="pp-2" name="selector-pp">
+      <input class="hidden-input" type="radio" id="pp-3" name="selector-pp">
       <!-- Pic: Container -->
       <div class="profile-img">
         <img class="img-pp-1" src="img/profile_picture1.png" alt="Main Profile Picture">
@@ -85,17 +85,17 @@
       <div class="container-about-blog">
         <p>Recent Blog/Journal post:</p>
         <ol>
-          <li><a href="https://kurover.github.io/blog_create-live2d" tabindex="0">Creating Live2D Model For The First Time</a></li>
+          <li><a href="https://kurover.github.io/blog_create-live2d">Creating Live2D Model For The First Time</a></li>
         </ol>
       </div>
     </div>
   </div>
   
   <!-- Sub Nav Bar: States -->
-  <input class="hidden-input" type="radio" id="state-sub-nav-0" name="selector-accordion" tabindex="0">
-  <input class="hidden-input" type="radio" id="state-sub-nav-1" name="selector-accordion" tabindex="0">
-  <input class="hidden-input" type="radio" id="state-sub-nav-2" name="selector-accordion" tabindex="0" checked>
-  <input class="hidden-input" type="radio" id="state-sub-nav-3" name="selector-accordion" tabindex="0">
+  <input class="hidden-input" type="radio" id="state-sub-nav-0" name="selector-accordion">
+  <input class="hidden-input" type="radio" id="state-sub-nav-1" name="selector-accordion">
+  <input class="hidden-input" type="radio" id="state-sub-nav-2" name="selector-accordion" checked>
+  <input class="hidden-input" type="radio" id="state-sub-nav-3" name="selector-accordion">
   <!-- Sub Nav bar -->
   <div class="nav-bar nav-bar--sub-nav">
     <label class="sub-nav-entry--title" id="selector-accordion-0" for="state-sub-nav-0">
@@ -114,7 +114,7 @@
   </div>
   
   <!-- Sub: Contact -->
-  <div class="entry entry--accordion" id="accordion-entry-1">
+  <div class="entry entry--accordion" id="accordion-entry-1" tabindex="0">
     <div class="container-default">
       <h2 class="no-margin">Contact</h2>
       <ul>
@@ -135,7 +135,7 @@
   </div>
   
   <!-- Sub: Sample -->
-  <div class="entry entry--accordion" id="accordion-entry-2">
+  <div class="entry entry--accordion" id="accordion-entry-2" tabindex="0">
     <div class="container-default">
       <h2 class="no-margin">Animation Sample</h2>
       <p class="caption"><span class="mobile-only">Tap to zoom.</span><span class="web-only">Hover to zoom.</span></p>
@@ -162,7 +162,7 @@
   </div>
   
   <!-- Sub: Trivia -->
-  <div class="entry entry--accordion" id="accordion-entry-3">
+  <div class="entry entry--accordion" id="accordion-entry-3" tabindex="0">
     <div class="container-default">
       <h2 class="no-margin-top">About: Miscellaneous</h2>
       <p>This section contain word and sentences that detract from the core relevancy of this website existence, somewhat. It's a fluff, or perhaps a lament that is originated from the writer themself. In other word, it's a section of self-answered question(s), from yours truly.</p>
@@ -190,7 +190,7 @@
       <h3>CSS Lab</h3>
       <p class="caption">Practice / test page with codes where I might forget how it work in the future. One day I'll look into it and receive confusion damage trying to decode it, let alone looking at it.</p>
       <ul>
-        <li><a href="misc/lab_checkbox_combinator.html"> Checkbox Combinator </a></li>
+        <li><a href="misc/lab_checkbox-combinator.html"> Checkbox Combinator </a></li>
         <li><a href="misc/lab_grid.html"> Grid Layout </a></li>
       </ul>
     </div>
