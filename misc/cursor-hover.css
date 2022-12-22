@@ -1,0 +1,167 @@
+/*Aneurysm simulator*/
+
+/*
+Templates for future use
+
+To calculate the frame percent;
+  frame = (100 / n - 1)
+We substract by 1 because we also count the 0%
+
+example, we want to animate 20 frames, so:
+  frame = (100 / 20 - 1)
+  frame = (100 / 19)
+  frame = 5.26%
+Insert 0% as the first frame, 5.26% and so on until 100%.
+It doesn't have to be perfect, rounding it to 5% is fine. The last frame might lag a bit.
+
+@keyframes template-16f {
+  0% {}
+  6.6% {}
+  13.3% {}
+  19% {}
+  25.6% {}
+  33.3% {}
+  40% {}
+  46.6% {}
+  53.3% {}
+  60% {}
+  66.6% {}
+  73.3% {}
+  80% {}
+  86.6% {}
+  93.3% {}
+  100% {}
+}
+@keyframes template-12f {
+  0% {}
+  9% {}
+  18% {}
+  27% {}
+  36% {}
+  45% {}
+  54% {}
+  63% {}
+  72% {}
+  81% {}
+  90% {}
+  100% {}
+}
+@keyframes template-24f {
+  0% {}
+  4.3% {}
+  8.6% {}
+  13% {}
+  17.3% {}
+  21.6% {}
+  26% {}
+  30.3% {}
+  34.6% {}
+  39% {}
+  43.3% {}
+  47.6% {}
+  52% {}
+  56.3% {}
+  60.6% {}
+  65% {}
+  69.3% {}
+  73.6 {}
+  78% {}
+  82.3% {}
+  86.6% {}
+  91% {}
+  95% {}
+  100% {}
+}
+*/
+
+/*Divs*/
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.cursor-box {
+  border: 1px solid gray;
+  height: 80px;
+  margin: 1rem
+}
+
+/*Boxes*/
+.cur1 {animation: cursor-default 1s infinite;}
+.cur2 {animation: cursor-wait 1.5s infinite;}
+.cur3 {animation: cursor-busy 1.5s infinite;}
+.cur4 {animation: cursor-pointer 1.5s infinite;}
+
+/*Keyframe*/
+@keyframes cursor-default {
+  0% {cursor: url("/img/download/cursor/koishi/cur_koishi-default1.png"), auto}
+  6.6% {cursor: url("/img/download/cursor/koishi/cur_koishi-default2.png"), auto}
+  13.3% {cursor: url("/img/download/cursor/koishi/cur_koishi-default3.png"), auto}
+  19% {cursor: url("/img/download/cursor/koishi/cur_koishi-default4.png"), auto}
+  25.6% {cursor: url("/img/download/cursor/koishi/cur_koishi-default5.png"), auto}
+  33.3% {cursor: url("/img/download/cursor/koishi/cur_koishi-default6.png"), auto}
+  40% {cursor: url("/img/download/cursor/koishi/cur_koishi-default7.png"), auto}
+  46.6% {cursor: url("/img/download/cursor/koishi/cur_koishi-default8.png"), auto}
+  53.3% {cursor: url("/img/download/cursor/koishi/cur_koishi-default9.png"), auto}
+  60% {cursor: url("/img/download/cursor/koishi/cur_koishi-default10.png"), auto}
+  66.6% {cursor: url("/img/download/cursor/koishi/cur_koishi-default11.png"), auto}
+  73.3% {cursor: url("/img/download/cursor/koishi/cur_koishi-default12.png"), auto}
+  80% {cursor: url("/img/download/cursor/koishi/cur_koishi-default13.png"), auto}
+  86.6% {cursor: url("/img/download/cursor/koishi/cur_koishi-default14.png"), auto}
+  93.3% {cursor: url("/img/download/cursor/koishi/cur_koishi-default15.png"), auto}
+  100% {cursor: url("/img/download/cursor/koishi/cur_koishi-default16.png"), auto}
+}
+@keyframes cursor-wait {
+  0% {cursor: url("/img/download/cursor/koishi/cur_koishi-wait1.png"), auto}
+  6.6% {cursor: url("/img/download/cursor/koishi/cur_koishi-wait2.png"), auto}
+  13.3% {cursor: url("/img/download/cursor/koishi/cur_koishi-wait3.png"), auto}
+  19% {cursor: url("/img/download/cursor/koishi/cur_koishi-wait4.png"), auto}
+  25.6% {cursor: url("/img/download/cursor/koishi/cur_koishi-wait5.png"), auto}
+  33.3% {cursor: url("/img/download/cursor/koishi/cur_koishi-wait6.png"), auto}
+  40% {cursor: url("/img/download/cursor/koishi/cur_koishi-wait7.png"), auto}
+  46.6% {cursor: url("/img/download/cursor/koishi/cur_koishi-wait8.png"), auto}
+  53.3% {cursor: url("/img/download/cursor/koishi/cur_koishi-wait9.png"), auto}
+  60% {cursor: url("/img/download/cursor/koishi/cur_koishi-wait10.png"), auto}
+  66.6% {cursor: url("/img/download/cursor/koishi/cur_koishi-wait11.png"), auto}
+  73.3% {cursor: url("/img/download/cursor/koishi/cur_koishi-wait12.png"), auto}
+  80% {cursor: url("/img/download/cursor/koishi/cur_koishi-wait13.png"), auto}
+  86.6% {cursor: url("/img/download/cursor/koishi/cur_koishi-wait14.png"), auto}
+  93.3% {cursor: url("/img/download/cursor/koishi/cur_koishi-wait15.png"), auto}
+  100% {cursor: url("/img/download/cursor/koishi/cur_koishi-wait16.png"), auto}
+}
+@keyframes cursor-busy {
+  0% {cursor: url("/img/download/cursor/koishi/cur_koishi-busy1"), auto}
+  6.6% {cursor: url("/img/download/cursor/koishi/cur_koishi-busy2.png"), auto}
+  13.3% {cursor: url("/img/download/cursor/koishi/cur_koishi-busy3.png"), auto}
+  19% {cursor: url("/img/download/cursor/koishi/cur_koishi-busy4.png"), auto}
+  25.6% {cursor: url("/img/download/cursor/koishi/cur_koishi-busy5.png"), auto}
+  33.3% {cursor: url("/img/download/cursor/koishi/cur_koishi-busy6.png"), auto}
+  40% {cursor: url("/img/download/cursor/koishi/cur_koishi-busy7.png"), auto}
+  46.6% {cursor: url("/img/download/cursor/koishi/cur_koishi-busy8.png"), auto}
+  53.3% {cursor: url("/img/download/cursor/koishi/cur_koishi-busy9.png"), auto}
+  60% {cursor: url("/img/download/cursor/koishi/cur_koishi-busy10.png"), auto}
+  66.6% {cursor: url("/img/download/cursor/koishi/cur_koishi-busy11.png"), auto}
+  73.3% {cursor: url("/img/download/cursor/koishi/cur_koishi-busy12.png"), auto}
+  80% {cursor: url("/img/download/cursor/koishi/cur_koishi-busy13.png"), auto}
+  86.6% {cursor: url("/img/download/cursor/koishi/cur_koishi-busy14.png"), auto}
+  93.3% {cursor: url("/img/download/cursor/koishi/cur_koishi-busy15.png"), auto}
+  100% {cursor: url("/img/download/cursor/koishi/cur_koishi-busy16.png"), auto}
+}
+@keyframes cursor-pointer {
+  0% {cursor: url("/img/download/cursor/koishi/cur_koishi-pointer1.png"), auto}
+  6.6% {cursor: url("/img/download/cursor/koishi/cur_koishi-pointer2.png"), auto}
+  13.3% {cursor: url("/img/download/cursor/koishi/cur_koishi-pointer3.png"), auto}
+  19% {cursor: url("/img/download/cursor/koishi/cur_koishi-pointer4.png"), auto}
+  25.6% {cursor: url("/img/download/cursor/koishi/cur_koishi-pointer5.png"), auto}
+  33.3% {cursor: url("/img/download/cursor/koishi/cur_koishi-pointer6.png"), auto}
+  40% {cursor: url("/img/download/cursor/koishi/cur_koishi-pointer7.png"), auto}
+  46.6% {cursor: url("/img/download/cursor/koishi/cur_koishi-pointer8.png"), auto}
+  53.3% {cursor: url("/img/download/cursor/koishi/cur_koishi-pointer9.png"), auto}
+  60% {cursor: url("/img/download/cursor/koishi/cur_koishi-pointer10.png"), auto}
+  66.6% {cursor: url("/img/download/cursor/koishi/cur_koishi-pointer11.png"), auto}
+  73.3% {cursor: url("/img/download/cursor/koishi/cur_koishi-pointer12.png"), auto}
+  80% {cursor: url("/img/download/cursor/koishi/cur_koishi-pointer13.png"), auto}
+  86.6% {cursor: url("/img/download/cursor/koishi/cur_koishi-pointer14.png"), auto}
+  93.3% {cursor: url("/img/download/cursor/koishi/cur_koishi-pointer15.png"), auto}
+  100% {cursor: url("/img/download/cursor/koishi/cur_koishi-pointer16.png"), auto}
+}

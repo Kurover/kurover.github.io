@@ -10,12 +10,12 @@ body {
   margin-bottom: 10%;
   width: 80%;
 }
-@media only screen and (max-width: 810px) {  
+@media (max-width: 810px) {  
   body {
     width: 95%;
   }
 }
-@media only screen and (max-width: 450px) {  
+@media (max-width: 450px) {  
   body {
     width: 100%;
   }
@@ -133,17 +133,17 @@ summary {
   margin-top: 4px;
   text-align: center;
 }
-@media only screen and (max-width: 810px) {
+@media (max-width: 810px) {
   .web-only {
     display: none;
   }
 }
-@media only screen and (min-width: 811px) {
+@media (min-width: 811px) {
   .mobile-only {
     display: none;
   }
 }
-@media only screen and (max-width: 450px) {
+@media (max-width: 450px) {
   h1, h2, h3, .caption {
     text-align: center;
   }
@@ -168,7 +168,7 @@ summary {
   max-width: 512px;
   transition: background 0.2s, opacity 0.2s, visibility 0s 0.2s;
 }
-@media only screen and (max-width: 810px) {
+@media (max-width: 810px) {
   .notice-accessibility {
     left: 0;
   }
@@ -182,10 +182,13 @@ summary {
   color: whitesmoke;
   transition: transform 0.2s;
 }
-.jump-to-main:focus {
+.jump-to-main:visited {
+  color: white  
+}
+.jump-to-main:is(:hover, :focus) {
   transform: translateY(64px);
 }
-.jump-to-main:focus ~ .notice-accessibility {
+.jump-to-main:is(:hover, :focus) ~ .notice-accessibility {
   visibility:visible ;
   opacity: 1;
   background: darkslategray;
@@ -224,12 +227,10 @@ summary {
   background: darkolivegreen;
   height: 24px;
 }
-.nav-entry:hover,
-.nav-entry:focus {
+.nav-entry:is(:hover, :focus) {
   background: darkolivegreen;
 }
-.nav-entry--active:hover,
-.nav-entry--active:focus {
+.nav-entry--active:is(:hover, :focus) {
   background: whitesmoke;
   color: darkslategray;
 }
@@ -282,24 +283,20 @@ summary {
 .nav-dropdown-entry--extra {
   background: #25355A;
 }
-.nav-dropdown-entry:hover,
-.nav-dropdown-entry:focus,
-.nav-dropdown-entry--active {
+.nav-dropdown-entry:is(:hover, :focus, .nav-dropdown-entry--active) {
   background: darkolivegreen;
 }
-.nav-dropdown-entry--active:hover,
-.nav-dropdown-entry--active:focus {
+.nav-dropdown-entry--active:is(:hover,:focus) {
   background: whitesmoke;
   color: darkslategray;
 }
-.nav-dropdown-button:hover .nav-dropdown-container,
-.nav-dropdown-button:focus-within .nav-dropdown-container {
+.nav-dropdown-button:is(:hover, :focus-within) .nav-dropdown-container {
   z-index: 100;
   visibility: visible;
   transform: scaleY(100%);
 }
-/*Mobile View of Navigation Bar and Dropdown*/
-@media only screen and (max-width: 768px) {
+/*Mobile View of Navigation Bar and Dropdown. Yes this is coded mega cringe but I like the static / consistent look better*/
+@media (max-width: 768px) {
   .nav-entry {
     width: 76px;
   }
@@ -308,7 +305,7 @@ summary {
     width: 92px;
   }
 }
-@media only screen and (max-width: 600px) {
+@media (max-width: 600px) {
   .nav-entry {
     width: 56px;
     margin-left: 2px;
@@ -320,7 +317,7 @@ summary {
     width: 76px;
   }
 }
-@media only screen and (max-width: 469px) {
+@media (max-width: 469px) {
   .nav-entry--title {
     display: none;
   }
@@ -329,7 +326,7 @@ summary {
     width: 76px;
   }
 }
-@media only screen and (max-width: 390px) {
+@media (max-width: 390px) {
   .nav-entry {
     width: 56px;
   }
@@ -349,7 +346,7 @@ summary {
   padding: 32px;
   border: 1px solid gray;
 }
-@media only screen and (max-width: 450px) {
+@media (max-width: 450px) {
   .entry {
     margin-top: 24px;
     padding: 16px 8px;
@@ -364,7 +361,7 @@ summary {
   width: 128px;
   border: 2px solid whitesmoke;
 }
-@media only screen and (max-width: 450px) {
+@media (max-width: 450px) {
   .container-profile-img {
     float: none;
     margin: auto;
@@ -394,23 +391,23 @@ summary {
 .selector-expandable:hover {
   box-shadow: 0 2px;
 }
-#pp-1:checked ~ div .img-pp-1,
-#pp-2:checked ~ div .img-pp-2,
-#pp-3:checked ~ div .img-pp-3 {
+#state-pp-1:checked ~ * .img-pp-1,
+#state-pp-2:checked ~ * .img-pp-2,
+#state-pp-3:checked ~ * .img-pp-3 {
   z-index: 1;
   opacity: 100;
 }
-#pp-1:checked ~ #selector-pp1,
-#pp-2:checked ~ #selector-pp2,
-#pp-3:checked ~ #selector-pp3 {
+#state-pp-1:checked ~ #selector-pp1,
+#state-pp-2:checked ~ #selector-pp2,
+#state-pp-3:checked ~ #selector-pp3 {
   color: forestgreen;
 }
-#pp-1:checked ~ #selector-pp1:hover,
-#pp-1:focus ~ #selector-pp1,
-#pp-2:checked ~ #selector-pp2:hover,
-#pp-2:focus ~ #selector-pp2,
-#pp-3:checked ~ #selector-pp3:hover,
-#pp-3:focus ~ #selector-pp3 {
+#state-pp-1:checked ~ #selector-pp1:hover,
+#state-pp-1:focus ~ #selector-pp1,
+#state-pp-2:checked ~ #selector-pp2:hover,
+#state-pp-2:focus ~ #selector-pp2,
+#state-pp-3:checked ~ #selector-pp3:hover,
+#state-pp-3:focus ~ #selector-pp3 {
   color: greenyellow;
 }
 
@@ -428,17 +425,24 @@ summary {
 
 /*Sub-Navigator*/
 .entry--accordion {
-  visibility: hidden;
   opacity: 0;
   height: 0;
   box-shadow: 8px 0 inset gray;
   transform-origin: top;
   transform: scaleY(0);
 }
-.entry--accordion > div {
+.entry--accordion > .container {
   opacity: 0;
   transition: opacity 0.5s 0.25s;
 }
+/*Negative margin to compensate the border taking up spaces when hidden*/
+.entry--accordion-first-tab{
+  margin-top: -1px;
+}
+.entry--accordion-remainder-tab{
+  margin-top: -98px;
+}
+
 .nav-bar--sub-nav {
   color: whitesmoke;
   margin-top: -32px;
@@ -473,21 +477,12 @@ summary {
   display: block;
   color: whitesmoke;
 }
-#state-sub-nav-0:checked ~ .nav-bar--sub-nav .sub-nav-entry--span {
+#state-sub-nav-0:checked ~ * .sub-nav-entry--span {
   display: none;
 }
 .sub-nav-entry:hover {
   color: whitesmoke;
   background: darkolivegreen;
-}
-
-/*Negative margin to compensate the border taking up spaces*/
-#accordion-entry-1{
-  margin-top: -1px;
-}
-#accordion-entry-2,
-#accordion-entry-3 {
-  margin-top: -98px;
 }
 
 /*Image Container*/
@@ -532,7 +527,6 @@ summary {
 #state-sub-nav-1:checked ~ #accordion-entry-1,
 #state-sub-nav-2:checked ~ #accordion-entry-2,
 #state-sub-nav-3:checked ~ #accordion-entry-3 {
-  visibility: visible;
   transform: scaleY(1);
   height: 100%;
   opacity: 100;
@@ -543,25 +537,25 @@ summary {
 #state-sub-nav-3:checked ~ #accordion-entry-3 div {
   opacity: 100;
 }
-#state-sub-nav-1:checked ~ div #selector-accordion-1,
-#state-sub-nav-2:checked ~ div #selector-accordion-2,
-#state-sub-nav-3:checked ~ div #selector-accordion-3 {
+#state-sub-nav-1:checked ~ * #selector-accordion-1,
+#state-sub-nav-2:checked ~ * #selector-accordion-2,
+#state-sub-nav-3:checked ~ * #selector-accordion-3 {
   color: whitesmoke;
   background: darkolivegreen;
 }
-#state-sub-nav-1:checked ~ div #selector-accordion-1:hover,
-#state-sub-nav-1:focus ~ div #selector-accordion-1,
-#state-sub-nav-2:checked ~ div #selector-accordion-2:hover,
-#state-sub-nav-2:focus ~ div #selector-accordion-2,
-#state-sub-nav-3:checked ~ div #selector-accordion-3:hover, 
-#state-sub-nav-3:focus ~ div #selector-accordion-3 {
+#state-sub-nav-1:checked ~ * #selector-accordion-1:hover,
+#state-sub-nav-1:focus ~ * #selector-accordion-1,
+#state-sub-nav-2:checked ~ * #selector-accordion-2:hover,
+#state-sub-nav-2:focus ~ * #selector-accordion-2,
+#state-sub-nav-3:checked ~ * #selector-accordion-3:hover, 
+#state-sub-nav-3:focus ~ * #selector-accordion-3 {
   color: darkolivegreen;
   background: whitesmoke;
 }
 #state-sub-nav-0:checked ~ .entry--accordion{
   transition: transform 0.75s, opacity 0.25s, visibility 0.75s, height 0.5s;
 }
-#state-sub-nav-0:focus ~ div .sub-nav-entry--title {
+#state-sub-nav-0:focus ~ * .sub-nav-entry--title {
   border: 1px solid whitesmoke;
   box-shadow: 8px 0 inset whitesmoke;
 } 
@@ -581,14 +575,13 @@ summary {
 }
 
 /*Sub-Entry Mobile View*/
-@media only screen and (max-width: 810px) {
+@media (max-width: 810px) {
   .entry--accordion {
     padding: 32px;
     box-shadow: 4px 0 inset gray;
   }
-  #state-about-contact:checked ~ #about-contact,
-  #state-about-trivia:checked ~ #about-miscellaneous {
-    padding: 24px
+  .entry--accordion ~ .container {
+    padding: 12px
   }
   .container-gallery {
     width: auto;
@@ -604,6 +597,13 @@ summary {
     transform-origin: center;
     transform: scale(125%);
     outline: 8px solid black;
+  }
+}
+@media (max-width: 450px) {
+  .entry--accordion {
+    padding-left: 8px;
+    padding-right: 8px;
+    box-shadow: 0 4px inset gray;
   }
 }
 
@@ -648,7 +648,6 @@ summary {
 .download-preview-wide {
   display: block;
   width: 100%;
-  margin-bottom: 16px;
 }
 .download-preview-portrait {
   display: block;
@@ -663,18 +662,19 @@ summary {
   margin: 16px auto;
 }
 .button-download {
-  display: inline-block; 
-}
-.button-download a {
-  display: block;
-  border-left: 8px solid whitesmoke;
+  font-family: 'Pixel04b03';
+  font-size: 1rem;
+  display: inline-block;
+  cursor: pointer;
   background: darkolivegreen;
   color: whitesmoke;
+  border: none;
+  box-shadow: 4px 0 inset whitesmoke;
   padding: 18px 24px;
   text-align: center;
   transition: color 0.2s, background 0.2s;
 }
-.button-download:hover a {
+.button-download:is(:hover, :focus) {
   background: whitesmoke;
   color: darkolivegreen;
 }
@@ -704,7 +704,7 @@ summary {
   line-height: 32px;
   transition: color 0.1s;
 }
-.jump-to-top:hover a {
+.jump-to-top:is(:hover, :focus) a {
   color: whitesmoke;
   transition: color 0.1s;
 }
@@ -716,16 +716,20 @@ summary {
   left: 0;
   bottom: 32px;
   height: 48px;
-  padding: 8px 24px;
-  transform: translateX(-232px);
-  transition: transform 0.25s;
+  padding: 32px 32px;
+  transform: translateX(-230px);
+  transition: transform 0.5s;
 }
 .nav-shortcut a {
   float: left;
   width: 256px;
   text-align: right;
   line-height: 48px;
-  transition: background 0.25s;
+  outline: 1px transparent;
+  transition: background 0.25s, color 0.25s, outline 0.5s;
+}
+.nav-shortcut a:visited {
+  color: whitesmoke;
 }
 .nav-shortcut img {
   float: right;
@@ -733,11 +737,12 @@ summary {
   width: 48px;
 }
 .nav-shortcut:hover {
-  transform: translateX(-76px);
+  transform: translateX(-100px);
 }
 .nav-shortcut:hover a {
   background: #141414;
 }
 .nav-shortcut a:hover {
+  color: limegreen;
   outline: 1px solid;
 }

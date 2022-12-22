@@ -61,9 +61,9 @@
     <!-- Profile Pic Container -->
     <div class="container-profile-img">
       <!-- Pic: States -->
-      <input class="hidden-input" type="radio" id="pp-1" name="selector-pp" checked>
-      <input class="hidden-input" type="radio" id="pp-2" name="selector-pp">
-      <input class="hidden-input" type="radio" id="pp-3" name="selector-pp">
+      <input class="hidden-input" type="radio" id="state-pp-1" name="selector-pp" checked>
+      <input class="hidden-input" type="radio" id="state-pp-2" name="selector-pp">
+      <input class="hidden-input" type="radio" id="state-pp-3" name="selector-pp">
       <!-- Pic: Container -->
       <div class="profile-img">
         <img class="img-pp-1" src="img/profile_picture1.png" alt="Main Profile Picture">
@@ -71,9 +71,9 @@
         <img class="img-pp-3" src="img/profile_picture3.png" alt="Latest Profile Picture">
       </div>
       <!-- Pic: Text button -->
-      <label class="selector-pp selection" for="pp-1" id="selector-pp1">Main</label>
-      <label class="selector-pp selection" for="pp-2" id="selector-pp2">Alt1</label>
-      <label class="selector-pp selection" for="pp-3" id="selector-pp3">Alt2</label>
+      <label class="selector-pp selection" for="state-pp-1" id="selector-pp1">Main</label>
+      <label class="selector-pp selection" for="state-pp-2" id="selector-pp2">Alt1</label>
+      <label class="selector-pp selection" for="state-pp-3" id="selector-pp3">Alt2</label>
     </div>
     <!-- Pic: Content-->
     <h1 class="no-margin">Welcome</h1>
@@ -91,12 +91,13 @@
     </div>
   </div>
   
-  <!-- Sub Nav Bar: States -->
+  <!-- Hidden Radio selector to manipulate active sub-tab, manipulated by button navigation below -->
   <input class="hidden-input" type="radio" id="state-sub-nav-0" name="selector-accordion">
   <input class="hidden-input" type="radio" id="state-sub-nav-1" name="selector-accordion">
   <input class="hidden-input" type="radio" id="state-sub-nav-2" name="selector-accordion" checked>
   <input class="hidden-input" type="radio" id="state-sub-nav-3" name="selector-accordion">
-  <!-- Sub Nav bar -->
+  
+  <!-- Sub Nav Bar - Button navigation -->
   <div class="nav-bar nav-bar--sub-nav">
     <label class="sub-nav-entry--title" id="selector-accordion-0" for="state-sub-nav-0">
       <span class="sub-nav-entry--span link">Close</span>
@@ -113,9 +114,9 @@
     </label>
   </div>
   
-  <!-- Sub: Contact -->
-  <div class="entry entry--accordion" id="accordion-entry-1" tabindex="0">
-    <div class="container-default">
+  <!-- Sub-tab: Contact -->
+  <div class="entry entry--accordion entry--accordion-first-tab" id="accordion-entry-1" tabindex="0">
+    <div class="container">
       <h2 class="no-margin">Contact</h2>
       <ul>
         <li>Discord: Zan#6339</li>
@@ -134,9 +135,9 @@
     </div>
   </div>
   
-  <!-- Sub: Sample -->
-  <div class="entry entry--accordion" id="accordion-entry-2" tabindex="0">
-    <div class="container-default">
+  <!-- Sub-tab: Sample -->
+  <div class="entry entry--accordion entry--accordion-remainder-tab" id="accordion-entry-2" tabindex="0">
+    <div class="container">
       <h2 class="no-margin">Animation Sample</h2>
       <p class="caption"><span class="mobile-only">Tap to zoom.</span><span class="web-only">Hover to zoom.</span></p>
       <hr>
@@ -161,9 +162,9 @@
     </div>
   </div>
   
-  <!-- Sub: Trivia -->
-  <div class="entry entry--accordion" id="accordion-entry-3" tabindex="0">
-    <div class="container-default">
+  <!-- Sub-tab: Misc. -->
+  <div class="entry entry--accordion entry--accordion-remainder-tab" id="accordion-entry-3" tabindex="0">
+    <div class="container">
       <h2 class="no-margin-top">About: Miscellaneous</h2>
       <p>This section contain word and sentences that detract from the core relevancy of this website existence, somewhat. It's a fluff, or perhaps a lament that is originated from the writer themself. In other word, it's a section of self-answered question(s), from yours truly.</p>
       
@@ -190,8 +191,9 @@
       <h3>CSS Lab</h3>
       <p class="caption">Practice / test page with codes where I might forget how it work in the future. One day I'll look into it and receive confusion damage trying to decode it, let alone looking at it.</p>
       <ul>
-        <li><a href="misc/lab_checkbox-combinator.html"> Checkbox Combinator </a></li>
-        <li><a href="misc/lab_grid.html"> Grid Layout </a></li>
+        <li><a href="/misc/lab_checkbox-combinator.html"> Checkbox Combinator </a></li>
+        <li><a href="/misc/lab_grid.html"> Grid Layout </a></li>
+        <li><a href="/misc/cursor-hover.html"> Animated Cursor Preview </a></li>
       </ul>
     </div>
   </div>

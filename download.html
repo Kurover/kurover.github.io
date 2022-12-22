@@ -22,6 +22,7 @@
   <link rel="shortcut icon" href="/favicon.ico?v=2">
   <link rel="stylesheet" href="/style.css">
   <link rel="stylesheet" href="/font.css">
+  <link rel="stylesheet" href="/style/cursor-preview.css">
 </head>
 
 <body>
@@ -52,9 +53,11 @@
     </nav>
   </header>
   
+  <!-- Main Entry -->
   <div class="entry">
     <h1>Welcome: Download</h1>
-    <p>Welcome to the download page. Not a fancy place yet, sorry about that! You can refer to catalogue for quick of navigation.</p>
+    <p>Welcome to the download page. </p>
+    <p>In the cursor section, hover on the box with <span style="opacity: 50%">faded text</span> to preview the cursor. The white box below it allow you to test it in white background. The preview might lag or spaz out here and then, due to technical limitation.</p>
     <div class="table-of-contents" id="top">
       <h2 class="toc-header">Catalogue</h2>
       <ol>
@@ -72,40 +75,78 @@
     </div>
   </div>
   
+  <!-- Vtuber Section -->
   <div class="entry entry-download" id="Vtuber">
     <h2 class="download-title">VTuber Sample</h2>
     <div class="container-download" id="Illith-ST">
       <img style="image-rendering: auto; border: 4px solid slategray;" class="download-preview-portrait" src="/img/download/vtuber_illith-st.png">
       <h3>Illith-ST Sample</h3>
+      <p>My first VTuber model rig attempt. <a href="/blog/create-live2d/">Blog Post</a> for details.</p>
       <ul>
         <li>Free to use, modify, and distribute this work as long as you give credit to me and/or my twitter link.</li>
         <li>The body mesh is jank and I don't recommend you following these.</li>
       </ul>
-      <div class="button-download">
-        <a target="_blank" href="https://www.dropbox.com/s/g4ry99h2plm1jwb/Live2D%20Illith-ST%20by%20%40Cloverift.zip?dl=0">Download Illith-ST</a>
-      </div>
+      <form action="https://www.dropbox.com/s/g4ry99h2plm1jwb/Live2D%20Illith-ST%20by%20%40Cloverift.zip?dl=0" target="_blank">
+        <button class="button-download">Download Illith-ST</button>
+      </form>
     </div>
   </div>
 
+  <!-- Cursor Section-->
   <div class="entry entry-download" id="Cursor">
     <h2 class="download-title">Mouse Cursor</h2>
     <div class="container-download" id="Koishi">
       <img class="download-preview-wide" src="/img/download/cursor_koishi.gif">
-      <div class="button-download">
-        <a target="_blank" href="https://www.dropbox.com/s/okg9qsozm2pwu7c/KoishiCursor_0.1.zip?dl=0">Download Koishi</a>
+      <!--Cursor Preview CSS is separate, if CSS not found, it will not be displayed-->
+      <div class="cursor-preview" style="display: none;">
+        <div class="cursor-preview-box" id="koishi-default"><div>Default</div></div>
+        <div class="cursor-preview-box" id="koishi-wait"><div>Wait</div></div>
+        <div class="cursor-preview-box" id="koishi-busy"><div>Busy</div></div>
+        <div class="cursor-preview-box" id="koishi-pointer"><div>Pointer</div></div>
+        <div class="cursor-preview-box light" id="koishi-default"><div>Default</div></div>
+        <div class="cursor-preview-box light" id="koishi-wait"><div>Wait</div></div>
+        <div class="cursor-preview-box light" id="koishi-busy"><div>Busy</div></div>
+        <div class="cursor-preview-box light" id="koishi-pointer"><div>Pointer</div></div>
       </div>
+      <form action="https://www.dropbox.com/s/okg9qsozm2pwu7c/KoishiCursor_0.1.zip?dl=0" target="_blank">
+        <button class="button-download">Download Koishi</button>
+      </form>
     </div>
+    
     <div class="container-download" id="Youmu">
       <img class="download-preview-wide" src="/img/download/cursor_youmu.gif">
-      <div class="button-download">
-        <a target="_blank" href="https://www.dropbox.com/s/na5jlhg6c0l3ug1/YoumuCursor_0.1.zip?dl=0">Download Youmu</a>
+      <!--Preview-->
+      <div class="cursor-preview" style="display: none;">
+        <div class="cursor-preview-box" id="youmu-default"><div>Normal</div></div>
+        <div class="cursor-preview-box" id="youmu-wait"><div>Working</div></div>
+        <div class="cursor-preview-box" id="youmu-busy"><div>Busy</div></div>
+        <div class="cursor-preview-box" id="youmu-pointer"><div>Link</div></div>
+        <div class="cursor-preview-box light" id="youmu-default"><div>Normal</div></div>
+        <div class="cursor-preview-box light" id="youmu-wait"><div>Working</div></div>
+        <div class="cursor-preview-box light" id="youmu-busy"><div>Busy</div></div>
+        <div class="cursor-preview-box light" id="youmu-pointer"><div>Link</div></div>
       </div>
+      <form action="https://www.dropbox.com/s/na5jlhg6c0l3ug1/YoumuCursor_0.1.zip?dl=0" target="_blank">
+        <button class="button-download">Download Youmu</button>
+      </form>
+      
     </div>
     <div class="container-download" id="Koakuma">
       <img class="download-preview-wide" src="/img/download/cursor_koakuma.gif">
-      <div class="button-download">
-        <a target="_blank" href="https://www.dropbox.com/s/p79izy2rh86zozq/KoakumaCursor_0.1c.zip?dl=0">Download Koakuma</a>
+      <!--Preview-->
+      <div class="cursor-preview" style="display: none;">
+        <div class="cursor-preview-box" id="koakuma-default"><div>Normal</div></div>
+        <div class="cursor-preview-box" id="koakuma-wait"><div>Working</div></div>
+        <div class="cursor-preview-box" id="koakuma-busy"><div>Busy</div></div>
+        <div class="cursor-preview-box" id="koakuma-pointer"><div>Link</div></div>
+        <div class="cursor-preview-box light" id="koakuma-default"><div>Normal</div></div>
+        <div class="cursor-preview-box light" id="koakuma-wait"><div>Working</div></div>
+        <div class="cursor-preview-box light" id="koakuma-busy"><div>Busy</div></div>
+        <div class="cursor-preview-box light" id="koakuma-pointer"><div>Link</div></div>
       </div>
+      <form action="https://www.dropbox.com/s/p79izy2rh86zozq/KoakumaCursor_0.1c.zip?dl=0" target="_blank">
+        <button class="button-download">Download Koakuma</button>
+      </form>
     </div>
   </div>
   
