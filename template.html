@@ -28,14 +28,12 @@
   <a class="jump-to-main" href="#top">SkipNav</a>
   <header>
     <nav class="nav-bar">
-      <div class="nav-entry nav-entry--title"> 
-        <span class="web-only">Zan-cs.site</span>
-        <span class="mobile-only">cs.site</span>
-      </div>
-      <!-- Change nav-entry--active to relevant tab -->
-      <a class="nav-entry nav-entry--active" href="/">About</a>
+      <div class="nav-entry nav-entry--title"> Zan.site </div>
+      <a class="nav-entry nav-entry--active" href="/">Home</a>
       <a class="nav-entry" href="/gallery">Gallery</a>
-      <div class="nav-entry nav-dropdown-button" tabindex="0">
+      <a class="nav-entry web-only" href="/blog">Blog</a>
+      <a class="nav-entry web-only" href="/download">Files</a>
+      <div class="nav-entry nav-dropdown-button mobile-only" tabindex="0">
         More
         <div class="nav-dropdown-container">
           <a class="nav-dropdown-entry" href="/blog">Blog</a>
@@ -56,6 +54,46 @@
   <div class="entry" tabindex="-1" id="top">
     <p class="no-margin center">Content Here</p>
   </div>
+  
+  <!-- Hidden Radio selector to manipulate active sub-tab, manipulated by button navigation below -->
+  <input class="hidden-input" type="radio" id="state-sub-nav-0" name="selector-accordion" checked>
+  <input class="hidden-input" type="radio" id="state-sub-nav-1" name="selector-accordion">
+  <input class="hidden-input" type="radio" id="state-sub-nav-2" name="selector-accordion">
+  <input class="hidden-input" type="radio" id="state-sub-nav-3" name="selector-accordion">
+  
+  <!-- Sub Nav Bar - Button navigation -->
+  <div class="nav-bar nav-bar--sub-nav">
+    <label class="sub-nav-entry--title" id="selector-accordion-0" for="state-sub-nav-0">
+      <span class="sub-nav-entry--span link">Close</span>
+      <span>TITLE</span>
+    </label>
+    <label class="sub-nav-entry" id="selector-accordion-1" for="state-sub-nav-1">
+      Tab 1
+    </label>
+    <label class="sub-nav-entry" id="selector-accordion-2" for="state-sub-nav-2">
+      Tab 2
+    </label>
+    <label class="sub-nav-entry" id="selector-accordion-3" for="state-sub-nav-3">
+      Tab 3
+    </label>
+  </div>
+  
+  <div class="entry entry--accordion entry--accordion-first-tab" id="accordion-entry-1" tabindex="0"> 
+    <div class="container">
+      CONTENT TAB 1
+    </div>
+  </div>
+  <div class="entry entry--accordion entry--accordion-remainder-tab" id="accordion-entry-2" tabindex="0">
+    <div class="container">
+      CONTENT TAB 2
+    </div>
+  </div>
+  <div class="entry entry--accordion entry--accordion-remainder-tab" id="accordion-entry-3" tabindex="0">
+    <div class="container">
+      CONTENT TAB 3
+    </div>
+  </div>
+
   
 </body>
 </html>

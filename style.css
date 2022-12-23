@@ -118,9 +118,6 @@ summary {
 .no-padding {
   padding: 0;
 }
-.no-spacing {
-  
-}
 .center {
   text-align: center;
 }
@@ -197,6 +194,8 @@ summary {
 
 /*Navigation Bar*/
 .nav-bar {
+  display: flex;
+  flex-wrap: nowrap;
   background: #141414;
   max-width: 896px;
   height: 48px;
@@ -208,12 +207,10 @@ summary {
   -webkit-user-select: none;
 }
 .nav-entry {
-  display: block;
   background: darkslategray;
-  float: left;
   width: 92px;
   padding: 8px;
-  margin: 8px 4px;
+  margin: 8px 2px;
   overflow: hidden;
   text-align: center;
   text-decoration: none;
@@ -241,7 +238,7 @@ summary {
 /* Extra */
 .nav-entry--right {
   background: #25355A;
-  float: right;
+  margin-left: auto; /*{float:right} of flex-box*/
 }
 .nav-entry--right:hover {
   background: darkolivegreen;
@@ -251,7 +248,13 @@ summary {
   background: transparent;
   line-height: 16px;
   border: 1px solid slategray;
+  white-space: nowrap;
   cursor: default;
+}
+@media (max-width: 450px) {
+  .nav-entry--title {
+    display: none;
+  }
 }
 .nav-entry--title:hover {
   background: transparent;
@@ -263,22 +266,31 @@ summary {
   cursor: default;
 }
 .nav-dropdown-container {
+  display: flex;
+  flex-direction: column;
   visibility: hidden;
   position: absolute;
-  width: 92px;
-  margin: 8px 0 0 -8px;
   cursor: pointer;
+  max-width: 92px;
   transform-origin: top;
-  transform: scaleY(0);
+  transform: translate(-8px, 8px) scaleY(0);
   transition: transform 0.1s, visibility 0.2s;
 }
+.nav-entry--active > .nav-dropdown-container {
+  margin-top: 8px;
+}
 .nav-dropdown-entry {
-  display: block;
   background: darkslategray;
   color: whitesmoke;
-  width: 100%;
+  width: 92px;
   padding: 16px 8px;
-  border-top: 2px solid #0B0E0F;
+  box-shadow: 0 2px inset black;
+  white-space: wrap;
+}
+@media (max-width: 375px) {
+  .nav-dropdown-entry {
+    width: 64px;
+  }
 }
 .nav-dropdown-entry--extra {
   background: #25355A;
@@ -293,48 +305,7 @@ summary {
 .nav-dropdown-button:is(:hover, :focus-within) .nav-dropdown-container {
   z-index: 100;
   visibility: visible;
-  transform: scaleY(100%);
-}
-/*Mobile View of Navigation Bar and Dropdown. Yes this is coded mega cringe but I like the static / consistent look better*/
-@media (max-width: 768px) {
-  .nav-entry {
-    width: 76px;
-  }
-  .nav-entry--active,
-  .nav-entry:hover {
-    width: 92px;
-  }
-}
-@media (max-width: 600px) {
-  .nav-entry {
-    width: 56px;
-    margin-left: 2px;
-    margin-right: 2px;
-  }
-  .nav-dropdown-container,
-  .nav-entry--active,
-  .nav-entry:hover {
-    width: 76px;
-  }
-}
-@media (max-width: 469px) {
-  .nav-entry--title {
-    display: none;
-  }
-  .nav-dropdown-container,
-  .nav-entry {
-    width: 76px;
-  }
-}
-@media (max-width: 390px) {
-  .nav-entry {
-    width: 56px;
-  }
-  .nav-dropdown-container,
-  .nav-entry--active,
-  .nav-entry:hover {
-    width: 64px;
-  }
+  transform: translate(-8px, 8px) scaleY(100%);
 }
 
 /*Content Body*/
@@ -425,8 +396,10 @@ summary {
 
 /*Sub-Navigator*/
 .entry--accordion {
+  visibility: hidden;
   opacity: 0;
   height: 0;
+  padding: 32px; /*Specify padding again since it break stuff if it's different value, see .entry--accordion-first-tab below*/
   box-shadow: 8px 0 inset gray;
   transform-origin: top;
   transform: scaleY(0);
@@ -455,6 +428,7 @@ summary {
   color: whitesmoke;
   background: darkslategray;
   width: min(22%, 96px);
+  margin-left: 4px;
   height: 32px;
   line-height: 32px;
   text-align: center;
@@ -506,7 +480,7 @@ summary {
   z-index: 10;
   background: black;
   outline: 8px solid black;
-  transform: scale(125%);
+  transform: scale(150%);
 }
 .container-gallery--raster img {
   image-rendering: auto;
@@ -527,6 +501,7 @@ summary {
 #state-sub-nav-1:checked ~ #accordion-entry-1,
 #state-sub-nav-2:checked ~ #accordion-entry-2,
 #state-sub-nav-3:checked ~ #accordion-entry-3 {
+  visibility: visible;
   transform: scaleY(1);
   height: 100%;
   opacity: 100;
@@ -565,7 +540,7 @@ summary {
   transform: scale(110%);
 }
 .zoom-medium img:hover {
-  transform: scale(150%);
+  transform: scale(175%);
 }
 .zoom-large img:hover {
   transform: scale(200%);
@@ -577,7 +552,6 @@ summary {
 /*Sub-Entry Mobile View*/
 @media (max-width: 810px) {
   .entry--accordion {
-    padding: 32px;
     box-shadow: 4px 0 inset gray;
   }
   .entry--accordion ~ .container {
@@ -609,8 +583,10 @@ summary {
 
 /*Other*/
 .table-of-contents {
+  margin: 1rem 0;
   border: 2px solid slategray;
   padding: 8px 16px;
+  overflow: hidden;
 }
 .table-of-contents a {
   color: whitesmoke;

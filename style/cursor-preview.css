@@ -4,12 +4,13 @@
 .cursor-preview {
   display: grid !important;
   grid-template-columns: repeat(4, 1fr);
+  width: 100%;
   margin: 8px 0 8px 0;
-  overflow: hidden;
 }
 .cursor-preview-box {
   border: 1px solid gray;
   min-height: 40px;
+  overflow: hidden;
 }
 .cursor-preview-box.light{
   background: whitesmoke;
@@ -18,7 +19,8 @@
   -webkit-user-select: none;
   display: block;
   opacity: 50%;
-  margin: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   text-align: center;
 }
 
