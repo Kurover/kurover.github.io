@@ -64,7 +64,7 @@
   100% {cursor: url("/img/download/cursor/koishi/cur_koishi-wait16.png"), auto}
 }
 @keyframes koishi-busy {
-  0% {cursor: url("/img/download/cursor/koishi/cur_koishi-busy1"), auto}
+  0% {cursor: url("/img/download/cursor/koishi/cur_koishi-busy1.png"), auto}
   6.6% {cursor: url("/img/download/cursor/koishi/cur_koishi-busy2.png"), auto}
   13.3% {cursor: url("/img/download/cursor/koishi/cur_koishi-busy3.png"), auto}
   19% {cursor: url("/img/download/cursor/koishi/cur_koishi-busy4.png"), auto}
@@ -101,7 +101,7 @@
 }
 
 /*YOUMU*/
-#youmu-default {animation: youmu-default 1s infinite;}
+#youmu-default {animation: youmu-default 2s infinite;}
 #youmu-wait {animation: youmu-wait 2s infinite;}
 #youmu-busy {animation: youmu-busy 2s infinite;}
 #youmu-pointer {animation: youmu-pointer 2s infinite;}
@@ -199,7 +199,7 @@
 }
 
 /*KOAKUMA*/
-#koakuma-default {animation: koakuma-default 1s infinite;}
+#koakuma-default {animation: koakuma-default 1.2s infinite;}
 #koakuma-wait {animation: koakuma-wait 2s infinite;}
 #koakuma-busy {animation: koakuma-busy 2s infinite;}
 #koakuma-pointer {animation: koakuma-pointer 2s infinite;}
