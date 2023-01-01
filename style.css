@@ -39,7 +39,7 @@ a:active {
   color: darkslategray;
 }
 h1 {
-  color: azure;
+  color: snow;
   text-decoration: underline;
   font-size: 40px;
 }
@@ -47,18 +47,24 @@ h1:first-child {
   margin-top: 0;
 }
 h2 {
-  color: azure;
+  color: snow;
   font-size: 32px;
-  margin-top: 48px;
+  margin-top: 36px;
   margin-bottom: 16px;
 }
 h3 {
-  color: azure;
+  color: snow;
   font-size: 24px;
-  margin-top: 48px;
+  margin-top: 36px;
   margin-bottom: 16px;
 }
-h4, h5, h6 {
+h4 {
+  color: azure;
+  font-size: 24px;
+  margin-top: 36px;
+  margin-bottom: 16px;
+}
+h5, h6 {
   color: azure;
 }
 p:last-child {
@@ -129,6 +135,7 @@ summary {
   font-size: 14px;
   margin-top: 4px;
   text-align: center;
+  transition: opacity 0.2s 0.3s, visibility 0.2s 0.3s;
 }
 @media (max-width: 810px) {
   .web-only {
@@ -347,8 +354,10 @@ summary {
   position: absolute;
   width: 128px;
   height: 128px;
-  opacity: 0;
   transition: opacity 0.5s;
+}
+.profile-img--accordion > img {
+  opacity: 0;
 }
 
 /*Profile Picture CSS object selector*/
@@ -481,6 +490,11 @@ summary {
   background: black;
   outline: 8px solid black;
   transform: scale(150%);
+}
+.image-container img:hover + .img-caption {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s, visibility 0.2s;
 }
 .container-gallery--raster img {
   image-rendering: auto;

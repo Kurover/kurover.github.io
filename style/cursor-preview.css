@@ -103,10 +103,10 @@
 }
 
 /*YOUMU*/
-#youmu-default {animation: youmu-default 2s infinite;}
-#youmu-wait {animation: youmu-wait 2s infinite;}
-#youmu-busy {animation: youmu-busy 2s infinite;}
-#youmu-pointer {animation: youmu-pointer 2s infinite;}
+#youmu-default {animation: youmu-default 2.5s infinite;}
+#youmu-wait {animation: youmu-wait 2.5s infinite;}
+#youmu-busy {animation: youmu-busy 2.5s infinite;}
+#youmu-pointer {animation: youmu-pointer 5s infinite;}
 @keyframes youmu-default {
   0% {cursor: url("/img/download/cursor/youmu/cur_youmu-default1.png"), auto}
   9% {cursor: url("/img/download/cursor/youmu/cur_youmu-default2.png"), auto}
