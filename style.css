@@ -405,26 +405,16 @@ summary {
 
 /*Sub-Navigator*/
 .entry--accordion {
+  position: fixed;
   visibility: hidden;
   opacity: 0;
-  height: 0;
-  padding: 32px; /*Specify padding again since it break stuff if it's different value, see .entry--accordion-first-tab below*/
-  box-shadow: 8px 0 inset gray;
+  margin-top: -1px;
   transform-origin: top;
-  transform: scaleY(0);
+  transform: translateY(3000px);
 }
 .entry--accordion > .container {
   opacity: 0;
-  transition: opacity 0.5s 0.25s;
 }
-/*Negative margin to compensate the border taking up spaces when hidden*/
-.entry--accordion-first-tab{
-  margin-top: -1px;
-}
-.entry--accordion-remainder-tab{
-  margin-top: -98px;
-}
-
 .nav-bar--sub-nav {
   color: whitesmoke;
   margin-top: -32px;
@@ -478,12 +468,11 @@ summary {
   padding: 8px;
   width: 100%;
   margin: auto;
-  align-content: center;
 }
 .image-container img{
   width: 100%;
   outline: 1px solid gray;
-  transition: transform-origin 0.75s, transform 0.5s, background 0.25s, outline 0.25s;
+  transition: transform-origin 0.5s, transform 0.5s, background 0.25s, outline 0.25s;
 }
 .image-container img:hover {
   z-index: 10;
@@ -496,7 +485,7 @@ summary {
   opacity: 0;
   transition: opacity 0.2s, visibility 0.2s;
 }
-.container-gallery--raster img {
+.container-gallery--raster ~ div img {
   image-rendering: auto;
 }
 .sample-right img:hover {
@@ -512,19 +501,31 @@ summary {
 }
 
 /*Magic Key*/
+@keyframes accordion-tab-transition {
+  0% {transform: scaleY(0);}
+  100% {transform: scaleY(1);}
+}
+@keyframes accordion-tab-container-transition {
+  0% {opacity: 0;}
+  25% {opacity: 0;}
+  100% {opacity: 100;}
+}
 #state-sub-nav-1:checked ~ #accordion-entry-1,
 #state-sub-nav-2:checked ~ #accordion-entry-2,
 #state-sub-nav-3:checked ~ #accordion-entry-3 {
+  position: relative;
   visibility: visible;
-  transform: scaleY(1);
-  height: 100%;
+  transform: translateY(0);
+  box-shadow: 0 -8px inset gray;
+  transition: box-shadow 0.25s 0.75s;
   opacity: 100;
-  transition: transform 0.5s, opacity 0.5s, visibility 0.5s, height 0.5s;
+  animation: accordion-tab-transition 0.75s ease-in-out;
 }
-#state-sub-nav-1:checked ~ #accordion-entry-1 div,
-#state-sub-nav-2:checked ~ #accordion-entry-2 div,
-#state-sub-nav-3:checked ~ #accordion-entry-3 div {
+#state-sub-nav-1:checked ~ #accordion-entry-1 > .container,
+#state-sub-nav-2:checked ~ #accordion-entry-2 > .container,
+#state-sub-nav-3:checked ~ #accordion-entry-3 > .container {
   opacity: 100;
+  animation: accordion-tab-container-transition 0.75s ease-in;
 }
 #state-sub-nav-1:checked ~ * #selector-accordion-1,
 #state-sub-nav-2:checked ~ * #selector-accordion-2,
@@ -540,9 +541,6 @@ summary {
 #state-sub-nav-3:focus ~ * #selector-accordion-3 {
   color: darkolivegreen;
   background: whitesmoke;
-}
-#state-sub-nav-0:checked ~ .entry--accordion{
-  transition: transform 0.75s, opacity 0.25s, visibility 0.75s, height 0.5s;
 }
 #state-sub-nav-0:focus ~ * .sub-nav-entry--title {
   border: 1px solid whitesmoke;
@@ -563,10 +561,37 @@ summary {
   background: white;
 }
 
+/*Sub-Entry Expand tab CSS*/
+.button-expand {
+  margin-top: 16px;
+  line-height: 32px;
+  width: 100%;
+  background: darkslategray;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.button-expand:hover {
+  outline: 2px solid white;
+  background: darkolivegreen;
+}
+#expand-pixel-1 {
+  display: none;
+}
+#state-expand-pixel-1:is(:focus, :active) ~ #button-expand-pixel-1 div {
+  outline: 4px solid white;
+}
+#state-expand-pixel-1:checked,
+#state-expand-pixel-1:checked ~ #button-expand-pixel-1 {
+  display: none;
+}
+#state-expand-pixel-1:checked ~ #expand-pixel-1 {
+  display: block;
+}
+
 /*Sub-Entry Mobile View*/
 @media (max-width: 810px) {
   .entry--accordion {
-    box-shadow: 4px 0 inset gray;
   }
   .entry--accordion ~ .container {
     padding: 12px
@@ -591,7 +616,6 @@ summary {
   .entry--accordion {
     padding-left: 8px;
     padding-right: 8px;
-    box-shadow: 0 4px inset gray;
   }
 }
 
