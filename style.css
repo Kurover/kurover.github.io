@@ -549,13 +549,13 @@ summary {
 
 /*Gallery Utility*/
 .zoom-small img:hover {
-  transform: scale(110%);
+  transform: scale(120%);
 }
 .zoom-medium img:hover {
   transform: scale(175%);
 }
 .zoom-large img:hover {
-  transform: scale(200%);
+  transform: scale(225%);
 }
 .white-background img:hover {
   background: white;
