@@ -83,6 +83,12 @@ summary {
 }
 
 /*Utility CSS*/
+.col-1 {
+  grid-column: span 1;
+}
+.col-2 {
+  grid-column: span 2;
+}
 .font-consolas {
   font-family: 'consolas';
 }
@@ -246,6 +252,11 @@ summary {
 .nav-entry--right {
   background: #25355A;
   margin-left: auto; /*{float:right} of flex-box*/
+}
+@media (max-width: 842px) {
+  .nav-entry--right{
+    margin-left: 2px; /*stick back to default when small enough*/
+  }
 }
 .nav-entry--right:hover {
   background: darkolivegreen;
@@ -459,11 +470,17 @@ summary {
 }
 
 /*Image Container*/
+/*This act as a row. Doing it this way to have odd and even column item.*/
 .container-gallery {
   display: flex;
   width: 100%;
-  flex-wrap: nowrap;
 }
+.container-gallery--expanded /*Grid version, intended for low maintenance "expanded" gallery*/ {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(2, 1fr);
+}
+/*This act as a column*/
 .image-container {
   padding: 8px;
   width: 100%;
@@ -490,15 +507,21 @@ summary {
 }
 .sample-right img:hover {
   transform-origin: right;
-  transform: scale(200%);
+  transform: scale(150%);
 }
 .sample-center img:hover {
-  transform: scale(250%)
+  transform: scale(200%)
 }
 .sample-left img:hover {
   transform-origin: left;
-  transform: scale(200%);
+  transform: scale(150%);
 }
+@media (max-width: 810px) {
+  #sample-styled-1 {
+    width: 88%;  
+  }
+}
+
 
 /*Magic Key*/
 @keyframes accordion-tab-transition {
@@ -562,6 +585,10 @@ summary {
 }
 
 /*Sub-Entry Expand tab CSS*/
+.container-expanded {
+  display: none;
+  margin-top: 64px;
+}
 .button-expand {
   margin-top: 16px;
   line-height: 32px;
@@ -571,15 +598,18 @@ summary {
   cursor: pointer;
   transition: background 0.2s;
 }
+.button-expand a {
+  display: block;
+  color: whitesmoke;
+}
 .button-expand:hover {
   outline: 2px solid white;
   background: darkolivegreen;
 }
-#expand-pixel-1 {
-  display: none;
-}
-#state-expand-pixel-1:is(:focus, :active) ~ #button-expand-pixel-1 div {
+/*Highlight button when the selector is selected. Mainly for keyboar access*/
+#state-expand-pixel-1:focus ~ #button-expand-pixel-1 div {
   outline: 4px solid white;
+  background: darkolivegreen;
 }
 #state-expand-pixel-1:checked,
 #state-expand-pixel-1:checked ~ #button-expand-pixel-1 {
@@ -591,15 +621,13 @@ summary {
 
 /*Sub-Entry Mobile View*/
 @media (max-width: 810px) {
-  .entry--accordion {
-  }
   .entry--accordion ~ .container {
-    padding: 12px
+    padding: 12px;
   }
   .container-gallery {
     width: auto;
     flex-wrap: wrap;
-    padding: 0 8%; 
+    padding: 0 4%; 
     margin: 0;
   }
   .image-container {
@@ -608,7 +636,7 @@ summary {
   }
   .image-container img:hover {
     transform-origin: center;
-    transform: scale(125%);
+    transform: scale(115%);
     outline: 8px solid black;
   }
 }
@@ -616,6 +644,14 @@ summary {
   .entry--accordion {
     padding-left: 8px;
     padding-right: 8px;
+  }
+  .container-gallery--expanded {
+    display: grid;
+    gap: 0;
+    grid-template-columns: 1fr;
+  }
+  .image-container img:hover {
+    transform: scale(105%);
   }
 }
 
@@ -706,7 +742,7 @@ summary {
   width: 32px;
   height: 32px;
   right: 5%;
-  bottom: 5%;
+  bottom: 2%;
   background-color: darkslategray;
 }
 .jump-to-top a {
