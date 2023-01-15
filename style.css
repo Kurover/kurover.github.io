@@ -521,7 +521,13 @@ summary {
 }
 @media (min-width: 810px) {
   .sample-styled-1 {
-    width: 88%;  
+    width: 88%;
+  }
+  .gallery-styled-1 {
+    width: 83%;
+  }
+  .gallery-styled-2 {
+    width: 89%;
   }
 }
 
@@ -638,7 +644,7 @@ summary {
     padding: 0;
     margin: 8px 0;
   }
-  .image-container img:hover {
+  .image-container img:hover /*This will also restore changed transform-origin, which isn't designed for the 1 picture per column*/ {
     transform-origin: center;
     transform: scale(115%);
     outline: 8px solid black;
