@@ -541,26 +541,41 @@ summary {
   25% {opacity: 0;}
   100% {opacity: 100;}
 }
+@keyframes entry-accordion-close {
+  from {
+    display: block;
+    transform: scaleY(100%);
+    height: 400px;
+  }
+  to {
+    display: none;
+    transform: scaleY(0);
+    height: 0px;
+  }
+}
 #state-sub-nav-1:checked ~ #accordion-entry-1,
 #state-sub-nav-2:checked ~ #accordion-entry-2,
-#state-sub-nav-3:checked ~ #accordion-entry-3 {
+#state-sub-nav-3:checked ~ #accordion-entry-3,
+#state-sub-nav-4:checked ~ #accordion-entry-4 {
   position: relative;
   visibility: visible;
   transform: translateY(0);
   box-shadow: 0 -8px inset gray;
   transition: box-shadow 0.25s 0.75s;
   opacity: 100;
-  animation: accordion-tab-transition 0.75s ease-in-out;
+  animation: accordion-tab-transition 0.5s ease-in-out;
 }
 #state-sub-nav-1:checked ~ #accordion-entry-1 > .container,
 #state-sub-nav-2:checked ~ #accordion-entry-2 > .container,
-#state-sub-nav-3:checked ~ #accordion-entry-3 > .container {
+#state-sub-nav-3:checked ~ #accordion-entry-3 > .container,
+#state-sub-nav-4:checked ~ #accordion-entry-4 > .container {
   opacity: 100;
-  animation: accordion-tab-container-transition 0.75s ease-in;
+  animation: accordion-tab-container-transition 0.5s ease-in;
 }
 #state-sub-nav-1:checked ~ * #selector-accordion-1,
 #state-sub-nav-2:checked ~ * #selector-accordion-2,
-#state-sub-nav-3:checked ~ * #selector-accordion-3 {
+#state-sub-nav-3:checked ~ * #selector-accordion-3,
+#state-sub-nav-4:checked ~ * #selector-accordion-4 {
   color: whitesmoke;
   background: darkolivegreen;
 }
@@ -569,14 +584,26 @@ summary {
 #state-sub-nav-2:checked ~ * #selector-accordion-2:hover,
 #state-sub-nav-2:focus ~ * #selector-accordion-2,
 #state-sub-nav-3:checked ~ * #selector-accordion-3:hover, 
-#state-sub-nav-3:focus ~ * #selector-accordion-3 {
+#state-sub-nav-3:focus ~ * #selector-accordion-3,
+#state-sub-nav-4:checked ~ * #selector-accordion-4:hover, 
+#state-sub-nav-4:focus ~ * #selector-accordion-4 {
   color: darkolivegreen;
   background: whitesmoke;
 }
 #state-sub-nav-0:focus ~ * .sub-nav-entry--title {
   border: 1px solid whitesmoke;
   box-shadow: 8px 0 inset whitesmoke;
-} 
+}
+.entry--accordion-placeholder {
+  display: none;
+  margin-top: 0;
+  height: 50px;
+}
+#state-sub-nav-0:checked ~ .entry--accordion-placeholder {
+  display: block;
+  transform-origin: top;
+  animation: entry-accordion-close 0.5s ease-out forwards;
+}
 
 /*Gallery Utility*/
 .zoom-small img:hover {
