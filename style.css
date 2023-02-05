@@ -154,7 +154,7 @@ summary {
   }
 }
 @media (max-width: 450px) {
-  h1, h2, h3, .caption {
+  h1, h2, h3, h4, .caption {
     text-align: center;
   }
 }
@@ -570,7 +570,7 @@ summary {
 #state-sub-nav-3:checked ~ #accordion-entry-3 > .container,
 #state-sub-nav-4:checked ~ #accordion-entry-4 > .container {
   opacity: 100;
-  animation: accordion-tab-container-transition 0.5s ease-in;
+  animation: accordion-tab-container-transition 0.6s ease-in;
 }
 #state-sub-nav-1:checked ~ * #selector-accordion-1,
 #state-sub-nav-2:checked ~ * #selector-accordion-2,
