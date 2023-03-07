@@ -464,11 +464,11 @@ summary {
   border: 1px solid gray;
   overflow: hidden;
 }
-.sub-nav-entry--span {
+.sub-nav-entry--close {
   display: block;
   color: whitesmoke;
 }
-#state-sub-nav-0:checked ~ * .sub-nav-entry--span {
+#state-sub-nav-0:checked ~ * .sub-nav-entry--close {
   display: none;
 }
 .sub-nav-entry:hover {
@@ -601,6 +601,8 @@ summary {
   border: 1px solid whitesmoke;
   box-shadow: 8px 0 inset whitesmoke;
 }
+
+/*Placeholder sub-nav tab for closing animation*/
 .entry--accordion-placeholder {
   display: none;
   margin-top: 0;
