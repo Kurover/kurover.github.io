@@ -292,7 +292,7 @@ summary {
   max-width: 92px;
   transform-origin: top;
   transform: translate(-8px, 8px) scaleY(0);
-  transition: transform 0.1s, visibility 0.2s;
+  transition: transform 0.2s 0.1s, visibility 0.2s 0.1s;
 }
 .nav-entry--active > .nav-dropdown-container {
   margin-top: 8px;
@@ -301,9 +301,11 @@ summary {
   background: darkslategray;
   color: whitesmoke;
   width: 92px;
+  opacity: 0;
   padding: 16px 8px;
   box-shadow: 0 2px inset black;
   white-space: wrap;
+  transition: opacity 0.1s 0.1s;
 }
 @media (max-width: 375px) {
   .nav-dropdown-entry {
@@ -324,6 +326,11 @@ summary {
   z-index: 100;
   visibility: visible;
   transform: translate(-8px, 8px) scaleY(100%);
+  transition: transform 0.2s, visibility 0.2s;
+}
+.nav-dropdown-button:is(:hover, :focus-within) .nav-dropdown-entry {
+  opacity: 1;
+  transition: opacity 0.1s;
 }
 
 /*Content Body*/
@@ -386,7 +393,7 @@ summary {
 #state-pp-2:checked ~ * .img-pp-2,
 #state-pp-3:checked ~ * .img-pp-3 {
   z-index: 1;
-  opacity: 100;
+  opacity: 1;
 }
 #state-pp-1:checked ~ #selector-pp1,
 #state-pp-2:checked ~ #selector-pp2,
@@ -539,7 +546,7 @@ summary {
 @keyframes accordion-tab-container-transition {
   0% {opacity: 0;}
   25% {opacity: 0;}
-  100% {opacity: 100;}
+  100% {opacity: 1;}
 }
 @keyframes entry-accordion-close {
   from {
@@ -562,14 +569,14 @@ summary {
   transform: translateY(0);
   box-shadow: 0 -8px inset gray;
   transition: box-shadow 0.25s 0.75s;
-  opacity: 100;
+  opacity: 1;
   animation: accordion-tab-transition 0.5s ease-in-out;
 }
 #state-sub-nav-1:checked ~ #accordion-entry-1 > .container,
 #state-sub-nav-2:checked ~ #accordion-entry-2 > .container,
 #state-sub-nav-3:checked ~ #accordion-entry-3 > .container,
 #state-sub-nav-4:checked ~ #accordion-entry-4 > .container {
-  opacity: 100;
+  opacity: 1;
   animation: accordion-tab-container-transition 0.6s ease-in;
 }
 #state-sub-nav-1:checked ~ * #selector-accordion-1,
@@ -599,6 +606,7 @@ summary {
   margin-top: 0;
   height: 50px;
 }
+/*With this current system, it is recommended to always set the default sub nav state id to other than 0 to prevent the animation from playing upon page reload*/
 #state-sub-nav-0:checked ~ .entry--accordion-placeholder {
   display: block;
   transform-origin: top;
