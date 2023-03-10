@@ -136,6 +136,10 @@ summary {
 .caption {
   margin-top: 0;
 }
+.quote {
+  padding-left: 12px;
+  box-shadow: 4px 0 inset gray;
+}
 .img-caption{
   opacity: 75%;
   font-size: 14px;
@@ -547,6 +551,7 @@ summary {
 .gallery-illith-state-1:checked ~ .entry > .illith-text-1 {display: block;}
 .gallery-illith-state-2:checked ~ .entry > .illith-text-2 {display: block;}
 .gallery-illith-state-3:checked ~ .entry > .illith-text-3 {display: block;}
+#illith-gallery-expand-1:checked ~ .illith-text-0--expand-1 {display: block;}
 
 /*Magic Key*/
 @keyframes accordion-tab-transition {
