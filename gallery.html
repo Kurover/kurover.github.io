@@ -54,6 +54,12 @@
     </nav>
   </header>
   
+  <!-- Sub-Nav States. It's here because we want the text in the entry to change via CSS selector. --> 
+  <input class="hidden-input gallery-illith-state-0" type="radio" id="state-sub-nav-0" name="selector-accordion">
+  <input class="hidden-input gallery-illith-state-1" type="radio" id="state-sub-nav-1" name="selector-accordion">
+  <input class="hidden-input gallery-illith-state-2" type="radio" id="state-sub-nav-2" name="selector-accordion" checked>
+  <input class="hidden-input gallery-illith-state-3" type="radio" id="state-sub-nav-3" name="selector-accordion">
+  
   <!-- Main Entry -->
   <div class="entry" id="top">
     <div class="container-profile-img">
@@ -63,16 +69,29 @@
       <span class="selector-pp no-select" style="width: 128px; display: block;">Illith</span>
     </div>
     <h1 class="no-margin">Welcome: Gallery</h1>
-    <p>Hello, Illith here, welcome to the gallery! Do take a look around will ya?</p>
-    <p>Fun fact, these pixel art and animation showcase gallery is more or less 75% of my creator's art in total. Pretty disappointing number, isn't it?</p>
-    <p>There are more raster art that is not showcased here. It's the best for your eyesight, really. On a factual note, my creator hasn't really draw a much of raster art after he "dipped his toes" or whatever into pixel art. Might be allergic to it, who knows.</p>
+    <!--Text: Closed-->
+    <div class="illith-text-0">
+      <p>Ever wondered why my creator even bother adding this useless close button? Your guess is as good as mine!</p>
+      <p>Speaking of that, let me tell you a little story. The reason my creator did not set the tabs to closed by default is that the codes are jank! This issue is nonexistent if we just delete the tab closing transition mechanic, or you know, use javascript like every other sane human out there.</p>
+      <p>On another note, in response of my elegant description on the animation tab, I like to give a jab to other pixel artist's portfolio when they use upscaled result. Because it tanks my processing unit real good when there are 10 GIFs with a size of 5mb each! My creator does the same too, except, with the facade of "friendly reminder". You don't hear this from me, ok? Just want to give a payback because he never animates me.</p>
+    </div>
+    <!--Text: Anim-->
+    <div class="illith-text-1">
+      <p>Animation goodies! Thanks to the power of your browser and super duper powerful upscaling filter, we can present these in reasonable scale without badonka of bandwidth (thank you Mr. Github for letting us host for free!)</p>
+      <p>Pixel arts are not a commonly used as a media to display. It is statistically understandable if the default filter for it is not using Nearest Neighbour. Try opening any of these pixel art in a new tab. Pretty small ain't it? Zoom it and you get blurry mess, frustrating.</p>
+    </div>
+    <!--Text: Pixel-->
+    <div class="illith-text-2">
+      <p>Hello, Illith here, welcome to the gallery! Do take a look around will ya?</p>
+      <p>You are currently looking at pixel art sub-tab. You can switch the category below. Coincidentally, I will provide you a flavor text in each of category.</p>
+      <p>Fun fact, these pixel art and animation showcase gallery is more or less 75% of my creator's art in total. Pretty disappointing number, isn't it?</p>
+    </div>
+    <!--Text: Raster-->
+    <div class="illith-text-3">
+      <p>My creator do indeed create raster art, gotta start somewhere. We do still actively use this medium for sketch and practice, as it is easier to scratch the pen tablet to get smooth and curvy lines.</p>
+      <p>Also, there are more raster art that is not showcased here. My creator hasn't really draw a much of raster art after he "dipped his toes" or whatever into pixel art. Might be allergic to it actually, who knows though.</p>
+    </div>
   </div>
-  
-  <!-- Sub-Nav States -->
-  <input class="hidden-input" type="radio" id="state-sub-nav-0" name="selector-accordion">
-  <input class="hidden-input" type="radio" id="state-sub-nav-1" name="selector-accordion">
-  <input class="hidden-input" type="radio" id="state-sub-nav-2" name="selector-accordion" checked>
-  <input class="hidden-input" type="radio" id="state-sub-nav-3" name="selector-accordion">
   
   <!-- Sub-Nav -->
   <div class="nav-bar nav-bar--sub-nav">

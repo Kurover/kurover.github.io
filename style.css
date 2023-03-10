@@ -538,6 +538,16 @@ summary {
   }
 }
 
+/*Illith text box selector*/
+.illith-text-0 {display: none;}
+.illith-text-1 {display: none;}
+.illith-text-2 {display: none;}
+.illith-text-3 {display: none;}
+.gallery-illith-state-0:checked ~ .entry > .illith-text-0 {display: block;}
+.gallery-illith-state-1:checked ~ .entry > .illith-text-1 {display: block;}
+.gallery-illith-state-2:checked ~ .entry > .illith-text-2 {display: block;}
+.gallery-illith-state-3:checked ~ .entry > .illith-text-3 {display: block;}
+
 /*Magic Key*/
 @keyframes accordion-tab-transition {
   0% {transform: scaleY(0);}
