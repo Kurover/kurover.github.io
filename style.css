@@ -521,14 +521,14 @@ summary {
 }
 .sample-right img:hover {
   transform-origin: right;
-  transform: scale(150%);
+  transform: scale(170%);
 }
 .sample-center img:hover {
-  transform: scale(200%)
+  transform: scale(180%)
 }
 .sample-left img:hover {
   transform-origin: left;
-  transform: scale(150%);
+  transform: scale(170%);
 }
 @media (min-width: 810px) {
   .sample-styled-1 {
@@ -566,8 +566,8 @@ summary {
 @keyframes entry-accordion-close {
   from {
     display: block;
-    transform: scaleY(100%);
-    height: 400px;
+    transform: scaleY(1);
+    height: 380px;
   }
   to {
     display: none;
