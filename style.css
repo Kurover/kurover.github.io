@@ -539,6 +539,9 @@ summary {
   }
   .gallery-styled-2 {
     width: 89%;
+  }  
+  .gallery-styled-3 {
+  width: 69%;
   }
 }
 
@@ -552,6 +555,27 @@ summary {
 .gallery-illith-state-2:checked ~ .entry > .illith-text-2 {display: block;}
 .gallery-illith-state-3:checked ~ .entry > .illith-text-3 {display: block;}
 #illith-gallery-expand-1:checked ~ .illith-text-0--expand-1 {display: block;}
+
+/*Animation page CSS*/
+.sub-nav-entry--animation {
+  width: 20%;
+  margin: 0 0 24px 0;
+}
+#state-animation-1:checked ~ div #selector-animation-1,
+#state-animation-2:checked ~ div #selector-animation-2 {
+  background: darkolivegreen;
+}
+#state-animation-1:checked ~ div #selector-animation-1:hover,
+#state-animation-1:focus ~ div #selector-animation-1,
+#state-animation-2:checked ~ div #selector-animation-2:hover,
+#state-animation-2:focus ~ div #selector-animation-2 {
+  background: whitesmoke;
+  color: darkolivegreen;
+}
+#state-animation-1:checked ~ #gallery-animation-page-2,
+#state-animation-2:checked ~ #gallery-animation-page-1 {
+  display: none;
+}
 
 /*Magic Key*/
 @keyframes accordion-tab-transition {
