@@ -276,7 +276,7 @@ permalink: /blog/windows-navigation-enhancement
         <section id="network-monitor">
           <h4 data-heading="Network Monitor">Network Monitor</h4>
           <p>A network monitoring tool. It's especially useful if you are in a limited bandwidth. It can also be displayed as internet speed widget in your taskbar. Oh, if you're using Win11, hack your way and restore it to Win10 taskbar. External toolbars rarely work on Win11.</p>          
-          <p>There's 2 recommendation, <a aria-label-position="top" aria-label="https://www.softperfect.com/products/networx/" rel="noopener" class="external-link" href="https://www.softperfect.com/products/networx/" target="_blank">NetWorx</a> and <a aria-label-position="top" aria-label="https://github.com/zhongyang219/TrafficMonitor" rel="noopener" class="external-link" href="https://github.com/zhongyang219/TrafficMonitor" target="_blank">Traffic Monitor</a>. One require you to grab old version (because starting from version 6, it's no longer free), while the other one is from an infamous country. I personally like Networx display more than TrafMon, but Networx is pain to get if you don't have backup of the installer so I lean toward TrafMon, not to mention it's lighter than NetWorx and also has as CPU/RAM monitor, handy! </p>
+          <p>There's 2 recommendation, <a href="#networx">NetWorx</a> and <a href="#traffic-monitor">Traffic Monitor</a>. One require you to grab old version (because starting from version 6, it's no longer free), while the other one is from an infamous country. I personally like Networx display more than TrafMon, but Networx is pain to get if you don't have backup of the installer so I lean toward TrafMon, not to mention it's lighter than NetWorx and also has as CPU/RAM monitor, handy! </p>
           <h5 id="networx" class="no-margin-bot" data-heading="NetWorx">NetWorx</h5>
           <p class="caption">
             <a aria-label-position="top" aria-label="https://www.softperfect.com/products/networx/" rel="noopener" class="external-link" href="https://www.softperfect.com/products/networx/" target="_blank">Homepage</a>
@@ -380,8 +380,9 @@ permalink: /blog/windows-navigation-enhancement
       <section id="qttabbar">
         <h3 class="no-margin-bot" data-heading="QTTabbar">QTTabbar</h3>
         <p class="caption">
-          <a aria-label-position="top" aria-label="http://qttabbar.wikidot.com" rel="noopener" class="external-link" href="http://qttabbar.wikidot.com" target="_blank">Homepage</a> - QTTabBar ver 1043 <br> The classic windows explorer experience is to have 7 windows at the same time while praying to the god of computer bits so it stay put in place. If you think it's time to graduate from that, QTTabbar is here to let you graduate. It's an enhancement to vanilla explorer functionality.
+          <a aria-label-position="top" aria-label="http://qttabbar.wikidot.com" rel="noopener" class="external-link" href="http://qttabbar.wikidot.com" target="_blank">Homepage</a> - QTTabBar ver 1043
         </p>
+        <p>The classic windows explorer experience is to have 7 windows at the same time while praying to the god of computer bits so it stay put in place. If you think it's time to graduate from that, QTTabbar is here to let you graduate. It's an enhancement to vanilla explorer functionality.</p>
         <p>But first, if you classify yourself as Windows 10 AND keyboard shortcut junky, you might want to reconsider using this if you use Win+E a lot since it doesn't support opening new tab in active window with it. It just open new window instead.</p>
         <h4 data-heading="Installation &amp; Tab Bar">Installation &amp; Tab Bar</h4>
         <p>Grab the latest copy and install, your explorer will be restarted during it. Once finished, open the explorer, you'll see absolutely nothing new, this is normal. To activate it, go to "View &gt; Options (arrow) &gt; QTTabbar".</p>
@@ -420,7 +421,7 @@ permalink: /blog/windows-navigation-enhancement
         <p>Customize it in "Options &gt; Extra View". I personally like it having navigation pane. Though I don't use this feature as I use external explorer for heavy duty file management.</p>
         <h4 data-heading="More Tidbits">More Tidbits</h4>
         <p>QT also has a feature you can add in taskbar. Try checking the toolbars option, a new entry called "QT Tab Desktop Tool" should appear. This is basically folder toolbar on crack but I don't use it to be able to write anything about it.</p>
-        <p>There is another fork of Qttabbar ( <a rel="noopener" class="external-link" href="https://github.com/indiff/qttabbar" target="_blank">https://github.com/indiff/qttabbar</a>), but I haven't tested it fully. Also, you might heard of Clover before, and let me say that I'm personally against using it. It's a bit shady with how often it ping their server. Fat chance it probably just looking for an update but the slim chance of the unknown? We can't know for sure since it's a closed-source program. </p>
+        <p>There is another fork of QTTabbar ( <a rel="noopener" class="external-link" href="https://github.com/indiff/qttabbar" target="_blank">https://github.com/indiff/qttabbar</a>), but I haven't tested it fully. Also, you might heard of Clover before, and let me say that I'm personally against using it. It's a bit shady with how often it ping their server. Fat chance it probably just looking for an update but the slim chance of the unknown? We can't know for sure since it's a closed-source program. </p>
       </section>
       
       <section id="small-tweaks">
@@ -457,7 +458,7 @@ permalink: /blog/windows-navigation-enhancement
             |
             <a aria-label-position="top" aria-label="https://github.com/Open-Shell/Open-Shell-Menu" rel="noopener" class="external-link" href="https://github.com/Open-Shell/Open-Shell-Menu" target="_blank">Github</a>
           </p>
-          <p>This is bundled with Open-Shell, you should read  <a href="#start-menu">Start Menu section</a> first. Classic Explorer provide you a simple set of tweaks for explorer. It work in conjunction with QTTabbar. Upon installing, you'll see an extra icon on your explorer. You can disable it in "View &gt; Options (arrow) &gt; Classic Explorer Bar". Nifty features to my liking:</p>
+          <p>This is bundled with Open-Shell, you should read  <a href="#start-menu">Start Menu section</a> first. Classic Explorer provide you a simple set of tweaks for explorer. It work in conjunction with <a href="#qttabbar">QTTabbar</a>. Upon installing, you'll see an extra icon on your explorer. You can disable it in "View &gt; Options (arrow) &gt; Classic Explorer Bar". Nifty features to my liking:</p>
           <ul>
             <li>Hide search box.</li>
             <li>Classic status bar.</li>
@@ -508,8 +509,8 @@ permalink: /blog/windows-navigation-enhancement
         <p>Until we create one, the tab bar won't show up. Add one in "Tabs &gt; New Tab", add a fancy name, and voila! Add forward slash to the name to make it a child of an existing tab (or drag and drop tab into other tab if you're in tree view already), though you need to change the layout to vertical tree in order to see it in effect. You can change the layout in "File &gt; Preferences &gt; Layout &gt; Tab Tree"</p>
         <img src="/blog/2_win-nav/copyq_tab-1.webp" style="border: none" loading="lazy" alt="ALT_TEXT">
         <h4 data-heading="Editing an Entry">Editing an Entry</h4>
-        <img src="/blog/2_win-nav/copyq_edit-1.webp" style="max-width: 300px" loading="lazy" alt="ALT_TEXT">
         <p>When you right click an entry, there will be 3 similar looking options:</p>
+        <img src="/blog/2_win-nav/copyq_edit-1.webp" style="max-width: 300px" loading="lazy" alt="ALT_TEXT">
         <ul>
           <li>
             <strong>Edit</strong> : Use built-in CopyQ editor. This is mainly for text. If you use this on an image and save it, your image will be lost.
@@ -523,7 +524,7 @@ permalink: /blog/windows-navigation-enhancement
         </ul>
         <img src="/blog/2_win-nav/copyq_edit-2.webp" loading="lazy" alt="ALT_TEXT">
         <p class="img-caption">Chaika? Chaika. Yes, Chaika.</p>
-        <p>When you want use other text editor, you can configure it in "Preferences &gt; History &gt; External editor..". Use full path to your program with %1 in the end, eg. <code>"C:\Program Files (x86)\Notepad++\notepad++.exe"</code>
+        <p>When you want to use other text editor, you can configure it in "Preferences &gt; History &gt; External editor..". Use full path to your program with %1 in the end, eg. <code>"C:\Program Files (x86)\Notepad++\notepad++.exe"</code>
         </p>
         <p>Same deal with images, set it to your image editor in the "Preferences &gt; Items &gt; Images &gt; Image editor command.."</p>
         <h4 data-heading="Storing Clipboard Indefinitely">Storing Clipboard Indefinitely</h4>
@@ -606,7 +607,7 @@ permalink: /blog/windows-navigation-enhancement
         <p class="caption">
           <a aria-label-position="top" aria-label="https://www.onecommander.com" rel="noopener" class="external-link" href="https://www.onecommander.com" target="_blank">Homepage</a>
         </p>
-        <p>External explorer is a luxury. Some need it, some doesn't. Some can't even afford it in the first place, either their price and/or the time to learn it. Windows explorer, as bad as it is in term of feature, is a simple program that does the job (though Mac Finder is superior, imo). Modding it with Qttabbar, is already a lot to some, so why would one need another set of toolbox?</p>
+        <p>External explorer is a luxury. Some need it, some doesn't. Some can't even afford it in the first place, either their price and/or the time to learn it. Windows explorer, as bad as it is in term of feature, is a simple program that does the job (though Mac Finder is superior, imo). Modding it with <a href="#qttabbar">QTTabbar</a>, is already a lot to some, so why would one need another set of toolbox?</p>
         <img src="/blog/2_win-nav/oneco.webp" style="max-width: 100%" loading="lazy" alt="ALT_TEXT">
         <p class="img-caption">Something's sus..</p>
         <p>For me, I use both because I don't like how slow it can be when you use it as the only explorer. OC has some flaws sure, but when you dedicate the task to it, it's much more fluid, plus it has great interface overall. Less dragging to copy/move with keyboard shortcut, add local note to a folder, and mark a file/folder with colors locally. It's like using WordPad compared to Notepad.</p>
@@ -634,8 +635,8 @@ permalink: /blog/windows-navigation-enhancement
         <p class="caption">
           <a aria-label-position="top" aria-label="https://learn.microsoft.com/en-us/windows/powertoys/" rel="noopener" class="external-link" href="https://learn.microsoft.com/en-us/windows/powertoys/" target="_blank">Homepage</a>
         </p>
-        <p>I used a couple of modules. It uses a lot of RAM usage per module though so I don't use them often. A life of 12GB RAM user must be nitpicky with these sort of things.</p>
         <img src="/blog/2_win-nav/powert.webp" loading="lazy" alt="ALT_TEXT">
+        <p>I used a couple of modules. It uses a lot of RAM usage per module though so I don't use them often. A life of 12GB RAM user must be nitpicky with these sort of things.</p>
         <ul>
           <li>Pin to top any program.</li>
           <li>Custom window layout with presets.</li>
@@ -646,7 +647,7 @@ permalink: /blog/windows-navigation-enhancement
       
       <section id="closing">
         <h2>Closing</h2>
-        <p>Not the first time it happen but somehow this took longer to create than I thought it'll be and somehow the character count quadrupled from my initial prediction. Smh, I just scammed myself into working!</p> 
+        <p>Not the first time it happen but somehow this took longer to create than I thought it would be, and somehow the character count quadrupled from my initial prediction. Smh, I just scammed myself into working!</p> 
         <p>I kinda back-pedalled half-way through because well, seems like a big task for my couch potato plums.</p>
         <p>While writing this, I tried to manage the screenshot and writing, with and without these tools I listed. Yeah I can't live with these anymore, especially Everything and Explorer Mod. Honorary mention goes to ShareX, bulk screenshotting with their process name in it is super useful. CopyQ is always handy too but I tried to write all the important bits to a scratch note this time around, much better this way.</p>
         <p>Thanks for reading, see you next around for the next "blog" post. Cheers!</p>
