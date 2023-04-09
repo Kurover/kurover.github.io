@@ -27,16 +27,16 @@ img {
 }
 a {
   text-decoration: none;
-  color: green;
+  color: #72984e;
 }
 a:visited {
-  color: palevioletred;
+  color: #3696a8;
 }
 a:hover {
-  color: greenyellow;
+  color: #edcfc2;
 }
 a:active {
-  color: darkslategray;
+  color: #353a4c;
 }
 h1 {
   color: snow;
@@ -65,10 +65,17 @@ h4 {
   margin-bottom: 16px;
 }
 h5, h6 {
+  font-size: 18px;
   color: azure;
 }
 p:last-child {
   margin-bottom: 0;
+}
+li,
+ul,
+ol {
+  padding-top: 1px;
+  padding-bottom: 1px;
 }
 ul li {
   list-style-type: square;
@@ -89,8 +96,8 @@ summary {
 .col-2 {
   grid-column: span 2;
 }
-.font-consolas {
-  font-family: 'consolas';
+.blog-font {
+  font-family: 'Rubik';
 }
 .hidden {
   display: none;
@@ -100,19 +107,19 @@ summary {
 }
 .link {
   cursor: pointer;
-  color: limegreen;
+  color: #72984e;
   transition: color 0.1s;
 }
 .link:hover {
-  color: greenyellow;
+  color: #edcfc2;
 }
 .selection {
   cursor: pointer;
-  color: whitesmoke;
+  color: lightgray;
   transition: color 0.1s;
 }
 .selection:hover {
-  color: limegreen;
+  color: #72984e;
 }
 .no-select {
   user-select: none;
@@ -194,12 +201,12 @@ summary {
   position: absolute;
   margin-top: -64px;
   padding: 8px;
-  background: darkslategray;
+  background: #353a4c;
   color: whitesmoke;
   transition: transform 0.2s;
 }
 .jump-to-main:visited {
-  color: white  
+  color: whitesmoke;
 }
 .jump-to-main:is(:hover, :focus) {
   transform: translateY(64px);
@@ -207,7 +214,7 @@ summary {
 .jump-to-main:is(:hover, :focus) ~ .notice-accessibility {
   visibility:visible ;
   opacity: 1;
-  background: darkslategray;
+  background: #353a4c;
   transition: background 0.2s, opacity 0.2s, visibility 0s;
 }
 
@@ -228,7 +235,7 @@ summary {
   -ms-user-select: none;
 }
 .nav-entry {
-  background: darkslategray;
+  background: #353a4c;
   width: 92px;
   padding: 8px;
   margin: 8px 2px;
@@ -242,18 +249,18 @@ summary {
   color: whitesmoke;
 }
 .nav-entry--active {
-  background: darkolivegreen;
+  background: #72984e;
   height: 24px;
 }
 .nav-entry:is(:hover, :focus) {
-  background: darkolivegreen;
+  background: #72984e;
 }
 .nav-entry--active:is(:hover,:focus) {
   background: whitesmoke;
-  color: darkslategray;
+  color: #353a4c;
 }
 .nav-entry--active:hover span {
-  color: darkolivegreen;
+  color: #72984e;
 }
 
 /* Extra */
@@ -267,10 +274,10 @@ summary {
   }
 }
 .nav-entry--right:hover {
-  background: darkolivegreen;
+  background: #72984e;
 }
 .nav-entry--title {
-  color: greenyellow;
+  color: whitesmoke;
   background: transparent;
   line-height: 16px;
   border: 1px solid slategray;
@@ -306,7 +313,7 @@ summary {
   margin-top: 8px;
 }
 .nav-dropdown-entry {
-  background: darkslategray;
+  background: #353a4c;
   color: whitesmoke;
   width: 92px;
   opacity: 0;
@@ -324,11 +331,11 @@ summary {
   background: #25355A;
 }
 .nav-dropdown-entry:is(:hover, :focus, .nav-dropdown-entry--active) {
-  background: darkolivegreen;
+  background: #72984e;
 }
 .nav-dropdown-entry--active:is(:hover, :focus) {
   background: whitesmoke;
-  color: darkslategray;
+  color: #353a4c;
 }
 .nav-dropdown-button:is(:hover, :focus-within) .nav-dropdown-container {
   z-index: 100;
@@ -344,7 +351,7 @@ summary {
 /*Content Body*/
 .entry {
   background: #141414;
-  color: whitesmoke;
+  color: lightgray;
   max-width: 832px;
   margin: 32px auto;
   padding: 32px;
@@ -406,7 +413,7 @@ summary {
 #state-pp-1:checked ~ #selector-pp1,
 #state-pp-2:checked ~ #selector-pp2,
 #state-pp-3:checked ~ #selector-pp3 {
-  color: forestgreen;
+  color: #72984e;
 }
 #state-pp-1:checked ~ #selector-pp1:hover,
 #state-pp-1:focus ~ #selector-pp1,
@@ -414,7 +421,7 @@ summary {
 #state-pp-2:focus ~ #selector-pp2,
 #state-pp-3:checked ~ #selector-pp3:hover,
 #state-pp-3:focus ~ #selector-pp3 {
-  color: greenyellow;
+  color: #d3646d;
 }
 
 /*About: Content*/
@@ -424,9 +431,13 @@ summary {
   flex-wrap: nowrap;
 }
 .container-about-blog {
-  padding: 16px;
+  padding: 0 16px;
   width: 100%;
   outline: 1px solid gray;
+}
+.container-about-blog li {
+  list-style: square;
+  padding: 4px;
 }
 
 /*Sub-Navigator*/
@@ -451,7 +462,7 @@ summary {
 .sub-nav-entry {
   display: inline-block;
   color: whitesmoke;
-  background: darkslategray;
+  background: #353a4c;
   width: min(22%, 96px);
   margin-left: 4px;
   height: 32px;
@@ -481,7 +492,7 @@ summary {
 }
 .sub-nav-entry:hover {
   color: whitesmoke;
-  background: darkolivegreen;
+  background: #72984e;
 }
 
 /*Image Container*/
@@ -567,14 +578,14 @@ summary {
 }
 #state-animation-1:checked ~ div #selector-animation-1,
 #state-animation-2:checked ~ div #selector-animation-2 {
-  background: darkolivegreen;
+  background: #72984e;
 }
 #state-animation-1:checked ~ div #selector-animation-1:hover,
 #state-animation-1:focus ~ div #selector-animation-1,
 #state-animation-2:checked ~ div #selector-animation-2:hover,
 #state-animation-2:focus ~ div #selector-animation-2 {
   background: whitesmoke;
-  color: darkolivegreen;
+  color: #72984e;
 }
 #state-animation-1:checked ~ #gallery-animation-page-2,
 #state-animation-2:checked ~ #gallery-animation-page-1 {
@@ -627,7 +638,7 @@ summary {
 #state-sub-nav-3:checked ~ * #selector-accordion-3,
 #state-sub-nav-4:checked ~ * #selector-accordion-4 {
   color: whitesmoke;
-  background: darkolivegreen;
+  background: #72984e;
 }
 #state-sub-nav-1:checked ~ * #selector-accordion-1:hover,
 #state-sub-nav-1:focus ~ * #selector-accordion-1,
@@ -637,7 +648,7 @@ summary {
 #state-sub-nav-3:focus ~ * #selector-accordion-3,
 #state-sub-nav-4:checked ~ * #selector-accordion-4:hover, 
 #state-sub-nav-4:focus ~ * #selector-accordion-4 {
-  color: darkolivegreen;
+  color: #72984e;
   background: whitesmoke;
 }
 #state-sub-nav-0:focus ~ * .sub-nav-entry--title {
@@ -680,7 +691,7 @@ summary {
   margin-top: 16px;
   line-height: 32px;
   width: 100%;
-  background: darkslategray;
+  background: #353a4c;
   text-align: center;
   cursor: pointer;
   transition: background 0.2s;
@@ -691,12 +702,12 @@ summary {
 }
 .button-expand:hover {
   outline: 2px solid white;
-  background: darkolivegreen;
+  background: #72984e;
 }
 /*Highlight button when the selector is selected. Mainly for keyboar access*/
 #state-expand-pixel-1:focus ~ #button-expand-pixel-1 div {
   outline: 4px solid white;
-  background: darkolivegreen;
+  background: #72984e;
 }
 #state-expand-pixel-1:checked,
 #state-expand-pixel-1:checked ~ #button-expand-pixel-1 {
@@ -755,24 +766,44 @@ summary {
   color: whitesmoke;
 }
 .table-of-contents a:hover {
-  color: limegreen;
+  color: #d3646d;
 }
 .toc-header:first-child {
   margin-top: 16px;
 }
 
 /*Blog CSS*/
+.blog-entry h2,
+.blog-toc li a{
+  color: #3da4df;
+}
+.blog-entry h3,
+.blog-toc ol li a {
+  color: #edc380;
+}
+.blog-entry h4,
+.blog-toc ol ol a {
+  color: #a6675c;
+}
+.blog-entry h5,
+.blog-entry h6,
+.blog-toc ol ol ul a {
+  color: #d7547d;
+}
 .blog-entry img {
   display: block;
   margin: auto;
   border: 1px solid white;
   width: 100%;
-  max-width: 600px;
+  max-width: 540px;
   image-rendering: auto;
 }
-.blog-list li a {
-  text-decoration: underline;
+.blog-list li {
+  padding: 8px 0;
   font-size: 24px;
+}
+.blog-list li p {
+  font-size: 1rem;
 }
 .blog-txt-embed {
   background: whitesmoke;
@@ -781,6 +812,36 @@ summary {
 }
 .blog-editor {
   color: lightblue;
+}
+
+/*Generic Container CSS*/
+.container-code {
+  display: block;
+  width: 63%;
+  background: #25202c;
+  padding: 8px 12px;
+  box-shadow: 4px 0 inset #353a4c;
+  color: lightgray;
+}
+@media (max-width: 810px) {
+  .container-code {
+    width: 100%;
+  }
+}
+.container-image-hover {
+  position: relative;
+}
+.container-image-hover-target {
+  opacity: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+  transition: opacity .2s;
+}
+.container-image-hover:hover .container-image-hover-target {
+  opacity: 1;
 }
 
 /*Download CSS*/
@@ -805,7 +866,7 @@ summary {
   font-size: 1rem;
   display: inline-block;
   cursor: pointer;
-  background: darkolivegreen;
+  background: #72984e;
   color: whitesmoke;
   border: none;
   box-shadow: 4px 0 inset whitesmoke;
@@ -815,7 +876,7 @@ summary {
 }
 .button-download:is(:hover, :focus) {
   background: whitesmoke;
-  color: darkolivegreen;
+  color: #72984e;
 }
 .download-title {
   margin-top: 0;
@@ -832,7 +893,7 @@ summary {
   height: 32px;
   right: 5%;
   bottom: 2%;
-  background-color: darkslategray;
+  background-color: #353a4c;
 }
 .jump-to-top a {
   display: block;

@@ -3,3 +3,8 @@
   src: url('style/04B_03_.ttf');
   font-style: normal;
 }
+@font-face {
+  font-family: Rubik;
+  src: url('style/Rubik-Regular.ttf');
+  font-style: normal;
+}
