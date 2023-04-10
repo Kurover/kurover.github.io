@@ -191,7 +191,7 @@ permalink: /blog/windows-navigation-enhancement
         <p>All the options does what it tell. It's mostly simple command but there's a few I use a lot.</p>
         <ul>
           <li>
-            <strong>Middle click to close program</strong> : Ever opened 4 explorer window, 2 notepad instances, and 3 different browser at once? Well if you're tired of it, you can just bulk close it by mid-clicking
+            <strong>Middle click to close program</strong> : Ever opened 4 explorer window, 2 notepad instances, and 3 different browser at once? Well if you're tired of it, you can bulk close it by mid-clicking
           </li>
           <li>
             <strong>Control volume when mouse is over the taskbar</strong> : Feature you don't know you needed.
@@ -232,20 +232,20 @@ permalink: /blog/windows-navigation-enhancement
           <p>This is a Task Manager replacement and has the ability to quickly overview your processes via its tray icon shortcut. Fun fact, it was once called Process Hacker.</p>
           <img src="/blog/2_win-nav/monitor_si-view.webp" style="border: none" loading="lazy" alt="7+Taskbar label setting after">
           <p>Similar alternative is <a aria-label-position="top" aria-label="https://learn.microsoft.com/en-us/sysinternals/downloads/process-explorer" rel="noopener" class="external-link" href="https://learn.microsoft.com/en-us/sysinternals/downloads/process-explorer" target="_blank">ProcExp</a> but it doesn't have the fancy tray icon feature. Careful with this kind of program, it's powerful enough to mess your processes if you don't know what you're doing. We are here for the tray icon, the rest is a bonus trinket you can learn and use. </p>
-          <p>To start, download the old version of it called Process Hacker, yes you aren't misreading this. We actually don't need the latest nightly version since it's unnecessary, except if you need more detailed task manager alternative.</p>
+          <p>To start, download the old version of it, Process Hacker, yes you aren't misreading this. We actually don't need the latest nightly version since it's unnecessary, except if you need more detailed task manager alternative.</p>
           <img src="/blog/2_win-nav/monitor_si-inst.webp" style="max-width: 400px" loading="lazy" alt="Process Hacker install option">
-          <p>During install process, strip all feature and go with bare minimum. Once finished, run it, you should see the main interface and a square tray icon, try hovering it. If you want to add more tray monitor, enable it via "View &gt; Tray Icons &gt; ..." in the menu bar.</p>
+          <p>During install process, strip all features and go with the bare minimum. Once finished, run it, you should see the main interface and a square tray icon, try hovering it. If you want to add more tray monitor, enable it via "View &gt; Tray Icons &gt; ..." in the menu bar.</p>
           <img src="/blog/2_win-nav/monitor_si-set-1.webp" loading="lazy" alt="Process Hacker setting tray menu">
           <p class="img-caption">System Informer has more, btw.</p> 
           <img src="/blog/2_win-nav/monitor_si-set-3.webp" style="max-width: 200px" loading="lazy" alt="Process Hacker in taskbar">
           <p>You're all set! To make it run at startup, tick "Hacker &gt; Options &gt; Start when I log on". Also it's a good idea to enable "Hide when minimized" for less clog in the taskbar.</p>
           <img src="/blog/2_win-nav/monitor_si-set-2.webp" style="max-width: 400px" loading="lazy" alt="Process Hacker setting autorun">
-          <p>If you rather have simple overview of your system, refer to Temperature Sensor or Network Monitor</p>
+          <p>If you'd rather have a simpler overview for your system, refer to <a href="#open-hardware-monitor">Open Hardware Monitor</a>.</p>
         </section>
         
         <section id="temperature-sensor">
           <h4 data-heading="Temperature Sensor">Temperature Sensor</h4>
-          <p>Leaving you component's hot meter unchecked can shorten their lifespan before you know it, especially if it reach 60C on idle for reason unknown. There's 2 option, <a aria-label-position="top" aria-label="https://openhardwaremonitor.org" rel="noopener" class="external-link" href="https://openhardwaremonitor.org" target="_blank">Open Hardware Monitor</a> and/or <a aria-label-position="top" aria-label="https://www.techpowerup.com/download/techpowerup-throttlestop/" rel="noopener" class="external-link" href="https://www.techpowerup.com/download/techpowerup-throttlestop/" target="_blank">ThrottleStop</a>, the latter is for intel CPU and usable as over/undervolting tools. There's also <a aria-label-position="top" aria-label="https://github.com/zhongyang219/TrafficMonitor" rel="noopener" class="external-link" href="https://github.com/zhongyang219/TrafficMonitor" target="_blank">Traffic Monitor</a> but you need to hover its widget to check for temperature, so it's kinda inferior, more about it in <a href="#network-monitor">Traffic Monitor section</a>. </p>
+          <p>Leaving your component's hot meter unchecked can shorten their lifespan before you know it, especially if it reach 60C on idle for reason unknown. There's 2 option, <a aria-label-position="top" aria-label="https://openhardwaremonitor.org" rel="noopener" class="external-link" href="https://openhardwaremonitor.org" target="_blank">Open Hardware Monitor</a> and/or <a aria-label-position="top" aria-label="https://www.techpowerup.com/download/techpowerup-throttlestop/" rel="noopener" class="external-link" href="https://www.techpowerup.com/download/techpowerup-throttlestop/" target="_blank">ThrottleStop</a>, the latter is for intel CPU and usable as over/undervolting tools. There's also <a aria-label-position="top" aria-label="https://github.com/zhongyang219/TrafficMonitor" rel="noopener" class="external-link" href="https://github.com/zhongyang219/TrafficMonitor" target="_blank">Traffic Monitor</a> but you need to hover its widget to check for temperature, so it's kinda inferior, more about it in <a href="#network-monitor">Traffic Monitor section</a>. </p>
           <img src="/blog/2_win-nav/monitor_view.webp" style="max-width: 400px" loading="lazy" alt="ALT_TEXT">
           <p class="img-caption">ProcHack | OpenHardwareMon | ThrottleStop</p>
           
@@ -264,23 +264,23 @@ permalink: /blog/windows-navigation-enhancement
               <a aria-label-position="top" aria-label="https://www.techpowerup.com/download/techpowerup-throttlestop/" rel="noopener" class="external-link" href="https://www.techpowerup.com/download/techpowerup-throttlestop/" target="_blank">Homepage</a>
             </p>
             <p>A bit iffy on putting it here but I wanted to spread awareness on a program that can do CPU voltage adjustment. But we're here for the temperature monitor, so don't click anything foreign unless you read the how-to's on undervolting.</p>
-            <p>Download and unzip to a safe folder of its own, then run the .exe. Go to Options and tick the "CPU/GPU Temp"</p>
+            <p>Download latest build and unzip it to a safe folder of its own, then run the .exe. Go to Options and tick the "CPU/GPU Temp"</p>
             <img src="/blog/2_win-nav/monitor_ts.webp" loading="lazy" alt="ALT_TEXT">
           </section>
         </section>
         
         <section id="network-monitor">
           <h4 data-heading="Network Monitor">Network Monitor</h4>
-          <p>A network monitoring tool. It's especially useful if you are in a limited bandwidth. It can also be displayed as internet speed widget in your taskbar. Oh, if you're using Win11, hack your way and restore it to Win10 taskbar. External toolbars rarely work on Win11.</p>          
-          <p>There's 2 recommendation, <a href="#networx">NetWorx</a> and <a href="#traffic-monitor">Traffic Monitor</a>. One require you to grab old version (because starting from version 6, it's no longer free), while the other one is from an infamous country. I personally like Networx display more than TrafMon, but Networx is pain to get if you don't have backup of the installer so I lean toward TrafMon, not to mention it's lighter than NetWorx and it has CPU/RAM monitor built-in, handy! </p>
+          <p>Monitoring or knowing if your internet is being used is useful if you are in a limited bandwidth. The program in this list can be displayed in your taskbar. Oh, if you're using Win11, hack your way and restore it to Win10 taskbar. External toolbars rarely work on Win11.</p>          
+          <p>There's 2 recommendation, <a href="#networx">NetWorx</a> and <a href="#traffic-monitor">Traffic Monitor</a>. NetWorx require old version, though I personally like its display more than TrafMon. Unfortunately, it's pain to get if you don't have a backup of the installer so I'm leaning more toward TrafMon. Not to mention it's lighter than NetWorx and it has CPU/RAM monitor built-in, handy! </p>
           <h5 id="networx" class="no-margin-bot" data-heading="NetWorx">NetWorx</h5>
           <p class="caption">
             <a aria-label-position="top" aria-label="https://www.softperfect.com/products/networx/" rel="noopener" class="external-link" href="https://www.softperfect.com/products/networx/" target="_blank">Homepage</a>
             |
-            <a aria-label-position="top" aria-label="https://www.dropbox.com/s/qsmkqvkclckqwqv/networx%205-5-5.zip?dl=0" rel="noopener" class="external-link" href="https://www.dropbox.com/s/qsmkqvkclckqwqv/networx%205-5-5.zip?dl=0" target="_blank">Mirror (v. 5-5-5)</a>
+            <a aria-label-position="top" aria-label="https://www.dropbox.com/s/qsmkqvkclckqwqv/networx%205-5-5.zip?dl=0" rel="noopener" class="external-link" href="https://www.dropbox.com/s/qsmkqvkclckqwqv/networx%205-5-5.zip?dl=0" target="_blank">Archive (v. 5-5-5)</a>
           </p>
-          <p>Download via the mirror I provide. Alternatively, look it up on your own. During install, make sure taskbar feature is turned on and disable check for update. The program will run at start by default upon installing.</p>
-          <p>To activate the widget, right click taskbar, select "Toolbars &gt; NetWorx Desk Band". You can expand the widget width, make sure to unlock your taskbar first. To customize the graph type and colors, right click on its tray menu and go to "Settings &gt; Graph/Graph Colours".</p>
+          <p>Download via the archive I provide. Alternatively, look it up on your own. During install, make sure taskbar feature is turned on and disable check for update. The program will run at start by default upon installing.</p>
+          <p>To activate the widget, right click taskbar, select "Toolbars &gt; NetWorx Desk Band". You can expand the widget width, make sure to unlock your taskbar first! To customize the graph type and colors, right click on its tray menu and go to "Settings &gt; Graph/Graph Colours".</p>
           <img src="/blog/2_win-nav/netmon_nwx-2.webp" loading="lazy" alt="ALT_TEXT">
           <p>If you want bigger window, you can choose "Show Graph" in the context menu. Quite useful to monitor prolonged network usage since it can be expanded as wide as your monitor can handle.</p>
           <img src="/blog/2_win-nav/netmon_nwx-3.webp" style="max-width: 300px" loading="lazy" alt="ALT_TEXT">
@@ -289,12 +289,14 @@ permalink: /blog/windows-navigation-enhancement
           <p class="caption">
             <a aria-label-position="top" aria-label="https://github.com/zhongyang219/TrafficMonitor" rel="noopener" class="external-link" href="https://github.com/zhongyang219/TrafficMonitor" target="_blank">Github</a>
           </p>
-          <p>On first run, you'll see a monitor window with cute anime picture, this is normal. This window and tray icon have the same context menu. Anyway, if you like it as is, it's perfectly fine. Though if you want it on the taskbar, right click and choose "Show Taskbar Window".</p>
+          <p>Download latest build and unzip it to a nice place. On first run, you'll see a monitor window with cute anime picture, this is normal. This window and tray icon have the same context menu. Anyway, if you like it as is, it's perfectly fine. Though if you want it on the taskbar, right click and choose "Show Taskbar Window".</p>
           <img src="/blog/2_win-nav/netmon_tm-1.webp" loading="lazy" alt="ALT_TEXT">
+          <p class="img-caption">"Uguu~"</p>
           <p>As always, you can make it run on startup in the settings.</p>
           <img src="/blog/2_win-nav/netmon_tm-2.webp" style="max-width: 400px" loading="lazy" alt="ALT_TEXT">
           <p>To add/remove what's shown in the taskbar, right click on the taskbar widget and choose "Display Settings..." You can modify each component via "Options". If you want it to display CPU/GPU temperature on hover, enable it via the option in "General Settings". It will display a disclaimer and you'd better read it. Once read, it's your decision king.</p>
           <img src="/blog/2_win-nav/netmon_tm-3.webp" loading="lazy" alt="ALT_TEXT">
+          <p class="img-caption">Last one, I swear!</p>
         </section>
         
         <section id="foobar2000-taskbar-plugin">
@@ -304,7 +306,7 @@ permalink: /blog/windows-navigation-enhancement
             |
             <a aria-label-position="top" aria-label="https://www.foobar2000.org/components/view/foo_deskband_controls" rel="noopener" class="external-link" href="https://www.foobar2000.org/components/view/foo_deskband_controls" target="_blank">Download</a>
           </p>
-          <p>This is just an extra section if you use foobar2k and isn't aware with a taskbar player plugin. Also while we are here, I want to declare that offline media is vastly superior to online streaming, thank you very much and please download foobar2000 (not sponsored).</p>
+          <p>This is an extra section if you use foobar2k and isn't aware with a taskbar player plugin. Also while we are here, I want to declare that offline media is vastly superior to online streaming, thank you very much and please download foobar2000 (not sponsored).</p>
           <p>Install the plugin via "File &gt; Preferences &gt; Component". Upon restarting, there will be an installer console pop-up, you can close it once it's finished. FYI the installed files are located in "%ProgramFiles%/DeskbandControls" and the config file is in "%AppData%/DeskbandControls"</p>
           <img src="/blog/2_win-nav/foobar_inst.webp" loading="lazy" alt="ALT_TEXT">
           <p>To enable it on the taskbar, right click on "Taskbar &gt; Toolbars &gt; Deskband Controls". If the option isn't there, try refreshing your desktop first. There will be a brief flash on your taskbar and unless a music is playing, it won't be displayed, so play some tunes if you want to modify it!</p>
@@ -376,7 +378,7 @@ permalink: /blog/windows-navigation-enhancement
           <a aria-label-position="top" aria-label="http://qttabbar.wikidot.com" rel="noopener" class="external-link" href="http://qttabbar.wikidot.com" target="_blank">Homepage</a> - QTTabBar ver 1043
         </p>
         <p>The classic windows explorer experience is to have 7 windows at the same time while praying to the god of computer bits so it stay put in place. If you think it's time to graduate from that, QTTabbar is here to let you graduate. It's an enhancement to vanilla explorer functionality.</p>
-        <p>But first, if you classify yourself as Windows 10 AND keyboard shortcut junky, you might want to reconsider using this if you use Win+E a lot since it doesn't support opening new tab in active window with it. It just open new window instead.</p>
+        <p>But first, if you classify yourself as Windows 10 AND keyboard shortcut junky, you might want to reconsider using this if you use Win+E a lot since it doesn't support opening new tab in active window, but it open new window instead.</p>
         <h4 class="no-color" data-heading="Installation &amp; Tab Bar">Installation &amp; Tab Bar</h4>
         <p>Grab the latest copy and install, your explorer will be restarted during it. Once finished, open the explorer, you'll see absolutely nothing new, this is normal. To activate it, go to "View &gt; Options (arrow) &gt; QTTabbar".</p>
         <img src="/blog/2_win-nav/qtt_set-1.webp" loading="lazy" alt="ALT_TEXT">
@@ -387,7 +389,7 @@ permalink: /blog/windows-navigation-enhancement
         <p class="img-caption">Well...</p>
         <p>Dark user will have color issue. To fix this, right click on empty space in tab bar and go to QT Options in the bottom. Then, look for "Appearance &gt; Toolbar", change the toolbar color or disable it.</p>
         <img src="/blog/2_win-nav/qtt_color-2.webp" loading="lazy" alt="ALT_TEXT">
-        <p>Now, at this point you can just ignore all other major feature but there's 2 thing to cover first since they're enabled by default, some think it's a bother.</p>
+        <p>Now, at this point you can ignore all other major feature but there's 2 thing to cover first since they're enabled by default, some think it's a bother.</p>
         <h4 class="no-color" data-heading="Sub-folder Quick Access &amp; File Preview">Sub-folder Quick Access &amp; File Preview</h4>
         <p>You'll notice a box popping out when you hover over a folder or archive. It's a quick access/preview on what's inside the folder. You can configure/disable it in "Options &gt; Subfolder menu"</p>
         <img src="/blog/2_win-nav/qtt_subfolder-1.webp" loading="lazy" alt="ALT_TEXT">
@@ -586,6 +588,7 @@ permalink: /blog/windows-navigation-enhancement
           <li>Search steam, myanimelist, vndb, etc. </li>
           <li>Instantly go to a nuclear code or Pokédex entry online.</li>
           <li>Multi-search a subject in relevant website instantly (wikipedia, google, reddit, etc.)</li>
+          <li>Run goofy-ah ShareX workspace via CLI that is not worth your keybind slot.</li>
         </ul>
         <p class="quote">
           <a aria-label-position="top" aria-label="https://github.com/pukkandan/YDL" rel="noopener" class="external-link" href="https://github.com/pukkandan/YDL" target="_blank">Pukkandan's YT-DLP GUI</a>
@@ -628,7 +631,7 @@ permalink: /blog/windows-navigation-enhancement
           <a aria-label-position="top" aria-label="https://learn.microsoft.com/en-us/windows/powertoys/" rel="noopener" class="external-link" href="https://learn.microsoft.com/en-us/windows/powertoys/" target="_blank">Homepage</a>
         </p>
         <img src="/blog/2_win-nav/powert.webp" loading="lazy" alt="ALT_TEXT">
-        <p>I used a couple of modules. It uses a lot of RAM usage per module though so I don't use them often. A life of 12GB RAM user must be nitpicky with these sort of things.</p>
+        <p>I hate how this program sit and eat 2GB of space. Each module has their own library in it and it still overlap with the other. Also, why does it need 200MB just for (slow, really slow) HOSTS editor?????? It uses a lot of RAM usage per module too, so I don't use them often. A life of 12GB RAM user must be nitpicky with these sort of things. Some of it is pretty great though.</p>
         <ul>
           <li>Pin to top any program.</li>
           <li>Custom window layout with presets.</li>

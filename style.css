@@ -825,6 +825,11 @@ summary {
   padding: 8px 16px;
   overflow: hidden;
 }
+@media (max-width: 810px) {
+  :is(.table-of-contents) :is(ol, li) {
+    margin-left: -8px;
+  }
+}
 .table-of-contents a {
   color: whitesmoke;
 }
@@ -883,7 +888,7 @@ summary {
 }
 @media (max-width: 810px) {
   .container-code {
-    width: 100%;
+    width: 90%;
   }
 }
 .container-image-hover {
