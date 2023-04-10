@@ -1,10 +1,27 @@
+/* Color Index
+ * #0a0c10 | Background Body
+ * #141414 | Background Entry
+ * #25202c | Background Code
+ * #72984e | Link
+ * #edcfc2 | Link Hover
+ * #3696a8 | Link Visited
+ * #89f86f | Link Active Focus
+ * #353a4c | Button Default
+ * #25355A | Button Extra
+ * #faf0de | h1 h2
+ * #f7dea6 | h3
+ * #8db565 | h4
+ * #5e9cb5 | h5
+ * #8670d4 | h6
+ * */
+
 html {
   font-family: 'Pixel04b03';
   -webkit-font-smoothing: none;
   -moz-osx-font-smoothing: unset;
 }
 body {
-  background: #0B0E0F;
+  background: #0a0c10;
   margin: auto;
   margin-top: 24px;
   margin-bottom: 10%;
@@ -44,29 +61,34 @@ h1 {
   font-size: 40px;
 }
 h1:first-child {
+  color: #faf0de;
   margin-top: 0;
 }
 h2 {
-  color: snow;
+  color: #faf0de;
   font-size: 32px;
   margin-top: 36px;
   margin-bottom: 16px;
 }
 h3 {
-  color: snow;
+  color: #f7dea6;
   font-size: 24px;
   margin-top: 36px;
   margin-bottom: 16px;
 }
 h4 {
-  color: azure;
+  color: #8db565;
   font-size: 24px;
   margin-top: 36px;
   margin-bottom: 16px;
 }
-h5, h6 {
+h5 {
   font-size: 18px;
-  color: azure;
+  color: #5e9cb5;
+}
+h6 {
+  font-size: 18px;
+  color: #8670d4;
 }
 p:last-child {
   margin-bottom: 0;
@@ -86,7 +108,7 @@ details {
 }
 summary {
   cursor: pointer;
-  color: limegreen;
+  color: #89f86f;
 }
 
 /*Utility CSS*/
@@ -126,6 +148,9 @@ summary {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+}
+.no-color {
+  color: lightgray;
 }
 .no-margin {
   margin: 0;
@@ -172,7 +197,9 @@ summary {
   }
 }
 
-/*Keyboard TAB Accessibility*/
+/* Keyboard TAB Accessibility
+ * <a class="jump-to-main" href="#top"></a>
+ * */
 .hidden-input {
   z-index: -1000;
   opacity: 0;
@@ -202,11 +229,11 @@ summary {
   margin-top: -64px;
   padding: 8px;
   background: #353a4c;
-  color: whitesmoke;
+  color: whitesmoke!important;
   transition: transform 0.2s;
 }
-.jump-to-main:visited {
-  color: whitesmoke;
+.jump-to-main::after {
+  content: "SkipNav";
 }
 .jump-to-main:is(:hover, :focus) {
   transform: translateY(64px);
@@ -266,12 +293,12 @@ summary {
 /* Extra */
 .nav-entry--right {
   background: #25355A;
-  margin-left: auto; /*{float:right} of flex-box*/
-}
+  margin-left: auto;
+} /*margin-left:auto is basically float:right in flex-box*/
 @media (max-width: 842px) {
   .nav-entry--right{
-    margin-left: 2px; /*stick back to default when small enough*/
-  }
+    margin-left: 2px;
+  } /*stick back to default when small enough*/
 }
 .nav-entry--right:hover {
   background: #72984e;
@@ -380,7 +407,7 @@ summary {
   }
 }
 .profile-img {
-  background: #0B0E0F;
+  background: #0a0c10;
   height: 128px;
 }
 .profile-img > img {
@@ -421,7 +448,7 @@ summary {
 #state-pp-2:focus ~ #selector-pp2,
 #state-pp-3:checked ~ #selector-pp3:hover,
 #state-pp-3:focus ~ #selector-pp3 {
-  color: #d3646d;
+  color: #89f86f;
 }
 
 /*About: Content*/
@@ -440,7 +467,7 @@ summary {
   padding: 4px;
 }
 
-/*Sub-Navigator*/
+/*Entry Accordion*/
 .entry--accordion {
   position: fixed;
   visibility: hidden;
@@ -448,7 +475,7 @@ summary {
   margin-top: -1px;
   transform-origin: top;
   transform: translateY(24000px);
-}
+} /*Place faraway to prevent loading in fixed location, for lazy load to work. Doesn't use display none to make sure animation work..*/
 .entry--accordion > .container {
   opacity: 0;
 }
@@ -495,26 +522,24 @@ summary {
   background: #72984e;
 }
 
-/*Image Container*/
-/*This act as a row. Doing it this way to have odd and even column item.*/
+/*Image Container. To be OPTIMIZED*/
 .container-gallery {
   display: flex;
   gap: 16px;
   width: 100%;
-}
-.container-gallery--expanded /*Grid version, intended for low maintenance "expanded" gallery*/ {
+} /*This act as a row. Doing it this way to have odd and even column item.*/
+.container-gallery--expanded {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-row-gap: 0;
-}
-/*This act as a column*/
+} /*Grid version, intended for low maintenance "expanded" gallery*/
 .image-container {
   min-height: 10rem;
   width: 100%;
   padding-top: 4px;
   padding-bottom: 4px;
   margin: auto;
-}
+} /*This act as a column*/
 .image-container img{
   width: 100%;
   outline: 1px solid gray;
@@ -656,18 +681,16 @@ summary {
   box-shadow: 8px 0 inset whitesmoke;
 }
 
-/*Placeholder sub-nav tab for closing animation*/
 .entry--accordion-placeholder {
   display: none;
   margin-top: 0;
   height: 50px;
-}
-/*With this current system, it is recommended to always set the default sub nav state id to other than 0 to prevent the animation from playing upon page reload*/
+} /*Placeholder sub-nav tab for closing animation*/
 #state-sub-nav-0:checked ~ .entry--accordion-placeholder {
   display: block;
   transform-origin: top;
   animation: entry-accordion-close 0.5s ease-out forwards;
-}
+} /*With this current system, it is recommended to always set the default sub nav state id to other than 0 to prevent the animation from playing upon page reload*/
 
 /*Gallery Utility*/
 .zoom-small img:hover {
@@ -681,40 +704,6 @@ summary {
 }
 .white-background img:hover {
   background: white;
-}
-
-/*Sub-Entry Expand tab CSS*/
-.container-expanded {
-  display: none;
-}
-.button-expand {
-  margin-top: 16px;
-  line-height: 32px;
-  width: 100%;
-  background: #353a4c;
-  text-align: center;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-.button-expand a {
-  display: block;
-  color: whitesmoke;
-}
-.button-expand:hover {
-  outline: 2px solid white;
-  background: #72984e;
-}
-/*Highlight button when the selector is selected. Mainly for keyboar access*/
-#state-expand-pixel-1:focus ~ #button-expand-pixel-1 div {
-  outline: 4px solid white;
-  background: #72984e;
-}
-#state-expand-pixel-1:checked,
-#state-expand-pixel-1:checked ~ #button-expand-pixel-1 {
-  display: none;
-}
-#state-expand-pixel-1:checked ~ #expand-pixel-1 {
-  display: block;
 }
 
 /*Sub-Entry Mobile View*/
@@ -735,11 +724,11 @@ summary {
     padding: 0;
     margin: 8px 0;
   }
-  .image-container img:hover /*This will also restore changed transform-origin, which isn't designed for the 1 picture per column*/ {
+  .image-container img:hover {
     transform-origin: center;
     transform: scale(115%);
     outline: 8px solid black;
-  }
+  } /*This will also restore changed transform-origin, which isn't designed for the 1 picture per column*/
 }
 @media (max-width: 450px) {
   .entry--accordion {
@@ -755,6 +744,80 @@ summary {
   }
 }
 
+/* Module: Expand on Click | Example on gallery pixel */
+@keyframes container-expandable-show {
+  0% {
+    height: 0;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+  }
+  100% {
+    height: 500px;
+    opacity: 1;
+  }
+}
+.container-expandable-content {
+  visibility: none;
+}
+.container-expandable-content--block {
+  display: none;
+}
+.container-expandable-controller:checked ~ .container-expandable-content {
+  visibility: visible; 
+  animation: container-expandable-show .5s ease-out;
+}
+.container-expandable-controller:checked ~ .container-expandable-content--block {
+  display: block; 
+  animation: container-expandable-show .5s ease-out;
+}
+.button-expand {
+  display: block;
+  background: #353a4c;
+  margin-top: 16px;
+  line-height: 32px;
+  width: 100%;
+  color: whitesmoke;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.button-expand:hover,
+.container-expandable-controller:focus ~ .button-expand {
+  outline: 2px solid white;
+  background: #72984e;
+}
+.container-expandable-controller:checked,
+.container-expandable-controller:checked ~ .button-expand--once {
+  display: none; /*Remove when toggled on*/
+}
+
+/* Module: Tooltip Span
+ * <span class="container-tooltip"><span class="tooltip">CONTENT</span>TITLE</span>
+ * */
+.container-tooltip {
+  cursor: pointer;
+}
+.tooltip {
+  display: inline;
+  position: absolute;
+  visibility: hidden;
+  overflow: hidden;
+  background-color: #25202c;
+  border: 1px solid gray;
+  opacity: 0;
+  padding: 12px;
+  cursor: default;
+  transform: translateY(18px);
+  transition: 0.1s 0.25s;
+}
+.container-tooltip:hover .tooltip{
+  opacity: 1;
+  visibility: visible;
+  transition: 0.1s;
+}
+
 /*Other*/
 .table-of-contents {
   margin: 1rem 0;
@@ -766,29 +829,24 @@ summary {
   color: whitesmoke;
 }
 .table-of-contents a:hover {
-  color: #d3646d;
+  color: #89f86f;
 }
 .toc-header:first-child {
   margin-top: 16px;
 }
 
 /*Blog CSS*/
-.blog-entry h2,
-.blog-toc li a{
-  color: #3da4df;
+.blog-toc ol li a{
+  color: #faf0de;
 }
-.blog-entry h3,
-.blog-toc ol li a {
-  color: #edc380;
+.blog-toc ol ol li a {
+  color: #f7dea6;
 }
-.blog-entry h4,
-.blog-toc ol ol a {
-  color: #a6675c;
+.blog-toc ol ol ol a {
+  color: #8db565;
 }
-.blog-entry h5,
-.blog-entry h6,
-.blog-toc ol ol ul a {
-  color: #d7547d;
+.blog-toc ol ol ol ul a {
+  color: #5e9cb5;
 }
 .blog-entry img {
   display: block;
@@ -884,7 +942,9 @@ summary {
   text-decoration: underline;
 }
 
-/*Shortcut Back to Top*/
+/* Shortcut Back to Top
+ * <div class="jump-to-top"><a href="#top"></a></div>
+ * */
 .jump-to-top {
   position: fixed;
   border: 2px solid slategray;
@@ -904,12 +964,17 @@ summary {
   line-height: 32px;
   transition: color 0.1s;
 }
+.jump-to-top a::after {
+  content: "^";
+}
 .jump-to-top:is(:hover, :focus) a {
   color: whitesmoke;
   transition: color 0.1s;
 }
 
-/*Shortcut Slider on bottom left*/
+/* Shortcut Slider on bottom left
+ * <div class="nav-shortcut"><a href="/"><img src="/favicon.png"></a></div>
+ * */
 .nav-shortcut {
   z-index: 100;
   position: fixed;
@@ -928,6 +993,9 @@ summary {
   outline: 1px transparent;
   transition: background 0.25s, color 0.25s, outline 0.5s;
 }
+.nav-shortcut a::after {
+  content: "Return"
+}
 .nav-shortcut a:visited {
   color: whitesmoke;
 }
@@ -943,6 +1011,6 @@ summary {
   background: #141414;
 }
 .nav-shortcut a:hover {
-  color: limegreen;
+  color: #89f86f;
   outline: 1px solid;
 }
