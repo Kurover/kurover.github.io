@@ -192,7 +192,7 @@ summary {
   }
 }
 @media (max-width: 520px) {
-  h1, h2, h3, h4, .caption {
+  h1, h2, h3, h4, h5, h6, .caption {
     text-align: center;
   }
 }
@@ -387,7 +387,7 @@ summary {
 @media (max-width: 520px) {
   .entry {
     margin-top: 24px;
-    padding: 16px 8px;
+    padding: 16px;
   }
 }
 
