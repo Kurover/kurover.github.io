@@ -32,7 +32,7 @@ body {
     width: 95%;
   }
 }
-@media (max-width: 450px) {  
+@media (max-width: 520px) {  
   body {
     width: 100%;
   }
@@ -191,7 +191,7 @@ summary {
     display: none;
   }
 }
-@media (max-width: 450px) {
+@media (max-width: 520px) {
   h1, h2, h3, h4, .caption {
     text-align: center;
   }
@@ -311,7 +311,7 @@ summary {
   white-space: nowrap;
   cursor: default;
 }
-@media (max-width: 450px) {
+@media (max-width: 520px) {
   .nav-entry--title {
     display: none;
   }
@@ -384,7 +384,7 @@ summary {
   padding: 32px;
   border: 1px solid gray;
 }
-@media (max-width: 450px) {
+@media (max-width: 520px) {
   .entry {
     margin-top: 24px;
     padding: 16px 8px;
@@ -399,7 +399,7 @@ summary {
   width: 128px;
   border: 2px solid whitesmoke;
 }
-@media (max-width: 450px) {
+@media (max-width: 520px) {
   .container-profile-img {
     float: none;
     margin: auto;
@@ -730,7 +730,7 @@ summary {
     outline: 8px solid black;
   } /*This will also restore changed transform-origin, which isn't designed for the 1 picture per column*/
 }
-@media (max-width: 450px) {
+@media (max-width: 520px) {
   .entry--accordion {
     padding-left: 8px;
     padding-right: 8px;
