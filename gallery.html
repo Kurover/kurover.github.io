@@ -66,17 +66,26 @@
       <div class="profile-img">
         <img src="/img/illith.png" alt="Illith Avatar Picture">
       </div>
-      <span class="selector-pp no-select" style="width: 128px; display: block;">Illith</span>
+      <div class="selector-pp">
+        <span class="no-select">Illith</span>
+      </div>
     </div>
     <h1 class="no-margin">Welcome: Gallery</h1>
     <!--Text: Closed-->
     <div class="illith-text-0">
       <p>Ever wondered why my creator even bother adding this useless close button? Your guess is as good as mine!</p>
       <p>Speaking of that, let me tell you a little story. The reason my creator did not set the tabs to closed by default is that the codes are jank! This issue is nonexistent if we just delete the tab closing transition mechanic, or you know, use javascript like every other sane human out there.</p>
-      <p>If you are wondering why deleting transition mechanic fixes it, <label for="illith-gallery-expand-1" class="link">click this</label>.</p>
-        <input type="checkbox" class="hidden-input" id="illith-gallery-expand-1"/>
-        <p class="hidden quote illith-text-0--expand-1">To summarize, if the default is closed, it will play the closing animation each time you refresh this page, look terrible. You know, actually there is an even simpler fix. That fix is not adding a code to default into this any tab state, just like how we default into "pixel" tab. Sadly, by doing this, we run into a problem of this "close" tab not changing the text to "category", which is fixable by adding more bloaty CSS. Now you might wonder, "why don't just fix the transition code then?" well there are more problem if we do that. You reap what you sow, creator...</p>
-      <p>On another note, in response of my elegant description on the animation tab, I often like to give a jab to other pixel artist's portfolio when they use upscaled result. Because it tanks my processing unit real good when there are 10 GIFs with a size of 5mb each! My creator does the same too, except, with the facade of "friendly reminder". You don't hear this from me, ok? Just want to give a payback because he never animates me.</p>
+      <div class="container-expandable">
+        <p>If you are wondering why deleting transition mechanic fixes it, <label for="illith-gallery-expand-1" class="link">click this</label></p>
+        <input type="checkbox" class="hidden-input container-expandable-controller" id="illith-gallery-expand-1"/>
+        <div class="hidden quote container-expandable-content">
+          <p>To summarize, if the default is closed, it will play the closing animation each time you refresh this page, look terrible.</p>
+          <p>There's more to it why we don't do X or Y, but I'm not well equiped to give a human-readable explanation of it.</p>
+        </div>
+      </div>
+      <!--
+      <p>On another note, in response of my elegant description on the animation tab, I often like to give a jab to other pixel artist's portfolio when they use upscaled result. Because it tanks my processing unit real good when there are 10 GIFs with a size of 5mb each! My creator does the same too, except, with the facade of "friendly reminder". You don't hear this from me, ok? ~~Just want to give a payback because he never animates me~~. He kinda did, but I'll keep this in for you, source digger.</p>
+      -->
     </div>
     <!--Text: Anim-->
     <div class="illith-text-1">
@@ -197,7 +206,7 @@
         <input class="hidden-input container-expandable-controller" type="checkbox" id="state-expand-pixel-1">
         <label class="button-expand button-expand--once" for="state-expand-pixel-1">Show more</label>
         
-        <div class="container-expandable-content container-expandable-content--block">
+        <div class="container-expandable-content container-expandable-content--entry">
           <hr style="border: 24px solid transparent">
           <!--Section 1-->
           <div class="container-gallery container-gallery--expanded">

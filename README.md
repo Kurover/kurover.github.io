@@ -18,3 +18,5 @@ This is a portfolio website written exclusively with HTML/CSS + Jekyll. The goal
 - [x] Blog/project history post section.
 - [x] ~~Improve Jekyll integration~~ Minimum interaction, no complex automation.
 - [ ] Link or preview to GroundLeaf project (pending until ready.)
+- [ ] Improve container image code.
+- [ ] Improve zooming visual.
