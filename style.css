@@ -788,7 +788,6 @@ summary {
  * */
 .container-tooltip {
   display: inline;
-  cursor: pointer;
 }
 .tooltip {
   z-index: 100;
@@ -802,15 +801,15 @@ summary {
   border: 1px solid gray;
   margin-top: 16px;
   padding: 12px;
-  cursor: default;
-  transform: scaleY(0.00001);
   transform-origin: top;
-  transition: 0.05s 0.1s;
+  transform: scaleY(0.00001);
+  transition: 0.1s 0.1s, opacity 0.1s 0.05s;
 }
 .container-tooltip:is(:focus, :hover) .tooltip{
   opacity: 1;
   transform: scaleY(1);
   visibility: visible;
+  transition: transform 0.1s, opacity 0.2s;
 }
 
 /*Other*/
