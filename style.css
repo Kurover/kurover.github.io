@@ -118,6 +118,10 @@ summary {
 .col-2 {
   grid-column: span 2;
 }
+.h2-font {
+  color: #faf0de;
+  font-size: 24px;
+}
 .blog-font {
   font-family: 'Rubik';
 }
@@ -805,7 +809,7 @@ summary {
   transform: scaleY(0.00001);
   transition: 0.1s 0.1s, opacity 0.1s 0.05s;
 }
-.container-tooltip:is(:focus, :hover) .tooltip{
+.container-tooltip:is(:focus-within, :hover) .tooltip{
   opacity: 1;
   transform: scaleY(1);
   visibility: visible;
@@ -830,11 +834,11 @@ summary {
 .table-of-contents a:hover {
   color: #89f86f;
 }
-.toc-header:first-child {
-  margin-top: 16px;
-}
 
 /*Blog CSS*/
+.blog-toc > * {
+  margin-top: 12px;
+} /*Heading/First object margin*/
 .blog-toc ol li a{
   color: #faf0de;
 }
