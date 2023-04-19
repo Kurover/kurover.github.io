@@ -763,6 +763,9 @@ summary {
 .container-expandable-controller:checked ~ .container-expandable-content {
   display: block; 
 }
+.container-expandable-controller:checked ~ .container-expandable-content--inline {
+  display: inline; 
+}
 .container-expandable-controller:checked ~ .container-expandable-content--entry {
   animation: container-expandable-show .4s ease-in;
 }
@@ -781,6 +784,10 @@ summary {
 .container-expandable-controller:focus ~ .button-expand {
   outline: 2px solid white;
   background: #72984e;
+}
+.container-expandable-controller:focus ~ .button-expand-text {
+  color: #edcfc2;
+  outline: 1px solid lightgray;
 }
 .container-expandable-controller:checked,
 .container-expandable-controller:checked ~ .button-expand--once {
@@ -836,7 +843,7 @@ summary {
 }
 
 /*Blog CSS*/
-.blog-toc > * {
+.table-of-contents > * {
   margin-top: 12px;
 } /*Heading/First object margin*/
 .blog-toc ol li a{
