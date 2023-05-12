@@ -817,9 +817,7 @@ summary {
   display: none; /*Remove when toggled on*/
 }
 
-/* Module: Tooltip Span
- * <span class="container-tooltip"><span class="tooltip">CONTENT</span>TITLE</span>
- * */
+/* Module: Tooltip Span */
 .container-tooltip {
   display: inline;
 }
@@ -839,17 +837,26 @@ summary {
   transform: scaleY(0.00001);
   transition: 0.1s 0.1s, opacity 0.1s 0.05s;
 }
-
 .tooltip--large {
+  position: absolute;
+  max-width: 832px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
-  left: 5%;
-  width: 86.2%;
 }
 @media (max-width: 520px) {
   .tooltip {
-    max-width: 75%;
-    left: 10%;
+    max-width: 85%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    margin-top: 16px;
     text-align: center;
+  }
+  .container-tooltip--sign::after {
+    content: " ▼";
   }
 }
 .container-tooltip:is(:focus-within, :hover) .tooltip{
@@ -857,6 +864,19 @@ summary {
   transform: scaleY(1);
   visibility: visible;
   transition: transform 0.1s, opacity 0.2s;
+}
+/* Module: Generic Page*/
+.state-container-page-1:checked ~ .container-page-1 {
+  display: block;
+}
+.state-container-page-2:checked ~ .container-page-2 {
+  display: block;
+}
+.state-container-page-3:checked ~ .container-page-3 {
+  display: block;
+}
+.state-container-page-4:checked ~ .container-page-4 {
+  display: block;
 }
 
 /*Other*/
@@ -995,9 +1015,7 @@ summary {
   text-decoration: underline;
 }
 
-/* Shortcut Back to Top
- * <div class="jump-to-top"><a href="#top"></a></div>
- * */
+/* Shortcut Back to Top */
 .jump-to-top {
   position: fixed;
   border: 2px solid slategray;
@@ -1025,9 +1043,7 @@ summary {
   transition: color 0.1s;
 }
 
-/* Shortcut Slider on bottom left
- * <div class="nav-shortcut"><a href="/"><img src="/favicon.png"></a></div>
- * */
+/* Shortcut Slider on bottom left */
 .nav-shortcut {
   z-index: 100;
   position: fixed;
