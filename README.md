@@ -20,3 +20,4 @@ This is a portfolio website written exclusively with HTML/CSS + Jekyll. The goal
 - [ ] Link or preview to GroundLeaf project (pending until ready.)
 - [x] ~~Improve container image code.~~ Technicality is much better now, can be better though.
 - [ ] Improve zooming visual.
+- [ ] Add a dedicated page to test cursor in various background.
