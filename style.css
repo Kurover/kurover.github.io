@@ -13,6 +13,7 @@
  * #8db565 | h4
  * #5e9cb5 | h5
  * #8670d4 | h6
+ * #d3646d | Misc Warning
  * */
 
 html {
@@ -153,6 +154,10 @@ summary {
   -moz-user-select: none;
   -ms-user-select: none;
 }
+.warning {
+  color: #d3646d;
+  font-weight: 800;
+}
 .no-color {
   color: lightgray;
 }
@@ -182,6 +187,7 @@ summary {
   opacity: 0.75;
   font-size: 14px;
   margin-top: 4px;
+  padding-bottom: 4px;
   text-align: center;
   transition: opacity 0.2s 0.3s, visibility 0.2s 0.3s;
 }
@@ -541,22 +547,28 @@ summary {
 .image-container {
   min-height: 10rem; /*Minimum height for loading placeholder*/
   width: 100%;
-  padding-top: 4px;
-  padding-bottom: 4px;
+  padding: 4px;
+  padding-bottom: 0;
   margin: auto;
+  transition: transform-origin 0.5s, transform 0.5s, background 0.25s 0.5s, outline 0.25s 0.5s;
 } /*This act as a column*/
 .image-container img{
   width: 100%;
   outline: 1px solid gray;
+  transition: outline 0.25s 0.5s;
+}
+.image-container:is(:hover, :active) {
+  z-index: 10;
+  transform: scale(151%);
+  background: black;
+  outline: 1px solid black;
   transition: transform-origin 0.5s, transform 0.5s, background 0.25s, outline 0.25s;
 }
-.image-container img:hover {
-  z-index: 10;
-  background: black;
-  outline: 8px solid black;
-  transform: scale(151%);
+.image-container:is(:hover, :active) img {
+  outline: 1px solid transparent;
+  transition: outline 0.25s;
 }
-.image-container img:hover + .img-caption {
+.image-container:hover + .img-caption {
   visibility: hidden;
   opacity: 0;
   transition: opacity 0.2s, visibility 0.2s;
@@ -564,14 +576,14 @@ summary {
 .container-gallery--raster ~ div img {
   image-rendering: auto;
 }
-.sample-right img:hover {
+.sample-right:hover {
   transform-origin: right;
   transform: scale(171%);
 }
-.sample-center img:hover {
+.sample-center:hover {
   transform: scale(181%)
 }
-.sample-left img:hover {
+.sample-left:hover {
   transform-origin: left;
   transform: scale(171%);
 }
@@ -591,16 +603,16 @@ summary {
 }
 
 /*Image Container Utility*/
-.zoom-small img:hover {
+.zoom-small:hover {
   transform: scale(121%);
 }
-.zoom-medium img:hover {
+.zoom-medium:hover {
   transform: scale(176%);
 }
-.zoom-large img:hover {
+.zoom-large:hover {
   transform: scale(226%);
 }
-.white-background img:hover {
+.white-background:hover {
   background: white;
 }
 
@@ -724,13 +736,12 @@ summary {
     grid-template-columns: 1fr;
   }
   .image-container {
-    padding: 0;
     margin: 8px 0;
   }
-  .image-container img:hover {
+  .image-container:is(:hover, :active) {
     transform-origin: center;
     transform: scale(115%);
-    outline: 8px solid black;
+    outline: 4px solid black;
   } /*This will also restore changed transform-origin, which isn't designed for the 1 picture per column*/
 }
 @media (max-width: 520px) {
@@ -738,7 +749,7 @@ summary {
     gap: 0;
     grid-template-columns: 1fr;
   }
-  .image-container img:hover {
+  .image-container:is(:hover, :active) {
     transform: scale(105%);
   }
 }
@@ -806,7 +817,7 @@ summary {
   visibility: hidden;
   opacity: 0;
   position: absolute;
-  overflow: hidden;
+  overflow: scroll;
   background-color: #25202c;
   color: lightgray;
   border: 1px solid gray;
@@ -815,6 +826,19 @@ summary {
   transform-origin: top;
   transform: scaleY(0.00001);
   transition: 0.1s 0.1s, opacity 0.1s 0.05s;
+}
+
+.tooltip--large {
+  text-align: center;
+  left: 5%;
+  width: 86.2%;
+}
+@media (max-width: 520px) {
+  .tooltip {
+    max-width: 75%;
+    left: 10%;
+    text-align: center;
+  }
 }
 .container-tooltip:is(:focus-within, :hover) .tooltip{
   opacity: 1;

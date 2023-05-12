@@ -28,6 +28,9 @@
   <!-- No CSS Warning-->
   <div class="hidden">Hi there, this website requires CSS to be read comfortably, thanks.</div>
   
+  <!-- Reading mode Warning-->
+  <p class="hidden">Hey, if you're on reading mode, do note that some hidden elements like tooltip preview will be shown or even overlap while reading. There's no solution for this, sorry!</p>
+  
   <!-- Keyboard Nav Skip -->
   <a class="jump-to-main" href="#top"></a>
   <div class="notice-accessibility"><p class="no-margin">Notice:<br>To navigate sub-tab. (Contact, Sample, etc.), Tab-key navigate until the button is highlighted. Use the arrow key to switch tabs. TAB to unlock scrolling (if on Chromium, you can use ESC).</p><p>Jank I know, but hey it works!</p></div>
@@ -153,13 +156,25 @@
   <div class="entry entry--accordion" id="accordion-entry-2" tabindex="0">
     <div class="container">
       <h2 class="no-margin">Work Sample</h2>
-      <p class="caption"><span class="mobile-only">Tap to zoom.</span><span class="web-only">Hover to zoom.</span></p>
+      <p class="caption"><span class="mobile-only">Tap to zoom. Some animations can be toggled between their main-loop-only version, the switch is indicated by green border.</span><span class="web-only">Hover to zoom. Animations with pointer cursor are clickable for their main-loop-only version, the switch is indicated by green border.</span></p>
       <hr>
       <!--Animation-->
       <div class="container-gallery">
-        <div class="image-container sample-left"> <img src="img/gallery/touhou_reimu1.gif" alt="Reimu idle animation"> </div>
+        <div class="image-container sample-left"> 
+          <input class="hidden-input container-expandable-controller" type="checkbox" id="img-reimu">
+          <label class="button-expand--once link" for="img-reimu">
+          <img src="img/gallery/touhou_reimu1.gif" alt="Reimu idle animation"> 
+          </label>
+          <label class="container-expandable-content link" for="img-reimu"><img src="img/gallery/touhou_reimu1-loop.gif" style="outline: 1px solid darkolivegreen" alt="Reimu idle animation loop version"> </label>
+        </div>
         <div class="image-container sample-center"> <img src="img/gallery/touhou_patchy.gif" alt="Patchouli flower animation"> </div>
-        <div class="image-container sample-right"> <img src="img/gallery/touhou_marisa1.gif" alt="Marisa idle animation"> </div>
+        <div class="image-container sample-right">
+          <input class="hidden-input container-expandable-controller" type="checkbox" id="img-marisa">
+          <label class="button-expand--once link" for="img-marisa">
+          <img src="img/gallery/touhou_marisa1.gif" alt="Marisa idle animation"> 
+          </label>
+          <label class="container-expandable-content link" for="img-marisa"><img src="img/gallery/touhou_marisa1-loop.gif" style="outline: 1px solid darkolivegreen" alt="Marisa idle animation loop version"> </label>
+        </div>
       </div>
       <!--Drawings-->
       <div class="container-gallery">
@@ -201,12 +216,15 @@
         <summary style="color:whitesmoke">"An artist was once interested in knitting the globe."</summary>
         <p>For all you nerds out there, yes, this website is almost exclusively crafted with HTML/CSS. There's  Jekyll integration here but it's mainly to restore missing links due to me renaming pages. I want to expand Jekyll automation more but that's a problem for future me.</p>
         <p>&#9830; Why bother?</p>
-        <p>Why do I choose to code my own website instead of other options, you may ask? I wanted control, or really it's just cool to create one from scratch in my head. Yeah there are drawback with the current method, like, things are bit too manual for the most part. Though I'd argue it's an acquired taste, much like resource gathering in Minecraft.</p>
-        <p>This website is technically my website 2.0. First published at 2016 and basically rewritten from zero at 2022. Try cloning/download <a href="https://github.com/Kurover/kurover.github.io/tree/d998fb9271ac6a172f76583327eb526ac3252eae">this commit</a> and see the travesty it was before. It had similar structure but the purpose of it was much different. Back then it was made by little me who liked to try random cool tech, resulting in somewhat aimless direction. It also copies way too much stuff from w3schools, lol.</p>
+        <p>Why do I choose to code my own website instead of other options, you may ask? I wanted control, or really it's just cool to create one from scratch in my head. Besides, instant (and free) alternative out there doesn't sit well with me on how they plaster their branding. So making my own is the best for my well-being, also it's cool.</p>
+        <p>Yeah there are drawback with the current method, like, things are bit too manual for the most part. Though I'd argue it's an acquired taste, much like resource gathering in Minecraft. <span style="color: gray">Cope</span></p>
+        <p>&#9830; When? Is this your first experience?</p>
+        <p>This website is technically my website 2.0. First published at 2016 and basically rewritten from zero bit at 2022. Try cloning/download <span class="container-tooltip"><span class="tooltip tooltip--large"><img src="img/misc/preview_old-website.png"></span><a href="https://github.com/Kurover/kurover.github.io/tree/d998fb9271ac6a172f76583327eb526ac3252eae">this commit</a></span> and see the travesty it was before. It had similar structure but the purpose of it was much different. Back then it was made by little me who liked to try random cool tech, resulting in somewhat aimless direction. It also copies way too much stuff from w3schools, lol.</p>
+        <p>Some other reason on why I decided not to use javascript to build this website is to limit myself from going too far. I know how impulsive I am when it come to "feature-powercreept", or powercreeping my previous work in general, so the limitation is actually great.</p>
         <p>&#9830; What's the end line here?</p>
-        <p>My end goal with the website is to make a portfolio written with limitation to match the spirit of my pixel art journey. This goal has since been evolved into all-purpose website; blog, download, etc. More to come hopefully!</p>
-        <p>On top of that, I do hope that I can achieve a well interactive site where you can easily receive relevant information without getting overwhelmed by irrelevant junk floating around. Not saying I wouldn't add floating junk around of course, hehe.</p>
-        <p>Adding mobile view support and designing around them even for a tiny bit is hell. Respect to you front-end devs out there with this kind of job. Then again, I should create the website for mobile first and desktop later, now that I know the secret.</p>
+        <p>My end goal with the website is to make a comfy portfolio on top of the "no script" limitation to match the spirit of my pixel art journey. Of course, your regular peeps wouldn't really care or know the difference, but I can share the glorious jank once in a while among the nerds. This goal has since been evolved into all-purpose website; blog, download, etc. More to come hopefully!</p>
+        <p>While on it, I also hope that I can achieve an interactive website where you can easily receive relevant information without getting overwhelmed by irrelevant junk floating around. Not saying I wouldn't add floating junk around of course, hehe.</p>
+        <p>Slight tangent but adding mobile view support and designing around them even for a tiny bit is hell. Respect to you front-end devs out there with this kind of job. Then again, I should create the website for mobile first and desktop later, now that I know the secret.</p>
       </details>
       
       <h4 class="no-margin-bot quote">Nicknames Galore</h4>

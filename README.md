@@ -9,14 +9,14 @@ This is a portfolio website written exclusively with HTML/CSS + Jekyll. The goal
 - https://github.com/nea/MarkdownViewerPlusPlus - ~~Notepad++ plugin for fast and easy markdown to html conversion because Joplin html export result is infuriating.~~ Switched to Obsidian, no issue.
 
 ## To-Do list
-- [x] Revamp website.
-- [x] Contact detail page.
+- [x] ~~Revamp website.~~
+- [x] ~~Contact detail page.~~
   - [ ] Pretty it up!
 - [ ] Dedicated commission tab/page.
-- [x] Art gallery page.
+- [x] ~~Art gallery page.~~
 - [ ] Custom assets; i.e icon, border, background.
-- [x] Blog/project history post section.
+- [x] ~~Blog/project history post section.~~
 - [x] ~~Improve Jekyll integration~~ Minimum interaction, no complex automation.
 - [ ] Link or preview to GroundLeaf project (pending until ready.)
-- [ ] Improve container image code.
+- [x] ~~Improve container image code.~~ Technicality is much better now, can be better though.
 - [ ] Improve zooming visual.
