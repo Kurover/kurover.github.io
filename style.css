@@ -544,7 +544,7 @@ summary {
 /*Image Container. To be OPTIMIZED*/
 .container-gallery {
   display: flex;
-  gap: 16px;
+  gap: 8px;
   width: 100%;
 } /*This act as a row. Doing it this way to have odd and even column item.*/
 .container-gallery--expanded {
@@ -633,27 +633,6 @@ summary {
 .gallery-illith-state-1:checked ~ .entry > .illith-text-1 {display: block;}
 .gallery-illith-state-2:checked ~ .entry > .illith-text-2 {display: block;}
 .gallery-illith-state-3:checked ~ .entry > .illith-text-3 {display: block;}
-
-/*Animation page CSS*/
-.sub-nav-entry--animation {
-  width: 25%;
-  margin: 0 0 24px 0;
-}
-#state-animation-1:checked ~ div #selector-animation-1,
-#state-animation-2:checked ~ div #selector-animation-2 {
-  background: #72984e;
-}
-#state-animation-1:checked ~ div #selector-animation-1:hover,
-#state-animation-1:focus ~ div #selector-animation-1,
-#state-animation-2:checked ~ div #selector-animation-2:hover,
-#state-animation-2:focus ~ div #selector-animation-2 {
-  background: whitesmoke;
-  color: #72984e;
-}
-#state-animation-1:checked ~ #gallery-animation-page-2,
-#state-animation-2:checked ~ #gallery-animation-page-1 {
-  display: none;
-}
 
 /*Magic Key*/
 @keyframes accordion-tab-transition {
@@ -813,7 +792,8 @@ summary {
   outline: 1px solid lightgray;
 }
 .container-expandable-controller:checked,
-.container-expandable-controller:checked ~ .button-expand--once {
+.container-expandable-controller:checked ~ .button-expand--once,
+.container-expandable-controller:checked ~ * .button-expand--once{
   display: none; /*Remove when toggled on*/
 }
 
@@ -844,7 +824,6 @@ summary {
   right: 0;
   margin-left: auto;
   margin-right: auto;
-  text-align: center;
 }
 @media (max-width: 520px) {
   .tooltip {
@@ -865,17 +844,75 @@ summary {
   visibility: visible;
   transition: transform 0.1s, opacity 0.2s;
 }
-/* Module: Generic Page*/
-.state-container-page-1:checked ~ .container-page-1 {
+/* Module: Generic Page Tab*/
+.container-tab-controller-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+.container-tab-controller {
+  background: #353a4c;
+  padding: 8px;
+  text-align: center;
+  width: 100%;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  transition: background 0.1s;
+}
+.container-tab-controller:hover {
+  background: #72984e;
+}
+.container-tab-content {
+  display: none;
+}
+.state-container-tab-1:checked ~ div .container-tab-controller-1 {
+  background: #72984e;
+}
+.state-container-tab-2:checked ~ div .container-tab-controller-2 {
+  background: #72984e;
+}
+.state-container-tab-3:checked ~ div .container-tab-controller-3 {
+  background: #72984e;
+}
+.state-container-tab-4:checked ~ div .container-tab-controller-4 {
+  background: #72984e;
+}
+.state-container-tab-1:checked ~ div .container-tab-controller-1:hover,
+.state-container-tab-1:focus ~ div .container-tab-controller-1 {
+  background: whitesmoke;
+  color: #72984e;
+}
+.state-container-tab-2:checked ~ div .container-tab-controller-2:hover,
+.state-container-tab-2:focus ~ div .container-tab-controller-2 {
+  background: whitesmoke;
+  color: #72984e;
+}
+.state-container-tab-3:checked ~ div .container-tab-controller-3:hover,
+.state-container-tab-3:focus ~ div .container-tab-controller-3 {
+  background: whitesmoke;
+  color: #72984e;
+}
+.state-container-tab-4:checked ~ div .container-tab-controller-4:hover,
+.state-container-tab-4:focus ~ div .container-tab-controller-4 {
+  background: whitesmoke;
+  color: #72984e;
+}
+.state-container-tab-1:checked ~ .container-tab-content-1 {
   display: block;
 }
-.state-container-page-2:checked ~ .container-page-2 {
+.state-container-tab-2:checked ~ .container-tab-content-2 {
   display: block;
 }
-.state-container-page-3:checked ~ .container-page-3 {
+.state-container-tab-3:checked ~ .container-tab-content-3 {
   display: block;
 }
-.state-container-page-4:checked ~ .container-page-4 {
+.state-container-tab-4:checked ~ .container-tab-content-4 {
   display: block;
 }
 

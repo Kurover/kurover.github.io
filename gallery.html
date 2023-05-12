@@ -74,15 +74,8 @@
     <!--Text: Closed-->
     <div class="illith-text-0">
       <p>Ever wondered why my creator even bother adding this useless close button? Your guess is as good as mine!</p>
-      <p>Speaking of that, let me tell you a little story. The reason my creator did not set the tabs to closed by default is that the codes are jank! This issue is nonexistent if we just delete the tab closing transition mechanic, or you know, use javascript like every other sane human out there.</p>
-      <div class="container-expandable">
-        <input type="checkbox" class="hidden-input container-expandable-controller" id="illith-gallery-expand-1" tabindex="-1"/>
-        <p>If you are wondering why deleting transition mechanic fixes it, <label for="illith-gallery-expand-1" class="link">click this</label></p>
-        <div class="hidden quote container-expandable-content">
-          <p>To summarize, if the default is closed, it will play the closing animation each time you refresh this page, look terrible.</p>
-          <p>There's more to it why we don't do X or Y, but I'm not well equiped to give a human-readable explanation of it.</p>
-        </div>
-      </div>
+      <p>Speaking of that, let me tell you a little story. The reason my creator did not set the tabs to <span class="container-tooltip"><span class="tooltip tooltip--large">If the default is closed, it will play the closing animation each time you refresh this page, it looks jarring.</span><span class="link">closed by default</span></span> is that the codes are jank! This issue is nonexistent if we just delete the <span class="container-tooltip"><span class="tooltip tooltip--large">We use fake tabs to play the closing animation while the original tab is thrown away tens of thousands pixel away below. We do this because we want to enable lazy loading for all the images. <br><br> Lazy load doesn't really work if you hide it with null-visibility because the browser can still see it, which will load the image regardless. There is a solution by using "display: none" to lazy load but that completely disable transitions.</span><span class="link">closing transition mechanic</span></span> mechanic, or you know, use javascript like every other sane human out there.</p>
+      <p>Also, have you noticed some inconsistencies like, you know, the animation category using "tabs" while the pixel art using "show more"? I also do not have the answer for that.</p>
       <!--
       <p>On another note, in response of my elegant description on the animation tab, I often like to give a jab to other pixel artist's portfolio when they use upscaled result. Because it tanks my processing unit real good when there are 10 GIFs with a size of 5mb each! My creator does the same too, except, with the facade of "friendly reminder". You don't hear this from me, ok? ~~Just want to give a payback because he never animates me~~. He kinda did, but I'll keep this in for you, source digger.</p>
       -->
@@ -129,18 +122,20 @@
   <!-- Gallery: Animation -->
   <div class="entry entry--accordion" id="accordion-entry-1" tabindex="0">
     
-    <input class="hidden-input" type="radio" id="state-animation-1" name="selector-animation" checked>
-    <input class="hidden-input" type="radio" id="state-animation-2" name="selector-animation">
+    <input class="hidden-input state-container-tab-1" type="radio" id="state-container-animation-tab-1" name="tabbed-animation" checked>
+    <input class="hidden-input state-container-tab-2" type="radio" id="state-container-animation-tab-2" name="tabbed-animation">
     
     <h1 class="hidden">Gallery Animation</h1> <!--Hiding the header to remind me to make custom png here. Text header look too much of a potato relative to the content.-->
     
-    <div class="container center">
-      <label class="sub-nav-entry sub-nav-entry--animation" id="selector-animation-1" for="state-animation-1">Page 1</label>
-      <label class="sub-nav-entry sub-nav-entry--animation" id="selector-animation-2" for="state-animation-2">Page 2</label>
+    <div class="container container-tab-controller-container">
+      <label class="container-tab-controller container-tab-controller-1" for="state-container-animation-tab-1">Page 1</label>
+      <label class="container-tab-controller container-tab-controller-2" for="state-container-animation-tab-2">Page 2</label>
     </div>
     
+    <hr style="border-bottom: 1px solid gray;">
+    
     <!--PAGE 1-->
-    <div class="container" id="gallery-animation-page-1">
+    <div class="container container-tab-content container-tab-content-1">
       <div class="container-gallery">
         <div class="image-container"> <input class="hidden-input container-expandable-controller" type="checkbox" id="img-reimu"><label class="button-expand--once link" for="img-reimu"><img src="img/gallery/touhou_reimu1.gif" alt="Reimu idle animation"> </label><label class="container-expandable-content link" for="img-reimu"><img src="img/gallery/touhou_reimu1-loop.gif" style="outline: 1px solid darkolivegreen" alt="Reimu idle animation loop version"></label> </div>
         <div class="image-container"> <input class="hidden-input container-expandable-controller" type="checkbox" id="img-marisa"><label class="button-expand--once link" for="img-marisa"><img src="img/gallery/touhou_marisa1.gif" alt="Marisa idle animation"> </label> <label class="container-expandable-content link" for="img-marisa"><img src="img/gallery/touhou_marisa1-loop.gif" style="outline: 1px solid darkolivegreen" alt="Marisa idle animation loop version"></label> </div>
@@ -161,7 +156,7 @@
     </div>
     
     <!--PAGE 2-->
-    <div class="container" id="gallery-animation-page-2">
+    <div class="container container-tab-content container-tab-content-2">
       <div class="container-gallery">
         <div class="image-container"> <img src="/img/gallery/touhou_rumia.gif" loading="lazy"> </div>
         <div class="image-container"> <img src="/img/gallery/touhou_rumia-2.gif" loading="lazy"> </div>
@@ -250,19 +245,31 @@
     <div class="container">
       <h1 class="hidden">Gallery Raster Art</h1>
       <div class="container-gallery container-gallery--raster">
-        <div class="image-container zoom-medium"> <img src="/img/gallery/oc_clover2.jpg" loading="lazy"> </div>
-        <div class="image-container zoom-medium"> <img src="/img/gallery/oc_stylla2.jpg" loading="lazy"> </div>
+        <div class="image-container zoom-medium"> <img src="/img/gallery/oc_clover2.webp" loading="lazy"> </div>
+        <div class="image-container zoom-medium"> <img src="/img/gallery/oc_stylla2.webp" loading="lazy"> </div>
       </div>    
       <div class="container-gallery container-gallery--raster" loading="lazy">
-        <div class="image-container zoom-small"> <img src="/img/gallery/general_friend-oc.png" loading="lazy"> <p class="img-caption">Latest raster work</p></div>
+        <div class="image-container"> 
+        <input class="hidden-input container-expandable-controller" type="checkbox" id="img-friend-oc"><label class="button-expand--once link" for="img-friend-oc"><img src="img/gallery/general_friend-oc.webp" alt="Friend OC WEBP"> <p class="img-caption no-color">Collab stuff</p></label> 
+        <label class="container-expandable-content link" for="img-friend-oc"><img src="img/gallery/general_friend-oc.png" style="outline: 1px solid darkolivegreen" alt="Friend OC PNG"><p class="img-caption no-color">PNG version</p></label> 
+        </div>
+        <div class="image-container white-background"> <img src="/img/gallery/oc_clover-random-1.webp" loading="lazy"> </div>
       </div>
       <div class="container-gallery container-gallery--raster">
-        <div class="image-container"> <img src="/img/gallery/touhou_eternity.jpg" loading="lazy"> </div>
-        <div class="image-container"> <img src="/img/gallery/touhou_koosh2.jpg" loading="lazy"> </div>
-      </div>    
+        <div class="image-container"> <img src="/img/gallery/touhou_eternity.webp" loading="lazy"> </div>
+        <div class="image-container"> <img src="/img/gallery/touhou_koosh2.webp" loading="lazy"> </div>
+      </div>
       <div class="container-gallery container-gallery--raster">
-        <div class="image-container"> <img src="/img/gallery/arknight_sus1.jpg" loading="lazy"> </div>
-        <div class="image-container"> <img src="/img/gallery/arknight_sus2.jpg" loading="lazy"> <p class="img-caption">Mimic of u/sharktuna style</p> </div>
+        <div class="image-container"> <img src="/img/gallery/touhou_mystia-random-1.webp" loading="lazy"> </div>
+        <div class="image-container"> <img src="/img/gallery/touhou_mystia-random-2.webp" loading="lazy"> </div>
+      </div>
+      <div class="container-gallery container-gallery--raster">
+        <div class="image-container"> <img src="/img/gallery/arknights_sus1.webp" loading="lazy"> </div>
+        <div class="image-container"> <img src="/img/gallery/arknights_fav-op.webp" loading="lazy"> </div>
+      </div>
+      <div class="container-gallery container-gallery--raster">
+        <div class="image-container"> <img src="/img/gallery/arknights_sus2.webp" loading="lazy"> <p class="img-caption">Mimic of u/sharktuna style</p> </div>
+        <div class="image-container"> <img src="/img/gallery/arknights_suzuran.webp" loading="lazy"> </div>
       </div>
     </div>
   </div>
