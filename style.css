@@ -281,6 +281,10 @@ summary {
   text-decoration: none;
   transition: inherit;
   cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 .nav-bar a{
   color: whitesmoke;
@@ -509,6 +513,10 @@ summary {
   overflow: hidden;
   cursor: pointer;
   transition: inherit;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 .sub-nav-entry--title {
   display: inline-block;
@@ -790,6 +798,10 @@ summary {
   text-align: center;
   cursor: pointer;
   transition: background 0.2s;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 .button-expand:hover,
 .container-expandable-controller:focus ~ .button-expand {
@@ -968,6 +980,10 @@ summary {
   padding: 18px 24px;
   text-align: center;
   transition: color 0.2s, background 0.2s;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 .button-download:is(:hover, :focus) {
   background: whitesmoke;
