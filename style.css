@@ -597,7 +597,7 @@ summary {
 }
 @media (min-width: 810px) {
   .sample-styled-1 {
-    width: 74%;
+    width: 63%;
   }
   .gallery-styled-1 {
     width: 83%;
@@ -606,7 +606,7 @@ summary {
     width: 89%;
   }  
   .gallery-styled-3 {
-  width: 69%;
+    width: 69%;
   }
 }
 
