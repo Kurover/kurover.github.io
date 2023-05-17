@@ -426,7 +426,7 @@ summary {
 }
 .profile-img > img {
   position: absolute;
-  width: 128.6px; /*Prevent jank transition*/
+  width: 128px;
   height: 128px;
   transition: opacity 0.5s;
 }
@@ -815,7 +815,7 @@ summary {
   padding: 12px;
   transform-origin: top;
   transform: scaleY(0.00001);
-  transition: 0.1s 0.1s, opacity 0.1s 0.05s;
+  transition: visibility 0.1s 0.1s, transform 0.1s 0.1s, opacity 0.1s 0.05s;
 }
 .tooltip--large {
   position: absolute;
