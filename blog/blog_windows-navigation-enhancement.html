@@ -127,10 +127,10 @@ permalink: /blog/windows-navigation-enhancement
       <p>All programs I listed are personal preference and it's understandable if you disagree with any of it, but please go install <a aria-label-position="top" aria-label="https://www.voidtools.com" rel="noopener" class="external-link" href="https://www.voidtools.com" target="_blank">Everything</a>!!! It's a superior windows search with no string attached. Make it run at startup in the option menu and assign a hotkey shortcut to open it. That's all for the setup. All you have to do next is to memorize 2 or 3 searching method and, congratulations, your storage drive is now a second brain of yours! </p>
       <img src="/blog/2_win-nav/everything_1.webp" loading="lazy" alt="Everything main window">
       <p class="img-caption">"We meet again~"</p>
-      <p>There are two version, default and lite. Lite version is all you need in general because it use less resource (~25% less RAM usage in my personal test) unless you want to have windows accessibility to work with it or you want to host a file HTTP server with Everything.</p>
+      <p>There are two version, default and lite. Lite version is all you need in general because it use less resource (~10% less RAM usage on idle) unless you want to have windows accessibility to work with it or you want to host a file HTTP server with Everything.</p>
       <img src="/blog/2_win-nav/everything_why-version.webp" loading="lazy" alt="Everything http hosting">
       <p class="img-caption">Only if you need it</p>
-      <p>First time you boot it up, it will take a moment to index your whole drive . But once it's done, file search is pretty much instantaneous, it's surreal. We're here to take advantage of that. Though from my testing, search is sluggish if you have windows defender active.</p>
+      <p>First time you boot it up, it will take a moment to index your whole drive. But once it's done, file search is pretty much instantaneous, it's surreal. We're here to take advantage of that. First few searches will be slow, especially if you use sort filter. It'll be seamless after 5th or so tries.</p>
       <p>Everything is much more powerful the more organized you are. Sure it's not that useful for searching file you hoarded that has automatic unreadable naming system on it, but you can find a very specific file like your own document quickly by typing its name.</p>
       <p>The downside of this program is that it doesn't work together with explorer. Meaning if you are using other program and trying to open a file with their pop-up explorer (eg. open file on notepad), you need to "Copy Full Name to Clipboard" the file in Everything and paste it to navigation bar, provided its explorer is not simplified <code>*cough aseprite *cough</code>. </p>
       <h3 class="no-color" data-heading="Searching a File">Searching a File</h3>
@@ -154,7 +154,7 @@ permalink: /blog/windows-navigation-enhancement
       </p>
       <img src="/blog/2_win-nav/everything_3.webp" loading="lazy" alt="Everything search filter 2">
       <p class="img-caption">"Ara?"</p>   
-      <p>Latest picture that exist in your drive via sorting it by Date Modified (sorting by created is slow). <br>
+      <p>Latest picture that exist in your drive via sorting it by Date Modified. <br>
         <code class="container-code">img</code>
       </p>
       <img src="/blog/2_win-nav/everything_4.webp" loading="lazy" alt="Everything search filter 3">
@@ -167,7 +167,7 @@ permalink: /blog/windows-navigation-enhancement
       <p>You are me, some years ago, trying to access Hosts file for the many times later. <br>
         <code class="container-code">\etc hosts</code>
       </p>
-      <p>Interested with more filters? You can use Regex filter. But if you can't be bothered to remember more formulas, you can bookmark it that suit your need. I personally don't use it since the basic one is sufficient for me.</p>
+      <p>Interested with more filters? You can use Regex filter. But if you can't be bothered to remember more formulas, you can bookmark it that suit your need. For example, you can have a bookmark where you sort the view on Downloads folder by recent creation date. You can set it on a hotkey and voila, quick search like you never before!</p>
     </section>
     
     <section id="taskbar">
@@ -577,7 +577,17 @@ permalink: /blog/windows-navigation-enhancement
           <a aria-label-position="top" aria-label="https://www.autohotkey.com" rel="noopener" class="external-link" href="https://www.autohotkey.com" target="_blank">Homepage</a>
         </p>
         <p>I can't do the justice of making a good explanation / simple tutorial for it, but this program can transform your keyboard into a real machine. It's extremely recommended to learn, but it requiring you to know what YOU want is the thing that make it difficult to describe in general.</p>
-        <p>Here's a few idea on what to automate though: Type email, Open audio mixer, restart audio service, open multiple program at once (lol imagine buying streaming deck).</p>
+        <p>Here's a few idea on what to automate though:</p>
+        <ul>
+          <li>Type email.</li>
+          <li>Open audio mixer, enlarge its width, then center it on screen. Same deal to Calculator and any program really.</li>
+          <li>Restart audio service then play a ding sound.</li>
+          <li>Open a/multiple program at once (lol imagine buying streaming deck). Play a custom ding sound once its run.</li>
+          <li>Open image on the clipboard using external image viewer/editor, then maybe automatically save it in a specific folder.</li>
+          <li>On a browser, automatically copy media link from cursor position, then download it with Gallery-DL via CMD by pasting the clipboard content.</li>
+          <li>On a browser, automatically change the Twitter profile or Youtube link that is blocked on your country, into a proxy server link (Nitter, Invidious, etc.)</li>
+          <li>Many more, as you see fit.</li>
+        </ul>
         <p>Don't store and automate password, ever. Doing it make your password useless since you are storing password in plain text. Most trojan keylogger, if you ever get one, will try to prioritize grabbing text from a macro program.</p>
         <h4 class="no-margin-bot" data-heading="AHK Recommended Script Template">AHK Recommended Script Template</h4>
         <p class="quote">
@@ -653,8 +663,9 @@ permalink: /blog/windows-navigation-enhancement
   </article>
   
   <!-- 
-  # Dev Section
-  - To-Do: alt text complete...
+  # Dev Section / Changelog
+  - To-Do: Image Alt Text, Add Win11 Section
+  - 19-05-23 : Add more stuff in AHK and Everything
   -->
   
   <div class="jump-to-top"><a href="#toc"></a></div>
