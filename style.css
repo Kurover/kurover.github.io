@@ -14,6 +14,7 @@
  * #5e9cb5 | h5
  * #8670d4 | h6
  * #d3646d | Misc Warning
+ * #f99d7e | Misc Notice
  * */
 
 html {
@@ -157,6 +158,9 @@ summary {
 .warning {
   color: #d3646d;
   font-weight: 800;
+}
+.notice {
+  color: #f99d7e;
 }
 .no-color {
   color: lightgray;
@@ -337,7 +341,6 @@ summary {
 /*Dropdown Menu*/
 .nav-dropdown-button {
   color: whitesmoke;
-  cursor: default;
 }
 .nav-dropdown-container {
   display: flex;
@@ -553,7 +556,7 @@ summary {
   grid-row-gap: 0;
 } /*Grid version, intended for low maintenance "expanded" gallery*/
 .image-container {
-  min-height: 10rem; /*Minimum height for loading placeholder*/
+  min-height: 8rem; /*Minimum height for loading placeholder*/
   width: 100%;
   padding: 4px;
   padding-bottom: 0;
@@ -1030,11 +1033,12 @@ summary {
   font-size: 1rem;
   display: inline-block;
   cursor: pointer;
-  background: #72984e;
+  background: #25355A;
   color: whitesmoke;
   border: none;
   box-shadow: 4px 0 inset whitesmoke;
   padding: 18px 24px;
+  min-width: 128px;
   text-align: center;
   transition: color 0.2s, background 0.2s;
   user-select: none;
