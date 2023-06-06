@@ -589,14 +589,14 @@ summary {
 }
 .sample-right:hover {
   transform-origin: right;
-  transform: scale(171%);
+  transform: scale(166%);
 }
 .sample-center:hover {
   transform: scale(181%)
 }
 .sample-left:hover {
   transform-origin: left;
-  transform: scale(171%);
+  transform: scale(166%);
 }
 @media (min-width: 810px) {
   .sample-styled-1 {
