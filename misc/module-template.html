@@ -115,16 +115,19 @@
     <p>
     Tooltip for something that is 
     <span class="container-tooltip"><span class="tooltip">I like build base</span><span class="link">interesting enough</span></span>
-    but eats up relevant space.
+    but eats up relevant space. The hover trigger isn't painted with CSS by default so the content doesn't get the property too. Put the TITLE in another span.
     </p>
     <p>Add <span class="container-tooltip"><span class="tooltip tooltip--large">I'M EATING ALL THESE SPACES!!!</span><span class="link">.tooltip--large</span></span> if it really eats up space.</p>
-    <p>Add <span class="link">.container-tooltip--sign::after</span> (&#x25BC;) if it's a link with hoverables for the mobile user out there.</p>
+    <p>Add <span class="link">.container-tooltip--sign</span> (&#x25BC;) if it's a link with hoverables for the mobile user out there.</p>
     <code class="container-code">
       &lt;span class=&quot;container-tooltip&quot;&gt;&lt;span class=&quot;tooltip&quot;&gt;CONTENT&lt;/span&gt;TITLE&lt;/span&gt;
       <!--
       <span class="container-tooltip"><span class="tooltip">CONTENT</span><span class="link">TITLE</span></span>
       -->
     </code>
+    <p>Sample with image, make sure to add lazyload, you lazy! 
+    <span class="container-tooltip container-tooltip--sign"><span class="tooltip tooltip--large center"><img src="/img/misc/preview_lapse-sekiraini.webp" alt="Preview" loading="lazy"></span><span class="link">TITLE</span></span>
+    Change the tooltip class tag to href if everything is clickable.</p>
   </div>
   
   <div class="nav-shortcut"><a href="/"><img src="/favicon.png"></a></div>
