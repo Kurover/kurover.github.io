@@ -1,0 +1,68 @@
+.entry-linkthree {
+  color: #faf0de;
+  max-width: 520px;
+  margin: auto;
+  margin-top: 8%;
+  text-align: center;
+}
+@media (max-width: 810px) {
+  .entry-linkthree {
+    padding: 0 4%;
+  }
+}
+.linkthree-profile {
+  margin-bottom: 32px;
+}
+.linkthree-profile-img {
+  width: 96px;
+  height: 96px;
+  margin: auto;
+  margin-bottom: 12px;
+  border: 8px solid gray;
+  border-radius: 50%;
+  background: white;
+  background-image: url(/img/404.gif);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 128px;
+  image-rendering: pixelated;
+}
+.linkthree-profile-img img {
+  width: 100%;
+  overflow: hidden;
+}
+.linkthree-link {
+  margin: 8px 0;
+  background: #25202c;
+  border: 2px solid gray;
+}
+.linkthree-link a {
+  color: #faf0de;
+  display: block;
+  line-height: 48px;
+}
+.linkthree-link a:hover {
+  color: #8db565;
+  background: #25355A;
+}
+.linkthree-img {
+  position: absolute;
+  padding: 4px;
+  line-height: 48px;
+}
+.linkthree-img img {
+  width: 40px;
+}
+.linkthree-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: #141414;
+  height: 48px;
+  width: 100%;
+}
+.linkthree-footer-content {
+  color: gray;
+  line-height: 48px;
+  text-align: center;
+}
