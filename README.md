@@ -21,3 +21,4 @@ This is a website written exclusively using HTML and CSS language with a bit of 
 - [ ] Improve zooming visual.
 - [ ] Add a dedicated page to test cursor in various background.
 - [ ] Add a dedicated page and/or embedded in the real home page of a game-esque "Main Menu" screen that contain home, art sample, commission(?), and contact page; with an animated background with shop menu environment.
+- [ ] Rewrite .entry because that's jank.
