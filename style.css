@@ -17,6 +17,11 @@
  * #f99d7e | Misc Notice
  * */
 
+/* Media Size
+ * @media (max-width: 520px) ; Typical mobile
+ * @media (max-width: 810px) ; Tablet
+ * */
+
 html {
   font-family: 'Pixel04b03';
   -webkit-font-smoothing: none;
