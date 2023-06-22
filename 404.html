@@ -3,28 +3,102 @@
 
 <head>
   <meta charset="UTF-8">
+  <title>Page not found</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zan | 404</title>
   <link rel="shortcut icon" href="/favicon.ico?v=2">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
   <link rel="stylesheet" href="/style.css">
   <link rel="stylesheet" href="/font.css">
+  <style>
+  .entry-linkthree {
+    color: #faf0de;
+    max-width: 520px;
+    margin: auto;
+    margin-top: 8%;
+    text-align: center;
+  }
+  @media (max-width: 810px) {
+    .entry-linkthree {
+      padding: 0 4%;
+    }
+  }
+  .linkthree-profile {
+    margin-bottom: 32px;
+  }
+  .linkthree-profile-img {
+    width: 96px;
+    height: 96px;
+    margin: auto;
+    margin-bottom: 12px;
+    border: 8px solid gray;
+    border-radius: 50%;
+    background: white;
+    background-image: url(/img/404.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 128px;
+    image-rendering: pixelated;
+  }
+  .linkthree-profile-img img {
+    width: 100%;
+    overflow: hidden;
+  }
+  .linkthree-link {
+    margin: 8px 0;
+    background: #25202c;
+    border: 2px solid gray;
+  }
+  .linkthree-link .text{
+    color: #faf0de;
+    display: block;
+    line-height: 48px;
+  }
+  .linkthree-link a:hover {
+    color: #8db565;
+    background: #25355A;
+  }
+  .linkthree-img {
+    position: absolute;
+    padding: 4px;
+    line-height: 48px;
+  }
+  .linkthree-img img {
+    width: 40px;
+  }
+  .linkthree-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background: #141414;
+    height: 48px;
+    width: 100%;
+  }
+  .linkthree-footer-content {
+    color: gray;
+    line-height: 48px;
+    text-align: center;
+  }
+  </style>
 </head>
 
 <body>
-  <a class="jump-to-main" href="#top"></a>
   
-  <header>
-    <nav class="nav-bar">
-      <div class="nav-entry nav-entry--title" style="display: block;"> 
-        <span>404</span>
-      </div>
-      <a class="nav-entry nav-entry--right" style="margin-left: auto;" href="/">Home</a>
-    </nav>
-  </header>
+  <div class="entry-linkthree">
+    <div class="linkthree-profile">
+      <div class="linkthree-profile-img"></div>
+      <p class="no-margin notice" style="font-size: 48px;">404</p>
+      <p style="margin: 0; font-size: 32px;">Page does not exist</p>
+      <p style="margin: 8px 0; color: gray">Have a link*ree bootleg instead</p>
+    </div>
+    <div class="linkthree-link"><a href="https://kurover.github.io/" class="text"><div class="linkthree-img"><img src="/favicon-32x32.png"></div>Homepage</a></div>
+    <div class="linkthree-link"><a href="https://twitter.com/Cloverift" class="text"><div class="linkthree-img"><img src="/img/icon_twitter.svg" style="filter: invert(1)"></div>Twitter</a></div>
+    <div class="linkthree-link"><div class="text"><div class="linkthree-img"><img src="/img/icon_discord.svg" style="filter: invert(1)"></div>kurover_zan</div></div>
+  </div>
   
-  <div class="entry" tabindex="-1" id="top">
-    <p class="no-margin center">Uh oh the link you're looking for is nowhere to be seen.</p>
-    <img src="/img/404.gif" style="display: block; width:50%; margin:auto;"/>
+  <div class="linkthree-footer">
+    <div class="linkthree-footer-content">Web icon credit: <a href="https://remixicon.com">RemixIcon</a></div>
   </div>
   
 </body>

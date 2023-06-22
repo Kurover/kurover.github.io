@@ -37,11 +37,13 @@ body {
 @media (max-width: 810px) {  
   body {
     width: 95%;
+    margin-bottom: 40%;
   }
 }
 @media (max-width: 520px) {  
   body {
     width: 100%;
+    margin-bottom: 75%;
   }
 }
 
