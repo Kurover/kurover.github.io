@@ -36,7 +36,7 @@
   <div class="hidden">Hi there, this website requires CSS to be read comfortably, thanks.</div>
   
   <!-- Reading mode Warning-->
-  <p class="hidden">Hey, if you're on reading mode, do note that some hidden elements like tooltip preview will be shown or even overlap while reading. Never mind that, reading mode experience is garbage for this site, sorry!</p>
+  <p class="hidden">Hey, if you're on reading mode, do note that some text will be missing and hidden elements like tooltip preview will be shown or even overlap while reading. Never mind that, reading mode experience is garbage for this site, sorry!</p>
   
   <!-- Keyboard Nav Skip -->
   <a class="jump-to-main" href="#top"></a>
@@ -57,12 +57,19 @@
           <a class="nav-dropdown-entry" href="/download">Files</a>
         </div>
       </div>
-      <div class="nav-entry nav-entry--right nav-dropdown-button" tabindex="0">
-        Links
-        <div class="nav-dropdown-container">
-          <a class="nav-dropdown-entry nav-dropdown-entry--extra" href="http://04.jp.org">Font Credit</a>
-          <a class="nav-dropdown-entry nav-dropdown-entry--extra" href="https://github.com/Kurover/kurover.github.io">Github Repo</a>
-          <a class="nav-dropdown-entry nav-dropdown-entry--extra" href="https://twitter.com/Cloverift">Twitter</a>
+      <div class="nav-entry nav-entry--right nav-dropdown-button entry-linkthree-state" tabindex="0">
+        <span>Links</span>
+        <div class="entry-linkthree entry-linkthree--embed" style="cursor: default;">
+          <div class="linkthree-profile">
+            <p class="notice" style="margin: 0; font-size: 32px;">Links!</p>
+            <p style="margin: 8px 0">"Any resemblance to other websites are purely coincidental."</p>
+          </div>
+          <div class="linkthree-link"><a href="https://twitter.com/Cloverift" class="text"><div class="linkthree-img"><img src="/img/icon_twitter.svg" style="filter: invert(1)"></div>Twitter</a></div>
+          <div class="linkthree-link"><a href="https://rkgk.moe/@zan" class="text"><div class="linkthree-img"><img src="/img/icon_misskey.svg" style="filter: invert(1)"></div>Misskey</a></div>
+          <div class="linkthree-link"><a href="https://github.com/Kurover/kurover.github.io" class="text"><div class="linkthree-img"><img src="/img/icon_github.svg" style="filter: invert(1)"></div>Github Repo</a></div>
+          <div class="linkthree-link"><div class="text"><div class="linkthree-img"><img src="/img/icon_discord.svg" style="filter: invert(1)"></div><span style="cursor: text">kurover_zan</span></div></div>
+          <div class="linkthree-link"><a href="http://04.jp.org" class="text"><div class="linkthree-img"><img src="/img/icon_web.svg" style="filter: invert(1)"></div>Font Credit</a></div>
+          <p style="color: gray">Icon Source:<br><a href="https://remixicon.com">RemixIcon</a> | <a href="https://iconarchive.com">IconArchive</a></p>
         </div>
       </div>
     </nav>
@@ -71,11 +78,11 @@
   <!-- Main Entry -->
   <div class="entry" tabindex="-1" id="top">
     <!-- Profile Pic Container -->
+    <!-- Pic: States -->
+    <input class="hidden-input switch-parent-1" type="radio" id="state-pp-1" name="selector-pp" checked>
+    <input class="hidden-input switch-parent-2" type="radio" id="state-pp-2" name="selector-pp">
+    <input class="hidden-input switch-parent-3" type="radio" id="state-pp-3" name="selector-pp">
     <div class="container-profile-img">
-      <!-- Pic: States -->
-      <input class="hidden-input" type="radio" id="state-pp-1" name="selector-pp" checked>
-      <input class="hidden-input" type="radio" id="state-pp-2" name="selector-pp">
-      <input class="hidden-input" type="radio" id="state-pp-3" name="selector-pp">
       <!-- Pic: Container -->
       <div class="profile-img profile-img--accordion">
         <img class="img-pp-1" src="/img/profile_picture1.png" alt="Main Profile Picture">
@@ -85,27 +92,40 @@
       <!-- Pic: Text button -->
       <div class="selector-pp">
         <label class="selection" for="state-pp-1" id="selector-pp1" style="border-right: 2px solid lightgray">Main</label>
-        <label class="selection" for="state-pp-2" id="selector-pp2">Alt1</label>
-        <label class="selection" for="state-pp-3" id="selector-pp3" style="border-left: 2px solid lightgray">Alt2</label>
+        <label class="selection" for="state-pp-2" id="selector-pp2">Sub</label>
+        <label class="hidden selection" for="state-pp-3" id="selector-pp3" style="border-left: 2px solid lightgray">Alt2</label>
       </div>
     </div>
     <!-- Pic: Content-->
     <h1 class="no-margin">Welcome</h1>
-    <div style="width: auto; margin: auto">
-      
     <p class="caption">"4k art? Make it <span class="container-tooltip" tabindex="0"><span class="tooltip">According to my calculation, it's 192x108 px.</span><span class="link">20 times</span></span> smaller."</p>
+    <div class="hidden switch-child-1">
+      <p>My name is Zan, also known as Kurover in some part. I'm a pixel artist who mainly draw art and animation from Touhou Project (東方Project).</p>
+      <p>I'm Mainly active on <a href="https://twitter.com/Cloverift">Twitter</a> and <span class="container-tooltip"><span class="tooltip tooltip--medium">Search <span class="notice">@zan@rkgk.moe</span> on instance of your choice or check it on a <a href="https://rkgk.moe/@zan">remote instance rkgk.moe</a></span><span class="link">Misskey</span></span>. This website will provide up to date and fixed artwork, if there's any mistake on first publication.</p>
     </div>
-    <p>I'm Zan, also known as Kurover. I'm a pixel artist who mainly draw art and animation from Touhou Project (東方Project).</p>
-    <p>This website was written and optimized for pixel art media gallery, but it has since evolved to serve all sort of stuff, like blogging and project showcase.</p>
+    <div class="hidden switch-child-2">
+      <p style="color: gray">If you somehow see me with this profile picture, you are cultured.</p>
+      <p>Originally, this site was written and optimized just for pixel art media gallery, but it has since evolved to serve all sort of stuff, like blogging and project showcase. Very ambitious I know, but I can't contain myself!</p>    
+      </div>
+    <div class="hidden switch-child-3">
+      <p>Welcome keyboard user, this is the secret corner! This ain't anything special really. Just a trimmed content I still keep in the page.</p>
+      <p>There's no other secret content in this website as of current iteration. Who knows, maybe I'll add one someday. It need to be cool though.</p>
+    </div>
     
-    <div class="section-home-recent">
-      <div class="container-home-recent">
-        <p style="margin-bottom: -8px">Recent Posts:</p>
-        <ol>
+    <br>
+    
+    <div class="section-flex-border">
+      <div class="container-flex-border">
+        <p style="margin: 0 0 -8px 0">Recent Posts:</p>
+        <ol style="margin-bottom: 0">
           <li><div class="container-tooltip container-tooltip--sign"><span class="tooltip"><img src="/blog/2_win-nav/openshell_extra-2.gif" loading="lazy"></span><a href="/download#start-orb-illith">[Files] Illith Custom Start Orb</a></div></li>
           <li><a href="/blog/windows-navigation-enhancement">[Blog] Windows Navigation Enhancement</a></li>
           <li><a href="/blog/create-live2d">[Blog] Creating Live2D Model | AI-llith</a></li>
         </ol>
+      </div>
+      <div class="container-flex-border">
+        <p class="no-margin notice">Comments:</p>
+        <p>Currently feeling creatively conflicted. Wanting to abandon a lot of stuff in order for me to fully tryharding art. :thonk:</p>
       </div>
     </div>
   </div>
@@ -220,7 +240,7 @@
       <hr>
       
       <h3>Zanster and Me</h3>
-      <p>One gotta start somewhere. These are handful of trivias about me. Written because I'm full of myself! Though really I just like writing these kind of fluff.</p>
+      <p>One gotta start somewhere. These are handful of trivias about me. Written by myself because I'm full of myself! Though really I just like writing these kind of fluff to anybody.</p>
       
       <h4 class="no-margin-bot quote">History of Canvas</h4>
       <details>

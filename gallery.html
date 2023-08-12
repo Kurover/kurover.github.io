@@ -43,22 +43,29 @@
           <a class="nav-dropdown-entry" href="/download">Files</a>
         </div>
       </div>
-      <div class="nav-entry nav-entry--right nav-dropdown-button" tabindex="0">
-        Links
-        <div class="nav-dropdown-container">
-          <a class="nav-dropdown-entry nav-dropdown-entry--extra" href="http://04.jp.org">Font Credit</a>
-          <a class="nav-dropdown-entry nav-dropdown-entry--extra" href="https://github.com/Kurover/kurover.github.io">Github Repo</a>
-          <a class="nav-dropdown-entry nav-dropdown-entry--extra" href="https://twitter.com/Cloverift">Twitter</a>
+      <div class="nav-entry nav-entry--right nav-dropdown-button entry-linkthree-state" tabindex="0">
+        <span>Links</span>
+        <div class="entry-linkthree entry-linkthree--embed" style="cursor: default;">
+          <div class="linkthree-profile">
+            <p class="notice" style="margin: 0; font-size: 32px;">Links!</p>
+            <p style="margin: 8px 0">"Any resemblance to other websites are purely coincidental."</p>
+          </div>
+          <div class="linkthree-link"><a href="https://twitter.com/Cloverift" class="text"><div class="linkthree-img"><img src="/img/icon_twitter.svg" style="filter: invert(1)"></div>Twitter</a></div>
+          <div class="linkthree-link"><a href="https://rkgk.moe/@zan" class="text"><div class="linkthree-img"><img src="/img/icon_misskey.svg" style="filter: invert(1)"></div>Misskey</a></div>
+          <div class="linkthree-link"><a href="https://github.com/Kurover/kurover.github.io" class="text"><div class="linkthree-img"><img src="/img/icon_github.svg" style="filter: invert(1)"></div>Github Repo</a></div>
+          <div class="linkthree-link"><div class="text"><div class="linkthree-img"><img src="/img/icon_discord.svg" style="filter: invert(1)"></div><span style="cursor: text">kurover_zan</span></div></div>
+          <div class="linkthree-link"><a href="http://04.jp.org" class="text"><div class="linkthree-img"><img src="/img/icon_web.svg" style="filter: invert(1)"></div>Font Credit</a></div>
+          <p style="color: gray">Icon Source:<br><a href="https://remixicon.com">RemixIcon</a> | <a href="https://iconarchive.com">IconArchive</a></p>
         </div>
       </div>
     </nav>
   </header>
   
   <!-- Sub-Nav States. It's here because we want the text in the entry to change via CSS selector. --> 
-  <input class="hidden-input gallery-illith-state-0" type="radio" id="state-sub-nav-0" name="selector-accordion">
-  <input class="hidden-input gallery-illith-state-1" type="radio" id="state-sub-nav-1" name="selector-accordion">
-  <input class="hidden-input gallery-illith-state-2" type="radio" id="state-sub-nav-2" name="selector-accordion" checked>
-  <input class="hidden-input gallery-illith-state-3" type="radio" id="state-sub-nav-3" name="selector-accordion">
+  <input class="hidden-input switch-global-parent-1" type="radio" id="state-sub-nav-0" name="selector-accordion">
+  <input class="hidden-input switch-global-parent-2" type="radio" id="state-sub-nav-1" name="selector-accordion">
+  <input class="hidden-input switch-global-parent-3" type="radio" id="state-sub-nav-2" name="selector-accordion" checked>
+  <input class="hidden-input switch-global-parent-4" type="radio" id="state-sub-nav-3" name="selector-accordion">
   
   <!-- Main Entry -->
   <div class="entry" id="top">
@@ -72,7 +79,7 @@
     </div>
     <h1 class="no-margin">Welcome: Gallery</h1>
     <!--Text: Closed-->
-    <div class="illith-text-0">
+    <div class="hidden switch-global-child-1">
       <p>Ever wondered why my creator even bother adding this useless close button? Your guess is as good as mine!</p>
       <p>Speaking of that, let me tell you a little story. The reason why my creator did not set the tabs to closed by default is that <span class="container-tooltip"><span class="tooltip tooltip--large">If the default is closed, it will play the closing animation each time you refresh this page, it looks jarring.</span><span class="link">the codes are jank!</span></span> This issue is nonexistent if we just delete the <span class="container-tooltip"><span class="tooltip tooltip--large">We use fake tabs to play the closing animation while the original tab is thrown away tens of thousands pixel away below. We do this because we want to enable lazy loading for all the images. <br><br> Lazy load doesn't really work if you hide it with null-visibility because the browser can still see it, which will load the image regardless. There is a solution by using "display: none" to lazy load but that completely disable transitions.</span><span class="link">closing transition mechanic</span></span>, or you know, use javascript like every other sane human out there.</p>
       <p>Also, have you noticed some inconsistencies like, you know, the animation category using "tabs" while the pixel art using "show more"? I also do not have the answer for that.</p>
@@ -81,18 +88,18 @@
       -->
     </div>
     <!--Text: Anim-->
-    <div class="illith-text-1">
+    <div class="hidden switch-global-child-2">
       <p>Animation goodies! Thanks to the power of super duper powerful upscaling filter, we can present these in reasonable scale and performance without badonka of bandwidth.</p>
       <p>Nearest Neighbor is our bestest friend. It's unfortunate that there's no auto-detection of pixel art so we have to manually assign them accordingly, else it will be smoothed out by default. Try viewing pixel art on new tab.</p>
     </div>
     <!--Text: Pixel-->
-    <div class="illith-text-2">
+    <div class="hidden switch-global-child-3">
       <p>Hello, Illith here, welcome to the gallery! Do take a look around will ya?</p>
       <p>You are currently looking at pixel art sub-tab. You can switch the category below. Coincidentally, I will provide you a flavor text in each of category.</p>
       <p>Fun fact, these pixel art and animation showcase gallery is more or less 75% of my creator's art in total. Pretty disappointing number, isn't it?</p>
     </div>
     <!--Text: Raster-->
-    <div class="illith-text-3">
+    <div class="hidden switch-global-child-4">
       <p>My creator do indeed create raster art, gotta start somewhere. We do still actively use this medium for sketch and practice, as it is easier to scratch the pen tablet to get smooth and curvy lines.</p>
       <p>Also, there are more raster art that is not showcased here. My creator has not really draw that much of raster art after he "dipped his toes" or whatever into pixel art. Might be allergic to it actually, who knows though.</p>
     </div>

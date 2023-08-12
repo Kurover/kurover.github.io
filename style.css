@@ -31,7 +31,7 @@ body {
   background: #0a0c10;
   margin: auto;
   margin-top: 24px;
-  margin-bottom: 15%;
+  margin-bottom: 25%;
   width: 80%;
 }
 @media (max-width: 810px) {  
@@ -218,9 +218,7 @@ summary {
   }
 }
 
-/* Keyboard TAB Accessibility
- * <a class="jump-to-main" href="#top"></a>
- * */
+/* Keyboard TAB Accessibility */
 .hidden-input {
   z-index: -1000;
   opacity: 0;
@@ -237,7 +235,7 @@ summary {
   left: 5%;
   bottom: 10%;
   max-width: 512px;
-  transition: background 0.2s, opacity 0.2s, visibility 0s 0.2s;
+  transition: background 0.2s, opacity 0.2s;
 }
 @media (max-width: 810px) {
   .notice-accessibility {
@@ -277,10 +275,6 @@ summary {
   overflow: hidden;
   border-bottom: 1px solid whitesmoke;
   transition: background 0.1s, color 0.1s, width 0.1s;
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
 }
 .nav-entry {
   background: #353a4c;
@@ -292,10 +286,6 @@ summary {
   text-decoration: none;
   transition: inherit;
   cursor: pointer;
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
 }
 .nav-bar a{
   color: whitesmoke;
@@ -462,32 +452,37 @@ summary {
   z-index: 1;
   opacity: 1;
 }
-#state-pp-1:checked ~ .selector-pp > #selector-pp1,
-#state-pp-2:checked ~ .selector-pp > #selector-pp2,
-#state-pp-3:checked ~ .selector-pp > #selector-pp3 {
+#state-pp-1:checked ~ * #selector-pp1,
+#state-pp-2:checked ~ * #selector-pp2,
+#state-pp-3:checked ~ * #selector-pp3 {
   color: #72984e;
 }
-#state-pp-1:checked ~ .selector-pp > #selector-pp1:hover,
-#state-pp-1:focus ~ .selector-pp > #selector-pp1,
-#state-pp-2:checked ~ .selector-pp > #selector-pp2:hover,
-#state-pp-2:focus ~ .selector-pp > #selector-pp2,
-#state-pp-3:checked ~ .selector-pp > #selector-pp3:hover,
-#state-pp-3:focus ~ .selector-pp > #selector-pp3 {
+#state-pp-1:checked ~ * #selector-pp1:hover,
+#state-pp-1:focus ~ * #selector-pp1,
+#state-pp-2:checked ~ * #selector-pp2:hover,
+#state-pp-2:focus ~ * #selector-pp2,
+#state-pp-3:checked ~ * #selector-pp3:hover,
+#state-pp-3:focus ~ * #selector-pp3 {
   color: #89f86f;
 }
 
 /*About: Content*/
-.section-home-recent {
+.section-flex-border {
   display: flex;
   width: 100%;
   flex-wrap: nowrap;
 }
-.container-home-recent {
-  padding: 0 16px;
+@media (max-width: 810px) {  
+  .section-flex-border {
+    flex-wrap: wrap;
+  }
+}
+.container-flex-border {
+  padding: 16px;
   width: 100%;
   outline: 1px solid gray;
 }
-.container-home-recent li {
+.container-flex-border li {
   list-style: square;
   padding: 4px;
 }
@@ -523,10 +518,6 @@ summary {
   overflow: hidden;
   cursor: pointer;
   transition: inherit;
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
 }
 .sub-nav-entry--title {
   display: inline-block;
@@ -634,15 +625,20 @@ summary {
   background: white;
 }
 
-/*Illith text box selector*/
-.illith-text-0 {display: none;}
-.illith-text-1 {display: none;}
-.illith-text-2 {display: none;}
-.illith-text-3 {display: none;}
-.gallery-illith-state-0:checked ~ .entry > .illith-text-0 {display: block;}
-.gallery-illith-state-1:checked ~ .entry > .illith-text-1 {display: block;}
-.gallery-illith-state-2:checked ~ .entry > .illith-text-2 {display: block;}
-.gallery-illith-state-3:checked ~ .entry > .illith-text-3 {display: block;}
+/*Content selector display*/
+  /*If there's more than one of this, we f'ed up*/
+.switch-global-parent-1:checked ~ * .switch-global-child-1 {display: block;}
+.switch-global-parent-2:checked ~ * .switch-global-child-2 {display: block;}
+.switch-global-parent-3:checked ~ * .switch-global-child-3 {display: block;}
+.switch-global-parent-4:checked ~ * .switch-global-child-4 {display: block;}
+.switch-global-parent-5:checked ~ * .switch-global-child-5 {display: block;}
+
+  /*Reusable within container*/
+.switch-parent-1:checked ~ .switch-child-1 {display: block;}
+.switch-parent-2:checked ~ .switch-child-2 {display: block;}
+.switch-parent-3:checked ~ .switch-child-3 {display: block;}
+.switch-parent-4:checked ~ .switch-child-4 {display: block;}
+.switch-parent-5:checked ~ .switch-child-5 {display: block;}
 
 /*Magic Key*/
 @keyframes accordion-tab-transition {
@@ -666,6 +662,21 @@ summary {
     height: 0;
   }
 }
+@keyframes fade-in {
+  from {opacity: 0}
+  to {opacity: 1}
+}
+@keyframes fade-in-top {
+  from {
+    transform: translateY(-32px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 #state-sub-nav-1:checked ~ #accordion-entry-1,
 #state-sub-nav-2:checked ~ #accordion-entry-2,
 #state-sub-nav-3:checked ~ #accordion-entry-3,
@@ -787,10 +798,6 @@ summary {
   text-align: center;
   cursor: pointer;
   transition: background 0.2s;
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
 }
 .button-expand:hover,
 .container-expandable-controller:focus ~ .button-expand {
@@ -817,7 +824,7 @@ summary {
   visibility: hidden;
   opacity: 0;
   position: absolute;
-  overflow: scroll;
+  overflow: auto;
   background-color: #25202c;
   color: lightgray;
   border: 1px solid gray;
@@ -826,6 +833,14 @@ summary {
   transform-origin: top;
   transform: scaleY(0.00001);
   transition: visibility 0.1s 0.1s, transform 0.1s 0.1s, opacity 0.1s 0.05s;
+}
+.tooltip--medium {
+  position: absolute;
+  width: 384px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
 }
 .tooltip--large {
   position: absolute;
@@ -869,10 +884,6 @@ summary {
   text-align: center;
   width: 100%;
   cursor: pointer;
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   transition: background 0.1s;
 }
 .container-tab-controller:hover {
@@ -1048,10 +1059,6 @@ summary {
   min-width: 128px;
   text-align: center;
   transition: color 0.2s, background 0.2s;
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
 }
 .button-download:is(:hover, :focus) {
   background: whitesmoke;
@@ -1062,6 +1069,100 @@ summary {
   text-align: center;
   text-decoration: underline;
 }
+
+/* 404 Page CSS | Basically a copy of LinkThree lab page */
+.entry-linkthree {
+  color: #faf0de;
+  max-width: 520px;
+  margin: auto;
+  margin-top: 8%;
+  text-align: center;
+}
+@media (max-width: 810px) {
+  .entry-linkthree {
+    padding: 0 4%;
+  }
+}
+.linkthree-profile {
+  margin-bottom: 32px;
+}
+.linkthree-profile-img {
+  width: 96px;
+  height: 96px;
+  margin: auto;
+  margin-bottom: 12px;
+  border: 8px solid gray;
+  border-radius: 50%;
+  background: white;
+  background-image: url(/img/404.gif);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 128px;
+  image-rendering: pixelated;
+}
+.linkthree-profile-img img {
+  width: 100%;
+  overflow: hidden;
+}
+.linkthree-link {
+  margin: 8px 0;
+  background: #25202c;
+  border: 2px solid gray;
+}
+.linkthree-link .text{
+  color: #faf0de;
+  display: block;
+  line-height: 48px;
+}
+.linkthree-link a:hover {
+  color: #8db565;
+  background: #25355A;
+}
+.linkthree-img {
+  position: absolute;
+  padding: 4px;
+  line-height: 48px;
+}
+.linkthree-img img {
+  width: 40px;
+}
+.linkthree-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: #141414;
+  height: 48px;
+  width: 100%;
+}
+.linkthree-footer-content {
+  color: gray;
+  line-height: 48px;
+  text-align: center;
+}
+.entry-linkthree--embed {
+  z-index: 1000;
+  position: fixed;
+  visibility: hidden;
+  background: #0a0c10;
+  padding: 32px 16px;
+  border: 4px solid gray;
+  max-height: 75%; 
+  overflow: scroll;
+  top: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  transform: translateY(-32px);
+  transition: opacity .25s, transform .5s;
+}
+
+.entry-linkthree-state:focus-within .entry-linkthree--embed {
+  visibility: visible; 
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity .25s, transform .5s;
+}
+
 
 /* Shortcut Back to Top */
 .jump-to-top {
@@ -1090,6 +1191,89 @@ summary {
   color: whitesmoke;
   transition: color 0.1s;
 }
+
+/*
+.entry-commission {
+  position: relative;
+  max-width: 894px;
+  margin: auto;
+  background: gray;
+  border: 1px solid transparent;
+}
+.comm-test {
+  z-index: 2;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin-right: 5%;
+  margin-bottom: 10%;
+  width: 800px;
+  height: 80px;
+  background: green;
+}
+.comm-test2 {
+  z-index: 1;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin-right: 5%;
+  margin-bottom: 10%;
+  width: 120px;
+  height: 120px;
+  background: yellow;
+}
+
+.container-commission-button-order {}
+.container-commission-button-record {}
+.container-commission-button-talk {}
+
+.button-commission-order {}
+.button-commission-record {}
+.button-commission-talk {}
+
+@keyframes textbox-line {
+  from {width: 0}
+  to {width: 100%;visibility: visible}
+
+.container-commission-content-main {
+  background-image: url(/img/gallery/touhou_grassroot3.gif);
+  image-rendering: pixelated;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 100%;
+}
+.container-commission-button-main {
+  margin-left: 2%;
+  overflow: hidden;
+  background: indianred;  
+}
+.button-commission-main {
+  cursor: pointer;
+  width: 25%;
+  margin: 8px 0;
+  padding: 2%;
+  background: yellow;
+}
+.container-commission-textbox-main {
+  display: flex;
+  background: palegreen;
+  margin: 0 4% 2% 4%;
+  padding: 16px;
+  height: 64px;
+}
+.textbox-content {
+  font-size: 32px;
+}
+.textbox-content div {
+  visibility: hidden;
+  overflow: hidden;
+  white-space: nowrap;
+  background: white;
+  animation: textbox-line 1s steps(17, end) forwards;
+}
+
+}*/
 
 /* Shortcut Slider on bottom left */
 .nav-shortcut {
