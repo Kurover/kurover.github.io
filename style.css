@@ -22,6 +22,9 @@
  * @media (max-width: 810px) ; Tablet
  * */
 
+/* Active Page Count 6
+ * */
+
 html {
   font-family: 'Pixel04b03';
   -webkit-font-smoothing: none;
@@ -152,6 +155,10 @@ summary {
   cursor: pointer;
   color: lightgray;
   transition: color 0.1s;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 .selection:hover {
   color: #72984e;
@@ -278,6 +285,7 @@ summary {
 }
 .nav-entry {
   background: #353a4c;
+  color: whitesmoke;
   width: 92px;
   padding: 8px;
   margin: 8px 2px;
@@ -286,6 +294,10 @@ summary {
   text-decoration: none;
   transition: inherit;
   cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 .nav-bar a{
   color: whitesmoke;
@@ -309,6 +321,10 @@ summary {
 .nav-entry--right {
   background: #25355A;
   margin-left: auto;
+  user-select: auto;
+  -webkit-user-select: auto;
+  -moz-user-select: auto;
+  -ms-user-select: auto;
 } /*margin-left:auto is basically float:right in flex-box*/
 @media (max-width: 842px) {
   .nav-entry--right{
@@ -335,7 +351,7 @@ summary {
   background: transparent;
 }
 
-/*Dropdown Menu*/
+/*LEGACY - Dropdown Menu*/
 .nav-dropdown-button {
   color: whitesmoke;
 }
@@ -518,6 +534,10 @@ summary {
   overflow: hidden;
   cursor: pointer;
   transition: inherit;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 .sub-nav-entry--title {
   display: inline-block;
@@ -529,6 +549,10 @@ summary {
   box-shadow: 8px 0 inset gray;
   border: 1px solid gray;
   overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 .sub-nav-entry--close {
   display: block;
@@ -798,6 +822,10 @@ summary {
   text-align: center;
   cursor: pointer;
   transition: background 0.2s;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 .button-expand:hover,
 .container-expandable-controller:focus ~ .button-expand {
@@ -1144,25 +1172,30 @@ summary {
   position: fixed;
   visibility: hidden;
   background: #0a0c10;
+  margin-top: 92px;
   padding: 32px 16px;
   border: 4px solid gray;
-  max-height: 75%; 
+  max-height: 70%; 
   overflow: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
   top: 0;
   left: 0;
   right: 0;
   opacity: 0;
-  transform: translateY(-32px);
+  transform: translateY(-16px);
   transition: opacity .25s, transform .5s;
 }
+.entry-linkthree--embed::-webkit-scrollbar {
+  display: none;
+}
 
-.entry-linkthree-state:focus-within .entry-linkthree--embed {
+.entry-linkthree-parent:focus-within .entry-linkthree--embed {
   visibility: visible; 
   opacity: 1;
   transform: translateY(0);
   transition: opacity .25s, transform .5s;
 }
-
 
 /* Shortcut Back to Top */
 .jump-to-top {
