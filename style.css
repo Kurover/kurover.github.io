@@ -1142,7 +1142,7 @@ summary {
   display: block;
   line-height: 48px;
 }
-.linkthree-link a:hover {
+.linkthree-link a:is(:focus, :hover) {
   color: #8db565;
   background: #25355A;
 }
@@ -1189,12 +1189,47 @@ summary {
 .entry-linkthree--embed::-webkit-scrollbar {
   display: none;
 }
-
 .entry-linkthree-parent:focus-within .entry-linkthree--embed {
   visibility: visible; 
   opacity: 1;
   transform: translateY(0);
   transition: opacity .25s, transform .5s;
+}
+.entry-linkthree-embed-control {
+  z-index: 1001;
+  visibility: hidden;
+  position: fixed;
+  margin: auto;
+  margin-top: 112px;
+  font-size: 32px;
+  text-align: center;
+  width: 48px;
+  line-height: 48px;
+  top: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  transform: translateX(236px);
+  cursor: pointer;
+  color: gray;
+}
+@media (max-width: 520px) {  
+  .entry-linkthree-embed-control {
+    left: 84%;
+    transform: none;
+  }
+}
+
+.entry-linkthree-embed-control::after {
+  content: "-"
+}
+.entry-linkthree-embed-control:hover {
+  color: whitesmoke;
+}
+.entry-linkthree-parent:focus-within + .entry-linkthree-embed-control {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity .25s .25s, color .25s;
 }
 
 /* Shortcut Back to Top */
@@ -1224,89 +1259,6 @@ summary {
   color: whitesmoke;
   transition: color 0.1s;
 }
-
-/*
-.entry-commission {
-  position: relative;
-  max-width: 894px;
-  margin: auto;
-  background: gray;
-  border: 1px solid transparent;
-}
-.comm-test {
-  z-index: 2;
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  margin-right: 5%;
-  margin-bottom: 10%;
-  width: 800px;
-  height: 80px;
-  background: green;
-}
-.comm-test2 {
-  z-index: 1;
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  margin-right: 5%;
-  margin-bottom: 10%;
-  width: 120px;
-  height: 120px;
-  background: yellow;
-}
-
-.container-commission-button-order {}
-.container-commission-button-record {}
-.container-commission-button-talk {}
-
-.button-commission-order {}
-.button-commission-record {}
-.button-commission-talk {}
-
-@keyframes textbox-line {
-  from {width: 0}
-  to {width: 100%;visibility: visible}
-
-.container-commission-content-main {
-  background-image: url(/img/gallery/touhou_grassroot3.gif);
-  image-rendering: pixelated;
-  background-position: bottom;
-  background-repeat: no-repeat;
-  background-size: 100%;
-  width: 100%;
-}
-.container-commission-button-main {
-  margin-left: 2%;
-  overflow: hidden;
-  background: indianred;  
-}
-.button-commission-main {
-  cursor: pointer;
-  width: 25%;
-  margin: 8px 0;
-  padding: 2%;
-  background: yellow;
-}
-.container-commission-textbox-main {
-  display: flex;
-  background: palegreen;
-  margin: 0 4% 2% 4%;
-  padding: 16px;
-  height: 64px;
-}
-.textbox-content {
-  font-size: 32px;
-}
-.textbox-content div {
-  visibility: hidden;
-  overflow: hidden;
-  white-space: nowrap;
-  background: white;
-  animation: textbox-line 1s steps(17, end) forwards;
-}
-
-}*/
 
 /* Shortcut Slider on bottom left */
 .nav-shortcut {
