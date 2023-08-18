@@ -1229,7 +1229,7 @@ summary {
 .entry-linkthree-parent:focus-within + .entry-linkthree-embed-control {
   visibility: visible;
   opacity: 1;
-  transition: opacity .25s .25s, color .25s;
+  transition: opacity .1s .33s, color .1s;
 }
 
 /* Shortcut Back to Top */
