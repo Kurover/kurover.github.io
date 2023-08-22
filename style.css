@@ -146,7 +146,7 @@ summary {
 .link {
   cursor: pointer;
   color: #72984e;
-  transition: color 0.1s;
+  transition: color .1s;
 }
 .link:hover {
   color: #edcfc2;
@@ -154,7 +154,7 @@ summary {
 .selection {
   cursor: pointer;
   color: lightgray;
-  transition: color 0.1s;
+  transition: color .1s;
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -202,21 +202,27 @@ summary {
   box-shadow: 4px 0 inset gray;
 }
 .img-caption{
-  opacity: 0.75;
+  opacity: .75;
   font-size: 14px;
   margin-top: 4px;
   padding-bottom: 4px;
   text-align: center;
-  transition: opacity 0.2s 0.3s, visibility 0.2s 0.3s;
+  transition: opacity .2s .3s, visibility .2s .3s;
 }
 @media (max-width: 810px) {
   .web-only {
     display: none;
   }
+  .web-only-force {
+    display: none !important;
+  }
 }
 @media (min-width: 811px) {
   .mobile-only {
     display: none;
+  }
+  .mobile-only-force {
+    display: none !important;
   }
 }
 @media (max-width: 520px) {
@@ -242,7 +248,7 @@ summary {
   left: 5%;
   bottom: 10%;
   max-width: 512px;
-  transition: background 0.2s, opacity 0.2s;
+  transition: background .2s, opacity .2s;
 }
 @media (max-width: 810px) {
   .notice-accessibility {
@@ -256,7 +262,7 @@ summary {
   padding: 8px;
   background: #353a4c;
   color: whitesmoke!important;
-  transition: transform 0.2s;
+  transition: transform .2s;
 }
 .jump-to-main::after {
   content: "SkipNav";
@@ -268,7 +274,7 @@ summary {
   visibility:visible ;
   opacity: 1;
   background: #353a4c;
-  transition: background 0.2s, opacity 0.2s, visibility 0s;
+  transition: background .2s, opacity .2s, visibility 0s;
 }
 
 /*Navigation Bar*/
@@ -281,7 +287,7 @@ summary {
   margin: auto;
   overflow: hidden;
   border-bottom: 1px solid whitesmoke;
-  transition: background 0.1s, color 0.1s, width 0.1s;
+  transition: background .1s, color .1s, width .1s;
 }
 .nav-entry {
   background: #353a4c;
@@ -364,7 +370,7 @@ summary {
   max-width: 92px;
   transform-origin: top;
   transform: translate(-8px, 8px) scaleY(0);
-  transition: transform 0.2s 0.1s, visibility 0.2s 0.1s;
+  transition: transform .2s .1s, visibility .2s .1s;
 }
 .nav-entry--active > .nav-dropdown-container {
   margin-top: 8px;
@@ -377,7 +383,7 @@ summary {
   padding: 16px 8px;
   box-shadow: 0 2px inset black;
   white-space: wrap;
-  transition: opacity 0.1s 0.1s;
+  transition: opacity .1s .1s;
 }
 @media (max-width: 375px) {
   .nav-dropdown-entry {
@@ -398,11 +404,11 @@ summary {
   z-index: 100;
   visibility: visible;
   transform: translate(-8px, 8px) scaleY(100%);
-  transition: transform 0.2s, visibility 0.2s;
+  transition: transform .2s, visibility .2s;
 }
 .nav-dropdown-button:is(:hover, :focus-within) .nav-dropdown-entry {
   opacity: 1;
-  transition: opacity 0.1s;
+  transition: opacity .1s;
 }
 
 /*Content Body*/
@@ -420,6 +426,202 @@ summary {
     padding: 16px;
   }
 }
+
+/* MODULES */
+/* Module: Expand on Click | Example on gallery pixel */
+@keyframes container-expandable-show {
+  0% {
+    height: 0;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+  }
+  100% {
+    height: 500px;
+    opacity: 1;
+  }
+}
+.container-expandable-content {
+  display: none;
+}
+.container-expandable-controller:checked ~ .container-expandable-content {
+  display: block; 
+}
+.container-expandable-controller:checked ~ .container-expandable-content--inline {
+  display: inline; 
+}
+.container-expandable-controller:checked ~ .container-expandable-content--entry {
+  animation: container-expandable-show .4s ease-in;
+}
+.button-expand {
+  display: block;
+  background: #353a4c;
+  margin-top: 16px;
+  line-height: 32px;
+  width: 100%;
+  color: whitesmoke;
+  text-align: center;
+  cursor: pointer;
+  transition: background .2s;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+.button-expand:hover,
+.container-expandable-controller:focus ~ .button-expand {
+  outline: 2px solid white;
+  background: #72984e;
+}
+.container-expandable-controller:focus ~ .button-expand-text {
+  color: #edcfc2;
+  outline: 1px solid lightgray;
+}
+.container-expandable-controller:checked,
+.container-expandable-controller:checked ~ .button-expand--once,
+.container-expandable-controller:checked ~ * .button-expand--once{
+  display: none; /*Remove when toggled on*/
+}
+
+/* Module: Tooltip Span */
+.container-tooltip {
+  display: inline;
+}
+.tooltip {
+  z-index: 100;
+  display: inline;
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  overflow: auto;
+  background-color: #25202c;
+  color: lightgray;
+  border: 1px solid gray;
+  margin-top: 16px;
+  padding: 12px;
+  transform-origin: top;
+  transform: scaleY(.00001);
+  transition: visibility .1s .1s, transform .1s .1s, opacity .1s .05s;
+}
+.tooltip--medium {
+  position: absolute;
+  width: 384px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+.tooltip--large {
+  position: absolute;
+  max-width: 832px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 520px) {
+  .tooltip {
+    max-width: 85%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    margin-top: 16px;
+    text-align: center;
+  }
+  .container-tooltip--sign::after {
+    content: " ▼";
+  }
+}
+.container-tooltip:is(:focus-within, :hover) .tooltip{
+  opacity: 1;
+  transform: scaleY(1);
+  visibility: visible;
+  transition: transform .1s, opacity .2s;
+}
+/* Module: Generic Page Tab*/
+.container-tab-controller-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+.container-tab-controller {
+  background: #353a4c;
+  padding: 8px;
+  text-align: center;
+  width: 100%;
+  cursor: pointer;
+  transition: background .1s;
+}
+.container-tab-controller:hover {
+  background: #72984e;
+}
+.container-tab-content {
+  display: none;
+}
+.state-container-tab-1:checked ~ div .container-tab-controller-1 {
+  background: #72984e;
+}
+.state-container-tab-2:checked ~ div .container-tab-controller-2 {
+  background: #72984e;
+}
+.state-container-tab-3:checked ~ div .container-tab-controller-3 {
+  background: #72984e;
+}
+.state-container-tab-4:checked ~ div .container-tab-controller-4 {
+  background: #72984e;
+}
+.state-container-tab-1:checked ~ div .container-tab-controller-1:hover,
+.state-container-tab-1:focus ~ div .container-tab-controller-1 {
+  background: whitesmoke;
+  color: #72984e;
+}
+.state-container-tab-2:checked ~ div .container-tab-controller-2:hover,
+.state-container-tab-2:focus ~ div .container-tab-controller-2 {
+  background: whitesmoke;
+  color: #72984e;
+}
+.state-container-tab-3:checked ~ div .container-tab-controller-3:hover,
+.state-container-tab-3:focus ~ div .container-tab-controller-3 {
+  background: whitesmoke;
+  color: #72984e;
+}
+.state-container-tab-4:checked ~ div .container-tab-controller-4:hover,
+.state-container-tab-4:focus ~ div .container-tab-controller-4 {
+  background: whitesmoke;
+  color: #72984e;
+}
+.state-container-tab-1:checked ~ .container-tab-content-1 {
+  display: block;
+}
+.state-container-tab-2:checked ~ .container-tab-content-2 {
+  display: block;
+}
+.state-container-tab-3:checked ~ .container-tab-content-3 {
+  display: block;
+}
+.state-container-tab-4:checked ~ .container-tab-content-4 {
+  display: block;
+}
+
+/* Module : Content selector display*/
+  /*If there's more than one of this, we f'ed up*/
+.switch-global-parent-1:checked ~ * .switch-global-child-1 {display: block; visibility: visible;}
+.switch-global-parent-2:checked ~ * .switch-global-child-2 {display: block; visibility: visible;}
+.switch-global-parent-3:checked ~ * .switch-global-child-3 {display: block; visibility: visible;}
+.switch-global-parent-4:checked ~ * .switch-global-child-4 {display: block; visibility: visible;}
+.switch-global-parent-5:checked ~ * .switch-global-child-5 {display: block; visibility: visible;}
+
+  /*Reusable within container*/
+.switch-parent-1:checked ~ .switch-child-1 {display: block; visibility: visible;}
+.switch-parent-2:checked ~ .switch-child-2 {display: block; visibility: visible;}
+.switch-parent-3:checked ~ .switch-child-3 {display: block; visibility: visible;}
+.switch-parent-4:checked ~ .switch-child-4 {display: block; visibility: visible;}
+.switch-parent-5:checked ~ .switch-child-5 {display: block; visibility: visible;}
+
 
 /*Profile Picture*/
 .container-profile-img {
@@ -444,7 +646,7 @@ summary {
   position: absolute;
   width: 128px;
   height: 128px;
-  transition: opacity 0.5s;
+  transition: opacity .5s;
 }
 .profile-img--accordion > img {
   opacity: 0;
@@ -511,9 +713,6 @@ summary {
   margin-top: -1px;
   transform-origin: top;
   transform: translateY(24000px); /*Place faraway to prevent loading in fixed location, for lazy load to work. Doesn't use display none to make sure animation work..*/
-}
-.entry--accordion > .container {
-  opacity: 0;
 }
 .nav-bar--sub-nav {
   color: whitesmoke;
@@ -583,28 +782,28 @@ summary {
   padding: 4px;
   padding-bottom: 0;
   margin: auto;
-  transition: transform-origin 0.5s, transform 0.5s, background 0.25s 0.5s, outline 0.25s 0.5s;
+  transition: transform-origin .5s, transform .5s, background .25s .5s, outline .25s .5s;
 } /*This act as a column*/
 .image-container img{
   width: 100%;
   outline: 1px solid gray;
-  transition: outline 0.25s 0.5s;
+  transition: outline .25s .5s;
 }
 .image-container:is(:hover, :active) {
   z-index: 10;
   transform: scale(151%);
   background: black;
   outline: 1px solid black;
-  transition: transform-origin 0.5s, transform 0.5s, background 0.25s, outline 0.25s;
+  transition: transform-origin .5s, transform .5s, background .25s, outline .25s;
 }
 .image-container:is(:hover, :active) img {
   outline: 1px solid transparent;
-  transition: outline 0.25s;
+  transition: outline .25s;
 }
 .image-container:hover + .img-caption {
   visibility: hidden;
   opacity: 0;
-  transition: opacity 0.2s, visibility 0.2s;
+  transition: opacity .2s, visibility .2s;
 }
 .container-gallery--raster ~ div img {
   image-rendering: auto;
@@ -635,6 +834,39 @@ summary {
   }
 }
 
+/*Gallery Extras*/
+.gallery-anim-button {
+  visibility: hidden;
+  position: sticky;
+  top: 0;
+  opacity: 0;
+  margin: 0;
+}
+@media (min-width: 811px) {
+  #state-sub-nav-1:checked ~ div .gallery-anim-button {
+    visibility: visible;
+    opacity: 1;
+    transform: translate(-92px, 48px);
+    transition: opacity .5s .25s, transform .5s .25s;
+  }
+  .gallery-anim-button {
+    width: 48px;
+    height: 0;
+    transform: translate(-78px, 48px);
+    transition: none;
+  }
+  .gallery-anim-button label {
+    line-height: 48px;
+    color: white
+  }
+  .gallery-anim-button label:hover {
+    opacity: 1;
+  }
+}
+@media (max-width: 810px) {
+  .gallery-anim-button {display: none}
+}
+
 /*Image Container Utility*/
 .zoom-small:hover {
   transform: scale(121%);
@@ -648,21 +880,6 @@ summary {
 .white-background:hover {
   background: white;
 }
-
-/*Content selector display*/
-  /*If there's more than one of this, we f'ed up*/
-.switch-global-parent-1:checked ~ * .switch-global-child-1 {display: block;}
-.switch-global-parent-2:checked ~ * .switch-global-child-2 {display: block;}
-.switch-global-parent-3:checked ~ * .switch-global-child-3 {display: block;}
-.switch-global-parent-4:checked ~ * .switch-global-child-4 {display: block;}
-.switch-global-parent-5:checked ~ * .switch-global-child-5 {display: block;}
-
-  /*Reusable within container*/
-.switch-parent-1:checked ~ .switch-child-1 {display: block;}
-.switch-parent-2:checked ~ .switch-child-2 {display: block;}
-.switch-parent-3:checked ~ .switch-child-3 {display: block;}
-.switch-parent-4:checked ~ .switch-child-4 {display: block;}
-.switch-parent-5:checked ~ .switch-child-5 {display: block;}
 
 /*Magic Key*/
 @keyframes accordion-tab-transition {
@@ -709,16 +926,15 @@ summary {
   visibility: visible;
   transform: translateY(0);
   box-shadow: 0 -8px inset gray;
-  transition: box-shadow 0.25s 0.5s;
+  transition: box-shadow .25s .5s;
   opacity: 1;
-  animation: accordion-tab-transition 0.5s ease-out;
+  animation: accordion-tab-transition .5s ease-out;
 }
 #state-sub-nav-1:checked ~ #accordion-entry-1 > .container,
 #state-sub-nav-2:checked ~ #accordion-entry-2 > .container,
 #state-sub-nav-3:checked ~ #accordion-entry-3 > .container,
 #state-sub-nav-4:checked ~ #accordion-entry-4 > .container {
-  opacity: 1;
-  animation: accordion-tab-container-transition 0.6s ease-in;
+  animation: accordion-tab-container-transition .6s ease-in;
 }
 #state-sub-nav-1:checked ~ * #selector-accordion-1,
 #state-sub-nav-2:checked ~ * #selector-accordion-2,
@@ -750,7 +966,7 @@ summary {
 #state-sub-nav-0:checked ~ .entry--accordion-placeholder {
   display: block;
   transform-origin: top;
-  animation: entry-accordion-close 0.5s ease-out forwards;
+  animation: entry-accordion-close .5s ease-out forwards;
 } /*With this current system, it is recommended to always set the default sub nav state id to other than 0 to prevent the animation from playing upon page reload*/
 
 /*Sub-Entry Mobile View*/
@@ -784,185 +1000,6 @@ summary {
   .image-container:is(:hover, :active) {
     transform: scale(105%);
   }
-}
-
-/* Module: Expand on Click | Example on gallery pixel */
-@keyframes container-expandable-show {
-  0% {
-    height: 0;
-    opacity: 0;
-  }
-  40% {
-    opacity: 0;
-  }
-  100% {
-    height: 500px;
-    opacity: 1;
-  }
-}
-.container-expandable-content {
-  display: none;
-}
-.container-expandable-controller:checked ~ .container-expandable-content {
-  display: block; 
-}
-.container-expandable-controller:checked ~ .container-expandable-content--inline {
-  display: inline; 
-}
-.container-expandable-controller:checked ~ .container-expandable-content--entry {
-  animation: container-expandable-show .4s ease-in;
-}
-.button-expand {
-  display: block;
-  background: #353a4c;
-  margin-top: 16px;
-  line-height: 32px;
-  width: 100%;
-  color: whitesmoke;
-  text-align: center;
-  cursor: pointer;
-  transition: background 0.2s;
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-}
-.button-expand:hover,
-.container-expandable-controller:focus ~ .button-expand {
-  outline: 2px solid white;
-  background: #72984e;
-}
-.container-expandable-controller:focus ~ .button-expand-text {
-  color: #edcfc2;
-  outline: 1px solid lightgray;
-}
-.container-expandable-controller:checked,
-.container-expandable-controller:checked ~ .button-expand--once,
-.container-expandable-controller:checked ~ * .button-expand--once{
-  display: none; /*Remove when toggled on*/
-}
-
-/* Module: Tooltip Span */
-.container-tooltip {
-  display: inline;
-}
-.tooltip {
-  z-index: 100;
-  display: inline;
-  visibility: hidden;
-  opacity: 0;
-  position: absolute;
-  overflow: auto;
-  background-color: #25202c;
-  color: lightgray;
-  border: 1px solid gray;
-  margin-top: 16px;
-  padding: 12px;
-  transform-origin: top;
-  transform: scaleY(0.00001);
-  transition: visibility 0.1s 0.1s, transform 0.1s 0.1s, opacity 0.1s 0.05s;
-}
-.tooltip--medium {
-  position: absolute;
-  width: 384px;
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
-}
-.tooltip--large {
-  position: absolute;
-  max-width: 832px;
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
-}
-@media (max-width: 520px) {
-  .tooltip {
-    max-width: 85%;
-    left: 0;
-    right: 0;
-    margin: auto;
-    margin-top: 16px;
-    text-align: center;
-  }
-  .container-tooltip--sign::after {
-    content: " ▼";
-  }
-}
-.container-tooltip:is(:focus-within, :hover) .tooltip{
-  opacity: 1;
-  transform: scaleY(1);
-  visibility: visible;
-  transition: transform 0.1s, opacity 0.2s;
-}
-/* Module: Generic Page Tab*/
-.container-tab-controller-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  gap: 16px;
-  justify-content: center;
-  margin-bottom: 16px;
-}
-.container-tab-controller {
-  background: #353a4c;
-  padding: 8px;
-  text-align: center;
-  width: 100%;
-  cursor: pointer;
-  transition: background 0.1s;
-}
-.container-tab-controller:hover {
-  background: #72984e;
-}
-.container-tab-content {
-  display: none;
-}
-.state-container-tab-1:checked ~ div .container-tab-controller-1 {
-  background: #72984e;
-}
-.state-container-tab-2:checked ~ div .container-tab-controller-2 {
-  background: #72984e;
-}
-.state-container-tab-3:checked ~ div .container-tab-controller-3 {
-  background: #72984e;
-}
-.state-container-tab-4:checked ~ div .container-tab-controller-4 {
-  background: #72984e;
-}
-.state-container-tab-1:checked ~ div .container-tab-controller-1:hover,
-.state-container-tab-1:focus ~ div .container-tab-controller-1 {
-  background: whitesmoke;
-  color: #72984e;
-}
-.state-container-tab-2:checked ~ div .container-tab-controller-2:hover,
-.state-container-tab-2:focus ~ div .container-tab-controller-2 {
-  background: whitesmoke;
-  color: #72984e;
-}
-.state-container-tab-3:checked ~ div .container-tab-controller-3:hover,
-.state-container-tab-3:focus ~ div .container-tab-controller-3 {
-  background: whitesmoke;
-  color: #72984e;
-}
-.state-container-tab-4:checked ~ div .container-tab-controller-4:hover,
-.state-container-tab-4:focus ~ div .container-tab-controller-4 {
-  background: whitesmoke;
-  color: #72984e;
-}
-.state-container-tab-1:checked ~ .container-tab-content-1 {
-  display: block;
-}
-.state-container-tab-2:checked ~ .container-tab-content-2 {
-  display: block;
-}
-.state-container-tab-3:checked ~ .container-tab-content-3 {
-  display: block;
-}
-.state-container-tab-4:checked ~ .container-tab-content-4 {
-  display: block;
 }
 
 /*Other*/
@@ -1086,7 +1123,7 @@ summary {
   padding: 18px 24px;
   min-width: 128px;
   text-align: center;
-  transition: color 0.2s, background 0.2s;
+  transition: color .2s, background .2s;
 }
 .button-download:is(:hover, :focus) {
   background: whitesmoke;
@@ -1250,14 +1287,14 @@ summary {
   padding-left: 2px;
   padding-top: 8px;
   line-height: 32px;
-  transition: color 0.1s;
+  transition: color .1s;
 }
 .jump-to-top a::after {
   content: "^";
 }
 .jump-to-top:is(:hover, :focus) a {
   color: whitesmoke;
-  transition: color 0.1s;
+  transition: color .1s;
 }
 
 /* Shortcut Slider on bottom left */
@@ -1269,7 +1306,7 @@ summary {
   height: 48px;
   padding: 32px 32px;
   transform: translateX(-230px);
-  transition: transform 0.5s;
+  transition: transform .5s;
 }
 .nav-shortcut a {
   float: left;
@@ -1277,7 +1314,7 @@ summary {
   text-align: right;
   line-height: 48px;
   outline: 1px transparent;
-  transition: background 0.25s, color 0.25s, outline 0.5s;
+  transition: background .25s, color .25s, outline .5s;
 }
 .nav-shortcut a::after {
   content: "Return"

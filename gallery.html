@@ -135,14 +135,19 @@
     <input class="hidden-input state-container-tab-1" type="radio" id="state-container-animation-tab-1" name="tabbed-animation" checked>
     <input class="hidden-input state-container-tab-2" type="radio" id="state-container-animation-tab-2" name="tabbed-animation">
     
-    <h1 class="hidden">Gallery Animation</h1> <!--Hiding the header to remind me to make custom png here. Text header look too much of a potato relative to the content.-->
+    <h2 class="hidden">Gallery Animation</h2> <!--Hiding the header to remind me to make custom png here. Text header look too much of a potato relative to the content.-->
     
-    <div class="container container-tab-controller-container">
+    <div class="web-only gallery-anim-button container-tab-controller-container" style="flex-wrap: wrap;">
+      <label class="container-tab-controller container-tab-controller-1" for="state-container-animation-tab-1">1</label>
+      <label class="container-tab-controller container-tab-controller-2" for="state-container-animation-tab-2">2</label>
+    </div>
+    
+    <div class="mobile-only-force container container-tab-controller-container">
       <label class="container-tab-controller container-tab-controller-1" for="state-container-animation-tab-1">Page 1</label>
       <label class="container-tab-controller container-tab-controller-2" for="state-container-animation-tab-2">Page 2</label>
     </div>
     
-    <hr style="border-bottom: 1px solid gray;">
+    <hr class="mobile-only" style="border-bottom: 1px solid gray;">
     
     <!--PAGE 1-->
     <div class="container container-tab-content container-tab-content-1">
@@ -186,12 +191,13 @@
         <div class="image-container zoom-medium"> <img src="/img/gallery/touhou_cirno.gif" loading="lazy"> </div>
       </div>
     </div>
+    
   </div>
   
   <!-- Gallery: Pixel Art -->
   <div class="entry entry--accordion" id="accordion-entry-2" tabindex="0">
     <div class="container">
-      <h1 class="hidden">Gallery Pixel Art</h1>
+      <h2 class="hidden">Gallery Pixel Art</h2>
       <div class="container-gallery">
         <div class="image-container"> <img src="/img/gallery/oc_tw10k.png" loading="lazy"> <p class="img-caption">Thank you for 1000 followers!</p> </div>
         <div class="image-container gallery-styled-3"> <img src="/img/gallery/arknights_croque.png" loading="lazy"> </div>
@@ -257,7 +263,7 @@
   <!-- Gallery: Raster Art -->
   <div class="entry entry--accordion" id="accordion-entry-3" tabindex="0">
     <div class="container">
-      <h1 class="hidden">Gallery Raster Art</h1>
+      <h2 class="hidden">Gallery Raster Art</h2>
       <div class="container-gallery container-gallery--raster">
         <div class="image-container zoom-medium"> <img src="/img/gallery/oc_clover2.webp" loading="lazy"> </div>
         <div class="image-container zoom-medium"> <img src="/img/gallery/oc_stylla2.webp" loading="lazy"> </div>
