@@ -499,6 +499,7 @@ summary {
   color: lightgray;
   border: 1px solid gray;
   margin-top: 16px;
+  margin-left: 24px;
   padding: 12px;
   transform-origin: top;
   transform: scaleY(.00001);
