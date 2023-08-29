@@ -10,15 +10,21 @@ This is a website written exclusively using HTML and CSS language with a bit of 
 
 ## To-Do list
 - [x] ~~Revamp website.~~
-- [x] ~~Contact detail page.~~
-- [ ] Dedicated commission tab/page.
+
+### Implementation
 - [x] ~~Art gallery page.~~
-- [ ] Custom assets; i.e icon, border, background.
 - [x] ~~Blog/project history post section.~~
-- [x] ~~Improve Jekyll integration~~ Minimum interaction, no complex automation.
+- [x] ~~Contact detail page.~~
+- [ ] Dedicated page and/or embedded in the real home page of a game-esque "Main Menu" screen that contain home, art sample, commission(?), and contact page; with an animated background with shop menu environment.
+- [ ] Custom assets; i.e icon, border, background.
+- [ ] Dedicated commission tab/page.
 - [ ] Link or preview to GroundLeaf project (pending until ready.)
+
+### Improvement
+- [x] ~~Improve Jekyll integration~~ Minimum interaction, no complex automation.
 - [x] ~~Improve container image code.~~ Technicality is much better now, can be improved further I think.
+- [ ] Dedicated page to test cursor in various background.
+- [ ] Generalize color scheme.
 - [ ] Improve zooming visual.
-- [ ] Add a dedicated page to test cursor in various background.
-- [ ] Add a dedicated page and/or embedded in the real home page of a game-esque "Main Menu" screen that contain home, art sample, commission(?), and contact page; with an animated background with shop menu environment.
+- [ ] Improve Table of Contents visual/readability.
 - [ ] Rewrite .entry because that's jank.
