@@ -502,8 +502,14 @@ summary {
   margin-left: 24px;
   padding: 12px;
   transform-origin: top;
-  transform: scaleY(.00001);
-  transition: visibility .1s .1s, transform .1s .1s, opacity .1s .05s;
+  transform: scale(1, .5);
+  transition: z-index .1s step-start, visibility .1s .1s, transform .1s .1s, opacity .1s .05s;
+}
+.tooltip--left {
+  text-align: left;
+  transform-origin: left;
+  transform: scale(.25 ,1);
+  transition: none;
 }
 .tooltip--medium {
   position: absolute;
@@ -536,7 +542,7 @@ summary {
 }
 .container-tooltip:is(:focus-within, :hover) .tooltip{
   opacity: 1;
-  transform: scaleY(1);
+  transform: scale(1);
   visibility: visible;
   transition: transform .1s, opacity .2s;
 }
@@ -655,24 +661,19 @@ summary {
   gap: 8px;
 }
 .nav-float:is(:active,:hover) {
-  z-index: 1000;
+  z-index: 100;
 }
 .nav-float .tooltip {
-  z-index: 1000;
   line-height: 38px;
   margin-top: 0;
 }
+.nav-float .container-tooltip:first-child .tooltip {
+  margin-left: 26px;
+}
 @media (min-width: 811px) {
-  #state-sub-nav-1:checked ~ div .nav-float {
-    visibility: visible;
-    opacity: 1;
-    transform: translate(-92px, 48px);
-    transition: opacity .5s .25s, transform .5s .25s;
-  } /*Gallery styling*/
   .nav-float {
     width: 48px;
     height: 0;
-    transform: translate(-78px, 48px);
     transition: none;
   }
   .nav-float label {
@@ -680,6 +681,15 @@ summary {
     padding: 0;
     color: white;
   }
+  .nav-float--gal {
+    transform: translate(-78px, 48px);
+  }
+  #state-sub-nav-1:checked ~ div .nav-float {
+    visibility: visible;
+    opacity: 1;
+    transform: translate(-92px, 48px);
+    transition: opacity .5s .25s, transform .5s .25s;
+  } /*Gallery styling*/
 }
 @media (max-width: 810px) {
   .nav-float {display: none}
