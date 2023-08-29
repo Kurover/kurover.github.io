@@ -540,6 +540,24 @@ summary {
   visibility: visible;
   transition: transform .1s, opacity .2s;
 }
+
+/* Module: Hover image switch*/
+.container-image-hover {
+  position: relative;
+}
+.container-image-hover-target {
+  opacity: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+  transition: opacity .2s;
+}
+.container-image-hover:hover .container-image-hover-target {
+  opacity: 1;
+}
+
 /* Module: Generic Page Tab*/
 .container-tab-controller-container {
   display: flex;
@@ -623,6 +641,49 @@ summary {
 .switch-parent-4:checked ~ .switch-child-4 {display: block; visibility: visible;}
 .switch-parent-5:checked ~ .switch-child-5 {display: block; visibility: visible;}
 
+/*Module: Floating NAV Button*/
+  /*Currently dependent on .container-tab-controller for its child*/
+.nav-float {
+  z-index: -1; /*MUST BE SET with lower or more value than <img> z-index. Whatever the reason is, if it's not, the zoom quality suffer on that container AND it only happen if it's sticky*/
+  position: sticky;
+  display: flex;
+  flex-wrap: wrap;
+  visibility: hidden;
+  top: 0;
+  opacity: 0;
+  margin: 0;
+  gap: 8px;
+}
+.nav-float:is(:active,:hover) {
+  z-index: 1000;
+}
+.nav-float .tooltip {
+  z-index: 1000;
+  line-height: 38px;
+  margin-top: 0;
+}
+@media (min-width: 811px) {
+  #state-sub-nav-1:checked ~ div .nav-float {
+    visibility: visible;
+    opacity: 1;
+    transform: translate(-92px, 48px);
+    transition: opacity .5s .25s, transform .5s .25s;
+  } /*Gallery styling*/
+  .nav-float {
+    width: 48px;
+    height: 0;
+    transform: translate(-78px, 48px);
+    transition: none;
+  }
+  .nav-float label {
+    line-height: 64px;
+    padding: 0;
+    color: white;
+  }
+}
+@media (max-width: 810px) {
+  .nav-float {display: none}
+}
 
 /*Profile Picture*/
 .container-profile-img {
@@ -835,39 +896,6 @@ summary {
   }
 }
 
-/*Gallery Extras*/
-.gallery-anim-button {
-  visibility: hidden;
-  position: sticky;
-  top: 0;
-  opacity: 0;
-  margin: 0;
-}
-@media (min-width: 811px) {
-  #state-sub-nav-1:checked ~ div .gallery-anim-button {
-    visibility: visible;
-    opacity: 1;
-    transform: translate(-92px, 48px);
-    transition: opacity .5s .25s, transform .5s .25s;
-  }
-  .gallery-anim-button {
-    width: 48px;
-    height: 0;
-    transform: translate(-78px, 48px);
-    transition: none;
-  }
-  .gallery-anim-button label {
-    line-height: 48px;
-    color: white
-  }
-  .gallery-anim-button label:hover {
-    opacity: 1;
-  }
-}
-@media (max-width: 810px) {
-  .gallery-anim-button {display: none}
-}
-
 /*Image Container Utility*/
 .zoom-small:hover {
   transform: scale(121%);
@@ -1075,21 +1103,6 @@ summary {
   .container-code {
     width: 90%;
   }
-}
-.container-image-hover {
-  position: relative;
-}
-.container-image-hover-target {
-  opacity: 0;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  position: absolute;
-  transition: opacity .2s;
-}
-.container-image-hover:hover .container-image-hover-target {
-  opacity: 1;
 }
 
 /*Download CSS*/
