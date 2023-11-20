@@ -1,10 +1,11 @@
 ---
 layout: default
 title: Zan | Creating Live2D Model
-title-short: Creating Live2D Model
+title-short: Creating Live2D Model - Illith
 description: 7 days for a crude rig. A journey of creating my first VTuber model.
 og-title: Blog Post
 og-type: blog
+nav-more: applicable
 permalink: /blog/create-live2d
 ---
 <article class="entry blog-entry blog-font" id="top">
@@ -54,29 +55,29 @@ permalink: /blog/create-live2d
     <p>When it comes to character design, creating a concept art, at minimum, is a must. This is to liquify the later process into a much more constructed activity rather than fumbling around in a hedge maze. It doesn't have to be fancy. A simple sketch will help you along the way.</p>
     <p>I surfed the web for an hour and still wasn't really sure what to create. I'm looking for something that is friendly to make a layer part of, easily detachable, and preferably simple enough to "animate", which I assume what rigging is similar to.</p>
     <p>I ended up using my mascot, Illith, for the base design and attached a android body into her. Which was pretty easy to rig later on, I found out.</p>
-    <img src="/blog/1_create-live2d/concept-art.webp" loading="lazy" alt="Illith VTuber Concept Art">
+    <img src="/blog/create-live2d/concept-art.webp" loading="lazy" alt="Illith VTuber Concept Art">
     <p class="img-caption">When the accessory eat 50% of the canvas</p>
     <details>
       <summary>Design Concept Text</summary>
-      <embed class="blog-txt-embed" src="/blog/1_create-live2d/concept.txt">
+      <embed class="blog-txt-embed" src="/blog/create-live2d/concept.txt">
     </details>
     <p>In summary, the character is a humanoid android with an "AI" of Illith, a sassy anime archetype girl, lol. It's made by a "group" of individuals who were not very wealthy and used whatever they have to finish the project. How they make the AI or the mainframe is anybody guess. Maybe they 3D printed the body, maybe they actually have an AI somewhere that can speak and understand human, only your imagination know the answer.</p>
     <p>One thing to say about the concept is, wow, why did I decided on android character. I barely able to draw curvy chest and here I am having to finish a body made out of metallic frame.</p>
     <p>Discounting my inexperience of drawing shiny metals, there's no difficulty on the drawing process. I did double down with the metal and strip her naked (wow phrasing) and made an improv of the design here and there, mainly the "tail" but here it is!</p>
-    <img src="/blog/1_create-live2d/model4.webp" loading="lazy" alt="Final Illith Vtuber Model">
+    <img src="/blog/create-live2d/model4.webp" loading="lazy" alt="Final Illith Vtuber Model">
     <p class="img-caption">Final Version</p>
     <details>
       <summary>Sketch Version</summary>
       <div class="spoiler-container">
-        <img src="/blog/1_create-live2d/model1.webp" loading="lazy" alt="Sketch of Illith Vtuber Model">
+        <img src="/blog/create-live2d/model1.webp" loading="lazy" alt="Sketch of Illith Vtuber Model">
       </div>
     </details>
     <p>A bunch of ideas in the concept art were modified and didn't make it to the final product, mainly because I wasn't sure if I can even do it with our set of restriction in Live2D. Notably about whether I could layer cloth on top of something else easily or not; and toggling them on and off in the end result.</p>
     <p>Unique thing about the process over creating art sheet normally is that you must separate the parts into bazillion of layers. The free Live2D has a softcap of 100 layers so I was mindfull of that. At first, I was worried that I could hit the limit because the sample has ~90 layers but in reality it is overengineered and I ended up only with ~75 layers.</p>
-    <img src="/blog/1_create-live2d/samplelayer.webp" loading="lazy" alt="Live2D Sample - Art Layers">
+    <img src="/blog/create-live2d/samplelayer.webp" loading="lazy" alt="Live2D Sample - Art Layers">
     <p class="img-caption">Layers galore</p>
     <p>With strong foundation and standard I have, I at least try to keep up and put extra effort to label all my folder with icon emoji accordingly. Which ended up being useless later (the icon) because Live2D font family doesn't have the unicode for it. Haha..</p>
-    <img style="border:none" src="/blog/1_create-live2d/mylayer.webp" alt="My Art Layers">
+    <img style="border:none" src="/blog/create-live2d/mylayer.webp" alt="My Art Layers">
     <p class="img-caption">Pain.exe</p>
   </section>
   
@@ -84,22 +85,22 @@ permalink: /blog/create-live2d
     <h2>Playing Around With Live2D Cubism</h2>
     <p>I braced myself and start climbing up the stair toward the hall I intentionally, yet unknowingly signed up for. step after step, the soft collision of my shoes echoed through the narrow hall around the absence of my mind. Upon reaching the peak, I was presented, with splendor... a java-based rigging software. There's a lot to cover in this regard later in review section. But right now, We'll be covering my attempt at figuring out this bad boy on.</p>
     <p>I imported my model.psd file into a new project, while also having the sample file open. Just so I can play around with both raw and cooked cast simultaneously. Really good method to see the difference between the two. I will be focusing on the sample here.</p>
-    <img src="/blog/1_create-live2d/live2dwindow.webp" loading="lazy" alt="Live2D with Hiyori Sample File">
+    <img src="/blog/create-live2d/live2dwindow.webp" loading="lazy" alt="Live2D with Hiyori Sample File">
     <p class="img-caption">Live2D with Sample File</p>
     <p>Right off the bat, I see triangles when I hover on the parts. If you ever do 3D modelling, this is pretty much the "edge" on a texture. It's powerful, laggy if overdone, and it's what made 3D look possible. The auto mesh generator tool is actually pretty smart, this will definitely save huge chunk of time for me to set up the less important process, zoning the outer vertices for example.</p>
-    <img src="/blog/1_create-live2d/live2dmeshgen.webp" loading="lazy" alt="Live2D Automatic Mesh Generator">
+    <img src="/blog/create-live2d/live2dmeshgen.webp" loading="lazy" alt="Live2D Automatic Mesh Generator">
     <p class="img-caption">You shouldn't have this many vertices</p>
     <p>Next big thing that catches the eye is this square thingie outside the area of a part. Click and dragging it doesn't do anything which was unexpected. To invoke this magic square, what you have to do is to click the edge of the triangle once and then you can drag the dots that pop up. So.. it's THE perspective transform tool then? Messing around with it I noticed the selection on bottom left under "Deformer" tab changed each time I click on different part. Deformer tool it is, then. It has 50 slot limit and that sounds plenty alright.</p>
-    <img src="/blog/1_create-live2d/live2ddeformer.webp" loading="lazy" alt="Live2D Deformer">
+    <img src="/blog/create-live2d/live2ddeformer.webp" loading="lazy" alt="Live2D Deformer">
     <p class="img-caption">Behold, technology!</p>
     <p>Upon closer inspection while trying to solve a deja vu moment, apparently the deformer isn't limited to deformer group, but also the individual parts. It confuses me for a second but it kinda make sense. One is applicable to a group while the other one is specific to an individual. Think of it like final damage amplification versus attack modifier in a game, related and seemingly the same, but are completely different variable in the end.</p>
-    <img src="/blog/1_create-live2d/live2dtmpdeformer.webp" loading="lazy" alt="Live2D Temporary Deformer">
+    <img src="/blog/create-live2d/live2dtmpdeformer.webp" loading="lazy" alt="Live2D Temporary Deformer">
     <p class="img-caption">I heard you like deforming your deform</p>
     <p>With each complicated software, comes in a complex managing system. Let them introduce us to file name and IDs! There's also layer priority, layer masking (using ID), and other bunch of useful tool here that I won't be using.</p>
-    <img src="/blog/1_create-live2d/live2dinspector.webp" loading="lazy" alt="Live2D Inspector">
+    <img src="/blog/create-live2d/live2dinspector.webp" loading="lazy" alt="Live2D Inspector">
     <p class="img-caption">Great tool for team project</p>
     <p>Time to address another elephant in the room that I kinda ignored because it constantly bark its yellow into my face, the parameter tab. I clicked one of the folder before and decided to save it for last. Lo and behold, the KEYFRAME. Oh lawd we're gonna be busy with this tab ain't we? I dragged the parameter around and voila, something moved! Yep, we're gonna be busy here. Gotta emphasize that.</p>
-    <img src="/blog/1_create-live2d/live2dparameter.webp" loading="lazy" alt="Live2D Parameter">
+    <img src="/blog/create-live2d/live2dparameter.webp" loading="lazy" alt="Live2D Parameter">
     <p class="img-caption">"I see you are at your limit, heh."</p>
     <p>There were a couple of relevant findings which doesn't really need too much explaining, that being; Rotation Deformer (basically rotate only transform tool), Tool Details, Right Click Context Menu, etc.</p>
     <p>I guess that's it for this section. There's only so much you can do when starting from finish line. Here's a list of what I did not know its purpose (beside the obvious naming convention.) There might be more, but these are the noticeable one to me.</p>
@@ -127,37 +128,37 @@ permalink: /blog/create-live2d
       <p>Next up is setting the layer priority. I ordered it based on my original art layer for now, simple. While I'm at it, I assigned IDs to mainly the head layers. I think it'll be useful later. I did ignore the rest of the body part though, else I'm going to waste too much time.</p>
       <p>It's Deforming time! For now I treat it as a "folder for quick transform tool" since that's pretty much what it is anyway. I'll definitely stack this one up more later since that's how the sample do their job.</p>
       <p>I didn't bother with Parameter folder. Seems unnecessary since grouping 2-3 parameters is just adding clutter. And I ain't gonna add much more of those, the limit is 30 and it's already at 27 base.</p>
-      <img style="border:none;" src="/blog/1_create-live2d/live2dmysetup.webp" loading="lazy" alt="Summary of my Live2D Project Setup">
+      <img style="border:none;" src="/blog/create-live2d/live2dmysetup.webp" loading="lazy" alt="Summary of my Live2D Project Setup">
       <p class="img-caption">All in one summary</p>
     </section>
     <section id="the-work">
       <h3>The Work of Parameter</h3>
       <p>Now comes the part where I don't know how to structurize and write because I didn't really write anything about the process in the journal. You know, having a bit too much investment trying to rig the thing. Tangent aside, I'll recap what I did instead.</p>
       <p>Starting with the most important yet the cheapest way to bring your work to live, the eyes. I grouped (deform folder) the eye lash together with the eyeball, separating the iris. The iris is set to clip into the eyeball just so we don't have to worry clipping the iris out of bound.</p>
-      <img src="/blog/1_create-live2d/workeye.webp" loading="lazy" alt="Adjusting Eye Layer">
+      <img src="/blog/create-live2d/workeye.webp" loading="lazy" alt="Adjusting Eye Layer">
       <p class="img-caption">AeeUeghH</p>
       <p>Not sure how the parameter worked yet so I played around a bit. Quite simple if you have touched animation before, like bouncing ball in After Effect. I set up the Eyeball X and Y. After I'm done with it, I think I'm supposed to link the two together so we can animate the in-between of X and Y.</p>
       <p>I was wondering on how you animate the eye closing animation and I thought it's gonna be elaborate, which is kinda true if you think about it, but well you just squish the parts and overlap them on each other. So this is why you should over-extend your part with skin color since you can easily hide stuff with it. This method is especially true for the mouth I assume.</p>
-      <img src="/blog/1_create-live2d/workeye2.gif" loading="lazy" alt="Eye Look and Blink Animation Result">
+      <img src="/blog/create-live2d/workeye2.gif" loading="lazy" alt="Eye Look and Blink Animation Result">
       <p class="img-caption">It's okay</p>
       <p>With that done, guess what I did next? Hair animation. But wait, it's not just the hair, I also did the head deformation at the same time because I don't know what I'm doing. I couldn't really imagine how the hair move if the head is static. This ended up being... an all right move? Because this mean I can work with the mouth in all angles immediately. Not sure, feels backward honestly but here I am.</p>
       <p>I grouped the whole face layer then separate it into X+Y and Z deformer. I proceed to animate the X Y face. Just warping it until it look decent enough, nothing fancy. The Z rotation is pretty simple, just rotate 30 degree-ish.</p>
       <p>After that, I worked on the hair with gravity and perspective in mind. If she looks up, back hair went down. Look down, move it up. Tilting, rotate the side hair and deform the rest, etc.</p>
       <p>At this point I was wondering on how you make the hair bounces around when you move the head (in physic tab). Apparently there's a specific parameter for it. Set it up and you can let the program do the magic. Ahh, so it's simpler than I thought. I did that and now there's more deformer group than ever. Starting to worry about that deformer limit, not gonna lie.</p>
-      <img src="/blog/1_create-live2d/workhead.gif" loading="lazy" alt="Head Animation Result">
+      <img src="/blog/create-live2d/workhead.gif" loading="lazy" alt="Head Animation Result">
       <p class="img-caption">Twirlll</p>
       <p>Hey proofreader, I wonder why the neck is animated already, and the mouth is closed?? <span class="blog-editor">Whose the <i>potato</i> that didn't record the progress?</span> I, uh, let's not talk about it. What we can talk about, though, letting our character here able to speak!</p>
       <p>This one is similar to animating the eye lash. One mistake I had here is that I made the skin texture a little bit too less. This make it trickier to hide the oral texture effectively. I could have edited the texture but no, I was too stubborn and decided to deform the whole thing manually lol. I managed to create 2 keyframe, normal and slight smile.</p>
-      <img src="/blog/1_create-live2d/mouthanim.gif" loading="lazy" alt="Mouth animation Result">
-      <img style="border: none;" src="/blog/1_create-live2d/mouth.webp" alt="Rigging the Mouth">
+      <img src="/blog/create-live2d/mouthanim.gif" loading="lazy" alt="Mouth animation Result">
+      <img style="border: none;" src="/blog/create-live2d/mouth.webp" alt="Rigging the Mouth">
       <p class="img-caption">"Wait, it's all 2D?"</p>
       <p>With that, I'm pretty much finished with the head. Now then, for the rest of the activity, I noticed the process is more or less the same like what I did with the head. So we will not cover these as it get repetitive explaining the same stuff.</p>
       <p>Notable difference is that I set the "breath" (idle pose) parameter only to the tail, because well, computer doesn't breath like human do. Other physic parameter is merged together with the one for the hair due to the 30 limit. I accounted the modular body and animate it accordingly, see below.</p>
-      <img src="/blog/1_create-live2d/waist.gif" loading="lazy" alt="Waist Animation Result">
+      <img src="/blog/create-live2d/waist.gif" loading="lazy" alt="Waist Animation Result">
       <p class="img-caption">Hmm perspective</p>
-      <img src="/blog/1_create-live2d/leg.gif" loading="lazy" alt="Leg Animation Result">
+      <img src="/blog/create-live2d/leg.gif" loading="lazy" alt="Leg Animation Result">
       <p class="img-caption">Mechanical parts</p>
-      <img src="/blog/1_create-live2d/full.gif" loading="lazy" alt="Full Body Rig/Animation Preview">
+      <img src="/blog/create-live2d/full.gif" loading="lazy" alt="Full Body Rig/Animation Preview">
       <p class="img-caption">Full preview</p>
     </section>
   </section>
@@ -174,10 +175,10 @@ permalink: /blog/create-live2d
       <p>I honestly don't have good experience overall with heavy-duty java software and well, unfortunately, I didn't with Live2D too. 4 memory leak that ended up with crashes in the span of 13 hours and a bunch of features (read: lack of feature) that is mildly infuriating and generally feels like I'm using a software from 2010 era. Bla bla bla, open the rant/software cons spoiler below to find out, it's a tangent, opinionated, and most likely not constructive. Moving on.</p>
       <details>
         <summary>Live2D Rant From First Timer</summary>
-        <img src="/blog/1_create-live2d/rant_file-explorer.webp" loading="lazy" alt="Live2D Cubism File Manager Interface">
+        <img src="/blog/create-live2d/rant_file-explorer.webp" loading="lazy" alt="Live2D Cubism File Manager Interface">
         <p class="img-caption">"I heard you use good file explorer, try this."</p>
         <p>Where do I start. Oh yeah, file manager. Why, why is still a thing? this is straight up from Windows XP era. Aseprite did the same thing. Like yo, just use windows explorer shell? If your file explorer can't even let me modify address bar directly at minimum, it's in the bin, sorry. Thankfully you can just drag and drop files to import it.</p>
-        <img src="/blog/1_create-live2d/rant_manual.webp" loading="lazy" alt="Live2D Cubism Official User Manual Document">
+        <img src="/blog/create-live2d/rant_manual.webp" loading="lazy" alt="Live2D Cubism Official User Manual Document">
         <p class="img-caption">POV: You are mobile user</p>
         <p class="blog-editor">edit - 11 March 2023: They actually updated the site on 31st of January 2023. Took them long enough.</p>
         <p class="blog-editor">edit - Post: I was incorrect in one part regarding the paragraph below. There is a search feature, but they use the external Google search engine (filled with Google ads btw) to do it, which was blocked by my browser's uMatrix.</p>
@@ -217,7 +218,7 @@ permalink: /blog/create-live2d
     <h2>Extra</h2>
     <details>
       <summary>Journal Raw Text</summary>
-      <embed class="blog-txt-embed" src="/blog/1_create-live2d/journal.txt">
+      <embed class="blog-txt-embed" src="/blog/create-live2d/journal.txt">
     </details>
   </section> 
 </article>

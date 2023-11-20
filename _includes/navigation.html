@@ -2,13 +2,13 @@
   <div class="nav-entry nav-entry--title"> Zan.site </div>
   <a class="nav-entry{% if page.url == "/" %} nav-entry--active{% endif %}" href="/">Home</a>
   <a class="nav-entry{% if page.url == "/gallery.html" %} nav-entry--active{% endif %}" href="/gallery">Gallery</a>
-  <a class="nav-entry{% if page.url == "/blog.html" %} nav-entry--active{% endif %} web-only" href="/blog">Blog</a>
+  <a class="nav-entry{% if page.og-type == "blog" %} nav-entry--active{% endif %} web-only" href="/blog">Blog</a>
   <a class="nav-entry{% if page.url == "/download.html" %} nav-entry--active{% endif %} web-only" href="/download">Files</a>
-  <div class="nav-entry nav-dropdown-button mobile-only{% if page.nav-dropdown == true %} nav-entry--active{% endif %}" tabindex="0">
+  <div class="nav-entry nav-dropdown-button{% if page.nav-more == "applicable" %} nav-entry--active{% endif %} mobile-only" tabindex="0">
     More
     <div class="nav-dropdown-container">
-      <a class="nav-dropdown-entry" href="/blog">Blog</a>
-      <a class="nav-dropdown-entry" href="/download">Files</a>
+      <a class="nav-dropdown-entry{% if page.og-type == "blog" %} nav-dropdown-entry--active{% endif %}" href="/blog">Blog</a>
+      <a class="nav-dropdown-entry{% if page.og-type == "download" %} nav-dropdown-entry--active{% endif %}" href="/download">Files</a>
     </div>
   </div>
   <div class="nav-entry nav-entry--right entry-linkthree-parent" tabindex="0">
