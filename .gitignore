@@ -1,4 +1,5 @@
-_backup/
-_concept/
-_template.html
-index-dev.html
+_site
+Gemfile
+Gemfile.lock
+_serve.bat
+blog/0_draft/

@@ -1,0 +1,622 @@
+---
+layout: default
+title: Zan | Windows Navigation Enhancement
+title-short: Windows Navigation Enhancement
+description: Improving navigation with a bunch of programs
+og-title: Blog Post
+og-type: blog
+permalink: /blog/windows-navigation-enhancement
+---
+<article class="entry blog-entry blog-font" id="top">
+  <h1 class="no-margin">Windows Navigation Enhancement</h1>
+  <p class="caption">10th April 2023</p>
+  <p class="quote">Before we continue, I'm not responsible for any broken kerfuffle caused by this post. Backup your system first, double check the links I provide or search it on your own, and get second opinion on how to operate it. Oh, last but not least, this is written for Win10 and also tested in Win7 VM. Win11 will have issue on taskbar modification, there's guide out there to revert the taskbar.</p>
+  <p>Have you ever noticed the time you spent on navigating files? Took you 18 seconds looking for cute-and-funny.jpg you edited somewhere 20 seconds ago? Or wasted your 2 seconds just to open task manager for the 900th time? Look no further, king, I have the knowledge to ease such burden!</p>
+  <p>Before we get into that, a brief tangent. Windows was great up until the supposedly forever Windows 10. There are many kind rabbit holes involving on "improving" windows. Be it restoring privacy, removing junk they shove on ya, fixing stuff by unfixing Micros★ft's fixes, and many many more. In this post, we are covering the user interface and navigation improvement, at least in my opinion. Most if not all the method used here are hacky and require external modification in order to achieve it.</p>
+  <p>Each section is self-contained, unless stated otherwise. Pick and choose on whichever you're most interested at since each topic can take a moment to read and process.</p>
+  <p>Can't be bothered to read everything? Here's a simplified points on what each program does.</p>
+  <details>
+    <summary>Summary in Order</summary>
+    <embed class="blog-txt-embed" src="/blog/2_win-nav/Summary in Order.md">
+  </details>
+ 
+  <section class="table-of-contents blog-toc" id="toc">
+    <h2 class="toc-header" style="color: lightgray">Table of Contents</h2>
+    <ol>
+      <li><a href="#everything-is-all-you-need">Everything is All You Need</a></li>
+      <li><a href="#taskbar">Taskbar</a></li>
+      <ol type="I">
+        <li><a href="#7plus-taskbar">7+ Taskbar</a></li>
+        <li><a href="#tray-menu-and-toolbar">Tray Menu and Toolbar</a></li>
+        <ol type="a">
+          <li><a href="#process-hacker">Process Hacker / System Informer</a></li>
+          <li><a href="#temperature-sensor">Temperature Sensor</a></li>
+          <li><a href="#network-monitor">Network Monitor</a></li>
+          <ul>
+            <li><a href="#networx">NetWorx</a></li>
+            <li><a href="#traffic-monitor">Traffic Monitor</a></li>
+          </ul>
+          <li><a href="#foobar2000-taskbar-plugin">foobar2000 Taskbar Plugin</a></li>
+        </ol>
+      </ol>
+      <li><a href="#start-menu">Start Menu - Classic Shell</a></li>
+      <ul>
+        <li><a href="#help-me" style="color: #89f86f">Click Me!</a></li>
+      </ul>
+      <li><a href="#windows-explorer">Windows Explorer</a></li>
+      <ol type="I">
+        <li><a href="#qttabbar">QTTabbar</a></li>
+        <li><a href="#small-tweaks">Small Tweaks</a></li>
+        <ol type="a">
+          <li><a href="#ecmenu">EcMenu</a></li>
+          <li><a href="#classic-explorer">Classic Explorer - Open-Shell</a></li>
+          <li><a href="#old-new-explorer">Old New Explorer</a></li>
+        </ol>
+      </ol>
+      <li><a href="#recording-traces">Recording Traces</a></li>
+      <ol type="I">
+        <li><a href="#copyq">CopyQ</a></li>
+        <li><a href="#sharex">ShareX</a></li>
+      </ol>
+      <li><a href="#worth-mentioning">Worth Mentioning</a></li>
+      <ol type="I">
+        <li><a href="#autohotkey">AutoHotKey</a></li>
+        <li><a href="#onecommander">OneCommander</a></li>
+        <li><a href="#winaero-tweaker">WinAero Tweaker</a></li>
+        <li><a href="#powertoys">PowerToys</a></li>
+      </ol>
+      <li><a href="#closing">Closing</a></li>
+    </ol>
+  </section>
+ 
+  <section id="everything-is-all-you-need">
+    <h2 class="no-margin-bot" data-heading="Everything is All You Need">Everything is All You Need</h2>
+    <p class="caption">
+      <a aria-label-position="top" aria-label="https://www.voidtools.com" rel="noopener" class="external-link" href="https://www.voidtools.com" target="_blank">Homepage</a>
+    </p>
+    <p>All programs I listed are personal preference and it's understandable if you disagree with any of it, but please go install <a aria-label-position="top" aria-label="https://www.voidtools.com" rel="noopener" class="external-link" href="https://www.voidtools.com" target="_blank">Everything</a>!!! It's a superior windows search with no string attached. Make it run at startup in the option menu and assign a hotkey shortcut to open it. That's all for the setup. All you have to do next is to memorize 2 or 3 searching method and, congratulations, your storage drive is now a second brain of yours! </p>
+    <img src="/blog/2_win-nav/everything_1.webp" loading="lazy" alt="Everything main window">
+    <p class="img-caption">"We meet again~"</p>
+    <p>There are two version, default and lite. Lite version is all you need in general because it use less resource (~10% less RAM usage on idle) unless you want to have windows accessibility to work with it or you want to host a file HTTP server with Everything.</p>
+    <img src="/blog/2_win-nav/everything_why-version.webp" loading="lazy" alt="Everything http hosting">
+    <p class="img-caption">Only if you need it</p>
+    <p>First time you boot it up, it will take a moment to index your whole drive. But once it's done, file search is pretty much instantaneous, it's surreal. We're here to take advantage of that. First few searches will be slow, especially if you use sort filter. It'll be seamless after 5th or so tries.</p>
+    <p>Everything is much more powerful the more organized you are. Sure it's not that useful for searching file you hoarded that has automatic unreadable naming system on it, but you can find a very specific file like your own document quickly by typing its name.</p>
+    <p>The downside of this program is that it doesn't work together with explorer. Meaning if you are using other program and trying to open a file with their pop-up explorer (eg. open file on notepad), you need to "Copy Full Name to Clipboard" the file in Everything and paste it to navigation bar, provided its explorer is not simplified <code>*cough aseprite *cough</code>. </p>
+    <h3 class="no-color" data-heading="Searching a File">Searching a File</h3>
+    <p>Here's a few example on trying to search a file. Note: To enable file preview (for supported format), go to "View &gt; Preview" or hotkey Alt+P.</p>
+    <p>Search png files, period.
+      <code class="container-code">*.png</code>
+    </p>
+    <p>Filter it to picture folder, ANY folder with starting name "picture.." <br>
+      <code class="container-code">\picture *.png</code>
+    </p>
+    <p>If your folder have whitespace on it, encase it with quote. <br>
+      <code class="container-code">"\pixel art" *.aseprite</code>
+    </p>
+    <p>No, scratch that, now you remember the picture name has "2022-11" but you forgot everything else about it. <br>
+      <code class="container-code">2022-11 //with Picture filter</code>
+    </p>
+    <img src="/blog/2_win-nav/everything_2.webp" loading="lazy" alt="Everything search filter 1">
+    <p class="img-caption">"No emeralds?"</p>      
+    <p>Search for picture on July 2020. Alternatively via "Search &gt; Advanced Search" <br>
+      <code class="container-code">dm:=07/2020</code>
+    </p>
+    <img src="/blog/2_win-nav/everything_3.webp" loading="lazy" alt="Everything search filter 2">
+    <p class="img-caption">"Ara?"</p>   
+    <p>Latest picture that exist in your drive via sorting it by Date Modified. <br>
+      <code class="container-code">img</code>
+    </p>
+    <img src="/blog/2_win-nav/everything_4.webp" loading="lazy" alt="Everything search filter 3">
+    <p class="img-caption">["Ara?"]</p>   
+    <p>"Edit X file located in your workshop folder. The ID is 2870819859 -" "Say no more!", <br>
+      <code class="container-code">2870819859</code>
+    </p>
+    <img src="/blog/2_win-nav/everything_5.webp" style="max-width: 200px" loading="lazy" alt="Everything search filter 4">
+    <p class="img-caption">Boom, insta-found</p>   
+    <p>You are me, some years ago, trying to access Hosts file for the many times later. <br>
+      <code class="container-code">\etc hosts</code>
+    </p>
+    <p>Interested with more filters? You can use Regex filter. But if you can't be bothered to remember more formulas, you can bookmark it that suit your need. For example, you can have a bookmark where you sort the view on Downloads folder by recent creation date. You can set it on a hotkey and voila, quick search like you never before!</p>
+  </section>
+  
+  <section id="taskbar">
+    <h2 data-heading="Taskbar">Taskbar</h2>
+    <p>The heartbeat of the desktop, yet it's one of the most annoying part to modify, they even create a beautifully crippled version of it in Win11, a poop tasted curry if I say so myself. </p>
+    <p>There's a couple of modification you can do, most are involved with editing the registry. Here we are going to take the safer, external-ish, method. Refer to <a href="#winaero-tweaker">WinAero Tweaker</a> if you're feeling adventurous.</p>
+    <p>I haven't tested any of these in vertical taskbar, so don't expect much if you are vertical user.</p>
+    
+    <section id="7plus-taskbar">
+      <h3 class="no-margin-bot" data-heading="7+ Taskbar">7+ Taskbar</h3>
+      <p class="caption">
+        <a aria-label-position="top" aria-label="https://ramensoftware.com/7-taskbar-tweaker" rel="noopener" class="external-link" href="https://ramensoftware.com/7-taskbar-tweaker" target="_blank">Homepage</a>
+      </p>
+      <p>This is the bread and butter to control the taskbar even if it's just a little bit. It's straightforward to setup and doesn't require you to restart explorer every time it modifies the taskbar, thanks to its injection method.</p>
+      <p>Download and install, there's portable installation in the same package. If you're Win11 user, there's a popup in the website that shows you the alternative method(s). Follow them if you are them and need 'em.</p>
+      
+      <h4 class="no-color" data-heading="Notable Settings">Notable Settings</h4>
+      <div class="container-image-hover">
+        <img class="container-image-hover-origin" src="/blog/2_win-nav/7t_what-1.webp" loading="lazy" alt="7+Taskbar option interface">
+        <img class="container-image-hover-target" src="/blog/2_win-nav/7t_what-2.webp" loading="lazy" alt="7+Taskbar option interface suggestion">
+      </div>
+      <p class="img-caption">Hover me!</p>
+      <p>All the options does what it tell. It's mostly simple command but there's a few I use a lot.</p>
+      <ul>
+        <li>
+          <strong>Middle click to close program</strong> : Ever opened 4 explorer window, 2 notepad instances, and 3 different browser at once? Well if you're tired of it, you can bulk close it by mid-clicking
+        </li>
+        <li>
+          <strong>Control volume when mouse is over the taskbar</strong> : Feature you don't know you needed.
+        </li>
+        <li>
+          <strong>Double or Middle click on empty space to X</strong> : Basically turn your taskbar into a shortcut. I set it to open task manager and start menu respectively since I use them the most.
+        </li>
+        <li>
+          <strong>Display seconds on tray clock</strong> : Self explanatory, quick glance for the second can be useful.
+        </li>
+      </ul>
+      
+      <h4 class="no-color" data-heading="Taskbar Inspector">Taskbar Inspector</h4>
+      <p>Other nifty feature is that you can configure individual process's label display, useful if you have a process you don't want to take space on your taskbar, or vice versa. This feature is affected by your windows taskbar setting. The example I use here is using the "Never" combine taskbar buttons option.</p>
+      <img src="/blog/2_win-nav/7t_how-require.webp" loading="lazy" alt="7+Taskbar label setting before">
+      <p>To set the label, go to "Taskbar Inspector" menu. You can access it via the main menu or tray icon context menu. Once you access it, right click the process group and assign their display settings.</p>
+      <img src="/blog/2_win-nav/7t_how-label-1.webp" style="max-width: 100%" loading="lazy" alt="7+Taskbar label setting before">
+      <p class="img-caption">Before</p>   
+      <img src="/blog/2_win-nav/7t_how-label-2.webp" loading="lazy" alt="7+Taskbar setting up label on process">
+      <p class="img-caption">Config here</p>   
+      <img src="/blog/2_win-nav/7t_how-label-3.webp" style="max-width: 100%" loading="lazy" alt="7+Taskbar label setting after">
+      <p class="img-caption">After</p>   
+    </section>
+    
+    <section id="tray-menu-and-toolbar">
+      <h3 data-heading="Tray Menu and Toolbar">Tray Menu and Toolbar</h3>
+      <p>Clean and empty taskbar is a sad bar to have. They're always there, even if you auto-hide them, might as well turn it into a bar worthy of many tasks.</p>
+      
+      <img src="/blog/2_win-nav/monitor_view.webp" style="width: 300px; border: none" loading="lazy" alt="7+Taskbar label setting after">
+      
+      <section id="process-hacker">
+        <h4 class="no-margin-bot" data-heading="Process Hacker / System Informer">Process Hacker / System Informer</h4>
+        <p class="caption">
+          <a aria-label-position="top" aria-label="https://systeminformer.sourceforge.io" rel="noopener" class="external-link" href="https://systeminformer.sourceforge.io" target="_blank">Homepage</a> |
+          <a aria-label-position="top" aria-label="https://github.com/winsiderss/systeminformer/releases/tag/v2.39" rel="noopener" class="external-link" href="https://github.com/winsiderss/systeminformer/releases/tag/v2.39" target="_blank">Github - Download (old version)</a>
+        </p>
+        <p class="quote">Disclaimer, this program will be classified as a hack tool (and virus in some AVs) due to its ability to inject .dll. If you are playing online game with strict anti-cheat, you should skip this one than sorry. Again, double check and get second opinion.</p>
+        <p>This is a Task Manager replacement and has the ability to quickly overview your processes via its tray icon shortcut. Fun fact, it was once called Process Hacker.</p>
+        <img src="/blog/2_win-nav/monitor_si-view.webp" style="border: none" loading="lazy" alt="7+Taskbar label setting after">
+        <p>Similar alternative is <a aria-label-position="top" aria-label="https://learn.microsoft.com/en-us/sysinternals/downloads/process-explorer" rel="noopener" class="external-link" href="https://learn.microsoft.com/en-us/sysinternals/downloads/process-explorer" target="_blank">ProcExp</a> but it doesn't have the fancy tray icon feature. Careful with this kind of program, it's powerful enough to mess your processes if you don't know what you're doing. We are here for the tray icon, the rest is a bonus trinket you can learn and use. </p>
+        <p>To start, download the old version of it, Process Hacker, yes you aren't misreading this. We actually don't need the latest nightly version since it's unnecessary, except if you need more detailed task manager alternative.</p>
+        <img src="/blog/2_win-nav/monitor_si-inst.webp" style="max-width: 400px" loading="lazy" alt="Process Hacker install option">
+        <p>During install process, strip all features and go with the bare minimum. Once finished, run it, you should see the main interface and a square tray icon, try hovering it. If you want to add more tray monitor, enable it via "View &gt; Tray Icons &gt; ..." in the menu bar.</p>
+        <img src="/blog/2_win-nav/monitor_si-set-1.webp" loading="lazy" alt="Process Hacker setting tray menu">
+        <p class="img-caption">System Informer has more, btw.</p> 
+        <img src="/blog/2_win-nav/monitor_si-set-3.webp" style="max-width: 200px" loading="lazy" alt="Process Hacker in taskbar">
+        <p>You're all set! To make it run at startup, tick "Hacker &gt; Options &gt; Start when I log on". Also it's a good idea to enable "Hide when minimized" for less clog in the taskbar.</p>
+        <img src="/blog/2_win-nav/monitor_si-set-2.webp" style="max-width: 400px" loading="lazy" alt="Process Hacker setting autorun">
+        <p>If you'd rather have a simpler overview for your system, refer to <a href="#open-hardware-monitor">Open Hardware Monitor</a>.</p>
+      </section>
+      
+      <section id="temperature-sensor">
+        <h4 data-heading="Temperature Sensor">Temperature Sensor</h4>
+        <p>Leaving your component's hot meter unchecked can shorten their lifespan before you know it, especially if it reach 60C on idle for reason unknown. There's 2 option, <a aria-label-position="top" aria-label="https://openhardwaremonitor.org" rel="noopener" class="external-link" href="https://openhardwaremonitor.org" target="_blank">Open Hardware Monitor</a> and/or <a aria-label-position="top" aria-label="https://www.techpowerup.com/download/techpowerup-throttlestop/" rel="noopener" class="external-link" href="https://www.techpowerup.com/download/techpowerup-throttlestop/" target="_blank">ThrottleStop</a>, the latter is for intel CPU and usable as over/undervolting tools. There's also <a aria-label-position="top" aria-label="https://github.com/zhongyang219/TrafficMonitor" rel="noopener" class="external-link" href="https://github.com/zhongyang219/TrafficMonitor" target="_blank">Traffic Monitor</a> but you need to hover its widget to check for temperature, so it's kinda inferior, more about it in <a href="#network-monitor">Traffic Monitor section</a>. </p>
+        <img src="/blog/2_win-nav/monitor_view.webp" style="max-width: 400px" loading="lazy" alt="ALT_TEXT">
+        <p class="img-caption">ProcHack | OpenHardwareMon | ThrottleStop</p>
+        
+        <section id="open-hardware-monitor">
+          <h5 class="no-margin-bot" data-heading="Open Hardware Monitor">Open Hardware Monitor</h5>
+          <p class="caption">
+            <a aria-label-position="top" aria-label="https://openhardwaremonitor.org" rel="noopener" class="external-link" href="https://openhardwaremonitor.org" target="_blank">Homepage</a>
+          </p>
+          <p>Generally it's better to use OHM. Download and extract it anywhere, then run it. In the menu, find your CPU or GPU temperature (or any other devices you want to monitor), right click, select "Show in Tray". If you can't see it, the number might have the same color with your taskbar, change it via right click. You can make it run on startup in the "Options" menu.</p>
+          <img src="/blog/2_win-nav/monitor_ohw.webp" style="max-width: 400px" loading="lazy" alt="ALT_TEXT">
+        </section>
+        
+        <section id="throttlestop">
+          <h5 class="no-margin-bot" data-heading="ThrottleStop">ThrottleStop</h5>
+          <p class="caption">
+            <a aria-label-position="top" aria-label="https://www.techpowerup.com/download/techpowerup-throttlestop/" rel="noopener" class="external-link" href="https://www.techpowerup.com/download/techpowerup-throttlestop/" target="_blank">Homepage</a>
+          </p>
+          <p>A bit iffy on putting it here but I wanted to spread awareness on a program that can do CPU voltage adjustment. But we're here for the temperature monitor, so don't click anything foreign unless you read the how-to's on undervolting.</p>
+          <p>Download latest build and unzip it to a safe folder of its own, then run the .exe. Go to Options and tick the "CPU/GPU Temp"</p>
+          <img src="/blog/2_win-nav/monitor_ts.webp" loading="lazy" alt="ALT_TEXT">
+        </section>
+      </section>
+      
+      <section id="network-monitor">
+        <h4 data-heading="Network Monitor">Network Monitor</h4>
+        <p>Monitoring or knowing if your internet is being used is useful if you are in a limited bandwidth. The program in this list can be displayed in your taskbar. Oh, if you're using Win11, hack your way and restore it to Win10 taskbar. External toolbars rarely work on Win11.</p>          
+        <p>There's 2 recommendation, <a href="#networx">NetWorx</a> and <a href="#traffic-monitor">Traffic Monitor</a>. NetWorx require old version, though I personally like its display more than TrafMon. Unfortunately, it's pain to get if you don't have a backup of the installer so I'm leaning more toward TrafMon. Not to mention it's lighter than NetWorx and it has CPU/RAM monitor built-in, handy! </p>
+        <h5 id="networx" class="no-margin-bot" data-heading="NetWorx">NetWorx</h5>
+        <p class="caption">
+          <a aria-label-position="top" aria-label="https://www.softperfect.com/products/networx/" rel="noopener" class="external-link" href="https://www.softperfect.com/products/networx/" target="_blank">Homepage</a>
+          |
+          <a aria-label-position="top" aria-label="https://www.dropbox.com/s/qsmkqvkclckqwqv/networx%205-5-5.zip?dl=0" rel="noopener" class="external-link" href="https://www.dropbox.com/s/qsmkqvkclckqwqv/networx%205-5-5.zip?dl=0" target="_blank">Archive (v. 5-5-5)</a>
+        </p>
+        <p>Download via the archive I provide. Alternatively, look it up on your own. During install, make sure taskbar feature is turned on and disable check for update. The program will run at start by default upon installing.</p>
+        <p>To activate the widget, right click taskbar, select "Toolbars &gt; NetWorx Desk Band". You can expand the widget width, make sure to unlock your taskbar first! To customize the graph type and colors, right click on its tray menu and go to "Settings &gt; Graph/Graph Colours".</p>
+        <img src="/blog/2_win-nav/netmon_nwx-2.webp" loading="lazy" alt="ALT_TEXT">
+        <p>If you want bigger window, you can choose "Show Graph" in the context menu. Quite useful to monitor prolonged network usage since it can be expanded as wide as your monitor can handle.</p>
+        <img src="/blog/2_win-nav/netmon_nwx-3.webp" style="max-width: 300px" loading="lazy" alt="ALT_TEXT">
+        
+        <h5 id="traffic-monitor" class="no-margin-bot" data-heading="Traffic Monitor">Traffic Monitor</h5>
+        <p class="caption">
+          <a aria-label-position="top" aria-label="https://github.com/zhongyang219/TrafficMonitor" rel="noopener" class="external-link" href="https://github.com/zhongyang219/TrafficMonitor" target="_blank">Github</a>
+        </p>
+        <p>Download latest build and unzip it to a nice place. On first run, you'll see a monitor window with cute anime picture, this is normal. This window and tray icon have the same context menu. Anyway, if you like it as is, it's perfectly fine. Though if you want it on the taskbar, right click and choose "Show Taskbar Window".</p>
+        <img src="/blog/2_win-nav/netmon_tm-1.webp" loading="lazy" alt="ALT_TEXT">
+        <p class="img-caption">"Uguu~"</p>
+        <p>As always, you can make it run on startup in the settings.</p>
+        <img src="/blog/2_win-nav/netmon_tm-2.webp" style="max-width: 400px" loading="lazy" alt="ALT_TEXT">
+        <p>To add/remove what's shown in the taskbar, right click on the taskbar widget and choose "Display Settings..." You can modify each component via "Options". If you want it to display CPU/GPU temperature on hover, enable it via the option in "General Settings". It will display a disclaimer and you'd better read it. Once read, it's your decision king.</p>
+        <img src="/blog/2_win-nav/netmon_tm-3.webp" loading="lazy" alt="ALT_TEXT">
+        <p class="img-caption">Last one, I swear!</p>
+      </section>
+      
+      <section id="foobar2000-taskbar-plugin">
+        <h4 class="no-margin-bot" data-heading="foobar2000 Taskbar Plugin">foobar2000 Taskbar Plugin</h4>
+        <p class="caption">
+          <a aria-label-position="top" aria-label="https://hydrogenaud.io/index.php/topic,78234.0.html" rel="noopener" class="external-link" href="https://hydrogenaud.io/index.php/topic,78234.0.html" target="_blank">Forum</a>
+          |
+          <a aria-label-position="top" aria-label="https://www.foobar2000.org/components/view/foo_deskband_controls" rel="noopener" class="external-link" href="https://www.foobar2000.org/components/view/foo_deskband_controls" target="_blank">Download</a>
+        </p>
+        <p>This is an extra section if you use foobar2k and isn't aware with a taskbar player plugin. Also while we are here, I want to declare that offline media is vastly superior to online streaming, thank you very much and please download foobar2000 (not sponsored).</p>
+        <p>Install the plugin via "File &gt; Preferences &gt; Component". Upon restarting, there will be an installer console pop-up, you can close it once it's finished. FYI the installed files are located in "%ProgramFiles%/DeskbandControls" and the config file is in "%AppData%/DeskbandControls"</p>
+        <img src="/blog/2_win-nav/foobar_inst.webp" loading="lazy" alt="ALT_TEXT">
+        <p>To enable it on the taskbar, right click on "Taskbar &gt; Toolbars &gt; Deskband Controls". If the option isn't there, try refreshing your desktop first. There will be a brief flash on your taskbar and unless a music is playing, it won't be displayed, so play some tunes if you want to modify it!</p>
+        <img src="/blog/2_win-nav/foobar_view-1.webp" style="border: none" loading="lazy" alt="ALT_TEXT">
+        <p class="img-caption">Bang bang banki banki</p>
+        <p>You'll notice that it eat a lot of space on first install, let's set it up to our liking. Right click the toolbar to access the settings menu to get started. Here you can adjust each object size to your liking.</p>
+        <h5 class="no-color" data-heading="Notable Setting in foobar2000 plugin">Notable Setting in foobar2000 plugin</h5>
+        <img src="/blog/2_win-nav/foobar_view-2.webp" loading="lazy" alt="ALT_TEXT">
+        <ul>
+          <li>
+            <strong>General - Path to..</strong> : Set this up if you want it to open f2k when you double click the album, even if it's not running.
+          </li>
+          <li>
+            <strong>Misc - Hide if..</strong> : If you want it to be permanently on your taskbar.
+          </li>
+          <li>
+            <strong>Size - Width</strong> : Change to 255 to fit the default component, adjust this later if you want increase playback or volume bar width.
+          </li>
+          <li>
+            <strong>Texts - Default Text</strong>
+            <ul>
+              <li>
+                <strong>Scroll - Enable Scroll</strong> : Set to "no" if you want to minimize CPU usage.
+              </li>
+            </ul>
+          </li>
+          <li>Tooltip<ul>
+              <li>
+                <strong>Visiblity - Enabled</strong> : Set to "no", save resource when hovering, not as impactful as scrolling text.
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+    </section>
+  </section>    
+  
+  <section id="start-menu">
+    <h2 class="no-margin-bot" data-heading="Start Menu - Clasic Shell">Start Menu - Clasic Shell</h2>
+    <p class="caption">
+      <a aria-label-position="top" aria-label="https://open-shell.github.io/Open-Shell-Menu/" rel="noopener" class="external-link" href="https://open-shell.github.io/Open-Shell-Menu/" target="_blank">Homepage</a>
+      |
+      <a aria-label-position="top" aria-label="https://github.com/Open-Shell/Open-Shell-Menu" rel="noopener" class="external-link" href="https://github.com/Open-Shell/Open-Shell-Menu" target="_blank">Github</a>
+    </p>
+    <p>You learn to love modern start menu, but sometimes you want to go back to the ole classic, or you are weird like me who uses both. This section is dedicated to <a aria-label-position="top" aria-label="https://open-shell.github.io/Open-Shell-Menu/" rel="noopener" class="external-link" href="https://open-shell.github.io/Open-Shell-Menu/" target="_blank">Open-Shell</a>, a continuation of <a aria-label-position="top" aria-label="http://www.classicshell.net" rel="noopener" class="external-link" href="http://www.classicshell.net" target="_blank">Classic Shell</a>.</p>
+    <p>Download latest stable and run installer. There's a couple of options during installation, notably Classic Explorer, this will be covered in the Windows Explorer section. Anyway, at least pick Open-Shell. You can add/remove feature via installer later, so pick whichever you like.</p>
+    <img src="/blog/2_win-nav/openshell_inst.webp" style="max-width: 400px" loading="lazy" alt="ALT_TEXT">
+    <p>After installing, click your start menu to continue the setup. Here you will be able to customize your start menu display. Most of the options are up to personal preference, so go ham, king.</p>
+    <img src="/blog/2_win-nav/openshell_view-1.webp" loading="lazy" alt="ALT_TEXT">
+    
+    <h3 id="help-me" data-heading="Extras - Illith Orb">Extras - Illith Orb</h3>
+    <img src="/blog/2_win-nav/openshell_extra-2.gif" style="max-width: 300px;image-rendering: pixelated" loading="lazy" alt="ALT_TEXT">
+    <p>Here's a simple Illith start menu icon replacement, she will sleep on your taskbar. To do so, save the image below somewhere safe, then set it up in "Settings &gt; Start Menu Style &gt; Replace Start Button &gt; Custom". To make her fit, click the advanced setting and tick align corner. Adjust the button size to your liking, the default image is 64, setting more than that will be blurry.</p>
+    <div>
+      <img src="/img/download/Start-Menu-Illith-64x.png" style="display:inline-block;max-width:100px;image-rendering:pixelated" loading="lazy" alt="ALT_TEXT">
+      <img src="/img/download/Start-Menu-Illith-Generic-64x.png" style="display:inline-block;max-width:100px;image-rendering:pixelated" loading="lazy" alt="ALT_TEXT">
+    </div>
+    <p>First one is for Open-Shell while the second one is for generic start orb replacement.</p>
+    <p class="quote">If you can code/fork Open-Shell to enable animation other than Normal to Hot to pretty much all other combination (Normal to Pressed, vice versa &amp; Hot to Pressed, vice versa. Refer to <a href="https://coddec.github.io/Classic-Shell/www.classicshell.net/tutorials/buttontutorial.html">this document</a> in the last section). If you like to, I can trade you a start menu animation with a character of your choice for it. I tried to do it myself but Visual Studio refuses to install properly in my machine, unless I reinstall windows or something. Contact me if you're interested.</p>
+  </section>
+  
+  <section id="windows-explorer">
+    <h2 data-heading="Windows Explorer">Windows Explorer</h2>
+    <p>Default explorer is good enough to move and access files, well, at least until you try to manage multiple directory at once. This section will show you how to make your explorer have tabs while also reducing tedium on checking files, empower your right click context menu, and maybe look for explorer alternative.</p>
+    
+    <section id="qttabbar">
+      <h3 class="no-margin-bot" data-heading="QTTabbar">QTTabbar</h3>
+      <p class="caption">
+        <a aria-label-position="top" aria-label="http://qttabbar.wikidot.com" rel="noopener" class="external-link" href="http://qttabbar.wikidot.com" target="_blank">Homepage</a> - QTTabBar ver 1043
+      </p>
+      <p>The classic windows explorer experience is to have 7 windows at the same time while praying to the god of computer bits so it stay put in place. If you think it's time to graduate from that, QTTabbar is here to let you graduate. It's an enhancement to vanilla explorer functionality.</p>
+      <p>But first, if you classify yourself as Windows 10 AND keyboard shortcut junky, you might want to reconsider using this if you use Win+E a lot since it doesn't support opening new tab in active window, but it open new window instead.</p>
+      <h4 class="no-color" data-heading="Installation &amp; Tab Bar">Installation &amp; Tab Bar</h4>
+      <p>Grab the latest copy and install, your explorer will be restarted during it. Once finished, open the explorer, you'll see absolutely nothing new, this is normal. To activate it, go to "View &gt; Options (arrow) &gt; QTTabbar".</p>
+      <img src="/blog/2_win-nav/qtt_set-1.webp" loading="lazy" alt="ALT_TEXT">
+      <p class="img-caption">Activate!</p>
+      <img src="/blog/2_win-nav/qtt_set-1-result.webp" loading="lazy" alt="ALT_TEXT">
+      <p class="img-caption">Explorer Firefox.</p>
+      <img src="/blog/2_win-nav/qtt_color-1.webp" loading="lazy" alt="ALT_TEXT">
+      <p class="img-caption">Well...</p>
+      <p>Dark user will have color issue. To fix this, right click on empty space in tab bar and go to QT Options in the bottom. Then, look for "Appearance &gt; Toolbar", change the toolbar color or disable it.</p>
+      <img src="/blog/2_win-nav/qtt_color-2.webp" loading="lazy" alt="ALT_TEXT">
+      <p>Now, at this point you can ignore all other major feature but there's 2 thing to cover first since they're enabled by default, some think it's a bother.</p>
+      <h4 class="no-color" data-heading="Sub-folder Quick Access &amp; File Preview">Sub-folder Quick Access &amp; File Preview</h4>
+      <p>You'll notice a box popping out when you hover over a folder or archive. It's a quick access/preview on what's inside the folder. You can configure/disable it in "Options &gt; Subfolder menu"</p>
+      <img src="/blog/2_win-nav/qtt_subfolder-1.webp" loading="lazy" alt="ALT_TEXT">
+      <p>Next one is file preview. This works on pretty much anything a file explorer preview tab can do. It also work on your desktop. Kinda limited in term of interface but it's quick and simple without additional input, just hover it. In order to control it, you have to assign hotkey on each command. Configure/disable it in "Options &gt; Preview".</p>
+      <img src="/blog/2_win-nav/qtt_preview-1.webp" loading="lazy" alt="ALT_TEXT">
+      <p class="img-caption">@slasco_art</p>
+      <p>Note, the preview can clog up RAM usage on the explorer process itself. Instead of using this, I personally recommend to use built-in explorer's sidebar preview or installing external one like <a aria-label-position="top" aria-label="https://github.com/QL-Win/QuickLook" rel="noopener" class="external-link" href="https://github.com/QL-Win/QuickLook" target="_blank">QuickLook</a> (it has <a aria-label-position="top" aria-label="https://github.com/QL-Win/QuickLook/wiki/Available-Plugins" rel="noopener" class="external-link" href="https://github.com/QL-Win/QuickLook/wiki/Available-Plugins" target="_blank">plugins</a> to preview more stuff). </p>
+      <h4 class="no-color" data-heading="More Bars">More Bars</h4>
+      <p>Want to make your explorer more... shortcut-y? Well then, you can add more bars in your explorer for folder shortcut and other commands. Previously when we activate the tab toolbar, you'd notice there's more than meet the eyes, a command bar. This will add a bar module to put shortcuts, you can even stack them beside the tab bar.</p>
+      <img src="/blog/2_win-nav/qtt_set-1b.webp" loading="lazy" alt="ALT_TEXT">
+      <p class="img-caption">This one, among other options.</p>
+      <img src="/blog/2_win-nav/qtt_set-2.webp" loading="lazy" alt="ALT_TEXT">
+      <p>If Icon is too big, make 'em smaller in the menu "Icon Size"</p>
+      <p>You can add a shortcut to a file, folder, or command (like the built-in cmd shortcut). Or remove them all to make it your own. This one can be overwhelming so play around with them and see if you like it.</p>
+      <p>I'll give an instruction on how to add custom folder group here in because it's confusing without knowing it first. Step one, right click on empty space, then "Add Items &gt; Add virtual folder".</p>
+      <img src="/blog/2_win-nav/qtt_set-4.webp" loading="lazy" alt="ALT_TEXT">
+      <p>Create a new object shortcut, either drag and drop it on empty space or via add items menu. After that, you can drag that object inside the folder. As of why you can't just drag, say, a folder there immediately from the explorer, don't ask me.</p>
+      <img src="/blog/2_win-nav/qtt_set-5.webp" loading="lazy" alt="ALT_TEXT">
+      <p class="img-caption">"Go back to rice field."</p>
+      <img src="/blog/2_win-nav/qtt_set-6.webp" style="max-width: 200px" loading="lazy" alt="ALT_TEXT">
+      <h4 class="no-color" data-heading="Split View">Split View</h4>
+      <p>Sometimes you wanted more. More you go with split view to evolve your file explorer into a commander. Boost your productivity having two windows at all time, without the need to reveal both one-by-one. To add this, you can add it from the previous folder view menu, command bar shortcut, or right click on a tab menu, then "Toolbars &gt; Extra View".</p>
+      <img src="/blog/2_win-nav/qtt_view-2.webp" style="max-width: 100%" loading="lazy" alt="ALT_TEXT">
+      <p>Customize it in "Options &gt; Extra View". I personally like it having navigation pane. Though I don't use this feature as I use external explorer for heavy duty file management.</p>
+      <h4 class="no-color" data-heading="More Tidbits">More Tidbits</h4>
+      <p>QT also has a feature you can add in taskbar. Try checking the toolbars option, a new entry called "QT Tab Desktop Tool" should appear. This is basically folder toolbar on crack but I don't use it to be able to write anything about it.</p>
+      <p>There is another fork of QTTabbar (<a rel="noopener" class="external-link" href="https://github.com/indiff/qttabbar" target="_blank">https://github.com/indiff/qttabbar</a>), but I haven't tested it fully. Also, you might heard of Clover before, and let me say that I'm personally against using it. It's a bit shady with how often it ping their server. Fat chance it probably just looking for an update but the slim chance of the unknown? We can't know for sure since it's a closed-source program. </p>
+    </section>
+    
+    <section id="small-tweaks">
+      <h3 data-heading="Small Tweaks">Small Tweaks</h3>
+      <p>A bunch of programs that can do small and useful things. Combined, they're a beast.</p>
+      
+      <section id="ecmenu">
+        <h4 class="no-margin-bot" data-heading="EcMenu">EcMenu</h4>
+        <p class="caption">
+          <a aria-label-position="top" aria-label="https://www.sordum.org/7615/easy-context-menu-v1-6/" rel="noopener" class="external-link" href="https://www.sordum.org/7615/easy-context-menu-v1-6/" target="_blank">Homepage</a>
+        </p>
+        <p>This program has a nice set of shortcut for file manipulation, like attribute, take ownership, and other convenience. Other feature is to... well look at the next picture.</p>
+        <img src="/blog/2_win-nav/ecmenu_why-menu.webp" style="border: none" loading="lazy" alt="ALT_TEXT">
+        <p>Yeah, if you ever right click literally anything and get bombarded with entries you no longer use, this program can clean it. Unfortunately it can't remove windows menu by itself though.</p>
+        <p>This is a portable software but it'll install itself in "%Program Files%/Easy Context Menu/" once you add/apply custom context menu. I personally recommend these options since they're hella useful.</p>
+        <ul>
+          <li>
+            <strong>Take Ownership</strong> : Has a simple text-progress bar while taking ownership. It's in Folder/File Context Menu.
+          </li>
+          <li>
+            <strong>Change Attributes</strong> : GUI based file attribute editor. It's in Folder/File Context Menu.
+          </li>
+          <li>
+            <strong>Add/Delete From Firewall</strong> : Useful for basic net blocking. It's in the bottom option.
+          </li>
+        </ul>
+        <img src="/blog/2_win-nav/ecmenu_view-attribs.webp" style="max-width: 300px" loading="lazy" alt="ALT_TEXT">
+        <p class="img-caption">Hiding things, has never been easier.</p>
+      </section>
+      
+      <section id="classic-explorer">
+        <h4 class="no-margin-bot" data-heading="Classic Explorer - Open-Shell">Classic Explorer - Open-Shell</h4>
+        <p class="caption">
+          <a aria-label-position="top" aria-label="https://open-shell.github.io/Open-Shell-Menu/" rel="noopener" class="external-link" href="https://open-shell.github.io/Open-Shell-Menu/" target="_blank">Homepage</a>
+          |
+          <a aria-label-position="top" aria-label="https://github.com/Open-Shell/Open-Shell-Menu" rel="noopener" class="external-link" href="https://github.com/Open-Shell/Open-Shell-Menu" target="_blank">Github</a>
+        </p>
+        <p>This is bundled with Open-Shell, you should read <a href="#start-menu">Start Menu section</a> first. Classic Explorer provide you a simple set of tweaks for explorer. It work in conjunction with <a href="#qttabbar">QTTabbar</a>. Upon installing, you'll see an extra icon on your explorer. You can disable it in "View &gt; Options (arrow) &gt; Classic Explorer Bar". Nifty features to my liking:</p>
+        <ul>
+          <li>Hide search box.</li>
+          <li>Classic status bar.</li>
+          <li>Navigation pane item spacing edit, compact!</li>
+        </ul>
+        <img src="/blog/2_win-nav/openshell_exp.webp" loading="lazy" alt="ALT_TEXT">
+      </section>
+      
+      <section id="old-new-explorer">
+        <h4 class="no-margin-bot" data-heading="Old New Explorer">Old New Explorer</h4>
+        <p class="caption">
+          <a aria-label-position="top" aria-label="https://msfn.org/board/topic/170375-oldnewexplorer-119/" rel="noopener" class="external-link" href="https://msfn.org/board/topic/170375-oldnewexplorer-119/" target="_blank">Forum | Download</a>
+        </p>
+        <p>This is mainly to make "This PC" like the good ole "Computer". Why clump library entry in this tab when you have.. libraries folder. The forum post explains the program well enough. It's a portable program, but put it somewhere safe since the .dll will always be used when installed, which mean you can't move it until uninstall.</p>
+        <img src="/blog/2_win-nav/oldnew_1.webp" style="max-width: 400px" loading="lazy" alt="ALT_TEXT">
+        <p class="img-caption">Simple!</p>
+        <img src="/blog/2_win-nav/oldnew_2s.webp" style="max-width: 400px" loading="lazy" alt="ALT_TEXT">
+        <p class="img-caption">Riboff</p>
+      </section>
+    </section>
+  </section>
+  
+  <section class="recording-traces" id="recording-traces">
+    <h2 class="no-margin-bot" data-heading="Recording Traces">Recording Traces</h2>
+    <p>When you look at the program list in this section, CopyQ and ShareX, you might be wondering, "What's this got to do with navigating?" Well you see, if you have a brush to paint, isn't it better to have the color palette in your hand all the time, yeah?</p>
+    <p>With both of these programs in your possession, you can access and see a temporary database of your own history with a tap of keyboard key(s). Meaning, less tracking back to things you've seen a minute ago, or years even. It essentially prevent you from unnecessarily navigating the same thing over and over again.</p>
+    
+    <section class="copyq">
+      <h3 class="no-margin-bot" data-heading="CopyQ">CopyQ</h3>
+      <p class="caption">
+        <a aria-label-position="top" aria-label="https://hluk.github.io/CopyQ/" rel="noopener" class="external-link" href="https://hluk.github.io/CopyQ/" target="_blank">Homepage</a>
+        |
+        <a aria-label-position="top" aria-label="https://github.com/hluk/CopyQ" rel="noopener" class="external-link" href="https://github.com/hluk/CopyQ" target="_blank">Github</a>
+      </p>
+      <p>I clicked Ctrl+C, you also clicked Ctrl+C. It's an activity we do a lot, and we can make use out of it more than a simple Ctrl+V. CopyQ will record all the thing you copied and has a feature to preview, store it in tab, and reuse it. It can be useful for drawing too, literally, since it can store copied layer.</p>
+      <img src="/blog/2_win-nav/copyq_view-1.webp" loading="lazy" alt="ALT_TEXT">
+      <p>Simpler alternative is <a aria-label-position="top" aria-label="https://ditto-cp.sourceforge.io" rel="noopener" class="external-link" href="https://ditto-cp.sourceforge.io" target="_blank">Ditto</a> but CopyQ offer a lot more and it's easier to use I feel like. I used it as a quick pocket for memes, minecraft coordinate list, and ridiculously long cmd command complete with description of what it does. </p>
+      <h4 class="no-color" data-heading="Operating CopyQ">Operating CopyQ</h4>
+      <p>Download latest build and install. During it, you can opt out translation to save a tiny bit of space. On first run, there won't be any window that pop out, instead there will be a tray icon running. Click on it to reveal the meat of the program.</p>
+      <img src="/blog/2_win-nav/copyq-view-2.webp" loading="lazy" alt="ALT_TEXT">
+      <p>Not a whole lot, but once you copy something, it'll show in there.</p>
+      <img src="/blog/2_win-nav/copyq_view-3.webp" loading="lazy" alt="ALT_TEXT">
+      <p>Double click on entry to activate/copy it to your clipboard, meaning your next Ctrl+V will become that entry.</p>
+      <p>Now we don't want to click on the tray icon to reveal the window, let's add keyboard shortcut for it. In menu bar, "File &gt; Menu &gt; Shortcuts", assign "Show/hide main window" with any key you like. There are more commands in there so take a look of yourself.</p>
+      <p>Up to this point, it's all gucchi and working, but we can do more to with the available functionality. We have tabs, editing an entry, and saving entry to a folder tab among other things.</p>
+      <h4 class="no-color" data-heading="Adding Tabs">Adding Tabs</h4>
+      <p>Until we create one, the tab bar won't show up. Add one in "Tabs &gt; New Tab", add a fancy name, and voila! Add forward slash to the name to make it a child of an existing tab (or drag and drop tab into other tab if you're in tree view already), though you need to change the layout to vertical tree in order to see it in effect. You can change the layout in "File &gt; Preferences &gt; Layout &gt; Tab Tree"</p>
+      <img src="/blog/2_win-nav/copyq_tab-1.webp" style="border: none" loading="lazy" alt="ALT_TEXT">
+      <h4 class="no-color" data-heading="Editing an Entry">Editing an Entry</h4>
+      <p>When you right click an entry, there will be 3 similar looking options:</p>
+      <img src="/blog/2_win-nav/copyq_edit-1.webp" style="max-width: 300px" loading="lazy" alt="ALT_TEXT">
+      <ul>
+        <li>
+          <strong>Edit</strong> : Use built-in CopyQ editor. This is mainly for text. If you use this on an image and save it, your image will be lost.
+        </li>
+        <li>
+          <strong>Edit Notes</strong> : A plugin note where you can attach a note to your text and image. This does not edit the content of your entry, so it won't overlap when pasting.
+        </li>
+        <li>
+          <strong>Edit with Editor</strong> : Use external program to edit entry. Editing an image will not replace the original one, at least not as easy. Need a config for images.
+        </li>
+      </ul>
+      <img src="/blog/2_win-nav/copyq_edit-2.webp" loading="lazy" alt="ALT_TEXT">
+      <p class="img-caption">Chaika? Chaika. Yes, Chaika.</p>
+      <p>When you want to use other text editor, you can configure it in "Preferences &gt; History &gt; External editor..". Use full path to your program with %1 in the end, eg. <code>"C:\Program Files (x86)\Notepad++\notepad++.exe" %1</code>
+      </p>
+      <p>Same deal with images, set it to your image editor in the "Preferences &gt; Items &gt; Images &gt; Image editor command.."</p>
+      <h4 class="no-color" data-heading="Storing Clipboard Indefinitely">Storing Clipboard Indefinitely</h4>
+      <p>Storing your clipboard is cool and all but it can get deleted if you clean your temporary files (for picture) or if it reach maximum history limit. You either pin the entry or let it save somewhere else. We'll have to set it up in "Preferences &gt; Items &gt; Synchronize".</p>
+      <img src="/blog/2_win-nav/copyq_sync-1.webp" loading="lazy" alt="ALT_TEXT">
+      <p>Here's how you save the default tab to a folder. In "Tab" row, name it "&amp;clipboard" with directory of your choice. Make sure the folder exist if you do this.</p>
+      <img src="/blog/2_win-nav/copyq_sync-2.webp" loading="lazy" alt="ALT_TEXT">
+      <p class="img-caption">1 entry jumpscare.</p>
+      <img src="/blog/2_win-nav/copyq_sync-3.webp" loading="lazy" alt="ALT_TEXT">
+      <p class="img-caption">Now it's there forever.</p>
+      <p>I normally don't save the default since they meant to be temporary for me.</p>
+    </section>
+    
+    <section class="sharex">
+      <h3 class="no-margin-bot" data-heading="ShareX">ShareX</h3>
+      <p class="caption">
+        <a aria-label-position="top" aria-label="https://getsharex.com" rel="noopener" class="external-link" href="https://getsharex.com" target="_blank">Homepage</a>
+        |
+        <a aria-label-position="top" aria-label="https://github.com/ShareX/ShareX" rel="noopener" class="external-link" href="https://github.com/ShareX/ShareX" target="_blank">Github</a>
+      </p>
+      <p>A screenshot utility with a lot of options on how it do the job. It can capture image in JPG, PNG, animated GIF, video capture, timed capture for timelapse, and many more.</p>
+      <img src="/blog/2_win-nav/sx_view-1.webp" loading="lazy" alt="ALT_TEXT">
+      <p>It pack a punch with other set of tools in the bag, like OCR, QR generator, image editor, and such. But let's not get ahead of ourself. Basic functionality, first and foremost.</p>
+      <h4 class="no-color" data-heading="Capturing with ShareX">Capturing with ShareX</h4>
+      <p>Download and install the latest build. If you're a loyal Windows 7 user, you might need older version. Once installed and run, there will be a tray you can left click to capture a select region, this can be changed. Try capturing something first.</p>
+      <img src="/blog/2_win-nav/sx_cap-1.webp" loading="lazy" alt="ALT_TEXT">
+      <p class="img-caption">Capturing a window that is capturing while being captured</p>
+      <img src="/blog/2_win-nav/sx_cap-2.webp" loading="lazy" alt="ALT_TEXT">
+      <p>You'll get this warning, select "No" for now and done! Your screenshot is saved. It's located in your "Document/ShareX/Screenshot" folder. </p>
+      <img src="/blog/2_win-nav/sx_cap-3.webp" loading="lazy" alt="ALT_TEXT">
+      <p>You can change the default saved path in "Application Settings &gt; Paths" then set the "custom screenshot" folder. If you don't like how it create a bunch of subfolder, delete the lines in "subfolder pattern".</p>
+      <img src="/blog/2_win-nav/sx_edit-path.webp" loading="lazy" alt="ALT_TEXT">
+      <h4 class="no-color" data-heading="Shortcut and Custom Command">Shortcut and Custom Command</h4>
+      <p>We're here not to waste time moving our mouse to click, so let's start editing/adding keyboard shortcut and create a custom command while we're at it.</p>
+      <img src="/blog/2_win-nav/sx_key-1.webp" loading="lazy" alt="ALT_TEXT">
+      <p>By default we have these option and it's sufficient, yes! You can click on the gear icon to configure what that key does, individually. We'll edit "Capture region" in this example.</p>
+      <p>Let's say we want it to save as .jpg for this command only. Go to "Image" tab and you can override the default setting. Set it to JPEG.</p>
+      <img src="/blog/2_win-nav/sx_key-2.webp" loading="lazy" alt="ALT_TEXT">
+      <p>Now that's cool and all but what if we don't want it to get saved, just store it in clipboard? We can definitely do that.</p>
+      <img src="/blog/2_win-nav/sx_key-3.webp" loading="lazy" alt="ALT_TEXT">
+      <p>You can have multiple command active. The active one has blue background in it.</p>
+      <p>There are an option to upload you files/capture automatically and a set of external tools they provide, but we won't be covering that here because I don't even know where to begin. Explore it yourself.</p>
+    </section>
+  </section>
+  
+  <section id="worth-mentioning">
+    <h2 data-heading="Worth Mentioning">Worth Mentioning</h2>
+    <p>Useful stuff that didn't make the cut because it kinda off-topic or I'm too lazy to describe it. ProcHack/SystemInform was supposed to be here too but its tray icon is too good and simple to skip.</p>
+    
+    <section id="autohotkey">
+      <h3 class="no-margin-bot" data-heading="AutoHotKey">AutoHotKey</h3>
+      <p class="caption">
+        <a aria-label-position="top" aria-label="https://www.autohotkey.com" rel="noopener" class="external-link" href="https://www.autohotkey.com" target="_blank">Homepage</a>
+      </p>
+      <p>I can't do the justice of making a good explanation / simple tutorial for it, but this program can transform your keyboard into a real machine. It's extremely recommended to learn, but it requiring you to know what YOU want is the thing that make it difficult to describe in general.</p>
+      <p>Here's a few idea on what to automate though:</p>
+      <ul>
+        <li>Type email.</li>
+        <li>Open audio mixer, enlarge its width, then center it on screen. Same deal to Calculator and any program really.</li>
+        <li>Restart audio service then play a ding sound.</li>
+        <li>Open a/multiple program at once (lol imagine buying streaming deck). Play a custom ding sound once its run.</li>
+        <li>Open image on the clipboard using external image viewer/editor, then maybe automatically save it in a specific folder.</li>
+        <li>On a browser, automatically copy media link from cursor position, then download it with Gallery-DL via CMD by pasting the clipboard content.</li>
+        <li>On a browser, automatically change the Twitter profile or Youtube link that is blocked on your country, into a proxy server link (Nitter, Invidious, etc.)</li>
+        <li>Many more, as you see fit.</li>
+      </ul>
+      <p>Don't store and automate password, ever. Doing it make your password useless since you are storing password in plain text. Most trojan keylogger, if you ever get one, will try to prioritize grabbing text from a macro program.</p>
+      <h4 class="no-margin-bot" data-heading="AHK Recommended Script Template">AHK Recommended Script Template</h4>
+      <p class="quote">
+        <a aria-label-position="top" aria-label="https://github.com/plul/Public-AutoHotKey-Scripts" rel="noopener" class="external-link" href="https://github.com/plul/Public-AutoHotKey-Scripts" target="_blank">Plul's GUI Shortcut Script</a>
+      </p>
+      <p>Use this if you run out of convenient key combination. It basically turn "thistext" in the GUI to any command you write.</p>
+      <img src="/blog/2_win-nav/ahk_plug.webp" style="max-width: 200px" loading="lazy" alt="ALT_TEXT">
+      <p>Some ideas on what you can code and do easily with this script:</p>
+      <ul>
+        <li>Search steam, myanimelist, vndb, etc. </li>
+        <li>Instantly go to a nuclear code or Pokédex entry online.</li>
+        <li>Multi-search a subject in relevant website instantly (wikipedia, google, reddit, etc.)</li>
+        <li>Run goofy-ah ShareX workspace via CLI that is not worth your keybind slot.</li>
+      </ul>
+      <p class="quote">
+        <a aria-label-position="top" aria-label="https://github.com/pukkandan/YDL" rel="noopener" class="external-link" href="https://github.com/pukkandan/YDL" target="_blank">Pukkandan's YT-DLP GUI</a>
+      </p>
+      <img src="/blog/2_win-nav/ahk_yt.webp" loading="lazy" alt="ALT_TEXT">
+      <p>An interface for YT-DL with template support.</p>
+    </section>
+    
+    <section id="onecommander">
+      <h3 class="no-margin-bot" data-heading="OneCommander">OneCommander</h3>
+      <p class="caption">
+        <a aria-label-position="top" aria-label="https://www.onecommander.com" rel="noopener" class="external-link" href="https://www.onecommander.com" target="_blank">Homepage</a>
+      </p>
+      <p>External explorer is a luxury. Some need it, some doesn't. Some can't even afford it in the first place, either their price and/or the time to learn it. Windows explorer, as bad as it is in term of feature, is a simple program that does the job (though Mac Finder is superior, imo). Modding it with <a href="#qttabbar">QTTabbar</a>, is already a lot to some, so why would one need another set of toolbox?</p>
+      <img src="/blog/2_win-nav/oneco.webp" style="max-width: 100%" loading="lazy" alt="ALT_TEXT">
+      <p class="img-caption">Something's sus..</p>
+      <p>For me, I use both because I don't like how slow it can be when you use it as the only explorer. OC has some flaws sure, but when you dedicate the task to it, it's much more fluid, plus it has great interface overall. Less dragging to copy/move with keyboard shortcut, add local note to a folder, and mark a file/folder with colors locally. It's like using WordPad compared to Notepad.</p>
+    </section>
+    
+    <section id="winaero-tweaker">
+      <h3 class="no-margin-bot" data-heading="WinAero Tweaker">WinAero Tweaker</h3>
+      <p class="caption">
+        <a aria-label-position="top" aria-label="https://winaero.com/winaero-tweaker/" rel="noopener" class="external-link" href="https://winaero.com/winaero-tweaker/" target="_blank">Homepage</a>
+      </p>
+      <img src="/blog/2_win-nav/winaero.webp" loading="lazy" alt="ALT_TEXT">
+      <p>Careful with this, it can modify a bunch of stuff, including something you shouldn't touch without knowing what it is. Though it's pretty cool tweaker in general.</p>
+      <ul>
+        <li>Add custom item in explorer navigation pane. It let you create your own folder full of shortcuts.</li>
+        <li>Ability to dim background during Alt+Tab.</li>
+        <li>Enable NumLock on login screen for those with numbered password.</li>
+        <li>Set default drag-n-drop action (instead of the inconsistent move/copy).</li>
+        <li>Remove default entry on windows context menu, limited list.</li>
+        <li>A bunch of custom context menu with more specific use case than EcMenu.</li>
+      </ul>
+    </section>
+    
+    <section id="powertoys">
+      <h3 class="no-margin-bot" data-heading="PowerToys">PowerToys</h3>
+      <p class="caption">
+        <a aria-label-position="top" aria-label="https://learn.microsoft.com/en-us/windows/powertoys/" rel="noopener" class="external-link" href="https://learn.microsoft.com/en-us/windows/powertoys/" target="_blank">Homepage</a>
+      </p>
+      <img src="/blog/2_win-nav/powert.webp" loading="lazy" alt="ALT_TEXT">
+      <p>I hate how this program sit and eat 2GB of space. Each module has their own library in it and it still overlap with the other. Also, why does it need 200MB just for (slow, really slow) HOSTS editor?????? It uses a lot of RAM usage per module too, so I don't use them often. A life of 12GB RAM user must be nitpicky with these sort of things. Some of it is pretty great though.</p>
+      <ul>
+        <li>Pin to top any program.</li>
+        <li>Custom window layout with presets.</li>
+        <li>Quick accent to write Pokémon like a true <del>nerd</del> fan. </li>
+        <li>Pretty and richer windows Run. Can act as quick calculator, print out current time and date in various format, and more!</li>
+      </ul>
+    </section>
+    
+    <section id="closing">
+      <h2>Closing</h2>
+      <p>Not the first time it happen but somehow this took longer to create than I thought it would be, and somehow the character count quadrupled from my initial prediction. Smh, I just scammed myself into working!</p> 
+      <p>I kinda back-pedalled half-way through because well, seems like a big task for my couch potato plums.</p>
+      <p>While writing this, I tried to manage the screenshot and writing, with and without these tools I listed. Yeah I can't live with these anymore, especially Everything and Explorer Mod. Honorary mention goes to ShareX, bulk screenshotting with their process name in it is super useful. CopyQ is always handy too but I tried to write all the important bits to a scratch note this time around, much better this way.</p>
+      <p>Thanks for reading, see you next around for the next "blog" post. Cheers!</p>
+    </section>
+  </section>
+</article>
+
+<!-- 
+# Dev Section / Changelog
+- To-Do: Image Alt Text, Add Win11 Section
+- 19-05-23 : Add more stuff in AHK and Everything
+- 31-05-23 : Fix obsolete term/section link from the old notes
+-->
+
+<div class="jump-to-top"><a href="#toc"></a></div>

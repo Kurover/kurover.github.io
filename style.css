@@ -1,29 +1,29 @@
-/* Color Index
- * #0a0c10 | Background Body
- * #141414 | Background Entry
- * #25202c | Background Code
- * #72984e | Link
- * #edcfc2 | Link Hover
- * #3696a8 | Link Visited
- * #89f86f | Link Active Focus
- * #353a4c | Button Default
- * #25355A | Button Extra
- * #faf0de | h1 h2
- * #f7dea6 | h3
- * #8db565 | h4
- * #5e9cb5 | h5
- * #8670d4 | h6
- * #d3646d | Misc Warning
- * #f99d7e | Misc Notice
- * */
-
 /* Media Size
  * @media (max-width: 520px) ; Typical mobile
  * @media (max-width: 810px) ; Tablet
  * */
 
-/* Active Page Count 6
- * */
+:root {
+  --background-body: #0a0c10;
+  --background-entry: #141414;
+  --background-codeblock: #25202c;
+  --link: #72984e;
+  --link-hover: #edcfc2;
+  --link-visited: #3696a8;
+  --link-focus: #89f86f;
+  --link-active: #89f86f;
+  --button: #353a4c;
+  --button-alt: #25355A;
+  --h1: #faf0de;
+  --h2: #faf0de;
+  --h3: #f7dea6;
+  --h4: #8db565;
+  --h5: #5e9cb5;
+  --h6: #8670d4;
+  --warning: #d3646d;
+  --notice: #f99d7e;
+  --width-body: 896px;
+}
 
 html {
   font-family: 'Pixel04b03';
@@ -31,11 +31,12 @@ html {
   -moz-osx-font-smoothing: unset;
 }
 body {
-  background: #0a0c10;
+  background: var(--background-body);
   margin: auto;
   margin-top: 24px;
   margin-bottom: 25%;
   width: 80%;
+  max-width: var(--width-body);
 }
 @media (max-width: 810px) {  
   body {
@@ -282,7 +283,7 @@ summary {
   display: flex;
   flex-wrap: nowrap;
   background: #141414;
-  max-width: 896px;
+  /*max-width: 896px;*/
   height: 48px;
   margin: auto;
   overflow: hidden;
@@ -415,7 +416,7 @@ summary {
 .entry {
   background: #141414;
   color: lightgray;
-  max-width: 832px;
+  /*max-width: 832px;*/
   margin: 32px auto;
   padding: 32px;
   border: 1px solid gray;
@@ -812,6 +813,7 @@ summary {
 }
 .sub-nav-entry--title {
   display: inline-block;
+  color: whitesmoke;
   padding: 0 16px;
   padding-right: 8px;
   height: 30px;
@@ -1245,7 +1247,7 @@ summary {
   right: 0;
   opacity: 0;
   transform: translateY(-16px);
-  transition: opacity .25s, transform .5s;
+  transition: opacity .25s, transform .5s, visibility 0.1s;
 }
 .entry-linkthree--embed::-webkit-scrollbar {
   display: none;

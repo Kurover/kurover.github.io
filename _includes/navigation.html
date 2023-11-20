@@ -1,0 +1,31 @@
+<nav class="nav-bar">
+  <div class="nav-entry nav-entry--title"> Zan.site </div>
+  <a class="nav-entry{% if page.url == "/" %} nav-entry--active{% endif %}" href="/">Home</a>
+  <a class="nav-entry{% if page.url == "/gallery.html" %} nav-entry--active{% endif %}" href="/gallery">Gallery</a>
+  <a class="nav-entry{% if page.url == "/blog.html" %} nav-entry--active{% endif %} web-only" href="/blog">Blog</a>
+  <a class="nav-entry{% if page.url == "/download.html" %} nav-entry--active{% endif %} web-only" href="/download">Files</a>
+  <div class="nav-entry nav-dropdown-button mobile-only{% if page.nav-dropdown == true %} nav-entry--active{% endif %}" tabindex="0">
+    More
+    <div class="nav-dropdown-container">
+      <a class="nav-dropdown-entry" href="/blog">Blog</a>
+      <a class="nav-dropdown-entry" href="/download">Files</a>
+    </div>
+  </div>
+  <div class="nav-entry nav-entry--right entry-linkthree-parent" tabindex="0">
+    <span class="no-select">Links</span>
+    <!--Linkthree Start Here-->
+    <div class="entry-linkthree entry-linkthree--embed" style="cursor: default;">
+      <div class="linkthree-profile">
+        <p class="notice" style="margin: 0; font-size: 32px;">Links!</p>
+        <p style="margin: 8px 0">"Any resemblance to other websites are purely coincidental."</p>
+      </div>
+      <div class="linkthree-link"><a href="https://twitter.com/Cloverift" class="text"><div class="linkthree-img"><img src="/img/icon_twitter.svg" style="filter: invert(1)"></div>Twitter</a></div>
+      <div class="linkthree-link"><a href="https://rkgk.moe/@zan" class="text"><div class="linkthree-img"><img src="/img/icon_misskey.svg" style="filter: invert(1)"></div>Misskey</a></div>
+      <div class="linkthree-link"><a href="https://github.com/Kurover/kurover.github.io" class="text"><div class="linkthree-img"><img src="/img/icon_github.svg" style="filter: invert(1)"></div>Github Repo</a></div>
+      <div class="linkthree-link"><div class="text"><div class="linkthree-img"><img src="/img/icon_discord.svg" style="filter: invert(1)"></div><span style="cursor: text">kurover_zan</span></div></div>
+      <p style="color: gray"><a href="https://remixicon.com">RemixIcon</a> | <a href="https://iconarchive.com">IconArchive</a> | <a href="http://04.jp.org">Font</a></p>
+    </div>
+  </div>
+  <!--Links close button-->
+  <div class="entry-linkthree-embed-control" tabindex="0"></div>
+</nav>

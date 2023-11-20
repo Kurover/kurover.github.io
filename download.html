@@ -1,206 +1,146 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zan | Download</title>
-  <meta property="og:url" content="https://kurover.github.io/download"/>
-  <meta property="og:site_name" content="Zanster Website"/>
-  <meta property="og:title" content="File Download"/>
-  <meta property="og:type" content="download">
-  <meta property="og:description" content="Download Cursor and Live2D sample here! More stuff incoming, it depends on future me productivity."/>
-  <meta property="og:image" content="https://raw.githubusercontent.com/Kurover/resources/main/img/open_graph.png"/>
-  <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="theme-color" content="#72984e">
-  <meta name="msapplication-TileColor" content="#72984e">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=2">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=2">
-  <link rel="manifest" href="/site.webmanifest?v=2">
-  <link rel="mask-icon" href="/safari-pinned-tab.svg?v=2" color="#72984e">
-  <link rel="shortcut icon" href="/favicon.ico?v=2">
-  <link rel="stylesheet" href="/style.css">
-  <link rel="stylesheet" href="/font.css">
-  <link rel="stylesheet" href="/style/cursor-preview.css">
-</head>
-
-<body>
-  <a class="jump-to-main" href="#top"></a>
-  <header>
-    <nav class="nav-bar">
-      <div class="nav-entry nav-entry--title"> Zan.site </div>
-      <a class="nav-entry" href="/">Home</a>
-      <a class="nav-entry" href="/gallery">Gallery</a>
-      <a class="nav-entry web-only" href="/blog">Blog</a>
-      <a class="nav-entry web-only nav-entry--active" href="/download">Files</a>
-      <div class="nav-entry nav-dropdown-button mobile-only nav-entry--active" tabindex="0">
-        More
-        <div class="nav-dropdown-container">
-          <a class="nav-dropdown-entry" href="/blog">Blog</a>
-          <a class="nav-dropdown-entry nav-dropdown-entry--active" href="/download">Files</a>
-        </div>
-      </div>
-      <div class="nav-entry nav-entry--right entry-linkthree-parent" tabindex="0">
-        <span class="no-select">Links</span>
-        <!--Linkthree Start Here-->
-        <div class="entry-linkthree entry-linkthree--embed" style="cursor: default;">
-          <div class="linkthree-profile">
-            <p class="notice" style="margin: 0; font-size: 32px;">Links!</p>
-            <p style="margin: 8px 0">"Any resemblance to other websites are purely coincidental."</p>
-          </div>
-          <div class="linkthree-link"><a href="https://twitter.com/Cloverift" class="text"><div class="linkthree-img"><img src="/img/icon_twitter.svg" style="filter: invert(1)"></div>Twitter</a></div>
-          <div class="linkthree-link"><a href="https://rkgk.moe/@zan" class="text"><div class="linkthree-img"><img src="/img/icon_misskey.svg" style="filter: invert(1)"></div>Misskey</a></div>
-          <div class="linkthree-link"><a href="https://github.com/Kurover/kurover.github.io" class="text"><div class="linkthree-img"><img src="/img/icon_github.svg" style="filter: invert(1)"></div>Github Repo</a></div>
-          <div class="linkthree-link"><div class="text"><div class="linkthree-img"><img src="/img/icon_discord.svg" style="filter: invert(1)"></div><span style="cursor: text">kurover_zan</span></div></div>
-          <div class="linkthree-link"><a href="http://04.jp.org" class="text"><div class="linkthree-img"><img src="/img/icon_web.svg" style="filter: invert(1)"></div>Font Credit</a></div>
-          <p style="color: gray">Icon Source:<br><a href="https://remixicon.com">RemixIcon</a> | <a href="https://iconarchive.com">IconArchive</a></p>
-        </div>
-      </div>
-      <!--Links close button-->
-      <div class="entry-linkthree-embed-control" tabindex="0"></div>
-    </nav>
-  </header>
-  
-  <!-- Main Entry -->
-  <div class="entry">
-    <h1>Welcome: Download</h1>
-    <p>Welcome to the download page. All things listed in here are free for <span class="warning">PERSONAL</span> use, unless stated otherwise. If there's any broken link, do contact me so I can fix it as soon as possible.</p>
-    <p>Download server is Github by default. Bigger files (more than 10mb) will be served externally.</p>
-    <div class="table-of-contents blog-toc" id="top">
-      <h2 class="toc-header">Catalogue</h2>
-      <ol>
-        <li><a href="#general">General Stuff</a></li>
-        <ol type="I">
-          <li><a href="#start-orb-illith">Start Orb - Illith</a></li>
-        </ol>
-        <li><a href="#vtuber">VTuber Model</a></li>
-        <ol type="I">
-          <li><a href="#illith-st">Illith-ST</a></li>
-        </ol>
-        <li><a href="#cursor">Mouse Cursor</a></li>
-        <ol type="I">
-          <li><a href="#koishi">Koishi Cursor</a></li>
-          <li><a href="#youmu">Youmu Cursor</a></li>
-          <li><a href="#koakuma">Koakuma Cursor</a></li>
-        </ol>
+---
+layout: default
+title: Zan | Download
+description: Personal project for download
+og-title: File Download
+og-type: download
+---
+<!-- Main Entry -->
+<div class="entry">
+  <h1>Welcome: Download</h1>
+  <p>Welcome to the download page. All things listed in here are free for <span class="warning">PERSONAL</span> use, unless stated otherwise. If there's any broken link, do contact me so I can fix it as soon as possible.</p>
+  <p>Download server is Github by default. Bigger files (more than 10mb) will be served externally.</p>
+  <div class="table-of-contents blog-toc" id="top">
+    <h2 class="toc-header">Catalogue</h2>
+    <ol>
+      <li><a href="#general">General Stuff</a></li>
+      <ol type="I">
+        <li><a href="#start-orb-illith">Start Orb - Illith</a></li>
       </ol>
-    </div>
+      <li><a href="#vtuber">VTuber Model</a></li>
+      <ol type="I">
+        <li><a href="#illith-st">Illith-ST</a></li>
+      </ol>
+      <li><a href="#cursor">Mouse Cursor</a></li>
+      <ol type="I">
+        <li><a href="#koishi">Koishi Cursor</a></li>
+        <li><a href="#youmu">Youmu Cursor</a></li>
+        <li><a href="#koakuma">Koakuma Cursor</a></li>
+      </ol>
+    </ol>
   </div>
-  
-  <!-- General Section -->
-  <div class="entry entry-download" id="general">
-    <h2 class="download-title">General Stuff</h2>
-    <div class="container-download" id="start-orb-illith" tabindex="-1">
-      <h3 class="no-margin-top">Start Orb - Illith</h3>
-      <img src="/blog/2_win-nav/openshell_extra-2.gif" style="border: 1px solid gray;float: left;margin-right: 12px; margin-bottom: 12px;">
-      <p>This is a start orb replacement for <a href="https://open-shell.github.io/Open-Shell-Menu/">Open-Shell Menu</a> but more generic version is also available if you use other mod. To use, save the .png below to a safe directory. Then replace the orb menu in the settings.</p>
-      <div class="container-expandable">
-        <p>
-        <input type="checkbox" class="hidden-input container-expandable-controller" id="start-orb-expand-1">
-        Btw, if you can <label for="start-orb-expand-1" class="link button-expand-text button-expand--once">code/fork Open-Shell...</label>
-          <span class="container-expandable-content container-expandable-content--inline">code/fork Open-Shell to enable animation other than Normal to Hot to pretty much all other combination (Normal to Pressed, vice versa, Hot to Pressed, vice versa. Refer to <a href="https://coddec.github.io/Classic-Shell/www.classicshell.net/tutorials/buttontutorial.html">this document</a> page), I'll trade you a start menu animation with character of your choice. Contact me if you're interested, yea? I have <a href="/img/download/Start-Menu-Illith-beta-64x.png">sample animation</a> of Normal x Pressed, but of course the program isn't allowed to render it.</span>
-          <span class="button-expand--once web-only" style="vertical-align: top; line-height: 72px;"></span>
-          <span class="button-expand--once" style="vertical-align: top; line-height: 42px;"></span>
-        </p>
+</div>
+
+<!-- General Section -->
+<div class="entry entry-download" id="general">
+  <h2 class="download-title">General Stuff</h2>
+  <div class="container-download" id="start-orb-illith" tabindex="-1">
+    <h3 class="no-margin-top">Start Orb - Illith</h3>
+    <img src="/blog/2_win-nav/openshell_extra-2.gif" style="border: 1px solid gray;float: left;margin-right: 12px; margin-bottom: 12px;">
+    <p>This is a start orb replacement for <a href="https://open-shell.github.io/Open-Shell-Menu/">Open-Shell Menu</a> but more generic version is also available if you use other mod. To use, save the .png below to a safe directory. Then replace the orb menu in the settings.</p>
+    <div class="container-expandable">
+      <p>
+      <input type="checkbox" class="hidden-input container-expandable-controller" id="start-orb-expand-1">
+      Btw, if you can <label for="start-orb-expand-1" class="link button-expand-text button-expand--once">code/fork Open-Shell...</label>
+        <span class="container-expandable-content container-expandable-content--inline">code/fork Open-Shell to enable animation other than Normal to Hot to pretty much all other combination (Normal to Pressed, vice versa, Hot to Pressed, vice versa. Refer to <a href="https://coddec.github.io/Classic-Shell/www.classicshell.net/tutorials/buttontutorial.html">this document</a> page), I'll trade you a start menu animation with character of your choice. Contact me if you're interested, yea? I have <a href="/img/download/Start-Menu-Illith-beta-64x.png">sample animation</a> of Normal x Pressed, but of course the program isn't allowed to render it.</span>
+        <span class="button-expand--once web-only" style="vertical-align: top; line-height: 72px;"></span>
+        <span class="button-expand--once" style="vertical-align: top; line-height: 42px;"></span>
+      </p>
+    </div>
+    <br>
+    <details>
+      <summary>Open-Shell Version</summary>
+      <div class="container-tooltip">
+        <a href="/img/download/Start-Menu-Illith-64x.png" download><img src="/img/download/Start-Menu-Illith-64x.png"></a>
+        <span class="tooltip">Click image to download</span>
       </div>
-      <br>
-      <details>
-        <summary>Open-Shell Version</summary>
-        <div class="container-tooltip">
-          <a href="/img/download/Start-Menu-Illith-64x.png" download><img src="/img/download/Start-Menu-Illith-64x.png"></a>
-          <span class="tooltip">Click image to download</span>
-        </div>
-      </details>
-      <br>
-      <details>
-        <summary>Generic Version</summary>
-        <div class="container-tooltip">
-          <a href="/img/download/Start-Menu-Illith-Generic-64x.png" download><img src="/img/download/Start-Menu-Illith-Generic-64x.png"></a>
-          <span class="tooltip">Click image to download</span>
-        </div>
-      </details>
-    </div>
+    </details>
+    <br>
+    <details>
+      <summary>Generic Version</summary>
+      <div class="container-tooltip">
+        <a href="/img/download/Start-Menu-Illith-Generic-64x.png" download><img src="/img/download/Start-Menu-Illith-Generic-64x.png"></a>
+        <span class="tooltip">Click image to download</span>
+      </div>
+    </details>
   </div>
-  
-  <!-- Vtuber Section -->
-  <div class="entry entry-download" id="vtuber">
-    <h2 class="download-title">VTuber Sample</h2>
-    <div class="container-download" id="illith-st" tabindex="-1">
-      <img style="image-rendering: auto; border: 4px solid slategray;" class="download-preview-portrait" src="/img/download/vtuber_illith-st.webp">
-      <h3>Illith-ST Sample</h3>
-      <p>My first VTuber model rig attempt. <a href="/blog/create-live2d">Blog Post</a> for details.</p>
-      <p>Free to use, modify, and distribute this work. Crediting me is optional but appreciated.</p>
-      <form style="display: inline-block" action="https://www.dropbox.com/s/g4ry99h2plm1jwb/Live2D%20Illith-ST%20by%20%40Cloverift.zip?dl=0" target="_blank">
-        <button class="button-download">Download - Dropbox</button>
-      </form>
-      <form style="display: inline-block" action="https://drive.google.com/file/d/1mU0eUSKSzvlhkHqqEeMwRURSf8RGPp8x/view" target="_blank">
-        <button class="button-download">Download - GDrive</button>
-      </form>
+</div>
+
+<!-- Vtuber Section -->
+<div class="entry entry-download" id="vtuber">
+  <h2 class="download-title">VTuber Sample</h2>
+  <div class="container-download" id="illith-st" tabindex="-1">
+    <img style="image-rendering: auto; border: 4px solid slategray;" class="download-preview-portrait" src="/img/download/vtuber_illith-st.webp">
+    <h3>Illith-ST Sample</h3>
+    <p>My first VTuber model rig attempt. <a href="/blog/create-live2d">Blog Post</a> for details.</p>
+    <p>Free to use, modify, and distribute this work. Crediting me is optional but appreciated.</p>
+    <form style="display: inline-block" action="https://www.dropbox.com/s/g4ry99h2plm1jwb/Live2D%20Illith-ST%20by%20%40Cloverift.zip?dl=0" target="_blank">
+      <button class="button-download">Download - Dropbox</button>
+    </form>
+    <form style="display: inline-block" action="https://drive.google.com/file/d/1mU0eUSKSzvlhkHqqEeMwRURSf8RGPp8x/view" target="_blank">
+      <button class="button-download">Download - GDrive</button>
+    </form>
+  </div>
+</div>
+
+<!-- Cursor Section-->
+<div class="entry entry-download" id="cursor">
+  <h2 class="download-title">Mouse Cursor</h2>
+  <p>Hover on the box with <span style="opacity: 50%">faded text</span> to preview the cursor. The white box below it allow you to test it in white background. The preview might lag or spaz out here and then, due to technical limitation.</p>
+  <p>Make sure your browser window is active too!</p>
+  <div class="container-download" id="koishi" tabindex="-1">
+    <img class="download-preview-wide" src="/img/download/cursor_koishi.gif">
+    <!--Cursor Preview CSS is separate, if CSS not found, it will not be displayed-->
+    <div class="cursor-preview" style="display: none;">
+      <div class="cursor-preview-box" id="koishi-default"><div>Default</div></div>
+      <div class="cursor-preview-box" id="koishi-wait"><div>Wait</div></div>
+      <div class="cursor-preview-box" id="koishi-busy"><div>Busy</div></div>
+      <div class="cursor-preview-box" id="koishi-pointer"><div>Pointer</div></div>
+      <div class="cursor-preview-box light" id="koishi-default"><div>Default</div></div>
+      <div class="cursor-preview-box light" id="koishi-wait"><div>Wait</div></div>
+      <div class="cursor-preview-box light" id="koishi-busy"><div>Busy</div></div>
+      <div class="cursor-preview-box light" id="koishi-pointer"><div>Pointer</div></div>
     </div>
+    <form action="/download/cursor/Koishi Cursor v0.1.zip">
+      <button class="button-download">Download Koishi</button>
+    </form>
   </div>
 
-  <!-- Cursor Section-->
-  <div class="entry entry-download" id="cursor">
-    <h2 class="download-title">Mouse Cursor</h2>
-    <p>Hover on the box with <span style="opacity: 50%">faded text</span> to preview the cursor. The white box below it allow you to test it in white background. The preview might lag or spaz out here and then, due to technical limitation.</p>
-    <p>Make sure your browser window is active too!</p>
-    <div class="container-download" id="koishi" tabindex="-1">
-      <img class="download-preview-wide" src="/img/download/cursor_koishi.gif">
-      <!--Cursor Preview CSS is separate, if CSS not found, it will not be displayed-->
-      <div class="cursor-preview" style="display: none;">
-        <div class="cursor-preview-box" id="koishi-default"><div>Default</div></div>
-        <div class="cursor-preview-box" id="koishi-wait"><div>Wait</div></div>
-        <div class="cursor-preview-box" id="koishi-busy"><div>Busy</div></div>
-        <div class="cursor-preview-box" id="koishi-pointer"><div>Pointer</div></div>
-        <div class="cursor-preview-box light" id="koishi-default"><div>Default</div></div>
-        <div class="cursor-preview-box light" id="koishi-wait"><div>Wait</div></div>
-        <div class="cursor-preview-box light" id="koishi-busy"><div>Busy</div></div>
-        <div class="cursor-preview-box light" id="koishi-pointer"><div>Pointer</div></div>
-      </div>
-      <form action="/download/cursor/Koishi Cursor v0.1.zip">
-        <button class="button-download">Download Koishi</button>
-      </form>
+  <div class="container-download" id="youmu" tabindex="-1">
+    <img class="download-preview-wide" src="/img/download/cursor_youmu.gif">
+    <!--Preview-->
+    <div class="cursor-preview" style="display: none;">
+      <div class="cursor-preview-box" id="youmu-default"><div>Normal</div></div>
+      <div class="cursor-preview-box" id="youmu-wait"><div>Working</div></div>
+      <div class="cursor-preview-box" id="youmu-busy"><div>Busy</div></div>
+      <div class="cursor-preview-box" id="youmu-pointer"><div>Link</div></div>
+      <div class="cursor-preview-box light" id="youmu-default"><div>Normal</div></div>
+      <div class="cursor-preview-box light" id="youmu-wait"><div>Working</div></div>
+      <div class="cursor-preview-box light" id="youmu-busy"><div>Busy</div></div>
+      <div class="cursor-preview-box light" id="youmu-pointer"><div>Link</div></div>
     </div>
-    
-    <div class="container-download" id="youmu" tabindex="-1">
-      <img class="download-preview-wide" src="/img/download/cursor_youmu.gif">
-      <!--Preview-->
-      <div class="cursor-preview" style="display: none;">
-        <div class="cursor-preview-box" id="youmu-default"><div>Normal</div></div>
-        <div class="cursor-preview-box" id="youmu-wait"><div>Working</div></div>
-        <div class="cursor-preview-box" id="youmu-busy"><div>Busy</div></div>
-        <div class="cursor-preview-box" id="youmu-pointer"><div>Link</div></div>
-        <div class="cursor-preview-box light" id="youmu-default"><div>Normal</div></div>
-        <div class="cursor-preview-box light" id="youmu-wait"><div>Working</div></div>
-        <div class="cursor-preview-box light" id="youmu-busy"><div>Busy</div></div>
-        <div class="cursor-preview-box light" id="youmu-pointer"><div>Link</div></div>
-      </div>
-      <form action="/download/cursor/Youmu Cursor v0.1.zip">
-        <button class="button-download">Download Youmu</button>
-      </form>
-      
-    </div>
-    <div class="container-download" id="koakuma" tabindex="-1">
-      <img class="download-preview-wide" src="/img/download/cursor_koakuma.gif">
-      <!--Preview-->
-      <div class="cursor-preview" style="display: none;">
-        <div class="cursor-preview-box" id="koakuma-default"><div>Normal</div></div>
-        <div class="cursor-preview-box" id="koakuma-wait"><div>Working</div></div>
-        <div class="cursor-preview-box" id="koakuma-busy"><div>Busy</div></div>
-        <div class="cursor-preview-box" id="koakuma-pointer"><div>Link</div></div>
-        <div class="cursor-preview-box light" id="koakuma-default"><div>Normal</div></div>
-        <div class="cursor-preview-box light" id="koakuma-wait"><div>Working</div></div>
-        <div class="cursor-preview-box light" id="koakuma-busy"><div>Busy</div></div>
-        <div class="cursor-preview-box light" id="koakuma-pointer"><div>Link</div></div>
-      </div>
-      <form action="/download/cursor/Koakuma Cursor v0.1c.zip">
-        <button class="button-download">Download Koakuma</button>
-      </form>
-    </div>
+    <form action="/download/cursor/Youmu Cursor v0.1.zip">
+      <button class="button-download">Download Youmu</button>
+    </form>
+
   </div>
-  
-  <div class="jump-to-top"><a href="#top"></a></div>
-  
-</body>
-</html>
+  <div class="container-download" id="koakuma" tabindex="-1">
+    <img class="download-preview-wide" src="/img/download/cursor_koakuma.gif">
+    <!--Preview-->
+    <div class="cursor-preview" style="display: none;">
+      <div class="cursor-preview-box" id="koakuma-default"><div>Normal</div></div>
+      <div class="cursor-preview-box" id="koakuma-wait"><div>Working</div></div>
+      <div class="cursor-preview-box" id="koakuma-busy"><div>Busy</div></div>
+      <div class="cursor-preview-box" id="koakuma-pointer"><div>Link</div></div>
+      <div class="cursor-preview-box light" id="koakuma-default"><div>Normal</div></div>
+      <div class="cursor-preview-box light" id="koakuma-wait"><div>Working</div></div>
+      <div class="cursor-preview-box light" id="koakuma-busy"><div>Busy</div></div>
+      <div class="cursor-preview-box light" id="koakuma-pointer"><div>Link</div></div>
+    </div>
+    <form action="/download/cursor/Koakuma Cursor v0.1c.zip">
+      <button class="button-download">Download Koakuma</button>
+    </form>
+  </div>
+</div>
+
+<div class="jump-to-top"><a href="#top"></a></div>

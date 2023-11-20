@@ -1,0 +1,23 @@
+---
+layout: default
+title: Zan | Blog
+description: Blog list containing long-text.pdf
+og-title: Blog Post Hub
+og-type: blog
+nav-dropdown: true
+---
+<div class="entry" id="top">
+  <h1 class="no-margin">Welcome: Blog</h1>
+  <p>Welcome to the blog! It's lonely right here for now but it do have a content. In this section we will be switching the font into a much more friendly to read since the pixel art font can be strainful to read on a long text.</p>
+  <div class="blog-font">
+    <p>Starting now!</p>
+    <ol class="blog-list">
+      {% for blog in site.blog %}
+        <li>
+          <a href="{{ blog.url }}">{{ blog.title-short }}</a>
+          <p class="no-margin">{{ blog.description }}</p>
+        </li>
+      {% endfor %}
+    </ol>
+  </div>
+</div>

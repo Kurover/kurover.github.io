@@ -1,299 +1,224 @@
-<!DOCTYPE html>
-<html lang="en">
+---
+layout: default
+title: Zan | Home
+description: Home for art gallery and other funny stuff
+og-title: Zanster Website
+og-type: website
+---
+<!-- Main Entry -->
+<div class="entry" tabindex="-1" id="top">
+  <!-- Profile Pic Container -->
+  <!-- Pic: States -->
+  <input class="hidden-input switch-parent-1" type="radio" id="state-pp-1" name="selector-pp" checked>
+  <input class="hidden-input switch-parent-2" type="radio" id="state-pp-2" name="selector-pp">
+  <input class="hidden-input switch-parent-3" type="radio" id="state-pp-3" name="selector-pp">
+  <div class="container-profile-img">
+    <!-- Pic: Container -->
+    <div class="profile-img profile-img--accordion">
+      <img class="img-pp-1" src="/img/profile_picture1.png" alt="Main Profile Picture">
+      <img class="img-pp-2" src="/img/profile_picture2.png" alt="Alt account Profile Picture">
+      <img class="img-pp-3" src="/img/profile_picture3.png" alt="Latest Profile Picture">
+    </div>
+    <!-- Pic: Text button -->
+    <div class="selector-pp">
+      <label class="selection" for="state-pp-1" id="selector-pp1" style="border-right: 2px solid lightgray">Main</label>
+      <label class="selection" for="state-pp-2" id="selector-pp2">Sub</label>
+      <label class="hidden selection" for="state-pp-3" id="selector-pp3" style="border-left: 2px solid lightgray">Alt2</label>
+    </div>
+  </div>
+  <!-- Pic: Content-->
+  <h1 class="no-margin">Welcome</h1>
+  <p class="caption">"4k art? Make it <span class="container-tooltip" tabindex="0"><span class="tooltip">According to my calculation, it's 192x108 px.</span><span class="link">20 times</span></span> smaller."</p>
+  <div class="hidden switch-child-1">
+    <p>My name is Zan, also known as Kurover in some part. I'm a pixel artist who mainly draw art and animation from Touhou Project (東方Project).</p>
+    <p>I'm usually active on <a href="https://twitter.com/Cloverift">Twitter</a> and <span class="container-tooltip" tabindex="0"><span class="tooltip tooltip--medium"><a class="notice" href="https://misskey.io/@zan@rkgk.moe">Misskey</a> link orremote instance <a href="https://rkgk.moe/@zan">rkgk.moe</a></span><span class="link">Misskey</span></span>. This website on the other hand, provide up to date artworks, even fixed version.</p>
+  </div>
+  <div class="hidden switch-child-2">
+    <p style="color: gray">If you somehow see me with this profile picture, you are cultured.</p>
+    <p>Originally, this site was written and optimized just for pixel art media gallery, but it has since evolved to serve all sort of stuff, like blogging and project showcase. Very ambitious I know, but I can't contain myself!</p>    
+    </div>
+  <div class="hidden switch-child-3">
+    <p>Welcome keyboard user, this is the secret corner! This ain't anything special really. Just a trimmed content I still keep in the page.</p>
+    <p>There's no other secret content in this website as of current iteration. Who knows, maybe I'll add one someday. It need to be cool though.</p>
+  </div>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zan | Home</title>
-  <meta property="og:url" content="https://kurover.github.io/"/>
-  <meta property="og:site_name" content="Zanster Website"/>
-  <meta property="og:title" content="Zanster Website"/>
-  <meta property="og:type" content="website">
-  <meta property="og:description" content="A homepage for assortment of things. Art, Blog, and Downloadable Content."/>
-  <meta property="og:image" content="https://raw.githubusercontent.com/Kurover/resources/main/img/open_graph.png"/>
-  <!--Twitter OG-->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta property="twitter:domain" content="kurover.github.io">
-  <meta property="twitter:url" content="https://kurover.github.io">
-  <meta name="twitter:title" content="Home">
-  <meta name="twitter:description" content="A home page of digital art, both visually and functionally, for you to enjoy!">
-  <meta name="twitter:image" content="https://raw.githubusercontent.com/Kurover/resources/main/img/open_graph.png">
-  <meta name="theme-color" content="#72984e">
-  <meta name="msapplication-TileColor" content="#72984e">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=2">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=2">
-  <link rel="manifest" href="/site.webmanifest?v=2">
-  <link rel="mask-icon" href="/safari-pinned-tab.svg?v=2" color="#72984e">
-  <link rel="shortcut icon" href="/favicon.ico?v=2">
-  <link rel="stylesheet" href="/style.css">
-  <link rel="stylesheet" href="/font.css">
-</head>
+  <div style="margin-bottom: 16px;"></div>
 
-<body>
-  <!-- No CSS Warning-->
-  <div class="hidden">Hi there, this website requires CSS to be read comfortably, thanks.</div>
-  
-  <!-- Reading mode Warning-->
-  <p class="hidden">Hey, if you're on reading mode, do note that some text will be missing and hidden elements like tooltip preview will be shown or even overlap while reading. Never mind that, reading mode experience is garbage for this site, sorry!</p>
-  
-  <!-- Keyboard Nav Skip -->
-  <a class="jump-to-main" href="#top"></a>
-  <div class="notice-accessibility"><p class="no-margin">Notice:<br>To navigate sub-tab. (Contact, Sample, etc.), Tab-key navigate until the button is highlighted. Use the arrow key to switch tabs. TAB to unlock scrolling (if on Chromium, you can use ESC).</p><p>Jank I know, but hey it works!</p></div>
-  
-  <!-- Navigation Bar -->
-  <header>
-    <nav class="nav-bar">
-      <div class="nav-entry nav-entry--title"> Zan.site </div>
-      <a class="nav-entry nav-entry--active" href="/">Home</a>
-      <a class="nav-entry" href="/gallery">Gallery</a>
-      <a class="nav-entry web-only" href="/blog">Blog</a>
-      <a class="nav-entry web-only" href="/download">Files</a>
-      <div class="nav-entry nav-dropdown-button mobile-only" tabindex="0">
-        More
-        <div class="nav-dropdown-container">
-          <a class="nav-dropdown-entry" href="/blog">Blog</a>
-          <a class="nav-dropdown-entry" href="/download">Files</a>
-        </div>
-      </div>
-      <div class="nav-entry nav-entry--right entry-linkthree-parent" tabindex="0">
-        <span class="no-select">Links</span>
-        <!--Linkthree Start Here-->
-        <div class="entry-linkthree entry-linkthree--embed" style="cursor: default;">
-          <div class="linkthree-profile">
-            <p class="notice" style="margin: 0; font-size: 32px;">Links!</p>
-            <p style="margin: 8px 0">"Any resemblance to other websites are purely coincidental."</p>
-          </div>
-          <div class="linkthree-link"><a href="https://twitter.com/Cloverift" class="text"><div class="linkthree-img"><img src="/img/icon_twitter.svg" style="filter: invert(1)"></div>Twitter</a></div>
-          <div class="linkthree-link"><a href="https://rkgk.moe/@zan" class="text"><div class="linkthree-img"><img src="/img/icon_misskey.svg" style="filter: invert(1)"></div>Misskey</a></div>
-          <div class="linkthree-link"><a href="https://github.com/Kurover/kurover.github.io" class="text"><div class="linkthree-img"><img src="/img/icon_github.svg" style="filter: invert(1)"></div>Github Repo</a></div>
-          <div class="linkthree-link"><div class="text"><div class="linkthree-img"><img src="/img/icon_discord.svg" style="filter: invert(1)"></div><span style="cursor: text">kurover_zan</span></div></div>
-          <div class="linkthree-link"><a href="http://04.jp.org" class="text"><div class="linkthree-img"><img src="/img/icon_web.svg" style="filter: invert(1)"></div>Font Credit</a></div>
-          <p style="color: gray">Icon Source:<br><a href="https://remixicon.com">RemixIcon</a> | <a href="https://iconarchive.com">IconArchive</a></p>
-        </div>
-      </div>
-      <!--Links close button-->
-      <div class="entry-linkthree-embed-control" tabindex="0"></div>
-    </nav>
-  </header>
-  
-  <!-- Main Entry -->
-  <div class="entry" tabindex="-1" id="top">
-    <!-- Profile Pic Container -->
-    <!-- Pic: States -->
-    <input class="hidden-input switch-parent-1" type="radio" id="state-pp-1" name="selector-pp" checked>
-    <input class="hidden-input switch-parent-2" type="radio" id="state-pp-2" name="selector-pp">
-    <input class="hidden-input switch-parent-3" type="radio" id="state-pp-3" name="selector-pp">
-    <div class="container-profile-img">
-      <!-- Pic: Container -->
-      <div class="profile-img profile-img--accordion">
-        <img class="img-pp-1" src="/img/profile_picture1.png" alt="Main Profile Picture">
-        <img class="img-pp-2" src="/img/profile_picture2.png" alt="Alt account Profile Picture">
-        <img class="img-pp-3" src="/img/profile_picture3.png" alt="Latest Profile Picture">
-      </div>
-      <!-- Pic: Text button -->
-      <div class="selector-pp">
-        <label class="selection" for="state-pp-1" id="selector-pp1" style="border-right: 2px solid lightgray">Main</label>
-        <label class="selection" for="state-pp-2" id="selector-pp2">Sub</label>
-        <label class="hidden selection" for="state-pp-3" id="selector-pp3" style="border-left: 2px solid lightgray">Alt2</label>
-      </div>
+  <div class="section-flex-border">
+    <div class="container-flex-border">
+      <p style="margin: 0 0 -8px 0">Recent Posts:</p>
+      <ol style="margin-bottom: 0">
+        <li><div class="container-tooltip container-tooltip--sign"><span class="tooltip"><img src="/blog/2_win-nav/openshell_extra-2.gif" loading="lazy"></span><a href="/download#start-orb-illith">[Files] Illith Custom Start Orb</a></div></li>
+        <li><a href="/blog/windows-navigation-enhancement">[Blog] Windows Navigation Enhancement</a></li>
+        <li><a href="/blog/create-live2d">[Blog] Creating Live2D Model | AI-llith</a></li>
+      </ol>
     </div>
-    <!-- Pic: Content-->
-    <h1 class="no-margin">Welcome</h1>
-    <p class="caption">"4k art? Make it <span class="container-tooltip" tabindex="0"><span class="tooltip">According to my calculation, it's 192x108 px.</span><span class="link">20 times</span></span> smaller."</p>
-    <div class="hidden switch-child-1">
-      <p>My name is Zan, also known as Kurover in some part. I'm a pixel artist who mainly draw art and animation from Touhou Project (東方Project).</p>
-      <p>I'm usually active on <a href="https://twitter.com/Cloverift">Twitter</a> and <span class="container-tooltip" tabindex="0"><span class="tooltip tooltip--medium">Remote instance <a href="https://rkgk.moe/@zan">rkgk.moe</a> or search <span class="notice">@zan@rkgk.moe</span> on instance of your choice!</span><span class="link">Misskey</span></span>. This website on the other hand, provide up to date artworks, even fixed version.</p>
-    </div>
-    <div class="hidden switch-child-2">
-      <p style="color: gray">If you somehow see me with this profile picture, you are cultured.</p>
-      <p>Originally, this site was written and optimized just for pixel art media gallery, but it has since evolved to serve all sort of stuff, like blogging and project showcase. Very ambitious I know, but I can't contain myself!</p>    
-      </div>
-    <div class="hidden switch-child-3">
-      <p>Welcome keyboard user, this is the secret corner! This ain't anything special really. Just a trimmed content I still keep in the page.</p>
-      <p>There's no other secret content in this website as of current iteration. Who knows, maybe I'll add one someday. It need to be cool though.</p>
-    </div>
-    
-    <div style="margin-bottom: 16px;"></div>
-    
-    <div class="section-flex-border">
-      <div class="container-flex-border">
-        <p style="margin: 0 0 -8px 0">Recent Posts:</p>
-        <ol style="margin-bottom: 0">
-          <li><div class="container-tooltip container-tooltip--sign"><span class="tooltip"><img src="/blog/2_win-nav/openshell_extra-2.gif" loading="lazy"></span><a href="/download#start-orb-illith">[Files] Illith Custom Start Orb</a></div></li>
-          <li><a href="/blog/windows-navigation-enhancement">[Blog] Windows Navigation Enhancement</a></li>
-          <li><a href="/blog/create-live2d">[Blog] Creating Live2D Model | AI-llith</a></li>
-        </ol>
-      </div>
-      <div class="container-flex-border">
-        <p class="no-margin notice">Status</p>
-        <p>Currently feeling creatively conflicted. Wanting to abandon a lot of stuff in order for me to fully tryharding art. :thonk:</p>
-      </div>
+    <div class="container-flex-border">
+      <p class="no-margin notice">Status</p>
+      <p>{% include home-status.md %}</p>
     </div>
   </div>
-  
-  <!-- Hidden Radio selector to manipulate active sub-tab, manipulated by button navigation below -->
-  <input class="hidden-input" type="radio" id="state-sub-nav-0" name="selector-accordion">
-  <input class="hidden-input" type="radio" id="state-sub-nav-1" name="selector-accordion">
-  <input class="hidden-input" type="radio" id="state-sub-nav-2" name="selector-accordion" checked>
-  <input class="hidden-input" type="radio" id="state-sub-nav-3" name="selector-accordion">
-  
-  <!-- Sub Nav Bar - Button navigation -->
-  <div class="nav-bar nav-bar--sub-nav">
-    <div class="sub-nav-entry--title">
-      <label class="sub-nav-entry--close link" id="selector-accordion-0" for="state-sub-nav-0">Close</label>
-      <span>Profile</span>
-    </div>
-    <label class="sub-nav-entry" id="selector-accordion-1" for="state-sub-nav-1">
-      Contact
-    </label>
-    <label class="sub-nav-entry" id="selector-accordion-2" for="state-sub-nav-2">
-      Sample
-    </label>
-    <label class="sub-nav-entry" id="selector-accordion-3" for="state-sub-nav-3">
-      Misc.
-    </label>
+</div>
+
+<!-- Hidden Radio selector to manipulate active sub-tab, manipulated by button navigation below -->
+<input class="hidden-input" type="radio" id="state-sub-nav-0" name="selector-accordion">
+<input class="hidden-input" type="radio" id="state-sub-nav-1" name="selector-accordion">
+<input class="hidden-input" type="radio" id="state-sub-nav-2" name="selector-accordion" checked>
+<input class="hidden-input" type="radio" id="state-sub-nav-3" name="selector-accordion">
+
+<!-- Sub Nav Bar - Button navigation -->
+<div class="nav-bar nav-bar--sub-nav">
+  <div class="sub-nav-entry--title">
+    <label class="sub-nav-entry--close link" id="selector-accordion-0" for="state-sub-nav-0">Close</label>
+    <span>Profile</span>
   </div>
-  
-  <!-- Sub-tab: Fake tab for closing animation-->
-  <div class="entry entry--accordion-placeholder"></div>
-  
-  <!-- Sub-tab: Contact -->
-  <div class="entry entry--accordion" id="accordion-entry-1" tabindex="0">
-    <div class="container">
-      <h2 class="no-margin">Contact</h2>
-      <ul>
-        <li>Discord: kurover_zan</li>
-        <li>E-Mail: <a href="mailto:kuroverzan@gmail.com">kuroverzan@gmail.com</a></li>
-        <li>Twitter: <a href="https://twitter.com/Cloverift">@Cloverift</a></li>
-      </ul>
-      <hr>
-      <h2>Internet Profile</h2>
-      <p>Listing these for the sake of listing things.</p>
-      <ul>
-        <li><a href="https://ko-fi.com/zanster">Ko-fi</a> - One day, this page will be useful for me and has value for you.</li>
-        <li><a href="https://www.pixiv.net/en/users/9071038">Pixiv</a> - Rarely used and unlikely to upload here often.</li>
-        <li><a href="https://rkgk.moe/@zan">rkgk.moe</a> - Main account on Fediverse, a place by Redi. Pretty much a lovely hipster countryside.</li>
-        <li><a href="https://www.reddit.com/user/Kurover/">Reddit</a> - Active on r/arknights. Lurks pretty much everywhere.</li>
-        <li><a href="https://steamcommunity.com/id/zanster/">Steam</a> - Check recent activity to see if I'm slacking off or not.</li>
-        <li><a href="https://www.youtube.com/channel/UCDrvbqpHMCT9G545aoM8nLQ">YouTube | Main, Art</a> - Channel for art timelapse and to comment on vods.</li>
-        <li><a href="https://www.youtube.com/channel/UCKQi2DXguogqjKySx2Aj3Tw">YouTube | Arknights</a> - Channel for Arknights content. Hiatus for undetermined duration.</li>
-      </ul>
-      <h3>Extras</h3>
-      <ul>
-        <li><a href="https://krooster.com/u/kurover">Arknights | Krooster</a></li>
-      </ul>
-    </div>
+  <label class="sub-nav-entry" id="selector-accordion-1" for="state-sub-nav-1">
+    Contact
+  </label>
+  <label class="sub-nav-entry" id="selector-accordion-2" for="state-sub-nav-2">
+    Sample
+  </label>
+  <label class="sub-nav-entry" id="selector-accordion-3" for="state-sub-nav-3">
+    Misc.
+  </label>
+</div>
+
+<!-- Sub-tab: Fake tab for closing animation-->
+<div class="entry entry--accordion-placeholder"></div>
+
+<!-- Sub-tab: Contact -->
+<div class="entry entry--accordion" id="accordion-entry-1" tabindex="0">
+  <div class="container">
+    <h2 class="no-margin">Contact</h2>
+    <ul>
+      <li>Discord: kurover_zan</li>
+      <li>E-Mail: <a href="mailto:kuroverzan@gmail.com">kuroverzan@gmail.com</a></li>
+      <li>Twitter: <a href="https://twitter.com/Cloverift">@Cloverift</a></li>
+    </ul>
+    <hr>
+    <h2>Internet Profile</h2>
+    <p>Listing these for the sake of listing things.</p>
+    <ul>
+      <li><a href="https://ko-fi.com/zanster">Ko-fi</a> - One day, this page will be useful for me and has value for you.</li>
+      <li><a href="https://www.pixiv.net/en/users/9071038">Pixiv</a> - Rarely used and unlikely to upload here often.</li>
+      <li><a href="https://rkgk.moe/@zan">rkgk.moe</a> - Main account on Fediverse, a place by Redi. Pretty much a lovely hipster countryside.</li>
+      <li><a href="https://www.reddit.com/user/Kurover/">Reddit</a> - Active on r/arknights. Lurks pretty much everywhere.</li>
+      <li><a href="https://steamcommunity.com/id/zanster/">Steam</a> - Check recent activity to see if I'm slacking off or not.</li>
+      <li><a href="https://www.youtube.com/channel/UCDrvbqpHMCT9G545aoM8nLQ">YouTube | Main, Art</a> - Channel for art timelapse and to comment on vods.</li>
+      <li><a href="https://www.youtube.com/channel/UCKQi2DXguogqjKySx2Aj3Tw">YouTube | Arknights</a> - Channel for Arknights content. Hiatus for undetermined duration.</li>
+    </ul>
+    <h3>Extras</h3>
+    <ul>
+      <li><a href="https://krooster.com/u/kurover">Arknights | Krooster</a></li>
+    </ul>
   </div>
-  
-  <!-- Sub-tab: Sample -->
-  <div class="entry entry--accordion" id="accordion-entry-2" tabindex="0">
-    <div class="container">
-      <h2 class="no-margin">Work Sample</h2>
-      <p class="caption"><span class="mobile-only">Tap to zoom. Some animation can be toggled between their main-loop-only version, the switch is indicated by green border.</span><span class="web-only">Hover to zoom. Animation with pointer cursor can be clicked for their main-loop-only version, the switch is indicated by green border.</span></p>
-      <hr>
-      <!--Animation-->
-      <div class="container-gallery">
-        <div class="image-container sample-left"> 
-          <input class="hidden-input container-expandable-controller" type="checkbox" id="img-reimu">
-          <label class="button-expand--once link" for="img-reimu">
-          <img src="img/gallery/touhou_reimu1.gif" loading="lazy" alt="Reimu idle animation"> 
-          </label>
-          <label class="container-expandable-content link" for="img-reimu"><img src="img/gallery/touhou_reimu1-loop.gif" style="outline: 1px solid darkolivegreen" loading="lazy" alt="Reimu idle animation loop version"> </label>
-        </div>
-        <div class="image-container sample-center"> <img src="img/gallery/touhou_patchy.gif" alt="Patchouli flower animation"> </div>
-        <div class="image-container sample-right">
-          <input class="hidden-input container-expandable-controller" type="checkbox" id="img-marisa">
-          <label class="button-expand--once link" for="img-marisa">
-          <img src="img/gallery/touhou_marisa1.gif" loading="lazy" alt="Marisa idle animation"> 
-          </label>
-          <label class="container-expandable-content link" for="img-marisa"><img src="img/gallery/touhou_marisa1-loop.gif" style="outline: 1px solid darkolivegreen" loading="lazy" alt="Marisa idle animation loop version"> </label>
-        </div>
+</div>
+
+<!-- Sub-tab: Sample -->
+<div class="entry entry--accordion" id="accordion-entry-2" tabindex="0">
+  <div class="container">
+    <h2 class="no-margin">Work Sample</h2>
+    <p class="caption"><span class="mobile-only">Tap to zoom. Some animation can be toggled between their main-loop-only version, the switch is indicated by green border.</span><span class="web-only">Hover to zoom. Animation with pointer cursor can be clicked for their main-loop-only version, the switch is indicated by green border.</span></p>
+    <hr>
+    <!--Animation-->
+    <div class="container-gallery">
+      <div class="image-container sample-left"> 
+        <input class="hidden-input container-expandable-controller" type="checkbox" id="img-reimu">
+        <label class="button-expand--once link" for="img-reimu">
+        <img src="img/gallery/touhou_reimu1.gif" loading="lazy" alt="Reimu idle animation"> 
+        </label>
+        <label class="container-expandable-content link" for="img-reimu"><img src="img/gallery/touhou_reimu1-loop.gif" style="outline: 1px solid darkolivegreen" loading="lazy" alt="Reimu idle animation loop version"> </label>
       </div>
-      <!--Drawings-->
-      <div class="container-gallery">
-        <div class="image-container sample-left"> <img src="img/gallery/touhou_grassroot3.gif" alt="Sekibanki and Kogasa animation"> </div>
-        <div class="image-container sample-right sample-styled-1"> <img src="img/gallery/touhou_kyouko-2.gif" alt="Kyouko excited animation"> </div>
+      <div class="image-container sample-center"> <img src="img/gallery/touhou_patchy.gif" alt="Patchouli flower animation"> </div>
+      <div class="image-container sample-right">
+        <input class="hidden-input container-expandable-controller" type="checkbox" id="img-marisa">
+        <label class="button-expand--once link" for="img-marisa">
+        <img src="img/gallery/touhou_marisa1.gif" loading="lazy" alt="Marisa idle animation"> 
+        </label>
+        <label class="container-expandable-content link" for="img-marisa"><img src="img/gallery/touhou_marisa1-loop.gif" style="outline: 1px solid darkolivegreen" loading="lazy" alt="Marisa idle animation loop version"> </label>
       </div>
-      <hr>
-      <h3>Extras</h3>
-      Insert "you are leaving this site" popup here (not!)
-      <ul>
-        <li>
-          <div class="container-tooltip container-tooltip--sign"><span class="tooltip"><img src="/img/misc/preview_lapse-sekibancape.webp" width="500px" alt="Preview" loading="lazy"></span><a class="link" href="https://youtu.be/lj3B6gQ_8lQ">YouTube | Sekibanki Animation Timelapse</a></div>
-        </li>
-        <li>
-          <div class="container-tooltip container-tooltip--sign"><span class="tooltip"><img src="/img/misc/preview_lapse-sekiraini.webp" width="300px" alt="Preview" loading="lazy"></span><a class="link" href="https://twitter.com/i/status/1666406625249484800">Twitter | Sekibanki w/ Kogasa Animation Timelapse</a></div> - No Audio
-        </li>
-        <li>
-          <div class="container-tooltip container-tooltip--sign"><span class="tooltip"><img src="/img/misc/preview_lapse-rumia.webp" width="500px" alt="Preview" loading="lazy"></span><a class="link" href="https://youtu.be/_E75Z9Z0nUs">Youtube | Rumia Timelapse</a></div> - Experimental
-        </li>
-      </ul>
     </div>
-  </div>
-  
-  <!-- Sub-tab: Misc. -->
-  <div class="entry entry--accordion" id="accordion-entry-3" tabindex="0">
-    <div class="container">
-      <h2 class="no-margin">The Miscellaneous Page</h2>
-      <p class="caption">"A wall of text, flavored of course."</p>
-      <p>This section contain word and sentences that detract from the core relevancy of this website existence, somewhat. It's a fluff, mayhaps a reminder, or possibly a lament that is originated from the writer themself. In other word, it's a section of self-answered question(s), from yours truly. Y-yeah, I just wanted to embrace the flamˈboeyan'sae in this section.</p>
-      
-      <hr>
-      
-      <h3>Zanster and Me</h3>
-      <p>One gotta start somewhere. These are handful of trivias about me. Written by myself because I'm full of myself! Though really I just like writing these kind of fluff to anybody.</p>
-      
-      <h4 class="no-margin-bot quote">History of Canvas</h4>
-      <details>
-        <summary style="color:whitesmoke">"Once upon a time, there was an internet junky on its chair."</summary>
-        <p>Drawing art was a hobby of mine since 2013. It all started by me, innocently, scrolling through Facebook timeline and saw one of my, well, "friend of a friend", drew this amazing piece of anime art, not sure what it was but amazing nonetheless. Then, it struck me, wouldn't it be cool if I also could do the thing whatever they're doing?</p>
-        <p>With 1 fully finished art piece per month ratio even to this day, we jump ahead 5 revolution away toward the end of the year 2017. At this time, I dipped my flimsy little toes into pixel art and it was the most fun experience I've ever had in the graphical world. A change of pace, for a magical space.</p>
-        <p>And now we are here. Trying a bit into writing, while also keeping up with the drawing. Oh, I guess HTML/CSS too, eh? Oh uh, photography and video editing? Ok, I guess I do have a fair share of problems in my hand.</p> 
-      </details>
-      
-      <h4 class="no-margin-bot quote">Threading the Web Page</h4>
-      <details>
-        <summary style="color:whitesmoke">"An artist was once interested in knitting the globe."</summary>
-        <p>For all you nerds out there, yes, this website is almost exclusively crafted with HTML/CSS. There's Jekyll integration here but it's mainly to restore missing links due to me renaming pages. I want to expand Jekyll automation more but that's a problem for future me.</p>
-        <p>&#9830; Why bother?</p>
-        <p>Why did I choose to code my own website instead of other options, you may ask? I wanted control, or really it's just cool to create one from scratch in my head. Besides, instant (and free) alternative out there doesn't sit well with me on how they plaster their branding. So making my own place is the best choice for my well-being, also it's cool.</p>
-        <p>Some other reason on why I decided not to use javascript to build this website is to limit myself from going too far. I know how impulsive I am when it come to "feature-powercreep", or powercreeping my previous work in general, so the limitation is actually great.</p>
-        <p>Yeah there are drawbacks with the current method, like, things are bit too manual for the most part. Though I'd argue it's an acquired taste, much like resource gathering in Minecraft. <span style="color: gray">Copium..</span></p>
-        <p>&#9830; When? Is this your first experience?</p>
-        <p>This website is technically my website 2.0. First published at 2016 and basically rewritten from zero bit at 2022. Try cloning/download <span class="center container-tooltip container-tooltip--sign"><span class="tooltip tooltip--large"><img src="img/misc/preview_old-website.png" loading="lazy"></span><a href="https://github.com/Kurover/kurover.github.io/tree/d998fb9271ac6a172f76583327eb526ac3252eae">this commit</a></span> and see the travesty it was before. It had similar structure but the purpose of it was much different. Back then it was made by little me who liked to try random cool tech, resulting in somewhat aimless direction. It also copies way too much stuff from w3schools, lol.</p>
-        <p>&#9830; What's the end line here?</p>
-        <p>My end goal with the website is to make a comfy portfolio on top of the "no script" limitation,  like how you have so few option to draw a circle in pixel art. Of course, your regular peeps wouldn't really care or know the difference, but I can share the glorious jank once in a while among the nerds. This goal has evolved into pretty much whatever I want to include!</p>
-        <p>While on it, I also hope that I can achieve an interactive website where you can easily receive relevant information without getting overwhelmed by irrelevant junk floating around. Not saying I wouldn't add floating junk around of course, hehe.</p>
-        <p>Slight tangent but adding mobile view support and designing around them even for a tiny bit is hell. Respect to you front-end devs out there with this kind of job. Then again, I should create the website for mobile first and desktop later, now that I know the secret.</p>
-      </details>
-      
-      <h4 class="no-margin-bot quote">Nicknames Galore</h4>
-      <details>
-        <summary style="color:whitesmoke">"I held a lot of nameplates, it was a terrible idea."</summary>
-        <p>Little me liked to use different name on online spaces. To name a couple, it's: Zanster, Zank3tsuken, Hall0wZan, Koishift, TsubakiWhite, Pafu, (many other irrelevant name to my first one), and lastly, Kurover. I stopped randomly assigning myself a name because it's simply not a good move if you want to gain a relevancy, which is what I'm trying to do in the world of content creator right now.</p>
-        <p>Thankfully, Zanster and Kurover are the only one you need to remember. I tried to forget Kurover as a whole but it has a bit too much attachment and prevalence so I can't bring myself to do it.</p>
-        <p>&#9830; Zanster?</p>
-        <p>So, where does the name Zanster come from? Y'see, when I was a pea, I loved this game called Monster Rancher 4. There's a monster called 'Zan' in the game and it triggers all my edgy sensor. Unfortunately, I couldn't get it due to the summoning mechanic requiring you to have specific CD of it. Ever since then, I picked the name Zan to be my name. Probably a hard-coping mechanic for little me.</p>
-        <p>With that story in store, combine the word 'Zan' with 'Gangster' (because it's edge +10) and voila, you get Zanster! I was forced to do it because the online game I played back then requires your name to have a minimum of 4 characters.</p>
-        <p>As for Kurover, it come from the word Clover, which is spelled like it if you weebify it. I said weebify because the Japanese for Clover is ku-ro-ba. Clover is also my second OC name that went through a lot of iteration. It's the classic "overly attached on a single OC" type of deal.</p>
-      </details>
-      
-      <br><hr>
-      
-      <h3>Website Laboratory</h3>
-      <p>A collection of test and experimental page. Written and explained briefly in some of them because there's a good chance that I will forget how it work.</p>
-      <p>Prepare yourself and terrastallize to dark type, lest you want to take the psychic damage trying to decode it.</p>
-      <ul>
-        <li><a href="/misc/linkthree.html"> "LinkThree" </a></li>
-        <li><a href="/misc/cursor-hover.html"> Animated Cursor Preview </a></li>
-        <li><a href="/misc/lab_checkbox-combinator.html"> Checkbox Combinator </a></li>
-        <li><a href="/misc/external-embed.html"> External Embed Testing </a></li>
-        <li><a href="/misc/lab_grid.html"> Grid Layout </a></li>
-        <li><a href="/misc/module-template.html"> Template and Snippet For Janky Stuff </a></li>
-      </ul>
+    <!--Drawings-->
+    <div class="container-gallery">
+      <div class="image-container sample-left"> <img src="img/gallery/touhou_grassroot3.gif" alt="Sekibanki and Kogasa animation"> </div>
+      <div class="image-container sample-right sample-styled-1"> <img src="img/gallery/touhou_kyouko-2.gif" alt="Kyouko excited animation"> </div>
     </div>
+    <hr>
+    <h3>Extras</h3>
+    Insert "you are leaving this site" popup here (not!)
+    <ul>
+      <li>
+        <div class="container-tooltip container-tooltip--sign"><span class="tooltip"><img src="/img/misc/preview_lapse-sekibancape.webp" width="500px" alt="Preview" loading="lazy"></span><a class="link" href="https://youtu.be/lj3B6gQ_8lQ">YouTube | Sekibanki Animation Timelapse</a></div>
+      </li>
+      <li>
+        <div class="container-tooltip container-tooltip--sign"><span class="tooltip"><img src="/img/misc/preview_lapse-sekiraini.webp" width="300px" alt="Preview" loading="lazy"></span><a class="link" href="https://twitter.com/i/status/1666406625249484800">Twitter | Sekibanki w/ Kogasa Animation Timelapse</a></div> - No Audio
+      </li>
+      <li>
+        <div class="container-tooltip container-tooltip--sign"><span class="tooltip"><img src="/img/misc/preview_lapse-rumia.webp" width="500px" alt="Preview" loading="lazy"></span><a class="link" href="https://youtu.be/_E75Z9Z0nUs">Youtube | Rumia Timelapse</a></div> - Experimental
+      </li>
+    </ul>
   </div>
-  
-</body>
-</html>
+</div>
+
+<!-- Sub-tab: Misc. -->
+<div class="entry entry--accordion" id="accordion-entry-3" tabindex="0">
+  <div class="container">
+    <h2 class="no-margin">The Miscellaneous Page</h2>
+    <p class="caption">"A wall of text, flavored of course."</p>
+    <p>This section contain word and sentences that detract from the core relevancy of this website existence, somewhat. It's a fluff, mayhaps a reminder, or possibly a lament that is originated from the writer themself. In other word, it's a section of self-answered question(s), from yours truly. Y-yeah, I just wanted to embrace the flamˈboeyan'sae in this section.</p>
+
+    <hr>
+
+    <h3>Zanster and Me</h3>
+    <p>One gotta start somewhere. These are handful of trivias about me. Written by myself because I'm full of myself! Though really I just like writing these kind of fluff to anybody.</p>
+
+    <h4 class="no-margin-bot quote">History of Canvas</h4>
+    <details>
+      <summary style="color:whitesmoke">"Once upon a time, there was an internet junky on its chair."</summary>
+      <p>Drawing art was a hobby of mine since 2013. It all started by me, innocently, scrolling through Facebook timeline and saw one of my, well, "friend of a friend", drew this amazing piece of anime art, not sure what it was but amazing nonetheless. Then, it struck me, wouldn't it be cool if I also could do the thing whatever they're doing?</p>
+      <p>With 1 fully finished art piece per month ratio even to this day, we jump ahead 5 revolution away toward the end of the year 2017. At this time, I dipped my flimsy little toes into pixel art and it was the most fun experience I've ever had in the graphical world. A change of pace, for a magical space.</p>
+      <p>And now we are here. Trying a bit into writing, while also keeping up with the drawing. Oh, I guess HTML/CSS too, eh? Oh uh, photography and video editing? Ok, I guess I do have a fair share of problems in my hand.</p> 
+    </details>
+
+    <h4 class="no-margin-bot quote">Threading the Web Page</h4>
+    <details>
+      <summary style="color:whitesmoke">"An artist was once interested in knitting the globe."</summary>
+      <p>For all you nerds out there, yes, this website is almost exclusively crafted with HTML/CSS. There's Jekyll integration here but it's mainly to restore missing links due to me renaming pages. I want to expand Jekyll automation more but that's a problem for future me.</p>
+      <p>&#9830; Why bother?</p>
+      <p>Why did I choose to code my own website instead of other options, you may ask? I wanted control, or really it's just cool to create one from scratch in my head. Besides, instant (and free) alternative out there doesn't sit well with me on how they plaster their branding. So making my own place is the best choice for my well-being, also it's cool.</p>
+      <p>Some other reason on why I decided not to use javascript to build this website is to limit myself from going too far. I know how impulsive I am when it come to "feature-powercreep", or powercreeping my previous work in general, so the limitation is actually great.</p>
+      <p>Yeah there are drawbacks with the current method, like, things are bit too manual for the most part. Though I'd argue it's an acquired taste, much like resource gathering in Minecraft. <span style="color: gray">Copium..</span></p>
+      <p>&#9830; When? Is this your first experience?</p>
+      <p>This website is technically my website 2.0. First published at 2016 and basically rewritten from zero bit at 2022. Try cloning/download <span class="center container-tooltip container-tooltip--sign"><span class="tooltip tooltip--large"><img src="img/misc/preview_old-website.png" loading="lazy"></span><a href="https://github.com/Kurover/kurover.github.io/tree/d998fb9271ac6a172f76583327eb526ac3252eae">this commit</a></span> and see the travesty it was before. It had similar structure but the purpose of it was much different. Back then it was made by little me who liked to try random cool tech, resulting in somewhat aimless direction. It also copies way too much stuff from w3schools, lol.</p>
+      <p>&#9830; What's the end line here?</p>
+      <p>My end goal with the website is to make a comfy portfolio on top of the "no script" limitation,  like how you have so few option to draw a circle in pixel art. Of course, your regular peeps wouldn't really care or know the difference, but I can share the glorious jank once in a while among the nerds. This goal has evolved into pretty much whatever I want to include!</p>
+      <p>While on it, I also hope that I can achieve an interactive website where you can easily receive relevant information without getting overwhelmed by irrelevant junk floating around. Not saying I wouldn't add floating junk around of course, hehe.</p>
+      <p>Slight tangent but adding mobile view support and designing around them even for a tiny bit is hell. Respect to you front-end devs out there with this kind of job. Then again, I should create the website for mobile first and desktop later, now that I know the secret.</p>
+    </details>
+
+    <h4 class="no-margin-bot quote">Nicknames Galore</h4>
+    <details>
+      <summary style="color:whitesmoke">"I held a lot of nameplates, it was a terrible idea."</summary>
+      <p>Little me liked to use different name on online spaces. To name a couple, it's: Zanster, Zank3tsuken, Hall0wZan, Koishift, TsubakiWhite, Pafu, (many other irrelevant name to my first one), and lastly, Kurover. I stopped randomly assigning myself a name because it's simply not a good move if you want to gain a relevancy, which is what I'm trying to do in the world of content creator right now.</p>
+      <p>Thankfully, Zanster and Kurover are the only one you need to remember. I tried to forget Kurover as a whole but it has a bit too much attachment and prevalence so I can't bring myself to do it.</p>
+      <p>&#9830; Zanster?</p>
+      <p>So, where does the name Zanster come from? Y'see, when I was a pea, I loved this game called Monster Rancher 4. There's a monster called 'Zan' in the game and it triggers all my edgy sensor. Unfortunately, I couldn't get it due to the summoning mechanic requiring you to have specific CD of it. Ever since then, I picked the name Zan to be my name. Probably a hard-coping mechanic for little me.</p>
+      <p>With that story in store, combine the word 'Zan' with 'Gangster' (because it's edge +10) and voila, you get Zanster! I was forced to do it because the online game I played back then requires your name to have a minimum of 4 characters.</p>
+      <p>As for Kurover, it come from the word Clover, which is spelled like it if you weebify it. I said weebify because the Japanese for Clover is ku-ro-ba. Clover is also my second OC name that went through a lot of iteration. It's the classic "overly attached on a single OC" type of deal.</p>
+    </details>
+
+    <br><hr>
+
+    <h3>Website Laboratory</h3>
+    <p>A collection of test and experimental page. Written and explained briefly in some of them because there's a good chance that I will forget how it work.</p>
+    <p>Prepare yourself and terrastallize to dark type, lest you want to take the psychic damage trying to decode it.</p>
+    <ul>
+      <li><a href="/misc/linkthree.html"> "LinkThree" </a></li>
+      <li><a href="/misc/cursor-hover.html"> Animated Cursor Preview </a></li>
+      <li><a href="/misc/lab_checkbox-combinator.html"> Checkbox Combinator </a></li>
+      <li><a href="/misc/external-embed.html"> External Embed Testing </a></li>
+      <li><a href="/misc/lab_grid.html"> Grid Layout </a></li>
+      <li><a href="/misc/module-template.html"> Template and Snippet For Janky Stuff </a></li>
+    </ul>
+  </div>
+</div>

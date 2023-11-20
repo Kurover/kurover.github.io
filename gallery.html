@@ -1,300 +1,238 @@
-<!DOCTYPE html>
-<html lang="en">
+---
+layout: default
+title: Zan | Gallery
+description: Artwork gallery
+og-title: Gallery
+og-type: gallery
+---
+<!-- Sub-Nav States. It's here because we want the text in the entry to change via CSS selector. --> 
+<input class="hidden-input switch-global-parent-1" type="radio" id="state-sub-nav-0" name="selector-accordion">
+<input class="hidden-input switch-global-parent-2" type="radio" id="state-sub-nav-1" name="selector-accordion">
+<input class="hidden-input switch-global-parent-3" type="radio" id="state-sub-nav-2" name="selector-accordion" checked>
+<input class="hidden-input switch-global-parent-4" type="radio" id="state-sub-nav-3" name="selector-accordion">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zan | Gallery</title>
-  <meta property="og:url" content="https://kurover.github.io/gallery"/>
-  <meta property="og:site_name" content="Zanster Website"/>
-  <meta property="og:title" content="Gallery"/>
-  <meta property="og:type" content="gallery">
-  <meta property="og:description" content="Place for an assortment of works, arranged in a non-particular order"/>
-  <meta property="og:image" content="https://raw.githubusercontent.com/Kurover/resources/main/img/open_graph.png"/>
-  <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="theme-color" content="#72984e">
-  <meta name="msapplication-TileColor" content="#72984e">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=2">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=2">
-  <link rel="manifest" href="/site.webmanifest?v=2">
-  <link rel="mask-icon" href="/safari-pinned-tab.svg?v=2" color="#72984e">
-  <link rel="shortcut icon" href="/favicon.ico?v=2">
-  <link rel="stylesheet" href="/style.css">
-  <link rel="stylesheet" href="/font.css">
-</head>
+<!-- Main Entry -->
+<div class="entry" id="top">
+  <div class="container-profile-img">
+    <div class="profile-img">
+      <img src="/img/illith.png" alt="Illith Avatar Picture">
+    </div>
+    <div class="selector-pp">
+      <span class="no-select">Illith</span>
+    </div>
+  </div>
+  <h1 class="no-margin">Welcome: Gallery</h1>
+  <!--Text: Closed-->
+  <div class="hidden switch-global-child-1">
+    <p>Ever wondered why my creator even bother adding this useless close button? Your guess is as good as mine!</p>
+    <p>Speaking of that, let me tell you a little story. The reason why my creator did not set the tabs to closed by default is that <span class="container-tooltip"><span class="tooltip tooltip--large">If the default is closed, it will play the closing animation each time you refresh this page, it looks jarring.</span><span class="link">the codes are jank!</span></span> This issue is nonexistent if we just delete the <span class="container-tooltip"><span class="tooltip tooltip--large">We use fake tabs to play the closing animation while the original tab is thrown away tens of thousands pixel away below. We do this because we want to enable lazy loading for all the images. <br><br> Lazy load doesn't really work if you hide it with null-visibility because the browser can still see it, which will load the image regardless. There is a solution by using "display: none" to lazy load but that completely disable transitions.</span><span class="link">closing transition mechanic</span></span>, or you know, use javascript like every other sane human out there.</p>
+    <p>Also, have you noticed some inconsistencies like, you know, the animation category using "tabs" while the pixel art using "show more"? I also do not have the answer for that.</p>
+    <!--
+    <p>On another note, in response of my elegant description on the animation tab, I often like to give a jab to other pixel artist's portfolio when they use upscaled result. Because it tanks my processing unit real good when there are 10 GIFs with a size of 5mb each! My creator does the same too, except, with the facade of "friendly reminder". You don't hear this from me, ok? ~~Just want to give a payback because he never animates me~~. He kinda did, but I'll keep this in for you, source digger.</p>
+    -->
+  </div>
+  <!--Text: Anim-->
+  <div class="hidden switch-global-child-2">
+    <p>Animation goodies! Thanks to the power of super duper powerful upscaling filter, we can present these in reasonable scale and performance without badonka of bandwidth.</p>
+    <p>Nearest Neighbor is our bestest friend. It's unfortunate that there's no auto-detection of pixel art so we have to manually assign them accordingly, else it will be smoothed out by default. Try viewing pixel art on a new tab.</p>
+  </div>
+  <!--Text: Pixel-->
+  <div class="hidden switch-global-child-3">
+    <p>Hello, Illith here, welcome to the gallery! Do take a look around will ya?</p>
+    <p>You are currently looking at pixel art sub-tab. You can switch the category below. Coincidentally, I will provide you a flavor text in each of category.</p>
+    <p>Fun fact, these pixel art and animation showcase gallery is more or less 75% of my creator's art in total. Pretty disappointing number, isn't it?</p>
+  </div>
+  <!--Text: Raster-->
+  <div class="hidden switch-global-child-4">
+    <p>My creator do indeed create raster art, gotta start somewhere. We do still actively use this medium for sketch and practice, as it is easier to scratch the pen tablet to get smooth and curvy lines.</p>
+    <p>Also, there are more raster art that is not showcased here. My creator has not really draw that much of raster art after he "dipped his toes" or whatever into pixel art. Might be allergic to it actually, who knows though.</p>
+  </div>
+</div>
 
-<body>
-  <!-- Keyboard Nav Skip -->
-  <a class="jump-to-main" href="#top"></a>
+<!-- Sub-Nav -->
+<div class="nav-bar nav-bar--sub-nav">
+  <div class="sub-nav-entry--title">
+    <label class="sub-nav-entry--close link" id="selector-accordion-0" for="state-sub-nav-0">Close</label>
+    <span class="web-only">Category</span>
+    <span class="mobile-only">Categ.</span>
+  </div>
+  <label class="sub-nav-entry" id="selector-accordion-1" for="state-sub-nav-1">
+    Anim
+  </label>
+  <label class="sub-nav-entry" id="selector-accordion-2" for="state-sub-nav-2">
+    Pixel
+  </label>
+  <label class="sub-nav-entry" id="selector-accordion-3" for="state-sub-nav-3">
+    Raster
+  </label>
+</div>
+
+<!--Fake-tab-->
+<div class="entry entry--accordion-placeholder"></div>
+
+<!-- Gallery: Animation -->
+<div class="entry entry--accordion" id="accordion-entry-1" tabindex="0">
   
-  <!-- Navigation Bar -->
-  <header>
-    <nav class="nav-bar">
-      <div class="nav-entry nav-entry--title"> Zan.site </div>
-      <a class="nav-entry" href="/">Home</a>
-      <a class="nav-entry nav-entry--active" href="/gallery">Gallery</a>
-      <a class="nav-entry web-only" href="/blog">Blog</a>
-      <a class="nav-entry web-only" href="/download">Files</a>
-      <div class="nav-entry nav-dropdown-button mobile-only" tabindex="0">
-        More
-        <div class="nav-dropdown-container">
-          <a class="nav-dropdown-entry" href="/blog">Blog</a>
-          <a class="nav-dropdown-entry" href="/download">Files</a>
-        </div>
-      </div>
-      <div class="nav-entry nav-entry--right entry-linkthree-parent" tabindex="0">
-        <span class="no-select">Links</span>
-        <!--Linkthree Start Here-->
-        <div class="entry-linkthree entry-linkthree--embed" style="cursor: default;">
-          <div class="linkthree-profile">
-            <p class="notice" style="margin: 0; font-size: 32px;">Links!</p>
-            <p style="margin: 8px 0">"Any resemblance to other websites are purely coincidental."</p>
-          </div>
-          <div class="linkthree-link"><a href="https://twitter.com/Cloverift" class="text"><div class="linkthree-img"><img src="/img/icon_twitter.svg" style="filter: invert(1)"></div>Twitter</a></div>
-          <div class="linkthree-link"><a href="https://rkgk.moe/@zan" class="text"><div class="linkthree-img"><img src="/img/icon_misskey.svg" style="filter: invert(1)"></div>Misskey</a></div>
-          <div class="linkthree-link"><a href="https://github.com/Kurover/kurover.github.io" class="text"><div class="linkthree-img"><img src="/img/icon_github.svg" style="filter: invert(1)"></div>Github Repo</a></div>
-          <div class="linkthree-link"><div class="text"><div class="linkthree-img"><img src="/img/icon_discord.svg" style="filter: invert(1)"></div><span style="cursor: text">kurover_zan</span></div></div>
-          <div class="linkthree-link"><a href="http://04.jp.org" class="text"><div class="linkthree-img"><img src="/img/icon_web.svg" style="filter: invert(1)"></div>Font Credit</a></div>
-          <p style="color: gray">Icon Source:<br><a href="https://remixicon.com">RemixIcon</a> | <a href="https://iconarchive.com">IconArchive</a></p>
-        </div>
-      </div>
-      <!--Links close button-->
-      <div class="entry-linkthree-embed-control" tabindex="0"></div>
-    </nav>
-  </header>
+  <input class="hidden-input state-container-tab-1" type="radio" id="state-container-animation-tab-1" name="tabbed-animation" checked>
+  <input class="hidden-input state-container-tab-2" type="radio" id="state-container-animation-tab-2" name="tabbed-animation">
   
-  <!-- Sub-Nav States. It's here because we want the text in the entry to change via CSS selector. --> 
-  <input class="hidden-input switch-global-parent-1" type="radio" id="state-sub-nav-0" name="selector-accordion">
-  <input class="hidden-input switch-global-parent-2" type="radio" id="state-sub-nav-1" name="selector-accordion">
-  <input class="hidden-input switch-global-parent-3" type="radio" id="state-sub-nav-2" name="selector-accordion" checked>
-  <input class="hidden-input switch-global-parent-4" type="radio" id="state-sub-nav-3" name="selector-accordion">
+  <h2 class="hidden">Gallery Animation</h2> <!--Hiding the header to remind me to make custom png here. Text header look too much of a potato relative to the content.-->
   
-  <!-- Main Entry -->
-  <div class="entry" id="top">
-    <div class="container-profile-img">
-      <div class="profile-img">
-        <img src="/img/illith.png" alt="Illith Avatar Picture">
-      </div>
-      <div class="selector-pp">
-        <span class="no-select">Illith</span>
-      </div>
+  <div class="mobile-only-force container container-tab-controller-container">
+    <label class="container-tab-controller container-tab-controller-1" for="state-container-animation-tab-1">Page 1</label>
+    <label class="container-tab-controller container-tab-controller-2" for="state-container-animation-tab-2">Page 2</label>
+  </div>
+  
+  <div class="nav-float nav-float--gal">
+    <label class="container-tab-controller container-tab-controller-1 container-tooltip" for="state-container-animation-tab-1">1<span class="tooltip tooltip--left" style="width: 60px;">Page 1</span></label>
+    <label class="container-tab-controller container-tab-controller-2 container-tooltip" for="state-container-animation-tab-2">2<span class="tooltip tooltip--left" style="width: 60px;">Page 2</span></label>
+  </div>
+  
+  <hr class="mobile-only" style="border-bottom: 1px solid gray;">
+  
+  <!--PAGE 1-->
+  <div class="container container-tab-content container-tab-content-1">
+    <div class="container-gallery">
+      <div class="image-container"> <input class="hidden-input container-expandable-controller" type="checkbox" id="img-reimu"><label class="button-expand--once link" for="img-reimu"><img src="img/gallery/touhou_reimu1.gif" loading="lazy" alt="Reimu idle animation"> </label><label class="container-expandable-content link" for="img-reimu"><img src="img/gallery/touhou_reimu1-loop.gif" style="outline: 1px solid darkolivegreen" loading="lazy" alt="Reimu idle animation loop version"></label> </div>
+      <div class="image-container"> <input class="hidden-input container-expandable-controller" type="checkbox" id="img-marisa"><label class="button-expand--once link" for="img-marisa"><img src="img/gallery/touhou_marisa1.gif" loading="lazy" alt="Marisa idle animation"> </label> <label class="container-expandable-content link" for="img-marisa"><img src="img/gallery/touhou_marisa1-loop.gif" style="outline: 1px solid darkolivegreen" loading="lazy" alt="Marisa idle animation loop version"></label> </div>
     </div>
-    <h1 class="no-margin">Welcome: Gallery</h1>
-    <!--Text: Closed-->
-    <div class="hidden switch-global-child-1">
-      <p>Ever wondered why my creator even bother adding this useless close button? Your guess is as good as mine!</p>
-      <p>Speaking of that, let me tell you a little story. The reason why my creator did not set the tabs to closed by default is that <span class="container-tooltip"><span class="tooltip tooltip--large">If the default is closed, it will play the closing animation each time you refresh this page, it looks jarring.</span><span class="link">the codes are jank!</span></span> This issue is nonexistent if we just delete the <span class="container-tooltip"><span class="tooltip tooltip--large">We use fake tabs to play the closing animation while the original tab is thrown away tens of thousands pixel away below. We do this because we want to enable lazy loading for all the images. <br><br> Lazy load doesn't really work if you hide it with null-visibility because the browser can still see it, which will load the image regardless. There is a solution by using "display: none" to lazy load but that completely disable transitions.</span><span class="link">closing transition mechanic</span></span>, or you know, use javascript like every other sane human out there.</p>
-      <p>Also, have you noticed some inconsistencies like, you know, the animation category using "tabs" while the pixel art using "show more"? I also do not have the answer for that.</p>
-      <!--
-      <p>On another note, in response of my elegant description on the animation tab, I often like to give a jab to other pixel artist's portfolio when they use upscaled result. Because it tanks my processing unit real good when there are 10 GIFs with a size of 5mb each! My creator does the same too, except, with the facade of "friendly reminder". You don't hear this from me, ok? ~~Just want to give a payback because he never animates me~~. He kinda did, but I'll keep this in for you, source digger.</p>
-      -->
+    <div class="container-gallery">
+      <div class="image-container zoom-large gallery-styled-1"> <img src="/img/gallery/touhou_spood1.gif" loading="lazy"> </div>
+      <div class="image-container zoom-large"> <img src="/img/gallery/touhou_spood2.gif" loading="lazy"> </div>
+      <div class="image-container zoom-large gallery-styled-2"> <img src="/img/gallery/touhou_spood-x1.gif" loading="lazy"> </div>
     </div>
-    <!--Text: Anim-->
-    <div class="hidden switch-global-child-2">
-      <p>Animation goodies! Thanks to the power of super duper powerful upscaling filter, we can present these in reasonable scale and performance without badonka of bandwidth.</p>
-      <p>Nearest Neighbor is our bestest friend. It's unfortunate that there's no auto-detection of pixel art so we have to manually assign them accordingly, else it will be smoothed out by default. Try viewing pixel art on new tab.</p>
+    <div class="container-gallery">
+      <div class="image-container"> <img src="/img/gallery/touhou_patchy.gif" loading="lazy"> </div>
+      <div class="image-container"> <img src="/img/gallery/touhou_kyouko-2.gif" loading="lazy"> </div>
     </div>
-    <!--Text: Pixel-->
-    <div class="hidden switch-global-child-3">
-      <p>Hello, Illith here, welcome to the gallery! Do take a look around will ya?</p>
-      <p>You are currently looking at pixel art sub-tab. You can switch the category below. Coincidentally, I will provide you a flavor text in each of category.</p>
-      <p>Fun fact, these pixel art and animation showcase gallery is more or less 75% of my creator's art in total. Pretty disappointing number, isn't it?</p>
+    <div class="container-gallery">
+      <div class="image-container gallery-styled-1"> <img src="/img/gallery/touhou_grassroot1.gif" loading="lazy"> </div>
+      <div class="image-container zoom-large"> <img src="/img/gallery/touhou_grassroot3.gif" loading="lazy"></div>
     </div>
-    <!--Text: Raster-->
-    <div class="hidden switch-global-child-4">
-      <p>My creator do indeed create raster art, gotta start somewhere. We do still actively use this medium for sketch and practice, as it is easier to scratch the pen tablet to get smooth and curvy lines.</p>
-      <p>Also, there are more raster art that is not showcased here. My creator has not really draw that much of raster art after he "dipped his toes" or whatever into pixel art. Might be allergic to it actually, who knows though.</p>
+    <div class="container-gallery">
+      <div class="image-container zoom-small"> <img src="/img/gallery/touhou_grassroot2.gif" loading="lazy"> <p class="img-caption">Personal favorite</p></div>
     </div>
   </div>
   
-  <!-- Sub-Nav -->
-  <div class="nav-bar nav-bar--sub-nav">
-    <div class="sub-nav-entry--title">
-      <label class="sub-nav-entry--close link" id="selector-accordion-0" for="state-sub-nav-0">Close</label>
-      <span class="web-only">Category</span>
-      <span class="mobile-only">Categ.</span>
+  <!--PAGE 2-->
+  <div class="container container-tab-content container-tab-content-2">
+    <div class="container-gallery">
+      <div class="image-container zoom-medium"> <img src="/img/gallery/touhou_rumia.gif" loading="lazy"> </div>
+      <div class="image-container zoom-medium"> <img src="/img/gallery/touhou_rumia-2.gif" loading="lazy"> </div>
+      <div class="image-container"> <img src="/img/gallery/touhou_youmu2.gif" loading="lazy"> </div>
     </div>
-    <label class="sub-nav-entry" id="selector-accordion-1" for="state-sub-nav-1">
-      Anim
-    </label>
-    <label class="sub-nav-entry" id="selector-accordion-2" for="state-sub-nav-2">
-      Pixel
-    </label>
-    <label class="sub-nav-entry" id="selector-accordion-3" for="state-sub-nav-3">
-      Raster
-    </label>
+    <div class="container-gallery">
+      <div class="image-container"> <img src="/img/gallery/oc_clover1.gif" loading="lazy"> </div>
+      <div class="image-container"> <img src="/img/gallery/oc_stylla1.gif" loading="lazy"> </div>
+      <div class="image-container"> <img src="/img/gallery/oc_stylla1b.gif" loading="lazy"> </div>
+    </div>
+    <div class="container-gallery">
+      <div class="image-container zoom-medium gallery-styled-3"> <img src="/img/gallery/touhou_alice.gif" loading="lazy"> </div>
+      <div class="image-container"> <img src="/img/gallery/touhou_kooshy.gif" loading="lazy"> </div>
+      <div class="image-container zoom-medium"> <img src="/img/gallery/touhou_cirno.gif" loading="lazy"> </div>
+    </div>
   </div>
   
-  <!--Fake-tab-->
-  <div class="entry entry--accordion-placeholder"></div>
-  
-  <!-- Gallery: Animation -->
-  <div class="entry entry--accordion" id="accordion-entry-1" tabindex="0">
-    
-    <input class="hidden-input state-container-tab-1" type="radio" id="state-container-animation-tab-1" name="tabbed-animation" checked>
-    <input class="hidden-input state-container-tab-2" type="radio" id="state-container-animation-tab-2" name="tabbed-animation">
-    
-    <h2 class="hidden">Gallery Animation</h2> <!--Hiding the header to remind me to make custom png here. Text header look too much of a potato relative to the content.-->
-    
-    <div class="mobile-only-force container container-tab-controller-container">
-      <label class="container-tab-controller container-tab-controller-1" for="state-container-animation-tab-1">Page 1</label>
-      <label class="container-tab-controller container-tab-controller-2" for="state-container-animation-tab-2">Page 2</label>
+</div>
+
+<!-- Gallery: Pixel Art -->
+<div class="entry entry--accordion" id="accordion-entry-2" tabindex="0">
+  <div class="container">
+    <h2 class="hidden">Gallery Pixel Art</h2>
+    <div class="container-gallery">
+      <div class="image-container"> <img src="/img/gallery/oc_tw10k.png" loading="lazy"> <p class="img-caption">Thank you for 1000 followers!</p> </div>
+      <div class="image-container gallery-styled-3"> <img src="/img/gallery/arknights_croque.png" loading="lazy"> </div>
+    </div>
+    <div class="container-gallery">
+      <div class="image-container gallery-styled-3 white-background"> <img src="/img/gallery/touhou_kooshy3.png" loading="lazy"> </div>
+      <div class="image-container white-background"> <img src="/img/gallery/touhou_koishi.png" loading="lazy"> </div>
+    </div>
+    <div class="container-gallery">
+      <div class="image-container gallery-styled-1 zoom-medium"> <img src="/img/gallery/touhou_trio18.png" loading="lazy"> </div>
+      <div class="image-container zoom-medium"> <img src="/img/gallery/touhou_mokou.png" loading="lazy"> </div>
+    </div>
+    <div class="container-gallery">
+      <div class="image-container"> <img src="/img/gallery/oc_group-logo.png" loading="lazy"> <p class="img-caption">A certain group logo since 2019 </p> </div>
+      <div class="image-container"> <img src="/img/gallery/oc_sprite2.png" loading="lazy"> </div>
+      <div class="image-container"> <img src="/img/gallery/touhou_youmu.png" loading="lazy"> </div>
     </div>
     
-    <div class="nav-float nav-float--gal">
-      <label class="container-tab-controller container-tab-controller-1 container-tooltip" for="state-container-animation-tab-1">1<span class="tooltip tooltip--left" style="width: 60px;">Page 1</span></label>
-      <label class="container-tab-controller container-tab-controller-2 container-tooltip" for="state-container-animation-tab-2">2<span class="tooltip tooltip--left" style="width: 60px;">Page 2</span></label>
-    </div>
-    
-    <hr class="mobile-only" style="border-bottom: 1px solid gray;">
-    
-    <!--PAGE 1-->
-    <div class="container container-tab-content container-tab-content-1">
-      <div class="container-gallery">
-        <div class="image-container"> <input class="hidden-input container-expandable-controller" type="checkbox" id="img-reimu"><label class="button-expand--once link" for="img-reimu"><img src="img/gallery/touhou_reimu1.gif" loading="lazy" alt="Reimu idle animation"> </label><label class="container-expandable-content link" for="img-reimu"><img src="img/gallery/touhou_reimu1-loop.gif" style="outline: 1px solid darkolivegreen" loading="lazy" alt="Reimu idle animation loop version"></label> </div>
-        <div class="image-container"> <input class="hidden-input container-expandable-controller" type="checkbox" id="img-marisa"><label class="button-expand--once link" for="img-marisa"><img src="img/gallery/touhou_marisa1.gif" loading="lazy" alt="Marisa idle animation"> </label> <label class="container-expandable-content link" for="img-marisa"><img src="img/gallery/touhou_marisa1-loop.gif" style="outline: 1px solid darkolivegreen" loading="lazy" alt="Marisa idle animation loop version"></label> </div>
-      </div>
-      <div class="container-gallery">
-        <div class="image-container zoom-large gallery-styled-1"> <img src="/img/gallery/touhou_spood1.gif" loading="lazy"> </div>
-        <div class="image-container zoom-large"> <img src="/img/gallery/touhou_spood2.gif" loading="lazy"> </div>
-        <div class="image-container zoom-large gallery-styled-2"> <img src="/img/gallery/touhou_spood-x1.gif" loading="lazy"> </div>
-      </div>
-      <div class="container-gallery">
-        <div class="image-container"> <img src="/img/gallery/touhou_patchy.gif" loading="lazy"> </div>
-        <div class="image-container"> <img src="/img/gallery/touhou_kyouko-2.gif" loading="lazy"> </div>
-      </div>
-      <div class="container-gallery">
-        <div class="image-container gallery-styled-1"> <img src="/img/gallery/touhou_grassroot1.gif" loading="lazy"> </div>
-        <div class="image-container zoom-large"> <img src="/img/gallery/touhou_grassroot3.gif" loading="lazy"></div>
-      </div>
-      <div class="container-gallery">
-        <div class="image-container zoom-small"> <img src="/img/gallery/touhou_grassroot2.gif" loading="lazy"> <p class="img-caption">Personal favorite</p></div>
-      </div>
-    </div>
-    
-    <!--PAGE 2-->
-    <div class="container container-tab-content container-tab-content-2">
-      <div class="container-gallery">
-        <div class="image-container zoom-medium"> <img src="/img/gallery/touhou_rumia.gif" loading="lazy"> </div>
-        <div class="image-container zoom-medium"> <img src="/img/gallery/touhou_rumia-2.gif" loading="lazy"> </div>
-        <div class="image-container"> <img src="/img/gallery/touhou_youmu2.gif" loading="lazy"> </div>
-      </div>
-      <div class="container-gallery">
-        <div class="image-container"> <img src="/img/gallery/oc_clover1.gif" loading="lazy"> </div>
-        <div class="image-container"> <img src="/img/gallery/oc_stylla1.gif" loading="lazy"> </div>
-        <div class="image-container"> <img src="/img/gallery/oc_stylla1b.gif" loading="lazy"> </div>
-      </div>
-      <div class="container-gallery">
-        <div class="image-container zoom-medium gallery-styled-3"> <img src="/img/gallery/touhou_alice.gif" loading="lazy"> </div>
-        <div class="image-container"> <img src="/img/gallery/touhou_kooshy.gif" loading="lazy"> </div>
-        <div class="image-container zoom-medium"> <img src="/img/gallery/touhou_cirno.gif" loading="lazy"> </div>
-      </div>
-    </div>
-    
-  </div>
-  
-  <!-- Gallery: Pixel Art -->
-  <div class="entry entry--accordion" id="accordion-entry-2" tabindex="0">
-    <div class="container">
-      <h2 class="hidden">Gallery Pixel Art</h2>
-      <div class="container-gallery">
-        <div class="image-container"> <img src="/img/gallery/oc_tw10k.png" loading="lazy"> <p class="img-caption">Thank you for 1000 followers!</p> </div>
-        <div class="image-container gallery-styled-3"> <img src="/img/gallery/arknights_croque.png" loading="lazy"> </div>
-      </div>
-      <div class="container-gallery">
-        <div class="image-container gallery-styled-3 white-background"> <img src="/img/gallery/touhou_kooshy3.png" loading="lazy"> </div>
-        <div class="image-container white-background"> <img src="/img/gallery/touhou_koishi.png" loading="lazy"> </div>
-      </div>
-      <div class="container-gallery">
-        <div class="image-container gallery-styled-1 zoom-medium"> <img src="/img/gallery/touhou_trio18.png" loading="lazy"> </div>
-        <div class="image-container zoom-medium"> <img src="/img/gallery/touhou_mokou.png" loading="lazy"> </div>
-      </div>
-      <div class="container-gallery">
-        <div class="image-container"> <img src="/img/gallery/oc_group-logo.png" loading="lazy"> <p class="img-caption">A certain group logo since 2019 </p> </div>
-        <div class="image-container"> <img src="/img/gallery/oc_sprite2.png" loading="lazy"> </div>
-        <div class="image-container"> <img src="/img/gallery/touhou_youmu.png" loading="lazy"> </div>
-      </div>
+    <!--TOGGLE TO EXPAND-->
+    <div class="container-expandable">
+      <input class="hidden-input container-expandable-controller" type="checkbox" id="state-expand-pixel-1">
+      <label class="button-expand button-expand--once" for="state-expand-pixel-1">Show more</label>
       
-      <!--TOGGLE TO EXPAND-->
-      <div class="container-expandable">
-        <input class="hidden-input container-expandable-controller" type="checkbox" id="state-expand-pixel-1">
-        <label class="button-expand button-expand--once" for="state-expand-pixel-1">Show more</label>
-        
-        <div class="container-expandable-content container-expandable-content--entry">
-          <hr style="border: 24px solid transparent">
-          <!--Section 1-->
-          <div class="container-gallery container-gallery--expanded">
-            <div class="image-container col-2 zoom-small"> <img src="/img/gallery/oc_oldmc.png" loading="lazy"> <p class="img-caption">Old and obsolete chara design, it's my profile pict!</p> </div>
-            <div class="image-container col-2 zoom-small"> <img src="/img/gallery/oc_trio.png" loading="lazy"> <p class="img-caption">On action!</p> </div>
-          </div>
-          <div class="container-gallery container-gallery--expanded">
-            <div class="image-container"> <img src="/img/gallery/touhou_kooshy1.png" loading="lazy"> </div>
-            <div class="image-container"> <img src="/img/gallery/touhou_kooshy2.png" loading="lazy"> </div>
-            <div class="image-container"> <img src="/img/gallery/oc-friend_general1.png" loading="lazy"> <p class="img-caption">Birthday gift to a friend</p> </div>
-            <div class="image-container"> <img src="/img/gallery/oc_f2.png" loading="lazy"> <p class="img-caption">One of the earliest pixel art I made</p> </div>
-          </div>
-          <div class="container-gallery container-gallery--expanded">
-            <div class="image-container"> <img src="/img/gallery/touhou_yoshika.png" loading="lazy"> </div>
-            <div class="image-container"> <img src="/img/gallery/touhou_patchy3.png" loading="lazy"> </div>
-            <div class="image-container"> <img src="/img/gallery/oc_melancholy.png" loading="lazy"> </div>
-            <div class="image-container"> <img src="/img/gallery/pokemon_gen8.png" loading="lazy"> </div>
-            <div class="image-container"> <img src="/img/gallery/oc_sprite1.png" loading="lazy"> </div>
-            <div class="image-container white-background"> <img src="/img/gallery/touhou_whale.png" loading="lazy"> </div>
-            <div class="image-container"> <img src="/img/gallery/touhou_kyouko.png" loading="lazy"> </div>
-            <div class="image-container"> <img src="/img/gallery/oc_random-weapon.png" loading="lazy"> </div>
-            <div class="image-container"> <img src="/img/gallery/oc_16x16sprite.png" loading="lazy"> </div>
-            <div class="image-container"> <img src="/img/gallery/oc_fruit.png" loading="lazy"> <p class="img-caption">Obligatory fruit drawing</p> </div>
-          </div>
-          <!--Section 2-->
-          <div class="container-gallery container-gallery--expanded container-gallery-section-2">
-            <div class="image-container"> <img src="/img/gallery/touhou_marisa.png" loading="lazy"> </div>
-            <div class="image-container"> <img src="/img/gallery/touhou_medicine.png" loading="lazy"> </div>
-            <div class="image-container"> <img src="/img/gallery/touhou_cirno2.png" loading="lazy"> </div>
-            <div class="image-container"> <img src="/img/gallery/touhou_patchy2.png" loading="lazy"> </div>
-            <div class="image-container"> <img src="/img/gallery/touhou_nazrin.png" loading="lazy"> </div>
-            <div class="image-container"> <img src="/img/gallery/touhou_kogasa1.png" loading="lazy"> </div>
-          </div>
+      <div class="container-expandable-content container-expandable-content--entry">
+        <hr style="border: 24px solid transparent">
+        <!--Section 1-->
+        <div class="container-gallery container-gallery--expanded">
+          <div class="image-container col-2 zoom-small"> <img src="/img/gallery/oc_oldmc.png" loading="lazy"> <p class="img-caption">Old and obsolete chara design, it's my profile pict!</p> </div>
+          <div class="image-container col-2 zoom-small"> <img src="/img/gallery/oc_trio.png" loading="lazy"> <p class="img-caption">On action!</p> </div>
         </div>
-      </div>
-    </div>
-  </div>  
-  
-  <!-- Gallery: Raster Art -->
-  <div class="entry entry--accordion" id="accordion-entry-3" tabindex="0">
-    <div class="container">
-      <h2 class="hidden">Gallery Raster Art</h2>
-      <div class="container-gallery container-gallery--raster">
-        <div class="image-container zoom-medium"> <img src="/img/gallery/oc_clover2.webp" loading="lazy"> </div>
-        <div class="image-container zoom-medium"> <img src="/img/gallery/oc_stylla2.webp" loading="lazy"> </div>
-      </div>    
-      <div class="container-gallery container-gallery--raster" loading="lazy">
-        <div class="image-container"> 
-        <input class="hidden-input container-expandable-controller" type="checkbox" id="img-friend-oc"><label class="button-expand--once link" for="img-friend-oc"><img src="img/gallery/general_friend-oc.webp" loading="lazy" alt="Friend OC WEBP"> <p class="img-caption no-color">Collab stuff</p></label> 
-        <label class="container-expandable-content link" for="img-friend-oc"><img src="img/gallery/general_friend-oc.png" style="outline: 1px solid darkolivegreen" loading="lazy" alt="Friend OC PNG"><p class="img-caption no-color">PNG version</p></label> 
+        <div class="container-gallery container-gallery--expanded">
+          <div class="image-container"> <img src="/img/gallery/touhou_kooshy1.png" loading="lazy"> </div>
+          <div class="image-container"> <img src="/img/gallery/touhou_kooshy2.png" loading="lazy"> </div>
+          <div class="image-container"> <img src="/img/gallery/oc-friend_general1.png" loading="lazy"> <p class="img-caption">Birthday gift to a friend</p> </div>
+          <div class="image-container"> <img src="/img/gallery/oc_f2.png" loading="lazy"> <p class="img-caption">One of the earliest pixel art I made</p> </div>
         </div>
-        <div class="image-container white-background"> <img src="/img/gallery/oc_clover-random-1.webp" loading="lazy"> </div>
-      </div>
-      <div class="container-gallery container-gallery--raster">
-        <div class="image-container"> <img src="/img/gallery/touhou_eternity.webp" loading="lazy"> </div>
-        <div class="image-container"> <img src="/img/gallery/touhou_koosh2.webp" loading="lazy"> </div>
-      </div>
-      <div class="container-gallery container-gallery--raster">
-        <div class="image-container"> <img src="/img/gallery/touhou_mystia-random-1.webp" loading="lazy"> </div>
-        <div class="image-container"> <img src="/img/gallery/touhou_mystia-random-2.webp" loading="lazy"> </div>
-      </div>
-      <div class="container-gallery container-gallery--raster">
-        <div class="image-container"> <img src="/img/gallery/arknights_sus1.webp" loading="lazy"> </div>
-        <div class="image-container"> <img src="/img/gallery/arknights_fav-op.webp" loading="lazy"> </div>
-      </div>
-      <div class="container-gallery container-gallery--raster">
-        <div class="image-container"> <img src="/img/gallery/arknights_sus2.webp" loading="lazy"> <p class="img-caption">Mimic of u/sharktuna style</p> </div>
-        <div class="image-container"> <img src="/img/gallery/arknights_suzuran.webp" loading="lazy"> </div>
+        <div class="container-gallery container-gallery--expanded">
+          <div class="image-container"> <img src="/img/gallery/touhou_yoshika.png" loading="lazy"> </div>
+          <div class="image-container"> <img src="/img/gallery/touhou_patchy3.png" loading="lazy"> </div>
+          <div class="image-container"> <img src="/img/gallery/oc_melancholy.png" loading="lazy"> </div>
+          <div class="image-container"> <img src="/img/gallery/pokemon_gen8.png" loading="lazy"> </div>
+          <div class="image-container"> <img src="/img/gallery/oc_sprite1.png" loading="lazy"> </div>
+          <div class="image-container white-background"> <img src="/img/gallery/touhou_whale.png" loading="lazy"> </div>
+          <div class="image-container"> <img src="/img/gallery/touhou_kyouko.png" loading="lazy"> </div>
+          <div class="image-container"> <img src="/img/gallery/oc_random-weapon.png" loading="lazy"> </div>
+          <div class="image-container"> <img src="/img/gallery/oc_16x16sprite.png" loading="lazy"> </div>
+          <div class="image-container"> <img src="/img/gallery/oc_fruit.png" loading="lazy"> <p class="img-caption">Obligatory fruit drawing</p> </div>
+        </div>
+        <!--Section 2-->
+        <div class="container-gallery container-gallery--expanded container-gallery-section-2">
+          <div class="image-container"> <img src="/img/gallery/touhou_marisa.png" loading="lazy"> </div>
+          <div class="image-container"> <img src="/img/gallery/touhou_medicine.png" loading="lazy"> </div>
+          <div class="image-container"> <img src="/img/gallery/touhou_cirno2.png" loading="lazy"> </div>
+          <div class="image-container"> <img src="/img/gallery/touhou_patchy2.png" loading="lazy"> </div>
+          <div class="image-container"> <img src="/img/gallery/touhou_nazrin.png" loading="lazy"> </div>
+          <div class="image-container"> <img src="/img/gallery/touhou_kogasa1.png" loading="lazy"> </div>
+        </div>
       </div>
     </div>
   </div>
-  
-  <div class="jump-to-top"><a href="#top"></a></div>
-  
-</body>
-</html>
+</div>  
+
+<!-- Gallery: Raster Art -->
+<div class="entry entry--accordion" id="accordion-entry-3" tabindex="0">
+  <div class="container">
+    <h2 class="hidden">Gallery Raster Art</h2>
+    <div class="container-gallery container-gallery--raster">
+      <div class="image-container zoom-medium"> <img src="/img/gallery/oc_clover2.webp" loading="lazy"> </div>
+      <div class="image-container zoom-medium"> <img src="/img/gallery/oc_stylla2.webp" loading="lazy"> </div>
+    </div>    
+    <div class="container-gallery container-gallery--raster" loading="lazy">
+      <div class="image-container"> 
+      <input class="hidden-input container-expandable-controller" type="checkbox" id="img-friend-oc"><label class="button-expand--once link" for="img-friend-oc"><img src="img/gallery/general_friend-oc.webp" loading="lazy" alt="Friend OC WEBP"> <p class="img-caption no-color">Collab stuff</p></label> 
+      <label class="container-expandable-content link" for="img-friend-oc"><img src="img/gallery/general_friend-oc.png" style="outline: 1px solid darkolivegreen" loading="lazy" alt="Friend OC PNG"><p class="img-caption no-color">PNG version</p></label> 
+      </div>
+      <div class="image-container white-background"> <img src="/img/gallery/oc_clover-random-1.webp" loading="lazy"> </div>
+    </div>
+    <div class="container-gallery container-gallery--raster">
+      <div class="image-container"> <img src="/img/gallery/touhou_eternity.webp" loading="lazy"> </div>
+      <div class="image-container"> <img src="/img/gallery/touhou_koosh2.webp" loading="lazy"> </div>
+    </div>
+    <div class="container-gallery container-gallery--raster">
+      <div class="image-container"> <img src="/img/gallery/touhou_mystia-random-1.webp" loading="lazy"> </div>
+      <div class="image-container"> <img src="/img/gallery/touhou_mystia-random-2.webp" loading="lazy"> </div>
+    </div>
+    <div class="container-gallery container-gallery--raster">
+      <div class="image-container"> <img src="/img/gallery/arknights_sus1.webp" loading="lazy"> </div>
+      <div class="image-container"> <img src="/img/gallery/arknights_fav-op.webp" loading="lazy"> </div>
+    </div>
+    <div class="container-gallery container-gallery--raster">
+      <div class="image-container"> <img src="/img/gallery/arknights_sus2.webp" loading="lazy"> <p class="img-caption">Mimic of u/sharktuna style</p> </div>
+      <div class="image-container"> <img src="/img/gallery/arknights_suzuran.webp" loading="lazy"> </div>
+    </div>
+  </div>
+</div>
+
+<div class="jump-to-top"><a href="#top"></a></div>
