@@ -11,6 +11,7 @@ This is a website written exclusively using HTML and CSS language with Jekyll in
 
 ## To-Do list
 - [x] ~~Revamp website.~~
+- [ ] Revamp website, again. Well more like actually finishing it..
 
 ### Implementation
 - [x] ~~Art gallery page.~~
