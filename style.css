@@ -7,7 +7,7 @@
   --background-body: #0a0c10;
   --background-entry: #141414;
   --background-codeblock: #25202c;
-  --link: #72984e;
+  --link: #78BB52;
   --link-hover: #edcfc2;
   --link-visited: #3696a8;
   --link-focus: #89f86f;
@@ -27,6 +27,7 @@
 
 html {
   font-family: 'Pixel04b03';
+  scroll-behavior: smooth;
   -webkit-font-smoothing: none;
   -moz-osx-font-smoothing: unset;
 }

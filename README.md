@@ -1,12 +1,13 @@
 # Welcome
-This is a website written exclusively using HTML and CSS language with a bit of Jekyll integration. Interactive and performant is the goal. The restriction also serve as a challenge and to match the spirit of pixel-art limitation, which is my main art medium.
+This is a website written exclusively using HTML and CSS language with Jekyll integration. Interactive and performant is the goal. The restriction also serve as a challenge and to match the spirit of pixel-art limitations, which is my main art medium.
 
 ## Link / Resources
-- https://brackets.io - Main program to code.
-- https://www.w3schools.com - Learn basic HTML & CSS.
-- https://www.youtube.com/kepowob | Kevin Powell - Intermediate CSS tricks and learning.
-- https://realfavicongenerator.net - Generate favicon.
-- https://github.com/nea/MarkdownViewerPlusPlus - ~~Notepad++ plugin for fast and easy markdown to html conversion because Joplin html export result is infuriating.~~ Switched to Obsidian, no issue.
+- :file_folder: [Obsidian](https://obsidian.md) - Markdown note-taking app.
+- :file_folder: [Visual Studio Code](https://code.visualstudio.com) - Main program to code.
+- :globe_with_meridians: [Favicon Generator](https://realfavicongenerator.net) - Generate favicon.
+- :globe_with_meridians: [Realtime Colors](https://www.realtimecolors.com) - Color palette testing.
+- :globe_with_meridians: [W3Schools](https://www.w3schools.com) - Learn basic HTML & CSS.
+- :tv: [Kevin Powell](https://www.youtube.com/kepowob) - Intermediate CSS tricks and learning.
 
 ## To-Do list
 - [x] ~~Revamp website.~~
@@ -16,7 +17,7 @@ This is a website written exclusively using HTML and CSS language with a bit of 
 - [x] ~~Blog / project history post section.~~
 - [x] ~~Contact detail page.~~
 - [ ] Dedicated page and / or embedded in the real home page of a game-esque "Main Menu" screen that contain home, art sample, commission(?), and contact page; with an animated background with shop menu environment.
-- [ ] Custom assets; i.e icon, border, background.
+- [ ] Custom assets; i.e icon, border, background. 
 - [ ] Dedicated commission tab / page.
 - [ ] Link or preview to GroundLeaf project (pending until ready.)
 
@@ -29,6 +30,6 @@ This is a website written exclusively using HTML and CSS language with a bit of 
 - [ ] Generalize color scheme.
 - [ ] Improve zooming visual / functionality.
 - [ ] Improve Table of Contents visual / readability.
-- ~~[ ] Rewrite .entry because that's jank.~~ No need, brain confus.
+- [x] ~~Rewrite .entry because that's jank.~~ No need, brain confus, also why is this list here again?
 - [ ] Blog-2 UI update, maybe use the design for gallery too.
 - [ ] Improve gallery navigation, nicer category selection, newest-oldest bias (instead of random ahh) etc.

@@ -3,3 +3,4 @@ Gemfile
 Gemfile.lock
 _serve.bat
 blog/0_draft/
+.vscode/settings.json
