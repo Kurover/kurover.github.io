@@ -2,8 +2,8 @@ sass:
   style: compressed
 
 compress_html:
-  clippings: [p, ul, td, h1, h2]
-  comments: ["<!-- ", " -->"]
+  clippings: all
+  comments: all
   endings: []
   ignore:
     envs: []
