@@ -1,0 +1,88 @@
+# - name: 
+#   link: /img/gallery/
+#   caption:
+#   position:
+#   size: 
+#   align:
+#   last-item:
+- name: 
+  link: /img/gallery/touhou_kooshy__px.gif
+  caption:
+  position:
+  size: 
+  align:
+  last-item:
+- name: 
+  link: /img/gallery/touhou_alice__px.gif
+  caption:
+  position:
+  size: 
+  align:
+  last-item:
+- name: 
+  link: /img/gallery/touhou_youmu2__px.gif
+  caption:
+  position:
+  size: 
+  align:
+  last-item: true
+
+- name: 
+  link: /img/gallery/touhou_rumia__px.gif
+  caption:
+  position:
+  size: 
+  align:
+  last-item:
+- name: 
+  link: /img/gallery/touhou_rumia-2__px.gif
+  caption:
+  position:
+  size: 
+  align:
+  last-item: true
+
+- name: 
+  link: /img/gallery/oc_clover1__px.gif
+  caption:
+  position:
+  size: 
+  align:
+  last-item:
+- name: 
+  link: /img/gallery/oc_stylla1__px.gif
+  caption:
+  position:
+  size: 
+  align:
+  last-item:
+- name: 
+  link: /img/gallery/oc_stylla1b__px.gif
+  caption:
+  position:
+  size: 
+  align:
+  last-item: true
+  last-row: true
+
+- name: 
+  link: /img/gallery/oc_abd-1__px.gif
+  caption:
+  position:
+  size: 
+  align:
+  last-item:
+- name: 
+  link: /img/gallery/oc_old1__px.gif
+  caption:
+  position:
+  size: 
+  align:
+  last-item:
+- name: 
+  link: /img/gallery/oc_abd-2__px.gif
+  caption:
+  position:
+  size: 
+  align:
+  last-item: true

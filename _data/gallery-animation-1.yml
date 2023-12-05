@@ -1,0 +1,88 @@
+# - name: 
+#   link: /img/gallery/
+#   caption:
+#   position:
+#   size: 
+#   align:
+#   last-item:
+- name: Cirno charging animation
+  link: /img/gallery/touhou_cirno__px.gif
+  caption:
+  position:
+  size: 
+  align: 
+  last-item: 
+- name: Kyouko drooling from food animation
+  link: /img/gallery/touhou_kyouko-2__px.gif
+  caption: 
+  position: 
+  size:
+  align:
+  last-item: 
+- name: Patchouli's magician trick animation
+  link: /img/gallery/touhou_patchy__px.gif
+  caption: 
+  position:
+  size: 
+  align:
+  last-item: true
+
+- name: Sekibanki sitting and her fluttering cape animation
+  link: /img/gallery/touhou_grassroot2__px.gif
+  caption: Head of the pack
+  position:
+  size: full
+  align:
+  last-item: 
+- name: Grassroot trio resting at night time animation
+  link: /img/gallery/touhou_grassroot1__px.gif
+  caption:
+  position:
+  size: 
+  align:
+  last-item: 
+- name: Sekibanki and Kogasa under the parasol while raining animation
+  link: /img/gallery/touhou_grassroot3__px.gif
+  caption:
+  position:
+  size: wide
+  align:
+  last-item: true
+
+- name: Reimu standing and spinning her stick animation
+  link: /img/gallery/touhou_reimu1__px.gif
+  caption:
+  position:
+  size: wide
+  align:
+  last-item:
+- name: Marisa standing and changing her broom lantern with a new one animation
+  link: /img/gallery/touhou_marisa1__px.gif
+  caption:
+  position:
+  size: wide
+  align:
+  last-item: true
+  last-row: true
+
+- name: Yamame and Kisume chatting with each other animation
+  link: /img/gallery/touhou_spood2__px.gif
+  caption:
+  position:
+  size: full
+  align:
+  last-item:
+- name: Yamame and Kisume doing arts and craft with a skull animation
+  link: /img/gallery/touhou_spood-x1__px.gif
+  caption:
+  position:
+  size: 
+  align:
+  last-item:
+- name: Yamame creating an object with her thread animation
+  link: /img/gallery/touhou_spood1__px.gif
+  caption:
+  position:
+  size: 
+  align:
+  last-item: true

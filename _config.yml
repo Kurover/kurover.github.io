@@ -1,3 +1,16 @@
+sass:
+  style: compressed
+
+compress_html:
+  clippings: [p, ul, td, h1, h2]
+  comments: ["<!-- ", " -->"]
+  endings: []
+  ignore:
+    envs: []
+  blanklines: false
+  profile: false
+  startings: []
+
 collections:
   blog:
     output: true

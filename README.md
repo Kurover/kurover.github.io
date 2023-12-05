@@ -4,12 +4,33 @@ This is a website written exclusively using HTML and CSS language with Jekyll in
 ## Link / Resources
 - :file_folder: [Obsidian](https://obsidian.md) - Markdown note-taking app.
 - :file_folder: [Visual Studio Code](https://code.visualstudio.com) - Main program to code.
+- :file_folder: [Jekyll Compress HTML](https://github.com/penibelst/jekyll-compress-html) - HTML compression made easy.
 - :globe_with_meridians: [Favicon Generator](https://realfavicongenerator.net) - Generate favicon.
 - :globe_with_meridians: [Realtime Colors](https://www.realtimecolors.com) - Color palette testing.
 - :globe_with_meridians: [W3Schools](https://www.w3schools.com) - Learn basic HTML & CSS.
 - :tv: [Kevin Powell](https://www.youtube.com/kepowob) - Intermediate CSS tricks and learning.
 
+## :crossed_flags: v3 TO-DOs (also known as Blog-2)
+
+### :zap: Big stuff
+- Main background - night scenery either on the tower foreseeing the sea or in front of the tower entrance
+- Illith portrait (entrance, 2-3 idle, speaking)
+- Stylla 404 error page on the sea
+- Large navigation buttons, at least 96px and wide.
+
+### :blossom: Sprite / Icon
+- :leaves: Border: Navigation, Gallery, Tooltip, Button
+- :leaves: Navigation: Home, Gallery, Blog, Download, Links, "More"?
+- :leaves: Links: Mail, Misskey, Twitter, Discord, Github
+- :seedling: Links: Pixiv, Steam
+- :herb: Flavor: Arrows, Close Button, Image Loading Placeholder
+
+### :snowflake: Misc Stuff (low-priority)
+- Illith nag / fixed companion (bottom left). Clickable to go to top and point of interest
+- 404 page where its text is a windows error popup, can be minimized, maximize is greyed out, and close to go to secret place
+
 ## To-Do list
+Will continue and revise after v3 is reasonably finished
 - [x] ~~Revamp website.~~
 - [ ] Revamp website, again. Well more like actually finishing it..
 

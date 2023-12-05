@@ -1,0 +1,206 @@
+# - name: 
+#   link: /img/gallery/
+#   caption:
+#   position:
+#   size: 
+#   align:
+#   last-item:
+- name: 
+  link: /img/gallery/oc_tw10k-banner__px.png
+  link-2: /img/gallery/oc_tw10k__px.png
+  caption:
+  position: right
+  size: full
+  align:
+  last-item:
+- name: 
+  link: /img/gallery/oc_oldmc__px.png
+  caption: OCs legacy design
+  position:
+  size: wide
+  align:
+  last-item:
+- name: 
+  link: /img/gallery/oc_group-logo__px.png
+  caption: A certain group logo since 2019
+  position:
+  size: 
+  align:
+  last-item: true
+
+- name: 
+  link: /img/gallery/oc_illith__px.png
+  caption: First iteration of Illith
+  position:
+  size:
+  align:
+  last-item:
+- name: 
+  link: /img/gallery/oc_trio__px.png
+  caption:
+  position:
+  size: wide
+  align:
+  last-item: true
+
+- name: 
+  link: /img/gallery/touhou_koishi__px.png
+  caption:
+  position:
+  size: full
+  align:
+  last-item:
+- name: 
+  link: /img/gallery/touhou_kooshy1__px.png
+  caption: First entry of Kooshy day
+  position:
+  size:
+  align:
+  last-item:
+- name: 
+  link: /img/gallery/touhou_kooshy2__px.png
+  caption:
+  position:
+  size: 
+  align:
+  last-item:
+- name: 
+  link: /img/gallery/touhou_kooshy3__px.png
+  caption:
+  position:
+  size: 
+  align:
+  last-item: true
+
+- name: 
+  link: /img/gallery/touhou_patchy3__px.png
+  caption: Mukyu!
+  position:
+  size: 
+  align:
+  last-item:
+- name: 
+  link: /img/gallery/touhou_yoshika__px.png
+  caption:
+  position:
+  size: 
+  align:
+  last-item:
+- name: 
+  link: /img/gallery/touhou_kyouko__px.png
+  caption:
+  position:
+  size: 
+  align:
+  last-item:
+- name: 
+  link: /img/gallery/touhou_youmu__px.png
+  caption:
+  position:
+  size: 
+  align:
+  last-item: true
+
+- name: 
+  link: /img/gallery/touhou_kogasa1__px.png
+  caption:
+  position: left
+  size: 
+  align:
+  last-item:
+- name: 
+  link: /img/gallery/touhou_whale__px.png
+  background: white
+  caption:
+  position:
+  size: 
+  align:
+  last-item:
+- name: 
+  link: /img/gallery/touhou_nazrin__px.png
+  caption:
+  position: right
+  size: 
+  align:
+  last-item: true
+
+- name: 
+  link: /img/gallery/touhou_trio18__px.png
+  caption:
+  position:
+  size: full
+  align:
+  last-item:
+- name: 
+  link: /img/gallery/touhou_medicine__px.png
+  caption:
+  position:
+  size: 
+  align:
+  last-item:
+- name: 
+  link: /img/gallery/touhou_mokou__px.png
+  caption:
+  position:
+  size: 
+  align:
+  last-item:
+- name: 
+  link: /img/gallery/touhou_marisa__px.png
+  caption:
+  position: right
+  size: 
+  align:
+  last-item: true
+  
+- name: 
+  link: /img/gallery/pokemon_gen8__px.png
+  caption:
+  position:
+  size: 
+  align:
+  last-item:
+- name: 
+  link: /img/gallery/arknights_croque__px.png
+  caption: Diamondface &#60;3
+  position:
+  size: 
+  align:
+  last-item:
+- name: 
+  link: /img/gallery/oc_fruit__px.png
+  caption: Obligatory fruit drawing
+  position:
+  size: 
+  align:
+  last-item:
+- name: 
+  link: /img/gallery/oc_16x16sprite__px.png
+  caption:
+  position:
+  size: 
+  align:
+  last-item: true
+  last-row: true
+
+- name: 
+  link: /img/gallery/oc_sprite1__px.png
+  caption:
+  position:
+  size: 
+  align:
+  last-item:
+- name: 
+  link: /img/gallery/oc_f2__px.png
+  caption:
+  position: right
+  size: wide
+  align:
+  last-item:
+- name: 
+  link: /img/gallery/oc_melancholy__px.png
+  caption:
+  position:
+  size: 
+  align:
+  last-item: true

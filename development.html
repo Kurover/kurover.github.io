@@ -1,0 +1,135 @@
+---
+layout: compress
+---
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Lab | Development</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/font.css">
+</head>
+
+<body>
+
+  {% include navigation.html %}
+  
+  <article class="wrapper border">
+    <h1>Gallery</h1>
+
+    <div class="gallery-lists">
+      <div class="gallery-list" tabindex="0">
+        <img loading="lazy" src="/img/gallery/touhou_grassroot2__px.gif" alt=""><div class="gallery-popup">
+        <img loading="lazy" src="/img/gallery/touhou_grassroot2__px.gif" alt=""><div class="gallery-close" tabindex="0"></div></div>
+      </div>
+      <div class="gallery-list" tabindex="0">
+        <img loading="lazy" src="/img/gallery/touhou_cirno__px.gif" alt="">
+        <div class="gallery-popup">
+          <img loading="lazy" src="/img/gallery/touhou_cirno__px.gif" alt="">
+          <div class="gallery-close" tabindex="0"></div></div>
+      </div>
+    </div>
+    
+    <div class="gallery-lists">
+      <h2 class="title-full margin">Title Here</h2>
+      {% for item in site.data.gallery-pixelart-1 %}
+      <div class="gallery-list{% if item.size == "full" %} full{% endif %}{% if item.size == "wide" %} wide{% endif %}{% if item.position == "left" %} left{% endif %}{% if item.position == "right" %} right{% endif %}{% if item.align == "head" %} head{% endif %}{% if item.background == "white" %} white{% endif %}" tabindex="0">
+        {% if item.caption %}<p>{{ item.caption }}</p>{% endif %}        
+        <img loading="lazy" src="{{ item.link }}" alt="{{ item.name }}">
+        <div class="gallery-popup">
+          <img loading="lazy" src="{% if item.link-2 %}{{ item.link-2 }}{% else %}{{ item.link }}{% endif %}" alt="{{ item.name }} full preview">
+          <div class="gallery-close" tabindex="0"></div></div>
+      </div>
+      {% if item.last-item %}<div class="br-flex"></div>{% endif %}
+      {% endfor %}
+    </div>
+
+  </article>
+
+  <div class="separator"></div>
+
+  <article class="wrapper border">
+    <h2 id="welcome">Welcome 2</h2>
+    <p>This is a <a href="#">website</a> written exclusively using HTML and CSS language with Jekyll integration. Interactive and performant is the goal. The restriction also serve as a challenge and to match the spirit of pixel-art limitations, which is my main art medium.</p>
+    <p>My name is Zan, also known as Kurover in some part. I'm a pixel artist who mainly draw art and animation from Touhou Project (東方Project).</p>
+    <h2>What</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus commodi accusantium nesciunt magni tenetur ea a maxime velit, corporis ducimus at alias ex! Eaque quasi atque molestiae? Error, vero vel?</p>
+    <h3>When</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus commodi accusantium nesciunt magni tenetur ea a maxime velit, corporis ducimus at alias ex! Eaque quasi atque molestiae? Error, vero vel?</p>
+    <h4>Well Then</h4>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus commodi accusantium nesciunt magni tenetur ea a maxime velit, corporis ducimus at alias ex! Eaque quasi atque molestiae? Error, vero vel?</p>
+    <h5>Getting Smol</h5>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus commodi accusantium nesciunt magni tenetur ea a maxime velit, corporis ducimus at alias ex! Eaque quasi atque molestiae? Error, vero vel?</p>
+    <h6>Not a Star</h6>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus commodi accusantium nesciunt magni tenetur ea a maxime velit, corporis ducimus at alias ex! Eaque quasi atque molestiae? Error, vero vel?</p>
+    <p>I'm usually active on span span span span span span span span 
+      <span class="tooltip" tabindex="0"><span>Tooltip</span>
+      <span class="tooltip-content">ASD BSDASD ASDS PPPESPDASD BSDASD ASDS PPPESPDASD BSDASD ASDS PPPESPDASD BSDASD ASDS PPPESPDASD BSDASD ASDS PPPESPDASD BSDASD ASDS BSDASD ASDS BSDASD ASDS BSDASD ASDS BSDASD ASDS BSDASD ASDS BSDASD ASDS BSDASD ASDS BSDASD ASDS BSDASD ASDS BSDASD ASDS BSDASD ASDS BSDASD ASDS BSDASD ASDS</span></span>
+    something</p> 
+    <p>
+      <span class="tooltip " tabindex="0"><span>Tooltip</span>
+      <span class="tooltip-content tooltip-content--small tooltip-content--left">Tooltip here. I like cute cats.</span></span>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto saepe ratione asperiores quasi nam, praesentium, temporibus iste cupiditate laborum facere hic officiis corporis, adipisci debitis maxime quam minus nobis nulla!
+    </p>
+  </article>
+
+  <article class="wrapper">
+    <!-- Expandables Dropdown1 -->
+    <section class="expandable slow">
+      <!-- Controller -->
+      <input id="misc-1_sys" type="checkbox" class="expandable-control">
+      <!-- Title -->
+      <label for="misc-1_sys" class="expandable-title">
+        <div class="expandable-title-icon"></div>
+        <span>Hello Hi Hola</span>
+      </label>
+      <!-- Content -->
+      <div class="expandable-content">  
+        <div>
+          <div class="gallery-list full" tabindex="0">
+            <img loading="lazy" src="/img/gallery/touhou_grassroot1__px.gif" alt=""><div class="gallery-popup wide white">
+            <img loading="lazy" src="/img/gallery/touhou_grassroot3__px.gif" alt=""></div>
+          </div>
+          <p style="color:whitesmoke">"I held a lot of nameplates, it was a terrible idea."</p>
+          <p>Little me liked to use different name on online spaces. To name a couple, it's: Zanster, Zank3tsuken, Hall0wZan, Koishift, TsubakiWhite, Pafu, (many other irrelevant name to my first one), and lastly, Kurover. I stopped randomly assigning myself a name because it's simply not a good move if you want to gain a relevancy, which is what I'm trying to do in the world of content creator right now.</p>
+          <p>Thankfully, Zanster and Kurover are the only one you need to remember. I tried to forget Kurover as a whole but it has a bit too much attachment and prevalence so I can't bring myself to do it.
+            <span class="tooltip" tabindex="0"><span>Tooltip</span>
+            <span class="tooltip-content">Tooltip here</span></span>
+          </p>
+          <p>&#9830; Zanster?</p>
+          <p>So, where does the name Zanster come from? Y'see, when I was a pea, I loved this game called Monster Rancher 4. There's a monster called 'Zan' in the game and it triggers all my edgy sensor. Unfortunately, I couldn't get it due to the summoning mechanic requiring you to have specific CD of it. Ever since then, I picked the name Zan to be my name. Probably a hard-coping mechanic for little me.</p>
+          <p>With that story in store, combine the word 'Zan' with 'Gangster' (because it's edge +10) and voila, you get Zanster! I was forced to do it because the online game I played back then requires your name to have a minimum of 4 characters.</p>
+          <p>As for Kurover, it come from the word Clover, which is spelled like it if you weebify it. I said weebify because the Japanese for Clover is ku-ro-ba. Clover is also my second OC name that went through a lot of iteration. It's the classic "overly attached on a single OC" type of deal.</p>
+        </div>
+      </div>
+    </section>
+    
+    <section class="expandable fast">
+      <!-- Controller -->
+      <input id="misc-3_sys" type="checkbox" class="expandable-control">
+      <!-- Title -->
+      <label for="misc-3_sys" class="expandable-title">
+        <div class="expandable-title-icon"></div>
+        <span>My Name is Jeff</span>
+      </label>
+      <!-- Content -->
+      <div class="expandable-content">  
+        <div>
+          <img src="/img/illith.png" alt="" style="width: 128px; float: left; margin: 1rem 8px 8px 0; image-rendering:pixelated">
+          <p style="color:whitesmoke">"I held a lot of nameplates, it was a terrible idea."</p>
+          <p>Little me liked to use different name on online spaces. To name a couple, it's: Zanster, Zank3tsuken, Hall0wZan, Koishift, TsubakiWhite, Pafu, (many other irrelevant name to my first one), and lastly, Kurover. I stopped randomly assigning myself a name because it's simply not a good move if you want to gain a relevancy, which is what I'm trying to do in the world of content creator right now.</p>
+          <p>Thankfully, Zanster and Kurover are the only one you need to remember. I tried to forget Kurover as a whole but it has a bit too much attachment and prevalence so I can't bring myself to do it.</p>
+        </div>
+      </div>
+    </section>
+  </article>
+  
+  <!--
+  <div class="nav-shortcut"><a href="/"><img src="/favicon.png"></a></div>  
+  -->
+
+</body>
+</html>

@@ -1,0 +1,1382 @@
+---
+---
+/* 
+ ! CSS 2nd Iteration
+ ? More personal, self-efficient, and likely more annoying to read (for you)!
+ * Recreating this to learn other ways of specifying class and clean up the gibberish naming convention, maybe add new shiny gibberish in the process. Will try to explain whatever I write here via comments
+ * No longer trying to optimize SEO, which is true on the HTML as well, as it's more hassle than worth.
+ * Hopeful that I create more wacky spectacle this time around~
+ * 
+ * Also this SCSS is just by name (ignoring the double slash for comments), mainly to minify with Jekyll on build. It's actually just normal CSS with LESS, painted with BEM sprinkled with OOCS for modifiers. Wow, for naming conventions, they do nail their own huh.
+ * */
+
+/* 
+ ! Formulas
+ ? Scale Sprite
+ * calc(1 * var(--sprite-x-width))
+ * calc(1 * var(--sprite-x-height))
+ * calc(1 * var(--sprite-x-size))
+ * */
+
+:root {
+  --clr-text: #E7E6EB;
+  --clr-text-dim: #cac7d4;
+  --clr-text-fade: #5d5b63;
+  --clr-text-invert: #3D3D43;
+  --clr-background: #0A0C10;
+  --clr-primary: #78BB52;
+  --clr-secondary: #141624;
+  --clr-accent: #A9D0D6;
+  --clr-border: #494958;
+  --clr-border-select: var(--clr-border);
+  
+  --clr-link: #78BB52;
+  --clr-link-active: var(--clr-text);
+  --clr-link-hover: #89f86f;
+  --clr-link-visited: #a067e0;
+  --clr-link-visited-bright: #b185eb;
+  
+  --clr-h1: var(--clr-text);
+  --clr-h2: var(--clr-text);
+  --clr-h3: #699FF0;
+  --clr-h4: #33C4CC;
+  --clr-h5: #74d49c;
+  --clr-h6: #BACCA9;
+
+  --clr-tooltip-background: #3b2e22;
+  --clr-tooltip-text: #e5d6d2;
+  --clr-tooltip-link: #be6f59;
+  --clr-tooltip-link-visited: var(--clr-link-visited-bright);
+  --clr-tooltip-link-hover: #ccb672;
+
+  --clr-warning: #d3646d;
+  --clr-notice: #f99d7e;
+
+  --sprite-icon-width: 336px;
+  --sprite-icon-height: 288px;
+  --sprite-icon-size: 48px;
+}
+
+// ! @main # Global
+html {
+  font-family: 'Pixel04b03';
+  font-size: 1rem;
+  width: 100%;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: initial;
+}
+body {
+  background-color: var(--clr-background);
+  color: var(--clr-text);
+  width: 100%;
+  margin: auto;
+}
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+h1 {
+  font-size: 2.25rem;
+  color: var(--clr-h1);
+}
+h2 {
+  font-size: 2rem;
+  color: var(--clr-h2);
+}
+h3 {
+  font-size: 1.5rem;
+  color: var(--clr-h3);
+}
+h4 {
+  font-size: 1.25rem;
+  color: var(--clr-h4);
+}
+h5 {
+  font-size: 1.25rem;
+  color: var(--clr-h5);
+}
+h6 {
+  font-size: 1.25rem;
+  color: var(--clr-h6);
+}
+a {
+  color: var(--clr-link);
+  &:visited {
+    color: var(--clr-link-visited);
+  }
+  &:is(:hover, :focus) {
+    color: var(--clr-link-hover);
+  }
+  &:active {
+    color: var(--clr-link-active);
+  }
+}
+img {
+  display: block;
+  width: 100%;
+}
+img[src*=__px] {
+  image-rendering: pixelated;
+}
+img[src*=__hd] {
+  image-rendering: auto;
+}
+input[id$=_sys] {
+  z-index: -1;
+  position: fixed; // Fixed to prevent scroll, absolute to scroll
+  overflow: hidden;
+  left: -9999px;
+  height: 0;
+}
+blockquote {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #25202c;
+  color: var(--clr-text-dim);
+  padding: 4px;
+  padding-left: 12px;
+  box-shadow: 4px 0 0 0 inset var(--clr-text-dim);
+}
+@media (max-width: 768px) {
+  // To compensate sticky nav bar
+  body {
+    margin-bottom: 96px;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+  }
+}
+
+// ! CSS Preloader */
+/* body::after {
+  z-index: -1;
+  height: 0;
+  width: 0;
+  overflow: hidden;
+  position: absolute;
+  content:
+    ADD_STUFF_HERE
+    ADD_STUFF_HERE
+    ;
+} */
+
+// ! @main # Utility
+.link {
+  color: var(--clr-link);
+  cursor: pointer;
+  &:is(:hover, :focus) {
+    color: var(--clr-link-hover);
+  }
+}
+.disable {
+  display: none;
+}
+.hide {
+  visibility: none;
+}
+.hide-max {
+  position: absolute;
+  visibility: none;
+  left: -9999px;
+}
+.br-flex {
+  width: 100%;
+  height: 0;
+}
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+.img-px {
+  image-rendering: pixelated;
+}
+.no-margin {
+  margin: 0;
+}
+.no-margin-bot {
+  margin-bottom: 0;
+}
+.no-margin-top {
+  margin-top: 0;
+}
+.margin {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.caption {
+  margin-top: 0;
+  color: var(--clr-text-dim);
+}
+.separator {
+  content: "";
+  margin-top: 1rem;
+  &.medium {
+    margin-top: 1.5rem;
+  }
+  &.large {
+    margin-top: 2rem;
+  }
+}
+// @note ## Size
+@media (min-width: 769px) {
+  .no-desktop {
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  .no-mobile {
+    display: none;
+  }
+  .caption {
+    text-align: center;
+  }
+}
+
+// ! @main ________ Core ________
+.wrapper {
+  position: relative;
+  max-width: 848px;
+  padding: 24px;
+  margin: auto;
+  margin-bottom: 1rem;
+  &:last-child {
+    margin-bottom: 10ch;
+  }
+  & > p {
+    &:first-child {margin-top: 0;}
+    &:last-child {margin-bottom: 0;}
+  }
+}
+.wrapper-alt {
+  position: relative;
+  padding: 12px;
+  width: min(90vw, 120ch);
+  margin: auto;
+}
+@media (max-width: 768px) {
+  .wrapper {
+    padding: 16px;
+  }
+  .wrapper-alt {
+    width: calc(100% - 48px);
+    padding: 8px;
+  }
+}
+.border {
+  // border-image: url(/img/border-1-active.png) 5 / 16px ;
+  border: 2px solid var(--clr-border);
+  image-rendering: pixelated;
+}
+
+// ! @screen # Navigation
+.nav-main {
+  --clr-link: var(--clr-text);
+  --clr-link-visited: var(--clr-text);
+  --clr-link-invert: var(--clr-primary);
+  --nav-more-items: 2;
+  z-index: 100;
+  display: flex;
+  padding: 12px 0;
+  // grid-template-columns: repeat(3, 196px);
+  margin: 3rem auto 1rem auto;
+  max-width: 896px;
+  image-rendering: pixelated;
+  // border: 1px solid white;
+  border-image: url(/img/border-1-default-alt.png) 6 / 16px / 4px;
+  background: var(--clr-secondary);
+}
+.nav-list {
+  padding: 4px 24px;
+  transition: border-image .25s;
+  cursor: pointer;
+  &:first-child {
+    margin-left: 12px;
+  }
+  &.float-right {
+    margin-left: auto;
+    margin-right: 12px;
+  }
+}
+.nav-list-icon {
+  width: 48px;
+  height: 48px;
+  margin: auto;
+  background-color: var(--clr-background);
+  padding: 4px;
+}
+.nav-list--more {
+  position: relative;
+  top: 0;
+  right: 0;
+  margin: auto;
+  &:is(:hover, :focus-within) {
+    .nav-expandable {
+      visibility: visible;
+      transform: translateY(calc( (var(--nav-more-items) * -96px) - 14px )); // first calc num = number of items
+      opacity: 1;
+      transition: visibility .5s, opacity .5s, transform .25s ease-in-out;
+      & > .nav-list {
+        transform: translateY(0) ;
+      }
+    }
+  }
+  // &:focus-within > [class$=icon] {
+  //   &::after {
+  //     background: url(/img/icon-pack__px.png) var(--ico-nav-active);
+  //     opacity: 1;
+  //   }
+  //   &::before {
+  //     opacity: 0;
+  //   }
+  // }
+}
+// ? Icon and border */
+// Using ::before,after for icon-hover with opacity because sprite transition slides
+.nav-list-icon::before,
+.nav-list-icon::after {
+  content: "";
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  transition: opacity .5s;
+}
+// Default state. .active item has its own class
+.nav-list-icon::before {
+  background: url(/img/icon-pack__px.png) var(--ico-nav-default);
+}
+.nav-list-icon::after {
+  background: url(/img/icon-pack__px.png) var(--ico-nav-active);
+  opacity: 0;
+}
+@keyframes navigation-active-start {
+  0% {border-image: url(/img/border-1-active.png) 4 / 8px / 4px}
+  50% {border-image: url(/img/border-1-active.png) 8 / 16px / 8px}
+  75% {border-image: url(/img/border-1-active.png) 4 / 8px / 4px}
+  100% {border-image: url(/img/border-1-active.png) 8 / 16px / 8px}
+}
+.nav-list {
+  // ? BORDER
+  & > [class$=icon] {
+    margin: auto;
+    border-image: url(/img/border-1-default-alt.png) 4 / 8px / 8px ;
+    // background-color: var(--clr-background);
+    transition: border-image .25s;
+  }
+  &:is(:hover, :focus) {
+    & > [class$=icon] {
+      border-image: url(/img/border-1-active.png) 4 / 8px / 4px ;
+    }
+  }
+  &.active {
+    & > [class$=icon] {
+      border-image: url(/img/border-1-active.png) 8 / 16px / 8px ;
+      animation: navigation-active-start .4s cubic-bezier(0.39, 0.58, 0.57, 1);
+    }
+    &:is(:hover, :focus) > [class$=icon] {
+      border-image: url(/img/border-1-hover.png) 4 / 8px / 3px;
+    }
+  }
+  // ? ICON
+  &:is(:hover, :focus) > [class$=icon] {
+    &::before {
+      opacity: 0;
+      transition-duration: .75s;
+    }
+    &::after {
+      background: url(/img/icon-pack__px.png) var(--ico-nav-active);
+      opacity: 1;
+    }
+  }
+  &.active > [class$=icon] {
+    &::before {
+      background: url(/img/icon-pack__px.png) var(--ico-nav-active);
+    }
+    &::after {
+      background: url(/img/icon-pack__px.png) var(--ico-nav-hover);
+    }
+  }
+  &.active:is(:hover, :focus) > [class$=icon]::after {
+    opacity: 1;
+  }
+}
+// @note # More Tab
+
+.nav-expandable {
+  visibility: hidden;
+  position: absolute;
+  margin: auto;
+  display: flex;
+  flex-direction: column-reverse;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--clr-secondary);
+
+  transform: translateY(-144px);
+  transition: visibility .25s, opacity .25s, transform .5s ease-in-out;
+  & > .nav-list {
+    padding: 24px 0;
+    transition: transform .5s ease-in-out;
+    &:nth-of-type(2) {
+      z-index: -1;
+      transform: translateY(96px);
+    }
+  }
+}
+// ? ICON POSITION - Colum | Row
+// I tried to automate the formula, but I can't figure it out.. Might be structural problem honestly
+.nav-list--home {
+  --ico-nav-default:  calc(1 * -48px + 48px) calc(1 * -48px + 48px);
+  --ico-nav-active:   calc(1 * -48px + 48px) calc(2 * -48px + 48px);
+  --ico-nav-hover:    calc(1 * -48px + 48px) calc(3 * -48px + 48px);
+}
+.nav-list--gallery {
+  --ico-nav-default:  calc(2 * -48px + 48px) calc(1 * -48px + 48px);
+  --ico-nav-active:   calc(2 * -48px + 48px) calc(2 * -48px + 48px);
+  --ico-nav-hover:    calc(2 * -48px + 48px) calc(3 * -48px + 48px);
+}
+.nav-list--blog {
+  --ico-nav-default:  calc(3 * -48px + 48px) calc(1 * -48px + 48px);
+  --ico-nav-active:   calc(3 * -48px + 48px) calc(2 * -48px + 48px);
+  --ico-nav-hover:    calc(3 * -48px + 48px) calc(3 * -48px + 48px);
+}
+.nav-list--download {
+  --ico-nav-default:  calc(4 * -48px + 48px) calc(1 * -48px + 48px);
+  --ico-nav-active:   calc(4 * -48px + 48px) calc(2 * -48px + 48px);
+  --ico-nav-hover:    calc(4 * -48px + 48px) calc(3 * -48px + 48px);
+}
+.nav-list--contact {
+  --ico-nav-default:  calc(5 * -48px + 48px) calc(1 * -48px + 48px);
+  --ico-nav-active:   calc(5 * -48px + 48px) calc(2 * -48px + 48px);
+  --ico-nav-hover:    calc(5 * -48px + 48px) calc(3 * -48px + 48px);
+}
+.nav-list--more {
+  --ico-nav-default:  calc(6 * -48px + 48px) calc(1 * -48px + 48px);
+  --ico-nav-active:   calc(6 * -48px + 48px) calc(2 * -48px + 48px);
+  --ico-nav-hover:    calc(6 * -48px + 48px) calc(3 * -48px + 48px);
+}
+// @note # Size
+@media (max-width: 768px) {
+  .nav-main {
+    position: fixed;
+    gap: 0;
+    bottom: 0;
+    padding: 0;
+    width: 100%;
+    margin: initial;
+    padding-left: initial;
+    border-image-outset: 6px;
+    border-image-slice: 7;
+    // border: none;
+    // border-top: 1px solid var(--clr-border);
+  }
+  .nav-list {
+    border-image: none;
+    width: 100%;
+    padding: 14px 0 ;
+    // text-align: center; // Will mess with icon sprite, apply to span instead (if using)
+    font-size: 1rem;
+    background-color: initial;
+    &:first-child {
+      margin-left: initial;
+    }
+    &.float-right {
+      margin: initial;
+    }
+  }
+}
+// ! @main ________ Modular ________
+.title-full {
+  flex: 100%;
+  display: block;
+  text-align: center;
+  font-size: 2rem;
+  padding: 8px;
+  background-color: var(--clr-secondary);
+}
+
+// * @screen # Expandable
+/* .expandable-column .expandable {
+  display: flex;
+  gap: 16px;
+} This make the expandable vertical lmao. Saving it for future maybe */
+.expandable {
+  margin: .75rem 0; 
+  position: relative;
+}
+  // ? Title of content with icon */
+.expandable-title {
+  display: block;
+  margin: 0;
+  line-height: 48px;
+  height: 48px;
+  cursor: pointer;
+  background: var(--clr-secondary);
+  & > :not(.expandable-title-icon) {
+    font-size: 1.5rem;
+    color: var(--clr-link);
+  }
+}
+.expandable-title-icon {
+  content: "";
+  float: left;
+  height: 48px;
+  width: 48px;
+  background: url(/img/icon-pack__px.png) 0 -144px;
+  opacity: .5;
+  scale: .75;
+  transition: opacity .25s;
+}
+.expandable-title-icon::after {
+  content: "";
+  position: absolute;
+  height: 48px;
+  width: 48px;
+  background: url(/img/icon-pack__px.png) 1px -192px;
+  transition: transform .25s;
+}
+.expandable-content {
+  --speed-start: .5s;
+  --speed-end: .5s;
+  display: grid;
+  grid-template-rows: 0fr;
+  padding: 0 16px;
+  opacity: 0;
+  border-top: 2px solid var(--clr-text);
+  transition: grid-template-rows var(--speed-end), opacity var(--speed-end);
+  & > div {
+    overflow: hidden;
+    color: var(--clr-text-dim);
+  }
+  // Hide tooltip entry to prevent tab-navigation from selecting it when it's not expanded
+  & > div :is(.tooltip, *) :is(.tooltip) {
+    visibility: hidden;
+    transition: visibility .25s;
+  }
+  // ? @note ## Mod
+  &.slow {--speed-start: 1s;--speed-end: 1s;}
+  &.fast {--speed-start: .25s;--speed-end: .25s;}
+}
+  // ? Styles
+.expandable-title:hover > :not(.expandable-title-icon) {
+  color: var(--clr-text);
+}
+/* .expandable-title:hover > [class$=icon],
+.expandable-control:focus + [class$=title] > [class$=icon] {
+  filter: invert(1);
+} */
+.expandable-control:focus + [class$=title] {
+  outline: 2px solid var(--clr-text);
+  color: var(--clr-text);
+}
+.expandable-control:checked + [class$=title] > [class$=icon] {
+  opacity: 1;
+  &::after {
+    transform: rotate(90deg);
+  }
+}
+  // ? Toggles
+.expandable-control:checked ~ [class$=content] {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  transition: grid-template-rows var(--speed-start), opacity var(--speed-start);
+  & > div :is(.tooltip, *) :is(.tooltip) {
+    visibility: visible;
+  }
+}
+
+// * @screen # Tooltip
+.tooltip {
+  color: var(--clr-tooltip-link);
+  display: inline;
+  &:is(:hover, :focus-within) {
+    color: var(--clr-tooltip-link-hover);
+  }
+  & > span:first-of-type {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  &:has(.small) {
+    position: relative;
+  }
+}
+.tooltip-content {
+  --speed-start: .5s;
+  --speed-end: .25s;
+  --tooltip-position: translateX(0);
+  --tooltip-position-start: translateY(.8rem) var(--tooltip-position);
+  --tooltip-position-end: translateY(1.1rem) var(--tooltip-position);
+  z-index: 1;
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  max-width: 848px;
+  width: fit-content;
+  padding: 16px;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+  color: var(--clr-tooltip-text);
+  overflow: auto;
+  background: var(--clr-tooltip-background);
+  border-image: url(/img/border-2.png) 8 / 16px / 0px;
+  transform: var(--tooltip-position-start);
+  transition:
+    visibility var(--speed-end),
+    opacity var(--speed-end),
+    transform var(--speed-end);
+  transition-delay: .1s; // Give time to hover to box
+}
+  // ? @note ## Mod
+.tooltip-content--slow {--speed-start: 1s;--speed-end: .75s;}
+.tooltip-content--fast {--speed-start: .25s;--speed-end: .1s;}
+.tooltip-content--left {--tooltip-position:translateX(-20vw);}
+.tooltip-content--right {--tooltip-position:translateX(200px);}
+.tooltip-content--small {width: 20ch;}
+.tooltip-content--wide {width: unset;}
+
+.tooltip:is(:hover, :focus-within) [class*=content] {
+  z-index: 2;
+  visibility: visible;
+  opacity: 1;
+  transform: var(--tooltip-position-end);
+  transition:
+    visibility var(--speed-start),
+    opacity .25s,
+    transform var(--speed-start);
+  transition-delay: 0s;
+}
+// @note ## Media
+@media (max-width: 768px) {
+  .tooltip-content {
+    --tooltip-position-start: translateY(48px);
+    --tooltip-position-end: translateY(0);
+    position: fixed;
+    width: auto;
+    margin: auto;
+    bottom: 64px;
+    padding-bottom: 3.5rem;
+    & a {
+      font-size: 1.1rem;
+    }
+  }
+}
+
+// * @screen # ProfilePicture
+.headshot {
+  --headshot-size: 128px;
+  --headshot-border: 2px solid white;
+  & img {
+    margin: auto;
+    height: auto;
+    width: var(--headshot-size);
+    border: var(--headshot-border);
+  }
+}
+  // ? @note ## Mod
+.headshot--float-left {float: left;}
+.headshot--float-right {float: right;}
+.headshot--pos-first {margin: 0 1rem 1rem 0;}
+.headshot--pos-middle {margin: 1rem 1rem 1rem 0;}
+// * ProfileAccordion
+.headshot-accordion {
+  content: "";
+  width: var(--headshot-size);
+  height: var(--headshot-size);
+  position: relative;
+  margin: auto;
+  margin-bottom: 3rem;
+  border: var(--headshot-border);
+  & > img {
+    position: absolute;
+    border: unset;
+    transition: opacity .25s, transform .5s;
+    opacity: 0;
+  }
+}
+.headshot-accordion-toggle {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  position: absolute;
+  width: 100%;
+  bottom: -27px;
+  line-height: 24px;
+  text-align: center;
+  background-color: var(--clr-background);
+  & label {
+    cursor: pointer;
+    outline: var(--headshot-border);
+  }
+}
+@keyframes profile-transition-1 {
+  0% {transform: rotate(0);}
+  20% {transform: rotate(-5deg);}
+  50% {transform: rotate(2deg);}
+  100% {transform: rotate(0);}
+}
+@keyframes profile-transition-2 {
+  0% {transform: rotate(0);}
+  20% {transform: rotate(5deg);}
+  60% {transform: rotate(-4deg);}
+  100% {transform: rotate(0);}
+}
+@keyframes profile-transition-3 {
+  0% {transform: rotate(0);}
+  10% {transform: rotate(-5deg);}
+  25% {transform: rotate(3deg);}
+  40% {transform: rotate(-2deg);}
+  50% {transform: rotate(-5deg);}
+  65% {transform: rotate(3deg);}
+  80% {transform: rotate(-2deg);}
+  90% {transform: rotate(-1deg);}
+  100% {transform: rotate(0);}
+}
+// ? Toggles
+// Tell you what, this is much more readable than previous one
+input[id^=profile-headshot-1]:checked ~ .headshot > .headshot-accordion {
+  animation: profile-transition-1 .5s ease 0s 1;
+  & > img:nth-of-type(1) {
+    opacity: 1;
+  }
+  & > .headshot-accordion-toggle > label {
+    &:nth-of-type(1) {
+      color: var(--clr-link-hover);
+      &:hover {
+        color: var(--clr-text);
+      }
+    }
+    &:not(:nth-of-type(1)) {
+      color: var(--clr-link-active);
+      &:hover {
+        color: var(--clr-link);
+      }
+    }
+  }
+}
+input[id^=profile-headshot-2]:checked ~ .headshot > .headshot-accordion {
+  animation: profile-transition-2 .5s;
+  & > img:nth-of-type(2) {
+    opacity: 1;
+  }
+  & > .headshot-accordion-toggle > label {
+    &:nth-of-type(2) {
+      color: var(--clr-link-hover);
+      &:hover {
+        color: var(--clr-text);
+      }
+    }
+    &:not(:nth-of-type(2)) {
+      color: var(--clr-link-active);
+      &:hover {
+        color: var(--clr-link);
+      }
+    }
+  }
+}
+input[id^=profile-headshot-3]:checked ~ .headshot > .headshot-accordion {
+  animation: profile-transition-3 .5s;
+  & > img:nth-of-type(3) {
+    opacity: 1;
+  }
+  & > .headshot-accordion-toggle > label {
+    &:nth-of-type(3) {
+      color: var(--clr-link-hover);
+      &:hover {
+        color: var(--clr-text);
+      }
+    }
+    &:not(:nth-of-type(3)) {
+      color: var(--clr-link-active);
+      &:hover {
+        color: var(--clr-link);
+      }
+    }
+  }
+}
+input[id^=profile-headshot-1]:is(:hover, :focus) ~ .headshot > .headshot-accordion > .headshot-accordion-toggle > 
+label:nth-of-type(1) {text-decoration: underline;}
+input[id^=profile-headshot-2]:is(:hover, :focus) ~ .headshot > .headshot-accordion > .headshot-accordion-toggle > 
+label:nth-of-type(2) {text-decoration: underline;}
+input[id^=profile-headshot-3]:is(:hover, :focus) ~ .headshot > .headshot-accordion > .headshot-accordion-toggle > 
+label:nth-of-type(3) {text-decoration: underline;}
+// Text Switcher
+.profile-headshot-section {
+  display: none;
+}
+input[id^=profile-headshot-1]:checked ~ [data-target="1"] {display: block;}
+input[id^=profile-headshot-2]:checked ~ [data-target="2"] {display: block;}
+input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
+
+// @note ## Media
+@media (max-width: 768px) {
+  .headshot {
+    float: unset;
+    margin: auto;
+  }
+  .headshot--pos-first {
+    margin-bottom: 1rem;
+  }
+}
+
+// * @screen # Contact List
+.contact-lists {
+  --clr-link: var(--clr-text);
+  --clr-link-visited: var(--clr-text);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.contact-list {
+  flex-grow: 1;
+  cursor: pointer;
+  padding: 16px 8px;
+  font-size: 1rem;
+  width: min(100%, 110px);
+  text-decoration: none;
+  background-color: var(--clr-background);
+  &:is(:hover, :focus) {
+    background-color: var(--clr-secondary);
+    box-shadow: 0 0 0 4px inset var(--clr-border);
+  }
+  &:first-child {
+    flex: 100%;
+  }
+}
+.contact-icon {
+  // float: left;
+  display: block;
+  margin: auto;
+  margin-bottom: 1rem;
+  width: 48px;
+  height: 48px;
+  &[src$=svg] {
+    filter: invert(1) brightness(90%);
+  }
+}
+
+// ! @main ________ Gallery ________
+// * @note # Tabs 
+.wrapper__gallery {
+  padding: 0;
+}
+.separator__gallery {
+  margin-top: 25vh;
+}
+.gallery-tab-buttons {
+  z-index: 1;
+  display: flex;
+  position: sticky;
+  top: 0;
+  box-sizing: border-box;
+  padding: 4px;
+  gap: 4px;
+  width: 100%;
+
+  background-color: var(--clr-background);
+  transition: flex .5s;
+  text-align: center;
+}
+.gallery-tab-button {
+  display: flex;
+  background-color: var(--clr-secondary);
+  line-height: 48px;
+  cursor: pointer;
+  width: 0;
+
+  flex-grow: 999;
+  flex: 1;
+  transition: flex .5s;
+  & > span {
+    flex: 1;
+    overflow: hidden;
+    transition: flex .5s;
+  }
+}
+.gallery-tab-content {
+  --speed-close: 1.5s;
+  --speed-open: 2s calc(var(--speed-close) - .5s);
+  --speed-fade: 1.5s ease;
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  visibility: hidden;
+  transition: grid-template-rows var(--speed-close), opacity var(--speed-fade), visibility var(--speed-fade);
+  & > div {
+    overflow: hidden;
+  }
+}
+.gallery-tab-button-sub {
+  display: flex;
+  justify-content: center;
+  height: 48px;
+  cursor: pointer;
+  flex: 0;
+  overflow: hidden;
+  background-color: var(--clr-text-invert);
+  transition: flex .5s;
+}
+// * Settings
+#gallery-tab-1__page-1 {
+  --speed-open: 3s calc(var(--speed-close) - .5s);
+}
+#gallery-tab-2 {
+  --speed-open: 4s calc(var(--speed-close) - .5s);
+}
+#gallery-tab-3 {
+  --speed-open: 3s calc(var(--speed-close) - .5s);
+}
+#gallery-tab-state-1__page-2_sys {
+  display: none; /* Skip to page 1 when key nav */
+}
+
+// ? Toggles
+#gallery-tab-state-1__page-1_sys:checked ~ #gallery-tab-state-1__page-2_sys,
+#gallery-tab-state-1__page-2_sys:checked {
+  display: unset;
+}
+#gallery-tab-state-1__page-1_sys:checked,
+#gallery-tab-state-1__page-2_sys:checked {
+  & ~ .gallery-tab-buttons > label[for*=state-1] {
+    flex: 2.5;
+    & > span {
+      flex: 0;
+    }
+    & > .gallery-tab-button-sub {
+      flex: 1;
+    }
+  }
+}
+#gallery-tab-state-1__page-1_sys:checked {
+  & ~ .gallery-tab-buttons > label[for*=state-1] > label[for$=page-1_sys] {
+    background-color: var(--clr-background);
+    box-shadow: 0 0 0 2px inset var(--clr-accent);
+  }
+  & ~ #gallery-tab-1__page-1 {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    visibility: visible;
+    transition: grid-template-rows var(--speed-open), opacity var(--speed-fade);
+  }
+}
+#gallery-tab-state-1__page-2_sys:checked {
+  & ~ .gallery-tab-buttons > label[for*=state-1] > label[for$=page-2_sys] {
+    background-color: var(--clr-background);
+    box-shadow: 0 0 0 2px inset var(--clr-accent);
+  }
+  & ~ #gallery-tab-1__page-2 {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    visibility: visible;
+    transition: grid-template-rows var(--speed-open), opacity var(--speed-fade);
+  }
+}
+#gallery-tab-state-2_sys:checked {
+  & ~ .gallery-tab-buttons > label[for$=state-2_sys] {
+    flex: 2;
+    background-color: var(--clr-background);
+    box-shadow: 0 0 0 2px inset var(--clr-accent);
+  }
+  & ~ #gallery-tab-2 {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    visibility: visible;
+    transition: grid-template-rows var(--speed-open), opacity var(--speed-fade);
+  }
+}
+#gallery-tab-state-3_sys:checked {
+  & ~ .gallery-tab-buttons > label[for$=state-3_sys] {
+    flex: 2;
+    background-color: var(--clr-background);
+    box-shadow: 0 0 0 2px inset var(--clr-accent);
+  }
+  & ~ #gallery-tab-3 {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    visibility: visible;
+    transition: grid-template-rows var(--speed-open), opacity var(--speed-fade);
+  }
+}
+  // ? Styles
+#gallery-tab-state-1__page-1_sys:focus ~ [class$=buttons] > label[for*=state-1] > label[for$=page-1_sys] {
+  z-index: 1;
+  box-shadow: 0 0 0 4px var(--clr-text);
+}
+#gallery-tab-state-1__page-2_sys:focus ~ [class$=buttons] > label[for*=state-1] > label[for$=page-2_sys] {
+  z-index: 1;
+  box-shadow: 0 0 0 4px var(--clr-text);
+}
+#gallery-tab-state-2_sys:focus ~ [class$=buttons] > label[for$=state-2_sys] {
+  box-shadow: 0 0 0 4px var(--clr-text);
+}
+#gallery-tab-state-3_sys:focus ~ [class$=buttons] > label[for$=state-3_sys] {
+  box-shadow: 0 0 0 4px var(--clr-text);
+}
+
+// * @note # EntryLists
+.gallery-lists {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+  box-sizing: content-box;
+  &.relative {
+    position: relative; // This limit the size of absolute .gallery-popup
+  }
+}
+@keyframes gallery-caption-start {
+  0% {transform: translateY(-20px); transform-origin: top; opacity: .5;}
+  25% {transform: translateY(8px) rotate(4deg); opacity: 1;}
+  50% {transform: translateY(-4px) rotate(2deg);}
+  100% {transform: translateY(0) rotate(0deg);}
+}
+.gallery-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  flex: 1;
+  width: 196px;
+  height: 320px;
+  border: 1px solid transparent;
+
+  overflow: hidden;
+  background-color: var(--clr-secondary);
+  transition: flex .75s ease, background .5s;
+  & > img {
+    height: 100%;
+    width: auto; // This break lazy load if it's inside .expandable, don't even ask me why. Setting it to 100% or assign auto to height fixes it, again, don't ask me
+  }
+  &:has(.gallery-popup) {
+    cursor: pointer;
+  }
+  & > p {
+    position: absolute;
+    display: none; // Breaks layout if else. Mainly on the gallery with its hidden entries. Same with popups but we throw them above instead, but it's too hacky i don't like that much.
+    margin-top: 310px; // related to .gallery-list height
+    padding: 16px;
+    background-color: var(--clr-tooltip-background);
+    border-image: url(/img/border-2.png) 8 / 16px;
+    pointer-events: none; //prevent hover conflict with other lists
+  }
+  // ? @note ## Mod
+  // Using OOCS because I don't want to bloat the html with BEM
+  &.left {justify-content: flex-start;}
+  &.right {justify-content: flex-end;}
+  &.head > img {
+    margin-top: 30%;
+  }
+  &.wide {
+    width: unset;
+    flex: 1.5;
+    & > img {
+      height: unset;
+      width: 100%;
+    }
+  }
+  &:is(:hover, :focus) {
+    border: 1px solid var(--clr-border-select);
+    flex: 2;
+    & > p {
+      display: block;
+      animation: gallery-caption-start .5s;
+    }
+  }
+  &.full {
+    flex: 100%;
+    width: 100%;
+    & > img {
+      height: unset;
+      width: 100%;
+    }
+  }
+  &.white {
+    &:hover {
+      background-color: whitesmoke;
+    }
+    & > .gallery-popup {
+      background-color: whitesmoke;
+    }
+  }
+}
+.gallery-list > p:empty {
+  display: none; // hide if missing caption
+}
+
+// * @note # PopupPreview
+// * We need 2 images in the HTML for images with zooming effect. We also do it in this gimmicky manner just so that the lazy load works.
+@keyframes gallery-popup-start {
+  from {transform: scale(.9);}
+  to {transform: scale(1);}
+}
+.gallery-popup {
+  --speed-start: .25s;
+  --speed-end: .25s;
+  z-index: 5;
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  margin: auto;
+  left: 0;
+  right: 0;
+  transform: translate(-9999px, -99999px);
+  
+  border-image: url(/img/border-2.png) 12 / 24px / 4px;
+  background-color: var(--clr-background);
+  image-rendering: pixelated;
+  cursor: default;
+  transition: transform 1ms calc(var(--speed-end) + .5s), visibility var(--speed-end), opacity var(--speed-end);
+}
+.gallery-popup::before {
+  content: "Viewer";
+  position: absolute;
+  top: -40px;
+  left: 8px;
+  padding: 12px;
+  background-color: var(--clr-tooltip-background);
+  color: var(--clr-tooltip-text);
+  border-image: url(/img/border-2.png) 12 / 24px ;
+}
+.gallery-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 64px;
+  height: 64px;
+  background-color: crimson;
+  cursor: pointer;
+
+  visibility: hidden; //Prevent tab spam jitter due to animation not finishing, delay transition at least on animation finish
+  opacity: 0;
+  transition: visibility var(--speed-end), opacity var(--speed-end);
+}
+.gallery-list:focus > .gallery-popup  {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(0);
+  animation: gallery-popup-start var(--speed-start);
+  transition: transform 1ms var(--speed-start), visibility var(--speed-start), opacity var(--speed-start);
+  & > .gallery-close {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility .1ms var(--speed-start), opacity .5s var(--speed-start);
+  }
+}
+// @note # Size
+@media (max-width: 768px) {
+  .gallery-list {
+    width: 144px;
+  }
+  .gallery-bottom-list ~ .gallery-list > .gallery-popup {
+    bottom: 0;
+  }
+}
+@media (max-width: 450px) {
+  .gallery-list.head > img {
+    margin-top: auto;
+  }
+  .gallery-list.wide > img {
+    width: auto;
+    height: 100%;
+  }
+  .gallery-list.full > img {
+    width: auto;
+    height: 100%;
+  }
+}
+@media (max-width: 768px) {
+  .gallery-tab-buttons {
+    // position: fixed;
+    box-sizing: border-box;
+    width: 100%;
+    left: 0;
+    overflow: hidden;
+  }
+  .gallery-tab-content {
+    padding: 0 8px;
+  }
+}
+
+// ! @main ________ 404 Page ________
+.error-page {
+  margin: auto;
+  margin-top: 2rem;
+  max-width: 60ch;
+  width: 100%;
+  text-align: center;
+  background-color: var(--clr-secondary);
+  border-top: 8px solid var(--clr-border);
+}
+.error-media {
+  margin: auto;
+  max-width: 300px;
+  border-image: url(/img/border-1-default-alt.png) 5 / 16px / 4px;
+  image-rendering: pixelated;
+}
+/* .error-media {
+  & > .content {
+    content: "";
+    margin: auto;
+    width: 128px;
+    height: 128px;
+    background-color: var(--clr-background);
+    background-image: url(/img/404.gif);
+    background-repeat: no-repeat;
+    background-size: 160px;
+    background-position: 50% 40%;
+    border: 4px solid var(--clr-border);
+    border-radius: 50%;
+    image-rendering: pixelated;
+  }
+} */
+.error-title {
+  margin-top: 1rem;
+  font-size: 3rem;
+}
+.error-caption {
+  margin-top: .25rem;
+  font-size: 1.5rem;
+  margin-bottom: 0;
+}
+.error-description {
+  margin-top: .25rem;
+  color: var(--clr-text-fade);
+}
+
+// ! 404 Page CSS | Basically a copy of LinkThree lab page TO BE REWRITTEN
+.entry-linkthree {
+  color: #faf0de;
+  max-width: 520px;
+  margin: auto;
+  margin-top: 8%;
+  text-align: center;
+}
+@media (max-width: 810px) {
+  .entry-linkthree {
+    padding: 0 4%;
+  }
+}
+.linkthree-profile {
+  margin-bottom: 32px;
+}
+.linkthree-profile-img {
+  width: 96px;
+  height: 96px;
+  margin: auto;
+  margin-bottom: 12px;
+  border: 8px solid gray;
+  border-radius: 50%;
+  background: white;
+  background-image: url(/img/404.gif);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 128px;
+  image-rendering: pixelated;
+}
+.linkthree-profile-img img {
+  width: 100%;
+  overflow: hidden;
+}
+.linkthree-link {
+  margin: 8px 0;
+  background: #25202c;
+  border: 2px solid gray;
+}
+.linkthree-link .text{
+  color: #faf0de;
+  display: block;
+  line-height: 48px;
+}
+.linkthree-link a:is(:focus, :hover) {
+  color: #8db565;
+  background: #25355A;
+}
+.linkthree-img {
+  position: absolute;
+  padding: 4px;
+  line-height: 48px;
+}
+.linkthree-img img {
+  width: 40px;
+}
+.linkthree-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: #141414;
+  height: 48px;
+  width: 100%;
+}
+.linkthree-footer-content {
+  color: gray;
+  line-height: 48px;
+  text-align: center;
+}
+.entry-linkthree--embed {
+  z-index: 1000;
+  position: fixed;
+  visibility: hidden;
+  background: #0a0c10;
+  margin-top: 92px;
+  padding: 32px 16px;
+  border: 4px solid gray;
+  max-height: 70%; 
+  overflow: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  transform: translateY(-16px);
+  transition: opacity .25s, transform .5s, visibility 0.1s;
+}
+.entry-linkthree--embed::-webkit-scrollbar {
+  display: none;
+}
+.entry-linkthree-parent:focus-within > .entry-linkthree--embed {
+  visibility: visible; 
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity .25s, transform .5s;
+}
+.entry-linkthree-embed-control {
+  z-index: 1001;
+  visibility: hidden;
+  position: fixed;
+  margin: auto;
+  margin-top: 112px;
+  font-size: 32px;
+  text-align: center;
+  width: 48px;
+  line-height: 48px;
+  top: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  transform: translateX(236px);
+  cursor: pointer;
+  color: gray;
+}
+@media (max-width: 520px) {  
+  .entry-linkthree-embed-control {
+    left: 84%;
+    transform: none;
+  }
+}
+
+.entry-linkthree-embed-control::after {
+  content: "-"
+}
+.entry-linkthree-embed-control:hover {
+  color: whitesmoke;
+}
+.entry-linkthree-parent:focus-within + .entry-linkthree-embed-control {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity .1s .33s, color .1s;
+}

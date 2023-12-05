@@ -1,0 +1,121 @@
+---
+layout: default
+title: Zan | Gallery
+description: Gallery containing all kind of artworks
+og-title: Gallery
+og-type: gallery
+---
+<main>
+  <section class="wrapper border">
+    <div class="headshot headshot--float-left headshot--pos-first">
+      <img src="/img/illith.png" alt="">
+    </div>
+    <h1>Gallery Page</h1>
+    <p class="caption no-mobile">Click to zoom!</p>
+    <p class="caption no-desktop">Tap to zoom!</p>
+    <p>Welcome to the gallery, have a look around yea? Fun fact, these are about half of my creator's art in total. Pretty disappointing number, isn't it?</p>
+    <p>If things feels unintuitive here, make sure to throw it up to my creator, yeah? A tip, you can press TAB key (if any) to close preview popup, weird I know.</p>
+  </section>
+
+  <div class="wrapper wrapper__gallery">
+    <input id="gallery-tab-state-1__page-1_sys" name="gallery-tab-states" type="radio">
+    <input id="gallery-tab-state-1__page-2_sys" name="gallery-tab-states" type="radio">
+    <input id="gallery-tab-state-2_sys" name="gallery-tab-states" type="radio" checked>
+    <input id="gallery-tab-state-3_sys" name="gallery-tab-states" type="radio">
+    <div class="gallery-tab-buttons">
+      <label for="gallery-tab-state-1__page-1_sys" class="gallery-tab-button">
+        <label for="gallery-tab-state-1__page-1_sys" class="gallery-tab-button-sub">Page 1</label>
+        <span>Animation</span>
+        <label for="gallery-tab-state-1__page-2_sys" class="gallery-tab-button-sub">Page 2</label>
+      </label>
+      <label for="gallery-tab-state-2_sys" class="gallery-tab-button">
+        <span>Pixelart</span>
+      </label>
+      <label for="gallery-tab-state-3_sys" class="gallery-tab-button">
+        <span>Raster</span>
+      </label>
+    </div>
+        
+    <!-- ! TAB 1 Animation PAGE 1 -->
+    <section class="gallery-tab-content" id="gallery-tab-1__page-1">
+      <div>
+        <div class="gallery-lists">
+          <h2 class="title-full margin">Animation</h2>
+          {% for item in site.data.gallery-animation-1 %}
+          <div class="gallery-list{% if item.size == "full" %} full{% endif %}{% if item.size == "wide" %} wide{% endif %}{% if item.position == "left" %} left{% endif %}{% if item.position == "right" %} right{% endif %}{% if item.align == "head" %} head{% endif %}{% if item.background == "white" %} white{% endif %}" tabindex="0">
+            {% if item.caption %}<p>{{ item.caption }}</p>{% endif %}        
+            <img loading="lazy" src="{{ item.link }}" alt="{{ item.name }}">
+            <div class="gallery-popup">
+              <img loading="lazy" src="{% if item.link-2 %}{{ item.link-2 }}{% else %}{{ item.link }}{% endif %}" alt="{{ item.name }} full preview">
+              <div class="gallery-close" tabindex="0"></div></div>
+          </div>
+          {% if item.last-item %}<div class="br-flex"></div>{% endif %}
+          {% if item.last-row %}<div class="gallery-bottom-list"></div>{% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <!-- ! TAB 1 Animation PAGE 2 -->
+    <section class="gallery-tab-content" id="gallery-tab-1__page-2">
+      <div>
+        <div class="gallery-lists">
+          <h2 class="title-full margin">Animation 2</h2>
+          {% for item in site.data.gallery-animation-2 %}
+          <div class="gallery-list{% if item.size == "full" %} full{% endif %}{% if item.size == "wide" %} wide{% endif %}{% if item.position == "left" %} left{% endif %}{% if item.position == "right" %} right{% endif %}{% if item.align == "head" %} head{% endif %}{% if item.background == "white" %} white{% endif %}" tabindex="0">
+            {% if item.caption %}<p>{{ item.caption }}</p>{% endif %}        
+            <img loading="lazy" src="{{ item.link }}" alt="{{ item.name }}">
+            <div class="gallery-popup">
+              <img loading="lazy" src="{% if item.link-2 %}{{ item.link-2 }}{% else %}{{ item.link }}{% endif %}" alt="{{ item.name }} full preview">
+              <div class="gallery-close" tabindex="0"></div></div>
+          </div>
+          {% if item.last-item %}<div class="br-flex"></div>{% endif %}
+          {% if item.last-row %}<div class="gallery-bottom-list"></div>{% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <!-- ! TAB 2 Pixelart -->
+    <section class="gallery-tab-content" id="gallery-tab-2">
+      <div>
+        <div class="gallery-lists">
+          <h2 class="title-full margin">Pixelart</h2>
+          {% for item in site.data.gallery-pixelart-1 %}
+          <div class="gallery-list{% if item.size == "full" %} full{% endif %}{% if item.size == "wide" %} wide{% endif %}{% if item.position == "left" %} left{% endif %}{% if item.position == "right" %} right{% endif %}{% if item.align == "head" %} head{% endif %}{% if item.background == "white" %} white{% endif %}" tabindex="0">
+            {% if item.caption %}<p>{{ item.caption }}</p>{% endif %}        
+            <img loading="lazy" src="{{ item.link }}" alt="{{ item.name }}">
+            <div class="gallery-popup">
+              <img loading="lazy" src="{% if item.link-2 %}{{ item.link-2 }}{% else %}{{ item.link }}{% endif %}" alt="{{ item.name }} full preview">
+              <div class="gallery-close" tabindex="0"></div></div>
+          </div>
+          {% if item.last-item %}<div class="br-flex"></div>{% endif %}
+          {% if item.last-row %}<div class="gallery-bottom-list"></div>{% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <!-- ! TAB 3 Others -->
+    <section class="gallery-tab-content" id="gallery-tab-3">
+      <div>
+        <div class="gallery-lists">
+          <h2 class="title-full margin">Raster</h2>
+          {% for item in site.data.gallery-raster-1 %}
+          <div class="gallery-list{% if item.size == "full" %} full{% endif %}{% if item.size == "wide" %} wide{% endif %}{% if item.position == "left" %} left{% endif %}{% if item.position == "right" %} right{% endif %}{% if item.align == "head" %} head{% endif %}{% if item.background == "white" %} white{% endif %}" tabindex="0">
+            {% if item.caption %}<p>{{ item.caption }}</p>{% endif %}        
+            <img loading="lazy" src="{{ item.link }}" alt="{{ item.name }}">
+            <div class="gallery-popup">
+              <img loading="lazy" src="{% if item.link-2 %}{{ item.link-2 }}{% else %}{{ item.link }}{% endif %}" alt="{{ item.name }} full preview">
+              <div class="gallery-close" tabindex="0"></div></div>
+          </div>
+          {% if item.last-item %}<div class="br-flex"></div>{% endif %}
+          {% if item.last-row %}<div class="gallery-bottom-list"></div>{% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+  </div> <!-- ! WRAPPER END -->
+  <div class="separator__gallery"></div>
+</main>
