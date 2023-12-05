@@ -1,10 +1,10 @@
 @font-face {
   font-family: Pixel04b03;
-  src: url('style/04B_03_.ttf');
+  src: url('styles/04B_03_.ttf');
   font-style: normal;
 }
 @font-face {
   font-family: Rubik;
-  src: url('style/Rubik-Regular.ttf');
+  src: url('styles/Rubik-Regular.ttf');
   font-style: normal;
 }
