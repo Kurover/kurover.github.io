@@ -883,18 +883,14 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 .gallery-tab-button {
   display: flex;
   background-color: var(--clr-secondary);
+  justify-content: center;
   line-height: 48px;
-  cursor: pointer;
   width: 0;
+  cursor: pointer;
 
   flex-grow: 999;
   flex: 1;
   transition: flex .5s;
-  & > span {
-    flex: 1;
-    overflow: hidden;
-    transition: flex .5s;
-  }
 }
 .gallery-tab-content {
   --speed-close: 1.5s;
@@ -909,7 +905,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     overflow: hidden;
   }
 }
-.gallery-tab-button-sub {
+[data-btn-anim|="sub"] {
   display: flex;
   justify-content: center;
   height: 48px;
@@ -934,24 +930,26 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 }
 
 // ? Toggles
+// This will make sure you get to tab 1 after changing element, for keyboard nav
 #gallery-tab-state-1__page-1_sys:checked ~ #gallery-tab-state-1__page-2_sys,
 #gallery-tab-state-1__page-2_sys:checked {
   display: unset;
 }
 #gallery-tab-state-1__page-1_sys:checked,
 #gallery-tab-state-1__page-2_sys:checked {
-  & ~ .gallery-tab-buttons > label[for*=state-1] {
+  & ~ .gallery-tab-buttons > [data-btn-anim="parent"] {
     flex: 2.5;
-    & > span {
+    & > label[data-btn-anim="main"] {
       flex: 0;
+      overflow: hidden;
     }
-    & > .gallery-tab-button-sub {
+    & > label[data-btn-anim|="sub"] {
       flex: 1;
     }
   }
 }
 #gallery-tab-state-1__page-1_sys:checked {
-  & ~ .gallery-tab-buttons > label[for*=state-1] > label[for$=page-1_sys] {
+  & ~ .gallery-tab-buttons > [data-btn-anim="parent"] > label[data-btn-anim="sub-1"] {
     background-color: var(--clr-background);
     box-shadow: 0 0 0 2px inset var(--clr-accent);
   }
@@ -963,7 +961,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   }
 }
 #gallery-tab-state-1__page-2_sys:checked {
-  & ~ .gallery-tab-buttons > label[for*=state-1] > label[for$=page-2_sys] {
+  & ~ .gallery-tab-buttons > [data-btn-anim="parent"] > label[data-btn-anim="sub-2"] {
     background-color: var(--clr-background);
     box-shadow: 0 0 0 2px inset var(--clr-accent);
   }
@@ -1001,13 +999,13 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   }
 }
   // ? Styles
-#gallery-tab-state-1__page-1_sys:focus ~ [class$=buttons] > label[for*=state-1] > label[for$=page-1_sys] {
-  z-index: 1;
+#gallery-tab-state-1__page-1_sys:focus ~ [class$=buttons] > div[data-btn-anim="parent"] > label[data-btn-anim="sub-1"]  {
   box-shadow: 0 0 0 4px var(--clr-text);
+  z-index: 1;
 }
-#gallery-tab-state-1__page-2_sys:focus ~ [class$=buttons] > label[for*=state-1] > label[for$=page-2_sys] {
-  z-index: 1;
+#gallery-tab-state-1__page-2_sys:focus ~ [class$=buttons] > div[data-btn-anim="parent"] > label[data-btn-anim="sub-2"] {
   box-shadow: 0 0 0 4px var(--clr-text);
+  z-index: 1;
 }
 #gallery-tab-state-2_sys:focus ~ [class$=buttons] > label[for$=state-2_sys] {
   box-shadow: 0 0 0 4px var(--clr-text);

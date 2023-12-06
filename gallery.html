@@ -23,18 +23,13 @@ og-type: gallery
     <input id="gallery-tab-state-2_sys" name="gallery-tab-states" type="radio" checked>
     <input id="gallery-tab-state-3_sys" name="gallery-tab-states" type="radio">
     <div class="gallery-tab-buttons">
-      <!-- In normal circumstances, don't stack labels within label peeps! -->
-      <label for="gallery-tab-state-1__page-1_sys" class="gallery-tab-button">
-        <label for="gallery-tab-state-1__page-1_sys" class="gallery-tab-button-sub">Page 1</label>
-        <span>Animation</span>
-        <label for="gallery-tab-state-1__page-2_sys" class="gallery-tab-button-sub">Page 2</label>
-      </label>
-      <label for="gallery-tab-state-2_sys" class="gallery-tab-button">
-        <span>Pixelart</span>
-      </label>
-      <label for="gallery-tab-state-3_sys" class="gallery-tab-button">
-        <span>Raster</span>
-      </label>
+      <div class="gallery-tab-button" data-btn-anim="parent">
+        <label for="gallery-tab-state-1__page-1_sys" class="gallery-tab-button" data-btn-anim="sub-1">Page 1</label>
+        <label for="gallery-tab-state-1__page-1_sys" class="gallery-tab-button" data-btn-anim="main">Animation</label>
+        <label for="gallery-tab-state-1__page-2_sys" class="gallery-tab-button" data-btn-anim="sub-2">Page 2</label>
+      </div>
+      <label for="gallery-tab-state-2_sys" class="gallery-tab-button">Pixelart</label>
+      <label for="gallery-tab-state-3_sys" class="gallery-tab-button">Raster</label>
     </div>
         
     <!-- ! TAB 1 Animation PAGE 1 -->
