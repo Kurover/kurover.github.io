@@ -235,7 +235,7 @@ blockquote {
 
 // ! @main ________ Core ________
 .wrapper {
-  position: relative;
+  // position: relative;
   max-width: 848px;
   padding: 24px;
   margin: auto;
@@ -867,7 +867,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   margin-top: 25vh;
 }
 .gallery-tab-buttons {
-  z-index: 1;
+  z-index: 2;
   display: flex;
   position: sticky;
   top: 0;
@@ -1022,9 +1022,6 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   gap: 8px;
   margin-bottom: 8px;
   box-sizing: content-box;
-  &.relative {
-    position: relative; // This limit the size of absolute .gallery-popup
-  }
 }
 @keyframes gallery-caption-start {
   0% {transform: translateY(-20px); transform-origin: top; opacity: .5;}
@@ -1044,17 +1041,19 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 
   overflow: hidden;
   background-color: var(--clr-secondary);
-  transition: flex .75s ease, background .5s;
+  transition: flex 1s ease, background .5s;
   & > img {
     height: 100%;
     width: auto; // This break lazy load if it's inside .expandable, don't even ask me why. Setting it to 100% or assign auto to height fixes it, again, don't ask me
+    // transition: transform .5s;
   }
   &:has(.gallery-popup) {
     cursor: pointer;
   }
   & > p {
+    z-index: 1;
     position: absolute;
-    display: none; // Breaks layout if else. Mainly on the gallery with its hidden entries. Same with popups but we throw them above instead, but it's too hacky i don't like that much.
+    display: none; // Breaks layout if else. Mainly on the gallery with its hidden entries. Same with popups but we throw them above instead, but it's too hacky i don't want to overuse that strat.
     margin-top: 310px; // related to .gallery-list height
     padding: 16px;
     background-color: var(--clr-tooltip-background);
@@ -1069,19 +1068,17 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     margin-top: 30%;
   }
   &.wide {
-    width: unset;
-    flex: 1.5;
-    & > img {
-      height: unset;
-      width: 100%;
-    }
+    flex: 1.75;
   }
   &:is(:hover, :focus) {
     border: 1px solid var(--clr-border-select);
-    flex: 2;
+    flex: 3;
     & > p {
       display: block;
       animation: gallery-caption-start .5s;
+    }
+    & > img {
+      transform: scale(1); // not sure whether to zoom on hover or not..
     }
   }
   &.full {
@@ -1114,11 +1111,11 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 .gallery-popup {
   --speed-start: .25s;
   --speed-end: .25s;
-  z-index: 5;
   position: absolute;
   visibility: hidden;
   opacity: 0;
   margin: auto;
+  max-width: 1080px;
   left: 0;
   right: 0;
   transform: translate(-9999px, -99999px);
@@ -1139,6 +1136,13 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   color: var(--clr-tooltip-text);
   border-image: url(/img/border-2.png) 12 / 24px ;
 }
+.gallery-popup::after {
+  content: "";
+  position: absolute;
+  height: 108px;
+  width: 1px;
+  pointer-events: none;
+} // This give bottom-margin for bottom popup to be scrollable, mainly for mobile with its nav overlap but desktop give a nice leeway to look too
 .gallery-close {
   position: absolute;
   top: 12px;
@@ -1166,11 +1170,18 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 }
 // @note # Size
 @media (max-width: 768px) {
+  .gallery-tab-buttons {
+    // position: fixed;
+    box-sizing: border-box;
+    width: 100%;
+    left: 0;
+    overflow: hidden;
+  }
+  .gallery-tab-content {
+    padding: 0 8px;
+  }
   .gallery-list {
     width: 144px;
-  }
-  .gallery-bottom-list ~ .gallery-list > .gallery-popup {
-    bottom: 0;
   }
 }
 @media (max-width: 450px) {
@@ -1184,18 +1195,6 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   .gallery-list.full > img {
     width: auto;
     height: 100%;
-  }
-}
-@media (max-width: 768px) {
-  .gallery-tab-buttons {
-    // position: fixed;
-    box-sizing: border-box;
-    width: 100%;
-    left: 0;
-    overflow: hidden;
-  }
-  .gallery-tab-content {
-    padding: 0 8px;
   }
 }
 

@@ -53,17 +53,16 @@
   link: /img/gallery/touhou_reimu1__px.gif
   caption:
   position:
-  size: wide
+  size:
   align:
   last-item:
 - name: Marisa standing and changing her broom lantern with a new one animation
   link: /img/gallery/touhou_marisa1__px.gif
   caption:
   position:
-  size: wide
+  size:
   align:
   last-item: true
-  last-row: true
 
 - name: Yamame and Kisume chatting with each other animation
   link: /img/gallery/touhou_spood2__px.gif
