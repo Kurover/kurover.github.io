@@ -1111,6 +1111,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 .gallery-popup {
   --speed-start: .25s;
   --speed-end: .25s;
+  z-index: 1;
   position: absolute;
   visibility: hidden;
   opacity: 0;
