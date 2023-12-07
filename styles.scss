@@ -1041,7 +1041,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 
   overflow: hidden;
   background-color: var(--clr-secondary);
-  transition: flex 1s ease, background .5s;
+  transition: flex 1s .1s ease, background .5s;
   & > img {
     height: 100%;
     width: auto; // This break lazy load if it's inside .expandable, don't even ask me why. Setting it to 100% or assign auto to height fixes it, again, don't ask me
@@ -1073,6 +1073,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   &:is(:hover, :focus) {
     border: 1px solid var(--clr-border-select);
     flex: 3;
+    transition-delay: 0s;
     & > p {
       display: block;
       animation: gallery-caption-start .5s;
