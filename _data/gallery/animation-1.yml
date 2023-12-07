@@ -1,10 +1,6 @@
-# - name: 
-#   link: /img/gallery/
-#   caption:
-#   position:
-#   size: 
-#   align:
-#   last-item:
+name: Animation
+id: gallery-tab-1__page-1
+list:
 - name: Cirno charging animation
   link: /img/gallery/touhou_cirno__px.gif
   caption:

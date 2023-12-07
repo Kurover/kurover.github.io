@@ -1,10 +1,6 @@
-# - name: 
-#   link: /img/gallery/
-#   caption:
-#   position:
-#   size: 
-#   align:
-#   last-item:
+name: Animation 2
+id: gallery-tab-1__page-2
+list:
 - name: Koishi using a telephone with no reply animation
   link: /img/gallery/touhou_kooshy__px.gif
   caption:

@@ -1,12 +1,6 @@
-# - name: 
-#   link: /img/gallery/
-#   link-2:
-#   background:
-#   caption:
-#   position:
-#   size: 
-#   align:
-#   last-item:
+name: Raster Art
+id: gallery-tab-3
+list:
 - name: Clover sleeping in an open treasure chest on her room
   link: /img/gallery/oc_clover2__hd.webp
   caption: Zzz~

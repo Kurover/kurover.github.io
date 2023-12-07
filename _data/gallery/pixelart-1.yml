@@ -1,10 +1,6 @@
-# - name: 
-#   link: /img/gallery/
-#   caption:
-#   position:
-#   size: 
-#   align:
-#   last-item:
+name: Pixelart
+id: gallery-tab-2
+list:
 - name: Clover and Stylla holding a pottery with thank you letter on it
   link: /img/gallery/oc_tw10k-banner__px.png
   link-2: /img/gallery/oc_tw10k__px.png

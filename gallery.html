@@ -31,13 +31,13 @@ og-type: gallery
       <label for="gallery-tab-state-2_sys" class="gallery-tab-button">Pixelart</label>
       <label for="gallery-tab-state-3_sys" class="gallery-tab-button">Raster</label>
     </div>
-        
-    <!-- ! TAB 1 Animation PAGE 1 -->
-    <section class="gallery-tab-content" id="gallery-tab-1__page-1">
+    {% for sections in site.data.gallery %}
+    {% assign section = sections[1] %}
+    <section class="gallery-tab-content" id="{{ section.id }}">
       <div>
         <div class="gallery-lists">
-          <h2 class="title-full margin">Animation</h2>
-          {% for item in site.data.gallery-animation-1 %}
+          <h2 class="title-full margin">{{ section.name }}</h2>
+          {% for item in section.list %}
           <div class="gallery-list{% if item.size == "full" %} full{% endif %}{% if item.size == "wide" %} wide{% endif %}{% if item.position == "left" %} left{% endif %}{% if item.position == "right" %} right{% endif %}{% if item.align == "head" %} head{% endif %}{% if item.background == "white" %} white{% endif %}" tabindex="0">
             {% if item.caption %}<p>{{ item.caption }}</p>{% endif %}        
             <img loading="lazy" src="{{ item.link }}" alt="{{ item.name }}">
@@ -45,69 +45,12 @@ og-type: gallery
               <img loading="lazy" src="{% if item.link-2 %}{{ item.link-2 }}{% else %}{{ item.link }}{% endif %}" alt="{{ item.name }} full preview">
               <div class="gallery-close" tabindex="0"></div></div>
           </div>
-          {% if item.last-item %}<div class="br-flex"></div>{% endif %}
+          {% if item.last-item or item.size == "full" %}<hr class="br-flex"></hr>{% endif %}
           {% endfor %}
         </div>
       </div>
     </section>
-
-    <!-- ! TAB 1 Animation PAGE 2 -->
-    <section class="gallery-tab-content" id="gallery-tab-1__page-2">
-      <div>
-        <div class="gallery-lists">
-          <h2 class="title-full margin">Animation 2</h2>
-          {% for item in site.data.gallery-animation-2 %}
-          <div class="gallery-list{% if item.size == "full" %} full{% endif %}{% if item.size == "wide" %} wide{% endif %}{% if item.position == "left" %} left{% endif %}{% if item.position == "right" %} right{% endif %}{% if item.align == "head" %} head{% endif %}{% if item.background == "white" %} white{% endif %}" tabindex="0">
-            {% if item.caption %}<p>{{ item.caption }}</p>{% endif %}        
-            <img loading="lazy" src="{{ item.link }}" alt="{{ item.name }}">
-            <div class="gallery-popup">
-              <img loading="lazy" src="{% if item.link-2 %}{{ item.link-2 }}{% else %}{{ item.link }}{% endif %}" alt="{{ item.name }} full preview">
-              <div class="gallery-close" tabindex="0"></div></div>
-          </div>
-          {% if item.last-item %}<div class="br-flex"></div>{% endif %}
-          {% endfor %}
-        </div>
-      </div>
-    </section>
-
-    <!-- ! TAB 2 Pixelart -->
-    <section class="gallery-tab-content" id="gallery-tab-2">
-      <div>
-        <div class="gallery-lists">
-          <h2 class="title-full margin">Pixelart</h2>
-          {% for item in site.data.gallery-pixelart-1 %}
-          <div class="gallery-list{% if item.size == "full" %} full{% endif %}{% if item.size == "wide" %} wide{% endif %}{% if item.position == "left" %} left{% endif %}{% if item.position == "right" %} right{% endif %}{% if item.align == "head" %} head{% endif %}{% if item.background == "white" %} white{% endif %}" tabindex="0">
-            {% if item.caption %}<p>{{ item.caption }}</p>{% endif %}        
-            <img loading="lazy" src="{{ item.link }}" alt="{{ item.name }}">
-            <div class="gallery-popup">
-              <img loading="lazy" src="{% if item.link-2 %}{{ item.link-2 }}{% else %}{{ item.link }}{% endif %}" alt="{{ item.name }} full preview">
-              <div class="gallery-close" tabindex="0"></div></div>
-          </div>
-          {% if item.last-item %}<div class="br-flex"></div>{% endif %}
-          {% endfor %}
-        </div>
-      </div>
-    </section>
-
-    <!-- ! TAB 3 Others -->
-    <section class="gallery-tab-content" id="gallery-tab-3">
-      <div>
-        <div class="gallery-lists">
-          <h2 class="title-full margin">Raster</h2>
-          {% for item in site.data.gallery-raster-1 %}
-          <div class="gallery-list{% if item.size == "full" %} full{% endif %}{% if item.size == "wide" %} wide{% endif %}{% if item.position == "left" %} left{% endif %}{% if item.position == "right" %} right{% endif %}{% if item.align == "head" %} head{% endif %}{% if item.background == "white" %} white{% endif %}" tabindex="0">
-            {% if item.caption %}<p>{{ item.caption }}</p>{% endif %}        
-            <img loading="lazy" src="{{ item.link }}" alt="{{ item.name }}">
-            <div class="gallery-popup">
-              <img loading="lazy" src="{% if item.link-2 %}{{ item.link-2 }}{% else %}{{ item.link }}{% endif %}" alt="{{ item.name }} full preview">
-              <div class="gallery-close" tabindex="0"></div></div>
-          </div>
-          {% if item.last-item %}<div class="br-flex"></div>{% endif %}
-          {% endfor %}
-        </div>
-      </div>
-    </section>
-
+    {% endfor %}
   </div> <!-- ! WRAPPER END -->
   <div class="separator__gallery"></div>
 </main>
