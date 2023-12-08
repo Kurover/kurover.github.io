@@ -14,9 +14,20 @@ layout: compress
 </head>
 
 <body>
-
   {% include navigation.html %}
   
+  <article class="wrapper border">
+    <ul>
+    {%- for page-lab in site.lab -%}
+      {%- if page-lab.layout -%}
+      <li><a href="{{ page-lab.url }}" target="_blank">{{ page-lab.name }}</a></li>
+      {%- endif -%}
+    {%- endfor -%}
+    </ul>
+  </article>
+
+
+
   <article class="wrapper border">
     <h1>Gallery</h1>
 
@@ -32,7 +43,16 @@ layout: compress
           <div class="gallery-close" tabindex="0"></div></div>
       </div>
     </div>
+      <p> {{site.data.file.cursor.folder-dropbox}} </p>
+      <p> {{site.data.file.cursor.koakuma.name}} </p>
+    {%- for data-cursor in site.data.file.cursor -%}
+    {%- assign cursor = data-cursor[1] -%}
+      <p> {{ cursor.name }} </p>
+      <p> {{ cursor.dropbox }} </p>
+    {%- endfor -%}
+
     
+
     <div class="gallery-lists">
       <h2 class="title-full margin">Title Here</h2>
       <div class="gallery-list" tabindex="0">

@@ -11,7 +11,7 @@ layout: compress
     {%- unless page.legacy -%}<link rel="stylesheet" href="/styles.css">{%- endunless -%}
     {%- if page.legacy -%}<link rel="stylesheet" href="/v2/style.css">{%- endif -%}
     <link rel="stylesheet" href="/font.css">
-    {%- unless page.no-css -%}<link rel="stylesheet" href="{{ page.slug }}.css">{%- endunless -%}
+    {%- unless page.no-css -%}<link rel="stylesheet" href="css/{{ page.slug }}.css">{%- endunless -%}
   </head>
   <body>
     {{ content }}

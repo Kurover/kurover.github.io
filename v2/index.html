@@ -213,12 +213,11 @@ og-type: website
     <p>A collection of test and experimental page. Written and explained briefly in some of them because there's a good chance that I will forget how it work.</p>
     <p>Prepare yourself and terrastallize to dark type, lest you want to take the psychic damage trying to decode it.</p>
     <ul>
-      <li><a href="/misc/linkthree.html" target="_blank"> "LinkThree" </a></li>
-      <li><a href="/misc/cursor-hover.html" target="_blank"> Animated Cursor Preview </a></li>
-      <li><a href="/misc/lab_checkbox-combinator.html" target="_blank"> Checkbox Combinator </a></li>
-      <li><a href="/misc/external-embed.html" target="_blank"> External Embed Testing </a></li>
-      <li><a href="/misc/lab_grid.html" target="_blank"> Grid Layout </a></li>
-      <li><a href="/misc/module-template-legacy.html" target="_blank"> Template and Snippet For Janky Stuff </a></li>
+      {%- for page-lab in site.lab -%}
+        {%- if page-lab.layout -%}
+        <li><a href="{{ page-lab.url }}" target="_blank">{{ page-lab.name }}</a></li>
+        {%- endif -%}
+      {%- endfor -%}
     </ul>
   </div>
 </div>

@@ -1,0 +1,164 @@
+---
+---
+/* Hide img on *gallery folder
+img[src*=gallery] {
+  display: none;
+}
+*/
+/*Basically N gate*/
+.container-1:empty {
+  border: 1px solid red;
+  padding: 8px;
+}
+.container-1:empty {
+  border: 1px solid blue;
+}
+.container-1::after {
+  content: "what";
+}
+.container-1::before {
+  content: "yo";
+}
+.container-1:hover::before {
+  border: 1px solid red; 
+  content: "awwwwwwww";
+}
+
+label[for^=test] {
+  border: 1px solid white;
+  background: blue;
+  padding: 4px;
+}
+.container-2 {
+  border: 1px solid green;
+  padding: 8px;
+}
+/*AND gate lol*/
+#container-2:empty ~ .container-2:empty {
+  border: 1px solid red;
+}
+/*Too bad it doesn't count as a value with after or before*/
+.container-2::after {
+  content: "test";
+}
+.container-3:empty {
+  border: 1px solid red;
+}
+
+
+/* https://youtu.be/B_n4YONte5A 
+ * Transition "0 to auto" height
+ * */
+.container-expand-control {
+  display: inline;
+}
+.container-expand-toggle {
+  background: var(--background-codeblock);
+  margin-top: 0;
+  padding: 0 4px;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  opacity: .5;
+  
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows .25s, outline .5s, padding .25s, opacity .5s, margin .25s, height .25s;
+}
+.container-expand-toggle > div > p:first-of-type {
+  margin-top: 0;
+}
+.container-expand-toggle > div {
+  overflow: hidden;
+}
+.container-expand-control > span {
+  border: 2px solid gray;
+  padding: 2px;
+  cursor: pointer;
+}
+
+.container-expand-control:focus-within > .container-expand-toggle {
+  grid-template-rows: 1fr;
+  
+  background: var(--background-codeblock);
+  margin-top: 12px;
+  padding: 4px;
+  outline: 2px solid gray;
+  opacity: 1;
+}/*
+.container-expand-control:focus-within img[src*=gallery] {
+  display: block;
+}*/
+
+
+.container-expand-toggle-2 {
+  display: inline-grid;
+  position: absolute;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows .25s;
+  
+}
+.container-expand-toggle-2 > div > p:first-of-type {
+  margin-top: 0;
+}
+.container-expand-toggle-2 > div {
+  overflow: hidden;
+}
+
+.container-expand-control-2:focus-within > .container-expand-toggle-2 {
+  grid-template-rows: 1fr;
+  background: var(--background-codeblock);
+  padding: 4px;
+  outline: 2px solid gray;
+  outline-offset: 2px;
+}
+
+.content-grid {
+  --outline-padding: 1.5rem;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) [outline-start] minmax(var(--outline-padding), 1fr) [content-start] min((100% - (var(--outline-padding) * 2)), 896px) [content-end] minmax(var(--outline-padding), 1fr) [outline-end] minmax(0, 1fr);
+  grid-area: auto;
+}
+.content-grid > * {
+  grid-column: content;
+}
+
+
+.nav-tabs {
+  position: relative;
+  height: 256px; 
+}
+.nav-tab {
+  float: left;
+}
+.tab-content {
+  display: none;
+  position: absolute;
+  top: 2.5rem;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding-left: 1rem;
+  overflow: hidden;
+  overflow-y: scroll;
+  border: 2px solid gray;
+}
+label[for|=tab] {
+  padding: 16px;
+  line-height: 2rem;
+  margin: 0 4px;
+  background-color: gray;
+}
+input[id|=tab] {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+}
+input[id|=tab]:checked {
+  & + label[for|=tab] {
+    background-color: burlywood;
+  }
+  & ~ .tab-content {
+    display: block;
+  }
+}

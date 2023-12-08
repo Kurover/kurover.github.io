@@ -1,0 +1,41 @@
+---
+layout: lab
+name: Module Template
+no-css: true
+---
+<article class="wrapper border">
+  <h2>Expandables</h2>
+  <!--! Expandable -->
+  <section class="expandable slow" id="content-1">
+    <input id="IDHERE_sys" type="checkbox" class="expandable-control">
+    <label for="IDHERE_sys" class="expandable-title">
+      <div class="expandable-title-icon"></div>
+      <h2>Title</h2>
+    </label>
+    <div class="expandable-content">  
+      <div>
+        <p>Content Here</p>
+      </div>
+    </div>
+  </section>
+  <h3>Mods</h3>
+  <blockquote>class <br>
+    expandable fast <br>
+    expandable slow <br>
+  </blockquote>
+    
+  <!--! Tooltip -->
+  <h2>Tooltips</h2>
+  <p> Usable inline text, click on this
+    <span class="tooltip" tabindex="0"><span>Tooltip</span>
+    <span class="tooltip-content tooltip-content__adjust" style="--tooltip-position:translateX(-50%)">Tooltip content</span></span>
+  to expand its content</p>
+  <h3>Mods</h3>
+  <blockquote>class <br>
+    tooltip-content__fixed <br>
+    tooltip_content__adjust
+  </blockquote>
+  <blockquote>style <br>
+    --tooltip-position:translateX(NUM)
+  </blockquote>
+</article>
