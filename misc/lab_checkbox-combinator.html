@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <title>Lab | CSS Combinator</title>
-  <link rel="icon" href="../favicon.ico">
-  <link rel="stylesheet" href="../style.css">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="lab_checkbox-combinator.css">
-  <link rel="stylesheet" href="../font.css">
+  <link rel="stylesheet" href="/font.css">
 </head>
 
 <body>
   <!-- Hidden radio button "A" outside of container. This is for the =THIRD & FOURTH ENTRY= -->
   <input class="hidden switchA-class" type="radio" id="switchA" name="folderA" multiple>
   
-  <div class="entry">
+  <div class="wrapper">
    <h1>Remote activation trigger</h1>
    <p class="caption">Super useful and jank to write. Does not work if the target CSS is outside a container of the source.</p>
     <!-- Reveal object remotely-->
@@ -25,7 +25,7 @@
 
   </div>
   <!--SECOND ENTRY-->
-  <div class="entry">
+  <div class="wrapper">
     <h1>Scriptless button to toggle thing</h1>
     <p class="caption">Technically a "script" but we divinitely don't talk about that.</p>
     <!-- Fake checkbox to act as a "button" -->
@@ -37,7 +37,7 @@
   </div>
 
   <!--THIRD ENTRY-->
-  <div class="entry">
+  <div class="wrapper">
     <h1>Selective buttons</h1>
     <p class="caption">Checkbox is a winbox in these scenario. No need to code "hide A if B is XYZ", if that even possible with CSS."</p>
     <!--Hidden Radio button B and C-->
@@ -51,7 +51,7 @@
     <center><p>
       Click on these colors!
     </p></center>
-    <div class="entry no-margin">
+    <div class="wrapper no-margin">
       <div class="text-box-1">
         <p class="no-margin">Essence that has been solidified can be treated as a portable natural essence bank. This isn't actually efficient as extracting the essence from the "gem" extort energy from the user. Similar on how fire burn wood to turn it into charcoal. It feels efficient to use, but the creation of it does balance out into negative.</p>
       </div>
@@ -65,7 +65,7 @@
   </div>
 
   <!--FOURTH ENTRY-->
-  <div class="entry">
+  <div class="wrapper">
     <h1>Interact on other container (above)</h1>
     <p><label class="btn-1 link" for="switchA" style="background-color: transparent">
       This is First option
@@ -78,7 +78,7 @@
     <p> With that said. Put the checkbox/radio + class identifier code at outside (ex: the beginning of body) if you want to use this method to paint over multiple thing.</p>
   </div>
 
-  <div class="nav-shortcut"><a href="/"><img src="/favicon.png"></a></div>
+  <!-- <div class="nav-shortcut"><a href="/"><img src="/favicon.png"></a></div> -->
 </body>
 
 </html>
