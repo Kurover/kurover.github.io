@@ -862,10 +862,10 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 
 // ! @main ________ Gallery ________
 // * @note # Tabs 
-.wrapper__gallery {
+.wrapper--gallery {
   padding: 0;
 }
-.separator__gallery {
+.separator--gallery {
   margin-top: 25vh;
 }
 .gallery-tab-buttons {
