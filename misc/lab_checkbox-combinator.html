@@ -1,84 +1,71 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Lab | CSS Combinator</title>
-  <link rel="icon" href="/favicon.ico">
-  <link rel="stylesheet" href="/styles.css">
-  <link rel="stylesheet" href="lab_checkbox-combinator.css">
-  <link rel="stylesheet" href="/font.css">
-</head>
-
-<body>
-  <!-- Hidden radio button "A" outside of container. This is for the =THIRD & FOURTH ENTRY= -->
-  <input class="hidden switchA-class" type="radio" id="switchA" name="folderA" multiple>
+---
+layout: lab
+name: CSS Combinator
+---
+<!-- Hidden radio button "A" outside of container. This is for the =THIRD & FOURTH ENTRY= -->
+<input class="switchA-class" type="radio" id="switchA" name="folderA" multiple>
   
-  <div class="wrapper">
-   <h1>Remote activation trigger</h1>
-   <p class="caption">Super useful and jank to write. Does not work if the target CSS is outside a container of the source.</p>
-    <!-- Reveal object remotely-->
-    <div class="orangebox"></div> 
-    <p>Hover to this orange square to reveal something below the barrier.</p>
-    <hr><p>=== I AM A PARAGRAPH OF CODE BARRIER ===</p>
-    <div class="hidden-content-1"><hr><p>I like cats.</p><hr></div>
-    <div class="hidden hidden-content-11"><p class="hidden" style="border: 1px solid;">Magic</p></div>
+<div class="wrapper border">
+ <h1>Remote activation trigger</h1>
+ <p class="caption">Super useful and jank to write. Does not work if the target CSS is outside a container of the source.</p>
+  <!-- Reveal object remotely-->
+  <div class="orangebox"></div> 
+  <p>Hover to this orange square to reveal something below the barrier.</p>
+  <hr><p>=== I AM A PARAGRAPH OF CODE BARRIER ===</p>
+  <div class="hidden-content-1"><hr><p>I like cats.</p><hr></div>
+  <div class="disable hidden-content-11"><p class="hidden" style="border: 1px solid;">Magic</p></div>
 
-  </div>
-  <!--SECOND ENTRY-->
-  <div class="wrapper">
-    <h1>Scriptless button to toggle thing</h1>
-    <p class="caption">Technically a "script" but we divinitely don't talk about that.</p>
-    <!-- Fake checkbox to act as a "button" -->
-    <label class="link" for="content-lever">This paragraph is a toggleable checkbox!</label>
-    <input class="hidden" type="checkbox" id="content-lever">
-    <div class="hidden-content-2"><p>This is the content</p></div>
-    <hr><p>=== I AM A PARAGRAPH OF CODE BARRIER ===</p>
-    <div class="hidden-content-2"><hr><p>Much barrier, so wow. This is the power of "~"</p></div>
-  </div>
+</div>
+<!--SECOND ENTRY-->
+<div class="wrapper border">
+  <h1>Scriptless button to toggle thing</h1>
+  <p class="caption">Technically a "script" but we divinitely don't talk about that.</p>
+  <!-- Fake checkbox to act as a "button" -->
+  <label class="link" for="content-lever">This paragraph is a toggleable checkbox!</label>
+  <input class="hidden" type="checkbox" id="content-lever">
+  <div class="hidden-content-2"><p>This is the content</p></div>
+  <hr><p>=== I AM A PARAGRAPH OF CODE BARRIER ===</p>
+  <div class="hidden-content-2"><hr><p>Much barrier, so wow. This is the power of "~"</p></div>
+</div>
 
-  <!--THIRD ENTRY-->
-  <div class="wrapper">
-    <h1>Selective buttons</h1>
-    <p class="caption">Checkbox is a winbox in these scenario. No need to code "hide A if B is XYZ", if that even possible with CSS."</p>
-    <!--Hidden Radio button B and C-->
-    <input class="hidden" type="radio" id="switchB" name="folderA" checked>
-    <input class="hidden switchC-class" type="radio" id="switchC" name="folderA">
-    <label class="btn-radio-sel btn-1 link" for="switchA"></label>
-    <!--Set middle to 34% width because computer simply cant divide by 3, smh.-->
-    <label class="btn-radio-sel btn-2 link" style="width: 34%" for="switchB"></label>
-    <label class="btn-radio-sel btn-3 link" for="switchC"></label>
+<!--THIRD ENTRY-->
+<div class="wrapper border">
+  <h1>Selective buttons</h1>
+  <p class="caption">Checkbox is a winbox in these scenario. No need to code "hide A if B is XYZ", if that even possible with CSS."</p>
+  <!--Hidden Radio button B and C-->
+  <input class="disable" type="radio" id="switchB" name="folderA" checked>
+  <input class="disable switchC-class" type="radio" id="switchC" name="folderA">
+  <label class="btn-radio-sel btn-1 link" for="switchA"></label>
+  <!--Set middle to 34% width because computer simply cant divide by 3, smh.-->
+  <label class="btn-radio-sel btn-2 link" style="width: 34%" for="switchB"></label>
+  <label class="btn-radio-sel btn-3 link" for="switchC"></label>
 
-    <center><p>
-      Click on these colors!
-    </p></center>
-    <div class="wrapper no-margin">
-      <div class="text-box-1">
-        <p class="no-margin">Essence that has been solidified can be treated as a portable natural essence bank. This isn't actually efficient as extracting the essence from the "gem" extort energy from the user. Similar on how fire burn wood to turn it into charcoal. It feels efficient to use, but the creation of it does balance out into negative.</p>
-      </div>
-      <div class="text-box-2">
-        <p class="no-margin">Sail has soared, wind has roared. The ship has once again surf the mighty ocean in search of glory. Day by day, the wave erodes her deck. With humanity help, she can endure these obstacle without risk of breaking down. Such beauty of engineering shall bring her to the enchanted land she sought after.</p>
-      </div>
-      <div class="text-box-3">
-        <p class="no-margin">Once upon a time, there's a lady who stumbled across a giant pool of water. Seemingly enchanted by it, the lady took a sip of the water. To this day, there has been no clue on that lady whereabouts. The pool of water, however, still exist. Yet no one has been tragically went missing since then.</p>
-      </div>
+  <center><p>
+    Click on these colors!
+  </p></center>
+  <div class="wrapper border">
+    <div class="text-box-1">
+      <p class="no-margin">Essence that has been solidified can be treated as a portable natural essence bank. This isn't actually efficient as extracting the essence from the "gem" extort energy from the user. Similar on how fire burn wood to turn it into charcoal. It feels efficient to use, but the creation of it does balance out into negative.</p>
+    </div>
+    <div class="text-box-2">
+      <p class="no-margin">Sail has soared, wind has roared. The ship has once again surf the mighty ocean in search of glory. Day by day, the wave erodes her deck. With humanity help, she can endure these obstacle without risk of breaking down. Such beauty of engineering shall bring her to the enchanted land she sought after.</p>
+    </div>
+    <div class="text-box-3">
+      <p class="no-margin">Once upon a time, there's a lady who stumbled across a giant pool of water. Seemingly enchanted by it, the lady took a sip of the water. To this day, there has been no clue on that lady whereabouts. The pool of water, however, still exist. Yet no one has been tragically went missing since then.</p>
     </div>
   </div>
+</div>
 
-  <!--FOURTH ENTRY-->
-  <div class="wrapper">
-    <h1>Interact on other container (above)</h1>
-    <p><label class="btn-1 link" for="switchA" style="background-color: transparent">
-      This is First option
-    </label></p>
-    <p><label class="btn-3 link" for="switchC" style="background-color: transparent">
-      While this is the Third option
-    </label></p>
-    <p> `label` target seems to work even if it's outside the container. CSS "checked" targetting, however, doesn't work outside of the container nor previous object. Combinator CSS limitation pretty much.</p>
-    <p> Luckily what matter the most is that the (currently hidden) "input" checkbox is written before their target. The "First" option above work because the checkbox is outside of it, while the 2nd and 3rd "input" checkbox is inside of the other entry. </p>
-    <p> With that said. Put the checkbox/radio + class identifier code at outside (ex: the beginning of body) if you want to use this method to paint over multiple thing.</p>
-  </div>
-
-  <!-- <div class="nav-shortcut"><a href="/"><img src="/favicon.png"></a></div> -->
-</body>
-
-</html>
+<!--FOURTH ENTRY-->
+<div class="wrapper border">
+  <h1>Interact on other container (above)</h1>
+  <p><label class="btn-1 link" for="switchA" style="background-color: transparent">
+    This is First option
+  </label></p>
+  <p><label class="btn-3 link" for="switchC" style="background-color: transparent">
+    While this is the Third option
+  </label></p>
+  <p> `label` target seems to work even if it's outside the container. CSS "checked" targetting, however, doesn't work outside of the container nor previous object. Combinator CSS limitation pretty much.</p>
+  <p> Luckily what matter the most is that the (currently hidden) "input" checkbox is written before their target. The "First" option above work because the checkbox is outside of it, while the 2nd and 3rd "input" checkbox is inside of the other entry. </p>
+  <p> With that said. Put the checkbox/radio + class identifier code at outside (ex: the beginning of body) if you want to use this method to paint over multiple thing.</p>
+</div>

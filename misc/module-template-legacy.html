@@ -1,134 +1,123 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lab | Legacy Module Template</title>
-  <link rel="icon" href="/favicon.ico">
-  <link rel="stylesheet" href="/v2/style.css">
-  <link rel="stylesheet" href="/font.css">
-</head>
-
-<body>
-
-  <div class="entry">
-    <p>I used to put these on the CSS and copying an already convoluted version from the HTML. Looking back at it, it was pretty dumb thing to do... Respect your time peeps!</p>
-  </div>
+---
+layout: lab
+name: Legacy Module Template
+no-css: true
+legacy: true
+---
+<div class="entry">
+  <p>I used to put these on the CSS and copying an already convoluted version from the HTML. Looking back at it, it was pretty dumb thing to do... Respect your time peeps!</p>
+</div>
   
-  <div class="entry">
-    <h1>Snippet</h1>
-    These snippet can be displayed in HTML by converting the symbol to their respective code like "&amp;somecode". The &amp; sign can be written in HTML like "&amp;amp;". For convenience, just use TextFX plugin in Notepad++
-    <h2>Jump to Top</h2>
-    <code class="container-code">
-      &lt;div class=&quot;jump-to-top&quot;&gt;&lt;a href=&quot;#top&quot;&gt;&lt;/a&gt;&lt;/div&gt;
-      <!--
-      <div class="jump-to-top"><a href="#top"></a></div>
-      -->
-    </code>
-    <hr>
-    <h2>Bottom-left Shortcut Slider</h2>
-    <code class="container-code">
-      &lt;div class=&quot;nav-shortcut&quot;&gt;&lt;a href=&quot;/&quot;&gt;&lt;img src=&quot;/favicon.png&quot;&gt;&lt;/a&gt;&lt;/div&gt;
-      <!--
-      <div class="nav-shortcut"><a href="/"><img src="/favicon.png"></a></div>
-      -->
-    </code>
-    
-    
-  </div>
-  
-  <div class="entry">
-    <h1>Manipulatable Elements</h1>
-    
-    <!-- Expand Toggle -->
-    <div class="container-expandable">
-      <input type="checkbox" class="hidden-input container-expandable-controller" id="illith-gallery-expand-1" tabindex="-1"/>
-      <p>&#9830; Expand paragraph - append <label for="illith-gallery-expand-1" class="link">by clicking this</label></p>
-      <div class="hidden container-expandable-content quote">
-        <p>Can be toggled, pretty nice eh?</p>
-        <p>Remove the .quote if it doesn't fit the theme</p>
-      </div>
-    </div>
+<div class="entry">
+  <h1>Snippet</h1>
+  These snippet can be displayed in HTML by converting the symbol to their respective code like "&amp;somecode". The &amp; sign can be written in HTML like "&amp;amp;". For convenience, just use TextFX plugin in Notepad++
+  <h2>Jump to Top</h2>
+  <code class="container-code">
+    &lt;div class=&quot;jump-to-top&quot;&gt;&lt;a href=&quot;#top&quot;&gt;&lt;/a&gt;&lt;/div&gt;
     <!--
-    <div class="container-expandable">
-      <input type="checkbox" class="hidden-input container-expandable-controller" id="illith-gallery-expand-1" tabindex="-1"/>
-      <p>TEXT <label for="illith-gallery-expand-1" class="link">EXPANDER</label></p>
-      <div class="hidden container-expandable-content quote">
-        <p>CONTENT</p>
-      </div>
-    </div>
+    <div class="jump-to-top"><a href="#top"></a></div>
     -->
-    <hr>
-    <!-- Expand Inline -->
-    <div class="container-expandable">
-      <p>
-      <input type="checkbox" class="hidden-input container-expandable-controller" id="ID-INLINE">
-      &#9830; Expand paragraph - inline<label for="ID-INLINE" class="link button-expand-text button-expand--once"> and hide the toggle</label><span class="container-expandable-content container-expandable-content--inline">, basically a one way gate for text. Mind the white space on each classes as it will affect the spacing.</span>
-      </p>
-    </div>
+  </code>
+  <hr>
+  <h2>Bottom-left Shortcut Slider</h2>
+  <code class="container-code">
+    &lt;div class=&quot;nav-shortcut&quot;&gt;&lt;a href=&quot;/&quot;&gt;&lt;img src=&quot;/favicon.png&quot;&gt;&lt;/a&gt;&lt;/div&gt;
     <!--
-    <div class="container-expandable">
-      <p>
-      <input type="checkbox" class="hidden-input container-expandable-controller" id="ID-INLINE">
-      TEXT<label for="ID-INLINE" class="link button-expand-text button-expand--once"> EXPANDER</label><span class="container-expandable-content container-expandable-content--inline">CONTENT</span>
-      </p>
-    </div>
+    <div class="nav-shortcut"><a href="/"><img src="/favicon.png"></a></div>
     -->
-    <h2>Generic Tabs</h2>
-    <div>
-      <input class="hidden-input state-container-tab-1" type="radio" id="state-container-tab-1" name="GENERICPAGE" checked>
-      <input class="hidden-input state-container-tab-2" type="radio" id="state-container-tab-2" name="GENERICPAGE">
-      <input class="hidden-input state-container-tab-3" type="radio" id="state-container-tab-3" name="GENERICPAGE">
-      <input class="hidden-input state-container-tab-4" type="radio" id="state-container-tab-4" name="GENERICPAGE">
-      
-      <div class="container container-tab-controller-container">
-        <label class="container-tab-controller container-tab-controller-1" for="state-container-tab-1">Page 1</label>
-        <label class="container-tab-controller container-tab-controller-2" for="state-container-tab-2">Page 2</label>
-        <label class="container-tab-controller container-tab-controller-3" for="state-container-tab-3">Page 3</label>
-        <label class="container-tab-controller container-tab-controller-4" for="state-container-tab-4">Page 4</label>
-      </div>
-      
-      <div class="hidden container-tab-content-1">
-        TEXT A
-      </div>
-      <div class="hidden container-tab-content-2">
-        TEXT B
-      </div>
-      <div class="hidden container-tab-content-3">
-        TEXT C
-      </div>
-      <div class="hidden container-tab-content-4">
-        TEXT D
-      </div>
-    </div>
+  </code>
     
-  </div>
+    
+</div>
   
-  <div class="entry">
-    <h1>Fancy Elements</h1>
+<div class="entry">
+  <h1>Manipulatable Elements</h1>
     
-    <!-- Tooltips -->
-    <h2>Tooltip</h2>
+  <!-- Expand Toggle -->
+  <div class="container-expandable">
+    <input type="checkbox" class="hidden-input container-expandable-controller" id="illith-gallery-expand-1" tabindex="-1"/>
+    <p>&#9830; Expand paragraph - append <label for="illith-gallery-expand-1" class="link">by clicking this</label></p>
+    <div class="hidden container-expandable-content quote">
+      <p>Can be toggled, pretty nice eh?</p>
+      <p>Remove the .quote if it doesn't fit the theme</p>
+    </div>
+  </div>
+  <!--
+  <div class="container-expandable">
+    <input type="checkbox" class="hidden-input container-expandable-controller" id="illith-gallery-expand-1" tabindex="-1"/>
+    <p>TEXT <label for="illith-gallery-expand-1" class="link">EXPANDER</label></p>
+    <div class="hidden container-expandable-content quote">
+      <p>CONTENT</p>
+    </div>
+  </div>
+  -->
+  <hr>
+  <!-- Expand Inline -->
+  <div class="container-expandable">
     <p>
-    Tooltip for something that is 
-    <span class="container-tooltip"><span class="tooltip">I like build base</span><span class="link">interesting enough</span></span>
-    but eats up relevant space. The hover trigger isn't painted with CSS by default so the content doesn't get the property too. Put the TITLE in another span.
+    <input type="checkbox" class="hidden-input container-expandable-controller" id="ID-INLINE">
+    &#9830; Expand paragraph - inline<label for="ID-INLINE" class="link button-expand-text button-expand--once"> and hide the toggle</label><span class="container-expandable-content container-expandable-content--inline">, basically a one way gate for text. Mind the white space on each classes as it will affect the spacing.</span>
     </p>
-    <p>Add <span class="container-tooltip"><span class="tooltip tooltip--large">I'M EATING ALL THESE SPACES!!!</span><span class="link">.tooltip--large</span></span> if it really eats up space.</p>
-    <p>Add <span class="link">.container-tooltip--sign</span> (&#x25BC;) if it's a link with hoverables for the mobile user out there.</p>
-    <code class="container-code">
-      &lt;span class=&quot;container-tooltip&quot;&gt;&lt;span class=&quot;tooltip&quot;&gt;CONTENT&lt;/span&gt;TITLE&lt;/span&gt;
-      <!--
-      <span class="container-tooltip"><span class="tooltip">CONTENT</span><span class="link">TITLE</span></span>
-      -->
-    </code>
-    <p>Sample with image, make sure to add lazyload, you lazy! 
-    <span class="container-tooltip container-tooltip--sign"><span class="tooltip tooltip--large center"><img src="/img/misc/preview_lapse-sekiraini.webp" alt="Preview" loading="lazy"></span><span class="link">TITLE</span></span>
-    Change the tooltip class tag to href if everything is clickable.</p>
   </div>
+  <!--
+  <div class="container-expandable">
+    <p>
+    <input type="checkbox" class="hidden-input container-expandable-controller" id="ID-INLINE">
+    TEXT<label for="ID-INLINE" class="link button-expand-text button-expand--once"> EXPANDER</label><span class="container-expandable-content container-expandable-content--inline">CONTENT</span>
+    </p>
+  </div>
+  -->
+  <h2>Generic Tabs</h2>
+  <div>
+    <input class="hidden-input state-container-tab-1" type="radio" id="state-container-tab-1" name="GENERICPAGE" checked>
+    <input class="hidden-input state-container-tab-2" type="radio" id="state-container-tab-2" name="GENERICPAGE">
+    <input class="hidden-input state-container-tab-3" type="radio" id="state-container-tab-3" name="GENERICPAGE">
+    <input class="hidden-input state-container-tab-4" type="radio" id="state-container-tab-4" name="GENERICPAGE">
+      
+    <div class="container container-tab-controller-container">
+      <label class="container-tab-controller container-tab-controller-1" for="state-container-tab-1">Page 1</label>
+      <label class="container-tab-controller container-tab-controller-2" for="state-container-tab-2">Page 2</label>
+      <label class="container-tab-controller container-tab-controller-3" for="state-container-tab-3">Page 3</label>
+      <label class="container-tab-controller container-tab-controller-4" for="state-container-tab-4">Page 4</label>
+    </div>
+      
+    <div class="hidden container-tab-content-1">
+      TEXT A
+    </div>
+    <div class="hidden container-tab-content-2">
+      TEXT B
+    </div>
+    <div class="hidden container-tab-content-3">
+      TEXT C
+    </div>
+    <div class="hidden container-tab-content-4">
+      TEXT D
+    </div>
+  </div>
+    
+</div>
   
-  <!-- <div class="nav-shortcut"><a href="/"><img src="/favicon.png"></a></div> -->
+<div class="entry">
+  <h1>Fancy Elements</h1>
+    
+  <!-- Tooltips -->
+  <h2>Tooltip</h2>
+  <p>
+  Tooltip for something that is 
+  <span class="container-tooltip"><span class="tooltip">I like build base</span><span class="link">interesting enough</span></span>
+  but eats up relevant space. The hover trigger isn't painted with CSS by default so the content doesn't get the property too. Put the TITLE in another span.
+  </p>
+  <p>Add <span class="container-tooltip"><span class="tooltip tooltip--large">I'M EATING ALL THESE SPACES!!!</span><span class="link">.tooltip--large</span></span> if it really eats up space.</p>
+  <p>Add <span class="link">.container-tooltip--sign</span> (&#x25BC;) if it's a link with hoverables for the mobile user out there.</p>
+  <code class="container-code">
+    &lt;span class=&quot;container-tooltip&quot;&gt;&lt;span class=&quot;tooltip&quot;&gt;CONTENT&lt;/span&gt;TITLE&lt;/span&gt;
+    <!--
+    <span class="container-tooltip"><span class="tooltip">CONTENT</span><span class="link">TITLE</span></span>
+    -->
+  </code>
+  <p>Sample with image, make sure to add lazyload, you lazy! 
+  <span class="container-tooltip container-tooltip--sign"><span class="tooltip tooltip--large center"><img src="/img/misc/preview_lapse-sekiraini.webp" alt="Preview" loading="lazy"></span><span class="link">TITLE</span></span>
+  Change the tooltip class tag to href if everything is clickable.</p>
+</div>
   
-</body>
-</html>
+<div class="nav-shortcut"><a href="/"><img src="/favicon.png"></a></div>
