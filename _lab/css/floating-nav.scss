@@ -1,0 +1,60 @@
+---
+---
+.nav-lab-float {
+  display: block;
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  cursor: pointer;
+}
+.nav-lab-float__icon {
+  width: 48px;
+  height: 48px;
+  margin: auto;
+  background-color: var(--clr-background);
+  padding: 4px;
+}
+.nav-lab-float__icon::before,
+.nav-lab-float__icon::after {
+  content: "";
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  transition: opacity .5s;
+}
+.nav-lab-float__icon::before {
+  background: url(/img/icon-pack__px.png) calc(6 * -48px + 48px) calc(3 * -48px + 48px);;
+}
+.nav-lab-float__icon::after {
+  background: url(/img/icon-pack__px.png) calc(6 * -48px + 48px) calc(2 * -48px + 48px);
+  opacity: 0;
+}
+.nav-lab-float__tooltip {
+  z-index: -1;
+  display: block;
+  visibility: hidden;
+  opacity: 0;
+  transition: .5s;
+  position: absolute;
+  top: 0;
+  left: 58px;
+  bottom: 0;
+  width: 8ch;
+  padding: 1rem;
+  text-align: center;
+  height: fit-content;
+  margin: auto;
+  color: #E7E6EB;
+  background-color: #3b2e22;
+  border-image: url(/img/border-2.png) 8 / 16px / 0px;
+  transform: translateX(-24px);
+}
+.nav-lab-float:is(:focus, :hover) {
+  & > .nav-lab-float__icon::before {opacity: 0;}
+  & > .nav-lab-float__icon::after {opacity: 1;}
+  & > .nav-lab-float__tooltip {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

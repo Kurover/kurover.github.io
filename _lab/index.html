@@ -1,0 +1,21 @@
+---
+layout: lab
+name: Hub
+no-css: true
+---
+<main>
+  <article class="wrapper border">
+    <h1>Lab</h1>
+    <p>This is a place for tests and experimentation, although not everything made it into this section because it's either tested on the main site then I'm too lazy to document it or I just forgor.</p>
+    <p>These are mostly here to remind myself how jank building website can be. Nevertheless, prepare yourself and terrastallize to dark type, lest you want to take the psychic damage trying to decode it.</p>
+    <h2>Index</h2>
+    <ul>
+      {%- assign index = site.lab | sort: 'alias' -%}
+      {%- for list in index -%}
+      {%- if list.alias -%}
+      <li><a href="{{ list.url }}" target="_blank">{{ list.alias }}</a></li>
+      {%- endif -%}
+      {%- endfor -%}
+    </ul>
+  </article>
+</main>
