@@ -297,7 +297,7 @@ blockquote {
     margin-right: 12px;
   }
 }
-.nav-list-icon {
+.nav-list__icon {
   width: 48px;
   height: 48px;
   margin: auto;
@@ -320,20 +320,11 @@ blockquote {
       }
     }
   }
-  // &:focus-within > [class$=icon] {
-  //   &::after {
-  //     background: url(/img/icon-pack__px.png) var(--ico-nav-active);
-  //     opacity: 1;
-  //   }
-  //   &::before {
-  //     opacity: 0;
-  //   }
-  // }
 }
 // ? Icon and border */
 // Using ::before,after for icon-hover with opacity because sprite transition slides
-.nav-list-icon::before,
-.nav-list-icon::after {
+.nav-list__icon::before,
+.nav-list__icon::after {
   content: "";
   position: absolute;
   width: 48px;
@@ -341,10 +332,10 @@ blockquote {
   transition: opacity .5s;
 }
 // Default state. .active item has its own class
-.nav-list-icon::before {
+.nav-list__icon::before {
   background: url(/img/icon-pack__px.png) var(--ico-nav-default);
 }
-.nav-list-icon::after {
+.nav-list__icon::after {
   background: url(/img/icon-pack__px.png) var(--ico-nav-active);
   opacity: 0;
 }
@@ -424,7 +415,7 @@ blockquote {
     }
   }
 }
-// ? ICON POSITION - Colum | Row
+// @misc @ Icon Position
 // I tried to automate the formula, but I can't figure it out.. Might be structural problem honestly
 .nav-list--home {
   --ico-nav-default:  calc(1 * -48px + 48px) calc(1 * -48px + 48px);
