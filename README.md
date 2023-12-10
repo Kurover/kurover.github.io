@@ -1,7 +1,9 @@
-# Welcome
-This is a website written exclusively using HTML and CSS language with Jekyll integration. Interactive and performant is the goal. The restriction also serve as a challenge and to match the spirit of pixel-art limitations, which is my main art medium.
+# Website
+A general purpose / portfolio website handcrafted without JS, akin to pixel-art limitation. Tries to be performant, pocket-sized, and modestly styled. Good support for keyboard navigation but other form of accessibility might be questionable... Also no extreme SEO optimization whatsoever.
 
-## Link / Resources
+:warning: Currently under development! [Old Version](https://kurover.github.io/v2) is till up and running however.
+
+## Resources / Credits
 - :file_folder: [Obsidian](https://obsidian.md) - Markdown note-taking app.
 - :file_folder: [Visual Studio Code](https://code.visualstudio.com) - Main program to code.
 - :file_folder: [Jekyll Compress HTML](https://github.com/penibelst/jekyll-compress-html) - HTML compression made easy.
@@ -10,31 +12,12 @@ This is a website written exclusively using HTML and CSS language with Jekyll in
 - :globe_with_meridians: [W3Schools](https://www.w3schools.com) - Learn basic HTML & CSS.
 - :tv: [Kevin Powell](https://www.youtube.com/kepowob) - Intermediate CSS tricks and learning.
 
-## :crossed_flags: v3 TO-DOs (also known as Blog-2)
-
-### :zap: Big stuff
-- Main background - night scenery either on the tower foreseeing the sea or in front of the tower entrance
-- Illith portrait (entrance, 2-3 idle, speaking)
-- Stylla 404 error page on the sea
-- Large navigation buttons, at least 96px and wide.
-
-### :blossom: Sprite / Icon
-- :leaves: Border: Navigation, Gallery, Tooltip, Button
-- :leaves: Navigation: Home, Gallery, Blog, Download, Links, "More"?
-- :leaves: Links: Mail, Misskey, Twitter, Discord, Github
-- :seedling: Links: Pixiv, Steam
-- :herb: Flavor: Arrows, Close Button, Image Loading Placeholder
-
-### :snowflake: Misc Stuff (low-priority)
-- Illith nag / fixed companion (bottom left). Clickable to go to top and point of interest
-- 404 page where its text is a windows error popup, can be minimized, maximize is greyed out, and close to go to secret place
-
-## To-Do list
-Will continue and revise after v3 is reasonably finished
+## :red_square: General To-Do
+:warning: Will continue and revise after [Version-3](https://github.com/Kurover/kurover.github.io/blob/main/Version-3.md) is reasonably finished.
 - [x] ~~Revamp website.~~
 - [ ] Revamp website, again. Well more like actually finishing it..
 
-### Implementation
+## Implementation
 - [x] ~~Art gallery page.~~
 - [x] ~~Blog / project history post section.~~
 - [x] ~~Contact detail page.~~
@@ -43,7 +26,7 @@ Will continue and revise after v3 is reasonably finished
 - [ ] Dedicated commission tab / page.
 - [ ] Link or preview to GroundLeaf project (pending until ready.)
 
-### Improvement
+## Improvement
 - [x] ~~Improve Jekyll integration~~ Minimum interaction, no complex automation.
 	- [x] Well, it's integrated semi-fully now.
 - [x] ~~Improve container image code.~~ Technicality is much better now, can be improved further I think.

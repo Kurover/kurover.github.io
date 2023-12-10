@@ -45,7 +45,7 @@ og-type: gallery
               <img loading="lazy" src="{% if item.link-2 %}{{ item.link-2 }}{% else %}{{ item.link }}{% endif %}" alt="{{ item.name }} full preview">
               <div class="gallery-close" tabindex="0"></div></div>
           </div>
-          {% if item.last-item or item.size == "full" %}<hr class="br-flex"></hr>{% endif %}
+          {% if item.last-item or item.size == "full" %}<hr class="br-flex">{% endif %}
           {% endfor %}
         </div>
       </div>

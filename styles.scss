@@ -57,10 +57,9 @@
   --sprite-icon-size: 48px;
 }
 
-// ! @main # Global
+// ! @title # Global
 html {
   font-family: 'Pixel04b03';
-  font-size: 1rem;
   width: 100%;
   scroll-behavior: smooth;
   -webkit-font-smoothing: none;
@@ -136,15 +135,6 @@ blockquote {
   padding-left: 12px;
   box-shadow: 4px 0 0 0 inset var(--clr-text-dim);
 }
-@media (max-width: 768px) {
-  // To compensate sticky nav bar
-  body {
-    margin-bottom: 96px;
-  }
-  h1, h2, h3, h4, h5, h6 {
-    text-align: center;
-  }
-}
 
 // ! CSS Preloader */
 /* body::after {
@@ -159,7 +149,7 @@ blockquote {
     ;
 } */
 
-// ! @main # Utility
+// ! @title # Utility
 .link {
   color: var(--clr-link);
   cursor: pointer;
@@ -220,13 +210,15 @@ blockquote {
     margin-top: 2rem;
   }
 }
-// @note ## Size
-@media (min-width: 769px) {
-  .no-desktop {
-    display: none;
-  }
-}
+// @section ## Size
 @media (max-width: 768px) {
+  // To compensate sticky nav bar
+  body {
+    margin-bottom: 96px;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+  }
   .no-mobile {
     display: none;
   }
@@ -234,8 +226,13 @@ blockquote {
     text-align: center;
   }
 }
+@media (min-width: 769px) {
+  .no-desktop {
+    display: none;
+  }
+}
 
-// ! @main ________ Core ________
+// ! @title ________ Core ________
 .wrapper {
   // position: relative;
   max-width: 848px;
@@ -271,7 +268,7 @@ blockquote {
   image-rendering: pixelated;
 }
 
-// ! @screen # Navigation
+// ! @main # Navigation
 .nav-main {
   --clr-link: var(--clr-text);
   --clr-link-visited: var(--clr-text);
@@ -402,7 +399,7 @@ blockquote {
     opacity: 1;
   }
 }
-// @note # More Tab
+// @main # More Tab
 
 .nav-expandable {
   visibility: hidden;
@@ -459,7 +456,7 @@ blockquote {
   --ico-nav-active:   calc(6 * -48px + 48px) calc(2 * -48px + 48px);
   --ico-nav-hover:    calc(6 * -48px + 48px) calc(3 * -48px + 48px);
 }
-// @note # Size
+// @misc @ Media
 @media (max-width: 768px) {
   .nav-main {
     position: fixed;
@@ -489,7 +486,7 @@ blockquote {
     }
   }
 }
-// ! @main ________ Modular ________
+// ! @title ________ Modular ________
 .title-full {
   flex: 100%;
   display: block;
@@ -499,7 +496,7 @@ blockquote {
   background-color: var(--clr-secondary);
 }
 
-// * @screen # Expandable
+// * @main # Expandable
 /* .expandable-column .expandable {
   display: flex;
   gap: 16px;
@@ -557,7 +554,7 @@ blockquote {
     visibility: hidden;
     transition: visibility .25s;
   }
-  // ? @note ## Mod
+  // ? @section ## Mod
   &.slow {--speed-start: 1s;--speed-end: 1s;}
   &.fast {--speed-start: .25s;--speed-end: .25s;}
 }
@@ -589,7 +586,7 @@ blockquote {
   }
 }
 
-// * @screen # Tooltip
+// * @main # Tooltip
 .tooltip {
   color: var(--clr-tooltip-link);
   display: inline;
@@ -633,7 +630,7 @@ blockquote {
     transform var(--speed-end);
   transition-delay: .1s; // Give time to hover to box
 }
-  // ? @note ## Mod
+  // ? @section ## Mod
 .tooltip-content--slow {--speed-start: 1s;--speed-end: .75s;}
 .tooltip-content--fast {--speed-start: .25s;--speed-end: .1s;}
 .tooltip-content--left {--tooltip-position:translateX(-20vw);}
@@ -652,7 +649,7 @@ blockquote {
     transform var(--speed-start);
   transition-delay: 0s;
 }
-// @note ## Media
+// @misc -@ Media
 @media (max-width: 768px) {
   .tooltip-content {
     --tooltip-position-start: translateY(48px);
@@ -668,7 +665,7 @@ blockquote {
   }
 }
 
-// * @screen # ProfilePicture
+// * @main # ProfilePicture
 .headshot {
   --headshot-size: 128px;
   --headshot-border: 2px solid white;
@@ -679,7 +676,7 @@ blockquote {
     border: var(--headshot-border);
   }
 }
-  // ? @note ## Mod
+  // ? @section ## Mod
 .headshot--float-left {float: left;}
 .headshot--float-right {float: right;}
 .headshot--pos-first {margin: 0 1rem 1rem 0;}
@@ -813,7 +810,7 @@ input[id^=profile-headshot-1]:checked ~ [data-target="1"] {display: block;}
 input[id^=profile-headshot-2]:checked ~ [data-target="2"] {display: block;}
 input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 
-// @note ## Media
+// @misc -@ Media
 @media (max-width: 768px) {
   .headshot {
     float: unset;
@@ -824,7 +821,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   }
 }
 
-// * @screen # Contact List
+// * @main # Contact List
 .contact-lists {
   --clr-link: var(--clr-text);
   --clr-link-visited: var(--clr-text);
@@ -860,8 +857,258 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   }
 }
 
-// ! @main ________ Gallery ________
-// * @note # Tabs 
+// ! @title ________ Home ________
+.home {
+  position: relative;
+  // padding-top: 0;
+  background-color: yellow;
+  image-rendering: pixelated;
+}
+.home-top {
+  content: "";
+  display: block;
+  line-height: 48px;
+  width: 100%;
+  background-color: black;
+}
+.home-content {
+  position: relative;
+  display: flex;
+  // height: 100%;
+  // top: 0;
+  // bottom: 0;
+  // left: 0;
+  // right: 0;
+  background-color: gray;
+}
+
+// @section # Menu
+.home-menu {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  box-sizing: border-box;
+  // max-width: 512px;
+  padding: 1rem 0;
+  gap: 4px;
+  margin: auto;
+  // margin-top: 8ch;
+  & a {
+    display: block;
+    text-decoration: none;
+    color: crimson;
+  }
+  & label {
+    display: block;
+    cursor: pointer;
+  }
+}
+.home-menu-container {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  // gap: 8px;
+  // height: 72ch;
+  height: calc(100dvh - 48px); // Compensate border top
+  box-sizing: border-box;
+  overflow: scroll;
+  background-color: palegoldenrod;
+}
+.home-menu-separator {
+  flex: .65;
+  background-color: yellowgreen;
+}
+.home-menu-list {
+  z-index: 1;
+  text-align: center;
+  font-size: 3rem;
+  line-height: 128px;
+  max-width: 256px;
+  color: black;
+  flex: 1;
+  height: 128px;
+  cursor: pointer;
+  border: 1px solid gray;
+  background-color: peachpuff;
+}
+.home-menu-list--free {
+  height: auto;
+  max-width: calc((256px * 2) + 4px ); //list width times 2, plus gap. Border not incl
+}
+.home-menu__gallery {
+  margin: auto;
+}
+.home-menu__sample,
+.home-menu__sample-toggle {
+  margin: auto;
+  font-size: 2rem;
+  line-height: 64px;
+  background-color: peru;
+}
+.home-menu__sample-toggle > [data-index="2"] {
+  display: none;
+}
+.home-menu__sample {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2px 4px;
+  padding: 0 8px;
+
+  overflow: scroll;
+  height: 0;
+  visibility: hidden;
+  transition: height .5s, visibility .5s;
+}
+.home-menu__sample-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  flex: 1;
+  overflow: hidden;
+
+  opacity: 0;
+  transition: background .5s, opacity .5s;
+  &.full {
+    flex: 100%;
+    height: auto;
+  }
+  & > img {
+    background-color: var(--clr-secondary);
+  }
+  &:first-of-type {margin-top: 1rem;}
+  &:last-of-type {margin-bottom: 1rem;}
+
+} // These components are modified .gallery-list
+#sample-expandable_sys:checked {
+  & + .home-menu__sample {
+    visibility: visible;
+    height: 50dvh;
+    & > * {
+      opacity: 1;
+    }
+  }
+  & ~ .home-menu__sample-toggle {
+    & > [data-index="1"] {
+      display: none;
+    }
+    & > [data-index="2"] {
+      display: block;
+    }
+  }
+}
+
+
+// @section # IllithText
+// .home-illith {
+//   flex: .75;
+//   box-sizing: border-box;
+//   margin: auto;
+//   margin-bottom: 0;
+//   background-color: plum;
+// }
+.home-illith {
+  pointer-events: none;
+  position: absolute;
+  box-sizing: border-box;
+  // bottom: 0;
+  width: 45dvw;
+  height: 100%;
+  background-color: plum;
+  & > * {
+    z-index: 1;
+  }
+}
+.home-illith__textbox {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  // min-width: 420px;
+  height: 24ch;
+  padding: 0 32px 32px 32px;
+  box-sizing: border-box;
+  background-color: gray;
+}
+.home-illith__textbox-content {
+  display: flex;
+  align-content: center;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  font-size: 1.5rem;
+  overflow: hidden;
+  gap: 1rem;
+  padding: 8px 1rem;
+  height: 100%;
+  border-image: url(/img/border-2.png) 4 / 18px / 1rem;
+  background-color: slategray;
+  animation: profile-transition-1 .5s;
+}
+.home-illith__textbox-content::before,
+.home-illith__textbox-content::after {
+  content: "Hello";
+  text-align: center;
+  flex: 100%;
+}
+
+#comment-1_sys:checked ~ [class$="content"] {
+  &::before {content: "This is the"}
+  &::after {content: "First Paragraph"}
+}
+#comment-2_sys:checked ~ [class$="content"] {
+  &::before {content: "What about that thing"}
+  &::after {content: "You mentioned ages ago?"}
+}
+
+.home-bottom-bg-separator {
+  position: absolute;
+  height: 120px;
+  width: 100%;
+  bottom: -120px;
+  background-color: green;
+}
+.home-bottom-bg-endless {
+  position: absolute;
+  height: 120px;
+  width: 100%;
+  bottom: -240px;
+  background-color: paleturquoise;
+}
+// @misc @ Media
+@media (max-width: 768px) {
+  .home-top {
+    display: none;
+  }
+  .home-illith {
+    // position: unset;
+    width: 100%;
+    // flex: 1;
+    bottom: -24ch;
+    background: none;
+    pointer-events: none;
+  }
+  .home-illith__textbox {
+    margin: auto;
+    min-width: unset;
+  }
+  .home-menu {
+    margin-top: 1rem;
+  }
+  .home-menu-separator {
+    flex: 0; // pretty much display none
+  }
+  .home-menu-container {
+    height: 80dvh;
+    flex-wrap: wrap;
+    align-content: flex-start;
+  }
+  // .home-menu__sample {
+  //   max-height: 40dvh;
+  // }
+}
+
+// ! @title ________ Gallery ________
+// * @section # Tabs 
 .wrapper--gallery {
   padding: 0;
 }
@@ -1016,7 +1263,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   box-shadow: 0 0 0 4px var(--clr-text);
 }
 
-// * @note # EntryLists
+// * @section # EntryLists
 .gallery-lists {
   display: flex;
   flex-direction: row;
@@ -1062,7 +1309,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     border-image: url(/img/border-2.png) 8 / 16px;
     pointer-events: none; //prevent hover conflict with other lists
   }
-  // ? @note ## Mod
+  // ? @section ## Mod
   // Using OOCS because I don't want to bloat the html with BEM
   &.left {justify-content: flex-start;}
   &.right {justify-content: flex-end;}
@@ -1101,11 +1348,8 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     }
   }
 }
-.gallery-list > p:empty {
-  display: none; // hide if missing caption
-}
 
-// * @note # PopupPreview
+// * @section # PopupPreview
 // * We need 2 images in the HTML for images with zooming effect. We also do it in this gimmicky manner just so that the lazy load works.
 @keyframes gallery-popup-start {
   from {transform: scale(.9);}
@@ -1172,7 +1416,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     transition: visibility .1ms var(--speed-start), opacity .5s var(--speed-start);
   }
 }
-// @note # Size
+// @misc @ Media
 @media (max-width: 768px) {
   .gallery-tab-buttons {
     // position: fixed;
@@ -1202,7 +1446,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   }
 }
 
-// ! @main ________ 404 Page ________
+// ! @title ________ 404 Page ________
 .error-page {
   margin: auto;
   margin-top: 2rem;
