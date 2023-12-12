@@ -1,7 +1,7 @@
 # Website
 A general purpose / portfolio website handcrafted without JS, akin to pixel-art limitation. Tries to be performant, pocket-sized, and modestly styled. Good support for keyboard navigation but other form of accessibility might be questionable... Also no extreme SEO optimization whatsoever.
 
-:warning: Currently under development! [Old Version](https://kurover.github.io/v2) is till up and running however.
+:warning: Currently under development! [Old Version](https://kurover.github.io/v2) is up and running in frozen state.
 
 ## Resources / Credits
 - :file_folder: [Obsidian](https://obsidian.md) - Markdown note-taking app.
