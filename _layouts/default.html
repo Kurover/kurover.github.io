@@ -30,8 +30,9 @@ layout: compress
     <link rel="stylesheet" href="/styles.css">
     <link rel="stylesheet" href="/font.css">
   </head>
-  <body>
-    {% include navigation.html %}
+  
+  {%- if page.landing-page -%}<body class="home--body">{%- else -%}<body>{%- endif -%}
+    {%- unless page.landing-page -%} {% include navigation.html %} {%- endunless -%}
     {{ content }}
   </body>
 </html>

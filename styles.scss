@@ -849,6 +849,9 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 }
 
 // ! @title ________ Home ________
+.home--body {
+  margin: auto;
+}
 .home {
   position: relative;
   // padding-top: 0;
