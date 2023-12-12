@@ -17,13 +17,13 @@ list:
   last-item: 
 - name: Patchouli's magician trick animation
   link: /img/gallery/touhou_patchy__px.gif
-  caption: 
+  caption: Magician's Trick
   position:
   size: 
   align:
   last-item: true
 
-- name: Sekibanki sitting and her fluttering cape animation
+- name: Sekibanki with her cape fluttering, each side of it has mirage of her companion, Wakasagihime and Kagerou animation
   link: /img/gallery/touhou_grassroot2__px.gif
   caption: Head of the pack
   position:
@@ -32,14 +32,14 @@ list:
   last-item: 
 - name: Grassroot trio resting at night time animation
   link: /img/gallery/touhou_grassroot1__px.gif
-  caption:
+  caption: The girls are resting
   position:
   size: 
   align:
   last-item: 
 - name: Sekibanki and Kogasa under the parasol while raining animation
   link: /img/gallery/touhou_grassroot3__px.gif
-  caption:
+  caption: Warmth under the parasol
   position:
   size: wide
   align:
@@ -62,7 +62,7 @@ list:
 
 - name: Yamame and Kisume chatting with each other animation
   link: /img/gallery/touhou_spood2__px.gif
-  caption:
+  caption: Hangout Cavern
   position:
   size: full
   align:
@@ -76,7 +76,7 @@ list:
   last-item:
 - name: Yamame creating an object with her thread animation
   link: /img/gallery/touhou_spood1__px.gif
-  caption:
+  caption: Don't ask where the web comes from
   position:
   size: 
   align:

@@ -4,8 +4,8 @@ list:
 - name: Clover and Stylla holding a pottery with thank you letter on it
   link: /img/gallery/oc_tw10k-banner__px.png
   link-2: /img/gallery/oc_tw10k__px.png
-  caption:
-  position: right
+  caption: Thank you for 1000 followers!
+  position:
   size: full
   align:
   last-item:
@@ -41,7 +41,7 @@ list:
 
 - name: Koishi winking portrait
   link: /img/gallery/touhou_koishi__px.png
-  caption:
+  caption: Sparkles~!
   position:
   size: full
   align:
@@ -187,7 +187,7 @@ list:
   last-item:
 - name: A river-like and bubbly landscape with glowing towers in the distance
   link: /img/gallery/oc_f2__px.png
-  caption:
+  caption: One of the first big pixel art background I've made
   position: right
   size: wide
   align:

@@ -10,7 +10,7 @@ list:
   last-item:
 - name: Black and white painting of Eternity Larva hugging her knees
   link: /img/gallery/touhou_eternity__hd.webp
-  caption:
+  caption: "Eternity"
   position:
   size: 
   align:
@@ -24,14 +24,14 @@ list:
   last-item:
 - name: Wriggle, Rumia, Medicine, and Mystia group photo lineart
   link: /img/gallery/touhou_quadro__hd.webp
-  caption:
+  caption: Say cheese!
   position:
   size: 
   align:
   last-item:
 - name: Marisa photo-bombing Reimu with peace sign and a wink
   link: /img/gallery/touhou_duo__hd.webp
-  caption:
+  caption: Peace~
   position:
   size: 
   align:
@@ -68,7 +68,7 @@ list:
 
 - name: Rumia tehee
   link: /img/gallery/touhou_mystia-random-1__hd.webp
-  caption:
+  caption: Tehee~
   position:
   size: 
   align:
