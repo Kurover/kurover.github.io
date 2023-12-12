@@ -1136,14 +1136,15 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   transition: flex .5s;
 }
 .gallery-tab-content {
+  --speed-open: 2s calc(var(--speed-close) - .2s);
   --speed-close: 1.5s;
-  --speed-open: 2s calc(var(--speed-close) - .5s);
-  --speed-fade: 1.5s ease;
+  --speed-fade-open: 2s .75s;
+  --speed-fade-close: 1s;
   display: grid;
   grid-template-rows: 0fr;
   opacity: 0;
   visibility: hidden;
-  transition: grid-template-rows var(--speed-close), opacity var(--speed-fade), visibility var(--speed-fade);
+  transition: grid-template-rows var(--speed-close) ease-in-out, opacity var(--speed-fade-close), visibility var(--speed-fade-close);
   & > div {
     overflow: hidden;
   }
@@ -1160,13 +1161,13 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 }
 // * Settings
 #gallery-tab-1__page-1 {
-  --speed-open: 3s calc(var(--speed-close) - .5s);
+  --speed-open: 3s calc(var(--speed-close) - .2s);
 }
 #gallery-tab-2 {
-  --speed-open: 4s calc(var(--speed-close) - .5s);
+  --speed-open: 4s calc(var(--speed-close) - .2s);
 }
 #gallery-tab-3 {
-  --speed-open: 3s calc(var(--speed-close) - .5s);
+  --speed-open: 3s calc(var(--speed-close) - .2s);
 }
 #gallery-tab-state-1__page-2_sys {
   display: none; /* Skip to page 1 when key nav */
@@ -1200,7 +1201,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     grid-template-rows: 1fr;
     opacity: 1;
     visibility: visible;
-    transition: grid-template-rows var(--speed-open), opacity var(--speed-fade);
+    transition: grid-template-rows var(--speed-open), opacity var(--speed-fade-open);
   }
 }
 #gallery-tab-state-1__page-2_sys:checked {
@@ -1212,7 +1213,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     grid-template-rows: 1fr;
     opacity: 1;
     visibility: visible;
-    transition: grid-template-rows var(--speed-open), opacity var(--speed-fade);
+    transition: grid-template-rows var(--speed-open), opacity var(--speed-fade-open);
   }
 }
 #gallery-tab-state-2_sys:checked {
@@ -1225,7 +1226,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     grid-template-rows: 1fr;
     opacity: 1;
     visibility: visible;
-    transition: grid-template-rows var(--speed-open), opacity var(--speed-fade);
+    transition: grid-template-rows var(--speed-open), opacity var(--speed-fade-open);
   }
 }
 #gallery-tab-state-3_sys:checked {
@@ -1238,7 +1239,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     grid-template-rows: 1fr;
     opacity: 1;
     visibility: visible;
-    transition: grid-template-rows var(--speed-open), opacity var(--speed-fade);
+    transition: grid-template-rows var(--speed-open), opacity var(--speed-fade-open);
   }
 }
   // ? Styles
