@@ -286,6 +286,7 @@ blockquote {
   background: var(--clr-secondary);
 }
 .nav-list {
+  // position: relative;
   padding: 4px 24px;
   transition: border-image .25s;
   cursor: pointer;
@@ -304,11 +305,19 @@ blockquote {
   background-color: var(--clr-background);
   padding: 4px;
 }
+.nav-list--more-toggle {
+  display: none;
+  position: absolute;
+  width: 25%;
+  left: 50%;
+  height: 96px;
+  // background: aqua;
+}
 .nav-list--more {
   position: relative;
-  top: 0;
-  right: 0;
-  margin: auto;
+  // top: 0;
+  // right: 0;
+  // margin: auto;
   &:is(:hover, :focus-within) {
     .nav-expandable {
       visibility: visible;
@@ -319,6 +328,9 @@ blockquote {
         transform: translateY(0) ;
       }
     }
+  }
+  &:focus-within + .nav-list--more-toggle {
+    display: block;
   }
 }
 // ? Icon and border */
@@ -849,16 +861,10 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 }
 
 // ! @title ________ Home ________
-.home--body {
+.body--home {
   margin: auto;
 }
-.home {
-  position: relative;
-  // padding-top: 0;
-  background-color: yellow;
-  image-rendering: pixelated;
-}
-.home-top {
+.home-bar {
   content: "";
   display: block;
   line-height: 48px;
@@ -873,7 +879,8 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   // bottom: 0;
   // left: 0;
   // right: 0;
-  background-color: gray;
+  image-rendering: pixelated;
+  background-color: yellow;
 }
 
 // @section # Menu
@@ -961,6 +968,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   align-content: center;
   flex: 1;
   overflow: hidden;
+  cursor: default;
 
   opacity: 0;
   transition: background .5s, opacity .5s;
@@ -992,7 +1000,6 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     }
   }
 }
-
 
 // @section # IllithText
 // .home-illith {
@@ -1070,7 +1077,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 }
 // @misc @ Media
 @media (max-width: 768px) {
-  .home-top {
+  .home-bar {
     display: none;
   }
   .home-illith {

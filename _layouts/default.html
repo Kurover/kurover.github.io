@@ -31,7 +31,7 @@ layout: compress
     <link rel="stylesheet" href="/font.css">
   </head>
   
-  {%- if page.landing-page -%}<body class="home--body">{%- else -%}<body>{%- endif -%}
+  {%- if page.landing-page -%}<body class="body--home">{%- else -%}<body>{%- endif -%}
     {%- unless page.landing-page -%} {% include navigation.html %} {%- endunless -%}
     {{ content }}
   </body>
