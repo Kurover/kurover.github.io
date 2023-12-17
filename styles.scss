@@ -454,7 +454,7 @@ blockquote {
   // ? EXPAND ICON
   // Dear future me, these are terrible, don't read these, thank you
   & > [class$=icon]::after {
-    transition: background 0s .5s, opacity .5s;
+    transition: background 0s .5s, opacity .5s; // Make it so it transition smoothly between various states to default. Change the selector target to no delay. IDK how to explain this..
   }
   &:hover > [class$=icon]::after {
     background: url(/img/icon-pack__px.png) var(--ico-nav-hover);
@@ -464,15 +464,11 @@ blockquote {
     background: url(/img/icon-pack__px.png) var(--ico-nav-default);
     opacity: 0;
   }
-  &:focus > [class$=icon]::before {
-    background: url(/img/icon-pack__px.png) var(--ico-nav-hover);
-    opacity: 0;
-  }
   &:focus-within > [class$=icon]::after {
     background: url(/img/icon-pack__px.png) var(--ico-nav-active);
     opacity: 1;
     transition-delay: 0s;
-  } // With 3 different icon state, it will have no transition in 1 of them, not a big deal
+  }
   &.active > [class$=icon] {
     &::before {
       background: url(/img/icon-pack__px.png) var(--ico-nav-hover);
