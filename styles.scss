@@ -218,7 +218,7 @@ blockquote {
     margin-top: 2rem;
   }
 }
-// @section ## Size
+// @misc @ Media
 @media (max-width: 768px) {
   // To compensate sticky nav bar
   body {
@@ -1232,9 +1232,10 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   transition: flex .5s;
 }
 .gallery-tab-content {
-  --speed-open: 2s calc(var(--speed-close) - .2s);
-  --speed-close: 1.5s;
-  --speed-fade-open: 2s .75s;
+  --speed-open-delay: calc(var(--speed-close) - .2s);
+  --speed-open: 2s var(--speed-open-delay);
+  --speed-close: 1s;
+  --speed-fade-open: 2s;
   --speed-fade-close: 1s;
   display: grid;
   grid-template-rows: 0fr;
@@ -1257,13 +1258,13 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 }
 // * Settings
 #gallery-tab-1__page-1 {
-  --speed-open: 3s calc(var(--speed-close) - .2s);
+  --speed-open: 3s var(--speed-open-delay);
 }
 #gallery-tab-2 {
-  --speed-open: 4s calc(var(--speed-close) - .2s);
+  --speed-open: 4s var(--speed-open-delay);
 }
 #gallery-tab-3 {
-  --speed-open: 3s calc(var(--speed-close) - .2s);
+  --speed-open: 3s var(--speed-open-delay);
 }
 #gallery-tab-state-1__page-2_sys {
   display: none; /* Skip to page 1 when key nav */
@@ -1534,6 +1535,12 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   .gallery-list.full > img {
     width: auto;
     height: 100%;
+  }
+}
+@media (max-height: 700px) {
+  .gallery-tab-content {
+    --speed-open-delay: calc(var(--speed-close) + .2s);
+    --speed-close: 1.5s;
   }
 }
 
