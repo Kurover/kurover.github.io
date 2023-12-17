@@ -285,7 +285,7 @@ blockquote {
   display: flex;
   padding: 12px 0;
   // grid-template-columns: repeat(3, 196px);
-  margin: 3rem auto 1rem auto;
+  margin: 2rem auto 1rem auto;
   max-width: 896px;
   image-rendering: pixelated;
   // border: 1px solid white;
@@ -949,6 +949,56 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   }
 }
 
+// @main # Skip to Main
+.skip-to-main {
+  position: fixed;
+  top: 0;
+  left: 2rem;
+  width: fit-content;
+  padding: 16px;
+  background-color: var(--clr-tooltip-background);
+  border-image: url(/img/border-2.png) 8 / 16px / 0px;
+  transform: translateY(-100%);
+  transition: transform .5s;
+  & a {
+    color: var(--clr-tooltip-text);
+    text-decoration: none;
+  }
+  & a::after {
+    content: "Skip";
+  }
+  &:focus-within {
+    transform: translateY(1rem);
+  }
+}
+// @main # Skip to Top
+.skip-to-top {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  padding: 16px;
+  width: fit-content;
+  background-color: var(--clr-tooltip-background);
+  border-image: url(/img/border-2.png) 8 / 16px / 0px;
+  & a {
+    color: var(--clr-tooltip-text);
+    text-decoration: none;
+  }
+  & a::after {
+    content: "Return";
+  }
+}
+.skip-to-top--hidden {
+  transform: translateX(10ch);
+  transition: transform .5s;
+  &:focus-within {
+    transform: none;
+  }
+}
+@media (max-width: 768px) {
+  .skip-to-top {bottom: 96px;}
+}
+
 // ! @title ________ Home ________
 .body--home {
   margin: auto;
@@ -1599,10 +1649,10 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   color: var(--clr-text-fade);
 }
 
-// ! 404 Page CSS | Basically a copy of LinkThree lab page TO BE REWRITTEN
+// ! Old CSS, for links
 .entry-linkthree {
   color: #faf0de;
-  max-width: 520px;
+  max-width: 460px;
   margin: auto;
   margin-top: 8%;
   text-align: center;
@@ -1611,27 +1661,6 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   .entry-linkthree {
     padding: 0 4%;
   }
-}
-.linkthree-profile {
-  margin-bottom: 32px;
-}
-.linkthree-profile-img {
-  width: 96px;
-  height: 96px;
-  margin: auto;
-  margin-bottom: 12px;
-  border: 8px solid gray;
-  border-radius: 50%;
-  background: white;
-  background-image: url(/img/404.gif);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 128px;
-  image-rendering: pixelated;
-}
-.linkthree-profile-img img {
-  width: 100%;
-  overflow: hidden;
 }
 .linkthree-link {
   margin: 8px 0;
@@ -1642,39 +1671,20 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   color: #faf0de;
   display: block;
   line-height: 48px;
+  text-decoration: none;
+  font-size: 1.5rem;
 }
 .linkthree-link a:is(:focus, :hover) {
   color: #8db565;
   background: #25355A;
-}
-.linkthree-img {
-  position: absolute;
-  padding: 4px;
-  line-height: 48px;
-}
-.linkthree-img img {
-  width: 40px;
-}
-.linkthree-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  background: #141414;
-  height: 48px;
-  width: 100%;
-}
-.linkthree-footer-content {
-  color: gray;
-  line-height: 48px;
-  text-align: center;
 }
 .entry-linkthree--embed {
   z-index: 1000;
   position: fixed;
   visibility: hidden;
   background: #0a0c10;
-  margin-top: 92px;
-  padding: 32px 16px;
+  // margin-top: 92px;
+  padding: 16px;
   border: 4px solid gray;
   max-height: 70%; 
   overflow: scroll;
@@ -1695,40 +1705,4 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   opacity: 1;
   transform: translateY(0);
   transition: opacity .25s, transform .5s;
-}
-.entry-linkthree-embed-control {
-  z-index: 1001;
-  visibility: hidden;
-  position: fixed;
-  margin: auto;
-  margin-top: 112px;
-  font-size: 32px;
-  text-align: center;
-  width: 48px;
-  line-height: 48px;
-  top: 0;
-  left: 0;
-  right: 0;
-  opacity: 0;
-  transform: translateX(236px);
-  cursor: pointer;
-  color: gray;
-}
-@media (max-width: 520px) {  
-  .entry-linkthree-embed-control {
-    left: 84%;
-    transform: none;
-  }
-}
-
-.entry-linkthree-embed-control::after {
-  content: "-"
-}
-.entry-linkthree-embed-control:hover {
-  color: whitesmoke;
-}
-.entry-linkthree-parent:focus-within + .entry-linkthree-embed-control {
-  visibility: visible;
-  opacity: 1;
-  transition: opacity .1s .33s, color .1s;
 }

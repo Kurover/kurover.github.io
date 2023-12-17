@@ -16,7 +16,7 @@ layout: compress
 <body>
   {% include navigation.html %}
   
-  <article class="wrapper border">
+  <article class="wrapper border" tabindex="-1" id="main">
     <ul>
     {%- for page-lab in site.lab -%}
       {%- if page-lab.layout -%}

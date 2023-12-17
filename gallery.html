@@ -6,7 +6,7 @@ og-title: Gallery
 og-type: gallery
 ---
 <main>
-  <section class="wrapper border">
+  <section class="wrapper border" tabindex="-1" id="main">
     <div class="headshot headshot--float-left headshot--pos-first">
       <img src="/img/illith.png" alt="">
     </div>
@@ -14,7 +14,7 @@ og-type: gallery
     <p class="caption no-mobile">Click to zoom!</p>
     <p class="caption no-desktop">Tap to zoom!</p>
     <p>Welcome to the gallery, have a look around yea? Fun fact, these are about half of my creator's art in total. Pretty disappointing number, isn't it?</p>
-    <p>If things feels unintuitive here, make sure to throw it up to my creator, yeah? A tip, you can press TAB key (if any) to close preview popup, weird I know.</p>
+    <p>If things feels unintuitive here, make sure to throw it up to my creator, yeah? A tip, you can also press TAB key (if any) to close preview popup.</p>
   </section>
 
   <div class="wrapper wrapper--gallery">
@@ -53,4 +53,5 @@ og-type: gallery
     {% endfor %}
   </div> <!-- ! WRAPPER END -->
   <div class="separator--gallery"></div>
+  <div class="skip-to-top skip-to-top--hidden"><a href="#main"></a></div>
 </main>

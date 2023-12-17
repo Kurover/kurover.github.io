@@ -32,7 +32,10 @@ layout: compress
   </head>
   
   {%- if page.landing-page -%}<body class="body--home">{%- else -%}<body>{%- endif -%}
-    {%- unless page.landing-page -%} {% include navigation.html %} {%- endunless -%}
+    {%- unless page.landing-page -%} 
+    <div class="skip-to-main"><a href="#main"></a></div>
+    {% include navigation.html %} 
+    {%- endunless -%}
     {{ content }}
   </body>
 </html>
