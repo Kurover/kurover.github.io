@@ -4,39 +4,108 @@ name: Module Template
 alias: Template - Modules
 no-css: true
 ---
-<article class="wrapper border">
-  <h2>Expandables</h2>
-  <!--! Expandable -->
-  <section class="expandable slow" id="content-1">
-    <input id="IDHERE_sys" type="checkbox" class="expandable-control">
-    <label for="IDHERE_sys" class="expandable-title">
-      <div class="expandable-title-icon"></div>
-      <h2>Title</h2>
-    </label>
-    <div class="expandable-content">  
-      <div>
-        <p>Content Here</p>
+<main>
+  <section class="wrapper border">
+    <h2>Expandables</h2>
+    <!--! Expandable -->
+    <section class="expandable slow" id="content-1">
+      <input id="IDHERE_sys" type="checkbox" class="expandable-control">
+      <label for="IDHERE_sys" class="expandable-title">
+        <div class="expandable-title-icon"></div>
+        <p>HEADER Title</p>
+      </label>
+      <div class="expandable-content">  
+        <div>
+          <p>Content Here</p>
+          <p>Make sure to not have object with fixed height or else your layout will be destroyed (empty space on bottom). Fixable by adding "overflow: hidden" on its parent.</p>
+        </div>
       </div>
-    </div>
+    </section>
+    <h3>Snippet</h2>
+      <blockquote>
+        &lt;section class=&quot;expandable slow&quot; id=&quot;content-1&quot;&gt;
+          &lt;input id=&quot;IDHERE_sys&quot; type=&quot;checkbox&quot; class=&quot;expandable-control&quot;&gt;
+          &lt;label for=&quot;IDHERE_sys&quot; class=&quot;expandable-title&quot;&gt;
+            &lt;div class=&quot;expandable-title-icon&quot;&gt;&lt;/div&gt;
+            &lt;p&gt;HEADER Title&lt;/p&gt;
+          &lt;/label&gt;
+          &lt;div class=&quot;expandable-content&quot;&gt;  
+            &lt;div&gt;
+              &lt;p&gt;Content Here&lt;/p&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/section&gt;
+      </blockquote>
+    <h3>Mods</h3>
+    <blockquote>class <br>
+      .expandable-content--slow <br>
+      .expandable-content--fast <br>
+    </blockquote>
   </section>
-  <h3>Mods</h3>
-  <blockquote>class <br>
-    expandable fast <br>
-    expandable slow <br>
-  </blockquote>
-    
-  <!--! Tooltip -->
-  <h2>Tooltips</h2>
-  <p> Usable inline text, click on this
-    <span class="tooltip" tabindex="0"><span>Tooltip</span>
-    <span class="tooltip-content tooltip-content__adjust" style="--tooltip-position:translateX(-50%)">Tooltip content</span></span>
-  to expand its content</p>
-  <h3>Mods</h3>
-  <blockquote>class <br>
-    tooltip-content__fixed <br>
-    tooltip_content__adjust
-  </blockquote>
-  <blockquote>style <br>
-    --tooltip-position:translateX(NUM)
-  </blockquote>
-</article>
+
+  <section class="wrapper border">
+    <!--! Tooltip -->
+    <h2>Tooltips</h2>
+    <p> Usable inline text, click on this
+      <span class="tooltip" tabindex="0"><span>Tooltip</span>
+      <span class="tooltip-content tooltip-content__adjust" style="--tooltip-position:translateX(-50%)">Tooltip content</span></span>
+    to expand its content</p>
+    <h3>Snippet</h3>
+    <blockquote>
+      &lt;span class=&quot;tooltip&quot; tabindex=&quot;0&quot;&gt;&lt;span&gt;Tooltip&lt;/span&gt;
+      &lt;span class=&quot;tooltip-content&quot;&gt;Tooltip content&lt;/span&gt;&lt;/span&gt;
+    </blockquote>
+    <h3>Mods</h3>
+    <blockquote>class <br>
+      .tooltip-content--slow <br>
+      .tooltip-content--fast <br>
+      .tooltip-content--left <br>
+      .tooltip-content--right <br>
+      .tooltip-content--small <br>
+      .tooltip-content--wide <br>
+    </blockquote>
+    <blockquote>style <br>
+      --tooltip-position:translateX(NUM)
+    </blockquote>
+  </section>
+
+  <section class="wrapper border">
+    <h2>Avatar Picture</h2>
+    <p class="no-desktop notice">Mobile view does not float, all is centered.</p>
+    <div class="headshot headshot--float-left">
+      <img src="/img/gallery/oc_tw10k__px.png" alt="">
+      <p class="headshot__name">Left</p>
+    </div>
+    <div class="headshot headshot--float-left">
+      <img src="/img/gallery/oc_tw10k__px.png" alt="">
+    </div>
+    <div class="headshot headshot--float-right">
+      <img src="/img/profile-picture-2__px.png" alt="">
+      <p class="headshot__name">Right</p>
+    </div>
+    <div class="headshot">
+      <img src="/img/illith.png" alt="">
+      <p class="headshot__name">Default</p>
+    </div>
+    <hr>
+    <div class="headshot">
+      <img src="/img/illith.png" alt="">
+      <p class="headshot__name">Default</p>
+    </div>
+    <p>The name is optional. Use float if need to be stacked, be warned it will overlap with other container outside if there's not enough content below it.</p>
+    <h3>Mods</h3>
+    <blockquote>
+      .headshot--float-left <br>
+      .headshot--float-right <br>
+      .headshot--pos-first <br>
+      .headshot--pos-middle <br>
+    </blockquote>
+    <p>Don't stack default with floating, it's broken as you can see.</p>
+    <p>--pos-first and middle modifier is used to modify its margin, mainly if it's floating.</p>
+  </section>
+
+  <section class="wrapper border">
+    <p>Template Wrapper</p>
+  </section>
+
+</main>

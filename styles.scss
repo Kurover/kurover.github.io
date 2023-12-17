@@ -110,6 +110,9 @@ a {
     color: var(--clr-link-active);
   }
 }
+p:last-child {
+  margin-bottom: 0;
+}
 img {
   display: block;
   width: 100%;
@@ -167,6 +170,11 @@ blockquote {
   position: absolute;
   visibility: none;
   left: -9999px;
+}
+.notice {
+  color: var(--clr-notice);
+  box-shadow: 0 0 0 1px inset var(--clr-notice);
+  padding: .5rem;
 }
 .br-flex {
   width: 100%;
@@ -631,10 +639,11 @@ blockquote {
     visibility: hidden;
     transition: visibility .25s;
   }
-  // ? @section ## Mod
-  &.slow {--speed-start: 1s;--speed-end: 1s;}
-  &.fast {--speed-start: .25s;--speed-end: .25s;}
 }
+// ? @section ## Mod
+.expandable-content--slow {--speed-start: 1s;--speed-end: 1s;}
+.expandable-content--fast {--speed-start: .25s;--speed-end: .25s;}
+
   // ? Styles
 .expandable-title:hover > :not(.expandable-title-icon) {
   color: var(--clr-text);
@@ -746,12 +755,22 @@ blockquote {
 .headshot {
   --headshot-size: 128px;
   --headshot-border: 2px solid white;
-  & img {
+  position: relative;
+  box-sizing: border-box;
+  margin: auto;
+  & > img {
     margin: auto;
     height: auto;
     width: var(--headshot-size);
     border: var(--headshot-border);
   }
+}
+.headshot__name {
+  margin: auto;
+  text-align: center;
+  padding: 4px 0;
+  width: var(--headshot-size);
+  border: var(--headshot-border);
 }
   // ? @section ## Mod
 .headshot--float-left {float: left;}
@@ -761,9 +780,9 @@ blockquote {
 // * ProfileAccordion
 .headshot-accordion {
   content: "";
+  position: relative;
   width: var(--headshot-size);
   height: var(--headshot-size);
-  position: relative;
   margin: auto;
   margin-bottom: 3rem;
   border: var(--headshot-border);
