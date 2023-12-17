@@ -10,6 +10,7 @@ Changes may or may not immediately deployed on main site.
   - Removed title for now. Custom logo later?
   - Custom icon, finaly. Slightly smaller width.
   - Mobile view navigation now sticky on bottom.
+  - Improve navigation drop down.
 - Index:
   - Added custom layout with big button and less text, turning it into a hub page. Prototype on the [Lab Page](https://kurover.github.io/lab) | [New Home](https://kurover.github.io/lab/new-home).
 - Gallery:
