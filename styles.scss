@@ -273,7 +273,6 @@ blockquote {
   --clr-link: var(--clr-text);
   --clr-link-visited: var(--clr-text);
   --clr-link-invert: var(--clr-primary);
-  --nav-more-items: 2;
   z-index: 100;
   display: flex;
   padding: 12px 0;
@@ -305,34 +304,6 @@ blockquote {
   background-color: var(--clr-background);
   padding: 4px;
 }
-.nav-list--more-toggle {
-  display: none;
-  position: absolute;
-  width: 25%;
-  left: 50%;
-  height: 96px;
-  // background: aqua;
-}
-.nav-list--more {
-  position: relative;
-  // top: 0;
-  // right: 0;
-  // margin: auto;
-  &:is(:hover, :focus-within) {
-    .nav-expandable {
-      visibility: visible;
-      transform: translateY(calc( (var(--nav-more-items) * -96px) - 14px )); // first calc num = number of items
-      opacity: 1;
-      transition: visibility .5s, opacity .5s, transform .25s ease-in-out;
-      & > .nav-list {
-        transform: translateY(0) ;
-      }
-    }
-  }
-  &:focus-within + .nav-list--more-toggle {
-    display: block;
-  }
-}
 // ? Icon and border */
 // Using ::before,after for icon-hover with opacity because sprite transition slides
 .nav-list__icon::before,
@@ -358,6 +329,7 @@ blockquote {
   100% {border-image: url(/img/border-1-active.png) 8 / 16px / 8px}
 }
 .nav-list {
+  // Good luck reading these..
   // ? BORDER
   & > [class$=icon] {
     margin: auto;
@@ -365,7 +337,7 @@ blockquote {
     // background-color: var(--clr-background);
     transition: border-image .25s;
   }
-  &:is(:hover, :focus) {
+  &:is(:hover, :focus-within) {
     & > [class$=icon] {
       border-image: url(/img/border-1-active.png) 4 / 8px / 4px ;
     }
@@ -380,7 +352,7 @@ blockquote {
     }
   }
   // ? ICON
-  &:is(:hover, :focus) > [class$=icon] {
+  &:is(:hover, :focus-within) > [class$=icon] {
     &::before {
       opacity: 0;
       transition-duration: .75s;
@@ -398,32 +370,123 @@ blockquote {
       background: url(/img/icon-pack__px.png) var(--ico-nav-hover);
     }
   }
-  &.active:is(:hover, :focus) > [class$=icon]::after {
+  &.active:is(:hover, :focus-within) > [class$=icon]::after {
     opacity: 1;
   }
 }
 // @main # More Tab
-
-.nav-expandable {
+.nav-list-expandable {
+  position: relative;
+  & .nav-list {
+    margin: unset; // unset main navigation first margin
+  }
+}
+.nav-list-expandable__state {
+  display: none;
+  position: absolute;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  // background: yellow;
+}
+.nav-list-expandable:focus-within > [class$=state] {
+  display: block;
+}
+.nav-list--more {
+  position: relative;
+  // top: 0;
+  // right: 0;
+  // margin: auto;
+}
+.nav-list-expandable__content {
+  z-index: 1;
   visibility: hidden;
   position: absolute;
   margin: auto;
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   opacity: 0;
-  top: 0;
   left: 0;
   right: 0;
   background-color: var(--clr-secondary);
-
-  transform: translateY(-144px);
   transition: visibility .25s, opacity .25s, transform .5s ease-in-out;
   & > .nav-list {
     padding: 24px 0;
-    transition: transform .5s ease-in-out;
-    &:nth-of-type(2) {
-      z-index: -1;
-      transform: translateY(96px);
+    // transition: transform .5s ease-in-out;
+    // &:nth-of-type(2) {
+    //   z-index: -1;
+    //   transform: translateY(96px);
+    // }
+  }
+}
+.nav-list-expandable__toggle:focus-within > [class$=content] {
+  visibility: visible;
+  transform: translateY(8px);
+  opacity: 1;
+  transition: visibility .5s, opacity .25s, transform .25s ease-in-out;
+  & > .nav-list {
+    transform: translateY(0) ;
+  }
+}
+.nav-list-expandable__toggle {
+  // ? EXPAND BORDER
+  &:hover > [class$=icon] {
+    border-image: url(/img/border-1-hover.png) 4 / 8px / 6px ;
+  }
+  &:focus-within > [class$=icon] {
+    border-image: url(/img/border-1-active.png) 4 / 8px / 4px ;
+  }
+  &.active:hover > [class$=icon] {
+    border-image: url(/img/border-1-active.png) 4 / 8px / 4px;
+  }
+  &.active:focus-within > [class$=icon] {
+    border-image: url(/img/border-1-hover.png) 4 / 8px / 3px;
+  }
+  // ? EXPAND ICON
+  // Dear future me, these are terrible, don't read these, thank you
+  & > [class$=icon]::after {
+    transition: background 0s .5s, opacity .5s;
+  }
+  &:hover > [class$=icon]::after {
+    background: url(/img/icon-pack__px.png) var(--ico-nav-hover);
+    transition-delay: 0s;
+  }
+  &:focus-within > [class$=icon]::before {
+    background: url(/img/icon-pack__px.png) var(--ico-nav-default);
+    opacity: 0;
+  }
+  &:focus > [class$=icon]::before {
+    background: url(/img/icon-pack__px.png) var(--ico-nav-hover);
+    opacity: 0;
+  }
+  &:focus-within > [class$=icon]::after {
+    background: url(/img/icon-pack__px.png) var(--ico-nav-active);
+    opacity: 1;
+    transition-delay: 0s;
+  } // With 3 different icon state, it will have no transition in 1 of them, not a big deal
+  &.active > [class$=icon] {
+    &::before {
+      background: url(/img/icon-pack__px.png) var(--ico-nav-hover);
+    }
+    &::after {
+      background: url(/img/icon-pack__px.png) var(--ico-nav-active);
+    }
+  }
+  &.active:hover > [class$=icon] {
+    &::before {
+      opacity: 1; // Override default setting
+    }
+    &::after {
+      opacity: 0; // These ensure focus transition works
+    }
+  }
+  &.active:focus-within > [class$=icon] {
+    &::before {
+      opacity: 0;
+    }
+    &::after {
+      opacity: 1;
     }
   }
 }
@@ -487,6 +550,17 @@ blockquote {
     &.float-right {
       margin: initial;
     }
+  }
+  .nav-list-expandable {
+    width: 100%;
+  }
+  .nav-list-expandable__content {
+    flex-direction: column-reverse;
+    bottom: 0;
+    transform: translateY(-64px);
+  }
+  .nav-list-expandable__toggle:focus-within > [class$=content] {
+    transform: translateY(-80px)
   }
 }
 // ! @title ________ Modular ________

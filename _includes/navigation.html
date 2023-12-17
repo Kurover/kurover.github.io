@@ -31,33 +31,35 @@
     <div class="nav-list__icon"></div>
   </a>
   <!-- ? More -->
-  <div 
-    class="nav-list nav-list--more no-desktop 
-      {% if page.nav-more %}active{% endif %}"
-    id="nav-more"
-    tabindex="0">
-    <div class="nav-list__icon"></div>
-    <!-- * Expand Lists -->
-    <div class="nav-expandable">
-      <a 
-        href="/blog" 
-        class="nav-list nav-list--blog
-          {% if page.og-type == "blog" %}active{% endif %}" 
-        id="nav-blog-expand" 
-        aria-label="Blog Page Button">
-        <div class="nav-list__icon"></div>
-      </a>
-      <a 
-        href="/file" 
-        class="nav-list nav-list--file
-          {% if page.url == "/file.html" %}active{% endif %}" 
-        id="nav-download-expand" 
-        aria-label="File Page Button">
-        <div class="nav-list__icon"></div>
-      </a>
-    </div> <!-- EXPAND END -->
+  <div class="nav-list-expandable no-desktop">
+    <div 
+      class="nav-list nav-list--more nav-list-expandable__toggle  
+        {% if page.nav-more %}active{% endif %}"
+      id="nav-more"
+      tabindex="0">
+      <div class="nav-list__icon"></div>
+      <!-- * Expand Lists -->
+      <div class="nav-list-expandable__content">
+        <a 
+          href="/blog" 
+          class="nav-list nav-list--blog
+            {% if page.og-type == "blog" %}active{% endif %}" 
+          id="nav-blog-expand" 
+          aria-label="Blog Page Button">
+          <div class="nav-list__icon"></div>
+        </a>
+        <a 
+          href="/file" 
+          class="nav-list nav-list--file
+            {% if page.url == "/file.html" %}active{% endif %}" 
+          id="nav-download-expand" 
+          aria-label="File Page Button">
+          <div class="nav-list__icon"></div>
+        </a>
+      </div>
+    </div>
+    <div class="nav-list-expandable__state"></div> <!-- To deactivate the expand above when clicked again, for mobile mainly -->
   </div>
-  <div class="nav-list--more-toggle"></div> <!-- To deactivate the expand above when clicked again, for mobile mainly -->
   <!-- ? EXTRA -->
   <div 
   class="nav-list nav-list--contact float-right entry-linkthree-parent" 
