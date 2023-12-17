@@ -1443,69 +1443,78 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 
 // * @section # PopupPreview
 // * We need 2 images in the HTML for images with zooming effect. We also do it in this gimmicky manner just so that the lazy load works.
-@keyframes gallery-popup-start {
-  from {transform: scale(.9);}
-  to {transform: scale(1);}
-}
 .gallery-popup {
   --speed-start: .25s;
   --speed-end: .25s;
-  z-index: 1;
-  position: absolute;
+  z-index: 100;
+  position: fixed;
   visibility: hidden;
   opacity: 0;
   margin: auto;
-  max-width: 1080px;
+  // max-width: 1080px;
+  width: 100%;
+  height: 100%;
+  top: 0;
   left: 0;
   right: 0;
-  transform: translate(-9999px, -99999px);
+  transform: translate(-9999px, -99999px); // lazy load enabler
   
-  border-image: url(/img/border-2.png) 12 / 24px / 4px;
+  // border-image: url(/img/border-2.png) 12 / 24px / 4px;
   background-color: var(--clr-background);
   image-rendering: pixelated;
   cursor: default;
-  transition: transform 1ms calc(var(--speed-end) + .5s), visibility var(--speed-end), opacity var(--speed-end);
+  transition: transform 0s calc(var(--speed-end) + .5s), visibility var(--speed-end), opacity var(--speed-end);
+  & > img {
+    // border-image: url(/img/border-2.png) 12 / 24px / 4px;
+    height: 100%;
+    width: 100%;
+    object-fit: contain; // Praise thee object-fit
+  }
+}
+@keyframes gallery-popup-caption {
+  0% {opacity: 0; transform: translateY(-16px);}
+  25% {opacity: 0; transform: translateY(-16px)}
+  50% {opacity: 1; transform: translateY(0);}
+  75% {opacity: 1; transform: translateY(0);}
+  100% {opacity: 0; transform: translateY(-16px);}
 }
 .gallery-popup::before {
-  content: "Viewer";
+  content: "Click anywhere to Close";
   position: absolute;
-  top: -40px;
-  left: 8px;
+  top: -14px;
+  left: 1rem;
+  margin: auto;
+  opacity: 0;
   padding: 12px;
+  padding-top: 24px;
   background-color: var(--clr-tooltip-background);
   color: var(--clr-tooltip-text);
-  border-image: url(/img/border-2.png) 12 / 24px ;
+  border-image: url(/img/border-2.png) 12 / 24px;
 }
-.gallery-popup::after {
-  content: "";
-  position: absolute;
-  height: 108px;
-  width: 1px;
-  pointer-events: none;
-} // This give bottom-margin for bottom popup to be scrollable, mainly for mobile with its nav overlap but desktop give a nice leeway to look too
 .gallery-close {
   position: absolute;
-  top: 12px;
-  right: 12px;
-  width: 64px;
-  height: 64px;
-  background-color: crimson;
-  cursor: pointer;
+  z-index: 1;
+  top: 0;
+  // right: 12px;
+  width: 100%;
+  height: 100%;
+  // background-color: crimson;
+  // cursor: pointer;
 
   visibility: hidden; //Prevent tab spam jitter due to animation not finishing, delay transition at least on animation finish
-  opacity: 0;
   transition: visibility var(--speed-end), opacity var(--speed-end);
 }
 .gallery-list:focus > .gallery-popup  {
   visibility: visible;
   opacity: 1;
   transform: translateX(0);
-  animation: gallery-popup-start var(--speed-start);
-  transition: transform 1ms var(--speed-start), visibility var(--speed-start), opacity var(--speed-start);
+  transition: transform 0s, visibility var(--speed-start), opacity var(--speed-start);
+  &::before {
+    animation: gallery-popup-caption 4s forwards;
+  }
   & > .gallery-close {
     visibility: visible;
-    opacity: 1;
-    transition: visibility .1ms var(--speed-start), opacity .5s var(--speed-start);
+    transition: visibility 0s .5s, opacity .25s .5s;
   }
 }
 // @misc @ Media
