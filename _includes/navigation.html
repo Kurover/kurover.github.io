@@ -36,7 +36,8 @@
       class="nav-list nav-list--more nav-list-expandable__toggle  
         {% if page.nav-more %}active{% endif %}"
       id="nav-more"
-      tabindex="0">
+      tabindex="0"
+      aria-label="Menu Dropdown">
       <div class="nav-list__icon"></div>
       <!-- * Expand Lists -->
       <div class="nav-list-expandable__content">
@@ -61,28 +62,31 @@
     <div class="nav-list-expandable__state"></div> <!-- To deactivate the expand above when clicked again, for mobile mainly -->
   </div>
   <!-- ? EXTRA -->
-  <div 
-  class="nav-list nav-list--contact float-right entry-linkthree-parent" 
-  id="nav-contact" 
-  aria-label="Contact Menu Button"
-  tabindex="0" 
-  >
-    <div class="nav-list__icon"></div>
-    <!-- * Linkthree Start Here -->
-    <div class="entry-linkthree entry-linkthree--embed" style="cursor: default;">
-      <div class="linkthree-profile">
-        <p class="notice" style="margin: 0; font-size: 32px;">Links!</p>
-        <p style="margin: 8px 0">"It ain't much yet, it will be much more later."</p>
-        <p style="margin: 8px 0">This section is WIP</p>
-      </div>
-      <div class="linkthree-link"><a href="/v2/" class="text">Old Page</a></div>
-      <div class="linkthree-link"><a href="/lab/" class="text">Tests Page</a></div>
-      <div class="separator large"></div>
-      <div class="linkthree-link"><a target="_blank" href="https://twitter.com/Cloverift" class="text">Twitter</a></div>
-      <div class="linkthree-link"><a target="_blank" href="https://misskey.io/@zan@rkgk.moe" class="text">Misskey</a></div>
-      <div class="linkthree-link"><a target="_blank" href="https://github.com/Kurover/kurover.github.io" class="text">Github Repo</a></div>
-      <!-- <div class="linkthree-link"><div class="text"><span style="cursor: text">kurover_zan</span></div></div> -->
-      <p style="color: gray"><a target="_blank" href="http://04.jp.org">Font</a></p>
+  <div class="nav-list-expandable float-right">
+    <div 
+    class="nav-list nav-list--contact nav-list-toggleable entry-linkthree-parent" 
+    id="nav-contact" 
+    aria-label="Contact Menu Dropdown"
+    tabindex="0" 
+    >
+      <div class="nav-list__icon"></div>
+      <!-- * Linkthree Start Here -->
+      <div class="entry-linkthree entry-linkthree--embed" style="cursor: default;">
+        <div class="linkthree-profile">
+          <p class="notice" style="margin: 0; font-size: 32px;">Links!</p>
+          <p style="margin: 8px 0">"It ain't much yet, it will be much more later."</p>
+          <p style="margin: 8px 0">This section is WIP</p>
+        </div>
+        <div class="linkthree-link"><a href="/v2/" class="text">Old Page</a></div>
+        <div class="linkthree-link"><a href="/lab/" class="text">Tests Page</a></div>
+        <div class="separator large"></div>
+        <div class="linkthree-link"><a target="_blank" href="https://twitter.com/Cloverift" class="text">Twitter</a></div>
+        <div class="linkthree-link"><a target="_blank" href="https://misskey.io/@zan@rkgk.moe" class="text">Misskey</a></div>
+        <div class="linkthree-link"><a target="_blank" href="https://github.com/Kurover/kurover.github.io" class="text">Github Repo</a></div>
+        <!-- <div class="linkthree-link"><div class="text"><span style="cursor: text">kurover_zan</span></div></div> -->
+        <p style="color: gray"><a target="_blank" href="http://04.jp.org">Font</a></p>
+      </div>  
     </div>
+    <div class="nav-list-expandable__state"></div>
   </div>
 </nav>

@@ -8,13 +8,6 @@ list:
   size: 
   align: 
   last-item: 
-- name: Kyouko drooling from food animation
-  link: /img/gallery/touhou_kyouko-2__px.gif
-  caption: 
-  position: 
-  size:
-  align:
-  last-item: 
 - name: Patchouli's magician trick animation
   link: /img/gallery/touhou_patchy__px.gif
   caption: Magician's Trick
@@ -52,6 +45,13 @@ list:
   size:
   align:
   last-item:
+- name: Kyouko drooling from food animation
+  link: /img/gallery/touhou_kyouko-2__px.gif
+  caption: 
+  position: 
+  size:
+  align:
+  last-item: 
 - name: Marisa standing and changing her broom lantern with a new one animation
   link: /img/gallery/touhou_marisa1__px.gif
   caption:

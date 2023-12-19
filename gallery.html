@@ -17,7 +17,7 @@ og-type: gallery
     <p>If things feels unintuitive here, make sure to throw it up to my creator, yeah? A tip, you can also press TAB key (if any) to close preview popup.</p>
   </section>
 
-  <div class="wrapper wrapper--gallery">
+  <div class="wrapper wrapper--no-padding">
     <input id="gallery-tab-state-1__page-1_sys" name="gallery-tab-states" type="radio">
     <input id="gallery-tab-state-1__page-2_sys" name="gallery-tab-states" type="radio">
     <input id="gallery-tab-state-2_sys" name="gallery-tab-states" type="radio" checked>
@@ -42,8 +42,9 @@ og-type: gallery
             {% if item.caption %}<p>{{ item.caption }}</p>{% endif %}        
             <img loading="lazy" src="{{ item.link }}" alt="{{ item.name }}">
             <div class="gallery-popup">
-              <img loading="lazy" src="{% if item.link-2 %}{{ item.link-2 }}{% else %}{{ item.link }}{% endif %}" alt="{{ item.name }} full preview">
-              <div class="gallery-close" tabindex="0"></div></div>
+              <img loading="lazy" src="{% if item.link-2 %}{{ item.link-2 }}{% else %}{{ item.link }}{% endif %}" alt="{{ item.name }} full preview" tabindex="-1">
+              <div class="gallery-close" tabindex="0"></div>
+            </div>
           </div>
           {% if item.last-item or item.size == "full" %}<hr class="br-flex">{% endif %}
           {% endfor %}

@@ -270,6 +270,10 @@ blockquote {
     padding: 8px;
   }
 }
+.wrapper--no-padding {
+  max-width: 896px;
+  padding: 0;
+}
 .border {
   // border-image: url(/img/border-1-active.png) 5 / 16px ;
   border: 2px solid var(--clr-border);
@@ -281,7 +285,7 @@ blockquote {
   --clr-link: var(--clr-text);
   --clr-link-visited: var(--clr-text);
   --clr-link-invert: var(--clr-primary);
-  z-index: 100;
+  z-index: 9;
   display: flex;
   padding: 12px 0;
   // grid-template-columns: repeat(3, 196px);
@@ -299,10 +303,6 @@ blockquote {
   cursor: pointer;
   &:first-child {
     margin-left: 12px;
-  }
-  &.float-right {
-    margin-left: auto;
-    margin-right: 12px;
   }
 }
 .nav-list__icon {
@@ -388,6 +388,10 @@ blockquote {
   & .nav-list {
     margin: unset; // unset main navigation first margin
   }
+  &.float-right {
+    margin-left: auto;
+    margin-right: 12px;
+  }
 }
 .nav-list-expandable__state {
   display: none;
@@ -437,7 +441,8 @@ blockquote {
     transform: translateY(0) ;
   }
 }
-.nav-list-expandable__toggle {
+.nav-list-expandable__toggle,
+.nav-list-toggleable {
   // ? EXPAND BORDER
   &:hover > [class$=icon] {
     border-image: url(/img/border-1-hover.png) 4 / 8px / 6px ;
@@ -542,7 +547,6 @@ blockquote {
     // border-top: 1px solid var(--clr-border);
   }
   .nav-list {
-    border-image: none;
     width: 100%;
     padding: 14px 0 ;
     // text-align: center; // Will mess with icon sprite, apply to span instead (if using)
@@ -551,12 +555,12 @@ blockquote {
     &:first-child {
       margin-left: initial;
     }
-    &.float-right {
-      margin: initial;
-    }
   }
   .nav-list-expandable {
     width: 100%;
+    &.float-right {
+      margin: initial;
+    }
   }
   .nav-list-expandable__content {
     flex-direction: column-reverse;
@@ -951,15 +955,16 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 
 // @main # Skip to Main
 .skip-to-main {
+  z-index: 10;
   position: fixed;
   top: 0;
-  left: 2rem;
+  left: 10%;
   width: fit-content;
   padding: 16px;
   background-color: var(--clr-tooltip-background);
   border-image: url(/img/border-2.png) 8 / 16px / 0px;
   transform: translateY(-100%);
-  transition: transform .5s;
+  transition: transform .25s;
   & a {
     color: var(--clr-tooltip-text);
     text-decoration: none;
@@ -973,6 +978,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 }
 // @main # Skip to Top
 .skip-to-top {
+  z-index: 10;
   position: fixed;
   bottom: 1rem;
   right: 1rem;
@@ -989,13 +995,14 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   }
 }
 .skip-to-top--hidden {
-  transform: translateX(10ch);
-  transition: transform .5s;
+  transform: translateX(150%);
+  transition: transform .25s;
   &:focus-within {
     transform: none;
   }
 }
 @media (max-width: 768px) {
+  .skip-to-main {left: 2rem;}
   .skip-to-top {bottom: 96px;}
 }
 
@@ -1248,15 +1255,12 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 }
 
 // ! @title ________ Gallery ________
-// * @section # Tabs 
-.wrapper--gallery {
-  padding: 0;
-}
+// * @section # Tabs
 .separator--gallery {
-  margin-top: 25vh;
+  margin-bottom: 128px;
 }
 .gallery-tab-buttons {
-  z-index: 2;
+  z-index: 9;
   display: flex;
   position: sticky;
   top: 0;
@@ -1494,39 +1498,40 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 // * @section # PopupPreview
 // * We need 2 images in the HTML for images with zooming effect. We also do it in this gimmicky manner just so that the lazy load works.
 .gallery-popup {
-  --speed-start: .25s;
+  --speed-start: .1s;
   --speed-end: .25s;
-  z-index: 100;
+  z-index: 10;
   position: fixed;
   visibility: hidden;
   opacity: 0;
-  margin: auto;
+  // margin: auto;
   // max-width: 1080px;
-  width: 100%;
-  height: 100%;
+  // width: 100%;
+  // height: 100%;
+  overflow-y: scroll; // This work in tandem with the img height to prevent scrolling while it's active
+  -ms-overflow-style: none;
+  scrollbar-width: none;
   top: 0;
   left: 0;
   right: 0;
+  bottom: 0;
   transform: translate(-9999px, -99999px); // lazy load enabler
   
   // border-image: url(/img/border-2.png) 12 / 24px / 4px;
   background-color: var(--clr-background);
   image-rendering: pixelated;
   cursor: default;
-  transition: transform 0s calc(var(--speed-end) + .5s), visibility var(--speed-end), opacity var(--speed-end);
+  transition: transform 0s calc(var(--speed-end) + .1s), visibility var(--speed-end), opacity var(--speed-end);
   & > img {
     // border-image: url(/img/border-2.png) 12 / 24px / 4px;
-    height: 100%;
+    height: calc(100% + 1px); // Prevent scrolling while active, make sure its parent overflow scroll
     width: 100%;
     object-fit: contain; // Praise thee object-fit
   }
 }
 @keyframes gallery-popup-caption {
-  0% {opacity: 0; transform: translateY(-16px);}
-  25% {opacity: 0; transform: translateY(-16px)}
-  50% {opacity: 1; transform: translateY(0);}
-  75% {opacity: 1; transform: translateY(0);}
-  100% {opacity: 0; transform: translateY(-16px);}
+  from {opacity: 0; transform: translateY(-16px);}
+  to {opacity: 1; transform: translateY(0);}
 }
 .gallery-popup::before {
   content: "Click anywhere to Close";
@@ -1560,25 +1565,15 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   transform: translateX(0);
   transition: transform 0s, visibility var(--speed-start), opacity var(--speed-start);
   &::before {
-    animation: gallery-popup-caption 4s forwards;
+    animation: gallery-popup-caption 2s 10s forwards;
   }
   & > .gallery-close {
     visibility: visible;
-    transition: visibility 0s .5s, opacity .25s .5s;
+    transition: visibility 0s .75s;
   }
 }
 // @misc @ Media
 @media (max-width: 768px) {
-  .gallery-tab-buttons {
-    // position: fixed;
-    box-sizing: border-box;
-    width: 100%;
-    left: 0;
-    overflow: hidden;
-  }
-  .gallery-tab-content {
-    padding: 0 8px;
-  }
   .gallery-list {
     width: 144px;
   }
@@ -1679,7 +1674,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   background: #25355A;
 }
 .entry-linkthree--embed {
-  z-index: 1000;
+  z-index: 10;
   position: fixed;
   visibility: hidden;
   background: #0a0c10;
