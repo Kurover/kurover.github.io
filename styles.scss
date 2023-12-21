@@ -285,7 +285,6 @@ blockquote {
   --clr-link: var(--clr-text);
   --clr-link-visited: var(--clr-text);
   --clr-link-invert: var(--clr-primary);
-  z-index: 9;
   display: flex;
   padding: 12px 0;
   // grid-template-columns: repeat(3, 196px);
@@ -534,6 +533,7 @@ blockquote {
 // @misc @ Media
 @media (max-width: 768px) {
   .nav-main {
+    z-index: 9;
     position: fixed;
     gap: 0;
     bottom: 0;
@@ -1260,7 +1260,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   margin-bottom: 128px;
 }
 .gallery-tab-buttons {
-  z-index: 9;
+  z-index: 8; // lower than main navigation [9] or else it will overlap. Mainly on Mobile mode
   display: flex;
   position: sticky;
   top: 0;
@@ -1674,7 +1674,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   background: #25355A;
 }
 .entry-linkthree--embed {
-  z-index: 10;
+  z-index: 9;
   position: fixed;
   visibility: hidden;
   background: #0a0c10;
