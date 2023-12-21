@@ -140,17 +140,19 @@ blockquote {
 }
 
 // ! CSS Preloader */
-/* body::after {
+body::after {
   z-index: -1;
   height: 0;
   width: 0;
   overflow: hidden;
   position: absolute;
   content:
-    ADD_STUFF_HERE
-    ADD_STUFF_HERE
+    url(/img/border-1-default-alt.png)
+    url(/img/border-1-active.png)
+    url(/img/border-1-hover.png)
+    url(/img/border-2.png) 
     ;
-} */
+}
 
 // ! @title # Utility
 .link {

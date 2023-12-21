@@ -6,6 +6,7 @@ layout: compress
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ page.description }}">
     <title>{{ page.title }}</title>
     <meta property="og:url" content="{{ page.url }}">
     <meta property="og:site_name" content="Zanster Website">
@@ -33,7 +34,7 @@ layout: compress
   
   {%- if page.landing-page -%}<body class="body--home">{%- else -%}<body>{%- endif -%}
     {%- unless page.landing-page -%} 
-    <div class="skip-to-main"><a href="#main"></a></div>
+    <div class="skip-to-main"><a href="#main" aria-label="Skip navigation"></a></div>
     {% include navigation.html %} 
     {%- endunless -%}
     {{ content }}
