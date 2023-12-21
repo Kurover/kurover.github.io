@@ -8,6 +8,7 @@ list:
   position:
   size: full
   align:
+  no-lazy: true
   last-item:
 - name: 3 female character design that is unused
   link: /img/gallery/oc_oldmc__px.png

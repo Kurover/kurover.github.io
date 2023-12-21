@@ -7,6 +7,7 @@ list:
   position:
   size: full
   align:
+  no-lazy: true
   last-item:
 - name: Black and white painting of Eternity Larva hugging her knees
   link: /img/gallery/touhou_eternity__hd.webp

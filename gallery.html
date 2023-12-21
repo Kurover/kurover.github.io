@@ -39,8 +39,8 @@ og-type: gallery
           <h2 class="title-full margin">{{ section.name }}</h2>
           {% for item in section.list %}
           <div class="gallery-list{% if item.size == "full" %} full{% endif %}{% if item.size == "wide" %} wide{% endif %}{% if item.position == "left" %} left{% endif %}{% if item.position == "right" %} right{% endif %}{% if item.align == "head" %} head{% endif %}{% if item.background == "white" %} white{% endif %}" tabindex="0">
-            {% if item.caption %}<p>{{ item.caption }}</p>{% endif %}        
-            <img loading="lazy" src="{{ item.link }}" alt="{{ item.name }}">
+            {% if item.caption %}<p>{{ item.caption }}</p>{% endif %}
+            <img {% unless item.no-lazy %}loading="lazy"{% endunless %} src="{{ item.link }}" alt="{{ item.name }}">
             <div class="gallery-popup">
               <img loading="lazy" src="{% if item.link-2 %}{{ item.link-2 }}{% else %}{{ item.link }}{% endif %}" alt="{{ item.name }} full preview" tabindex="-1">
               <div class="gallery-close" tabindex="0"></div>
