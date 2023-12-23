@@ -170,7 +170,8 @@ body::after {
 }
 .hide-max {
   position: absolute;
-  visibility: none;
+  opacity: 0;
+  height: 0;
   left: -9999px;
 }
 .notice {
@@ -781,16 +782,14 @@ body::after {
 .headshot--pos-middle {margin: 1rem 1rem 1rem 0;}
 // * ProfileAccordion
 .headshot-accordion {
-  content: "";
   position: relative;
   width: var(--headshot-size);
   height: var(--headshot-size);
   margin: auto;
-  margin-bottom: 3rem;
+  margin-bottom: 32px;
   border: var(--headshot-border);
   & > img {
     position: absolute;
-    border: unset;
     transition: opacity .25s, transform .5s;
     opacity: 0;
   }
