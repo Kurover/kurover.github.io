@@ -98,6 +98,9 @@ h6 {
   font-size: 1.25rem;
   color: var(--clr-h6);
 }
+button {
+  all: unset; // I HECKING HATE BUTTON STYLESSSSS
+}
 a {
   color: var(--clr-link);
   &:visited {
