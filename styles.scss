@@ -968,19 +968,17 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   left: 10%;
   width: fit-content;
   padding: 16px;
+  text-decoration: none;
   background-color: var(--clr-tooltip-background);
   border-image: url(/img/border-2.png) 8 / 16px / 0px;
   transform: translateY(-100%);
   transition: transform .25s;
-  & a {
-    color: var(--clr-tooltip-text);
-    text-decoration: none;
-  }
-  & a::after {
-    content: "Skip";
-  }
-  &:focus-within {
+  &:focus {
     transform: translateY(1rem);
+  }
+  &::after {
+    content: "Skip";
+    color: var(--clr-tooltip-text);
   }
 }
 // @main # Skip to Top
@@ -991,20 +989,18 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   right: 1rem;
   padding: 16px;
   width: fit-content;
+  text-decoration: none;
   background-color: var(--clr-tooltip-background);
   border-image: url(/img/border-2.png) 8 / 16px / 0px;
-  & a {
-    color: var(--clr-tooltip-text);
-    text-decoration: none;
-  }
-  & a::after {
+  &::after {
     content: "Return";
+    color: var(--clr-tooltip-text);
   }
 }
 .skip-to-top--hidden {
   transform: translateX(150%);
   transition: transform .25s;
-  &:focus-within {
+  &:focus {
     transform: none;
   }
 }
