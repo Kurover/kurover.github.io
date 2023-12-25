@@ -788,8 +788,8 @@ body::after {
   position: relative;
   width: var(--headshot-size);
   height: var(--headshot-size);
-  margin: auto;
   margin-bottom: 32px;
+  margin-right: 1rem;
   border: var(--headshot-border);
   & > img {
     position: absolute;
@@ -802,7 +802,7 @@ body::after {
   grid-template-columns: repeat(2, 1fr);
   position: absolute;
   width: 100%;
-  bottom: -27px;
+  bottom: -26px;
   line-height: 24px;
   text-align: center;
   background-color: var(--clr-background);
@@ -918,6 +918,9 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   }
   .headshot--pos-first {
     margin-bottom: 1rem;
+  }
+  .headshot-accordion {
+    margin: auto auto calc(1rem + 24px) auto;
   }
 }
 
