@@ -177,6 +177,14 @@ body::after {
   height: 0;
   left: -9999px;
 }
+.center {
+  text-align: center;
+  align-content: center;
+  justify-content: center;
+}
+.relative {
+  position: relative;
+}
 .notice {
   color: var(--clr-notice);
   box-shadow: 0 0 0 1px inset var(--clr-notice);
@@ -254,7 +262,7 @@ body::after {
   margin: auto;
   margin-bottom: 1rem;
   &:last-child {
-    margin-bottom: 10ch;
+    margin-bottom: 2rem;
   }
   & > p {
     &:first-child {margin-top: 0;}
@@ -1495,6 +1503,9 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     & > .gallery-popup {
       background-color: whitesmoke;
     }
+  }
+  &.wide-hover:hover {
+    flex: 4;
   }
 }
 

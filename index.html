@@ -6,7 +6,9 @@ og-title: Zanster Website
 og-type: website
 ---
 <main>
+  <!-- Main Header -->
   <section class="wrapper border" tabindex="-1" id="main" style="overflow: hidden;">
+    <!-- Profile System -->
     <input id="profile-headshot-1_sys" type="radio" name="profile-accordion" checked>
     <input id="profile-headshot-2_sys" type="radio" name="profile-accordion">
     <input id="profile-headshot-3_sys" type="radio" name="profile-accordion">
@@ -22,6 +24,7 @@ og-type: website
         </div>
       </div>
     </div>
+    <!-- ! Content Start -->
     <h1>Hello!</h1>
     <div class="profile-headshot-section" data-target="1">
       <p class="caption">"Sir, it's time for an upgrade"</p>
@@ -43,11 +46,27 @@ og-type: website
 
   </section>
 
-  <div class="wrapper" style="image-rendering: pixelated;">
+  <!-- Sample -->
+  <section class="wrapper wrapper--no-padding">
+    <h2 class="margin title-full">Work Sample</h2>
+    <div class="gallery-lists">
+      {% for item-sample in site.data.home-sample %}
+      <div class="gallery-list{% if item-sample.size == "full" %} wide-hover{% endif %}" tabindex="0">
+        <img src="{{ item-sample.link }}" alt="{{ item-sample.name }}"{% if item-sample.ratio %} style="aspect-ratio: {{ item-sample.ratio }}"{% endif %}>
+        <div class="gallery-popup">
+          <img src="{% if item-sample.link-2 %}{{ item-sample.link-2 }}{% else %}{{ item-sample.link }}{% endif %}" alt="{{ item-sample.name }} full preview" tabindex="-1">
+          <div class="gallery-close" tabindex="0"></div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="wrapper" style="image-rendering: pixelated;">
     <img style="filter: brightness(75%); aspect-ratio: 150/50;" src="/img/status_maintenance.png" alt="Page Section on Maintenance Banner">
     <hr>
-    <p>Under major (re)construction! You can view <a href="https://github.com/Kurover/kurover.github.io/blob/main/Version-3.md" target="_blank">V3 Notes</a> for what's being worked on and stuff.</p>
+    <p>The website is under major (re)construction! You can view <a href="https://github.com/Kurover/kurover.github.io/blob/main/Version-3.md" target="_blank">V3 Notes</a> for what's being worked on and stuff.</p>
     <p>On the meantime, try looking at <a href="/gallery">Gallery</a> or check out <a href="/v2">old website</a>.</p>
-  </div>
+  </section>
 
 </main>
