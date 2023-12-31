@@ -1068,6 +1068,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   width: 100%;
   // gap: 8px;
   // height: 72ch;
+  padding: 0 1rem;
   height: calc(100dvh - 48px); // Compensate border top
   box-sizing: border-box;
   overflow: scroll;
@@ -1167,24 +1168,36 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 //   background-color: plum;
 // }
 .home-illith {
-  pointer-events: none;
-  position: absolute;
+  z-index: 2;
+  // pointer-events: none;
+  // position: absolute;
+  display: flex;
+  flex: 1;
   box-sizing: border-box;
   // bottom: 0;
-  width: 45dvw;
-  height: 100%;
-  background-color: plum;
-  & > * {
-    z-index: 1;
-  }
+  // width: 45dvw;
+  // height: 100%;
+  background-color: #5f5f5fa1;
+  // & > * {
+  //   z-index: 1;
+  // }
 }
+
+.ill-container {
+  display: flex;
+  flex-direction: column;
+  flex: .95;
+  background-color: #00000038;
+}
+
 .home-illith__textbox {
-  position: absolute;
-  bottom: 0;
+  // position: absolute;
+  // bottom: 0;
   width: 100%;
   // min-width: 420px;
+  margin-top: auto;
   height: 24ch;
-  padding: 0 32px 32px 32px;
+  padding: 32px;
   box-sizing: border-box;
   background-color: gray;
 }
@@ -1234,16 +1247,23 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 }
 // @misc @ Media
 @media (max-width: 768px) {
+  .home-content {
+    flex-direction: column-reverse;
+    height: 100dvh;
+  }
   .home-bar {
     display: none;
   }
   .home-illith {
     // position: unset;
     width: 100%;
-    // flex: 1;
-    bottom: -24ch;
+    flex: 0;
+    // bottom: -24ch;
     background: none;
     pointer-events: none;
+  }
+  .ill-container {
+    flex: 1;
   }
   .home-illith__textbox {
     margin: auto;
@@ -1256,7 +1276,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     flex: 0; // pretty much display none
   }
   .home-menu-container {
-    height: 80dvh;
+    height: calc(100dvh - 24ch);
     flex-wrap: wrap;
     align-content: flex-start;
   }
