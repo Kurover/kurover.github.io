@@ -1185,7 +1185,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 
 .ill-container {
   display: flex;
-  flex-direction: column;
+  // flex-direction: column;
   flex: .95;
   background-color: #00000038;
 }

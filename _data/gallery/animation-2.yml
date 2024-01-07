@@ -30,6 +30,13 @@ list:
   size: 
   align:
   last-item:
+- name: Cirno charging animation
+  link: /img/gallery/touhou_cirno__px.gif
+  caption:
+  position:
+  size: 
+  align: 
+  last-item: 
 - name: Rumia sitting inside her dark bubble full of cracks animation
   link: /img/gallery/touhou_rumia-2__px.gif
   caption:
