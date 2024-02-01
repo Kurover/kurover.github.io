@@ -76,6 +76,14 @@ list:
   size: 
   align:
   last-item:
+- name: Yamame laying down on a spider web
+  link: /img/gallery/touhou_spood3__px.png
+  caption:
+  position:
+  size: 
+  align:
+  last-item: true
+
 - name: Yoshika stills doing a zombie pose
   link: /img/gallery/touhou_yoshika__px.png
   caption:
