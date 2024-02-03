@@ -4,16 +4,13 @@
 - name: Mystia and Kyouko hanging together animation
   link: /img/gallery/touhou_mystia__px.gif
   ratio: 128/128
-  last-item: true
 - name: Sekibanki with her cape fluttering, each side of it has mirage of her companion, Wakasagihime and Kagerou animation
   link: /img/gallery/touhou_grassroot2__px.gif
   size: full
   ratio: 352/224
-  last-item: true
-- name: Patchouli dreaming of her and Marisa bickering at each other
-  link: /img/gallery/touhou_patchy3__px.png
-  ratio: 224/224
 - name: Yamame laying down on a spider web
   link: /img/gallery/touhou_spood3__px.png
   ratio: 256/256
-  last-item: true
+- name: Youmu holding her mini hat
+  link: /img/gallery/touhou_youmu3__px.png
+  ratio: 192/280

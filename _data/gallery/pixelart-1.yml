@@ -104,6 +104,13 @@ list:
   position:
   size: 
   align:
+  last-item:
+- name: Youmu holding her mini hat
+  link: /img/gallery/touhou_youmu3__px.png
+  caption:
+  position:
+  size: 
+  align:
   last-item: true
 
 - name: Kogasa melancholically looking at a star in the muted night sky
