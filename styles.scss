@@ -1,22 +1,22 @@
 ---
 ---
 /* 
- ! CSS 2nd Iteration
- ? More personal, self-efficient, and likely more annoying to read (for you)!
- * Recreating this to learn other ways of specifying class and clean up the gibberish naming convention, maybe add new shiny gibberish in the process. Will try to explain whatever I write here via comments
- * No longer trying to optimize SEO, which is true on the HTML as well, as it's more hassle than worth.
- * Hopeful that I create more wacky spectacle this time around~
- * 
- * Also this SCSS is just by name (ignoring the double slash for comments), mainly to minify with Jekyll on build. It's actually just normal CSS with LESS, painted with BEM sprinkled with OOCS for modifiers. Wow, for naming conventions, they do nail their own huh.
- * */
+! CSS 2nd Iteration
+? More personal, self-efficient, and likely more annoying to read (for you)!
+* Recreating this to learn other ways of specifying class and clean up the gibberish naming convention, maybe add new shiny gibberish in the process. Will try to explain whatever I write here via comments
+* No longer trying to overboard with SEO, which is true on the HTML as well, as it's more hassle than worth.
+* Hopeful that I create more wacky spectacle this time around~
+* 
+* Also this SCSS is just by name (ignoring the double slash for comments), mainly to minify with Jekyll on build. It's actually just normal CSS with LESS, painted with BEM sprinkled with OOCS for modifiers. Wow, for naming conventions, they do nail their own huh.
+* */
 
 /* 
- ! Formulas
- ? Scale Sprite
- * calc(1 * var(--sprite-x-width))
- * calc(1 * var(--sprite-x-height))
- * calc(1 * var(--sprite-x-size))
- * */
+! Formulas
+? Scale Sprite
+* calc(1 * var(--sprite-x-width))
+* calc(1 * var(--sprite-x-height))
+* calc(1 * var(--sprite-x-size))
+* */
 
 :root {
   --clr-text: #E7E6EB;
@@ -128,7 +128,7 @@ img[src*=__hd] {
 }
 input[id$=_sys] {
   z-index: -1;
-  position: fixed; // Fixed to prevent scroll, absolute to scroll
+  position: fixed; // Fixed pos to prevent screen scroll when clicking input object. Set it to absolute to scroll
   overflow: hidden;
   left: -9999px;
   height: 0;
@@ -353,7 +353,6 @@ body::after {
   // Good luck reading these..
   // ? BORDER
   & > [class$=icon] {
-    margin: auto;
     border-image: url(/img/border-1-default-alt.png) 4 / 8px / 8px ;
     // background-color: var(--clr-background);
     transition: border-image .25s;
@@ -399,7 +398,7 @@ body::after {
 .nav-list-expandable {
   position: relative;
   & .nav-list {
-    margin: unset; // unset main navigation first margin
+    margin: unset; // Unset main navigation first margin
   }
   &.float-right {
     margin-left: auto;
@@ -562,7 +561,7 @@ body::after {
   }
   .nav-list {
     width: 100%;
-    padding: 14px 0 ;
+    padding: 14px 0;
     // text-align: center; // Will mess with icon sprite, apply to span instead (if using)
     font-size: 1rem;
     background-color: initial;
@@ -843,7 +842,7 @@ body::after {
   100% {transform: rotate(0);}
 }
 // ? Toggles
-// Tell you what, this is much more readable than previous one
+// Tell you what, this is much more readable than the previous / old one
 input[id^=profile-headshot-1]:checked ~ .headshot > .headshot-accordion {
   animation: profile-transition-1 .5s ease 0s 1;
   & > img:nth-of-type(1) {
@@ -1093,7 +1092,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 }
 .home-menu-list--free {
   height: auto;
-  max-width: calc((256px * 2) + 4px ); //list width times 2, plus gap. Border not incl
+  max-width: calc((256px * 2) + 4px ); // list width times 2, plus gap. Border not incl
 }
 .home-menu__gallery {
   margin: auto;
@@ -1352,11 +1351,12 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   --speed-open: 3s var(--speed-open-delay);
 }
 #gallery-tab-state-1__page-2_sys {
-  display: none; /* Skip to page 1 when key nav */
+  display: none; // Skip to page 1 when key nav
 }
 
 // ? Toggles
 // This will make sure you get to tab 1 after changing element, for keyboard nav
+// If you're reading this and somehow want to reproduce this kind of system, or any from in this CSS, please just use javascript...
 #gallery-tab-state-1__page-1_sys:checked ~ #gallery-tab-state-1__page-2_sys,
 #gallery-tab-state-1__page-2_sys:checked {
   display: unset;
@@ -1467,7 +1467,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 
   overflow: hidden;
   background-color: var(--clr-secondary);
-  transition: flex 1s .1s ease, background .5s;
+  transition: flex .75s .2s ease-in-out, background .5s;
   & > img {
     height: 100%;
     width: auto; // This break lazy load if it's inside .expandable, don't even ask me why. Setting it to 100% or assign auto to height fixes it, again, don't ask me
@@ -1484,7 +1484,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     padding: 16px;
     background-color: var(--clr-tooltip-background);
     border-image: url(/img/border-2.png) 8 / 16px;
-    pointer-events: none; //prevent hover conflict with other lists
+    pointer-events: none; // prevent hover conflict with other lists
   }
   // ? @section ## Mod
   // Using OOCS because I don't want to bloat the html with BEM
@@ -1499,14 +1499,14 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   &:is(:hover, :focus) {
     border: 2px solid var(--clr-border-select);
     flex: 3;
-    transition-delay: 0s;
+    transition-delay: 0s; // disable flex delay when hover
     & > p {
       display: block;
       animation: gallery-caption-start .5s;
     }
-    & > img {
-      transform: scale(1); // not sure whether to zoom on hover or not..
-    }
+    // & > img {
+    //   transform: scale(1.1);
+    // }
   }
   &.full {
     flex: 100%;
@@ -1549,18 +1549,21 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   left: 0;
   right: 0;
   bottom: 0;
-  transform: translate(-9999px, -99999px); // lazy load enabler
+  transform: translate(-9999px, -99999px); // Lazy load enabler
   
   // border-image: url(/img/border-2.png) 12 / 24px / 4px;
   background-color: var(--clr-background);
   image-rendering: pixelated;
   cursor: default;
-  transition: transform 0s calc(var(--speed-end) + .1s), visibility var(--speed-end), opacity var(--speed-end);
+  transition: 
+    transform 0s calc(var(--speed-end) + .1s), // Delay is important for unfocus transition to work, see ".gallery-list:focus > .gallery-popup"
+    visibility var(--speed-end),
+    opacity var(--speed-end);
   & > img {
     // border-image: url(/img/border-2.png) 12 / 24px / 4px;
-    height: calc(100% + 1px); // Prevent scrolling while active, make sure its parent overflow scroll
+    height: calc(100% + 1px); // Prevent scrolling while active, make sure its parent overflow scroll. It's unreliable but I think it fit with the vibe
     width: 100%;
-    object-fit: contain; // Praise thee object-fit
+    object-fit: contain; // Praise thee, object-fit!
   }
 }
 @keyframes gallery-popup-caption {
@@ -1590,14 +1593,17 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   // background-color: crimson;
   // cursor: pointer;
 
-  visibility: hidden; //Prevent tab spam jitter due to animation not finishing, delay transition at least on animation finish
+  visibility: hidden; // Prevent tab spam jitter due to animation not finishing, delay transition at least on animation finish
   transition: visibility var(--speed-end), opacity var(--speed-end);
 }
-.gallery-list:focus > .gallery-popup  {
+.gallery-list:focus > .gallery-popup {
   visibility: visible;
   opacity: 1;
   transform: translateX(0);
-  transition: transform 0s, visibility var(--speed-start), opacity var(--speed-start);
+  transition: 
+    transform 0s, // This put the object on front immediately
+    visibility var(--speed-start),
+    opacity var(--speed-start);
   &::before {
     animation: gallery-popup-caption 2s 10s forwards;
   }
@@ -1648,22 +1654,6 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   border-image: url(/img/border-1-default-alt.png) 5 / 16px / 4px;
   image-rendering: pixelated;
 }
-/* .error-media {
-  & > .content {
-    content: "";
-    margin: auto;
-    width: 128px;
-    height: 128px;
-    background-color: var(--clr-background);
-    background-image: url(/img/404.gif);
-    background-repeat: no-repeat;
-    background-size: 160px;
-    background-position: 50% 40%;
-    border: 4px solid var(--clr-border);
-    border-radius: 50%;
-    image-rendering: pixelated;
-  }
-} */
 .error-title {
   margin-top: 1rem;
   font-size: 3rem;

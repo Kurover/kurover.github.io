@@ -1,5 +1,5 @@
 # Website
-A general purpose / portfolio website handcrafted without JS, akin to pixel-art limitation. Tries to be performant, pocket-sized, and modestly styled. Good support for keyboard navigation but other form of accessibility might be questionable... Also no extreme SEO optimization whatsoever.
+A general purpose website handcrafted without JS, in spirit of pixel-art limitation of technique and presentation. Aimed to be performant, pocket-sized, and modestly styled.
 
 :warning: Currently under development! [Old Version](https://kurover.github.io/v2) is up and running in frozen state.
 
@@ -13,7 +13,7 @@ A general purpose / portfolio website handcrafted without JS, akin to pixel-art 
 - :tv: [Kevin Powell](https://www.youtube.com/kepowob) - Intermediate CSS tricks and learning.
 
 ## :red_square: General To-Do
-:warning: Will continue and revise after [Version-3](https://github.com/Kurover/kurover.github.io/blob/main/Version-3.md) is reasonably finished.
+:warning: This list is suspended until [Version-3](https://github.com/Kurover/kurover.github.io/blob/main/Version-3.md) is reasonably finished. Might even cross some of these entries while I'm at it.
 - [x] ~~Revamp website.~~
 - [ ] Revamp website, again. Well more like actually finishing it..
 
