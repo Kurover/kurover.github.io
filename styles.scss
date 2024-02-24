@@ -309,6 +309,27 @@ body::after {
   border-image: url(/img/border-1-default-alt.png) 6 / 16px / 4px;
   background: var(--clr-secondary);
 }
+.nav-main__expand {
+  --height: 2.5rem;
+  --top: calc(-1 * var(--height) - 1.5rem);
+  z-index: -1;
+  color: var(--clr-text);
+  background: var(--clr-secondary);
+  display: none;
+  opacity: 1;
+  position: absolute;
+  text-align: center;
+  width: 8rem;
+  height: var(--height);
+  top: var(--top);
+  right: 1.5rem;
+  // left: 0;
+  // margin: auto;
+  cursor: pointer;
+  border-image: url(/img/border-1-default-alt.png) 6 / 16px / 4px;
+  transition: opacity .25s, top .25s;
+  // transition-delay: 2.5s; not used, use animation instead. It's on @media
+}
 .nav-list {
   // position: relative;
   padding: 4px 24px;
@@ -544,12 +565,24 @@ body::after {
   --ico-nav-hover:    calc(6 * -48px + 48px) calc(3 * -48px + 48px);
 }
 // @misc @ Media
+// You know what, using animation for default state is confusing to parse...
+@keyframes nav-main-mobile-onload {
+  0% {bottom: 0;}
+  75% {bottom: 0;}
+  100% {bottom: var(--bottom);}
+}
+@keyframes nav-main-mobile-onload-button {
+  0%  {top: 0; opacity: 0;}
+  80%  {top: 0; opacity: 0;}
+  100% {top: var(--top); opacity: 1;}
+}
 @media (max-width: 768px) {
   .nav-main {
+    --bottom: -90px;
     z-index: 9;
     position: fixed;
     gap: 0;
-    bottom: 0;
+    bottom: var(--bottom); // Modify this instead of transforming to prevent it to mess with its content, especially with fixed layout (the link tab)
     padding: 0;
     width: 100%;
     margin: initial;
@@ -558,6 +591,24 @@ body::after {
     border-image-slice: 7;
     // border: none;
     // border-top: 1px solid var(--clr-border);
+    transition: bottom .5s;
+    // transition-delay: 2.5s;
+    animation: nav-main-mobile-onload 2s;
+    &:focus-within {
+      bottom: 0;
+      transition-delay: 0s;
+      animation: none; // Remove animation so when user immediately click on nav bar, it won't overlap playing the default closing.
+      & > .nav-main__expand {
+        opacity: 0;
+        top: 0;
+        // transition-delay: 0s;
+        animation: none;
+      }
+    }
+  }
+  .nav-main__expand {
+    display: block;
+    animation: nav-main-mobile-onload-button 2s ;
   }
   .nav-list {
     width: 100%;
@@ -1290,6 +1341,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   margin-bottom: 128px;
 }
 .gallery-tab-buttons {
+  --height: 2.5rem;
   z-index: 8; // lower than main navigation [9] or else it will overlap. Mainly on Mobile mode
   display: flex;
   position: sticky;
@@ -1307,7 +1359,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   display: flex;
   background-color: var(--clr-secondary);
   justify-content: center;
-  line-height: 48px;
+  line-height: var(--height);
   width: 0;
   cursor: pointer;
 
@@ -1333,7 +1385,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 [data-btn-anim|="sub"] {
   display: flex;
   justify-content: center;
-  height: 48px;
+  height: var(--height);
   cursor: pointer;
   flex: 0;
   overflow: hidden;
