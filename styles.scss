@@ -1023,6 +1023,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   z-index: 9;
   background: var(--clr-secondary);
   position: fixed;
+  box-sizing: border-box;
   left: 0;
   right: 0;
   top: 0;
@@ -1031,18 +1032,21 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   max-height: 480px;
   height: fit-content;
   overflow: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
   visibility: hidden;
   margin: auto;
   padding: 16px;
   border: 2px solid var(--clr-border);
+  opacity: 0;
   transform: scale(.88) translate(0) rotateZ(4deg);
-  opacity: .5;
+  transition: opacity .25s, transform .5s, visibility .5s;
 }
 .more-link-popups:focus-within > .more-link-popup {
   visibility: visible; 
   opacity: 1;
-  transform: initial;
-  transition: opacity .25s, transform .5s;
+  transform: scale(1) translate(0) rotateZ(0);
+  transition: opacity .25s, transform .5s, visibility .5s;
 }
 @media (max-width: 768px) {
   .more-link-popup {
@@ -1050,8 +1054,9 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     left: unset;
     bottom: 80px;
     border-bottom: none;
+    border-right: none;
     transform: translateY(8px);
-    transition: opacity .5s, transform .5s
+    transition: opacity .25s, transform .25s, visibility .25s;
   }
 }
 
