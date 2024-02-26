@@ -965,6 +965,16 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 }
 
 // * @main # Contact List
+.contact--old {
+  --ico-contact-default:  calc(7 * -48px + 48px) calc(1 * -48px + 48px);
+  --ico-contact-active:   calc(7 * -48px + 48px) calc(2 * -48px + 48px);
+  --ico-contact-hover:    calc(7 * -48px + 48px) calc(3 * -48px + 48px);
+}
+.contact--lab {
+  --ico-contact-default:  calc(8 * -48px + 48px) calc(1 * -48px + 48px);
+  --ico-contact-active:   calc(8 * -48px + 48px) calc(2 * -48px + 48px);
+  --ico-contact-hover:    calc(8 * -48px + 48px) calc(3 * -48px + 48px);
+}
 .contact-lists {
   --clr-link: var(--clr-text);
   --clr-link-visited: var(--clr-text);
@@ -973,6 +983,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   gap: 1rem;
 }
 .contact-list {
+  flex: 1;
   flex-grow: 1;
   cursor: pointer;
   padding: 16px 8px;
@@ -992,6 +1003,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   display: block;
   margin: auto;
   margin-bottom: 1rem;
+  background: url(/img/icon-pack__px.png) var(--ico-contact-default);
   width: 48px;
   height: 48px;
   &[src$=svg] {
@@ -1004,25 +1016,30 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   z-index: 9;
   background: var(--clr-secondary);
   position: fixed;
+  visibility: hidden;
+  opacity: 0;
   box-sizing: border-box;
+  margin: auto;
+  padding: 16px;
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
-  max-width: 480px;
-  max-height: 480px;
+  max-width: 320px;
+  max-height: 75vh;
   height: fit-content;
   overflow: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  visibility: hidden;
-  margin: auto;
-  padding: 16px;
+  
   border: 2px solid var(--clr-border);
   border-image: url(/img/border-1-default-alt.png) 6 / 16px / 4px;
-  opacity: 0;
   transform: scale(.88) translate(0) rotateZ(4deg);
   transition: opacity .25s, transform .5s, visibility .5s;
+
+  & > .contact-lists {
+    gap: 4px 8px;
+  }
 }
 .more-link-popups:focus-within > .more-link-popup {
   visibility: visible; 
@@ -1035,12 +1052,20 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     top: unset;
     left: unset;
     bottom: 83px;
+
     border-image: url(/img/border-1-default-alt.png) 6 / 16px 0 0 16px / 0; // Remove right and bottom border image + outset
     border-bottom: 0; // This remove the invisible border
     border-right: 0;
     transform-origin: bottom;
-    transform: scaleY(.95); // Restored to 0 on transition, that have bigger specification
+    transform: none; // Restored to 0 on transition, that have bigger specification
     transition: opacity .25s, transform .25s, visibility .25s;
+    & > * {
+      transform: translateY(1rem);
+      transition: transform .25s;
+    }
+  }
+  .more-link-popups:focus-within > .more-link-popup > * {
+    transform: none;
   }
 }
 
