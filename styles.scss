@@ -433,24 +433,29 @@ body::after {
   opacity: 0;
   left: 0;
   right: 0;
+  top: 72px;
   background-color: var(--clr-secondary);
-  transition: visibility .25s, opacity .25s, transform .5s ease-in-out;
+  border-image: url(/img/border-1-default-alt.png) 6 / 0 16px 16px 16px / 0 4px 4px 4px;
+  transition: visibility .25s, opacity .25s;
   & > .nav-list {
     padding: 24px 0;
-    // transition: transform .5s ease-in-out;
-    // &:nth-of-type(2) {
-    //   z-index: -1;
-    //   transform: translateY(96px);
-    // }
+    opacity: 0;
+    transform: translateY(-12px);
+    transition: transform .25s, opacity .1s;
+  }
+  & > .nav-list:nth-of-type(2) {
+    transition-delay: .1s;
   }
 }
+
 .nav-list-expandable__toggle:focus-within > [class$=content] {
   visibility: visible;
-  transform: translateY(8px);
+  // transform: none;
   opacity: 1;
-  transition: visibility .5s, opacity .25s, transform .25s ease-in-out;
+  transition: visibility .5s, opacity .25s;
   & > .nav-list {
-    transform: translateY(0) ;
+    transform: none;
+    opacity: 1;
   }
 }
 // toggleable is a generic class, the __toggle is specifically for more tab
@@ -580,11 +585,13 @@ body::after {
   }
   .nav-list-expandable__content {
     flex-direction: column-reverse;
-    bottom: 0;
-    transform: translateY(-64px);
-  }
-  .nav-list-expandable__toggle:focus-within > [class$=content] {
-    transform: translateY(-80px)
+    bottom: 83px;
+    top: unset;
+    border-image: url(/img/border-1-default-alt.png) 6 / 16px 16px 0 16px / 4px 4px 0 4px;
+    border-bottom: none;
+    & > .nav-list {
+      transform: translateY(12px);
+    }
   }
 }
 // ! @title ________ Modular ________
@@ -1053,7 +1060,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     left: unset;
     bottom: 83px;
 
-    border-image: url(/img/border-1-default-alt.png) 6 / 16px 0 0 16px / 0; // Remove right and bottom border image + outset
+    border-image: url(/img/border-1-default-alt.png) 6 / 16px 0 0 16px / 4px 0 0 4px; // Remove right and bottom border image + outset
     border-bottom: 0; // This remove the invisible border
     border-right: 0;
     transform-origin: bottom;
