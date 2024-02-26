@@ -1,0 +1,159 @@
+---
+layout: lab
+name: Navigation Testing
+alias: CSS - Navigation Testing
+no-css: true
+---
+<nav class="nav-main">
+  <!-- Mobile mode slide up -->
+  <button class="nav-main__expand" aria-label="Reveal Navigation Bar">Menu</button>
+  <!-- MAIN -->
+  <a 
+    href="/" class="nav-list nav-list--home
+      {% if page.url == "/" %} active{% endif %}" 
+    id="nav-home" 
+    aria-label="Home Page Button">
+    <div class="nav-list__icon"></div>
+  </a>
+  <a href="/gallery" 
+    class="nav-list nav-list--gallery
+      {% if page.url == "/gallery.html" %}active{% endif %}" 
+    id="nav-gallery" 
+    aria-label="Gallery Page Button">
+    <div class="nav-list__icon"></div>
+  </a>
+  <a 
+    href="/blog" 
+    class="nav-list nav-list--blog no-mobile
+      {% if page.og-type == "blog" %}active{% endif %}" 
+    id="nav-blog" 
+    aria-label="Blog Page Button">
+    <div class="nav-list__icon"></div>
+  </a>
+  <a 
+    href="/file" 
+    class="nav-list nav-list--file no-mobile
+      {% if page.url == "/file.html" %} active{% endif %}" 
+    id="nav-download"
+    aria-label="File Page Button">
+    <div class="nav-list__icon"></div>
+  </a>
+  <!-- ? More -->
+  <div class="nav-list-expandable">
+    <button 
+      class="nav-list nav-list--more nav-list-expandable__toggle  
+        {% if page.nav-more %}active{% endif %}"
+      id="nav-more"
+      aria-label="Expand Navigation Menu Button">
+      <div class="nav-list__icon"></div>
+      <!-- * Expand Lists -->
+      <div class="nav-list-expandable__content">
+        <a 
+          href="/blog" 
+          class="nav-list nav-list--blog
+            {% if page.og-type == "blog" %}active{% endif %}" 
+          id="nav-blog-expand" 
+          aria-label="Blog Page Button">
+          <div class="nav-list__icon"></div>
+        </a>
+        <a 
+          href="/file" 
+          class="nav-list nav-list--file
+            {% if page.url == "/file.html" %}active{% endif %}" 
+          id="nav-download-expand" 
+          aria-label="File Page Button">
+          <div class="nav-list__icon"></div>
+        </a>
+      </div>
+    </button>
+    <div class="nav-list-expandable__state"></div> <!-- To deactivate the expand above when clicked again, for mobile mainly -->
+  </div>
+  <p>Navigation</p>
+  <!-- ? EXTRA -->
+  <div class="nav-list-expandable float-right">
+    <button 
+    class="nav-list nav-list--contact nav-list-toggleable more-link-popups" 
+    id="nav-contact"
+    aria-label="Extra Link Menu Dropdown Button"
+    >
+      <div class="nav-list__icon"></div>
+      <div class="more-link-popup" style="cursor: default;">
+        <div class="contact-lists">
+          <a href="/v2" class="contact-list"> <img src="/favicon.png" class="contact-icon" alt=""> Old Site (v2) </a>
+          <a href="/lab" class="contact-list"> <img src="/favicon.png" class="contact-icon" alt=""> Lab Page </a>
+        </div>
+        <hr style="border: 1px solid var(--clr-border);">
+        <div class="contact-lists">
+          <a href="mailto:kuroverzan@gmail.com" class="contact-list"> <img src="/favicon.png" class="contact-icon" alt=""> Mail </a>
+          <a href="https://twitter.com/Cloverift" class="contact-list"> <img src="/img/illith.png" class="contact-icon" alt=""> Twitter </a>
+          <a href="https://misskey.io/@zan@rkgk.moe" class="contact-list"> <img src="/img/illith.png" class="contact-icon" alt=""> Misskey </a>
+          <a href="https://github.com/Kurover/kurover.github.io" class="contact-list"> <img src="/img/illith.png" class="contact-icon" alt=""> Github </a>
+        </div>
+        <hr style="border: 1px solid var(--clr-border);">
+        <p style="float: left; margin: 0; color: var(--clr-text-dim)">Font <a href="http://04.jp.org">04.jp.org</a></p>
+        <p style="float: right; margin: 0; color: var(--clr-text-fade);">WIP Section</p>
+      </div>  
+    </button>
+    <div class="nav-list-expandable__state"></div>
+  </div>
+</nav>
+
+<div class="wrapper border">
+  <h2 class="margin no-margin-top">Contact / Link Button</h2>
+  <!-- ! Default old one -->
+  <div class="nav-list-expandable float-right" style="display: inline-block;">
+    <button 
+    class="nav-list nav-list--contact nav-list-toggleable entry-linkthree-parent" 
+    id="nav-contact"
+    aria-label="Contact Menu Dropdown Button"
+    >
+      <div class="nav-list__icon"></div>
+      <!-- * Linkthree Start Here -->
+      <div class="entry-linkthree entry-linkthree--embed" style="cursor: default;">
+        <div class="linkthree-profile">
+          <p class="notice" style="margin: 0; font-size: 32px;">Links!</p>
+          <p style="margin: 8px 0">"It ain't much yet, it will be much more later."</p>
+          <p style="margin: 8px 0">This section is WIP</p>
+        </div>
+        <div class="linkthree-link"><a href="/v2/" class="text">Old Page</a></div>
+        <div class="linkthree-link"><a href="/lab/" class="text">Tests Page</a></div>
+        <div class="separator large"></div>
+        <div class="linkthree-link"><a target="_blank" href="https://twitter.com/Cloverift" class="text">Twitter</a></div>
+        <div class="linkthree-link"><a target="_blank" href="https://misskey.io/@zan@rkgk.moe" class="text">Misskey</a></div>
+        <div class="linkthree-link"><a target="_blank" href="https://github.com/Kurover/kurover.github.io" class="text">Github Repo</a></div>
+        <div class="linkthree-link"><div class="text"><span style="cursor: text">kurover_zan</span></div></div>
+        <p style="color: gray"><a target="_blank" href="http://04.jp.org">Font</a></p>
+      </div>  
+    </button>
+    <div class="nav-list-expandable__state"></div>
+  </div>
+  <!-- ! New one -->
+  <div class="nav-list-expandable float-right" style="display: inline-block;">
+    <button 
+    class="nav-list nav-list--contact nav-list-toggleable more-link-popups" 
+    id="nav-contact"
+    aria-label="Extra Link Menu Dropdown Button"
+    >
+      <div class="nav-list__icon"></div>
+      <div class="more-link-popup" style="cursor: default;">
+        <div class="contact-lists">
+          <a href="/v2" class="contact-list"> <img src="/favicon.png" class="contact-icon" alt=""> Old Site (v2) </a>
+          <a href="/lab" class="contact-list"> <img src="/favicon.png" class="contact-icon" alt=""> Lab Page </a>
+        </div>
+        <hr style="border: 1px solid var(--clr-border);">
+        <div class="contact-lists">
+          <a href="mailto:kuroverzan@gmail.com" class="contact-list"> <img src="/favicon.png" class="contact-icon" alt=""> Mail </a>
+          <a href="https://twitter.com/Cloverift" class="contact-list"> <img src="/img/illith.png" class="contact-icon" alt=""> Twitter </a>
+          <a href="https://misskey.io/@zan@rkgk.moe" class="contact-list"> <img src="/img/illith.png" class="contact-icon" alt=""> Misskey </a>
+          <a href="https://github.com/Kurover/kurover.github.io" class="contact-list"> <img src="/img/illith.png" class="contact-icon" alt=""> Github </a>
+        </div>
+      </div>  
+    </button>
+    <div class="nav-list-expandable__state"></div>
+  </div>
+</div>
+
+<div class="wrapper border">
+  <p>That bottom left thingie is one of the result from this page. The lab section itself use this page's CSS by default!</p>
+  <p>Fun fact, this was once used for the mobile burger nav, the extra link / contact button that is placed, floating, on top of the bottom nav bar. Because components in this site has few sticky object already, I opted it out and leave it static like right now to prevent screen clutter</p>
+</div>
