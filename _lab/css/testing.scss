@@ -162,3 +162,24 @@ input[id|=tab]:checked {
     display: block;
   }
 }
+
+// @main Wip banner notif
+@keyframes wip-popup {
+  0% {transform: translateY(2rem); opacity: 0; visibility: hidden;}
+  10% {transform: translateY(2rem); opacity: 0;}
+  25% {transform: translateY(0); opacity: 1; visibility: visible;}
+  95% {transform: none; opacity: 1;}
+  100% {transform: rotateX(80deg) scale(1.3); opacity: 0; visibility: hidden;}
+}
+.da-pops {
+  position: fixed;
+  image-rendering: pixelated;
+  box-sizing: border-box;
+  bottom: 1rem;
+  right: 1rem;
+  width: 25vw;
+  
+  border-image: url(/img/border-2.png) 8 / 16px / 10px;
+  animation: wip-popup 4s ease forwards;
+  pointer-events: none;
+}

@@ -588,6 +588,7 @@ body::after {
   }
 }
 // ! @title ________ Modular ________
+// This parent section will be for one-ofs class
 .title-full {
   flex: 100%;
   display: block;
@@ -595,6 +596,35 @@ body::after {
   font-size: 2rem;
   padding: 8px;
   background-color: var(--clr-secondary);
+}
+@keyframes wip-popup {
+  0% {transform: translateY(2rem); opacity: 0;}
+  25% {transform: translateY(0); opacity: 1; visibility: visible;}
+  90% {transform: none; opacity: 1;}
+  100% {transform: rotateX(80deg) scale(1.1); opacity: 0; visibility: hidden;}
+}
+.wip-popup {
+  z-index: 8;
+  position: fixed;
+  visibility: hidden;
+  image-rendering: pixelated;
+  box-sizing: border-box;
+  bottom: 2rem;
+  right: 2rem;
+  width: 25vw;
+  
+  border-image: url(/img/border-2.png) 8 / 16px / 8px;
+  animation: wip-popup 2s .25s ease;
+  pointer-events: none;
+}
+@media (max-width: 768px) {
+  .wip-popup {
+    bottom: calc(96px + 1rem);
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 75vw
+  }
 }
 
 // * @main # Expandable
@@ -1014,7 +1044,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   }
 }
 
-// @main # Skip to Main
+// @main # Skip to
 .skip-to-main {
   z-index: 10;
   position: fixed;
@@ -1035,7 +1065,6 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     color: var(--clr-tooltip-text);
   }
 }
-// @main # Skip to Top
 .skip-to-top {
   z-index: 10;
   position: fixed;
