@@ -997,7 +997,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 .more-link-popups:focus-within > .more-link-popup {
   visibility: visible; 
   opacity: 1;
-  transform: scale(1) translate(0) rotateZ(0);
+  transform: none;
   transition: opacity .25s, transform .5s, visibility .5s;
 }
 @media (max-width: 768px) {
@@ -1008,7 +1008,8 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     border-image: url(/img/border-1-default-alt.png) 6 / 16px 0 0 16px / 0; // Remove right and bottom border image + outset
     border-bottom: 0; // This remove the invisible border
     border-right: 0;
-    transform: translateY(8px); // Restored to 0 on transition
+    transform-origin: bottom;
+    transform: scaleY(.95); // Restored to 0 on transition, that have bigger specification
     transition: opacity .25s, transform .25s, visibility .25s;
   }
 }
