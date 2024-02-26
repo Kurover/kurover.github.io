@@ -13,7 +13,7 @@ no-css: true
       {%- assign index = site.lab | sort: 'alias' -%}
       {%- for list in index -%}
       {%- if list.alias -%}
-      <li><a href="{{ list.url }}" target="_blank">{{ list.alias }}</a></li>
+      <li><a href="{{ list.url }}">{{ list.alias }}</a></li>
       {%- endif -%}
       {%- endfor -%}
     </ul>
