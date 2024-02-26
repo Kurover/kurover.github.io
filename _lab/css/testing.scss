@@ -183,3 +183,21 @@ input[id|=tab]:checked {
   animation: wip-popup 4s ease forwards;
   pointer-events: none;
 }
+
+// @main Hide once visited, little naive me think this would work
+.visit-hider {
+  display: inline-block;
+  color: red;
+}
+.visit-hider-target {
+  display: block;
+  height: 200px;
+  width: 200px;
+  background-color: mediumseagreen;
+}
+.visit-hider:visited ~ .visit-hider-target {
+  // display: none;
+  // visibility: hidden;
+  opacity: .25;
+  transition: opacity .25s;
+}
