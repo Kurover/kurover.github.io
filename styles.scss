@@ -972,6 +972,11 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 }
 
 // * @main # Contact List
+.contact--home {
+  --ico-contact-default:  calc(1 * -48px + 48px) calc(2 * -48px + 48px);
+  --ico-contact-active:   calc(1 * -48px + 48px) calc(2 * -48px + 48px);
+  --ico-contact-hover:    calc(1 * -48px + 48px) calc(3 * -48px + 48px);
+}
 .contact--old {
   --ico-contact-default:  calc(7 * -48px + 48px) calc(1 * -48px + 48px);
   --ico-contact-active:   calc(7 * -48px + 48px) calc(2 * -48px + 48px);
@@ -1034,7 +1039,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   // float: left;
   display: block;
   margin: auto;
-  margin-bottom: 1rem;
+  margin-bottom: .5rem;
   background: url(/img/icon-pack__px.png) var(--ico-contact-default);
   width: 48px;
   height: 48px;
