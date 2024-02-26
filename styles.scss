@@ -309,27 +309,6 @@ body::after {
   border-image: url(/img/border-1-default-alt.png) 6 / 16px / 4px;
   background: var(--clr-secondary);
 }
-.nav-main__expand {
-  --height: 2.5rem;
-  --top: calc(-1 * var(--height) - 1.5rem);
-  z-index: -1;
-  color: var(--clr-text);
-  background: var(--clr-secondary);
-  display: none;
-  opacity: 1;
-  position: absolute;
-  text-align: center;
-  width: 8rem;
-  height: var(--height);
-  top: var(--top);
-  right: 1.5rem;
-  // left: 0;
-  // margin: auto;
-  cursor: pointer;
-  border-image: url(/img/border-1-default-alt.png) 6 / 16px / 4px;
-  transition: opacity .25s, top .25s;
-  // transition-delay: 2.5s; not used, use animation instead. It's on @media
-}
 .nav-list {
   // position: relative;
   padding: 4px 24px;
@@ -566,24 +545,12 @@ body::after {
   --ico-nav-hover:    calc(6 * -48px + 48px) calc(3 * -48px + 48px);
 }
 // @misc @ Media
-// You know what, using animation for default state is confusing to parse...
-@keyframes nav-main-mobile-onload {
-  0% {bottom: 0;}
-  75% {bottom: 0;}
-  100% {bottom: var(--bottom);}
-}
-@keyframes nav-main-mobile-onload-button {
-  0%  {top: 0; opacity: 0;}
-  80%  {top: 0; opacity: 0;}
-  100% {top: var(--top); opacity: 1;}
-}
 @media (max-width: 768px) {
   .nav-main {
-    --bottom: -90px;
     z-index: 9;
     position: fixed;
+    bottom: 0;
     gap: 0;
-    bottom: var(--bottom); // Modify this instead of transforming to prevent it to mess with its content, especially with fixed layout (the link tab)
     padding: 0;
     width: 100%;
     margin: initial;
@@ -594,22 +561,6 @@ body::after {
     // border-top: 1px solid var(--clr-border);
     transition: bottom .5s;
     // transition-delay: 2.5s;
-    animation: nav-main-mobile-onload 2s;
-    &:focus-within {
-      bottom: 0;
-      transition-delay: 0s;
-      animation: none; // Remove animation so when user immediately click on nav bar, it won't overlap playing the default closing.
-      & > .nav-main__expand {
-        opacity: 0;
-        top: 0;
-        // transition-delay: 0s;
-        animation: none;
-      }
-    }
-  }
-  .nav-main__expand {
-    display: block;
-    animation: nav-main-mobile-onload-button 2s ;
   }
   .nav-list {
     width: 100%;
@@ -1038,6 +989,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   margin: auto;
   padding: 16px;
   border: 2px solid var(--clr-border);
+  border-image: url(/img/border-1-default-alt.png) 6 / 16px / 4px;
   opacity: 0;
   transform: scale(.88) translate(0) rotateZ(4deg);
   transition: opacity .25s, transform .5s, visibility .5s;
@@ -1052,10 +1004,11 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   .more-link-popup {
     top: unset;
     left: unset;
-    bottom: 80px;
-    border-bottom: none;
-    border-right: none;
-    transform: translateY(8px);
+    bottom: 83px;
+    border-image: url(/img/border-1-default-alt.png) 6 / 16px 0 0 16px / 0; // Remove right and bottom border image + outset
+    border-bottom: 0; // This remove the invisible border
+    border-right: 0;
+    transform: translateY(8px); // Restored to 0 on transition
     transition: opacity .25s, transform .25s, visibility .25s;
   }
 }
