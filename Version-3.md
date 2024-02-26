@@ -13,7 +13,7 @@ Changes may or may not immediately deployed on main site. This changelog focuses
 - Navigation:
   - :red_square: Removed title for now. Custom logo later? Though I don't like the "logo on your face" honestly.
   - Custom icon. Slightly smaller width. Although I find this become bulky, height-wise on mobile. Next point somewhat fixes that.
-  - Mobile view navigation now sticky on bottom. Also autohides, not sure about this one though.
+  - Mobile view navigation now sticky on bottom. ~~Also autohides, not sure about this one though~~ I removed it days after.
   - Improve navigation drop down. Works on both media, though only used on mobile currently.
 - Index:
   - Added custom layout with big button and less text, turning it into a hub page. Prototype on the [Lab Page](https://kurover.github.io/lab) | [New Home](https://kurover.github.io/lab/new-home).
