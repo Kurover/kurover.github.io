@@ -441,10 +441,10 @@ body::after {
     padding: 24px 0;
     opacity: 0;
     transform: translateY(-12px);
-    transition: transform .25s, opacity .1s;
+    transition: transform .25s, opacity .25s;
   }
   & > .nav-list:nth-of-type(2) {
-    transition-delay: .1s;
+    transition-delay: 0s;
   }
 }
 
@@ -452,10 +452,13 @@ body::after {
   visibility: visible;
   // transform: none;
   opacity: 1;
-  transition: visibility .5s, opacity .25s;
+  // transition: visibility .5s, opacity .25s;
   & > .nav-list {
     transform: none;
     opacity: 1;
+  }
+  & > .nav-list:nth-of-type(2) {
+    transition-delay: .1s;
   }
 }
 // toggleable is a generic class, the __toggle is specifically for more tab
@@ -1082,7 +1085,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   visibility: visible; 
   opacity: 1;
   transform: none;
-  transition: opacity .25s, transform .5s, visibility .5s;
+  transition: opacity .25s, transform .25s, visibility .25s;
 }
 @media (max-width: 768px) {
   .more-link-popup {
@@ -1093,9 +1096,8 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     border-image: url(/img/border-1-default-alt.png) 6 / 16px 0 0 16px / 4px 0 0 4px; // Remove right and bottom border image + outset
     border-bottom: 0; // This remove the invisible border
     border-right: 0;
-    transform-origin: bottom;
-    transform: none; // Restored to 0 on transition, that have bigger specification
-    transition: opacity .25s, transform .25s, visibility .25s;
+    transform: none; // Reset transformation
+    transition: opacity .25s, visibility .5s;
     & > * {
       transform: translateY(1rem);
       transition: transform .25s;
