@@ -1021,6 +1021,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+  image-rendering: pixelated;
 }
 .contact-list {
   flex: 1;
