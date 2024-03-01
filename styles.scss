@@ -246,6 +246,11 @@ body::after {
     margin-top: 2rem;
   }
 }
+.font-alternative {
+  font-family: 'Consolas';
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+}
 // @misc @ Media
 @media (max-width: 768px) {
   // To compensate sticky nav bar
@@ -623,6 +628,7 @@ body::after {
   padding: 8px;
   background-color: var(--clr-secondary);
 }
+.title-full--no-bg {background-color: transparent;}
 @keyframes wip-popup {
   0% {transform: translateY(2rem); opacity: 0;}
   25% {transform: translateY(0); opacity: 1; visibility: visible;}
@@ -751,7 +757,7 @@ body::after {
   &:is(:hover, :focus-within) {
     color: var(--clr-tooltip-link-hover);
   }
-  & > span:first-of-type {
+  & > span:first-child {
     cursor: pointer;
     text-decoration: underline;
   }
@@ -760,11 +766,11 @@ body::after {
   }
 }
 .tooltip-content {
-  --speed-start: .5s;
-  --speed-end: .25s;
+  --speed-start: .25s;
+  --speed-end: .1s;
   --tooltip-position: translateX(0);
-  --tooltip-position-start: translateY(.8rem) var(--tooltip-position);
-  --tooltip-position-end: translateY(1.1rem) var(--tooltip-position);
+  --tooltip-position-start: translateY(20px) var(--tooltip-position); // Using pixel otherwise coma result break the border
+  --tooltip-position-end: translateY(28px) var(--tooltip-position); 
   z-index: 1;
   visibility: hidden;
   opacity: 0;
@@ -772,25 +778,26 @@ body::after {
   left: 0;
   right: 0;
   max-width: 848px;
+  max-height: 50vh;
   width: fit-content;
-  padding: 16px;
+  padding: 8px 16px;
   margin-left: auto;
   margin-right: auto;
   box-sizing: border-box;
-  color: var(--clr-tooltip-text);
+  // pointer-events: none;
   overflow: auto;
+  
+  color: var(--clr-tooltip-text);
   background: var(--clr-tooltip-background);
-  border-image: url(/img/border-2.png) 8 / 16px / 0px;
+  border-image: url(/img/border-2.png) 8 / 16px / 8px 0;
   transform: var(--tooltip-position-start);
   transition:
-    visibility var(--speed-end),
-    opacity var(--speed-end),
-    transform var(--speed-end);
-  transition-delay: .1s; // Give time to hover to box
+    visibility var(--speed-end) .2s,
+    opacity var(--speed-end) .2s,
+    transform var(--speed-end) calc(.2s + var(--speed-end)); // Make it fade to close
 }
   // ? @section ## Mod
-.tooltip-content--slow {--speed-start: 1s;--speed-end: .75s;}
-.tooltip-content--fast {--speed-start: .25s;--speed-end: .1s;}
+.tooltip-content--slow {--speed-start: 1s;--speed-end: .5s;}
 .tooltip-content--left {--tooltip-position:translateX(-20vw);}
 .tooltip-content--right {--tooltip-position:translateX(200px);}
 .tooltip-content--small {width: 20ch;}
@@ -805,18 +812,31 @@ body::after {
     visibility var(--speed-start),
     opacity .25s,
     transform var(--speed-start);
-  transition-delay: 0s;
+  transition-delay: .1s;
 }
+.tooltip--click-only:hover [class*=content] {
+  visibility: hidden;
+  opacity: 0;
+  transform: var(--tooltip-position-start);
+}
+.tooltip--click-only:focus-within [class*=content] {
+  visibility: visible;
+  opacity: 1;
+  transform: var(--tooltip-position-end);
+}
+
 // @misc -@ Media
 @media (max-width: 768px) {
   .tooltip-content {
-    --tooltip-position-start: translateY(48px);
+    --speed-end: .25s;
+    --tooltip-position-start: translateY(32px);
     --tooltip-position-end: translateY(0);
     position: fixed;
     width: auto;
     margin: auto;
     bottom: 64px;
     padding-bottom: 3.5rem;
+    transition-delay: 0s;
     & a {
       font-size: 1.1rem;
     }
@@ -1448,7 +1468,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 }
 .gallery-tab-buttons {
   --height: 2.5rem;
-  z-index: 8; // lower than main navigation [9] or else it will overlap. Mainly on Mobile mode
+  z-index: 7; // lower than main navigation [9] or else it will overlap. Mainly on Mobile mode. Also lower than 8 because Illith is a piece of sh-
   display: flex;
   position: sticky;
   top: 0;
@@ -1625,7 +1645,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 
   overflow: hidden;
   background-color: var(--clr-secondary);
-  transition: flex .75s .2s ease-in-out, background .5s;
+  transition: flex .8s .1s ease-in-out, background .5s;
   & > img {
     height: 100%;
     width: auto; // This break lazy load if it's inside .expandable, don't even ask me why. Setting it to 100% or assign auto to height fixes it, again, don't ask me
@@ -1651,12 +1671,9 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   &.head > img {
     margin-top: 30%;
   }
-  &.wide {
-    flex: 1.75;
-  }
   &:is(:hover, :focus) {
     border: 2px solid var(--clr-border-select);
-    flex: 3;
+    flex: 1.75;
     transition-delay: 0s; // disable flex delay when hover
     & > p {
       display: block;
@@ -1665,6 +1682,12 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     // & > img {
     //   transform: scale(1.1);
     // }
+  }
+  &.wide {
+    flex: 1.75;
+    &:is(:hover, :focus) {
+      flex: 2.75;
+    }
   }
   &.full {
     flex: 100%;

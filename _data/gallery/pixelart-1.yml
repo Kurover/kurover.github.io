@@ -201,17 +201,17 @@ list:
   size: 
   align:
   last-item:
-- name: A river-like and bubbly landscape with glowing towers in the distance
-  link: /img/gallery/oc_f2__px.png
-  caption: One of the first big pixel art background I've made
-  position: right
-  size: wide
-  align:
-  last-item:
 - name: A monotone portrait of a girl smiling
   link: /img/gallery/oc_melancholy__px.png
   caption:
   position:
   size: 
+  align:
+  last-item:
+- name: A river-like and bubbly landscape with glowing towers in the distance
+  link: /img/gallery/oc_f2__px.png
+  caption: One of the first big pixel art background I've made
+  position: right
+  size: wide
   align:
   last-item: true
