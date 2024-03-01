@@ -9,7 +9,7 @@ It's uh... :skull:
 Changes may or may not immediately deployed on main site. This changelog focuses on the front-end.
 - Rebuild HTML and CSS. Lots of automation and less me copy pasting the same thing, yay. This has retroactively implemented on old site (the lab/test section).
 - Compress HTML via [Jekyll Compress HTML](https://github.com/penibelst/jekyll-compress-html).
-- Compress CSS via built-in Jekyll compression by converting it to SCSS. I'm not going to use the SASS feature because I don't need it.
+- Compress CSS via built-in Jekyll compression by converting it to SCSS. I'm not going to use the SASS feature because I don't need it. Well I lied, I did use the double slash commenting system.
 - Navigation:
   - :red_square: Removed title for now. Custom logo later? Though I don't like the "logo on your face" honestly.
   - Custom icon. Slightly smaller width. Although I find this become bulky, height-wise on mobile. Next point somewhat fixes that.
