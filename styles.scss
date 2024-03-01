@@ -64,12 +64,13 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: none;
   -moz-osx-font-smoothing: initial;
+  line-height: 1.15;
 }
 body {
   background-color: var(--clr-background);
   color: var(--clr-text);
   width: 100%;
-  margin: auto;
+  margin: 0;
 }
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
@@ -100,6 +101,19 @@ h6 {
 }
 button {
   all: unset; // I HECKING HATE BUTTON STYLESSSSS
+}
+input,
+optgroup,
+select,
+textarea {
+	font-family: inherit; /* 1 */
+	font-size: 100%; /* 1 */
+	line-height: 1.15; /* 1 */
+	margin: 0; /* 2 */
+}
+button,
+select {
+	text-transform: none;
 }
 a {
   color: var(--clr-link);
@@ -362,13 +376,14 @@ body::after {
       border-image: url(/img/border-1-active.png) 4 / 8px / 4px ;
     }
   }
+  // ACTIVE VERSION
   &.active {
     & > [class$=icon] {
       border-image: url(/img/border-1-active.png) 8 / 16px / 8px ;
       animation: navigation-active-start .4s cubic-bezier(0.39, 0.58, 0.57, 1);
     }
     &:is(:hover, :focus) > [class$=icon] {
-      border-image: url(/img/border-1-hover.png) 4 / 8px / 3px;
+      border-image: url(/img/border-1-hover.png) 4 / 8px / 4px;
     }
   }
   // ? ICON
@@ -382,6 +397,7 @@ body::after {
       opacity: 1;
     }
   }
+  // ACTIVE VERSION
   &.active > [class$=icon] {
     &::before {
       background: url(/img/icon-pack__px.png) var(--ico-nav-active);
@@ -435,7 +451,7 @@ body::after {
   right: 0;
   top: 72px;
   background-color: var(--clr-secondary);
-  border-image: url(/img/border-1-default-alt.png) 6 / 0 16px 16px 16px / 0 4px 4px 4px;
+  border-image: url(/img/border-1-default-alt.png) 6 / 0 16px 16px 16px / 0 4px 4px 4px; // Affected by .nav-main and .nav-list size
   transition: visibility .25s, opacity .25s;
   & > .nav-list {
     padding: 24px 0;
@@ -831,8 +847,8 @@ body::after {
   // ? @section ## Mod
 .headshot--float-left {float: left;}
 .headshot--float-right {float: right;}
-.headshot--pos-first {margin: 0 1rem 1rem 0;}
-.headshot--pos-middle {margin: 1rem 1rem 1rem 0;}
+.headshot--pos-first {margin: 0 1rem .5rem 0;}
+.headshot--pos-middle {margin: 1rem 1rem .5rem 0;}
 // * ProfileAccordion
 .headshot-accordion {
   position: relative;
@@ -1094,7 +1110,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     left: unset;
     bottom: 83px;
 
-    border-image: url(/img/border-1-default-alt.png) 6 / 16px 0 0 16px / 4px 0 0 4px; // Remove right and bottom border image + outset
+    border-image: url(/img/border-1-default-alt.png) 6 / 16px 0 0 16px / 4px 0 0 4px; // Remove right and bottom border image + outset. Affected by .nav-main and .nav-list size
     border-bottom: 0; // This remove the invisible border
     border-right: 0;
     transform: none; // Reset transformation
