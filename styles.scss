@@ -183,9 +183,9 @@ body::after {
   display: none;
 }
 .hide {
-  visibility: none;
+  visibility: hidden;
 }
-.hide-max {
+.invisible {
   position: absolute;
   opacity: 0;
   height: 0;

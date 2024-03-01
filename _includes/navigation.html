@@ -32,11 +32,13 @@
   </a>
   <!-- ? More -->
   <div class="nav-list-expandable no-desktop">
-    <button 
+    <div 
       class="nav-list nav-list--more nav-list-expandable__toggle  
         {% if page.nav-more %}active{% endif %}"
       id="nav-more"
-      aria-label="Expand Navigation Menu Button">
+      aria-label="Expand Navigation Menu Button"
+      tabindex="0"
+      >
       <div class="nav-list__icon"></div>
       <!-- * Expand Lists -->
       <div class="nav-list-expandable__content">
@@ -57,15 +59,16 @@
           <div class="nav-list__icon"></div>
         </a>
       </div>
-    </button>
+    </div>
     <div class="nav-list-expandable__state"></div> <!-- To deactivate the expand above when clicked again, for mobile mainly -->
   </div>
   <!-- ? EXTRA -->
   <div class="nav-list-expandable float-right">
-    <button 
+    <div 
     class="nav-list nav-list--contact nav-list-toggleable more-link-popups" 
     id="nav-contact"
     aria-label="Extra Link Menu Dropdown Button"
+    tabindex="0"
     >
       <div class="nav-list__icon"></div>
       <div class="more-link-popup" style="cursor: default;">
@@ -85,7 +88,7 @@
         <p style="float: left; margin: 0; color: var(--clr-text-dim)">Font <a href="http://04.jp.org">04.jp.org</a></p>
         <p style="float: right; margin: 0; color: var(--clr-text-fade);">WIP Section</p>
       </div>  
-    </button>
+    </div>
     <div class="nav-list-expandable__state"></div>
   </div>
 </nav>
