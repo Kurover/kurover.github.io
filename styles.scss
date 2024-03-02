@@ -922,6 +922,12 @@ body::after {
 }
 // ? Toggles
 // Tell you what, this is much more readable than the previous / old one
+.headshot-accordion-toggle > label {
+  color: var(--clr-link-active);
+  &:hover {
+    color: var(--clr-link);
+  }
+}
 input[id^=profile-headshot-1]:checked ~ .headshot > .headshot-accordion {
   animation: profile-transition-1 .5s ease 0s 1;
   & > img:nth-of-type(1) {
@@ -932,12 +938,6 @@ input[id^=profile-headshot-1]:checked ~ .headshot > .headshot-accordion {
       color: var(--clr-link-hover);
       &:hover {
         color: var(--clr-text);
-      }
-    }
-    &:not(:nth-of-type(1)) {
-      color: var(--clr-link-active);
-      &:hover {
-        color: var(--clr-link);
       }
     }
   }
@@ -954,12 +954,6 @@ input[id^=profile-headshot-2]:checked ~ .headshot > .headshot-accordion {
         color: var(--clr-text);
       }
     }
-    &:not(:nth-of-type(2)) {
-      color: var(--clr-link-active);
-      &:hover {
-        color: var(--clr-link);
-      }
-    }
   }
 }
 input[id^=profile-headshot-3]:checked ~ .headshot > .headshot-accordion {
@@ -974,12 +968,6 @@ input[id^=profile-headshot-3]:checked ~ .headshot > .headshot-accordion {
         color: var(--clr-text);
       }
     }
-    &:not(:nth-of-type(3)) {
-      color: var(--clr-link-active);
-      &:hover {
-        color: var(--clr-link);
-      }
-    }
   }
 }
 input[id^=profile-headshot-1]:is(:hover, :focus) ~ .headshot > .headshot-accordion > .headshot-accordion-toggle > 
@@ -988,10 +976,12 @@ input[id^=profile-headshot-2]:is(:hover, :focus) ~ .headshot > .headshot-accordi
 label:nth-of-type(2) {text-decoration: underline;}
 input[id^=profile-headshot-3]:is(:hover, :focus) ~ .headshot > .headshot-accordion > .headshot-accordion-toggle > 
 label:nth-of-type(3) {text-decoration: underline;}
+
 // Text Switcher
 .profile-headshot-section {
   display: none;
 }
+// Manipulate section text visibility
 input[id^=profile-headshot-1]:checked ~ [data-target="1"] {display: block;}
 input[id^=profile-headshot-2]:checked ~ [data-target="2"] {display: block;}
 input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
@@ -1147,7 +1137,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 
 // @main # Skip to
 .skip-to-main {
-  z-index: 10;
+  z-index: 9;
   position: fixed;
   top: 0;
   left: 10%;
@@ -1167,7 +1157,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   }
 }
 .skip-to-top {
-  z-index: 10;
+  z-index: 9;
   position: fixed;
   bottom: 1rem;
   right: 1rem;
@@ -1177,14 +1167,22 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   background-color: var(--clr-tooltip-background);
   border-image: url(/img/border-2.png) 8 / 16px / 0px;
   &::after {
-    content: "Return";
+    content: "Up";
     color: var(--clr-tooltip-text);
   }
 }
 .skip-to-top--hidden {
   transform: translateX(150%);
   transition: transform .25s;
-  &:focus {
+  &::before {
+    content: "";
+    position: absolute;
+    width: 12vw;
+    right: -100%;
+    top: 0;
+    bottom: -100%;
+  }
+  &:is(:hover, :focus) {
     transform: none;
   }
 }
