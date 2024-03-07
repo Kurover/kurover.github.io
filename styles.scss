@@ -1157,7 +1157,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   }
 }
 .skip-to-top {
-  z-index: 9;
+  z-index: 1;
   position: fixed;
   bottom: 1rem;
   right: 1rem;
@@ -1188,7 +1188,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 }
 @media (max-width: 768px) {
   .skip-to-main {left: 2rem;}
-  .skip-to-top {bottom: 96px;}
+  .skip-to-top {bottom: calc(72px + 2rem);}
   .skip-to-top--hidden::before {width: calc(52px + 25vw); top: -1rem}
 }
 
