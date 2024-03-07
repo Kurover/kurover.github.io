@@ -1177,7 +1177,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   &::before {
     content: "";
     position: absolute;
-    width: 14vw;
+    width: calc(52px + 12vw);
     right: -1rem;
     top: -3rem;
     bottom: -1rem;
@@ -1189,6 +1189,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 @media (max-width: 768px) {
   .skip-to-main {left: 2rem;}
   .skip-to-top {bottom: 96px;}
+  .skip-to-top--hidden::before {width: calc(52px + 25vw); top: -1rem}
 }
 
 // ! @title ________ Home ________
