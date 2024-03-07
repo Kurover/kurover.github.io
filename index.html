@@ -54,7 +54,7 @@ og-type: website
   <!-- ! Sample -->
   <section class="wrapper wrapper--no-padding">
     <h2 class="margin title-full">Work Sample</h2>
-    <div class="gallery-lists">
+    <div class="gallery-lists gallery-lists--horizontal">
       {% for item-sample in site.data.home-sample %}
       <div class="gallery-list{% if item-sample.size == "full" %} wide-hover{% endif %}" tabindex="0">
         <img src="{{ item-sample.link }}" alt="{{ item-sample.name }}"{% if item-sample.ratio %} style="aspect-ratio: {{ item-sample.ratio }}"{% endif %}>

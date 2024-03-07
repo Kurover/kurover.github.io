@@ -1789,6 +1789,17 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   .gallery-list {
     width: 144px;
   }
+  .gallery-lists--horizontal {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    overflow-x: scroll;
+  }
+  .gallery-lists--horizontal > .gallery-list {
+    width: initial;
+    height: 256px;
+    overflow: visible;
+  }
 }
 @media (max-width: 450px) {
   .gallery-list.head > img {
