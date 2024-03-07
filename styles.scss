@@ -1492,13 +1492,14 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   transition: flex .5s;
 }
 .gallery-tab-content {
+  // Transition delays are used for open & close sequencing.
   --speed-open-delay: calc(var(--speed-close) + .25s);
   --speed-open: 1.5s var(--speed-open-delay);
   --speed-close: .5s;
   --speed-fade-open: 1.5s cubic-bezier(0.99, 0.01, 0.72, 0.18);
   --speed-fade-close: .6s .2s;
   --tab-transition-open: grid-template-rows var(--speed-open) cubic-bezier(0.24, 0.09, 1, 0.35), opacity var(--speed-fade-open), visibility var(--speed-fade-open);
-  --tab-transition-close: grid-template-rows var(--speed-close) linear .5s, opacity var(--speed-fade-close), visibility var(--speed-fade-close);
+  --tab-transition-close: grid-template-rows var(--speed-close) linear .4s, opacity var(--speed-fade-close), visibility var(--speed-fade-close);
   display: grid;
   grid-template-rows: 0fr;
   opacity: 0;
@@ -1639,7 +1640,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   transition: flex .8s .1s ease-in-out, background .5s;
   & > img {
     height: 100%;
-    width: auto; // This break lazy load if it's inside .expandable, don't even ask me why. Setting it to 100% or assign auto to height fixes it, again, don't ask me
+    width: auto; // Sidenote: This break lazy load if it's inside .expandable, don't even ask me why. Setting it to 100% or assign auto to height fixes it, again, don't ask me
     // transition: transform .5s;
   }
   &:has(.gallery-popup) {
@@ -1721,7 +1722,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   left: 0;
   right: 0;
   bottom: 0;
-  transform: translate(-9999px, -99999px); // Lazy load enabler
+  transform: translate(-9999px, 99999px); // Lazy load enabler
   
   // border-image: url(/img/border-2.png) 12 / 24px / 4px;
   background-color: var(--clr-background);
@@ -1755,6 +1756,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   color: var(--clr-tooltip-text);
   border-image: url(/img/border-2.png) 12 / 24px;
 }
+// Close full view mechanic. Apply tabindex or on focusable item to get out from the parent (.gallery-list) :focus state
 .gallery-close {
   position: absolute;
   z-index: 1;
@@ -1785,9 +1787,31 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   }
 }
 // @misc @ Media
+@keyframes gallery-caption-mobile {
+  0% {transform: translateY(-8px); opacity: 0;}
+  25% {transform: none; opacity: 1;}
+  100% {opacity: 1;}
+}
 @media (max-width: 768px) {
   .gallery-list {
     width: 144px;
+  }
+  .gallery-list > p {
+    z-index: 11;
+    position: fixed;
+    text-align: center;
+    bottom: 72px;
+    padding-bottom: 16px;
+    left: 0;
+    right: 0;
+    transition: bottom .25s, opacity .1s .25s ;
+  }
+  .gallery-list:is(:hover, :focus-within) > p {
+    animation: gallery-caption-mobile 2s;
+  }
+  .gallery-list:focus-within > p {
+    bottom: 0;
+    opacity: .5;
   }
   .gallery-lists--horizontal {
     flex-direction: row;
