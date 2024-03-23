@@ -1635,18 +1635,23 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   height: 320px;
   border: 2px solid transparent;
   box-sizing: border-box;
+  cursor: pointer;
 
   overflow: hidden;
   background-color: var(--clr-secondary);
   transition: flex .8s .1s ease-in-out, background .5s;
-  & > img {
+  & > .gallery-image {
     height: 100%;
-    width: auto; // Sidenote: This break lazy load if it's inside .expandable, don't even ask me why. Setting it to 100% or assign auto to height fixes it, again, don't ask me
-    // transition: transform .5s;
+    width: auto;
+    & > img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
   }
-  &:has(.gallery-popup) {
-    cursor: pointer;
-  }
+  // &:has(.gallery-popup) {
+  //   cursor: pointer;
+  // }
   & > p {
     z-index: 1;
     position: absolute;
@@ -1659,8 +1664,8 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   }
   // ? @section ## Mod
   // Using OOCS because I don't want to bloat the html with BEM
-  &.left {justify-content: flex-start;}
-  &.right {justify-content: flex-end;}
+  &.left img {object-position: left;}
+  &.right img {object-position: right;}
   &.head > img {
     margin-top: 30%;
   }
@@ -1672,9 +1677,6 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
       display: block;
       animation: gallery-caption-start .5s;
     }
-    // & > img {
-    //   transform: scale(1.1);
-    // }
   }
   &.wide {
     flex: 1.75;
@@ -1685,16 +1687,16 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   &.full {
     flex: 100%;
     width: 100%;
-    & > img {
-      height: unset;
+    & > .gallery-image {
       width: 100%;
+      
     }
   }
   &.white {
     &:hover {
       background-color: whitesmoke;
     }
-    & > .gallery-popup {
+    &:focus img {
       background-color: whitesmoke;
     }
   }
@@ -1702,91 +1704,95 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     flex: 4;
   }
 }
-
-// * @section # PopupPreview
-// * We need 2 images in the HTML for images with zooming effect. We also do it in this gimmicky manner just so that the lazy load works.
-.gallery-popup {
-  --speed-start: .1s;
-  --speed-end: .25s;
-  z-index: 10;
-  position: fixed;
+.gallery-list--custom-1 {
+  height: fit-content;
+  & > .gallery-image > img {
+    object-position: 85%;
+  }
+}
+.gallery-image__link {
   visibility: hidden;
-  opacity: 0;
-  // margin: auto;
-  // max-width: 1080px;
-  // width: 100%;
-  // height: 100%;
-  overflow-y: scroll; // This work in tandem with the img height to prevent scrolling while it's active
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+  position: fixed;
+  z-index: 2; // override skip to top
+  bottom: 1rem;
+  right: 1rem;
+  line-height: 32px;
+  transition: visibility 1ms; // Give time for focus-within to work
+  & > a {
+    color: var(--clr-tooltip-link-hover);
+    text-align: center;
+    text-decoration: none;
+    background: var(--clr-tooltip-background);
+    border-image: url(/img/border-2.png) 8 / 16px / 4px;
+    padding: 12px;
+    margin: 2px;
+    opacity: .33;
+    transition: opacity .2s;
+    transition-delay: .1s;
+    &:hover {
+      color: var(--clr-tooltip-text);
+      opacity: 1;
+      transition-delay: 0s;
+    }
+  }
+}
+.gallery-image__link:focus-within {
+  visibility: visible;
+}
+.gallery-image__alt {
+  display: none;
+}
+.gallery-close {
+  display: none;
+  position: fixed;
+  // z-index: 10;
   top: 0;
-  left: 0;
   right: 0;
   bottom: 0;
-  transform: translate(-9999px, 99999px); // Lazy load enabler
-  
-  // border-image: url(/img/border-2.png) 12 / 24px / 4px;
-  background-color: var(--clr-background);
-  image-rendering: pixelated;
-  cursor: default;
-  transition: 
-    transform 0s calc(var(--speed-end) + .1s), // Delay is important for unfocus transition to work, see ".gallery-list:focus > .gallery-popup"
-    visibility var(--speed-end),
-    opacity var(--speed-end);
-  & > img {
-    // border-image: url(/img/border-2.png) 12 / 24px / 4px;
-    height: calc(100% + 1px); // Prevent scrolling while active, make sure its parent overflow scroll. It's unreliable but I think it fit with the vibe
-    width: 100%;
-    object-fit: contain; // Praise thee, object-fit!
-  }
+  left: 0;
 }
-@keyframes gallery-popup-caption {
-  from {opacity: 0; transform: translateY(-16px);}
-  to {opacity: 1; transform: translateY(0);}
-}
-.gallery-popup::before {
-  content: "Click anywhere to Close";
-  position: absolute;
-  top: -14px;
-  left: 1rem;
-  margin: auto;
-  opacity: 0;
-  padding: 12px;
-  padding-top: 24px;
-  background-color: var(--clr-tooltip-background);
-  color: var(--clr-tooltip-text);
-  border-image: url(/img/border-2.png) 12 / 24px;
-}
-// Close full view mechanic. Apply tabindex or on focusable item to get out from the parent (.gallery-list) :focus state
-.gallery-close {
-  position: absolute;
-  z-index: 1;
+.gallery-list:focus > .gallery-image {
+  z-index: 9;
+  position: fixed;
   top: 0;
-  // right: 12px;
-  width: 100%;
-  height: 100%;
-  // background-color: crimson;
-  // cursor: pointer;
-
-  visibility: hidden; // Prevent tab spam jitter due to animation not finishing, delay transition at least on animation finish
-  transition: visibility var(--speed-end), opacity var(--speed-end);
-}
-.gallery-list:focus > .gallery-popup {
-  visibility: visible;
-  opacity: 1;
-  transform: translateX(0);
-  transition: 
-    transform 0s, // This put the object on front immediately
-    visibility var(--speed-start),
-    opacity var(--speed-start);
+  right: 0;
+  bottom: 0;
+  left: 0;
+  cursor: default;
+  // pointer-events: none;
+  // Add background color on empty spaces
   &::before {
-    animation: gallery-popup-caption 2s 10s forwards;
+    z-index: -1;
+    content: "";
+    position: absolute;
+    background-color: var(--clr-background);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  & > img {
+    object-fit: contain !important;
+    object-position: unset !important;
+  }
+  & > .gallery-image__link {
+    visibility: visible;
   }
   & > .gallery-close {
-    visibility: visible;
-    transition: visibility 0s .75s;
+    display: block;
+  }
+  // System to do alt imagery
+  &:has(.gallery-image__alt) > img:first-of-type {
+    display: none;
+  }
+  & > .gallery-image__alt {
+    display: block;
   }
 }
+
+// * @section # REMOVED PopupPreview
+// System has been simplified. Rest in pieces over-complicated features, you will not be missed
+
 // @misc @ Media
 @keyframes gallery-caption-mobile {
   0% {transform: translateY(-8px); opacity: 0;}
@@ -1807,10 +1813,10 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     right: 0;
     transition: bottom .25s, opacity .1s .25s ;
   }
-  .gallery-list:is(:hover, :focus-within) > p {
+  .gallery-list:is(:hover, :focus) > p {
     animation: gallery-caption-mobile 2s;
   }
-  .gallery-list:focus-within > p {
+  .gallery-list:focus > p {
     bottom: 0;
     opacity: .5;
   }
@@ -1819,22 +1825,41 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     flex-wrap: nowrap;
     overflow: hidden;
     overflow-x: scroll;
+    & > .gallery-list {
+      width: initial;
+      height: 256px;
+      overflow: visible;
+      & img {
+        width: auto;
+      }
+    }
   }
-  .gallery-lists--horizontal > .gallery-list {
-    width: initial;
-    height: 256px;
-    overflow: visible;
+  .gallery-list:focus img {
+    width: 100%;
+  }
+  .gallery-image__link {
+    bottom: 2rem;
+    right: 1.5rem;
+    & > a {
+      opacity: .5;
+    }
+  }
+  .gallery-list:has(p) .gallery-image__link {
+    bottom: calc(1rem + 72px);
+  }
+  .gallery-list--custom-1 {
+    height: 320px;
   }
 }
 @media (max-width: 450px) {
-  .gallery-list.head > img {
+  .gallery-list.head > .gallery-image {
     margin-top: auto;
   }
-  .gallery-list.wide > img {
+  .gallery-list.wide > .gallery-image {
     width: auto;
     height: 100%;
   }
-  .gallery-list.full > img {
+  .gallery-list.full > .gallery-image {
     width: auto;
     height: 100%;
   }

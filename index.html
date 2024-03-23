@@ -57,10 +57,13 @@ og-type: website
     <div class="gallery-lists gallery-lists--horizontal">
       {% for item-sample in site.data.home-sample %}
       <div class="gallery-list{% if item-sample.size == "full" %} wide-hover{% endif %}" tabindex="0">
-        <img src="{{ item-sample.link }}" alt="{{ item-sample.name }}"{% if item-sample.ratio %} style="aspect-ratio: {{ item-sample.ratio }}"{% endif %}>
-        <div class="gallery-popup">
-          <img src="{% if item-sample.link-2 %}{{ item-sample.link-2 }}{% else %}{{ item-sample.link }}{% endif %}" alt="{{ item-sample.name }} full preview" tabindex="-1">
-          <div class="gallery-close" tabindex="0"></div>
+        <div class="gallery-image">
+          <img src="{{ item-sample.link }}" alt="{{ item-sample.name }}"{% if item-sample.ratio %} style="aspect-ratio: {{ item-sample.ratio }}"{% endif %}>
+          <div class="gallery-image__link">
+            {% if item.link-2 %}<a href="{{ item.link-2 }}" download tabindex="-1">Download Alt</a>{% endif %}
+            <a href="{{ item-sample.link }}" download tabindex="-1">Download</a>
+          </div>
+          <div class="gallery-close" tabindex="-1"></div>
         </div>
       </div>
       {% endfor %}

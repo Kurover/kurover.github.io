@@ -51,13 +51,21 @@ og-type: gallery
         <div class="gallery-lists">
           <h2 class="title-full margin">{{ section.name }}</h2>
           {% for item in section.list %}
-          <div class="gallery-list{% if item.size == "full" %} full{% endif %}{% if item.size == "wide" %} wide{% endif %}{% if item.position == "left" %} left{% endif %}{% if item.position == "right" %} right{% endif %}{% if item.align == "head" %} head{% endif %}{% if item.background == "white" %} white{% endif %}" tabindex="0">
+          <div class="gallery-list {{ item.position }} {{ item.size }} {{ item.align }} {{ item.background }} {{ item.custom-class }}" tabindex="0">
             {% if item.caption %}<p>{{ item.caption }}</p>{% endif %}
-            <img {% unless item.no-lazy %}loading="lazy"{% endunless %} src="{{ item.link }}" alt="{{ item.name }}">
-            <div class="gallery-popup">
+            <div class="gallery-image">
+              <img {% unless item.no-lazy %}loading="lazy"{% endunless %} src="{{ item.link }}" alt="{{ item.name }}">
+              {% if item.link-2 %}<img loading="lazy" class="gallery-image__alt" src="{{ item.link-2 }}" alt="{{ item.name }} full preview">{% endif %}
+              <div class="gallery-image__link">
+                {% if item.link-2 %}<a href="{{ item.link-2 }}" download tabindex="-1">Download Alt</a>{% endif %}
+                <a href="{{ item.link }}" download tabindex="-1">Download</a>
+              </div>
+              <div class="gallery-close" tabindex="-1"></div>
+            </div>
+            <!-- <div class="gallery-popup">
               <img loading="lazy" src="{% if item.link-2 %}{{ item.link-2 }}{% else %}{{ item.link }}{% endif %}" alt="{{ item.name }} full preview" tabindex="-1">
               <div class="gallery-close" tabindex="0"></div>
-            </div>
+            </div> -->
           </div>
           {% if item.last-item or item.size == "full" %}<hr class="br-flex">{% endif %}
           {% endfor %}

@@ -5,11 +5,12 @@ list:
   link: /img/gallery/oc_tw10k-banner__px.png
   link-2: /img/gallery/oc_tw10k__px.png
   caption: Thank you for 1000 followers!
-  position:
+  position: right
   size: full
   align:
   no-lazy: true
   last-item:
+  custom-class: gallery-list--custom-1
 - name: 3 female character design that is unused
   link: /img/gallery/oc_oldmc__px.png
   caption: OCs legacy design
