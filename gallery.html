@@ -29,7 +29,6 @@ og-type: gallery
       </div>
     </div>
   </section>
-
   <div class="wrapper wrapper--no-padding">
     <input id="gallery-tab-state-1__page-1_sys" name="gallery-tab-states" type="radio">
     <input id="gallery-tab-state-1__page-2_sys" name="gallery-tab-states" type="radio">
@@ -50,6 +49,7 @@ og-type: gallery
       <div>
         <div class="gallery-lists">
           <h2 class="title-full margin">{{ section.name }}</h2>
+          <div class="chrome-lazyload-enforcer"></div>
           {% for item in section.list %}
           <div class="gallery-list {{ item.position }} {{ item.size }} {{ item.align }} {{ item.background }} {{ item.custom-class }}" tabindex="0">
             {% if item.caption %}<p>{{ item.caption }}</p>{% endif %}
@@ -70,5 +70,5 @@ og-type: gallery
     </section>
     {% endfor %}
   </div> <!-- ! WRAPPER END -->
-  <div class="separator--gallery"></div>
+  <div class="separator--gallery no-desktop"></div>
 </main>

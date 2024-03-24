@@ -133,6 +133,9 @@ p:last-child {
 img {
   display: block;
   width: 100%;
+  // hacks for chrome lazyload, you lazy!
+  min-height: 1px;
+  min-width: 1px;
 }
 img[src*=__px] {
   image-rendering: pixelated;
@@ -620,6 +623,14 @@ body::after {
 }
 // ! @title ________ Modular ________
 // This parent section will be for one-ofs class
+
+// If you think this is stupid, no, chrome is stupid. Used for .expandable mainly
+.chrome-lazyload-enforcer {
+  // display: block; default, so turn it off manually
+  width: 100%;
+  height: 200vh;
+  transition: height 0s 10s; // If there's transition / delay when disabling the parent element. Use height transition to make sure it doesn't mess with layout
+}
 .title-full {
   flex: 100%;
   display: block;
@@ -1545,6 +1556,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     }
   }
 }
+// Content toggle
 #gallery-tab-state-1__page-1_sys:checked {
   & ~ .gallery-tab-buttons > [data-btn-anim="parent"] > label[data-btn-anim="sub-1"] {
     background-color: var(--clr-background);
@@ -1555,6 +1567,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     opacity: 1;
     visibility: visible;
     transition: var(--tab-transition-open);
+    & .chrome-lazyload-enforcer {height: 0; transition-delay: 0s;}
   }
 }
 #gallery-tab-state-1__page-2_sys:checked {
@@ -1567,6 +1580,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     opacity: 1;
     visibility: visible;
     transition: var(--tab-transition-open);
+    & .chrome-lazyload-enforcer {height: 0; transition-delay: 0s;}
   }
 }
 #gallery-tab-state-2_sys:checked {
@@ -1580,6 +1594,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     opacity: 1;
     visibility: visible;
     transition: var(--tab-transition-open);
+    & .chrome-lazyload-enforcer {height: 0; transition-delay: 0s;}
   }
 }
 #gallery-tab-state-3_sys:checked {
@@ -1593,6 +1608,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     opacity: 1;
     visibility: visible;
     transition: var(--tab-transition-open);
+    & .chrome-lazyload-enforcer {height: 0; transition-delay: 0s;}
   }
 }
   // ? Styles
@@ -1626,6 +1642,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   100% {transform: translateY(0) rotate(0deg);}
 }
 .gallery-list {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   align-content: center;
@@ -1637,7 +1654,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   box-sizing: border-box;
   cursor: pointer;
 
-  overflow: hidden;
+  overflow: visible;
   background-color: var(--clr-secondary);
   transition: flex .8s .1s ease-in-out, background .5s;
   & > .gallery-image {
@@ -1652,12 +1669,19 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   & > p {
     z-index: 1;
     position: absolute;
-    display: none; // Breaks layout if else. Mainly on the gallery with its hidden entries. Same with popups but we throw them above instead, but it's too hacky i don't want to overuse that strat.
-    margin-top: 310px; // related to .gallery-list height
+    visibility: hidden;
+    opacity: 0;
+    // display: none; // Breaks layout if else. Mainly on the gallery with its hidden entries. Same with popups but we throw them above instead, but it's too hacky i don't want to overuse that strat.
+    bottom: -48px;
+    margin: 0;
     padding: 16px;
     background-color: var(--clr-tooltip-background);
     border-image: url(/img/border-2.png) 8 / 16px;
     pointer-events: none; // prevent hover conflict with other lists
+
+    transform: translateY(4px) rotateZ(4deg);
+    transform-origin: left;
+    transition: visibility .25s, opacity .25s, transform .25s;
   }
   // ? @section ## Mod
   // Using OOCS because I don't want to bloat the html with BEM
@@ -1671,8 +1695,11 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     flex: 1.75;
     transition-delay: 0s; // disable flex delay when hover
     & > p {
-      display: block;
+      visibility: visible;
+      opacity: 1;
+      transform: none;
       animation: gallery-caption-start .5s;
+      transition: 0s;
     }
   }
   &.wide {
@@ -1787,10 +1814,10 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 }
 
 // @misc @ Media
-@keyframes gallery-caption-mobile {
-  0% {transform: translateY(-8px); opacity: 0;}
-  25% {transform: none; opacity: 1;}
-  100% {opacity: 1;}
+@media (min-width: 769px) {
+  .gallery-lists {
+    margin-bottom: 5rem; // For caption overflow
+  }
 }
 @media (max-width: 768px) {
   .gallery-list {
@@ -1800,18 +1827,20 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     z-index: 11;
     position: fixed;
     text-align: center;
-    bottom: 72px;
+    bottom: 90px;
     padding-bottom: 16px;
     left: 0;
     right: 0;
-    transition: bottom .25s, opacity .1s .25s ;
+    transform: none;
+    transition: bottom .25s, opacity .25s, visibility .25s;
   }
   .gallery-list:is(:hover, :focus) > p {
-    animation: gallery-caption-mobile 2s;
+    animation: none;
   }
   .gallery-list:focus > p {
     bottom: 0;
     opacity: .5;
+    transition: bottom 0s, opacity .5s 1.5s, visibility 0s;
   }
   .gallery-lists--horizontal {
     flex-direction: row;
@@ -1838,7 +1867,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     }
   }
   .gallery-list:has(p) .gallery-image__link {
-    bottom: calc(1rem + 72px);
+    bottom: calc(1rem + 48px);
   }
   .gallery-list--custom-1 {
     height: 320px;
