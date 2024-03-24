@@ -1473,9 +1473,6 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 
 // ! @title ________ Gallery ________
 // * @section # Tabs
-.separator--gallery {
-  margin-bottom: 128px;
-}
 .gallery-tab-buttons {
   --height: 2.5rem;
   z-index: 7; // lower than main navigation [9] or else it will overlap. Mainly on Mobile mode. Also lower than 8 because Illith is a piece of sh-
@@ -1520,6 +1517,9 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   & > div {
     overflow: hidden;
   }
+}
+.gallery-tab-content .gallery-lists {
+  margin-bottom: 4rem;
 }
 [data-btn-anim|="sub"] {
   display: flex;
@@ -1633,7 +1633,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   flex-direction: row;
   flex-wrap: wrap;
   gap: 2px 4px;
-  margin-bottom: 8px;
+  // margin-bottom: 8px;
 }
 @keyframes gallery-caption-start {
   0% {transform: translateY(-20px); transform-origin: top; opacity: .5;}
@@ -1814,11 +1814,6 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 }
 
 // @misc @ Media
-@media (min-width: 769px) {
-  .gallery-lists {
-    margin-bottom: 5rem; // For caption overflow
-  }
-}
 @media (max-width: 768px) {
   .gallery-list {
     width: 144px;
