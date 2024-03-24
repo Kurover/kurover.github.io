@@ -1649,9 +1649,6 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
       height: 100%;
     }
   }
-  // &:has(.gallery-popup) {
-  //   cursor: pointer;
-  // }
   & > p {
     z-index: 1;
     position: absolute;
@@ -1745,7 +1742,6 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 .gallery-close {
   display: none;
   position: fixed;
-  // z-index: 10;
   top: 0;
   right: 0;
   bottom: 0;
@@ -1789,9 +1785,6 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     display: block;
   }
 }
-
-// * @section # REMOVED PopupPreview
-// System has been simplified. Rest in pieces over-complicated features, you will not be missed
 
 // @misc @ Media
 @keyframes gallery-caption-mobile {

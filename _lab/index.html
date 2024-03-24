@@ -18,4 +18,53 @@ no-css: true
       {%- endfor -%}
     </ul>
   </article>
+  <section class="wrapper">
+    <h2>Lazyload Test Area</h2>
+    <div class="expandable slow" id="content-1">
+      <input id="test1_sys" type="checkbox" class="expandable-control">
+      <label for="test1_sys" class="expandable-title">
+        <div class="expandable-title-icon"></div>
+        <span>Lazyload Test 1</span>
+      </label>
+      <div class="expandable-content">  
+        <div>
+          <div class="gallery-lists">
+            <div class="gallery-list" tabindex="0" style="max-width: fit-content;">
+              <div class="gallery-image">
+                <img loading="lazy" src="/img/gallery/oc_fruit__px.png">
+                <div class="gallery-close" tabindex="-1"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="expandable slow" id="content-2">
+      <input id="test2_sys" type="checkbox" class="expandable-control">
+      <label for="test2_sys" class="expandable-title">
+        <div class="expandable-title-icon"></div>
+        <span>Lazyload Test 2</span>
+      </label>
+      <div class="expandable-content">
+        <div>
+          <div class="gallery-lists">
+            <div class="gallery-list" tabindex="0">
+              <div class="gallery-image">
+                <img loading="lazy" src="/img/gallery/oc_melancholy__px.png">
+                <div class="gallery-close" tabindex="-1"></div>
+              </div>
+            </div>
+            <div class="gallery-list" tabindex="0">
+              <div class="gallery-image">
+                <img loading="lazy" src="/img/gallery/oc_sprite1__px.png">
+                <div class="gallery-close" tabindex="-1"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p>Wow this doesn't work anymore on latest Chromium... SMH MY HEAD!</p>
+    <p>Still work on Firefox, all hail Firefox.</p>
+  </section>
 </main>
