@@ -1111,8 +1111,8 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   scrollbar-width: none;
   
   border: 2px solid var(--clr-border);
-  border-image: url(/img/border-1-default-alt.png) 6 / 16px / 4px;
-  transform: scale(.88) translate(0) rotateZ(4deg);
+  border-image: url(/img/border-1-default-alt.png) 6 / 16px;
+  // transform: scale(.88) translate(0) rotateZ(4deg);
   transition: opacity .25s, transform .5s, visibility .5s;
 
   & > .contact-lists {
@@ -1125,6 +1125,22 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   transform: none;
   transition: opacity .25s, transform .25s, visibility .25s;
 }
+// Desktop is separated for now because i'm not sure if this will stay
+@media (min-width: 769px) {
+  .more-link-popup {
+    position: absolute;
+    top: 72px;
+    left: unset;
+    bottom: unset;
+    width: max-content;
+    // border-image: url(/img/border-1-default-alt.png) 6 / 0 16px 16px 16px / 0 4px 4px 4px;
+    transform: translateY(-8px);
+    transition: opacity .25s, transform 0s .25s, visibility .25s;
+  }
+  .more-link-popups:focus-within > .more-link-popup {
+    transition: opacity .25s, transform .25s, visibility .25s;
+  }
+}
 @media (max-width: 768px) {
   .more-link-popup {
     top: unset;
@@ -1134,7 +1150,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     border-image: url(/img/border-1-default-alt.png) 6 / 16px 0 0 16px / 4px 0 0 4px; // Remove right and bottom border image + outset. Affected by .nav-main and .nav-list size
     border-bottom: 0; // This remove the invisible border
     border-right: 0;
-    transform: none; // Reset transformation
+    // transform: none; // Reset transformation
     transition: opacity .25s, visibility .5s;
     & > * {
       transform: translateY(1rem);
