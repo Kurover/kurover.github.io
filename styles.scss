@@ -263,7 +263,7 @@ body::after {
   h1, h2, h3, h4, h5, h6 {
     text-align: center;
   }
-  .no-mobile {
+  .desktop-only {
     display: none;
   }
   .caption {
@@ -271,7 +271,7 @@ body::after {
   }
 }
 @media (min-width: 769px) {
-  .no-desktop {
+  .mobile-only {
     display: none;
   }
 }
@@ -487,7 +487,7 @@ body::after {
 }
 // toggleable is a generic class, the __toggle is specifically for more tab
 .nav-list-expandable__toggle,
-.nav-list-toggleable {
+.nav-list--toggleable {
   // ? EXPAND BORDER
   &:hover > [class$=icon] {
     border-image: url(/img/border-1-hover.png) 4 / 8px / 6px ;

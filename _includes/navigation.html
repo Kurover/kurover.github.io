@@ -16,7 +16,7 @@
   </a>
   <a 
     href="/blog" 
-    class="nav-list nav-list--blog no-mobile
+    class="nav-list nav-list--blog desktop-only
       {% if page.og-type == "blog" %}active{% endif %}" 
     id="nav-blog" 
     aria-label="Blog Page Button">
@@ -24,14 +24,14 @@
   </a>
   <a 
     href="/file" 
-    class="nav-list nav-list--file no-mobile
+    class="nav-list nav-list--file desktop-only
       {% if page.url == "/file.html" %} active{% endif %}" 
     id="nav-download"
     aria-label="File Page Button">
     <div class="nav-list__icon"></div>
   </a>
   <!-- ? More -->
-  <div class="nav-list-expandable no-desktop">
+  <div class="nav-list-expandable mobile-only">
     <div 
       class="nav-list nav-list--more nav-list-expandable__toggle  
         {% if page.nav-more %}active{% endif %}"
@@ -65,7 +65,7 @@
   <!-- ? EXTRA -->
   <div class="nav-list-expandable float-right">
     <div 
-    class="nav-list nav-list--contact nav-list-toggleable more-link-popups" 
+    class="nav-list nav-list--contact nav-list--toggleable more-link-popups" 
     id="nav-contact"
     aria-label="Extra Link Menu Dropdown Button"
     tabindex="0"
