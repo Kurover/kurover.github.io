@@ -51,19 +51,19 @@ og-type: gallery
           <h2 class="title-full margin">{{ section.name }}</h2>
           <div class="chrome-lazyload-enforcer"></div>
           {% for item in section.list %}
-          <div class="gallery-list {{ item.position }} {{ item.size }} {{ item.align }} {{ item.background }} {{ item.custom-class }}" tabindex="0">
+          <div class="gallery-list{% if item.class %} {{ item.class }}{% endif %}" tabindex="0">
             {% if item.caption %}<p>{{ item.caption }}</p>{% endif %}
             <div class="gallery-image">
               <img {% unless item.no-lazy %}loading="lazy"{% endunless %} src="{{ item.link }}" alt="{{ item.name }}">
-              {% if item.link-2 %}<img loading="lazy" class="gallery-image__alt" src="{{ item.link-2 }}" alt="Alternative image">{% endif %}
+              {% if item.link-alt %}<img loading="lazy" class="gallery-image__alt" src="{{ item.link-alt }}" alt="Alternative image">{% endif %}
               <div class="gallery-image__link">
-                {% if item.link-2 %}<a href="{{ item.link-2 }}" download tabindex="-1">Download Alt</a>{% endif %}
+                {% if item.link-alt %}<a href="{{ item.link-alt }}" download tabindex="-1">Download Alt</a>{% endif %}
                 <a href="{{ item.link }}" download tabindex="-1">Download</a>
               </div>
               <div class="gallery-close" tabindex="-1"></div>
             </div>
           </div>
-          {% if item.last-item or item.size == "full" %}<hr class="br-flex">{% endif %}
+          {% if item.separate %}<hr class="br-flex">{% endif %}
           {% endfor %}
         </div>
       </div>

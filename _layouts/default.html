@@ -32,7 +32,7 @@ layout: compress
     <link rel="stylesheet" href="/font.css">
   </head>
   
-  {% if page.landing-page %}<body class="body--home">{% else %}<body>{% endif %}
+  <body{% if page.landing-page %} class="body--home"{% endif %}>
     {% unless page.landing-page %} 
     <a href="#main" class="skip-to-main" aria-label="Skip navigation"></a>
     {% include navigation.html %} 

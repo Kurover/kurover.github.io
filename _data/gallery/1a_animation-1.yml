@@ -4,80 +4,58 @@ list:
 - name: Mystia and Kyouko hanging together animation
   link: /img/gallery/touhou_mystia__px.gif
   caption:
-  position:
-  size: 
-  align: 
-  last-item: 
+  class:
+  separate: 
 - name: Patchouli's magician trick animation
   link: /img/gallery/touhou_patchy__px.gif
   caption: Magician's Trick
-  position:
-  size: 
-  align:
-  last-item: true
+  class:
+  separate: true
 
 - name: Sekibanki with her cape fluttering, each side of it has mirage of her companion, Wakasagihime and Kagerou animation
   link: /img/gallery/touhou_grassroot2__px.gif
   caption: Head of the pack
-  position:
-  size: full
-  align:
-  last-item: 
+  class: full
+  separate: 
 - name: Grassroot trio resting at night time animation
   link: /img/gallery/touhou_grassroot1__px.gif
   caption: The girls are resting
-  position:
-  size: 
-  align:
-  last-item: 
+  class:
+  separate: 
 - name: Sekibanki and Kogasa under the parasol while raining animation
   link: /img/gallery/touhou_grassroot3__px.gif
   caption: Warmth under the parasol
-  position:
-  size: wide
-  align:
-  last-item: true
+  class: wide
+  separate: true
 
 - name: Reimu standing and spinning her stick animation
   link: /img/gallery/touhou_reimu1__px.gif
   caption:
-  position:
-  size:
-  align:
-  last-item:
+  class:
+  separate:
 - name: Kyouko drooling from food animation
   link: /img/gallery/touhou_kyouko-2__px.gif
   caption: 
-  position: 
-  size:
-  align:
-  last-item: 
+  class: 
+  separate: 
 - name: Marisa standing and changing her broom lantern with a new one animation
   link: /img/gallery/touhou_marisa1__px.gif
   caption:
-  position:
-  size:
-  align:
-  last-item: true
+  class:
+  separate: true
 
 - name: Yamame and Kisume chatting with each other animation
   link: /img/gallery/touhou_spood2__px.gif
   caption: Hangout Cavern
-  position:
-  size: full
-  align:
-  last-item:
+  class: full
+  separate:
 - name: Yamame and Kisume doing arts and craft with a skull animation
   link: /img/gallery/touhou_spood-x1__px.gif
   caption:
-  position:
-  size: 
-  align:
-  last-item:
+  class:
+  separate:
 - name: Yamame creating an object with her thread animation
   link: /img/gallery/touhou_spood1__px.gif
   caption: Don't ask where the web comes from
-  position:
-  size: 
-  align:
-  last-item: true
+  class:
+  separate: true
