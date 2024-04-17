@@ -11,7 +11,17 @@ nav-more: true
 
     <h1>Blog Posts</h1>
     
-    <p>Unfinished, content is available on <a href="/v2/blog.html">old blog page</a></p>
+    <p><span class="notice">Notice!</span> These links will redirect you to old site.</p>
+
+    <ol class="blog-lists">
+      {% assign blogs = site.blog | sort:"order" %}
+      {% for blog in blogs %}
+        <li class="blog-list">
+          <a href="{{ blog.url }}" target="_blank">{{ blog.title-short }}</a>
+          <p>{{ blog.description }}</p>
+        </li>
+      {% endfor %}
+    </ol>
 
   </section>
   {% include page-wip.html %}

@@ -1904,6 +1904,20 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   }
 }
 
+// ! @title ________ Blog ________
+// ? @section # List
+.blog-list {
+  & > a {
+    font-size: x-large;
+  }
+  & > p {
+    margin-top: 0;
+    &:last-child {
+      margin-bottom: revert;
+    }
+  }
+}
+
 // ! @title ________ 404 Page ________
 .error-page {
   margin: auto;
