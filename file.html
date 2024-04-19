@@ -5,12 +5,39 @@ description: Personal project files for download
 og-title: File Repository
 og-type: download
 nav-more: true
+custom-css: /file/cursor-preview.css
 ---
 <main>
   <section class="wrapper border" tabindex="-1" id="main">
 
-    <h1>Downloads</h1>
+    <h1>Files</h1>
+
     <p>Unfinished, content is available on <a href="/v2/download.html">old download page</a></p>
+
+    <p>I should put these in lab page but uh..</p>
+
+    <hr>
+
+    <h2>Cursor Preview</h2>
+    <p>Uses jank technology, so you cannot click anything else after toggling an item.</p>
+    <p>No preloading before toggling item to prevent spam so there will be lag on first few loops if user instantly test it.</p>
+
+    <div class="cursor-toggle cursor-toggle--koakuma link" tabindex="-1">
+      <span>Koakuma</span>
+    </div>
+    <div class="cursor-toggle cursor-toggle--koishi link" tabindex="-1">
+      <span>Koishi</span>
+    </div>
+    <div class="cursor-toggle cursor-toggle--youmu link" tabindex="-1">
+      <span>Youmu</span>
+    </div>
+    <div class="separator"></div>
+    <div class="cursor-preview cur-default">
+      <h3>Hover These Text!</h3>
+      <div><span class="cur-wait">Wait</span></div>
+      <div><span class="cur-busy">Busy</span></div>
+      <div><span class="cur-pointer">Pointer</span></div>
+    </div>
 
   </section>
   {% include page-wip.html %}
