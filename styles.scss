@@ -18,6 +18,15 @@
 * calc(1 * var(--sprite-x-size))
 * */
 
+/*
+! MQ Cheat sheet
+? Moile Large
+* @media (max-width: 768px)
+* 
+? Desktop
+* @media (min-width: 769px)
+*/
+
 :root {
   --clr-text: #E7E6EB;
   --clr-text-dim: #cac7d4;
@@ -159,7 +168,7 @@ blockquote {
   box-shadow: 4px 0 0 0 inset var(--clr-text-dim);
 }
 
-// ! CSS Preloader */
+// ! @title # CSS Preloader
 body::after {
   z-index: -1;
   height: 0;
@@ -1917,6 +1926,10 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     }
   }
 }
+
+// ! @title ________ File ________
+// ? @section # List
+
 
 // ! @title ________ 404 Page ________
 .error-page {
