@@ -30,6 +30,11 @@ layout: compress
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="stylesheet" href="/styles.css">
     <link rel="stylesheet" href="/font.css">
+    {% if page.custom-css %}
+    {% for item in page.custom-css %}
+    <link rel="stylesheet" href="{{ item }}">
+    {% endfor %}
+    {% endif %}
   </head>
   
   <body{% if page.landing-page %} class="body--home"{% endif %}>
