@@ -1,12 +1,15 @@
-name: Cursor
 master: https://www.dropbox.com/sh/voci4zetheh4yab/AADDn6x-gBjFbTC8DTmmqVbea?dl=0
 
-koakuma:
-  name: Koakuma
-  dropbox: https://www.dropbox.com/s/p79izy2rh86zozq/KoakumaCursor_0.1c.zip?dl=0
-koishi:
-  name: Koishi
-  dropbox: https://www.dropbox.com/s/okg9qsozm2pwu7c/KoishiCursor_0.1.zip?dl=0
-youmu:
-  name: Youmu
-  dropbox: https://www.dropbox.com/s/na5jlhg6c0l3ug1/YoumuCursor_0.1.zip?dl=0
+list:
+- name: Koakuma
+  preview: /img/file/cursor_koakuma.gif
+  link-github: /file/cursor/Koakuma Cursor v0.1c.zip
+  link-dropbox: https://www.dropbox.com/s/p79izy2rh86zozq/KoakumaCursor_0.1c.zip?dl=0
+- name: Koishi
+  preview: /img/file/cursor_koishi.gif
+  link-github: /file/cursor/Koishi Cursor v0.1.zip
+  link-dropbox: https://www.dropbox.com/s/okg9qsozm2pwu7c/KoishiCursor_0.1.zip?dl=0
+- name: Youmu
+  preview: /img/file/cursor_youmu.gif
+  link-github: /file/cursor/Youmu Cursor v0.1.zip
+  link-dropbox: https://www.dropbox.com/s/na5jlhg6c0l3ug1/YoumuCursor_0.1.zip?dl=0
