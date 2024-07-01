@@ -706,6 +706,7 @@ body::after {
 }
 .expandable-title-icon {
   content: "";
+  image-rendering: auto;
   float: left;
   height: 48px;
   width: 48px;
@@ -729,7 +730,6 @@ body::after {
   grid-template-rows: 0fr;
   padding: 0 16px;
   opacity: 0;
-  border-top: 2px solid var(--clr-border);
   transition: grid-template-rows var(--speed-end), opacity var(--speed-end);
   & > div {
     overflow: hidden;
