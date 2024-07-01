@@ -726,14 +726,14 @@ body::after {
   grid-template-rows: 0fr;
   padding: 0 16px;
   opacity: 0;
-  border-top: 2px solid var(--clr-text);
+  border-top: 2px solid var(--clr-border);
   transition: grid-template-rows var(--speed-end), opacity var(--speed-end);
   & > div {
     overflow: hidden;
     color: var(--clr-text-dim);
   }
   // Hide tooltip entry to prevent tab-navigation from selecting it when it's not expanded
-  & > div :is(.tooltip, *) :is(.tooltip) {
+  & > div > * {
     visibility: hidden;
     transition: visibility .25s;
   }
@@ -765,8 +765,12 @@ body::after {
   grid-template-rows: 1fr;
   opacity: 1;
   transition: grid-template-rows var(--speed-start), opacity var(--speed-start);
-  & > div :is(.tooltip, *) :is(.tooltip) {
+  & > div > * {
     visibility: visible;
+  }
+  & .chrome-lazyload-enforcer {
+    height: 0;
+    transition-delay: 0s;
   }
 }
 
