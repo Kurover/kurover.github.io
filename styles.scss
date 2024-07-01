@@ -1071,14 +1071,37 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 .contact-lists {
   --clr-link: var(--clr-text);
   --clr-link-visited: var(--clr-text);
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  image-rendering: pixelated;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  // flex-wrap: wrap;
+  gap: .5rem;
+}
+.contact-lists--404 {
+  --grid-size: 4;
+  grid-template-columns: repeat(var(--grid-size), 1fr)
+}
+.contact-lists--navigation {
+  --grid-size: 3;
+  grid-template-columns: repeat(var(--grid-size), 1fr);
+  gap: 8px;
+  & > hr {
+    border: 1px solid var(--clr-border);
+    grid-column: span var(--grid-size);
+    width: 100%;
+    margin: 0;
+  }
+}
+@media (max-width: 768px) {
+  .contact-lists--404 {
+    --grid-size: 3;
+  }
+  .contact-lists--navigation {
+    --grid-size: 2;
+  }
 }
 .contact-list {
-  flex: 1;
-  flex-grow: 1;
+  // flex: 1;
+  // flex-grow: 1;
   cursor: pointer;
   padding: 16px 8px;
   font-size: 1rem;
@@ -1091,9 +1114,9 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     box-shadow: 0 0 0 4px inset var(--clr-border);
   }
 }
-.contact-list--full {flex: 100%;}
 .contact-icon {
   // float: left;
+  image-rendering: pixelated;
   display: block;
   margin: auto;
   margin-bottom: .5rem;
@@ -1119,7 +1142,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   right: 0;
   top: 0;
   bottom: 0;
-  max-width: 320px;
+  // max-width: 320px;
   max-height: 75vh;
   height: fit-content;
   overflow: scroll;
@@ -1130,10 +1153,6 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   border-image: url(/img/border-1-default-alt.png) 6 / 16px;
   // transform: scale(.88) translate(0) rotateZ(4deg);
   transition: opacity .25s, transform .5s, visibility .5s;
-
-  & > .contact-lists {
-    gap: 4px 8px;
-  }
 }
 .more-link-popups:focus-within > .more-link-popup {
   visibility: visible; 
@@ -1148,7 +1167,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     top: 72px;
     left: unset;
     bottom: unset;
-    width: max-content;
+    width: 384px;
     // border-image: url(/img/border-1-default-alt.png) 6 / 0 16px 16px 16px / 0 4px 4px 4px;
     transform: translateY(-8px);
     transition: opacity .25s, transform 0s .25s, visibility .25s;
@@ -1162,6 +1181,8 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     top: unset;
     left: unset;
     bottom: 83px;
+    max-width: 320px;
+    width: 100%;
 
     border-image: url(/img/border-1-default-alt.png) 6 / 16px 0 0 16px / 4px 0 0 4px; // Remove right and bottom border image + outset. Affected by .nav-main and .nav-list size
     border-bottom: 0; // This remove the invisible border
