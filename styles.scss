@@ -1102,7 +1102,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 .contact-list {
   // flex: 1;
   // flex-grow: 1;
-  cursor: pointer;
+  // cursor: pointer;
   padding: 16px 8px;
   font-size: 1rem;
   // width: min(100%, 110px);
@@ -1112,6 +1112,28 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   &:is(:hover, :focus) {
     background-color: var(--clr-secondary);
     box-shadow: 0 0 0 4px inset var(--clr-border);
+  }
+}
+// Structural order mess up, should have done this first and name it container but eh it's fine
+.contact-list--alt {
+  // z-index for tooltip shenanigan
+  --tooltip-transition: .25s;
+  z-index: 0;
+  position: relative;
+  padding: unset;
+
+  transition: z-index var(--tooltip-transition);
+  &:hover {
+    z-index: 1;
+    transition: z-index 0s;
+  }
+  & a {
+    position: absolute;
+    padding: 16px 8px;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
   }
 }
 .contact-icon {
@@ -1126,6 +1148,26 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   &[src$=svg] {
     filter: invert(1) brightness(90%);
   }
+}
+.contact-list-tooltip {
+  visibility: hidden;
+  position: absolute;
+  width: fit-content;
+  top: 100%;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  opacity: 0;
+  
+  cursor: text;
+  color: var(--clr-tooltip-text);
+  background-color: var(--clr-tooltip-background);
+  border-image: url(/img/border-2.png) 8 / 16px / 0 0;
+  transition: visibility var(--tooltip-transition), opacity var(--tooltip-transition);
+}
+.contact-list:is(:hover, :focus-within) > .contact-list-tooltip {
+  opacity: 1;
+  visibility: visible;
 }
 
 // @main # More Link Popup
