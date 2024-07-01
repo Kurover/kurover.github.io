@@ -295,6 +295,9 @@ body::after {
   &:last-child {
     margin-bottom: 2rem;
   }
+  &:first-of-type {
+    margin-top: 1rem;
+  }
   & > p {
     &:first-child {margin-top: 0;}
     &:last-child {margin-bottom: 0;}
