@@ -1781,13 +1781,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     transform: translateY(4px) rotateZ(4deg);
     transform-origin: left;
     transition: visibility .25s, opacity .25s, transform .25s;
-  }
-  // ? @section ## Mod
-  // Using OOCS because I don't want to bloat the html with BEM
-  &.left img {object-position: left;}
-  &.right img {object-position: right;}
-  &.head > img {
-    margin-top: 30%;
+    transition-delay: .2s;
   }
   &:is(:hover, :focus) {
     border: 2px solid var(--clr-border-select);
@@ -1800,6 +1794,13 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
       animation: gallery-caption-start .5s;
       transition: 0s;
     }
+  }
+  // ? @section ## Mod
+  // Using OOCS because I don't want to bloat the html with BEM
+  &.left img {object-position: left;}
+  &.right img {object-position: right;}
+  &.head > img {
+    margin-top: 30%;
   }
   &.wide {
     flex: 1.75;
