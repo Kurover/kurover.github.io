@@ -1127,6 +1127,10 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     z-index: 1;
     transition: z-index 0s;
   }
+  &:focus-within {
+    z-index: 2;
+    transition: z-index 0s;
+  }
   & a {
     position: absolute;
     padding: 16px 8px;
