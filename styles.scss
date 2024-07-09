@@ -1841,7 +1841,8 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   bottom: 1rem;
   right: 1rem;
   line-height: 32px;
-  transition: visibility 1ms; // Give time for focus-within to work
+  opacity: 0;
+  transition: visibility 1ms .2s, opacity 1ms; // Give time for focus-within to work
   & > a {
     color: var(--clr-tooltip-link-hover);
     text-align: center;
@@ -1862,6 +1863,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 }
 .gallery-image__link:focus-within {
   visibility: visible;
+  opacity: 1;
 }
 .gallery-image__alt {
   display: none;
@@ -1900,6 +1902,8 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   }
   & > .gallery-image__link {
     visibility: visible;
+    opacity: 1;
+    transition-delay: 0s;
   }
   & > .gallery-close {
     display: block;
