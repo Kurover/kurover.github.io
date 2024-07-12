@@ -734,12 +734,11 @@ body::after {
   & > div {
     overflow: hidden;
     color: var(--clr-text-dim);
-  }
-  // Hide tooltip entry to prevent tab-navigation from selecting it when it's not expanded
-  & > div > * {
+    
     visibility: hidden;
     transition: visibility .25s;
   }
+  // Hide tooltip entry to prevent tab-navigation from selecting it when it's not expanded
 }
 // ? @section ## Mod
 .expandable-content--slow {--speed-start: 1s;--speed-end: 1s;}
@@ -768,7 +767,7 @@ body::after {
   grid-template-rows: 1fr;
   opacity: 1;
   transition: grid-template-rows var(--speed-start), opacity var(--speed-start);
-  & > div > * {
+  & > div {
     visibility: visible;
   }
   & .chrome-lazyload-enforcer {
