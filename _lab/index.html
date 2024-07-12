@@ -18,7 +18,13 @@ no-css: true
       {%- endfor -%}
     </ul>
   </article>
-  <section class="wrapper">
+
+  <div class="wrapper">
+    <p>Separator wee!</p>
+    <hr style="border: none; border-top: 50vh solid transparent;">
+  </div>
+  
+  <section class="wrapper border">
     <h2>Lazyload Test Area</h2>
     <div class="expandable slow" id="content-1">
       <input id="test1_sys" type="checkbox" class="expandable-control">
@@ -28,18 +34,18 @@ no-css: true
       </label>
       <div class="expandable-content">  
         <div>
-          <p>First Paragraph</p>
+          <p>lorem ipsum?</p>
           <div class="gallery-lists">
-            <div class="gallery-list" tabindex="0" style="max-width: fit-content;">
+            <div class="gallery-list" tabindex="0">
               <div class="gallery-image">
                 <img loading="lazy" src="/img/gallery/oc_fruit__px.png">
                 <div class="gallery-close" tabindex="-1"></div>
               </div>
-              <div class="gallery-list" tabindex="0">
-                <div class="gallery-image">
-                  <img loading="lazy" src="/img/gallery/oc_sprite1__px.png">
-                  <div class="gallery-close" tabindex="-1"></div>
-                </div>
+            </div>
+            <div class="gallery-list" tabindex="0" style="max-width: fit-content;">
+              <div class="gallery-image">
+                <img loading="lazy" src="/img/gallery/oc_sprite1__px.png">
+                <div class="gallery-close" tabindex="-1"></div>
               </div>
             </div>
           </div>
@@ -47,7 +53,7 @@ no-css: true
         </div>
       </div>
     </div>
-    <div class="expandable slow" id="content-2">
+    <div class="expandable expandable-content--slow" id="content-2">
       <input id="test2_sys" type="checkbox" class="expandable-control">
       <label for="test2_sys" class="expandable-title">
         <div class="expandable-title-icon"></div>
@@ -55,8 +61,8 @@ no-css: true
       </label>
       <div class="expandable-content">
         <div>
-          <p>This is a hack for Chromium by adding big empty space when it's not opened. EVEN THEN, this expander must not be visible for it to work, very cool. This used to work but not sure when it got "patched" out.</p>
           <div class="chrome-lazyload-enforcer"></div>
+          <p>This is a hack for Chromium by adding big empty space when it's not opened. EVEN THEN, this expander must not be visible for it to work, very cool. This used to work out-of-the-box but not sure when it got "patched" out.</p>
           <div class="gallery-lists">
             <div class="gallery-list" tabindex="0">
               <div class="gallery-image">
@@ -64,13 +70,14 @@ no-css: true
                 <div class="gallery-close" tabindex="-1"></div>
               </div>
             </div>
-            <div class="gallery-list" tabindex="0">
+            <div class="gallery-list" tabindex="0" style="max-width: fit-content;">
               <div class="gallery-image">
                 <img loading="lazy" src="/img/gallery/oc_sprite1__px.png">
                 <div class="gallery-close" tabindex="-1"></div>
               </div>
             </div>
           </div>
+          <p>Edit: doesn't really work for this. You know, i don't even know how to make it work in Chromium for this fancy smancy expander. At least the one for gallery works, hahaha..</p>
           <!-- End -->
         </div>
       </div>
