@@ -2,7 +2,7 @@
 layout: lab
 name: Hub
 no-css: true
-no-cache: true
+heresy: true
 ---
 <main>
   <article class="wrapper border">
@@ -21,11 +21,37 @@ no-cache: true
   </article>
   
   <section class="wrapper border">
+    <script>
+      var imgHost = "/img/";
+      var imgTarget = "illith-2.png";
+      $.ajax({
+        url: "https://ai-llithium.taila8a3c.ts.net/data/status.json",
+        crossDomain: true,
+        cache: false
+        }).then(function(dataComm) {
+          if(dataComm.imgId === 1)
+            imgTarget = "profile-picture-3__px.png";
+          
+          if(dataComm.exHost === 1) {
+            $("#image-target").attr("src", dataComm.exImg);
+            $("#linkOut").attr("href", dataComm.exImg);
+            $("#linkOut").text(dataComm.exImg);
+          }
+          else {
+            $("#image-target").attr("src", imgHost + imgTarget);
+            $("#linkOut").attr("href", imgHost + imgTarget);
+            $("#linkOut").text("https://kurover.github.io" + imgHost + imgTarget);
+          }
+
+          $("#pGet").text(dataComm.status);
+        });
+    </script>
     <h2>Personal Server Test</h2>
-    <p>Target host: <a href="https://ai-llithium.taila8a3c.ts.net">ai-llithium.taila8a3c.ts.net</a></p>
-    <h3>Image Embed Test</h3>
-    <p>Link target: <a href="https://ai-llithium.taila8a3c.ts.net/img/target.png">https://ai-llithium.taila8a3c.ts.net/img/target.png</a></p>
-    <img class="NO-CACHE" src="https://ai-llithium.taila8a3c.ts.net/img/target.png" alt="" style="max-width: 256px; width: 100%; image-rendering: pixelated; border: 2px solid whitesmoke">
+    <p>We snatch <a href="https://ai-llithium.taila8a3c.ts.net/data/status.json">https://ai-llithium.taila8a3c.ts.net/data/status.json</a> then,</p>
+    <p>GET: <a id="linkOut" href="">Loading..</a></p>
+    <img id="image-target" src="" alt="" style="max-width: 256px; width: 100%; image-rendering: pixelated; border: 2px solid whitesmoke; aspect-ratio: 1/1;">
+    <p id="pGet">Ping...</p>
+    
   </section>
 
   <div class="wrapper">

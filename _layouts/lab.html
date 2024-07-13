@@ -13,16 +13,7 @@ layout: compress
     <link rel="stylesheet" href="/font.css">
     {%- unless page.no-css -%}<link rel="stylesheet" href="css/{{ page.slug }}.css">{%- endunless -%}
     <link rel="stylesheet" href="/lab/css/navigation-tests.css">
-
-    <!-- https://stackoverflow.com/a/48036276 -->
-    {%- if page.no-cache -%}<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script>
-      $(document).ready(function ()
-      {           
-        $('.NO-CACHE').attr('src',function () { return $(this).attr('src') + "?a=" + Math.random() });
-      });
-    </script>{%- endif -%}
-    
+    {%- if page.heresy -%}<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>{%- endif -%}
   </head>
   <body>
     {{ content }}
