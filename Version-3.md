@@ -7,6 +7,8 @@ It's uh... :skull:
 
 ## Current Changes
 Changes may or may not immediately deployed on main site. This changelog focuses on the front-end.
+
+- Added HERESY FEATURE - JQuery. Used to swap images from the same link by proxying it, to avoid redeploying pages over and over for just 2 images. JS will be for image proxy feature and that one only, hard once per domain ruling!! Well, discounting /groundleaf because that's different project. Really need this feature since this affect user convenience on important page later.
 - Rebuild HTML and CSS. Lots of automation and less me copy pasting the same thing, yay. This has retroactively implemented on old site (the lab/test section).
 - Compress HTML via [Jekyll Compress HTML](https://github.com/penibelst/jekyll-compress-html).
 - Compress CSS via built-in Jekyll compression by converting it to SCSS. I'm not going to use the SASS feature because I don't need it. Well I lied, I did use the double slash commenting system.
@@ -15,6 +17,7 @@ Changes may or may not immediately deployed on main site. This changelog focuses
   - Custom icon. Slightly smaller width. Although I find this become bulky, height-wise on mobile. Next point somewhat fixes that.
   - Mobile view navigation now sticky on bottom. ~~Also autohides, not sure about this one though~~ I removed it days after.
   - Improve navigation drop down. Works on both media, though only used on mobile currently.
+  - :yellow_square: Improve the links/contact (called "Link" on top-right nav-bar) UI. Still unfinished but I think I like the way it is now.
 - Index:
   - Added custom layout with big button and less text, turning it into a hub page. Prototype on the [Lab Page](https://kurover.github.io/lab) | [New Home](https://kurover.github.io/lab/new-home).
 - Gallery:
@@ -27,12 +30,8 @@ Changes may or may not immediately deployed on main site. This changelog focuses
   - :red_square: Removed version changing (normal or loop) for now. Waiting for better system.
 - Blog:
   - It says blog but it's more of an article page host thingie with the planned feature on the back of my head (lol this basically "trust me bro, source by me" meme).
-  - Design leans toward a banner with thumbnail and synopsis (^BlogFile#1)
 - File (AKA Download):
   - Renamed to file as it's shorter and has better context, I think.
-  - Design goes ^BlogFile#1. Much more categorized than a simple thumbnail and each category may have unique feature to itself.
-- Links:
-  - N/A
 - 404 Page:
   - Not a linktree clone anymore. Much more compact.
   - :yellow_square: Asset still pending (icon and background). 
@@ -42,10 +41,8 @@ Changes may or may not immediately deployed on main site. This changelog focuses
 This hasn't changed since creation date I think, lol.
 
 ### :zap: Big stuff
-- :star: Home to be a game-esque menu screen with funny li'l companion. Less fluff but more in the face for everything I can offer.
-  - :star: Background, night scenery either on the tower foreseeing the sea or in front of the tower entrance.
-  - :blush: Illith portrait (entrance, 2-3 idle, speaking).
-  - Custom navigation asset, different from general nav icon.
+- :star: Commission page.
+- :star: Blog and File page to have their own vibe.
 - :sleeping: Custom animated 404 error page on the sea.
 - :envelope: Large navigation buttons, at least 96px and wide.
 - :star: Custom page to test cursor.
@@ -61,3 +58,7 @@ This hasn't changed since creation date I think, lol.
 ### :snowflake: Misc Stuff (low-priority)
 - :blush: Illith nag / fixed companion (bottom left). Clickable to go to top and point of interest.
 - :memo: 404 page where its text is a windows error popup, can be minimized, maximize is greyed out, and close to go to secret place.
+- :star: (_Used to be on "Big Stuff" but after trying to implement it, yeah.._) Home to be a game-esque menu screen with funny li'l companion. Less fluff but more in the face for everything I can offer.
+  - :star: Background, night scenery either on the tower foreseeing the sea or in front of the tower entrance.
+  - :blush: Illith portrait (entrance, 2-3 idle, speaking).
+  - Custom navigation asset, different from general nav icon.
