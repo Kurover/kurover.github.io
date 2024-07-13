@@ -4,15 +4,6 @@ layout: compress
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    {%- if page.no-cache -%}<meta Http-Equiv="Cache" content="no-cache">
-    <meta Http-Equiv="Pragma-Control" content="no-cache">
-    <meta Http-Equiv="Cache-directive" Content="no-cache">
-    <meta Http-Equiv="Pragma-directive" Content="no-cache">
-    <meta Http-Equiv="Cache-Control" Content="no-cache">
-    <meta Http-Equiv="Pragma" Content="no-cache">
-    <meta Http-Equiv="Expires" Content="0">
-    <meta Http-Equiv="Pragma-directive: no-cache">
-    <meta Http-Equiv="Cache-directive: no-cache">{%- endif -%}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lab | {{ page.name }}</title>
@@ -22,6 +13,16 @@ layout: compress
     <link rel="stylesheet" href="/font.css">
     {%- unless page.no-css -%}<link rel="stylesheet" href="css/{{ page.slug }}.css">{%- endunless -%}
     <link rel="stylesheet" href="/lab/css/navigation-tests.css">
+
+    <!-- https://stackoverflow.com/a/48036276 -->
+    {%- if page.no-cache -%}<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function ()
+      {           
+        $('.NO-CACHE').attr('src',function () { return $(this).attr('src') + "?a=" + Math.random() });
+      });
+    </script>{%- endif -%}
+    
   </head>
   <body>
     {{ content }}
