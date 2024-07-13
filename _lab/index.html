@@ -21,13 +21,20 @@ heresy: true
   </article>
   
   <section class="wrapper border">
+    <!-- Mash codes and pray -->
     <script>
       var imgHost = "/img/";
       var imgTarget = "illith-2.png";
+      
       $.ajax({
         url: "https://ai-llithium.taila8a3c.ts.net/data/status.json",
         crossDomain: true,
-        cache: false
+        cache: false,
+        success: function(data, textStatus, request) {
+          var date = request.getResponseHeader("Last-Modified");
+          var lastModifiedDate = new Date(date);
+          $("#pDate").text(lastModifiedDate);
+        }
         }).then(function(dataComm) {
           if(dataComm.imgId === 1)
             imgTarget = "profile-picture-3__px.png";
@@ -42,15 +49,16 @@ heresy: true
             $("#linkOut").attr("href", imgHost + imgTarget);
             $("#linkOut").text("https://kurover.github.io" + imgHost + imgTarget);
           }
-
           $("#pGet").text(dataComm.status);
         });
     </script>
+    
     <h2>Personal Server Test</h2>
     <p>We snatch <a href="https://ai-llithium.taila8a3c.ts.net/data/status.json">https://ai-llithium.taila8a3c.ts.net/data/status.json</a> then,</p>
     <p>GET: <a id="linkOut" href="">Loading..</a></p>
     <img id="image-target" src="" alt="" style="max-width: 256px; width: 100%; image-rendering: pixelated; border: 2px solid whitesmoke; aspect-ratio: 1/1;">
     <p id="pGet">Ping...</p>
+    <p>Last Modified: <span id="pDate"></span></p>
     
   </section>
 
