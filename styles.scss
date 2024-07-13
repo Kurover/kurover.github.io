@@ -1812,7 +1812,6 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     width: 100%;
     & > .gallery-image {
       width: 100%;
-      
     }
   }
   &.white {
@@ -1873,7 +1872,8 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   bottom: 0;
   left: 0;
 }
-.gallery-list:focus > .gallery-image {
+// The :is:has :active is to make sure mobile download button works because of course it is.
+.gallery-list:is(:focus, :has( .gallery-image__link:active)) > .gallery-image {
   z-index: 9;
   position: fixed;
   top: 0;
