@@ -1950,7 +1950,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
       }
     }
   }
-  .gallery-list:focus img {
+  .gallery-list:is(:focus, :has( .gallery-image__link:active)) img {
     width: 100%;
   }
   .gallery-image__link {
