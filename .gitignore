@@ -1,2 +1,3 @@
 _site
 .vscode/settings.json
+Gemfile.lock
