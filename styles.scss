@@ -1730,6 +1730,35 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   box-shadow: 0 0 0 4px var(--clr-text);
 }
 
+// * @section # Illith avatar stuff
+.gallery-illith-accordion > img {
+  transition: none;
+}
+.gallery-illith-state.normal {
+  opacity: 1;
+}
+.gallery-illith-accordion:hover > .gallery-illith-state {
+  opacity: 0;
+  &.glare {
+    opacity: 1;
+  }
+}
+.gallery-illith-anchor:has(> .tooltip--click-only:is(:focus-within)) .gallery-illith-state {
+  opacity: 0;
+  &.happy {
+    opacity: 1;
+  }
+}
+.gallery-illith-accordion:active {
+  & > :not(.panic) {
+    visibility: hidden;
+  }
+  & > .panic {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
 // * @section # EntryLists
 .gallery-lists {
   display: flex;
