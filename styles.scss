@@ -905,7 +905,7 @@ body::after {
   border: var(--headshot-border);
   & > img {
     position: absolute;
-    transition: opacity .25s, transform .5s;
+    transition: visibility .25s, opacity .25s, transform .5s;
     opacity: 0;
   }
 }
@@ -948,6 +948,7 @@ body::after {
 }
 // ? Toggles
 // Tell you what, this is much more readable than the previous / old one
+// edit me on future, why don't I use classes??
 .headshot-accordion-toggle > label {
   color: var(--clr-link-active);
   &:hover {
@@ -982,10 +983,14 @@ input[id^=profile-headshot-2]:checked ~ .headshot > .headshot-accordion {
     }
   }
 }
+.profile-home-youmu {
+  visibility: hidden;
+}
 input[id^=profile-headshot-3]:checked ~ .headshot > .headshot-accordion {
   animation: profile-transition-3 .5s;
   & > img:nth-of-type(3) {
     opacity: 1;
+    visibility: visible;
   }
   & > .headshot-accordion-toggle > label {
     &:nth-of-type(3) {
