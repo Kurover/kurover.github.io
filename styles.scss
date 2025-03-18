@@ -1732,24 +1732,38 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 
 // * @section # Illith avatar stuff
 .gallery-illith-accordion > img {
-  transition: none;
+  transition: 0s;
+  transition-delay: .33s;
 }
 .gallery-illith-state.normal {
   opacity: 1;
 }
 .gallery-illith-accordion:hover > .gallery-illith-state {
   opacity: 0;
+  transition-delay: 0s;
   &.glare {
+    opacity: 1;
+  }
+}
+.gallery-illith-anchor:has(> .tooltip--click-only:is(:hover)) .gallery-illith-state {
+  opacity: 0;
+  transition-delay: 0s;
+  &.surprised {
     opacity: 1;
   }
 }
 .gallery-illith-anchor:has(> .tooltip--click-only:is(:focus-within)) .gallery-illith-state {
   opacity: 0;
+  transition-delay: 0s;
   &.happy {
     opacity: 1;
   }
+  &.surprised {
+    opacity: 0;
+  }
 }
 .gallery-illith-accordion:active {
+  transition-delay: 0s;
   & > :not(.panic) {
     visibility: hidden;
   }
