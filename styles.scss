@@ -64,6 +64,8 @@
   --sprite-icon-width: 336px;
   --sprite-icon-height: 288px;
   --sprite-icon-size: 48px;
+
+  --icon-atlas-path: url(/img/icon-pack__px.png);
 }
 
 // ! @title # Global
@@ -371,10 +373,10 @@ body::after {
 }
 // Default state. .active item has its own class
 .nav-list__icon::before {
-  background: url(/img/icon-pack__px.png) var(--ico-nav-default);
+  background: var(--icon-atlas-path) var(--ico-nav-default);
 }
 .nav-list__icon::after {
-  background: url(/img/icon-pack__px.png) var(--ico-nav-active);
+  background: var(--icon-atlas-path) var(--ico-nav-active);
   opacity: 0;
 }
 @keyframes navigation-active-start {
@@ -413,17 +415,17 @@ body::after {
       transition-duration: .75s;
     }
     &::after {
-      background: url(/img/icon-pack__px.png) var(--ico-nav-active);
+      background: var(--icon-atlas-path) var(--ico-nav-active);
       opacity: 1;
     }
   }
   // ACTIVE VERSION
   &.active > [class$=icon] {
     &::before {
-      background: url(/img/icon-pack__px.png) var(--ico-nav-active);
+      background: var(--icon-atlas-path) var(--ico-nav-active);
     }
     &::after {
-      background: url(/img/icon-pack__px.png) var(--ico-nav-hover);
+      background: var(--icon-atlas-path) var(--ico-nav-hover);
     }
   }
   &.active:is(:hover, :focus-within) > [class$=icon]::after {
@@ -519,24 +521,24 @@ body::after {
     transition: background 0s .5s, opacity .5s; // Make it so it transition smoothly between various states to default. Change the selector target to no delay. IDK how to explain this..
   }
   &:hover > [class$=icon]::after {
-    background: url(/img/icon-pack__px.png) var(--ico-nav-hover);
+    background: var(--icon-atlas-path) var(--ico-nav-hover);
     transition-delay: 0s;
   }
   &:focus-within > [class$=icon]::before {
-    background: url(/img/icon-pack__px.png) var(--ico-nav-default);
+    background: var(--icon-atlas-path) var(--ico-nav-default);
     opacity: 0;
   }
   &:focus-within > [class$=icon]::after {
-    background: url(/img/icon-pack__px.png) var(--ico-nav-active);
+    background: var(--icon-atlas-path) var(--ico-nav-active);
     opacity: 1;
     transition-delay: 0s;
   }
   &.active > [class$=icon] {
     &::before {
-      background: url(/img/icon-pack__px.png) var(--ico-nav-hover);
+      background: var(--icon-atlas-path) var(--ico-nav-hover);
     }
     &::after {
-      background: url(/img/icon-pack__px.png) var(--ico-nav-active);
+      background: var(--icon-atlas-path) var(--ico-nav-active);
     }
   }
   &.active:hover > [class$=icon] {
@@ -710,7 +712,7 @@ body::after {
   float: left;
   height: 48px;
   width: 48px;
-  background: url(/img/icon-pack__px.png) calc(3 * -48px + 48px) calc(4 * -48px + 48px);
+  background: var(--icon-atlas-path) calc(3 * -48px + 48px) calc(4 * -48px + 48px);
   opacity: .5;
   scale: .75;
   transition: opacity .25s;
@@ -720,7 +722,7 @@ body::after {
   position: absolute;
   height: 48px;
   width: 48px;
-  background: url(/img/icon-pack__px.png) calc(3 * -48px + 48px) calc(5 * -48px + 48px);
+  background: var(--icon-atlas-path) calc(3 * -48px + 48px) calc(5 * -48px + 48px);;
   transition: transform .25s;
 }
 .expandable-content {
@@ -1150,7 +1152,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   display: block;
   margin: auto;
   margin-bottom: .5rem;
-  background: url(/img/icon-pack__px.png) var(--ico-contact-default);
+  background: var(--icon-atlas-path) var(--ico-contact-default);
   width: 48px;
   height: 48px;
   &[src$=svg] {
