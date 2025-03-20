@@ -710,7 +710,7 @@ body::after {
   float: left;
   height: 48px;
   width: 48px;
-  background: url(/img/icon-pack__px.png) calc(1 * -48px + 48px) calc(7 * -48px + 48px);
+  background: url(/img/icon-pack__px.png) calc(3 * -48px + 48px) calc(4 * -48px + 48px);
   opacity: .5;
   scale: .75;
   transition: opacity .25s;
@@ -720,7 +720,7 @@ body::after {
   position: absolute;
   height: 48px;
   width: 48px;
-  background: url(/img/icon-pack__px.png) calc(1 * -48px + 48px) calc(8 * -48px + 48px);
+  background: url(/img/icon-pack__px.png) calc(3 * -48px + 48px) calc(5 * -48px + 48px);
   transition: transform .25s;
 }
 .expandable-content {
