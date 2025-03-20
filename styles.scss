@@ -1157,6 +1157,10 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   &[src$=svg] {
     filter: invert(1) brightness(90%);
   }
+  &:hover {
+    background: var(--icon-atlas-path) var(--ico-contact-default); // placeholder
+    // background: var(--icon-atlas-path) var(--ico-contact-hover);
+  }
 }
 .contact-list-tooltip {
   visibility: hidden;
