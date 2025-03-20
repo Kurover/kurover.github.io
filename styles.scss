@@ -1066,6 +1066,10 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   --ico-contact-default:  calc(13 * -48px + 48px) calc(1 * -48px + 48px);
   --ico-contact-hover:    calc(13 * -48px + 48px) calc(2 * -48px + 48px);
 }
+.contact--bluesky {
+  --ico-contact-default:  calc(7 * -48px + 48px) calc(3 * -48px + 48px);
+  --ico-contact-hover:    calc(7 * -48px + 48px) calc(4 * -48px + 48px);
+}
 .contact-lists {
   --clr-link: var(--clr-text);
   --clr-link-visited: var(--clr-text);
