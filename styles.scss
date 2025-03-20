@@ -1036,43 +1036,35 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 // * @main # Contact List
 .contact--home {
   --ico-contact-default:  calc(1 * -48px + 48px) calc(2 * -48px + 48px);
-  --ico-contact-active:   calc(1 * -48px + 48px) calc(2 * -48px + 48px);
-  --ico-contact-hover:    calc(1 * -48px + 48px) calc(3 * -48px + 48px);
+  --ico-contact-hover:    calc(1 * -48px + 48px) calc(2 * -48px + 48px);
 }
 .contact--old {
   --ico-contact-default:  calc(7 * -48px + 48px) calc(1 * -48px + 48px);
-  --ico-contact-active:   calc(7 * -48px + 48px) calc(2 * -48px + 48px);
-  --ico-contact-hover:    calc(7 * -48px + 48px) calc(3 * -48px + 48px);
+  --ico-contact-hover:    calc(7 * -48px + 48px) calc(2 * -48px + 48px);
 }
 .contact--lab {
   --ico-contact-default:  calc(8 * -48px + 48px) calc(1 * -48px + 48px);
-  --ico-contact-active:   calc(8 * -48px + 48px) calc(2 * -48px + 48px);
-  --ico-contact-hover:    calc(8 * -48px + 48px) calc(3 * -48px + 48px);
+  --ico-contact-hover:    calc(8 * -48px + 48px) calc(2 * -48px + 48px);
 }
 .contact--mail {
   --ico-contact-default:  calc(9 * -48px + 48px) calc(1 * -48px + 48px);
-  --ico-contact-active:   calc(9 * -48px + 48px) calc(2 * -48px + 48px);
-  --ico-contact-hover:    calc(9 * -48px + 48px) calc(3 * -48px + 48px);
+  --ico-contact-hover:    calc(9 * -48px + 48px) calc(2 * -48px + 48px);
 }
 .contact--twitter {
   --ico-contact-default:  calc(10 * -48px + 48px) calc(1 * -48px + 48px);
-  --ico-contact-active:   calc(10 * -48px + 48px) calc(2 * -48px + 48px);
-  --ico-contact-hover:    calc(10 * -48px + 48px) calc(3 * -48px + 48px);
+  --ico-contact-hover:    calc(10 * -48px + 48px) calc(2 * -48px + 48px);
 }
 .contact--misskey {
   --ico-contact-default:  calc(11 * -48px + 48px) calc(1 * -48px + 48px);
-  --ico-contact-active:   calc(11 * -48px + 48px) calc(2 * -48px + 48px);
-  --ico-contact-hover:    calc(11 * -48px + 48px) calc(3 * -48px + 48px);
+  --ico-contact-hover:    calc(11 * -48px + 48px) calc(2 * -48px + 48px);
 }
 .contact--github {
   --ico-contact-default:  calc(12 * -48px + 48px) calc(1 * -48px + 48px);
-  --ico-contact-active:   calc(12 * -48px + 48px) calc(2 * -48px + 48px);
-  --ico-contact-hover:    calc(12 * -48px + 48px) calc(3 * -48px + 48px);
+  --ico-contact-hover:    calc(12 * -48px + 48px) calc(2 * -48px + 48px);
 }
 .contact--discord {
   --ico-contact-default:  calc(13 * -48px + 48px) calc(1 * -48px + 48px);
-  --ico-contact-active:   calc(13 * -48px + 48px) calc(2 * -48px + 48px);
-  --ico-contact-hover:    calc(13 * -48px + 48px) calc(3 * -48px + 48px);
+  --ico-contact-hover:    calc(13 * -48px + 48px) calc(2 * -48px + 48px);
 }
 .contact-lists {
   --clr-link: var(--clr-text);
