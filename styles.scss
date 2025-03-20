@@ -1101,7 +1101,9 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   // flex: 1;
   // flex-grow: 1;
   // cursor: pointer;
-  padding: 16px 8px;
+  --contact-padding-y: 16px;
+  --contact-icon-y: 48px;
+  padding: var(--contact-padding-y) 8px;
   font-size: 1rem;
   // width: min(100%, 110px);
   text-decoration: none;
@@ -1138,6 +1140,11 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     bottom: 0;
   }
 }
+div.contact-list--alt::before { // Dummy content for the tooltip one to fix layout
+  content: "";
+  display: block;
+  height: calc((var(--contact-padding-y) * 2) + var(--contact-icon-y));
+}
 .contact-icon {
   // float: left;
   image-rendering: pixelated;
@@ -1146,7 +1153,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   margin-bottom: .5rem;
   background: var(--icon-atlas-path) var(--ico-contact-default);
   width: 48px;
-  height: 48px;
+  height: var(--contact-icon-y);
   &[src$=svg] {
     filter: invert(1) brightness(90%);
   }
