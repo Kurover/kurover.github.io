@@ -57,16 +57,18 @@
 .cursor-test-field-boxes {
 	display: flex;
 	height: 100%;
-	flex-wrap: wrap;
-	flex-direction: column;
-	justify-content: center;
+	flex-wrap: nowrap;
+	flex-direction: row;
+	align-items: center;
 	--clr-textbox: transparent;
 	--clr-box-bg: rgba(0, 0, 0, 0.15);
 	color: var(--clr-textbox);
 	gap: 2rem;
 	& > * {
+    overflow: hidden;
 		background-color: var(--clr-box-bg);
 		height: 70%;
+    flex: 1;
 		text-align: center;
 		font-size: 1.5rem;
 		padding-top: 1rem;
