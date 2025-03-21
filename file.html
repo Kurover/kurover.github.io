@@ -12,33 +12,60 @@ custom-css: /file/cursor-preview.css
 
     <h1>Files</h1>
 
-    <p>Unfinished, content is available on <a href="/v2/download.html">old download page</a></p>
-
-    <p>I should put these in lab page but uh..</p>
-
-    <hr>
-
-    <h2>Cursor Preview</h2>
-    <p>Uses jank technology, so you cannot click anything else after toggling an item.</p>
-    <p>No preloading before toggling item to prevent spam so there will be lag on first few loops if user instantly test it.</p>
-
-    <div class="cursor-toggle cursor-toggle--koakuma link" tabindex="-1">
-      <span>Koakuma</span>
-    </div>
-    <div class="cursor-toggle cursor-toggle--koishi link" tabindex="-1">
-      <span>Koishi</span>
-    </div>
-    <div class="cursor-toggle cursor-toggle--youmu link" tabindex="-1">
-      <span>Youmu</span>
-    </div>
-    <div class="separator"></div>
-    <div class="cursor-preview cur-default">
-      <h3>Hover These Text!</h3>
-      <div><span class="cur-wait">Wait</span></div>
-      <div><span class="cur-busy">Busy</span></div>
-      <div><span class="cur-pointer">Pointer</span></div>
-    </div>
-
+    <p>Unfinished, other content is available on <a href="/v2/download.html">old download page</a></p>
+  
   </section>
+  <section class="wrapper cursor-preview-master">
+    <h2 class="title-full title-full--no-bg">Cursor</h2>
+    <p class="caption center">"Clicky companion"</p>
+    <div class="separator"></div>
+    
+    <!-- Disable tab nav with 'tabindex -1'. I mean keyboard only ain't using cursor, right? -->
+    <input type="radio" name="cursor-options" class="cursor-option" tabindex="-1" id="cursor-option-none" checked>
+    <input type="radio" name="cursor-options" class="cursor-option" tabindex="-1" id="cursor-option-koakuma">
+    <input type="radio" name="cursor-options" class="cursor-option" tabindex="-1" id="cursor-option-koishi">
+    <input type="radio" name="cursor-options" class="cursor-option" tabindex="-1" id="cursor-option-youmu">
+    
+    <input type="radio" name="background-options" class="cursor-option" tabindex="-1" id="cursor-bg-option-1" checked>
+    <input type="radio" name="background-options" class="cursor-option" tabindex="-1" id="cursor-bg-option-2">
+    <input type="radio" name="background-options" class="cursor-option" tabindex="-1" id="cursor-bg-option-3">
+
+    <div class="cursor-selectors">
+      <div class="cursor-selector btn-cursor-koakuma">
+        <label class="btn-cursor main" for="cursor-option-koakuma">Koakuma</label>
+        <label class="btn-cursor overlay" for="cursor-option-none">Koakuma</label>
+      </div>
+      <div class="cursor-selector btn-cursor-koishi">
+        <label class="btn-cursor main" for="cursor-option-koishi">Koishi</label>
+        <label class="btn-cursor overlay" for="cursor-option-none">Koishi</label>
+      </div>
+      <div class="cursor-selector btn-cursor-youmu">
+        <label class="btn-cursor main" for="cursor-option-youmu">Youmu</label>
+        <label class="btn-cursor overlay" for="cursor-option-none">Youmu</label>
+      </div>
+    </div>
+
+    <div class="cursor-selectors background">
+      <label for="cursor-bg-option-1" class="cursor-selector btn-cursor btn-bg-cursor-1">BG 1</label>
+      <label for="cursor-bg-option-2" class="cursor-selector btn-cursor btn-bg-cursor-2">BG 2</label>
+      <label for="cursor-bg-option-3" class="cursor-selector btn-cursor btn-bg-cursor-3">BG 3</label>
+    </div>
+
+    <div class="cursor-test-field cursor-obj-default">
+      <div class="cursor-test-field-boxes">
+        <div class="cursor-obj-wait">WAIT</div>
+        <div class="cursor-obj-busy">BUSY</div>
+        <div class="cursor-obj-pointer">POINTER</div>
+      </div>
+      <div class="cursor-obj-download">
+        <div class="btn-cursor-download none">Download</div>
+        <a href="/file/cursor/Koakuma Cursor v0.1c.zip" class="cursor-obj-pointer btn-cursor-download koakuma">Download</a>
+        <a href="/file/cursor/Koishi Cursor v0.1.zip" class="cursor-obj-pointer btn-cursor-download koishi">Download</a>
+        <a href="/file/cursor/Youmu Cursor v0.1.zip" class="cursor-obj-pointer btn-cursor-download youmu">Download</a>
+      </div>
+    </div>
+  </section>
+  <div class="separator" style="border-top: 25vh solid transparent;"></div>
+
   {% include page-wip.html %}
 </main>

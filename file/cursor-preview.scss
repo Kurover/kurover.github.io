@@ -11,20 +11,153 @@
 //   ;
 // }
 
-.cursor-preview {
-  position: relative;
+.cursor-option {
+	display: none;
 }
-.cursor-toggle:focus {
-  color: var(--clr-warning);
+.cursor-preview-master {
+	display: block;
+	padding: 4px;
+	box-sizing: border-box;
+	border: 4px solid var(--clr-border);
 }
-.cursor-toggle:focus ~ .cursor-preview {
-  background: #ffffff17;
-  & span {
-    color: var(--clr-notice);
-    font-size: 1.5rem;
-    padding: .25rem;
-  }
+.cursor-selectors {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
 }
+.cursor-selector {
+	--state-main: block;
+	--state-overlay: none;
+	--border-active: 0 0 0 2px var(--clr-text);
+}
+.btn-cursor {
+	cursor: pointer;
+	display: var(--state-main); // set above
+	margin: .25rem;
+	line-height: 32px;
+	text-align: center;
+	background-color: var(--clr-secondary);
+}
+.btn-cursor.overlay {
+	display: var(--state-overlay);
+	background-color: var(--clr-background);
+}
+.cursor-test-field {
+	position: relative;
+	box-sizing: border-box;
+	margin-top: 1rem;
+	// margin-bottom: 1rem;
+	height: 420px;
+	padding: 1rem;
+	image-rendering: pixelated;
+	// background-image: url(/img/gallery/touhou_grassroot3__px.gif); set below
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.cursor-test-field-boxes {
+	display: flex;
+	height: 100%;
+	flex-wrap: wrap;
+	flex-direction: column;
+	justify-content: center;
+	--clr-textbox: transparent;
+	--clr-box-bg: rgba(0, 0, 0, 0.15);
+	color: var(--clr-textbox);
+	gap: 2rem;
+	& > * {
+		background-color: var(--clr-box-bg);
+		height: 70%;
+		text-align: center;
+		font-size: 1.5rem;
+		padding-top: 1rem;
+		user-select: none;
+	}
+}
+.btn-cursor-download {
+	display: none;
+	position: absolute;
+	bottom: 1rem;
+	right: 1rem;
+	background-color: var(--clr-btn-download);
+	padding: 1rem;
+	width: fit-content;
+	box-shadow: -4px 0 0 0 var(--clr-link);
+	color: var(--clr-text);
+	line-height: 1.5rem;
+	font-size: 1.5rem;
+	text-decoration: none;
+	&:hover {
+		background-color: var(--clr-btn-download-hover);
+		color: var(--clr-text);
+	}
+	&.none {
+		cursor: default;
+		color: var(--clr-text-fade);
+		background-color: var(--clr-background);
+		box-shadow: none;
+	}
+}
+
+
+// CSS State Styling
+// I forgor that this is pain, peko.
+.cursor-preview-master:has(> #cursor-bg-option-1:checked) > .cursor-test-field {background-image: url(/img/gallery/touhou_grassroot3__px.gif);}
+.cursor-preview-master:has(> #cursor-bg-option-2:checked) > .cursor-test-field {background-image: url(/img/gallery/touhou_trio18__px.png);}
+.cursor-preview-master:has(> #cursor-bg-option-3:checked) > .cursor-test-field {background-image: url(/img/gallery/oc_clover2__hd.webp); image-rendering: auto;}
+#cursor-bg-option-1:checked ~ .cursor-selectors.background > .btn-bg-cursor-1 {
+	background-color: var(--clr-background);
+	box-shadow: var(--border-active);
+}
+#cursor-bg-option-2:checked ~ .cursor-selectors.background > .btn-bg-cursor-2 {
+	background-color: var(--clr-background);
+	box-shadow: var(--border-active);
+}
+#cursor-bg-option-3:checked ~ .cursor-selectors.background > .btn-bg-cursor-3 {
+	background-color: var(--clr-background);
+	box-shadow: var(--border-active);
+}
+
+#cursor-option-none:checked ~ .cursor-test-field {
+	& > .cursor-test-field-boxes {
+		--clr-textbox: var(--clr-text);
+		--clr-box-bg: rgba(0, 0, 0, 0.7);
+	}
+	& .none {
+		display: block;
+	}
+}
+#cursor-option-koakuma:checked {
+	&  ~ .cursor-selectors > .btn-cursor-koakuma {
+		--state-main: none;
+		--state-overlay: block;
+		& > .overlay {box-shadow: var(--border-active);}
+	}
+	& ~ .cursor-test-field .koakuma {
+		display: block;
+	}
+}
+#cursor-option-koishi:checked {
+	&  ~ .cursor-selectors > .btn-cursor-koishi {
+		--state-main: none;
+		--state-overlay: block;
+		& > .overlay {box-shadow: var(--border-active);}
+	}
+	& ~ .cursor-test-field .koishi {
+		display: block;
+	}
+}
+#cursor-option-youmu:checked {
+	& ~ .cursor-selectors > .btn-cursor-youmu {
+		--state-main: none;
+		--state-overlay: block;
+		& > .overlay {box-shadow: var(--border-active);}
+	}
+	& ~ .cursor-test-field .youmu {
+		display: block;
+	}
+}
+
+
 
 // Property memory
 // Currently only for keeping it visible when clicked. Not really useful in our case because IDK how to make the CSS variable persist with other interaction with this method
@@ -45,28 +178,43 @@
 //   }
 // }
 
-// ? Base style
-// Simple naming because
-.cur-default {animation: var(--cursor-default) infinite;}
-.cur-wait {animation: var(--cursor-wait) infinite;}
-.cur-busy {animation: var(--cursor-busy) infinite;}
-.cur-pointer {animation: var(--cursor-pointer) infinite;}
+// ? Identifier data
+// trigger this on .cursor-test-field
+// animating cursor means it has inherent :hover property
+.cursor-obj-default {animation: var(--cursor-default) infinite;}
+.cursor-obj-wait {animation: var(--cursor-wait) infinite;}
+.cursor-obj-busy {animation: var(--cursor-busy) infinite;}
+.cursor-obj-pointer {animation: var(--cursor-pointer) infinite;}
 
 // ! Template
-// .cursor-toggle--IDENTIFIER:focus ~ .cursor-preview {
+// .cursor-preview-master:has(> .cursor-toggle > #cursor-option-IDENTIFIER:checked) > .cursor-test-field {
 //   --cursor-default: IDENTIFIER-default 1s;
 //   --cursor-wait: IDENTIFIER-wait 1s;
 //   --cursor-busy: IDENTIFIER-busy 1s;
 //   --cursor-pointer: IDENTIFIER-pointer 1s;
 // }
 
-// @title Koakuma
-.cursor-toggle--koakuma:focus ~ .cursor-preview {
+// @title Master Settings
+#cursor-option-koakuma:checked ~ .cursor-test-field {
   --cursor-default: koakuma-default 1.2s;
   --cursor-wait: koakuma-wait 2s;
   --cursor-busy: koakuma-busy 2s;
   --cursor-pointer: koakuma-pointer 2s;
 }
+#cursor-option-koishi:checked ~ .cursor-test-field {
+  --cursor-default: koishi-default 1s;
+  --cursor-wait: koishi-wait 1.5s;
+  --cursor-busy: koishi-busy 1.5s;
+  --cursor-pointer: koishi-pointer 1.5s;
+}
+#cursor-option-youmu:checked ~ .cursor-test-field {
+  --cursor-default: youmu-default 2.5s;
+  --cursor-wait: youmu-wait 2.5s;
+  --cursor-busy: youmu-busy 2.5s;
+  --cursor-pointer: youmu-pointer 5s;
+}
+
+// @title Koakuma
 @keyframes koakuma-default {
   0% {cursor: url("/img/file/cursor/koakuma/cur_koakuma-default1.png"), auto}
   9% {cursor: url("/img/file/cursor/koakuma/cur_koakuma-default2.png"), auto}
@@ -161,12 +309,6 @@
 }
 
 // @title Koishi
-.cursor-toggle--koishi:focus ~ .cursor-preview {
-  --cursor-default: koishi-default 1s;
-  --cursor-wait: koishi-wait 1.5s;
-  --cursor-busy: koishi-busy 1.5s;
-  --cursor-pointer: koishi-pointer 1.5s;
-}
 @keyframes koishi-default {
   0% {cursor: url("/img/file/cursor/koishi/cur_koishi-default1.png"), auto}
   6.6% {cursor: url("/img/file/cursor/koishi/cur_koishi-default2.png"), auto}
@@ -241,12 +383,6 @@
 }
 
 // @title Youmu
-.cursor-toggle--youmu:focus ~ .cursor-preview {
-  --cursor-default: youmu-default 2.5s;
-  --cursor-wait: youmu-wait 2.5s;
-  --cursor-busy: youmu-busy 2.5s;
-  --cursor-pointer: youmu-pointer 5s;
-}
 @keyframes youmu-default {
   0% {cursor: url("/img/file/cursor/youmu/cur_youmu-default1.png"), auto}
   9% {cursor: url("/img/file/cursor/youmu/cur_youmu-default2.png"), auto}
