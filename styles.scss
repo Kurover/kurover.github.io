@@ -1854,6 +1854,19 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
       transition: 0s;
     }
   }
+  // dim background, especially that is not fullscreen zoom, see the mod in @media
+  &:focus::before {
+    pointer-events: none;
+    z-index: 9;
+    content: "";
+    position: fixed;
+    background-color: var(--clr-background);
+    opacity: .8;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
   // ? @section ## Mod
   // Using OOCS because I don't want to bloat the html with BEM
   &.left img {object-position: left;}
@@ -1894,7 +1907,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
 }
 .gallery-image__link {
   visibility: hidden;
-  position: fixed;
+  position: absolute;
   z-index: 2; // override skip to top
   bottom: 1rem;
   right: 1rem;
@@ -1926,13 +1939,14 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
 }
 .gallery-close {
   display: none;
-  position: fixed;
+  position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
 }
 // The :is:has :active is to make sure mobile download button works because of course it is.
+// I might just split the css between 2 screen but hmmmmm
 .gallery-list:is(:focus, :has( .gallery-image__link:active)) > .gallery-image {
   z-index: 9;
   position: fixed;
@@ -1973,6 +1987,38 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
 }
 
 // @misc @ Media
+@media (min-width: 769px) {
+  .gallery-list:is(:focus, :has( .gallery-image__link:active)) > .gallery-image {
+    left: calc(10vw - (100vw - 100%)); // scrollbar made this way too complicated
+    top: 5vh;
+    height: 90vh;
+    width: 80vw;
+    border: 2px solid var(--clr-border);
+    overflow: auto;
+  }
+  .gallery-close {
+    cursor: pointer;
+    top: 1rem;
+    right: 1rem;
+    bottom: unset;
+    left: unset;
+    padding: 1rem 1.5rem;
+    border: 1px solid var(--clr-border);
+    transition: background .1s;
+    &::before {
+      content: "X";
+      display: block;
+    }
+    &:hover {
+      background-color: var(--clr-warning);
+    }
+  }
+  .gallery-image__link {
+    position: fixed;
+    bottom: 8vh;
+    right: 12vw;
+  }
+}
 @media (max-width: 768px) {
   .gallery-list {
     width: 144px;
