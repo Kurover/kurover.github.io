@@ -1,3 +1,6 @@
-illith:
-  dropbox: https://www.dropbox.com/s/g4ry99h2plm1jwb/Live2D%20Illith-ST.zip?dl=0
-  gdrive: https://drive.google.com/file/d/1luHz6xX5sE0kE2Vaja1Dn77uQOU5Xjlm/view?usp=sharing
+list:
+  illith:
+    name: Illith-ST
+    preview: /img/file/vtuber_illith-st.webp
+    link-dropbox: https://www.dropbox.com/s/g4ry99h2plm1jwb/Live2D%20Illith-ST.zip?dl=0
+    link-gdrive: https://drive.google.com/file/d/1luHz6xX5sE0kE2Vaja1Dn77uQOU5Xjlm/view?usp=sharing
