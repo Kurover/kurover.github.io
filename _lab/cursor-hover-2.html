@@ -7,35 +7,71 @@ alias: CSS - Cursor Simulator
   <p>Bwoah!</p>
 </section>
 
-<section class="wrapper cursor-sim-root">
-  <p>mobile breakpoint</p>
-  <input type="checkbox" class="mobile-only" tabindex="-1" id="cursor-sim-mobile">
-  <label for="cursor-sim-mobile" class="cursor-sim-mobile-toggle mobile-only">CLICK TO SHOW ANYWAY</label>
+<section class="wrapper CSOS-root">
+  <p class="mobile-only">Mobile breakpoint</p>
+  <input type="checkbox" class="mobile-only" tabindex="-1" id="CSOS-mobile">
+  <label for="CSOS-mobile" class="CSOS-mobile-toggle mobile-only">CLICK TO SHOW ANYWAY</label>
 
-  <input type="checkbox" tabindex="-1" id="CSOS-cursor-select-state">
+  <br>
+  <br>
 
-  <div class="cursor-sim-container">
-    <p>actual content here</p>
+  <!-- What is the current cursor selection -->
+  <input type="radio" name="cursor-state" tabindex="-1" id="CSOS-cursor-none" checked>
+  {% for cursor-lists in site.data.file.cursor.list %}
+    {% assign cursor = cursor-lists[1] %}
+    <input type="radio" name="cursor-state" tabindex="-1" id="CSOS-cursor-{{ cursor.name }}">
+  {% endfor %}
+
+  <div class="CSOS-container">
+
+    <!-- Taskbar state -->
+    <input type="checkbox" tabindex="-1" id="CSOS-start-menu-state">
+    <input type="checkbox" tabindex="-1" id="CSOS-cursor-window-state" checked>
+
+    <br>
+
+    <p>spanactual content here</p>
 
     <!-- grab a single entry -->
     <p>test {{site.data.file.cursor.list.koishi.link-dropbox}}</p>
     
     <!-- indexing example -->
-    {%- for content in site.data.file.cursor.list -%}
+    {% for content in site.data.file.cursor.list %}
     {% assign cursor = content[1] %}
       <p>{{ cursor }}</p>
     {% endfor %}
 
-    <div class="CSOS-cursor-select">
+    <div class="CSOS-cursor-window">
+
+      <!-- invisible border for cursor, couldn't contain it inside div or else it draws itself in front of the container since it's absolute -->
+      <div class="CSOS-win-border top"></div>
+      <div class="CSOS-win-border right"></div>
+      <div class="CSOS-win-border bottom"></div>
+      <div class="CSOS-win-border left"></div>
+      <div class="CSOS-win-border nw"></div>
+      <div class="CSOS-win-border ne"></div>
+      <div class="CSOS-win-border sw"></div>
+      <div class="CSOS-win-border se"></div>
+
+      <!-- topbar thing, will shift the rest of the content -->
       <div class="CSOS-win-topbar">
         <div class="CSOS-win-topbar--title">Super Cursor Selector 900000000000000000000</div>
-        <label for="CSOS-cursor-select-state" class="CSOS-win-topbar--button minimize"></label>
+        <label for="CSOS-cursor-window-state" class="CSOS-win-topbar--button minimize"></label>
         <div class="CSOS-win-topbar--button maximize dim"></div>
         <div class="CSOS-win-topbar--button close dim"></div>
       </div>
-      <div class="CSOS-win-content"></div>
+      <div class="CSOS-cursor-contents">
+        <label for="CSOS-cursor-none" class="CSOS-cursor-content">Your default cursor</label>
+        {% for cursor-lists in site.data.file.cursor.list %}
+          {% assign cursor = cursor-lists[1] %}
+          <label for="CSOS-cursor-{{ cursor.name }}" class="CSOS-cursor-content">{{ cursor.name }}</label>
+        {% endfor %}
+      </div>
     </div>
-    <div class="CSOS-taskbar"></div>
+    <div class="CSOS-taskbar">
+      <label for="CSOS-start-menu-state" class="CSOS-start-menu"></label>
+      <label for="CSOS-cursor-window-state" class="CSOS-cursor-window-bar"></label>
+    </div>
   </div>
 </section>
 
