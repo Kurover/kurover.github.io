@@ -48,6 +48,11 @@
   position: relative;
   overflow: hidden;
 }
+.CSOS-desktop {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
 
 // ? @main . Simulator content
 
@@ -93,6 +98,10 @@
   display: grid; // easiest way to prevent content overflow
   grid-template-rows: var(--window-topbar-height) auto;
   margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   width: 420px;
   height: 240px;
 }
@@ -203,12 +212,6 @@
 }
 
 // ? Resizables mechanic
-.CSOS-desktop {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  z-index: 1;
-}
 .CSOS-resizable {
   z-index: 2;
   position: absolute;
@@ -240,6 +243,9 @@
 }
 
 // @section . , . Menu - Cursor
+// #CSOS-cursor-window {
+//   margin: auto;
+// }
 .CSOS-cursor-contents {
   overflow-y: scroll;
   scrollbar-width: thin;
