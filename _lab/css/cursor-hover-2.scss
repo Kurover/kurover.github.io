@@ -4,25 +4,35 @@
 
 
 // ? @section . Container styles
+.wrapper--CSOS {
+  max-width: var(--CSOS-width);
+  padding: unset;
+}
 .CSOS-root {
   position: relative;
   --window-topbar-height: 32px; // for content layout, but fixable with display:grid on the window itself. Keeping it to remind me later
+  --CSOS-width: 896px;
+  --CSOS-height: 480px;
+  --CSOS-height-taskbar: 48px;
+  
 }
 .CSOS-container {
-  display: none;
-  position: relative;
+  display: grid;
+  grid-template-rows: auto var(--CSOS-height-taskbar);
+  // position: relative;
+  box-sizing: border-box;
   height: 480px;
   border: solid gray 1px;
   animation: var(--cursor-default) infinite;
   & p {
-    display: inline-block;
     cursor: text;
+    color: var(--clr-text-fade);
     animation: var(--cursor-text) infinite;
   }
 }
-@media (min-width: 769px) {
+@media (max-width: 768px) {
   .CSOS-container {
-    display: block;
+    display: none;
   }
 }
 #CSOS-mobile:checked {
@@ -31,17 +41,18 @@
     display: none;
   }
   & ~ .CSOS-container {
-    display: block;
+    display: grid;
   }
+}
+.CSOS-canvas {
+  position: relative;
+  overflow: hidden;
 }
 
 // ? @main . Simulator content
 
 // @section . , Mechanics
 
-#CSOS-cursor-window-state:not(:checked) ~ .CSOS-cursor-window {
-  visibility: hidden;
-}
 #CSOS-cursor-Koakuma:checked ~ .CSOS-container {
   --cursor-default: koakuma-default 1.2s;
   --cursor-wait: koakuma-wait 2s;
@@ -61,6 +72,10 @@
   --cursor-pointer: youmu-pointer 5s;
 }
 
+#CSOS-cursor-window-visibility:not(:checked) ~ .CSOS-container #CSOS-cursor-window {
+  visibility: hidden;
+}
+
 // ? Cursor selection state class
 // animating the cursor means it has inherent :hover property
 .cur-default {animation: var(--cursor-default) infinite;}
@@ -69,12 +84,23 @@
 .cur-pointer {animation: var(--cursor-pointer) infinite;}
 
 // @section . , Display
-// @section . , . Topbar & Win Border
+// @misc . , . Core Window
+.CSOS-window {
+  background-color: brown;
+  border: 2px solid white;
+  box-sizing: border-box;
+  position: absolute;
+  display: grid; // easiest way to prevent content overflow
+  grid-template-rows: var(--window-topbar-height) auto;
+  margin: auto;
+  width: 420px;
+  height: 240px;
+}
 .CSOS-win-topbar {
   background-color: white;
   display: grid;
   grid-template-columns: 75% auto auto auto;
-  height: var(--window-topbar-height);
+  // height: var(--window-topbar-height);
   line-height: var(--window-topbar-height);
   // padding-left: 75%;
 }
@@ -176,21 +202,44 @@
   }
 }
 
-// @section . , . Menu - Cursor
-.CSOS-cursor-window {
-  background-color: brown;
-  border: 2px solid white;
-  box-sizing: border-box;
+// ? Resizables mechanic
+.CSOS-desktop {
   position: absolute;
-  display: grid; // easiest way to prevent content overflow
-  margin: auto;
-  top: 0;
   bottom: 0;
   left: 0;
-  right: 0;
-  width: 420px;
-  height: 240px;
+  z-index: 1;
 }
+.CSOS-resizable {
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: var(--CSOS-width);
+  max-height: calc(var(--CSOS-height) - var(--CSOS-height-taskbar));
+}
+.CSOS-resizable-anchor {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  // width: 1px;
+  // height: 1px;
+}
+.CSOS-resizable-content {
+  position: absolute;
+  top: 20px;
+  left: -8px;
+}
+.CSOS-resizable-controller {
+  resize: both;
+  overflow: scroll;
+  opacity: 0.1;
+  width: calc(var(--CSOS-width) / 3);
+  height: calc(var(--CSOS-height) / 6);
+  max-width: calc(var(--CSOS-width) - 16px);
+  max-height: calc(var(--CSOS-height) - (var(--CSOS-height-taskbar) * 2));
+}
+
+// @section . , . Menu - Cursor
 .CSOS-cursor-contents {
   overflow-y: scroll;
   scrollbar-width: thin;
@@ -207,29 +256,31 @@
   line-height: 32px;
 }
 
+// @section . , . Menu - Orb
+
+// @section . , . Menu - Background
+
 // @section . , . Taskbar
 .CSOS-taskbar {
   display: flex;
   background-color: cornsilk;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 10%;
+  height: 100%;
 }
-.CSOS-start-menu {
+.CSOS-start-menu-bar {
   cursor: pointer;
   animation: var(--cursor-pointer) infinite;
   background-color: darkmagenta;
   width: 48px;
 }
-.CSOS-cursor-window-bar {
+.CSOS-window-bar {
   cursor: pointer;
   animation: var(--cursor-pointer) infinite;
   background-color: gray;
   max-width: 160px;
   flex: 1;
 }
+
+// @section . , . Start Menu
 
 
 // ? @title ____ Old ver. ____

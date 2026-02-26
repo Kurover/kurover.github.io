@@ -7,7 +7,8 @@ alias: CSS - Cursor Simulator
   <p>Bwoah!</p>
 </section>
 
-<section class="wrapper CSOS-root">
+<!-- @main ____ CSOS -->
+<section class="wrapper wrapper--CSOS CSOS-root" tabindex="-1">
   <p class="mobile-only">Mobile breakpoint</p>
   <input type="checkbox" class="mobile-only" tabindex="-1" id="CSOS-mobile">
   <label for="CSOS-mobile" class="CSOS-mobile-toggle mobile-only">CLICK TO SHOW ANYWAY</label>
@@ -15,65 +16,161 @@ alias: CSS - Cursor Simulator
   <br>
   <br>
 
-  <!-- What is the current cursor selection -->
+  <!-- ! What is the current cursor selection -->
   <input type="radio" name="cursor-state" tabindex="-1" id="CSOS-cursor-none" checked>
   {% for cursor-lists in site.data.file.cursor.list %}
     {% assign cursor = cursor-lists[1] %}
     <input type="radio" name="cursor-state" tabindex="-1" id="CSOS-cursor-{{ cursor.name }}">
   {% endfor %}
 
+  <!-- ! Taskbar state and window controller -->
+  <input type="checkbox" tabindex="-1" id="CSOS-cursor-window-state" checked>
+  <input type="checkbox" tabindex="-1" id="CSOS-orb-window-state">
+  
+  <input type="checkbox" tabindex="-1" id="CSOS-cursor-window-visibility" checked>
+  <input type="checkbox" tabindex="-1" id="CSOS-orb-window-visibility" checked>
+
   <div class="CSOS-container">
 
-    <!-- Taskbar state -->
-    <input type="checkbox" tabindex="-1" id="CSOS-start-menu-state">
-    <input type="checkbox" tabindex="-1" id="CSOS-cursor-window-state" checked>
+    <section class="CSOS-canvas">
 
-    <br>
+      <section class="CSOS-desktop">
+        <p>actual content here</p>
 
-    <p>spanactual content here</p>
-
-    <!-- grab a single entry -->
-    <p>test {{site.data.file.cursor.list.koishi.link-dropbox}}</p>
-    
-    <!-- indexing example -->
-    {% for content in site.data.file.cursor.list %}
-    {% assign cursor = content[1] %}
-      <p>{{ cursor }}</p>
-    {% endfor %}
-
-    <div class="CSOS-cursor-window">
-
-      <!-- invisible border for cursor, couldn't contain it inside div or else it draws itself in front of the container since it's absolute -->
-      <div class="CSOS-win-border top"></div>
-      <div class="CSOS-win-border right"></div>
-      <div class="CSOS-win-border bottom"></div>
-      <div class="CSOS-win-border left"></div>
-      <div class="CSOS-win-border nw"></div>
-      <div class="CSOS-win-border ne"></div>
-      <div class="CSOS-win-border sw"></div>
-      <div class="CSOS-win-border se"></div>
-
-      <!-- topbar thing, will shift the rest of the content -->
-      <div class="CSOS-win-topbar">
-        <div class="CSOS-win-topbar--title">Super Cursor Selector 900000000000000000000</div>
-        <label for="CSOS-cursor-window-state" class="CSOS-win-topbar--button minimize"></label>
-        <div class="CSOS-win-topbar--button maximize dim"></div>
-        <div class="CSOS-win-topbar--button close dim"></div>
-      </div>
-      <div class="CSOS-cursor-contents">
-        <label for="CSOS-cursor-none" class="CSOS-cursor-content">Your default cursor</label>
-        {% for cursor-lists in site.data.file.cursor.list %}
-          {% assign cursor = cursor-lists[1] %}
-          <label for="CSOS-cursor-{{ cursor.name }}" class="CSOS-cursor-content">{{ cursor.name }}</label>
+        <!-- grab a single entry -->
+        <p>test {{site.data.file.cursor.list.koishi.link-dropbox}}</p>
+        
+        <!-- indexing example -->
+        {% for content in site.data.file.cursor.list %}
+        {% assign cursor = content[1] %}
+          <p>{{ cursor }}</p>
         {% endfor %}
+
+      </section>
+
+      <p style="color: white">Super duper cool draggable window version that SUCK!! (drag the "O")</p>
+      <p style="color: white">The resizable window eats up spaces behind it so it's a nono</p>
+
+      <!-- @section . Window Content -->
+       
+      <!-- * Cursor Selector -->
+
+
+      <section class="CSOS-resizable" id="CSOS-cursor-window">
+        X
+        <div class="CSOS-resizable-anchor">
+          O
+          <div class="CSOS-resizable-content">
+            <div class="CSOS-window" tabindex="-1">
+              <!-- invisible border for cursor, couldn't contain it inside div or else it draws itself in front of the container since it's absolute -->
+              <!-- not sure if I keep this or not as it just for visual and might be confusing -->
+              <div class="CSOS-win-border top"></div>
+              <div class="CSOS-win-border right"></div>
+              <div class="CSOS-win-border bottom"></div>
+              <div class="CSOS-win-border left"></div>
+              <div class="CSOS-win-border nw"></div>
+              <div class="CSOS-win-border ne"></div>
+              <div class="CSOS-win-border sw"></div>
+              <div class="CSOS-win-border se"></div>
+
+              <!-- topbar thing, will shift the rest of the content -->
+              <div class="CSOS-win-topbar">
+                <div class="CSOS-win-topbar--title">Super Cursor Selector 900000000000000000000</div>
+                <label for="CSOS-cursor-window-visibility" class="CSOS-win-topbar--button minimize"></label>
+                <div class="CSOS-win-topbar--button maximize dim"></div>
+                <div class="CSOS-win-topbar--button close dim"></div>
+              </div>
+
+              <div class="CSOS-cursor-contents">
+                <label for="CSOS-cursor-none" class="CSOS-cursor-content">Your default cursor</label>
+                {% for cursor-lists in site.data.file.cursor.list %}
+                  {% assign cursor = cursor-lists[1] %}
+                  <label for="CSOS-cursor-{{ cursor.name }}" class="CSOS-cursor-content">{{ cursor.name }}</label>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="CSOS-resizable-controller" tabindex="-1"></div>
+      </section>
+      
+
+      <!-- * Start ~ORB~ Selector -->
+
+      <section class="CSOS-orb-window"></section>
+
+      <!-- * Background Selector? -->
+
+      <section class="CSOS-background-window"></section>
+
+    </section>
+
+    
+    <!-- * Taskbar and window handler -->
+    <section class="CSOS-taskbar">
+      <!-- * Start Menu, menu -->
+      <div class="CSOS-start-menu-bar">
+        <div class="CSOS-start-menus">
+          <div class="item1"></div>
+          <div class="item2"></div>
+          <div class="item3"></div>
+        </div>
       </div>
-    </div>
-    <div class="CSOS-taskbar">
-      <label for="CSOS-start-menu-state" class="CSOS-start-menu"></label>
-      <label for="CSOS-cursor-window-state" class="CSOS-cursor-window-bar"></label>
-    </div>
+
+      <label for="CSOS-cursor-window-visibility" class="CSOS-window-bar"></label>
+      <label for="CSOS-orb-window-visibility" class="CSOS-window-bar"></label>
+    </section>
   </div>
 </section>
+<!-- @main ____ CSOS -->
+<section class="wrapper wrapper--CSOS CSOS-root" tabindex="-1">
+  <div class="CSOS-container">
+    <section class="CSOS-canvas">
+      <p style="color: white">Super duper cool draggable window version that SUCK!! (drag the "O")</p>
+      <p style="color: white">The resizable window eats up spaces behind it so it's a nono</p>
+
+      <section class="CSOS-resizable">
+        <div class="CSOS-resizable-anchor">
+          O
+          <div class="CSOS-resizable-content">
+            <div class="CSOS-window" tabindex="-1">
+
+              <div class="CSOS-win-topbar">
+                <div class="CSOS-win-topbar--title">Super Cursor Selector 900000000000000000000</div>
+                <label for="CSOS-cursor-window-visibility" class="CSOS-win-topbar--button minimize"></label>
+                <div class="CSOS-win-topbar--button maximize dim"></div>
+                <div class="CSOS-win-topbar--button close dim"></div>
+              </div>
+
+              <div class="CSOS-cursor-contents">
+                <p>lorem 1</p>
+                <p>lorem 2</p>
+                <p>lorem 3</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="CSOS-resizable-controller" tabindex="-1"></div>
+      </section>
+    </section>
+
+    
+    <section class="CSOS-taskbar">
+      <div class="CSOS-start-menu-bar">
+        <div class="CSOS-start-menus">
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
+
+
+
+
+
+
 
 <section class="wrapper cursor-preview-master">
   <h2 class="title-full title-full--no-bg">Cursor</h2>
