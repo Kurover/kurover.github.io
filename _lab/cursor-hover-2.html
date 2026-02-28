@@ -7,35 +7,65 @@ alias: CSS - Cursor Simulator
   <p>Bwoah!</p>
 </section>
 
-<!-- @main ____ CSOS -->
-<section class="wrapper wrapper--CSOS CSOS-root" tabindex="-1">
+<!-- @main ____ CSOS MAIN -->
+<section class="wrapper wrapper--CSOS CSOS-root">
+  
+  <input type="checkbox" id="CSOS-start-menu-state">
+
+  <div class="CSOS-container">
+    <!-- @section . Desktop/canvas -->
+    <div class="CSOS-canvas">
+      <p>lorem ipsum 1</p>
+      <p>lorem ipsum 2</p>
+
+      <div class="CSOS-start-menus">
+        <p>hello mr.world</p>
+      </div>
+    </div>
+
+    <!-- @section . Taskbar -->
+    <div class="CSOS-taskbar">
+      <label for="CSOS-start-menu-state" class="CSOS-start-menu-bar">
+        <div class="CSOS-start-orb-bar"></div>
+        <div class="CSOS-start-orb-bar active"></div>
+      </label>
+      <div class="CSOS-start-time-bar"><span>xx:xx</span></div>
+    </div>
+  </div>
+</section>
+
+<hr><br>
+
+<!-- @main ____ CSOSold -->
+<section class="wrapper wrapper--CSOSold CSOSold-root" tabindex="-1">
+  <h2>Scrapped Design</h2>
   <p class="mobile-only">Mobile breakpoint</p>
-  <input type="checkbox" class="mobile-only" tabindex="-1" id="CSOS-mobile">
-  <label for="CSOS-mobile" class="CSOS-mobile-toggle mobile-only">CLICK TO SHOW ANYWAY</label>
+  <input type="checkbox" class="mobile-only" tabindex="-1" id="CSOSold-mobile">
+  <label for="CSOSold-mobile" class="CSOSold-mobile-toggle mobile-only">CLICK TO SHOW ANYWAY</label>
 
   <br>
   <br>
 
   <!-- ! What is the current cursor selection -->
-  <input type="radio" name="cursor-state" tabindex="-1" id="CSOS-cursor-none" checked>
+  <input type="radio" name="cursor-state" tabindex="-1" id="CSOSold-cursor-none" checked>
   {% for cursor-lists in site.data.file.cursor.list %}
     {% assign cursor = cursor-lists[1] %}
-    <input type="radio" name="cursor-state" tabindex="-1" id="CSOS-cursor-{{ cursor.name }}">
+    <input type="radio" name="cursor-state" tabindex="-1" id="CSOSold-cursor-{{ cursor.name }}">
   {% endfor %}
 
   <!-- ! Taskbar state and window controller -->
-  <input type="checkbox" tabindex="-1" id="CSOS-cursor-window-state" checked>
-  <input type="checkbox" tabindex="-1" id="CSOS-orb-window-state">
+  <input type="checkbox" tabindex="-1" id="CSOSold-cursor-window-state" checked>
+  <input type="checkbox" tabindex="-1" id="CSOSold-orb-window-state">
   
-  <input type="checkbox" tabindex="-1" id="CSOS-cursor-window-visibility" checked>
-  <input type="checkbox" tabindex="-1" id="CSOS-orb-window-visibility" checked>
+  <input type="checkbox" tabindex="-1" id="CSOSold-cursor-window-visibility" checked>
+  <input type="checkbox" tabindex="-1" id="CSOSold-orb-window-visibility" checked>
 
-  <div class="CSOS-container">
+  <div class="CSOSold-container">
 
-    <section class="CSOS-canvas">
+    <section class="CSOSold-canvas">
 
-      <section class="CSOS-desktop">
-        <p>actual content here</p>
+      <section class="CSOSold-desktop">
+        <p>the more I develop this, the worse the UX gets lol. I'm switching my approach to "put all the egg in a basket" mentality instead T.T</p>
 
         <!-- grab a single entry -->
         <p>test {{site.data.file.cursor.list.koishi.link-dropbox}}</p>
@@ -51,84 +81,96 @@ alias: CSS - Cursor Simulator
       <!-- @section . Window Content -->
        
       <!-- * Cursor Selector -->
-      <section class="CSOS-window" id="CSOS-cursor-window">
+      <section class="CSOSold-window" id="CSOSold-cursor-window">
         <!-- invisible border for cursor, couldn't contain it inside div or else it draws itself in front of the container since it's absolute -->
         <!-- not sure if I keep this or not as it just for visual and might be confusing -->
-        <div class="CSOS-win-border top"></div>
-        <div class="CSOS-win-border right"></div>
-        <div class="CSOS-win-border bottom"></div>
-        <div class="CSOS-win-border left"></div>
-        <div class="CSOS-win-border nw"></div>
-        <div class="CSOS-win-border ne"></div>
-        <div class="CSOS-win-border sw"></div>
-        <div class="CSOS-win-border se"></div>
+        <div class="CSOSold-win-border top"></div>
+        <div class="CSOSold-win-border right"></div>
+        <div class="CSOSold-win-border bottom"></div>
+        <div class="CSOSold-win-border left"></div>
+        <div class="CSOSold-win-border nw"></div>
+        <div class="CSOSold-win-border ne"></div>
+        <div class="CSOSold-win-border sw"></div>
+        <div class="CSOSold-win-border se"></div>
 
         <!-- topbar thing, will shift the rest of the content -->
-        <div class="CSOS-win-topbar">
-          <div class="CSOS-win-topbar--title">Super Cursor Selector 900000000000000000000</div>
-          <label for="CSOS-cursor-window-visibility" class="CSOS-win-topbar--button minimize"></label>
-          <div class="CSOS-win-topbar--button maximize dim"></div>
-          <div class="CSOS-win-topbar--button close dim"></div>
+        <div class="CSOSold-win-topbar">
+          <div class="CSOSold-win-topbar--title">Super Cursor Selector 900000000000000000000</div>
+          <label for="CSOSold-cursor-window-visibility" class="CSOSold-win-topbar--button minimize"></label>
+          <div class="CSOSold-win-topbar--button maximize dim"></div>
+          <div class="CSOSold-win-topbar--button close dim"></div>
         </div>
 
-        <div class="CSOS-cursor-contents">
-          <label for="CSOS-cursor-none" class="CSOS-cursor-content">Your default cursor</label>
+        <div class="CSOSold-cursor-contents">
+          <label for="CSOSold-cursor-none" class="CSOSold-cursor-content">Your default cursor</label>
           {% for cursor-lists in site.data.file.cursor.list %}
             {% assign cursor = cursor-lists[1] %}
-            <label for="CSOS-cursor-{{ cursor.name }}" class="CSOS-cursor-content">{{ cursor.name }}</label>
+            <label for="CSOSold-cursor-{{ cursor.name }}" class="CSOSold-cursor-content">{{ cursor.name }}</label>
           {% endfor %}
         </div>
       </section>      
 
       <!-- * Start ~ORB~ Selector -->
 
-      <section class="CSOS-orb-window"></section>
+      <section class="CSOSold-window" id="CSOSold-orb-window">
+        <div class="CSOSold-win-topbar">
+          <div class="CSOSold-win-topbar--title">**ORB**</div>
+          <label for="CSOSold-orb-window-visibility" class="CSOSold-win-topbar--button minimize"></label>
+          <div class="CSOSold-win-topbar--button maximize dim"></div>
+          <div class="CSOSold-win-topbar--button close dim"></div>
+        </div>
+
+        <div class="CSOSold-orb-contents">
+          lorem
+
+        </div>
+      </section>
 
       <!-- * Background Selector? -->
 
-      <section class="CSOS-background-window"></section>
+      <section class="CSOSold-background-window"></section>
 
     </section>
-
     
     <!-- * Taskbar and window handler -->
-    <section class="CSOS-taskbar">
+    <section class="CSOSold-taskbar">
       <!-- * Start Menu, menu -->
-      <div class="CSOS-start-menu-bar">
-        <div class="CSOS-start-menus">
+      <div class="CSOSold-start-menu-bar">
+        <div class="CSOSold-start-menus">
           <div class="item1"></div>
           <div class="item2"></div>
           <div class="item3"></div>
         </div>
       </div>
 
-      <label for="CSOS-cursor-window-visibility" class="CSOS-window-bar"></label>
-      <label for="CSOS-orb-window-visibility" class="CSOS-window-bar"></label>
+      <label for="CSOSold-cursor-window-visibility" class="CSOSold-window-bar" tabindex="-1"></label>
+      <label for="CSOSold-orb-window-visibility" class="CSOSold-window-bar" tabindex="-1"></label>
     </section>
   </div>
 </section>
 
 <!-- ! @misc . draggable fail -->
-<section class="wrapper wrapper--CSOS CSOS-root" tabindex="-1">
-  <div class="CSOS-container" style="display: grid;">
-    <section class="CSOS-canvas">
+<section class="wrapper wrapper--CSOSold CSOSold-root" tabindex="-1">
+  <div class="CSOSold-container" style="display: grid;">
+    <section class="CSOSold-canvas">
       <p style="color: white">Super duper cool draggable window version that SUCK!! (drag the "O")</p>
       <p style="color: white">The resizable window eats up spaces behind it so it's a nono</p>
+      <p style="color: white">Update: found the solution but hella jank. Usable but ain't gonna depend on it.</p>
 
-      <section class="CSOS-resizable">
-        <div class="CSOS-resizable-anchor">
+      <section class="CSOSold-resizable">
+        <div class="CSOSold-resizable-anchor">
           O
-          <div class="CSOS-resizable-content">
-            <div class="CSOS-window" tabindex="-1" style="top:unset;right:unset;bottom:unset;left:unset;">
+          <div class="CSOSold-resizable-content">
+            <div class="CSOSold-window" tabindex="-1" style="top:unset;right:unset;bottom:unset;left:unset;">
 
-              <div class="CSOS-win-topbar">
-                <div class="CSOS-win-topbar--title">Super Cursor Selector 900000000000000000000</div>
-                <label for="CSOS-cursor-window-visibility" class="CSOS-win-topbar--button minimize"></label>
-                <div class="CSOS-win-topbar--button maximize dim"></div>
-                <div class="CSOS-win-topbar--button close dim"></div>
+              <div class="CSOSold-win-topbar">
+                <div class="CSOSold-win-topbar--title">Super Draggable Selector</div>
+                <div class="CSOSold-win-topbar--button minimize dim"></div>
+                <div class="CSOSold-win-topbar--button maximize dim"></div>
+                <div class="CSOSold-win-topbar--button close dim"></div>
               </div>
 
-              <div class="CSOS-cursor-contents">
+              <div class="CSOSold-cursor-contents">
                 <p>lorem 1</p>
                 <p>lorem 2</p>
                 <p>lorem 3</p>
@@ -137,19 +179,23 @@ alias: CSS - Cursor Simulator
           </div>
         </div>
 
-        <div class="CSOS-resizable-controller" tabindex="-1"></div>
+        <div class="CSOSold-resizable-controller" tabindex="-1"></div>
+        <div class="CSOSold-resizable-dummy first"></div>
+        <div class="CSOSold-resizable-dummy second"></div>
       </section>
     </section>
 
     
-    <section class="CSOS-taskbar">
-      <div class="CSOS-start-menu-bar">
-        <div class="CSOS-start-menus">
+    <section class="CSOSold-taskbar">
+      <div class="CSOSold-start-menu-bar">
+        <div class="CSOSold-start-menus">
         </div>
       </div>
     </section>
   </div>
 </section>
+
+<hr><br>
 
 <section class="wrapper cursor-preview-master">
   <h2 class="title-full title-full--no-bg">Cursor</h2>

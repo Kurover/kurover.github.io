@@ -1,24 +1,150 @@
 ---
 ---
-// ? @title ____ New ver. ____
 
+// ? To Do
+// dim the window when unfocused
+// bottom border to title bar
 
-// ? @section . Container styles
+// ! @title ____ New NEW ver. ____
+// ? @section . Container core styles
+.CSOS-root {
+  --window-topbar-height: 32px; // for content layout, but fixable with display:grid on the window itself. Keeping it to remind me later
+  --CSOS-width: 896px;
+  --CSOS-height: 480px;
+  --CSOS-height-taskbar: 40px; 
+}
 .wrapper--CSOS {
   max-width: var(--CSOS-width);
   padding: unset;
 }
-.CSOS-root {
-  position: relative;
-  --window-topbar-height: 32px; // for content layout, but fixable with display:grid on the window itself. Keeping it to remind me later
-  --CSOS-width: 896px;
-  --CSOS-height: 480px;
-  --CSOS-height-taskbar: 48px;
-  
-}
 .CSOS-container {
   display: grid;
   grid-template-rows: auto var(--CSOS-height-taskbar);
+  position: relative;
+  box-sizing: border-box;
+  height: var(--CSOS-height);
+  border: solid gray 1px;
+  animation: var(--cursor-default) infinite;
+  & p {
+    cursor: text;
+    color: var(--clr-text-fade);
+    animation: var(--cursor-text) infinite;
+  }
+}
+
+// @section . , Canvas / Desktop
+.CSOS-canvas {
+  position: relative;
+  overflow: hidden;
+}
+
+// @section . , Taskbar
+.CSOS-taskbar {
+  // height is taken care by container grid size
+  display: flex;
+  background-color: cornsilk;
+  // height: 100%;
+  & > * {
+    line-height: var(--CSOS-height-taskbar);
+  }
+}
+.CSOS-start-menu-bar {
+  cursor: pointer;
+  animation: var(--cursor-pointer) infinite;
+  // background-color: darkmagenta;
+  width: 64px;
+}
+.CSOS-start-orb-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 64px;
+  width: 64px;
+  background-image: url(/img/file/Start-Menu-Illith-64x.png);
+  background-position: 0px -1px;
+  animation: start-menu-orb-hover .4s steps(1, end) reverse;
+  &:hover {
+    animation: none;
+    background-image: none;
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 64px;
+      width: 64px;
+      background-image: url(/img/file/Start-Menu-Illith-64x.png);
+      background-position: 0px -129px;
+      animation: start-menu-orb-hover .2s steps(1, end);
+    }
+  }
+  &.active {
+    pointer-events: none;
+    animation: none;
+    opacity: 0;
+  }
+}
+@keyframes start-menu-orb-hover {
+  0% {background-position: 0px -1px}
+  50% {background-position: 0px -65px}
+  100% {background-position: 0px -129px}
+}
+.CSOS-start-time-bar {
+  pointer-events: none;
+  width: 72px;
+  margin-left: auto;
+  color: black;
+  text-align: center;
+  & > span {
+    border: 2px solid black;
+    padding: 4px 8px;
+  }
+}
+#CSOS-start-menu-state:checked ~ .CSOS-container .CSOS-start-orb-bar {
+  opacity: 0;
+  & ~ .active {
+    opacity: 1;
+    background-position: 0px -193px;
+  }
+}
+#CSOS-start-menu-state:checked ~ .CSOS-container .CSOS-start-menus {
+  display: block;
+  animation: CSOS-start-menu .25s;
+}
+@keyframes CSOS-start-menu {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+// @section . , Start Menu Container
+.CSOS-start-menus {
+  display: none;
+  position: absolute;
+  top: 16px;
+  left: 0;
+  bottom: 0;
+  width: 240px;
+  background-color: aqua;
+}
+
+
+// ! @title ____ New scrapped ver. ____
+// ? @section . Container styles
+.wrapper--CSOSold {
+  max-width: var(--CSOSold-width);
+  padding: unset;
+}
+.CSOSold-root {
+  position: relative;
+  --window-topbar-height: 32px; // for content layout, but fixable with display:grid on the window itself. Keeping it to remind me later
+  --CSOSold-width: 896px;
+  --CSOSold-height: 480px;
+  --CSOSold-height-taskbar: 48px;
+  
+}
+.CSOSold-container {
+  display: grid;
+  grid-template-rows: auto var(--CSOSold-height-taskbar);
   // position: relative;
   box-sizing: border-box;
   height: 480px;
@@ -31,24 +157,24 @@
   }
 }
 @media (max-width: 768px) {
-  .CSOS-container {
+  .CSOSold-container {
     display: none;
   }
 }
-#CSOS-mobile:checked {
+#CSOSold-mobile:checked {
   display: none;
-  & ~ .CSOS-mobile-toggle {
+  & ~ .CSOSold-mobile-toggle {
     display: none;
   }
-  & ~ .CSOS-container {
+  & ~ .CSOSold-container {
     display: grid;
   }
 }
-.CSOS-canvas {
+.CSOSold-canvas {
   position: relative;
   overflow: hidden;
 }
-.CSOS-desktop {
+.CSOSold-desktop {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -58,27 +184,37 @@
 
 // @section . , Mechanics
 
-#CSOS-cursor-Koakuma:checked ~ .CSOS-container {
+#CSOSold-cursor-Koakuma:checked ~ .CSOSold-container {
   --cursor-default: koakuma-default 1.2s;
   --cursor-wait: koakuma-wait 2s;
   --cursor-busy: koakuma-busy 2s;
   --cursor-pointer: koakuma-pointer 2s;
 }
-#CSOS-cursor-Koishi:checked ~ .CSOS-container {
+#CSOSold-cursor-Koishi:checked ~ .CSOSold-container {
   --cursor-default: koishi-default 1s;
   --cursor-wait: koishi-wait 1.5s;
   --cursor-busy: koishi-busy 1.5s;
   --cursor-pointer: koishi-pointer 1.5s;
 }
-#CSOS-cursor-Youmu:checked ~ .CSOS-container {
+#CSOSold-cursor-Youmu:checked ~ .CSOSold-container {
   --cursor-default: youmu-default 2.5s;
   --cursor-wait: youmu-wait 2.5s;
   --cursor-busy: youmu-busy 2.5s;
   --cursor-pointer: youmu-pointer 5s;
 }
 
-#CSOS-cursor-window-visibility:not(:checked) ~ .CSOS-container #CSOS-cursor-window {
+
+#CSOSold-cursor-window-visibility:not(:checked) ~ .CSOSold-container #CSOSold-cursor-window {
   visibility: hidden;
+}
+.CSOSold-container:has(> .CSOSold-taskbar > [for="CSOSold-cursor-window-visibility"]:focus-within) > .CSOSold-canvas > #CSOSold-cursor-window {
+  z-index: 10;
+}
+#CSOSold-orb-window-visibility:not(:checked) ~ .CSOSold-container #CSOSold-orb-window {
+  visibility: hidden;
+}
+.CSOSold-container:has(> .CSOSold-taskbar > [for="CSOSold-orb-window-visibility"]:focus-within) > .CSOSold-canvas > #CSOSold-orb-window {
+  z-index: 10;
 }
 
 // ? Cursor selection state class
@@ -90,7 +226,7 @@
 
 // @section . , Display
 // @misc . , . Core Window
-.CSOS-window {
+.CSOSold-window {
   background-color: brown;
   border: 2px solid white;
   box-sizing: border-box;
@@ -105,7 +241,11 @@
   width: 420px;
   height: 240px;
 }
-.CSOS-win-topbar {
+#CSOSold-orb-window {
+  left: 32px;
+  top: 32px;
+}
+.CSOSold-win-topbar {
   background-color: white;
   display: grid;
   grid-template-columns: 75% auto auto auto;
@@ -113,7 +253,7 @@
   line-height: var(--window-topbar-height);
   // padding-left: 75%;
 }
-.CSOS-win-topbar--title {
+.CSOSold-win-topbar--title {
   color: black;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -122,7 +262,7 @@
   padding: 1px 0 4px 6px;
   pointer-events: none;
 }
-.CSOS-win-topbar--button {
+.CSOSold-win-topbar--button {
   color: black;
   height: 100%;
   width: 100%;
@@ -155,7 +295,7 @@
     }
   }
 }
-.CSOS-win-border {
+.CSOSold-win-border {
   position: absolute;
   &.top {
     width: 100%;
@@ -212,47 +352,74 @@
 }
 
 // ? Resizables mechanic
-.CSOS-resizable {
+.CSOSold-resizable {
   z-index: 2;
   position: absolute;
+  pointer-events: none;
   top: 0;
   left: 0;
-  max-width: var(--CSOS-width);
-  max-height: calc(var(--CSOS-height) - var(--CSOS-height-taskbar));
+  max-width: var(--CSOSold-width);
+  max-height: calc(var(--CSOSold-height) - var(--CSOSold-height-taskbar));
 }
-.CSOS-resizable-anchor {
+.CSOSold-resizable-anchor {
   position: absolute;
+  pointer-events: auto;
   bottom: 0;
   right: 0;
   // width: 1px;
   // height: 1px;
 }
-.CSOS-resizable-content {
+.CSOSold-resizable-content {
   position: absolute;
+  pointer-events: auto;
   top: 20px;
   left: -8px;
 }
-.CSOS-resizable-controller {
+.CSOSold-resizable-controller {
   resize: both;
   overflow: scroll;
   opacity: 0.1;
-  width: calc(var(--CSOS-width) / 3);
-  height: calc(var(--CSOS-height) / 6);
-  max-width: calc(var(--CSOS-width) - 16px);
-  max-height: calc(var(--CSOS-height) - (var(--CSOS-height-taskbar) * 2));
+  width: calc(var(--CSOSold-width) / 3);
+  height: calc(var(--CSOSold-height) / 6);
+  max-width: calc(var(--CSOSold-width) - 16px);
+  max-height: calc(var(--CSOSold-height) - (var(--CSOSold-height-taskbar) * 2));
+}
+// * a way to add and remove the pointer-event status on certain range of the container
+.CSOSold-resizable-anchor:hover ~ .CSOSold-resizable-controller,
+.CSOSold-resizable-controller:hover {
+  pointer-events: auto;
+}
+.CSOSold-resizable-dummy {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  &.first {
+    bottom: 20px;
+  }
+  &.second {
+    right: 20px;
+  }
+}
+.CSOSold-resizable-controller:hover ~ .CSOSold-resizable-dummy {
+  pointer-events: auto;
 }
 
+
+
 // @section . , . Menu - Cursor
-// #CSOS-cursor-window {
+// #CSOSold-cursor-window {
 //   margin: auto;
 // }
-.CSOS-cursor-contents {
-  overflow-y: scroll;
-  scrollbar-width: thin;
-  display: grid;
+.CSOSold-cursor-contents {
+  overflow-y: auto;
+  // scrollbar-width: thin;
+  display: flex; // Flex for easy scaling of content
+  flex-direction: column;
   // height: calc(100% - var(--window-topbar-height)); // required to prevent overflow. Edit setting the parent into display:grid fixes itself
 }
-.CSOS-cursor-content {
+.CSOSold-cursor-content {
   // width: 100%; overflows
   cursor: pointer;
   animation: var(--cursor-pointer) infinite;
@@ -263,22 +430,39 @@
 }
 
 // @section . , . Menu - Orb
+.CSOSold-orb-contents {
+  overflow-y: auto;
+  // scrollbar-width: thin;
+  display: flex; // Flex for easy scaling of content
+  flex-direction: column;
+  // height: calc(100% - var(--window-topbar-height)); // required to prevent overflow. Edit setting the parent into display:grid fixes itself
+}
+.CSOSold-orb-content {
+  // width: 100%; overflows
+  cursor: pointer;
+  animation: var(--cursor-pointer) infinite;
+  padding: 8px;
+  margin: 4px;
+  height: 32px;
+  line-height: 32px;
+}
 
 // @section . , . Menu - Background
 
 // @section . , . Taskbar
-.CSOS-taskbar {
+.CSOSold-taskbar {
   display: flex;
   background-color: cornsilk;
   height: 100%;
 }
-.CSOS-start-menu-bar {
+.CSOSold-start-menu-bar {
   cursor: pointer;
   animation: var(--cursor-pointer) infinite;
   background-color: darkmagenta;
   width: 48px;
 }
-.CSOS-window-bar {
+.CSOSold-window-bar {
+  outline: 4px solid green;
   cursor: pointer;
   animation: var(--cursor-pointer) infinite;
   background-color: gray;
