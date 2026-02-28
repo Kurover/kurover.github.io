@@ -391,6 +391,7 @@ body::after {
 }
 .nav-list {
   // Good luck reading these..
+  // Hi past me, I tried using these again for start orb animation and it's TERRIBLE. But with just 1 extra div? Yeah it's cool.
   // ? BORDER
   & > [class$=icon] {
     border-image: url(/img/border-1-default-alt.png) 4 / 8px / 8px ;
