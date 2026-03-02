@@ -16,5 +16,3 @@ collections:
     output: true
   lab:
     output: true
-    
-include: [".well-known"]
