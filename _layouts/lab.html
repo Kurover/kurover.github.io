@@ -14,6 +14,11 @@ layout: compress
     {%- unless page.no-css -%}<link rel="stylesheet" href="css/{{ page.slug }}.css">{%- endunless -%}
     <link rel="stylesheet" href="/lab/css/navigation-tests.css">
     {%- if page.heresy -%}<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>{%- endif -%}
+    {% if page.custom-css %}
+    {% for item in page.custom-css %}
+    <link rel="stylesheet" href="{{ item }}">
+    {% endfor %}
+    {% endif %}
   </head>
   <body>
     {{ content }}
