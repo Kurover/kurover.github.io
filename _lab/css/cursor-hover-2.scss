@@ -58,7 +58,7 @@
     color: var(--clr-text-fade);
     animation: var(--cursor-text) infinite;
   }
-  & label {
+  & label, a {
     cursor: pointer;
     animation: var(--cursor-pointer) infinite;
   }
@@ -88,7 +88,7 @@
   // cursor: pointer;
   // animation: var(--cursor-pointer) infinite;
   // background-color: darkmagenta;
-  width: 64px;
+  width: var(--orb-size);
 }
 .CSOS-start-orb-bar {
   position: absolute;
@@ -441,30 +441,30 @@
   100% {cursor: url("/file/cursor/koakuma/busy24.png"), auto}
 }
 @keyframes Koakuma-pointer {
-  0% {cursor: url("/file/cursor/koakuma/pointer1.png"), auto}
-  4.3% {cursor: url("/file/cursor/koakuma/pointer2.png"), auto}
-  8.6% {cursor: url("/file/cursor/koakuma/pointer3.png"), auto}
-  13% {cursor: url("/file/cursor/koakuma/pointer4.png"), auto}
-  17.3% {cursor: url("/file/cursor/koakuma/pointer5.png"), auto}
-  21.6% {cursor: url("/file/cursor/koakuma/pointer6.png"), auto}
-  26% {cursor: url("/file/cursor/koakuma/pointer7.png"), auto}
-  30.3% {cursor: url("/file/cursor/koakuma/pointer8.png"), auto}
-  34.6% {cursor: url("/file/cursor/koakuma/pointer9.png"), auto}
-  39% {cursor: url("/file/cursor/koakuma/pointer10.png"), auto}
-  43.3% {cursor: url("/file/cursor/koakuma/pointer11.png"), auto}
-  47.6% {cursor: url("/file/cursor/koakuma/pointer12.png"), auto}
-  52% {cursor: url("/file/cursor/koakuma/pointer13.png"), auto}
-  56.3% {cursor: url("/file/cursor/koakuma/pointer14.png"), auto}
-  60.6% {cursor: url("/file/cursor/koakuma/pointer15.png"), auto}
-  65% {cursor: url("/file/cursor/koakuma/pointer16.png"), auto}
-  69.3% {cursor: url("/file/cursor/koakuma/pointer17.png"), auto}
-  73.6% {cursor: url("/file/cursor/koakuma/pointer18.png"), auto}
-  78% {cursor: url("/file/cursor/koakuma/pointer19.png"), auto}
-  82.3% {cursor: url("/file/cursor/koakuma/pointer20.png"), auto}
-  86.6% {cursor: url("/file/cursor/koakuma/pointer21.png"), auto}
-  91% {cursor: url("/file/cursor/koakuma/pointer22.png"), auto}
-  95% {cursor: url("/file/cursor/koakuma/pointer23.png"), auto}
-  100% {cursor: url("/file/cursor/koakuma/pointer24.png"), auto}
+  0% {cursor: url("/file/cursor/koakuma/pointer1.png") 4 0, auto}
+  4.3% {cursor: url("/file/cursor/koakuma/pointer2.png") 4 0, auto}
+  8.6% {cursor: url("/file/cursor/koakuma/pointer3.png") 4 0, auto}
+  13% {cursor: url("/file/cursor/koakuma/pointer4.png") 4 0, auto}
+  17.3% {cursor: url("/file/cursor/koakuma/pointer5.png") 4 0, auto}
+  21.6% {cursor: url("/file/cursor/koakuma/pointer6.png") 4 0, auto}
+  26% {cursor: url("/file/cursor/koakuma/pointer7.png") 4 0, auto}
+  30.3% {cursor: url("/file/cursor/koakuma/pointer8.png") 4 0, auto}
+  34.6% {cursor: url("/file/cursor/koakuma/pointer9.png") 4 0, auto}
+  39% {cursor: url("/file/cursor/koakuma/pointer10.png") 4 0, auto}
+  43.3% {cursor: url("/file/cursor/koakuma/pointer11.png") 4 0, auto}
+  47.6% {cursor: url("/file/cursor/koakuma/pointer12.png") 4 0, auto}
+  52% {cursor: url("/file/cursor/koakuma/pointer13.png") 4 0, auto}
+  56.3% {cursor: url("/file/cursor/koakuma/pointer14.png") 4 0, auto}
+  60.6% {cursor: url("/file/cursor/koakuma/pointer15.png") 4 0, auto}
+  65% {cursor: url("/file/cursor/koakuma/pointer16.png") 4 0, auto}
+  69.3% {cursor: url("/file/cursor/koakuma/pointer17.png") 4 0, auto}
+  73.6% {cursor: url("/file/cursor/koakuma/pointer18.png") 4 0, auto}
+  78% {cursor: url("/file/cursor/koakuma/pointer19.png") 4 0, auto}
+  82.3% {cursor: url("/file/cursor/koakuma/pointer20.png") 4 0, auto}
+  86.6% {cursor: url("/file/cursor/koakuma/pointer21.png") 4 0, auto}
+  91% {cursor: url("/file/cursor/koakuma/pointer22.png") 4 0, auto}
+  95% {cursor: url("/file/cursor/koakuma/pointer23.png") 4 0, auto}
+  100% {cursor: url("/file/cursor/koakuma/pointer24.png") 4 0, auto}
 }
 
 // @title Koishi
@@ -523,22 +523,22 @@
   100% {cursor: url("/file/cursor/koishi/busy16.png"), auto}
 }
 @keyframes Koishi-pointer {
-  0% {cursor: url("/file/cursor/koishi/pointer1.png"), auto}
-  6.6% {cursor: url("/file/cursor/koishi/pointer2.png"), auto}
-  13.3% {cursor: url("/file/cursor/koishi/pointer3.png"), auto}
-  19% {cursor: url("/file/cursor/koishi/pointer4.png"), auto}
-  25.6% {cursor: url("/file/cursor/koishi/pointer5.png"), auto}
-  33.3% {cursor: url("/file/cursor/koishi/pointer6.png"), auto}
-  40% {cursor: url("/file/cursor/koishi/pointer7.png"), auto}
-  46.6% {cursor: url("/file/cursor/koishi/pointer8.png"), auto}
-  53.3% {cursor: url("/file/cursor/koishi/pointer9.png"), auto}
-  60% {cursor: url("/file/cursor/koishi/pointer10.png"), auto}
-  66.6% {cursor: url("/file/cursor/koishi/pointer11.png"), auto}
-  73.3% {cursor: url("/file/cursor/koishi/pointer12.png"), auto}
-  80% {cursor: url("/file/cursor/koishi/pointer13.png"), auto}
-  86.6% {cursor: url("/file/cursor/koishi/pointer14.png"), auto}
-  93.3% {cursor: url("/file/cursor/koishi/pointer15.png"), auto}
-  100% {cursor: url("/file/cursor/koishi/pointer16.png"), auto}
+  0% {cursor: url("/file/cursor/koishi/pointer1.png") 6 0, auto}
+  6.6% {cursor: url("/file/cursor/koishi/pointer2.png") 6 0, auto}
+  13.3% {cursor: url("/file/cursor/koishi/pointer3.png") 6 0, auto}
+  19% {cursor: url("/file/cursor/koishi/pointer4.png") 6 0, auto}
+  25.6% {cursor: url("/file/cursor/koishi/pointer5.png") 6 0, auto}
+  33.3% {cursor: url("/file/cursor/koishi/pointer6.png") 6 0, auto}
+  40% {cursor: url("/file/cursor/koishi/pointer7.png") 6 0, auto}
+  46.6% {cursor: url("/file/cursor/koishi/pointer8.png") 6 0, auto}
+  53.3% {cursor: url("/file/cursor/koishi/pointer9.png") 6 0, auto}
+  60% {cursor: url("/file/cursor/koishi/pointer10.png") 6 0, auto}
+  66.6% {cursor: url("/file/cursor/koishi/pointer11.png") 6 0, auto}
+  73.3% {cursor: url("/file/cursor/koishi/pointer12.png") 6 0, auto}
+  80% {cursor: url("/file/cursor/koishi/pointer13.png") 6 0, auto}
+  86.6% {cursor: url("/file/cursor/koishi/pointer14.png") 6 0, auto}
+  93.3% {cursor: url("/file/cursor/koishi/pointer15.png") 6 0, auto}
+  100% {cursor: url("/file/cursor/koishi/pointer16.png") 6 0, auto}
 }
 
 // @title Youmu

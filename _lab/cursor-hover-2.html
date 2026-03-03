@@ -90,7 +90,7 @@ custom-css: /styles/file-cursor.css
             <label for="CSOS-start-content-0" class="CSOS-start-menu-menu-return"></label>
             <span>Change Cursor</span>
           </div>
-            <div class="CSOS-start-cursor-button" id="CSOS-div-cursor-default"><label for="CSOS-cursor-state-0" class="CSOS-start-cursor-list">@default</label></div>
+            <div class="CSOS-start-cursor-button" id="CSOS-div-cursor-default"><label for="CSOS-cursor-state-default" class="CSOS-start-cursor-list">@default</label></div>
             {% for cursor-lists in site.data.file.cursor.list %}
             {% assign cursor = cursor-lists[1] %}
             <div class="CSOS-start-cursor-button" id="CSOS-div-cursor-{{ cursor.name }}">
