@@ -84,6 +84,7 @@ html {
 body {
   background-color: var(--clr-background);
   color: var(--clr-text);
+  min-width: 320px;
   width: 100%;
   margin: 0;
 }
