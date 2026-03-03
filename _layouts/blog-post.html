@@ -3,6 +3,16 @@ layout: default
 ---
 <main>
   <section class="wrapper border blog-post" id="main">
+    <nav class="blog-post-index-container">
+      <div class="blog-post-index">
+        {% assign blog-posts = site.blog | where: "groups", "blog-post" %}
+        {% for post in blog-posts reversed %}
+        <li>
+          <a href="{{ post.url }}" {% if page.url == post.url %}class="active"{% endif %}>{{ post.title }}</a>
+        </li>
+        {% endfor %}
+      </div>
+    </nav>
     <div class="top-right-note">Title: {{ page.title }}</div>
     {{ content }}
   </section>

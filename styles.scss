@@ -20,11 +20,10 @@
 
 /*
 ! MQ Cheat sheet
-? Moile Large
+? Moile / Desktop
 * @media (max-width: 768px)
-* 
-? Desktop
 * @media (min-width: 769px)
+* 
 */
 
 :root {
@@ -57,6 +56,12 @@
   --clr-tooltip-link: #be6f59;
   --clr-tooltip-link-visited: var(--clr-link-visited-bright);
   --clr-tooltip-link-hover: #ccb672;
+
+  --clr-codeblock-bg-title: #211f2b;
+  --clr-codeblock-bg: #302c3f;
+  --clr-codeblock-text-title: var(--clr-text-fade);
+  --clr-codeblock-text: var(--clr-accent);
+  --clr-codeblock-border: var(--clr-secondary);
 
   --clr-warning: #d3646d;
   --clr-notice: #f99d7e;
@@ -272,6 +277,16 @@ body::after {
   font-family: 'Consolas';
   -webkit-font-smoothing: auto;
   -moz-osx-font-smoothing: auto;
+}
+// Use in a div
+.top-right-note {
+  pointer-events: none;
+  position: absolute;
+  top: .5rem;
+  right: .5rem;
+  font-style: italic;
+  font-size: small;
+  color: var(--clr-text-dim);
 }
 // @misc @ Media
 @media (max-width: 768px) {
@@ -2112,7 +2127,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
     }
   }
 }
-
+// ? @section # Blog-Post Exclusive
 .blog-post {
   position: relative;
   font-family: 'Consolas';
@@ -2130,12 +2145,75 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
     margin-bottom: 1rem;
   }
 }
+.blog-post-index-container {
+  display: none;
+  position: sticky;
+  top: 4rem;
+  left: 0;
+  height: 0;
+  // width: 96px;
+  & a {
+    display: block;
+    text-overflow: ellipsis;
+    text-wrap: nowrap;
+    text-decoration: none;
+    overflow: hidden;
+    width: 132px;
+    padding: 4px;
+    outline: 1px solid var(--clr-codeblock-border);
+    &.active {
+      background-color: #374935;
+    }
+    &:is(:hover, :focus) {
+      color: var(--clr-text);
+      background-color: var(--clr-background);
+    }
+    &:visited {
+      color: var(--clr-text-dim);
+    }
+  }
+  & li {
+    list-style: none;
+  }
+}
+// @media (max-width: 768px)
+@media (min-width: 1200px) {
+  .blog-post-index-container {
+    display: block;
+    transform: translate(-170px, 0);
+  }
+}
+.blog-post-index {
+  display: grid;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  max-height: 400px;
+  width: 140px;
+  // padding: .5rem;
+  padding-top: 1rem;
+  border: 2px solid var(--clr-codeblock-border);
+  background-color: var(--clr-codeblock-bg);
+  &::before {
+    content: "> Yap List";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding-left: 6px;
+    height: 1rem;
+    background-color: var(--clr-codeblock-bg-title);
+    color: var(--clr-codeblock-text-title);
+    font-size: small;
+  }
+}
 .blog-post-footer-navigations {
   display: flex;
   width: 100%;
   max-width: 848px;
   margin: auto;
-  margin-top: 1rem;
+  margin-top: 2rem;
   margin-bottom: 33vh;
 }
 .blog-post-footer-navigation {
@@ -2145,7 +2223,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
     text-decoration: none;
     width: 3rem;
     // color: var(--clr-primary);
-    padding: .5rem 1.5rem;
+    padding: .75rem 1.5rem;
     color: var(--clr-tooltip-text);
     border-image: url(/img/border-1-default-alt.png) 6 / 16px / 4px;
     background: var(--clr-secondary);
@@ -2171,7 +2249,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   position: absolute;
   width: max-content;
   top: -1rem;
-  // left: 0;
+  // left: 0; // Control in each previous/next
   // right: 0;
   padding: 1rem;
   opacity: 0;
@@ -2185,26 +2263,20 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   opacity: 1;
   visibility: visible;
 }
-.top-right-note {
-  pointer-events: none;
-  position: absolute;
-  top: .5rem;
-  right: .5rem;
-  font-style: italic;
-  font-size: small;
-  color: var(--clr-text-dim);
-}
-// auto generated generic code-block class in md to html
-.highlighter-rouge {
+// Auto generated generic code-block class in md to html
+.highlighter-rouge,
+.codeblock {
   position: relative;
-  outline: 1px solid var(--clr-secondary);
+  outline: 1px solid var(--clr-codeblock-border);
   box-sizing: border-box;
   background-color: #302c3f;
-  color: var(--clr-accent);
+  color: var(--clr-codeblock-text);
 }
-.highlighter-rouge:has(pre) {
+// Pre is generated when using triple tilde
+.highlighter-rouge:has(pre),
+.codeblock-full {
   outline: none;
-  border: 2px solid var(--clr-secondary);
+  border: 2px solid var(--clr-codeblock-border);
   padding-top: 1rem;
   &::before {
     content: "real_terminal.md";
@@ -2214,7 +2286,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
     width: 100%;
     line-height: 1rem;
     background-color: #211f2b;
-    color: var(--clr-text-fade);
+    color: var(--clr-codeblock-text-title);
   }
   & pre {
     padding: 0 1rem;
