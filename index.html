@@ -8,7 +8,7 @@ og-type: website
 <main>
   <!-- ! Main Header -->
   <!-- Has hidden overflow to prevent scrollbar jitter, mainly for firefox -->
-  <section class="wrapper border" tabindex="-1" id="main" style="overflow: hidden;"> 
+  <section class="wrapper border no-overflow relative" tabindex="-1" id="main"> 
     <!-- ! Profile System -->
     <input id="profile-headshot-1_sys" type="radio" name="profile-accordion" checked>
     <input id="profile-headshot-2_sys" type="radio" name="profile-accordion">
@@ -27,6 +27,7 @@ og-type: website
     </div>
     <!-- ! Content Start -->
     <h1>Hello!</h1>
+    <div class="top-right-note" style="opacity: .33;">Last rebuild: {{ site.time | date_to_rfc822 }}</div>
     <!-- ? Section 1 -->
     <div class="profile-headshot-section" data-target="1">
       <p class="caption">"Welcome, make yourself comfy!"</p>

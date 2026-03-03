@@ -235,6 +235,9 @@ body::after {
   -moz-user-select: none;
   -ms-user-select: none;
 }
+.no-overflow {
+  overflow: hidden;
+}
 .img-px {
   image-rendering: pixelated;
 }
