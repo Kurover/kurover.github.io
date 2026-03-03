@@ -14,7 +14,7 @@ nav-more: true
     <p><span class="notice">Notice!</span> These links will redirect you to old site.</p>
 
     <ol class="blog-lists">
-      {% assign blogs = site.blog | sort:"order" %}
+      {% assign blogs = site.blog | where:"groups","blog" | sort:"order" %}
       {% for blog in blogs %}
         <li class="blog-list">
           <a href="{{ blog.url }}" target="_blank">{{ blog.title-short }}</a>

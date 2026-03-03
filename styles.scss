@@ -2110,6 +2110,116 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   }
 }
 
+.blog-post {
+  position: relative;
+  font-family: 'Consolas';
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+  background-color: #35383f;
+  margin-bottom: 0;
+  & strong {
+    color: var(--clr-notice);
+  }
+  & em {
+    color: var(--clr-h6);
+  }
+  & p:last-child {
+    margin-bottom: 1rem;
+  }
+}
+.blog-post-footer-navigations {
+  display: flex;
+  width: 100%;
+  max-width: 848px;
+  margin: auto;
+  margin-top: 1rem;
+  margin-bottom: 33vh;
+}
+.blog-post-footer-navigation {
+  position: relative;
+  & a {
+    text-align: center;
+    text-decoration: none;
+    width: 3rem;
+    // color: var(--clr-primary);
+    padding: .5rem 1.5rem;
+    color: var(--clr-tooltip-text);
+    border-image: url(/img/border-1-default-alt.png) 6 / 16px / 4px;
+    background: var(--clr-secondary);
+  }
+  &:hover {
+    color: var(--clr-tooltip-link-hover);
+  }
+  &.next {
+    margin-left: auto;
+    margin-right: 1rem;
+    & .blog-nav-tooltip {right: 110%;}
+  }
+  &.previous {
+    margin-right: auto;
+    margin-left: 1rem;
+    & .blog-nav-tooltip {left: 110%;}
+  }
+}
+// Taken from contact list
+.blog-nav-tooltip {
+  pointer-events: none;
+  visibility: hidden;
+  position: absolute;
+  width: max-content;
+  top: -1rem;
+  // left: 0;
+  // right: 0;
+  padding: 1rem;
+  opacity: 0;
+  
+  color: var(--clr-tooltip-text);
+  background-color: var(--clr-tooltip-background);
+  border-image: url(/img/border-2.png) 8 / 16px / 0 0;
+  transition: visibility .2s, opacity .2s;
+}
+.blog-post-footer-navigation:is(:hover, :focus-within) > .blog-nav-tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+.top-right-note {
+  pointer-events: none;
+  position: absolute;
+  top: .5rem;
+  right: .5rem;
+  font-style: italic;
+  font-size: small;
+  color: var(--clr-text-dim);
+}
+// auto generated generic code-block class in md to html
+.highlighter-rouge {
+  position: relative;
+  outline: 1px solid var(--clr-secondary);
+  box-sizing: border-box;
+  background-color: #302c3f;
+  color: var(--clr-accent);
+}
+.highlighter-rouge:has(pre) {
+  outline: none;
+  border: 2px solid var(--clr-secondary);
+  padding-top: 1rem;
+  &::before {
+    content: "real_terminal.md";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    line-height: 1rem;
+    background-color: #211f2b;
+    color: var(--clr-text-fade);
+  }
+  & pre {
+    padding: 0 1rem;
+    margin: 0;
+    overflow: auto;
+  }
+}
+
 // ! @title ________ File ________
 // ? @section # List
 
