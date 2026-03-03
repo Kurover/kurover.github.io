@@ -1,23 +1,48 @@
 ---
 ---
 
-// ? To Do
-// dim the window when unfocused
-// bottom border to title bar
+// ? Explanation corner
+// Linked File structure
+// _data
+// - file
+//*-- cursor.yml - Contain most things for the html and css. Animation name and timing is stored here.
+// styles
+//*- file-cursor.scss - Contain css for <input> states and uses jekyll _data to automatically add the styles. Separated for my convenience.
+// _lab
+//*- cursor-hover-2.html - The HTML itself. Uses _data to generate <input> and <label> for the cursor
+//
+// Everything should be automatically generated and I only need to add/edit cursor.yml and the keyframes in this css (not using data since it's pain af if each cursor is different)
+// Of course the live build will use their own files
 
 // ! @title ____ New NEW ver. ____
 // ? @section . Container core styles
 .CSOS-root {
   --window-topbar-height: 32px; // for content layout, but fixable with display:grid on the window itself. Keeping it to remind me later
   --CSOS-width: 896px;
-  --CSOS-height: 480px;
+  --CSOS-height: 576px;
   --CSOS-height-taskbar: 40px; 
 }
+// For specific element with specific cursor mode
+.CSOS-cDefault {animation: var(--cursor-default) infinite;}
+.CSOS-cWait {animation: var(--cursor-wait) infinite;}
+.CSOS-cBusy {animation: var(--cursor-busy) infinite;}
+.CSOS-cPoint {animation: var(--cursor-pointer) infinite;}
+
 .wrapper--CSOS {
   max-width: var(--CSOS-width);
   padding: unset;
 }
 .CSOS-container {
+  // This variable is the same as the data, for redundancy
+  --orb-name: NO_DATA;
+  --orb-size: 64px;
+  --orb-align-bottom: 0px;
+  --orb-preview: /blog/windows-navigation-enhancement/openshell_extra-2.gif;
+  --orb-link: url(/img/file/Start-Menu-Illith-64x.png);
+  --orb-link-openshell: /img/file/Start-Menu-Illith-64x.png;
+  --orb-link-generic: /img/file/Start-Menu-Illith-Generic-64x.png;
+  // variable below is required for reasons, scroll down till you find :hover::after
+  --orb-active-y-coordinate: 3; // multiplier in a calc, basic is 2
   display: grid;
   grid-template-rows: auto var(--CSOS-height-taskbar);
   position: relative;
@@ -25,10 +50,17 @@
   height: var(--CSOS-height);
   border: solid gray 1px;
   animation: var(--cursor-default) infinite;
+
+  color: black;
   & p {
+    display: inline-block; // prevent cursor changing beyond what the text suggest
     cursor: text;
     color: var(--clr-text-fade);
     animation: var(--cursor-text) infinite;
+  }
+  & label {
+    cursor: pointer;
+    animation: var(--cursor-pointer) infinite;
   }
 }
 
@@ -36,6 +68,10 @@
 .CSOS-canvas {
   position: relative;
   overflow: hidden;
+  background-image: url(/img/wallpaper-yama.png);
+  background-size: cover;
+  background-position: center;
+  image-rendering: pixelated;
 }
 
 // @section . , Taskbar
@@ -49,20 +85,20 @@
   }
 }
 .CSOS-start-menu-bar {
-  cursor: pointer;
-  animation: var(--cursor-pointer) infinite;
+  // cursor: pointer;
+  // animation: var(--cursor-pointer) infinite;
   // background-color: darkmagenta;
   width: 64px;
 }
 .CSOS-start-orb-bar {
   position: absolute;
-  bottom: 0;
+  bottom: var(--orb-align-bottom);
   left: 0;
-  height: 64px;
-  width: 64px;
-  background-image: url(/img/file/Start-Menu-Illith-64x.png);
-  background-position: 0px -1px;
-  animation: start-menu-orb-hover .4s steps(1, end) reverse;
+  height: var(--orb-size);
+  width: var(--orb-size);
+  background-image: var(--orb-link);
+  background-position: 0px -1px; // openshell (default) has 1 pixel on top for animation
+  animation: start-menu-orb-hover .4s steps(1, end) reverse; // requires steps timing as it's just moving the image asset position
   &:hover {
     animation: none;
     background-image: none;
@@ -71,10 +107,10 @@
       position: absolute;
       bottom: 0;
       left: 0;
-      height: 64px;
-      width: 64px;
-      background-image: url(/img/file/Start-Menu-Illith-64x.png);
-      background-position: 0px -129px;
+      height: var(--orb-size);
+      width: var(--orb-size);
+      background-image: var(--orb-link);
+      background-position: 0px calc(-1px - (var(--orb-size) * 2)); // considered as 3rd frame as the 2nd one is on animation
       animation: start-menu-orb-hover .2s steps(1, end);
     }
   }
@@ -82,12 +118,29 @@
     pointer-events: none;
     animation: none;
     opacity: 0;
+    background-position: 0px calc(-1px - (var(--orb-size) * var(--orb-active-y-coordinate)));
   }
 }
 @keyframes start-menu-orb-hover {
   0% {background-position: 0px -1px}
-  50% {background-position: 0px -65px}
-  100% {background-position: 0px -129px}
+  50% {background-position: 0px calc(-1px - (var(--orb-size) * 1))}
+  100% {background-position: 0px calc(-1px - (var(--orb-size) * 2))}
+}
+// using another div for the active image, so we deactivate the original by setting its opacity to 0
+#CSOS-start-menu-state:checked ~ .CSOS-container .CSOS-start-orb-bar {
+  opacity: 0;
+  & ~ .active {
+    opacity: 1;
+  }
+}
+// for the variable, check the file-cursor.scss
+// fun fact, this background calc works but if it's only targetting .CSOS-start-orb-bar.active the calc don't work. This is why I have to add the coordinate variable. It's hella jaaank broo wtf is this?? am I just missing something?
+.CSOS-orb-basic:checked ~ .CSOS-container .CSOS-start-orb-bar {
+  animation: none;
+  &:hover::after {
+    animation: none;
+    background-position: 0px calc(-1px - (var(--orb-size) * 1));
+  }
 }
 .CSOS-start-time-bar {
   pointer-events: none;
@@ -100,31 +153,486 @@
     padding: 4px 8px;
   }
 }
-#CSOS-start-menu-state:checked ~ .CSOS-container .CSOS-start-orb-bar {
-  opacity: 0;
-  & ~ .active {
-    opacity: 1;
-    background-position: 0px -193px;
-  }
+
+// @section . , Start Menu Container
+#CSOS-start-menu-state:checked ~ .CSOS-container .CSOS-start-menu {
+  display: flex; // using flex because holy heck absolute content are so annoying to layout
+  flex-wrap: wrap;
+  animation: CSOS-start-menu-open .25s;
 }
-#CSOS-start-menu-state:checked ~ .CSOS-container .CSOS-start-menus {
-  display: block;
-  animation: CSOS-start-menu .25s;
-}
-@keyframes CSOS-start-menu {
+@keyframes CSOS-start-menu-open {
   from {opacity: 0;}
   to {opacity: 1;}
 }
-
-// @section . , Start Menu Container
-.CSOS-start-menus {
-  display: none;
+.CSOS-start-menu {
+  display: none; // see above
   position: absolute;
   top: 16px;
   left: 0;
   bottom: 0;
-  width: 240px;
-  background-color: aqua;
+  width: 384px;
+  background-color: rgb(218, 218, 218);
+}
+.CSOS-start-menu-content {
+  --CSOS-start-content-margin: 16px;
+  visibility: hidden; // controlled by start menu menu
+  position: absolute; // same story as above
+  height: calc(100% - (var(--CSOS-start-content-margin) * 2)); // compensate margin, don't use this if not flex
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 100%;
+  margin: var(--CSOS-start-content-margin);
+  padding: 8px;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  padding-bottom: 64px; // compensate menu
+  background-color: white;
+}
+.CSOS-start-menu-content--title {
+  height: 32px;
+  line-height: 32px;
+  width: 100%;
+  background-color: wheat;
+}
+// yes im naming this this
+.CSOS-start-menu-menus {
+  z-index: 1;
+  display: grid;
+  gap: 4px;
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  padding: 8px;
+  width: fit-content;
+  grid-template-columns: repeat(3, 1fr);
+}
+.CSOS-start-menu-menu {
+  margin: auto;
+  width: 48px;
+  height: 48px;
+  background-color: red;
+  &.middle {
+    height: 56px;
+    width: 56px;
+  }
+}
+.CSOS-start-menu-menu-return {
+  padding: 8px;
+  padding-right: 16px;
+  &::before {
+    content: "< ";
+  }
+}
+// @section . , . Cursor
+.CSOS-start-cursor {
+  gap: 8px;
+}
+.CSOS-start-cursor-button {
+  // position: relative; // no relative to make preview position easier
+  display: flex;
+  align-items: center;
+  border: 2px solid;
+}
+.CSOS-start-cursor-list {
+  position: relative; // for the rating position
+  flex: 1;
+  padding: 16px 8px;
+  & > span {
+    opacity: .25;
+    margin-left: 8px;
+    &::before {
+      content: "☆☆☆☆☆";
+      position: absolute;
+    }
+  }
+}
+.CSOS-start-cursor-preview {
+  visibility: hidden;
+  opacity: 0;
+  // display: none; 
+  position: absolute;
+  top: 32px;
+  left: -9999px; // lazyload enabler, real position on :hover below
+  width: 100%;
+  background-color: wheat;
+  text-align: center;
+  transition: visibility .25s .1s, opacity .25s .1s, left 0s .35s;
+  &::before {
+    content: "PREVIEW";
+    display: block;
+    padding: 2px;
+  }
+  & > img {
+    image-rendering: pixelated;
+  }
+}
+.CSOS-start-cursor-button:hover {
+  border-color: green;
+  & > .CSOS-start-cursor-preview {
+    // display: block;
+    visibility: visible;
+    opacity: 1;
+    left: calc(100% + 32px); // 32px is to make it not touch
+    transition: visibility .25s .1s, opacity .25s .1s, left 0s 0s;
+  }
+}
+.CSOS-start-cursor-download {
+  // flex: .2;
+  width: 48px;
+  height: 100%;
+  & > a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+}
+// @section . , . ORB
+// Mostly a dupe of cursor set for now
+.CSOS-start-orb {
+  gap: 8px;
+}
+.CSOS-start-orb-button {
+  display: flex;
+  border: 2px solid;
+}
+.CSOS-start-orb-list {
+  position: relative;
+  flex: 1;
+  padding: 16px 8px;
+  & > span {
+    opacity: .25;
+    margin-left: 8px;
+    &::before {
+      content: "☆☆☆☆☆";
+      position: absolute;
+    }
+  }
+}
+.CSOS-start-orb-preview {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  top: 32px;
+  left: -9999px;
+  width: 100%;
+  background-color: wheat;
+  border: 4px solid black;
+  text-align: center;
+  transition: visibility .25s .1s, opacity .25s .1s, left 0s .35s;
+  &::before {
+    content: "PREVIEW";
+    display: block;
+    padding: 2px;
+  }
+  & > img {
+    image-rendering: pixelated;
+  }
+}
+.CSOS-start-orb-button:hover {
+  border-color: green;
+  & > .CSOS-start-orb-preview {
+    visibility: visible;
+    opacity: 1;
+    left: calc(100% + 32px);
+    transition: visibility .25s .1s, opacity .25s .1s, left 0s 0s;
+  }
+}
+.CSOS-start-orb-download {
+  width: 48px;
+  height: 100%;
+  & > a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+}
+
+// @misc . , . Mechs
+#CSOS-start-content-0:checked ~ .CSOS-start-home {
+  visibility: visible;
+  position: initial;
+}
+#CSOS-start-content-1:checked ~ .CSOS-start-orb {
+  visibility: visible;
+  position: initial;
+}
+#CSOS-start-content-2:checked ~ .CSOS-start-cursor {
+  visibility: visible;
+  position: initial;
+}
+#CSOS-start-content-3:checked ~ .CSOS-start-bg {
+  visibility: visible;
+  position: initial;
+}
+
+// @section KEYFRAME-SHORTENED
+// I don't think I'll data drive this, too much variables
+// @title Koakuma
+@keyframes Koakuma-default {
+  0% {cursor: url("/file/cursor/koakuma/default1.png"), auto}
+  9% {cursor: url("/file/cursor/koakuma/default2.png"), auto}
+  18% {cursor: url("/file/cursor/koakuma/default3.png"), auto}
+  27% {cursor: url("/file/cursor/koakuma/default4.png"), auto}
+  36% {cursor: url("/file/cursor/koakuma/default5.png"), auto}
+  45% {cursor: url("/file/cursor/koakuma/default6.png"), auto}
+  54% {cursor: url("/file/cursor/koakuma/default7.png"), auto}
+  63% {cursor: url("/file/cursor/koakuma/default8.png"), auto}
+  72% {cursor: url("/file/cursor/koakuma/default9.png"), auto}
+  81% {cursor: url("/file/cursor/koakuma/default10.png"), auto}
+  90% {cursor: url("/file/cursor/koakuma/default11.png"), auto}
+  100% {cursor: url("/file/cursor/koakuma/default12.png"), auto}
+}
+@keyframes Koakuma-wait {
+  0% {cursor: url("/file/cursor/koakuma/wait1.png"), auto}
+  4.3% {cursor: url("/file/cursor/koakuma/wait2.png"), auto}
+  8.6% {cursor: url("/file/cursor/koakuma/wait3.png"), auto}
+  13% {cursor: url("/file/cursor/koakuma/wait4.png"), auto}
+  17.3% {cursor: url("/file/cursor/koakuma/wait5.png"), auto}
+  21.6% {cursor: url("/file/cursor/koakuma/wait6.png"), auto}
+  26% {cursor: url("/file/cursor/koakuma/wait7.png"), auto}
+  30.3% {cursor: url("/file/cursor/koakuma/wait8.png"), auto}
+  34.6% {cursor: url("/file/cursor/koakuma/wait9.png"), auto}
+  39% {cursor: url("/file/cursor/koakuma/wait10.png"), auto}
+  43.3% {cursor: url("/file/cursor/koakuma/wait11.png"), auto}
+  47.6% {cursor: url("/file/cursor/koakuma/wait12.png"), auto}
+  52% {cursor: url("/file/cursor/koakuma/wait13.png"), auto}
+  56.3% {cursor: url("/file/cursor/koakuma/wait14.png"), auto}
+  60.6% {cursor: url("/file/cursor/koakuma/wait15.png"), auto}
+  65% {cursor: url("/file/cursor/koakuma/wait16.png"), auto}
+  69.3% {cursor: url("/file/cursor/koakuma/wait17.png"), auto}
+  73.6% {cursor: url("/file/cursor/koakuma/wait18.png"), auto}
+  78% {cursor: url("/file/cursor/koakuma/wait19.png"), auto}
+  82.3% {cursor: url("/file/cursor/koakuma/wait20.png"), auto}
+  86.6% {cursor: url("/file/cursor/koakuma/wait21.png"), auto}
+  91% {cursor: url("/file/cursor/koakuma/wait22.png"), auto}
+  95% {cursor: url("/file/cursor/koakuma/wait23.png"), auto}
+  100% {cursor: url("/file/cursor/koakuma/wait24.png"), auto}
+}
+@keyframes Koakuma-busy {
+  0% {cursor: url("/file/cursor/koakuma/busy1.png"), auto}
+  4.3% {cursor: url("/file/cursor/koakuma/busy2.png"), auto}
+  8.6% {cursor: url("/file/cursor/koakuma/busy3.png"), auto}
+  13% {cursor: url("/file/cursor/koakuma/busy4.png"), auto}
+  17.3% {cursor: url("/file/cursor/koakuma/busy5.png"), auto}
+  21.6% {cursor: url("/file/cursor/koakuma/busy6.png"), auto}
+  26% {cursor: url("/file/cursor/koakuma/busy7.png"), auto}
+  30.3% {cursor: url("/file/cursor/koakuma/busy8.png"), auto}
+  34.6% {cursor: url("/file/cursor/koakuma/busy9.png"), auto}
+  39% {cursor: url("/file/cursor/koakuma/busy10.png"), auto}
+  43.3% {cursor: url("/file/cursor/koakuma/busy11.png"), auto}
+  47.6% {cursor: url("/file/cursor/koakuma/busy12.png"), auto}
+  52% {cursor: url("/file/cursor/koakuma/busy13.png"), auto}
+  56.3% {cursor: url("/file/cursor/koakuma/busy14.png"), auto}
+  60.6% {cursor: url("/file/cursor/koakuma/busy15.png"), auto}
+  65% {cursor: url("/file/cursor/koakuma/busy16.png"), auto}
+  69.3% {cursor: url("/file/cursor/koakuma/busy17.png"), auto}
+  73.6% {cursor: url("/file/cursor/koakuma/busy18.png"), auto}
+  78% {cursor: url("/file/cursor/koakuma/busy19.png"), auto}
+  82.3% {cursor: url("/file/cursor/koakuma/busy20.png"), auto}
+  86.6% {cursor: url("/file/cursor/koakuma/busy21.png"), auto}
+  91% {cursor: url("/file/cursor/koakuma/busy22.png"), auto}
+  95% {cursor: url("/file/cursor/koakuma/busy23.png"), auto}
+  100% {cursor: url("/file/cursor/koakuma/busy24.png"), auto}
+}
+@keyframes Koakuma-pointer {
+  0% {cursor: url("/file/cursor/koakuma/pointer1.png"), auto}
+  4.3% {cursor: url("/file/cursor/koakuma/pointer2.png"), auto}
+  8.6% {cursor: url("/file/cursor/koakuma/pointer3.png"), auto}
+  13% {cursor: url("/file/cursor/koakuma/pointer4.png"), auto}
+  17.3% {cursor: url("/file/cursor/koakuma/pointer5.png"), auto}
+  21.6% {cursor: url("/file/cursor/koakuma/pointer6.png"), auto}
+  26% {cursor: url("/file/cursor/koakuma/pointer7.png"), auto}
+  30.3% {cursor: url("/file/cursor/koakuma/pointer8.png"), auto}
+  34.6% {cursor: url("/file/cursor/koakuma/pointer9.png"), auto}
+  39% {cursor: url("/file/cursor/koakuma/pointer10.png"), auto}
+  43.3% {cursor: url("/file/cursor/koakuma/pointer11.png"), auto}
+  47.6% {cursor: url("/file/cursor/koakuma/pointer12.png"), auto}
+  52% {cursor: url("/file/cursor/koakuma/pointer13.png"), auto}
+  56.3% {cursor: url("/file/cursor/koakuma/pointer14.png"), auto}
+  60.6% {cursor: url("/file/cursor/koakuma/pointer15.png"), auto}
+  65% {cursor: url("/file/cursor/koakuma/pointer16.png"), auto}
+  69.3% {cursor: url("/file/cursor/koakuma/pointer17.png"), auto}
+  73.6% {cursor: url("/file/cursor/koakuma/pointer18.png"), auto}
+  78% {cursor: url("/file/cursor/koakuma/pointer19.png"), auto}
+  82.3% {cursor: url("/file/cursor/koakuma/pointer20.png"), auto}
+  86.6% {cursor: url("/file/cursor/koakuma/pointer21.png"), auto}
+  91% {cursor: url("/file/cursor/koakuma/pointer22.png"), auto}
+  95% {cursor: url("/file/cursor/koakuma/pointer23.png"), auto}
+  100% {cursor: url("/file/cursor/koakuma/pointer24.png"), auto}
+}
+
+// @title Koishi
+@keyframes Koishi-default {
+  0% {cursor: url("/file/cursor/koishi/default1.png"), auto}
+  6.6% {cursor: url("/file/cursor/koishi/default2.png"), auto}
+  13.3% {cursor: url("/file/cursor/koishi/default3.png"), auto}
+  19% {cursor: url("/file/cursor/koishi/default4.png"), auto}
+  25.6% {cursor: url("/file/cursor/koishi/default5.png"), auto}
+  33.3% {cursor: url("/file/cursor/koishi/default6.png"), auto}
+  40% {cursor: url("/file/cursor/koishi/default7.png"), auto}
+  46.6% {cursor: url("/file/cursor/koishi/default8.png"), auto}
+  53.3% {cursor: url("/file/cursor/koishi/default9.png"), auto}
+  60% {cursor: url("/file/cursor/koishi/default10.png"), auto}
+  66.6% {cursor: url("/file/cursor/koishi/default11.png"), auto}
+  73.3% {cursor: url("/file/cursor/koishi/default12.png"), auto}
+  80% {cursor: url("/file/cursor/koishi/default13.png"), auto}
+  86.6% {cursor: url("/file/cursor/koishi/default14.png"), auto}
+  93.3% {cursor: url("/file/cursor/koishi/default15.png"), auto}
+  100% {cursor: url("/file/cursor/koishi/default16.png"), auto}
+}
+@keyframes Koishi-wait {
+  0% {cursor: url("/file/cursor/koishi/wait1.png"), auto}
+  6.6% {cursor: url("/file/cursor/koishi/wait2.png"), auto}
+  13.3% {cursor: url("/file/cursor/koishi/wait3.png"), auto}
+  19% {cursor: url("/file/cursor/koishi/wait4.png"), auto}
+  25.6% {cursor: url("/file/cursor/koishi/wait5.png"), auto}
+  33.3% {cursor: url("/file/cursor/koishi/wait6.png"), auto}
+  40% {cursor: url("/file/cursor/koishi/wait7.png"), auto}
+  46.6% {cursor: url("/file/cursor/koishi/wait8.png"), auto}
+  53.3% {cursor: url("/file/cursor/koishi/wait9.png"), auto}
+  60% {cursor: url("/file/cursor/koishi/wait10.png"), auto}
+  66.6% {cursor: url("/file/cursor/koishi/wait11.png"), auto}
+  73.3% {cursor: url("/file/cursor/koishi/wait12.png"), auto}
+  80% {cursor: url("/file/cursor/koishi/wait13.png"), auto}
+  86.6% {cursor: url("/file/cursor/koishi/wait14.png"), auto}
+  93.3% {cursor: url("/file/cursor/koishi/wait15.png"), auto}
+  100% {cursor: url("/file/cursor/koishi/wait16.png"), auto}
+}
+@keyframes Koishi-busy {
+  0% {cursor: url("/file/cursor/koishi/busy1.png"), auto}
+  6.6% {cursor: url("/file/cursor/koishi/busy2.png"), auto}
+  13.3% {cursor: url("/file/cursor/koishi/busy3.png"), auto}
+  19% {cursor: url("/file/cursor/koishi/busy4.png"), auto}
+  25.6% {cursor: url("/file/cursor/koishi/busy5.png"), auto}
+  33.3% {cursor: url("/file/cursor/koishi/busy6.png"), auto}
+  40% {cursor: url("/file/cursor/koishi/busy7.png"), auto}
+  46.6% {cursor: url("/file/cursor/koishi/busy8.png"), auto}
+  53.3% {cursor: url("/file/cursor/koishi/busy9.png"), auto}
+  60% {cursor: url("/file/cursor/koishi/busy10.png"), auto}
+  66.6% {cursor: url("/file/cursor/koishi/busy11.png"), auto}
+  73.3% {cursor: url("/file/cursor/koishi/busy12.png"), auto}
+  80% {cursor: url("/file/cursor/koishi/busy13.png"), auto}
+  86.6% {cursor: url("/file/cursor/koishi/busy14.png"), auto}
+  93.3% {cursor: url("/file/cursor/koishi/busy15.png"), auto}
+  100% {cursor: url("/file/cursor/koishi/busy16.png"), auto}
+}
+@keyframes Koishi-pointer {
+  0% {cursor: url("/file/cursor/koishi/pointer1.png"), auto}
+  6.6% {cursor: url("/file/cursor/koishi/pointer2.png"), auto}
+  13.3% {cursor: url("/file/cursor/koishi/pointer3.png"), auto}
+  19% {cursor: url("/file/cursor/koishi/pointer4.png"), auto}
+  25.6% {cursor: url("/file/cursor/koishi/pointer5.png"), auto}
+  33.3% {cursor: url("/file/cursor/koishi/pointer6.png"), auto}
+  40% {cursor: url("/file/cursor/koishi/pointer7.png"), auto}
+  46.6% {cursor: url("/file/cursor/koishi/pointer8.png"), auto}
+  53.3% {cursor: url("/file/cursor/koishi/pointer9.png"), auto}
+  60% {cursor: url("/file/cursor/koishi/pointer10.png"), auto}
+  66.6% {cursor: url("/file/cursor/koishi/pointer11.png"), auto}
+  73.3% {cursor: url("/file/cursor/koishi/pointer12.png"), auto}
+  80% {cursor: url("/file/cursor/koishi/pointer13.png"), auto}
+  86.6% {cursor: url("/file/cursor/koishi/pointer14.png"), auto}
+  93.3% {cursor: url("/file/cursor/koishi/pointer15.png"), auto}
+  100% {cursor: url("/file/cursor/koishi/pointer16.png"), auto}
+}
+
+// @title Youmu
+@keyframes Youmu-default {
+  0% {cursor: url("/file/cursor/youmu/default1.png"), auto}
+  9% {cursor: url("/file/cursor/youmu/default2.png"), auto}
+  18% {cursor: url("/file/cursor/youmu/default3.png"), auto}
+  27% {cursor: url("/file/cursor/youmu/default4.png"), auto}
+  36% {cursor: url("/file/cursor/youmu/default5.png"), auto}
+  45% {cursor: url("/file/cursor/youmu/default6.png"), auto}
+  54% {cursor: url("/file/cursor/youmu/default7.png"), auto}
+  63% {cursor: url("/file/cursor/youmu/default8.png"), auto}
+  72% {cursor: url("/file/cursor/youmu/default9.png"), auto}
+  81% {cursor: url("/file/cursor/youmu/default10.png"), auto}
+  90% {cursor: url("/file/cursor/youmu/default11.png"), auto}
+  100% {cursor: url("/file/cursor/youmu/default12.png"), auto}
+}
+@keyframes Youmu-wait {
+  0% {cursor: url("/file/cursor/youmu/wait1.png"), auto}
+  4.3% {cursor: url("/file/cursor/youmu/wait2.png"), auto}
+  8.6% {cursor: url("/file/cursor/youmu/wait3.png"), auto}
+  13% {cursor: url("/file/cursor/youmu/wait4.png"), auto}
+  17.3% {cursor: url("/file/cursor/youmu/wait5.png"), auto}
+  21.6% {cursor: url("/file/cursor/youmu/wait6.png"), auto}
+  26% {cursor: url("/file/cursor/youmu/wait7.png"), auto}
+  30.3% {cursor: url("/file/cursor/youmu/wait8.png"), auto}
+  34.6% {cursor: url("/file/cursor/youmu/wait9.png"), auto}
+  39% {cursor: url("/file/cursor/youmu/wait10.png"), auto}
+  43.3% {cursor: url("/file/cursor/youmu/wait11.png"), auto}
+  47.6% {cursor: url("/file/cursor/youmu/wait12.png"), auto}
+  52% {cursor: url("/file/cursor/youmu/wait13.png"), auto}
+  56.3% {cursor: url("/file/cursor/youmu/wait14.png"), auto}
+  60.6% {cursor: url("/file/cursor/youmu/wait15.png"), auto}
+  65% {cursor: url("/file/cursor/youmu/wait16.png"), auto}
+  69.3% {cursor: url("/file/cursor/youmu/wait17.png"), auto}
+  73.6% {cursor: url("/file/cursor/youmu/wait18.png"), auto}
+  78% {cursor: url("/file/cursor/youmu/wait19.png"), auto}
+  82.3% {cursor: url("/file/cursor/youmu/wait20.png"), auto}
+  86.6% {cursor: url("/file/cursor/youmu/wait21.png"), auto}
+  91% {cursor: url("/file/cursor/youmu/wait22.png"), auto}
+  95% {cursor: url("/file/cursor/youmu/wait23.png"), auto}
+  100% {cursor: url("/file/cursor/youmu/wait24.png"), auto}
+}
+@keyframes Youmu-busy {
+  0% {cursor: url("/file/cursor/youmu/busy1.png"), auto}
+  4.3% {cursor: url("/file/cursor/youmu/busy2.png"), auto}
+  8.6% {cursor: url("/file/cursor/youmu/busy3.png"), auto}
+  13% {cursor: url("/file/cursor/youmu/busy4.png"), auto}
+  17.3% {cursor: url("/file/cursor/youmu/busy5.png"), auto}
+  21.6% {cursor: url("/file/cursor/youmu/busy6.png"), auto}
+  26% {cursor: url("/file/cursor/youmu/busy7.png"), auto}
+  30.3% {cursor: url("/file/cursor/youmu/busy8.png"), auto}
+  34.6% {cursor: url("/file/cursor/youmu/busy9.png"), auto}
+  39% {cursor: url("/file/cursor/youmu/busy10.png"), auto}
+  43.3% {cursor: url("/file/cursor/youmu/busy11.png"), auto}
+  47.6% {cursor: url("/file/cursor/youmu/busy12.png"), auto}
+  52% {cursor: url("/file/cursor/youmu/busy13.png"), auto}
+  56.3% {cursor: url("/file/cursor/youmu/busy14.png"), auto}
+  60.6% {cursor: url("/file/cursor/youmu/busy15.png"), auto}
+  65% {cursor: url("/file/cursor/youmu/busy16.png"), auto}
+  69.3% {cursor: url("/file/cursor/youmu/busy17.png"), auto}
+  73.6% {cursor: url("/file/cursor/youmu/busy18.png"), auto}
+  78% {cursor: url("/file/cursor/youmu/busy19.png"), auto}
+  82.3% {cursor: url("/file/cursor/youmu/busy20.png"), auto}
+  86.6% {cursor: url("/file/cursor/youmu/busy21.png"), auto}
+  91% {cursor: url("/file/cursor/youmu/busy22.png"), auto}
+  95% {cursor: url("/file/cursor/youmu/busy23.png"), auto}
+  100% {cursor: url("/file/cursor/youmu/busy24.png"), auto}
+}
+@keyframes Youmu-pointer {
+  0% {cursor: url("/file/cursor/youmu/pointer1.png"), auto}
+  4.3% {cursor: url("/file/cursor/youmu/pointer2.png"), auto}
+  8.6% {cursor: url("/file/cursor/youmu/pointer3.png"), auto}
+  13% {cursor: url("/file/cursor/youmu/pointer4.png"), auto}
+  17.3% {cursor: url("/file/cursor/youmu/pointer5.png"), auto}
+  21.6% {cursor: url("/file/cursor/youmu/pointer6.png"), auto}
+  26% {cursor: url("/file/cursor/youmu/pointer7.png"), auto}
+  30.3% {cursor: url("/file/cursor/youmu/pointer8.png"), auto}
+  34.6% {cursor: url("/file/cursor/youmu/pointer9.png"), auto}
+  39% {cursor: url("/file/cursor/youmu/pointer10.png"), auto}
+  43.3% {cursor: url("/file/cursor/youmu/pointer11.png"), auto}
+  47.6% {cursor: url("/file/cursor/youmu/pointer12.png"), auto}
+  52% {cursor: url("/file/cursor/youmu/pointer13.png"), auto}
+  56.3% {cursor: url("/file/cursor/youmu/pointer14.png"), auto}
+  60.6% {cursor: url("/file/cursor/youmu/pointer15.png"), auto}
+  65% {cursor: url("/file/cursor/youmu/pointer16.png"), auto}
+  69.3% {cursor: url("/file/cursor/youmu/pointer17.png"), auto}
+  73.6% {cursor: url("/file/cursor/youmu/pointer18.png"), auto}
+  78% {cursor: url("/file/cursor/youmu/pointer19.png"), auto}
+  82.3% {cursor: url("/file/cursor/youmu/pointer20.png"), auto}
+  86.6% {cursor: url("/file/cursor/youmu/pointer21.png"), auto}
+  91% {cursor: url("/file/cursor/youmu/pointer22.png"), auto}
+  95% {cursor: url("/file/cursor/youmu/pointer23.png"), auto}
+  100% {cursor: url("/file/cursor/youmu/pointer24.png"), auto}
 }
 
 
@@ -140,7 +648,6 @@
   --CSOSold-width: 896px;
   --CSOSold-height: 480px;
   --CSOSold-height-taskbar: 48px;
-  
 }
 .CSOSold-container {
   display: grid;
@@ -202,7 +709,6 @@
   --cursor-busy: youmu-busy 2.5s;
   --cursor-pointer: youmu-pointer 5s;
 }
-
 
 #CSOSold-cursor-window-visibility:not(:checked) ~ .CSOSold-container #CSOSold-cursor-window {
   visibility: hidden;
@@ -564,7 +1070,6 @@
 	}
 }
 
-
 // CSS State Styling
 // I forgor that this is pain, peko.
 .cursor-preview-master:has(> #cursor-bg-option-1:checked) > .cursor-test-field {background-image: url(/img/gallery/touhou_grassroot3__px.gif);}
@@ -582,7 +1087,6 @@
 	background-color: var(--clr-background);
 	box-shadow: var(--border-active);
 }
-
 #cursor-option-none:checked ~ .cursor-test-field {
 	& > .cursor-test-field-boxes {
 		--clr-textbox: var(--clr-text);

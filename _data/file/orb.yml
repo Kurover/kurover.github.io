@@ -1,0 +1,18 @@
+list:
+  start-orb-win7:
+    name: Aero-7
+    size: 54px
+    basic: true
+    align-bottom: -5px
+    link: url(/img/orb-windows.png)
+    link-generic: /img/orb-windows.png
+  start-orb-illith:
+    name: Illith
+    size: 64px
+    basic: false
+    align-bottom: 0px
+    preview: /blog/windows-navigation-enhancement/openshell_extra-2.gif
+    link: url(/img/file/Start-Menu-Illith-64x.png)
+    link-openshell: /img/file/Start-Menu-Illith-64x.png
+    link-generic: /img/file/Start-Menu-Illith-Generic-64x.png
+    default: true

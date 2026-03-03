@@ -1,0 +1,40 @@
+---
+---
+// Separating this because configuring liquid-scss lint in vscode was NOT worth it
+
+// ! ============== CURSOR
+{% for cursor-lists in site.data.file.cursor.list %}
+{% assign cursor = cursor-lists[1] %}
+#CSOS-cursor-state-{{ cursor.name }}:checked ~ .CSOS-container {
+  {% if cursor.speed-default %}   --cursor-default  : {{ cursor.name }}-default   {{ cursor.speed-default }}; {% endif %}
+  {% if cursor.speed-wait %}      --cursor-wait     : {{ cursor.name }}-wait      {{ cursor.speed-wait }}; {% endif %}
+  {% if cursor.speed-busy %}      --cursor-busy     : {{ cursor.name }}-busy      {{ cursor.speed-busy }}; {% endif %}
+  {% if cursor.speed-pointer %}   --cursor-pointer  : {{ cursor.name }}-pointer   {{ cursor.speed-pointer }}; {% endif %}
+  {% if cursor.speed-move %}      --cursor-move     : {{ cursor.name }}-move      {{ cursor.speed-move }}; {% endif %}
+  {% if cursor.speed-resize %}    --cursor-resize   : {{ cursor.name }}-resize    {{ cursor.speed-resize }}; {% endif %}
+}
+#CSOS-cursor-state-{{ cursor.name }}:checked ~ .CSOS-container #CSOS-div-cursor-{{ cursor.name }} {
+  border-color: red;
+}
+#CSOS-cursor-state-default:checked ~ .CSOS-container #CSOS-div-cursor-default {
+  border-color: red;
+}
+{% endfor %}
+
+// ! =============== ORB
+{% for orb-lists in site.data.file.orb.list %}
+{% assign orb = orb-lists[1] %}
+#CSOS-orb-state-{{ orb.name }}:checked ~ .CSOS-container {
+  {% if orb.name %}             --orb-name            : {{ orb.name }}; {% endif %}
+  {% if orb.size %}             --orb-size            : {{ orb.size }}; {% endif %}
+  {% if orb.align-bottom %}     --orb-align-bottom    : {{ orb.align-bottom }}; {% endif %}
+  {% if orb.preview %}          --orb-preview         : {{ orb.preview }}; {% endif %}
+  {% if orb.link %}             --orb-link            : {{ orb.link }}; {% endif %}
+  {% if orb.link-openshell %}   --orb-link-openshell  : {{ orb.link-openshell }}; {% endif %}
+  {% if orb.link-generic %}     --orb-link-generic    : {{ orb.link-generic }}; {% endif %}
+  {% if orb.basic %}            --orb-active-y-coordinate: 2; {% endif %}
+}
+#CSOS-orb-state-{{ orb.name }}:checked ~ .CSOS-container #CSOS-div-orb-{{ orb.name }} {
+  border-color: red;
+}
+{% endfor %}

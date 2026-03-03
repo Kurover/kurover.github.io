@@ -2,6 +2,7 @@
 layout: lab
 name: Cursor Simulator
 alias: CSS - Cursor Simulator
+custom-css: /styles/file-cursor.css
 ---
 <section class="wrapper border">
   <p>Bwoah!</p>
@@ -10,19 +11,119 @@ alias: CSS - Cursor Simulator
 <!-- @main ____ CSOS MAIN -->
 <section class="wrapper wrapper--CSOS CSOS-root">
   
-  <input type="checkbox" id="CSOS-start-menu-state">
+  <input type="checkbox" id="CSOS-start-menu-state" checked>
 
+  <!-- * Cursor state -->
+  <input type="radio" name="CSOS-current-cursor" tabindex="-1" id="CSOS-cursor-state-default" checked>
+  {% for cursor-lists in site.data.file.cursor.list %}
+  {% assign cursor = cursor-lists[1] %}
+  <input type="radio" name="CSOS-current-cursor" tabindex="-1" id="CSOS-cursor-state-{{ cursor.name }}">
+  {% endfor %}
+  
+  <!-- * Orb state -->
+  <!-- <input type="radio" name="CSOS-current-orb" class="CSOS-orb-basic" tabindex="-1" id="CSOS-orb-state-default"> -->
+  {% for orb-lists in site.data.file.orb.list %}
+  {% assign orb = orb-lists[1] %}
+  <input type="radio" name="CSOS-current-orb" {% if orb.basic %}class="CSOS-orb-basic"{% endif %}tabindex="-1" id="CSOS-orb-state-{{ orb.name }}" {% if orb.default %}checked{% endif %}>
+  {% endfor %}
+
+  <!-- ! MAIN CONTENT -->
   <div class="CSOS-container">
     <!-- @section . Desktop/canvas -->
     <div class="CSOS-canvas">
       <p>lorem ipsum 1</p>
       <p>lorem ipsum 2</p>
 
-      <div class="CSOS-start-menus">
-        <p>hello mr.world</p>
+      <div class="CSOS-start-menu">
+        
+        <!-- ? Controller -->
+        <div class="CSOS-start-menu-menus">
+          <label for="CSOS-start-content-1" class="CSOS-start-menu-menu"><span>Orb</span></label>
+          <label for="CSOS-start-content-2" class="CSOS-start-menu-menu middle"><span>Cursor</span></label>
+          <label for="CSOS-start-content-3" class="CSOS-start-menu-menu"><span>BG</span></label>
+        </div>
+
+        <input type="radio" name="CSOS-start-menu-select" class="invisible" tabindex="-1" id="CSOS-start-content-0" checked>
+        <input type="radio" name="CSOS-start-menu-select" class="invisible" tabindex="-1" id="CSOS-start-content-1">
+        <input type="radio" name="CSOS-start-menu-select" class="invisible" tabindex="-1" id="CSOS-start-content-2">
+        <input type="radio" name="CSOS-start-menu-select" class="invisible" tabindex="-1" id="CSOS-start-content-3">
+        
+
+        <!-- ? Content -->
+        <div class="CSOS-start-menu-content CSOS-start-home">
+          <div class="CSOS-start-menu-content--title center"><span>WELCOME TO: Cascading Style OS</span></div>
+          <p>lorem ipsum</p>
+          <p>Welcome to start menu, menu!</p>
+        </div>
+        <!-- ? ORB -->
+        <div class="CSOS-start-menu-content CSOS-start-orb">
+          <div class="CSOS-start-menu-content--title">
+            <label for="CSOS-start-content-0" class="CSOS-start-menu-menu-return"></label>
+            <span>-ORB-</span>
+          </div>
+          {% for orb-lists in site.data.file.orb.list %}
+          {% assign orb = orb-lists[1] %}
+          <div class="CSOS-start-orb-button" id="CSOS-div-orb-{{ orb.name }}">
+            <label for="CSOS-orb-state-{{ orb.name }}" class="CSOS-start-orb-list">{{ orb.name }}</label>
+            {% if orb.preview %}
+            <div class="CSOS-start-orb-preview">
+              <img src="{{ orb.preview }}" alt="" loading="lazy">
+            </div>
+            {% endif %}
+            {% if orb.link-generic %}
+            <div class="CSOS-start-orb-download generic">
+              <a href="{{ orb.link-generic }}" download>LINK</a>
+            </div>
+            {% endif %}
+            {% if orb.link-openshell %}
+            <div class="CSOS-start-orb-download openshell">
+              <a href="{{ orb.link-openshell }}" download>LINK</a>
+            </div>
+            {% endif %}
+          </div>
+          {% endfor %}
+          <p>ORB ORB ORB</p>
+        </div>
+        <!-- ? CURSOR -->
+        <div class="CSOS-start-menu-content CSOS-start-cursor">
+          <div class="CSOS-start-menu-content--title">
+            <label for="CSOS-start-content-0" class="CSOS-start-menu-menu-return"></label>
+            <span>Change Cursor</span>
+          </div>
+            <div class="CSOS-start-cursor-button" id="CSOS-div-cursor-default"><label for="CSOS-cursor-state-0" class="CSOS-start-cursor-list">@default</label></div>
+            {% for cursor-lists in site.data.file.cursor.list %}
+            {% assign cursor = cursor-lists[1] %}
+            <div class="CSOS-start-cursor-button" id="CSOS-div-cursor-{{ cursor.name }}">
+              <label for="CSOS-cursor-state-{{ cursor.name }}" class="CSOS-start-cursor-list">{{ cursor.name }}<span>{{ cursor.rating }}</span></label>
+              {% if cursor.preview %}
+              <div class="CSOS-start-cursor-preview">
+                <img src="{{ cursor.preview }}" alt="" loading="lazy">
+              </div>
+              {% endif %}
+              {% if cursor.link-github %}
+              <div class="CSOS-start-cursor-download">
+                <a href="{{ cursor.link-github }}">LINK</a>
+              </div>
+              {% endif %}
+            </div>
+            {% endfor %}
+            <div class="CSOS-start-cursor-button"><label for="CSOS-cursor-state-0" class="CSOS-start-cursor-list">PLACEHOLDER</label></div>
+            <div class="CSOS-start-cursor-button"><label for="CSOS-cursor-state-0" class="CSOS-start-cursor-list">PLACEHOLDER</label></div>
+            <div class="CSOS-start-cursor-button"><label for="CSOS-cursor-state-0" class="CSOS-start-cursor-list">PLACEHOLDER</label></div>
+            <div class="CSOS-start-cursor-button"><label for="CSOS-cursor-state-0" class="CSOS-start-cursor-list">PLACEHOLDER</label></div>
+            <div class="CSOS-start-cursor-button"><label for="CSOS-cursor-state-0" class="CSOS-start-cursor-list">PLACEHOLDER</label></div>
+        </div>
+        <!-- ? BG -->
+        <div class="CSOS-start-menu-content CSOS-start-bg">
+          <div class="CSOS-start-menu-content--title">
+            <label for="CSOS-start-content-0" class="CSOS-start-menu-menu-return"></label>
+            <span>Change Background</span>
+          </div>
+          <p>Under construction! (aka wip unless worked otherwise) since it's a fluff and time-waster of a content, very cool!</p>
+        </div>
+
       </div>
     </div>
-
     <!-- @section . Taskbar -->
     <div class="CSOS-taskbar">
       <label for="CSOS-start-menu-state" class="CSOS-start-menu-bar">
