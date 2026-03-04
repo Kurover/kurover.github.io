@@ -9,3 +9,5 @@ gem "github-pages", "~> 228"
 gem "webrick", "~> 1.8"
 
 gem "wdm", "~> 0.2"
+
+gem 'tzinfo-data'

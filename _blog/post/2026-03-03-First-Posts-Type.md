@@ -6,6 +6,8 @@ groups: blog-post
 
 title: Post I go
 description: Random post number 1
+created-at: 2026-03-03T23:00:00+0700
+modified-at: 2026-03-04T19:51:59+0700
 ---
 
 {% assign posts = site.lab | where: "name", "Cursor Simulator" %}

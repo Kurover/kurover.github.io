@@ -1,6 +1,8 @@
 sass:
   style: compressed
 
+timezone: Asia/Jakarta
+
 compress_html:
   clippings: all
   comments: all
