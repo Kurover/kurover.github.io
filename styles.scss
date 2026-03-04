@@ -215,6 +215,12 @@ body::after {
   height: 0;
   left: -9999px;
 }
+.ghost {
+  position: fixed;
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
 .center {
   text-align: center;
   align-content: center;
@@ -1807,6 +1813,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
 }
 
 // * @section # EntryLists
+// Im lookin at this years later and the organization sucks ass, but hey, search bar anyone?
 .gallery-lists {
   display: flex;
   flex-direction: row;
@@ -1836,15 +1843,6 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   overflow: visible;
   background-color: var(--clr-secondary);
   transition: flex .8s .1s ease-in-out, background .5s;
-  & > .gallery-image {
-    height: 100%;
-    width: auto;
-    & > img {
-      object-fit: cover;
-      width: 100%;
-      height: 100%;
-    }
-  }
   & > p {
     z-index: 1;
     position: absolute;
@@ -1888,6 +1886,15 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
     bottom: 0;
     left: 0;
   }
+.gallery-image {
+  height: 100%;
+  width: auto;
+  & > img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+}
   // ? @section ## Mod
   // Using OOCS because I don't want to bloat the html with BEM
   &.left img {object-position: left;}
@@ -1935,11 +1942,13 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   line-height: 32px;
   transition: visibility 1ms; // Give time for focus-within to work
   & > a {
-    color: var(--clr-tooltip-link-hover);
+    // color: var(--clr-tooltip-link-hover);
     text-align: center;
     text-decoration: none;
-    background: var(--clr-tooltip-background);
-    border-image: url(/img/border-2.png) 8 / 16px / 4px;
+    background: var(--clr-btn-download);
+    // border-image: url(/img/border-2.png) 8 / 16px / 4px;
+    border-image: url(/img/border-1-default-alt.png) 6 / 16px / 4px;
+    image-rendering: pixelated;
     padding: 12px;
     margin: 2px;
     opacity: .33;
@@ -1966,6 +1975,25 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   bottom: 0;
   left: 0;
 }
+// Class below is for label, which forces the focus outside (to input) of this element, very cool!
+.gallery-close-bg {
+  z-index: 1;
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.gallery-list:focus {
+  & > .gallery-close-bg {
+    display: block;
+  } 
+  & > .gallery-image {
+    background-color: black;
+  }
+}
+
 // The :is:has :active is to make sure mobile download button works because of course it is.
 // I might just split the css between 2 screen but hmmmmm
 .gallery-list:is(:focus, :has( .gallery-image__link:active)) > .gallery-image {
@@ -1975,19 +2003,20 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   right: 0;
   bottom: 0;
   left: 0;
+  margin: auto;
   cursor: default;
   // pointer-events: none;
-  // Add background color on empty spaces
-  &::before {
-    z-index: -1;
-    content: "";
-    position: absolute;
-    background-color: var(--clr-background);
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-  }
+  // Add background color on empty spaces // Ermm why did I do this? lol. I'm sure there's an explanation but it's no longer valid now, just add bg color
+  // &::before {
+  //   z-index: -1;
+  //   content: "";
+  //   position: absolute;
+  //   background-color: var(--clr-background);
+  //   top: 0;
+  //   right: 0;
+  //   bottom: 0;
+  //   left: 0;
+  // }
   & > img {
     object-fit: contain !important;
     object-position: unset !important;
@@ -2010,24 +2039,41 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
 // @misc @ Media
 @media (min-width: 769px) {
   .gallery-list:is(:focus, :has( .gallery-image__link:active)) > .gallery-image {
-    left: calc(10vw - (100vw - 100%)); // scrollbar made this way too complicated
+    // left: calc(10vw - (100vw - 100%)); // scrollbar made this way too complicated // say no more, gutter is here to rescue
     top: 5vh;
-    height: 90vh;
-    width: 80vw;
+    height: 82vh;
+    width: 78vw;
+    max-width: 1600px; // for the 4k bros out there...
+    max-height: 1080px;
     border: 2px solid var(--clr-border);
-    overflow: auto;
+    // overflow: auto; // might not need this anymore (?)
+    &::before {
+      display: block;
+      position: absolute;
+      content: "vieVVer.bat";
+      padding-left: 6px;
+      line-height: 32px;
+      top: -34px;
+      left: 0;
+      right: 0;
+
+      outline: 2px solid var(--clr-border);
+      background-color: var(--clr-codeblock-bg-title);
+      color: var(--clr-codeblock-text-title);
+    }
   }
   .gallery-close {
     cursor: pointer;
-    top: 1rem;
-    right: 1rem;
+    top: -35px;
+    right: -1px;
     bottom: unset;
     left: unset;
-    padding: 1rem 1.5rem;
+    padding: 0 1.5rem;
     border: 1px solid var(--clr-border);
     transition: background .1s;
     &::before {
       content: "X";
+      line-height: 32px;
       display: block;
     }
     &:hover {
@@ -2035,9 +2081,9 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
     }
   }
   .gallery-image__link {
-    position: fixed;
-    bottom: 8vh;
-    right: 12vw;
+    // position: fixed;
+    bottom: 2vh;
+    right: 2vw;
   }
 }
 @media (max-width: 768px) {
@@ -2093,6 +2139,9 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   .gallery-list--custom-1 {
     height: 320px;
   }
+  // .gallery-close {
+  //   display: fixed;
+  // }
 }
 @media (max-width: 450px) {
   .gallery-list.head > .gallery-image {

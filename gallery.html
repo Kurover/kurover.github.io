@@ -36,6 +36,7 @@ og-type: gallery
     </div>
   </section>
   <div class="wrapper wrapper--no-padding">
+    <input type="checkbox" class="ghost" id="gal-close" tabindex="-1"> <!-- This does nothing, just to forces the focus out of gallery zoom since the css is a bit tight there with :focus-within. It does mean that if you close and then press tab, it will return here. Fixed position style so when "clicked", it doesn't focus the screen back up -->
     <input id="gallery-tab-state-1__page-1_sys" name="gallery-tab-states" type="radio">
     <input id="gallery-tab-state-1__page-2_sys" name="gallery-tab-states" type="radio">
     <input id="gallery-tab-state-2_sys" name="gallery-tab-states" type="radio" checked>
@@ -58,6 +59,7 @@ og-type: gallery
           <h2 class="title-full margin">{{ section.name }}</h2>
           {% for item in section.list %}
           <div class="gallery-list{% if item.class %} {{ item.class }}{% endif %}" tabindex="0">
+            <label for="gal-close" class="gallery-close-bg"></label>
             {% if item.caption %}<p>{{ item.caption }}</p>{% endif %}
             <div class="gallery-image">
               <img {% unless item.no-lazy %}loading="lazy"{% endunless %} src="{{ item.link }}" alt="{{ item.name }}">
@@ -66,7 +68,7 @@ og-type: gallery
                 {% if item.link-alt %}<a href="{{ item.link-alt }}" download tabindex="-1">Download Alt</a>{% endif %}
                 <a href="{{ item.link }}" download tabindex="-1">Download</a>
               </div>
-              <div class="gallery-close" tabindex="-1"></div>
+              <label for="gal-close" class="gallery-close"></label>
             </div>
           </div>
           {% if item.separate %}<hr class="br-flex">{% endif %}
