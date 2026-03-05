@@ -1980,7 +1980,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
 }
 // Class below is for label, which forces the focus outside (to input) of this element, very cool!
 .gallery-close-bg {
-  z-index: 1;
+  z-index: 7;
   display: none;
   position: fixed;
   top: 0;
