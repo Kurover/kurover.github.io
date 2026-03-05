@@ -53,12 +53,12 @@ og-type: website
 
   <!-- ! Sample -->
   <section class="wrapper wrapper--no-padding">
-    <input type="checkbox" class="ghost" id="gal-close" tabindex="-1"> <!-- ! Explanation on gallery page -->
+    <input type="checkbox" id="gal-close_sys" tabindex="-1"> <!-- ! Explanation on gallery page -->
     <h2 class="margin title-full">Work Sample</h2>
     <div class="gallery-lists gallery-lists--horizontal">
       {% for item-sample in site.data.home-sample %}
       <div class="gallery-list{% if item-sample.size == "full" %} wide-hover{% endif %}" tabindex="0">
-        <label for="gal-close" class="gallery-close-bg"></label>
+        <label for="gal-close_sys" class="gallery-close-bg"></label>
         <div class="gallery-image-wrapper">
           <div class="gallery-image">
             <img src="{{ item-sample.link }}" alt="{{ item-sample.name }}"{% if item-sample.ratio %} style="aspect-ratio: {{ item-sample.ratio }}"{% endif %}>
@@ -66,7 +66,7 @@ og-type: website
               {% if item.link-2 %}<a href="{{ item.link-2 }}" download tabindex="-1">Download Alt</a>{% endif %}
               <a href="{{ item-sample.link }}" download tabindex="-1">Download</a>
             </div>
-            <label for="gal-close" class="gallery-close"></label>
+            <label for="gal-close_sys" class="gallery-close"></label>
           </div>
         </div>
       </div>
@@ -78,7 +78,7 @@ og-type: website
     <hr>
     <p>The website is under major (re)construction! You can view <a href="https://github.com/Kurover/kurover.github.io/blob/main/Version-3.md" target="_blank">V3 Notes</a> for what's being worked on and stuff.</p>
     <p>On the meantime, try looking at <a href="/gallery">Gallery</a> or check out <a href="/v2">old website</a>.</p>
-    <div>
+    <div style="list-style: decimal;">
       <h2>Recent Yap</h2>
       {% assign blog-posts = site.blog | where: "groups", "blog-post" | reverse %}
       {% for post in blog-posts limit: 3 %}
