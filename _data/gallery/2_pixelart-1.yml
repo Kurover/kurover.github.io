@@ -33,7 +33,7 @@ list:
 - name: Koishi winking portrait
   link: /img/gallery/touhou_koishi__px.png
   caption: Sparkles~!
-  class: full
+  class: full landscape
   separate:
 - name: Koishi stills with festive hands out pose
   link: /img/gallery/touhou_kooshy1__px.png

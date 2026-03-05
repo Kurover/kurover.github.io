@@ -2094,15 +2094,17 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
       color: var(--clr-codeblock-text-title);
     }
   }
-  .gallery-list.landscape:focus {
-    & .gallery-image-wrapper {
-      overflow-y: unset;
-      overflow-x: scroll;
-    }
+  .gallery-list.landscape:is(:focus, :has( .gallery-image__link:active)) {
+    // & .gallery-image-wrapper {
+    //   overflow-y: unset;
+    //   overflow-x: scroll;
+    // }
     & .gallery-image {
+      top: 34px;
       min-height: unset;
-      height: fit-content;
-      width: auto;
+      max-height: calc(100% - 38px);
+      // height: fit-content;
+      // width: auto;
     }
   }
   .gallery-close {
@@ -2146,7 +2148,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
 }
 // (Desktop) max-height is the max-height of zoomed image, modify the wrapper content since the wrapper itself has overflow bar already. If not set like this, the image will be centered and cannot be scrolled up. Very niche situtation eh?
 @media (min-width: 769px) and (max-height: 897px) {
-  .gallery-list:not(.landscape):focus {
+  .gallery-list:not(.landscape):is(:focus, :has( .gallery-image__link:active)) {
   & .gallery-image {
     top: 32px!important;
     bottom: unset!important;
