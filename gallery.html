@@ -61,14 +61,16 @@ og-type: gallery
           <div class="gallery-list{% if item.class %} {{ item.class }}{% endif %}" tabindex="0">
             <label for="gal-close" class="gallery-close-bg"></label>
             {% if item.caption %}<p>{{ item.caption }}</p>{% endif %}
-            <div class="gallery-image">
-              <img {% unless item.no-lazy %}loading="lazy"{% endunless %} src="{{ item.link }}" alt="{{ item.name }}">
-              {% if item.link-alt %}<img loading="lazy" class="gallery-image__alt" src="{{ item.link-alt }}" alt="Alternative image">{% endif %}
-              <div class="gallery-image__link">
-                {% if item.link-alt %}<a href="{{ item.link-alt }}" download tabindex="-1">Download Alt</a>{% endif %}
-                <a href="{{ item.link }}" download tabindex="-1">Download</a>
+            <div class="gallery-image-wrapper">
+              <div class="gallery-image">
+                <img {% unless item.no-lazy %}loading="lazy"{% endunless %} src="{{ item.link }}" alt="{{ item.name }}">
+                {% if item.link-alt %}<img loading="lazy" class="gallery-image__alt" src="{{ item.link-alt }}" alt="Alternative image">{% endif %}
+                <div class="gallery-image__link">
+                  {% if item.link-alt %}<a href="{{ item.link-alt }}" download tabindex="-1">Download Alt</a>{% endif %}
+                  <a href="{{ item.link }}" download tabindex="-1">Download</a>
+                </div>
+                <label for="gal-close" class="gallery-close"></label>
               </div>
-              <label for="gal-close" class="gallery-close"></label>
             </div>
           </div>
           {% if item.separate %}<hr class="br-flex">{% endif %}

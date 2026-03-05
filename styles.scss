@@ -1843,7 +1843,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   overflow: visible;
   background-color: var(--clr-secondary);
   transition: flex .8s .1s ease-in-out, background .5s;
-  & > p {
+  & p {
     z-index: 1;
     position: absolute;
     visibility: hidden;
@@ -1865,7 +1865,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
     border: 2px solid var(--clr-border-select);
     flex: 1.75;
     transition-delay: 0s; // disable flex delay when hover
-    & > p {
+    & p {
       visibility: visible;
       opacity: 1;
       transform: none;
@@ -1886,20 +1886,11 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
     bottom: 0;
     left: 0;
   }
-.gallery-image {
-  height: 100%;
-  width: auto;
-  & > img {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-  }
-}
   // ? @section ## Mod
   // Using OOCS because I don't want to bloat the html with BEM
   &.left img {object-position: left;}
   &.right img {object-position: right;}
-  &.head > img {
+  &.head img {
     margin-top: 30%;
   }
   &.wide {
@@ -1911,7 +1902,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   &.full {
     flex: 100%;
     width: 100%;
-    & > .gallery-image {
+    & .gallery-image {
       width: 100%;
     }
   }
@@ -1927,9 +1918,21 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
     flex: 4;
   }
 }
+.gallery-image-wrapper {
+  display: contents;
+}
+.gallery-image {
+  height: 100%;
+  width: auto;
+  & > img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+}
 .gallery-list--custom-1 {
   height: fit-content;
-  & > .gallery-image > img {
+  & .gallery-image > img {
     object-position: 85%;
   }
 }
@@ -1986,19 +1989,29 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   left: 0;
 }
 .gallery-list:focus {
-  & > .gallery-close-bg {
+  & > .gallery-image-wrapper {
+    display: block;
+    pointer-events: none;
+    z-index: 9;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  & .gallery-close-bg {
     display: block;
   } 
-  & > .gallery-image {
+  & .gallery-image {
     background-color: black;
   }
 }
 
 // The :is:has :active is to make sure mobile download button works because of course it is.
 // I might just split the css between 2 screen but hmmmmm
-.gallery-list:is(:focus, :has( .gallery-image__link:active)) > .gallery-image {
-  z-index: 9;
-  position: fixed;
+.gallery-list:is(:focus, :has( .gallery-image__link:active)) .gallery-image {
+  pointer-events: auto;
+  position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
@@ -2017,32 +2030,32 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   //   bottom: 0;
   //   left: 0;
   // }
-  & > img {
+  & img {
     object-fit: contain !important;
     object-position: unset !important;
   }
-  & > .gallery-image__link {
+  & .gallery-image__link {
     visibility: visible;
   }
-  & > .gallery-close {
+  & .gallery-close {
     display: block;
   }
   // System to do alt imagery
-  &:has(.gallery-image__alt) > img:first-of-type {
+  &:has( .gallery-image__alt) img:first-of-type {
     display: none;
   }
-  & > .gallery-image__alt {
+  & .gallery-image__alt {
     display: block;
   }
 }
 
 // @misc @ Media
 @media (min-width: 769px) {
-  .gallery-list:is(:focus, :has( .gallery-image__link:active)) > .gallery-image {
+  .gallery-list:is(:focus, :has( .gallery-image__link:active)) .gallery-image {
     // left: calc(10vw - (100vw - 100%)); // scrollbar made this way too complicated // say no more, gutter is here to rescue
-    top: 5vh;
-    height: 82vh;
-    width: 78vw;
+    // top: 5vh;
+    height: 78vh;
+    width: fit-content;
     max-width: 1600px; // for the 4k bros out there...
     max-height: 1080px;
     border: 2px solid var(--clr-border);
@@ -2062,14 +2075,20 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
       color: var(--clr-codeblock-text-title);
     }
   }
+  .gallery-list:focus {
+    & > .gallery-image-wrapper {
+      right: 5vw;
+      left: 5vw;
+    }
+  }
   .gallery-close {
     cursor: pointer;
-    top: -35px;
+    top: -36px;
     right: -1px;
     bottom: unset;
     left: unset;
     padding: 0 1.5rem;
-    border: 1px solid var(--clr-border);
+    border: 2px solid var(--clr-border);
     transition: background .1s;
     &::before {
       content: "X";
@@ -2080,10 +2099,24 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
       background-color: var(--clr-warning);
     }
   }
+  // i don't want to talk about these buttons on top ok, mobile support makes me lazy af
   .gallery-image__link {
-    // position: fixed;
-    bottom: 2vh;
-    right: 2vw;
+    display: flex;
+    bottom: unset;
+    top: -36px;
+    right: 60px;
+    & > a {
+      border-image: unset;
+      margin: unset;
+      padding: 6px 8px;
+      line-height: 20px;
+      opacity: 1;
+      border: 2px solid var(--clr-border);
+      color: var(--clr-text-fade);
+      &:hover {
+        background-color: var(--clr-btn-download-hover);
+      }
+    }
   }
 }
 @media (max-width: 768px) {
@@ -2131,6 +2164,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
     right: 1.5rem;
     & > a {
       opacity: .5;
+      color: var(--clr-text-dim);
     }
   }
   .gallery-list:has(p) .gallery-image__link {
@@ -2144,14 +2178,14 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   // }
 }
 @media (max-width: 450px) {
-  .gallery-list.head > .gallery-image {
+  .gallery-list.head .gallery-image {
     margin-top: auto;
   }
-  .gallery-list.wide > .gallery-image {
+  .gallery-list.wide .gallery-image {
     width: auto;
     height: 100%;
   }
-  .gallery-list.full > .gallery-image {
+  .gallery-list.full .gallery-image {
     width: auto;
     height: 100%;
   }
