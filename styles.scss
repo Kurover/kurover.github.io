@@ -1876,7 +1876,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   // dim background, especially that is not fullscreen zoom, see the mod in @media
   &:focus::before {
     pointer-events: none;
-    z-index: 9;
+    z-index: 8;
     content: "";
     position: fixed;
     background-color: var(--clr-background);
@@ -1938,8 +1938,8 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
 }
 .gallery-image__link {
   visibility: hidden;
-  position: absolute;
-  z-index: 2; // override skip to top
+  position: fixed;
+  z-index: 2; // override skip to top for mobile
   bottom: 1rem;
   right: 1rem;
   line-height: 32px;
@@ -1964,9 +1964,9 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
     }
   }
 }
-.gallery-image__link:focus-within {
-  visibility: visible;
-}
+// .gallery-image__link:focus-within {
+//   visibility: visible;
+// }
 .gallery-image__alt {
   display: none;
 }
@@ -1989,16 +1989,6 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   left: 0;
 }
 .gallery-list:focus {
-  & > .gallery-image-wrapper {
-    display: block;
-    pointer-events: none;
-    z-index: 9;
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-  }
   & .gallery-close-bg {
     display: block;
   } 
@@ -2009,27 +1999,39 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
 
 // The :is:has :active is to make sure mobile download button works because of course it is.
 // I might just split the css between 2 screen but hmmmmm
-.gallery-list:is(:focus, :has( .gallery-image__link:active)) .gallery-image {
-  pointer-events: auto;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: auto;
-  cursor: default;
-  // pointer-events: none;
-  // Add background color on empty spaces // Ermm why did I do this? lol. I'm sure there's an explanation but it's no longer valid now, just add bg color
-  // &::before {
-  //   z-index: -1;
-  //   content: "";
-  //   position: absolute;
-  //   background-color: var(--clr-background);
-  //   top: 0;
-  //   right: 0;
-  //   bottom: 0;
-  //   left: 0;
-  // }
+.gallery-list:is(:focus, :has( .gallery-image__link:active)) {
+  & .gallery-image-wrapper {
+    display: block;
+    pointer-events: none;
+    z-index: 9;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  & .gallery-image {
+    pointer-events: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    cursor: default;
+    // pointer-events: none;
+    // Add background color on empty spaces // Ermm why did I do this? lol. I'm sure there's an explanation but it's no longer valid now, just add bg color
+    // &::before {
+    //   z-index: -1;
+    //   content: "";
+    //   position: absolute;
+    //   background-color: var(--clr-background);
+    //   top: 0;
+    //   right: 0;
+    //   bottom: 0;
+    //   left: 0;
+    // }
+  }
   & img {
     object-fit: contain !important;
     object-position: unset !important;
@@ -2101,6 +2103,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   }
   // i don't want to talk about these buttons on top ok, mobile support makes me lazy af
   .gallery-image__link {
+    position: absolute;
     display: flex;
     bottom: unset;
     top: -36px;
