@@ -1614,6 +1614,17 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
 }
 
 // ! @title ________ Gallery ________
+// Comments time! 2026-03-05T21:02:02+0700
+// The no input/label restriction was cool to experience. I like how you can squeeze this much feature by using :focus/-within.
+// There's clear limitation to it, mainly you cannot have all the element to replace the current screen via fullscreen as clicking OUT of it will become a problem. With input/label you can also make it so you close the viewer by pressing space.
+// I did cheat a bit with label to "out-focus" within its element since I found out clicking on label will move your current focus to the input. With 1 input outside of the element you can pretty much do a lot.
+//
+// So, conclusion? Don't put jank limitation of basic tags (on an already limited system) as that will limit your option!
+// I will keep the current version as is, I'm not fully happy with it but that's simply because it doesn't go as well as I imagined.
+//
+// I do like the accordion mechanic to this day. I tried a couple of other system like tabs and buttons (to enter a container) but the accordion is so nice as you scroll back up when you click the category.
+// I need to add more divs for the desktop title bar though, current ::before and pos:absolute hack job is not great for the zoom mechanic haha. I wanted to be able to scroll horizontally on wider images but current system will scroll the title bar too.
+
 // * @section # Tabs
 .gallery-tab-buttons {
   --height: 2.5rem;
@@ -2053,13 +2064,19 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
 
 // @misc @ Media
 @media (min-width: 769px) {
+  .gallery-image-wrapper {
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
   .gallery-list:is(:focus, :has( .gallery-image__link:active)) .gallery-image {
     // left: calc(10vw - (100vw - 100%)); // scrollbar made this way too complicated // say no more, gutter is here to rescue
     // top: 5vh;
-    height: 86vh;
+    min-height: 86vh; // respect zoom level
+    height: 896px;
     width: fit-content;
-    max-width: 1600px; // for the 4k bros out there...
-    max-height: 1080px;
+    // max-width: 1600px; // for the 4k bros out there... // actually, beat the purpose of ZOOMing
+    // max-height: 1080px; // irrelevant with such high min-height
     border: 2px solid var(--clr-border);
     // overflow: auto; // might not need this anymore (?)
     &::before {
@@ -2077,10 +2094,15 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
       color: var(--clr-codeblock-text-title);
     }
   }
-  .gallery-list:focus {
-    & > .gallery-image-wrapper {
-      right: 5vw;
-      left: 5vw;
+  .gallery-list.landscape:focus {
+    & .gallery-image-wrapper {
+      overflow-y: unset;
+      overflow-x: scroll;
+    }
+    & .gallery-image {
+      min-height: unset;
+      height: fit-content;
+      width: auto;
     }
   }
   .gallery-close {
@@ -2119,6 +2141,15 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
       &:hover {
         background-color: var(--clr-btn-download-hover);
       }
+    }
+  }
+}
+// (Desktop) max-height is the max-height of zoomed image, modify the wrapper content since the wrapper itself has overflow bar already. If not set like this, the image will be centered and cannot be scrolled up. Very niche situtation eh?
+@media (min-width: 769px) and (max-height: 897px) {
+  .gallery-list:not(.landscape):focus {
+  & .gallery-image {
+    top: 32px!important;
+    bottom: unset!important;
     }
   }
 }

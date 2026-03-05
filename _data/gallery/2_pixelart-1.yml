@@ -11,7 +11,7 @@ list:
 - name: 3 female character design that is unused
   link: /img/gallery/oc_oldmc__px.png
   caption: OCs legacy design
-  class: wide
+  class: wide landscape
   separate:
 - name: A group logo of 2 Satori eyes mixed in a single picture
   link: /img/gallery/oc_group-logo__px.png
@@ -27,7 +27,7 @@ list:
 - name: 3 characters in the middle of dark place fighting off creature of the night
   link: /img/gallery/oc_trio__px.png
   caption:
-  class: wide
+  class: wide landscape
   separate: true
 
 - name: Koishi winking portrait
@@ -86,7 +86,7 @@ list:
 - name: Kogasa melancholically looking at a star in the muted night sky
   link: /img/gallery/touhou_kogasa1__px.png
   caption:
-  class: left
+  class: left landscape
   separate:
 - name: Miyoi hopping pose while holding drinks
   link: /img/gallery/touhou_whale__px.png
@@ -96,28 +96,28 @@ list:
 - name: Nazrin treasure hunting and disappointed with what to come
   link: /img/gallery/touhou_nazrin__px.png
   caption:
-  class: right
+  class: right landscape
   separate: true
 
 - name: Sannyo, Mike, and Takane jumping out pose
   link: /img/gallery/touhou_trio18__px.png
   caption:
-  class: full
+  class: full landscape
   separate:
 - name: Medicine Melancholy sitting silently in the middle of a field
   link: /img/gallery/touhou_medicine__px.png
   caption:
-  class: 
+  class: landscape
   separate:
 - name: Mokou standing in the bamboo forest with her fiery wings spread out
   link: /img/gallery/touhou_mokou__px.png
   caption:
-  class:
+  class: landscape
   separate:
 - name: Marisa flying with broom on a flat ocean full of cosmic object and earth
   link: /img/gallery/touhou_marisa__px.png
   caption:
-  class: right
+  class: right landscape
   separate: true
   
 - name: Pokemon Sword and Shield main character with 3 starter pokemon on a field
@@ -154,5 +154,5 @@ list:
 - name: A river-like and bubbly landscape with glowing towers in the distance
   link: /img/gallery/oc_f2__px.png
   caption: One of the first big pixel art background I've made
-  class: right wide
+  class: right wide landscape
   separate: true
