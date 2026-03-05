@@ -2054,7 +2054,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   .gallery-list:is(:focus, :has( .gallery-image__link:active)) .gallery-image {
     // left: calc(10vw - (100vw - 100%)); // scrollbar made this way too complicated // say no more, gutter is here to rescue
     // top: 5vh;
-    height: 78vh;
+    height: 86vh;
     width: fit-content;
     max-width: 1600px; // for the 4k bros out there...
     max-height: 1080px;
