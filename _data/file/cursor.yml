@@ -4,6 +4,7 @@ list:
   koakuma:
     name: Koakuma
     rating: ★★
+    icon: /file/cursor/koakuma/default1.png
     preview: /img/file/cursor_koakuma.gif
     link-github: /file/cursor/Koakuma Cursor v0.1c.zip
     link-dropbox: https://www.dropbox.com/s/p79izy2rh86zozq/KoakumaCursor_0.1c.zip?dl=0
@@ -14,6 +15,7 @@ list:
   koishi:
     name: Koishi
     rating: ★★★★
+    icon: /file/cursor/koishi/default1.png
     preview: /img/file/cursor_koishi.gif
     link-github: /file/cursor/Koishi Cursor v0.1.zip
     link-dropbox: https://www.dropbox.com/s/okg9qsozm2pwu7c/KoishiCursor_0.1.zip?dl=0
@@ -24,6 +26,7 @@ list:
   youmu:
     name: Youmu
     rating: ★★
+    icon: /file/cursor/youmu/default1.png
     preview: /img/file/cursor_youmu.gif
     link-github: /file/cursor/Youmu Cursor v0.1.zip
     link-dropbox: https://www.dropbox.com/s/na5jlhg6c0l3ug1/YoumuCursor_0.1.zip?dl=0

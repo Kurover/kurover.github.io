@@ -5,7 +5,7 @@ alias: CSS - Cursor Simulator
 custom-css: /styles/file-cursor.css
 ---
 <section class="wrapper border">
-  <p>Bwoah!</p>
+  <p>Main takeaway from this is, it's so annoying that you technically shouldn't put div inside label. Thankfully span is allowed so we'll do with that</p>
 </section>
 
 <!-- @main ____ CSOS MAIN -->
@@ -49,7 +49,7 @@ custom-css: /styles/file-cursor.css
         <input type="radio" name="CSOS-start-menu-select" class="invisible" tabindex="-1" id="CSOS-start-content-3">
         
 
-        <!-- ? Content -->
+        <!-- ? @section . . Start Menu Content -->
         <div class="CSOS-start-menu-content CSOS-start-home">
           <div class="CSOS-start-menu-content--title center"><span>WELCOME TO: Cascading Style OS</span></div>
           <p>lorem ipsum</p>
@@ -94,7 +94,7 @@ custom-css: /styles/file-cursor.css
             {% for cursor-lists in site.data.file.cursor.list %}
             {% assign cursor = cursor-lists[1] %}
             <div class="CSOS-start-cursor-button" id="CSOS-div-cursor-{{ cursor.name }}">
-              <label for="CSOS-cursor-state-{{ cursor.name }}" class="CSOS-start-cursor-list">{{ cursor.name }}<span>{{ cursor.rating }}</span></label>
+              <label for="CSOS-cursor-state-{{ cursor.name }}" class="CSOS-start-cursor-list">{% if cursor.icon %}<img src="{{ cursor.icon }}">{% endif %}{{ cursor.name }}<span>{{ cursor.rating }}</span></label>
               {% if cursor.preview %}
               <div class="CSOS-start-cursor-preview">
                 <img src="{{ cursor.preview }}" alt="" loading="lazy">

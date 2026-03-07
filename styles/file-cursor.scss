@@ -14,10 +14,14 @@
   {% if cursor.speed-resize %}    --cursor-resize   : {{ cursor.name }}-resize    {{ cursor.speed-resize }}; {% endif %}
 }
 #CSOS-cursor-state-{{ cursor.name }}:checked ~ .CSOS-container #CSOS-div-cursor-{{ cursor.name }} {
-  border-color: red;
+  background: var(--bg-button-active);
+  border-color: var(--bg-border-active);
+  box-shadow: var(--bg-shadow-active);
 }
 #CSOS-cursor-state-default:checked ~ .CSOS-container #CSOS-div-cursor-default {
-  border-color: red;
+  background: var(--bg-button-active);
+  border-color: var(--bg-border-active);
+  box-shadow: var(--bg-shadow-active);
 }
 {% endfor %}
 
@@ -35,6 +39,8 @@
   {% if orb.basic %}            --orb-active-y-coordinate: 2; {% endif %}
 }
 #CSOS-orb-state-{{ orb.name }}:checked ~ .CSOS-container #CSOS-div-orb-{{ orb.name }} {
-  border-color: red;
+  background: var(--bg-button-active);
+  border-color: var(--bg-border-active);
+  box-shadow: var(--bg-shadow-active);
 }
 {% endfor %}
