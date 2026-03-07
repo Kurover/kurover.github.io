@@ -7,6 +7,8 @@ layout: compress
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lab | {{ page.name }}</title>
+    <meta name="description" content="{{ page.description }}">
+    <meta property="og:description" content="{{ page.description }}">
     <link rel="shortcut icon" href="/favicon.ico">
     {%- unless page.legacy -%}<link rel="stylesheet" href="/styles.css">{%- endunless -%}
     {%- if page.legacy -%}<link rel="stylesheet" href="/v2/style.css">{%- endif -%}
