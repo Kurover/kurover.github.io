@@ -1667,6 +1667,9 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   flex-grow: 999;
   flex: 1;
   transition: flex .5s;
+  &:hover {
+    box-shadow: 0 0 0 2px inset var(--clr-accent);
+  }
 }
 .gallery-tab-content {
   // Transition delays are used for open & close sequencing.
