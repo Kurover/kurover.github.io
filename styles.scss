@@ -2269,6 +2269,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   -moz-osx-font-smoothing: auto;
   background-color: #35383f;
   margin-bottom: 0;
+  padding-top: 2rem;
   & strong {
     color: var(--clr-notice);
   }
