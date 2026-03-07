@@ -285,13 +285,18 @@ body::after {
   }
 }
 .font-alternative {
-  font-family: 'Consolas';
+  font-family: 'Rubik';
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+}
+.font-mono {
+  font-family: 'Fira Code';
   -webkit-font-smoothing: auto;
   -moz-osx-font-smoothing: auto;
 }
 // Use in a div
 .top-right-note {
-  pointer-events: none;
+  // pointer-events: none;
   position: absolute;
   top: .5rem;
   right: .5rem;
@@ -380,7 +385,7 @@ body::after {
   image-rendering: pixelated;
   // border: 1px solid white;
   border-image: url(/img/border-1-default-alt.png) 6 / 16px / 4px;
-  background: var(--clr-secondary-old);
+  background: var(--clr-secondary);
 }
 .nav-list {
   // position: relative;
@@ -1063,6 +1068,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   .headshot {
     float: unset;
     margin: auto;
+    margin-top: 1rem;
   }
   .headshot--pos-first {
     margin-bottom: 1rem;
@@ -2258,7 +2264,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
 // ? @section # Blog-Post Exclusive
 .blog-post {
   position: relative;
-  font-family: 'Consolas';
+  font-family: 'Rubik';
   -webkit-font-smoothing: auto;
   -moz-osx-font-smoothing: auto;
   background-color: #35383f;
