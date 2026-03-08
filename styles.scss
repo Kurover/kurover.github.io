@@ -81,6 +81,7 @@
   --sprite-icon-size: 48px;
 
   --icon-atlas-path: url(/img/icon-pack__px.png);
+  // --icon-atlas-position: calc(1 * -48px + 48px) calc(1 * -48px + 48px);
 }
 
 // ! @title # Global
@@ -227,6 +228,9 @@ body::after {
   opacity: 0;
   height: 0;
   width: 0;
+}
+.select-all {
+  user-select: all;
 }
 .center {
   text-align: center;
@@ -1224,6 +1228,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   }
 }
 .contact-list-tooltip {
+  user-select: all;
   visibility: hidden;
   position: absolute;
   width: fit-content;
