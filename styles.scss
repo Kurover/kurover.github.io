@@ -37,6 +37,8 @@
   --clr-secondary-old: #141624;
   --clr-secondary: #242532;
   --clr-accent: #41839a;
+  --clr-accent-cyan: #40b98c;
+  --clr-accent-green: #63974c;
   // --clr-border: #494958;
   --clr-border: #494e5b;
   --clr-border-select: var(--clr-border);
@@ -1683,9 +1685,9 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
 }
 .gallery-tab-content {
   // Transition delays are used for open & close sequencing.
-  --speed-open-delay: calc(var(--speed-close) + .25s);
+  --speed-open-delay: calc(var(--speed-close) + .5s);
   --speed-open: 1.5s var(--speed-open-delay);
-  --speed-close: .5s;
+  --speed-close: .55s;
   --speed-fade-open: 1.5s cubic-bezier(0.99, 0.01, 0.72, 0.18);
   --speed-fade-close: .6s .2s;
   --tab-transition-open: grid-template-rows var(--speed-open) cubic-bezier(0.24, 0.09, 1, 0.35), opacity var(--speed-fade-open), visibility var(--speed-fade-open);
@@ -1709,7 +1711,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   cursor: pointer;
   flex: 0;
   overflow: hidden;
-  background-color: var(--clr-accent);
+  // background-color: var(--clr-accent);
   transition: flex .5s;
 }
 // * Settings
@@ -1740,8 +1742,8 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
 // Content toggle
 #gallery-tab-state-1__page-1_sys:checked {
   & ~ .gallery-tab-buttons > [data-btn-anim="parent"] > label[data-btn-anim="sub-1"] {
-    background-color: var(--clr-background);
-    box-shadow: 0 0 0 2px inset var(--clr-accent);
+    background-color: var(--clr-accent);
+    box-shadow: 0 0 0 2px inset var(---clr-secondary);
   }
   & ~ #gallery-tab-1__page-1 {
     grid-template-rows: 1fr;
@@ -1753,8 +1755,8 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
 }
 #gallery-tab-state-1__page-2_sys:checked {
   & ~ .gallery-tab-buttons > [data-btn-anim="parent"] > label[data-btn-anim="sub-2"] {
-    background-color: var(--clr-background);
-    box-shadow: 0 0 0 2px inset var(--clr-accent);
+    background-color: var(--clr-accent);
+    box-shadow: 0 0 0 2px inset var(--clr-secondary);
   }
   & ~ #gallery-tab-1__page-2 {
     grid-template-rows: 1fr;
@@ -1767,8 +1769,9 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
 #gallery-tab-state-2_sys:checked {
   & ~ .gallery-tab-buttons > label[for$=state-2_sys] {
     flex: 2;
-    background-color: var(--clr-background);
-    box-shadow: 0 0 0 2px inset var(--clr-accent);
+    background-color: var(--clr-accent-cyan);
+    // box-shadow: 0 0 0 2px inset var(--clr-accent);
+    box-shadow: 0 0 0 2px inset var(--clr-secondary);
   }
   & ~ #gallery-tab-2 {
     grid-template-rows: 1fr;
@@ -1781,8 +1784,8 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
 #gallery-tab-state-3_sys:checked {
   & ~ .gallery-tab-buttons > label[for$=state-3_sys] {
     flex: 2;
-    background-color: var(--clr-background);
-    box-shadow: 0 0 0 2px inset var(--clr-accent);
+    background-color: var(--clr-accent-green);
+    box-shadow: 0 0 0 2px inset var(--clr-secondary);
   }
   & ~ #gallery-tab-3 {
     grid-template-rows: 1fr;
