@@ -15,13 +15,13 @@
 }
 #CSOS-cursor-state-{{ cursor.name }}:checked ~ .CSOS-container #CSOS-div-cursor-{{ cursor.name }} {
   background: var(--bg-button-active);
-  border-color: var(--bg-border-active);
-  box-shadow: var(--bg-shadow-active);
+  border-color: var(--button-border-active);
+  box-shadow: var(--button-outline-active);
 }
 #CSOS-cursor-state-default:checked ~ .CSOS-container #CSOS-div-cursor-default {
   background: var(--bg-button-active);
-  border-color: var(--bg-border-active);
-  box-shadow: var(--bg-shadow-active);
+  border-color: var(--button-border-active);
+  box-shadow: var(--button-outline-active);
 }
 {% endfor %}
 
@@ -40,7 +40,7 @@
 }
 #CSOS-orb-state-{{ orb.name }}:checked ~ .CSOS-container #CSOS-div-orb-{{ orb.name }} {
   background: var(--bg-button-active);
-  border-color: var(--bg-border-active);
-  box-shadow: var(--bg-shadow-active);
+  border-color: var(--button-border-active);
+  box-shadow: var(--button-outline-active);
 }
 {% endfor %}

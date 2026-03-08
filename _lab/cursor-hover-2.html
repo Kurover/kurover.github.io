@@ -36,18 +36,23 @@ custom-css: /styles/file-cursor.css
 
       <div class="CSOS-start-menu">
         
-        <!-- ? Controller -->
-        <div class="CSOS-start-menu-menus">
-          <label for="CSOS-start-content-1" class="CSOS-start-menu-menu"><span>Orb</span></label>
-          <label for="CSOS-start-content-2" class="CSOS-start-menu-menu middle"><span>Cursor</span></label>
-          <label for="CSOS-start-content-3" class="CSOS-start-menu-menu"><span>BG</span></label>
-        </div>
-
         <input type="radio" name="CSOS-start-menu-select" class="invisible" tabindex="-1" id="CSOS-start-content-0" checked>
         <input type="radio" name="CSOS-start-menu-select" class="invisible" tabindex="-1" id="CSOS-start-content-1">
         <input type="radio" name="CSOS-start-menu-select" class="invisible" tabindex="-1" id="CSOS-start-content-2">
         <input type="radio" name="CSOS-start-menu-select" class="invisible" tabindex="-1" id="CSOS-start-content-3">
         
+        <!-- ? Controller -->
+        <div class="CSOS-start-menu-menus">
+          <div class="CSOS-start-menu-menu" id="start-select-orb">
+            <label for="CSOS-start-content-1"><span>Orb Select</span></label>
+          </div>
+          <div class="CSOS-start-menu-menu" id="start-select-cursor">
+            <label for="CSOS-start-content-2"><span>Cursor Select</span></label>
+          </div>
+          <div class="CSOS-start-menu-menu" id="start-select-bg">
+            <label for="CSOS-start-content-3"><span>Background Select</span></label>
+          </div>
+        </div>
 
         <!-- ? @section . . Start Menu Content -->
         <div class="CSOS-start-menu-content CSOS-start-home">

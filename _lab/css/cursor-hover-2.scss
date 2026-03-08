@@ -41,12 +41,14 @@
   --orb-link: url(/img/file/Start-Menu-Illith-64x.png);
   --orb-link-openshell: /img/file/Start-Menu-Illith-64x.png;
   --orb-link-generic: /img/file/Start-Menu-Illith-Generic-64x.png;
+  --bg-start-menu: #98d1b5;
   --bg-button: linear-gradient(180deg, #fff 65%, transparent 65%, #d1f3ff 0);
   --bg-button2: linear-gradient(180deg, #fff 65%, transparent 65%, #f3ffd1 0);
   --bg-button-active: #beffa9;
   // --bg-button-active: linear-gradient(180deg, #daffcf 50%, white 50%, #ffffff 0);
-  --bg-border-active: #9bf163;
-  --bg-shadow-active: #b2fbb2 0 0 0 2px;
+  --button-border-hover: #6d86cd;
+  --button-border-active: #9bf163;
+  --button-outline-active: #b2fbb2 0 0 0 2px;
   // variable below is required for reasons, scroll down till you find :hover::after
   --orb-active-y-coordinate: 3; // multiplier in a calc, basic is 2
   display: grid;
@@ -177,7 +179,7 @@
   left: 0;
   bottom: 0;
   width: 384px;
-  background-color: #98d1b5;
+  background-color: var(--bg-start-menu);
 }
 .CSOS-start-menu-content {
   --CSOS-start-content-margin: 16px;
@@ -206,24 +208,53 @@
 .CSOS-start-menu-menus {
   z-index: 1;
   display: grid;
-  gap: 4px;
+  // gap: 4px;
   position: absolute;
-  bottom: 8px;
+  width: fit-content;
+  margin: auto;
+  padding: 6px 12px;
+  bottom: 4px;
   left: 0;
   right: 0;
-  margin: auto;
-  padding: 8px;
-  width: fit-content;
+  box-shadow: 0 0 0 4px inset var(--clr-border);
   grid-template-columns: repeat(3, 1fr);
+  background-color: var(--bg-start-menu);
 }
 .CSOS-start-menu-menu {
+  position: relative;
   margin: auto;
-  width: 48px;
-  height: 48px;
-  background-color: red;
-  &.middle {
-    height: 56px;
-    width: 56px;
+  // width: 48px;
+  // height: 48px;
+  overflow: hidden;
+  &::before {
+    content: "";
+    // display: block;
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background-image: var(--icon-atlas-path);
+    background-color: white;
+  }
+  & > label {
+    padding: 4px;
+    display: block;
+    width: 48px;
+    height: 48px;
+    opacity: 0;
+    & > span {
+      user-select: none;
+    }
+  }
+  &:hover {
+    &::before {
+      background-color: #485589;
+      outline: 1px solid var(--clr-secondary)
+    }
   }
 }
 .CSOS-start-menu-menu-return {
@@ -232,6 +263,15 @@
   &::before {
     content: "< ";
   }
+}
+#start-select-orb::before {
+  background-position: calc(4 * -48px + 48px) calc(4 * -48px + 48px);
+}
+#start-select-cursor::before {
+  background-position: calc(4 * -48px + 48px) calc(5 * -48px + 48px);
+}
+#start-select-bg::before {
+  background-position: calc(4 * -48px + 48px) calc(6 * -48px + 48px);
 }
 // @section . , . Cursor
 .CSOS-start-cursor {
@@ -254,7 +294,7 @@
 .CSOS-start-cursor-button:hover {
   background: unset;
   border-color: #ffffff;
-  box-shadow: #6d86cd 0 0 0 2px;
+  box-shadow: var(--button-border-hover) 0 0 0 3px;
   // & > .CSOS-start-cursor-list > img {
   //   mix-blend-mode: unset;
   // }
@@ -335,7 +375,7 @@
 }
 .CSOS-start-orb-button:hover {
   border-color: white;
-  box-shadow: #87b945 0 0 0 2px;
+  box-shadow: var(--button-border-hover) 0 0 0 3px;
   background: unset;
   & > .CSOS-start-orb-preview {
     visibility: visible;
@@ -394,17 +434,35 @@
   visibility: visible;
   position: initial;
 }
-#CSOS-start-content-1:checked ~ .CSOS-start-orb {
-  visibility: visible;
-  position: initial;
+#CSOS-start-content-1:checked {
+  & ~ .CSOS-start-orb {
+    visibility: visible;
+    position: initial;
+  }
+  & ~ .CSOS-start-menu-menus > #start-select-orb::before {
+    background-color: var(--bg-button-active);
+    outline: 2px solid var(--clr-secondary);
+  }
 }
-#CSOS-start-content-2:checked ~ .CSOS-start-cursor {
-  visibility: visible;
-  position: initial;
+#CSOS-start-content-2:checked {
+  & ~ .CSOS-start-cursor {
+    visibility: visible;
+    position: initial;
+  }
+  & ~ .CSOS-start-menu-menus #start-select-cursor::before {
+    background-color: var(--bg-button-active);
+    outline: 2px solid var(--clr-secondary);
+  }
 }
-#CSOS-start-content-3:checked ~ .CSOS-start-bg {
-  visibility: visible;
-  position: initial;
+#CSOS-start-content-3:checked {
+  & ~ .CSOS-start-bg {
+    visibility: visible;
+    position: initial;
+  }
+  & ~ .CSOS-start-menu-menus #start-select-bg::before {
+    background-color: var(--bg-button-active);
+    outline: 2px solid var(--clr-secondary);
+  }
 }
 
 // @section KEYFRAME-SHORTENED
