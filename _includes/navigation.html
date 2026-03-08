@@ -36,9 +36,9 @@
       class="nav-list nav-list--more nav-list-expandable__toggle  
         {% if page.nav-more %}active{% endif %}"
       id="nav-more"
-      aria-label="Expand Navigation Menu"
       tabindex="0"
-      >
+    >
+      <button class="invisible" aria-label="Expand More Menu" tabindex="-1"></button> <!-- This is a fake button to tell accessibility that this div is a button since the world doesn't allow (semantically) div to have aria-label. This is like disabled person compromising to other disabled person with different disability. -->
       <div class="nav-list__icon"></div>
       <!-- * Expand Lists -->
       <div class="nav-list-expandable__content">
@@ -67,9 +67,9 @@
     <div 
     class="nav-list nav-list--contact nav-list--toggleable more-link-popups" 
     id="nav-contact"
-    aria-label="Extra Link Menu Dropdown"
     tabindex="0"
     >
+      <button class="invisible" aria-label="Expand Links Menu" tabindex="-1"></button>
       <div class="nav-list__icon"></div>
       <div class="more-link-popup" style="cursor: default;">
         <div class="contact-lists contact-lists--navigation">
