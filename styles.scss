@@ -103,6 +103,7 @@ body {
 }
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
+  font-smooth: never;
 }
 h1 {
   font-size: 40px;
@@ -1714,6 +1715,10 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
 .gallery-tab-content .gallery-lists {
   margin-bottom: 4rem;
 }
+.gallery-tab-content .title-full {
+  background-color: var(--clr-text);
+  transition: background-color 2s 1.5s;
+}
 [data-btn-anim|="sub"] {
   display: flex;
   justify-content: center;
@@ -1761,6 +1766,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
     visibility: visible;
     transition: var(--tab-transition-open);
     & .chrome-lazyload-enforcer {height: 0; transition-delay: 0s;}
+    & .title-full {background-color: var(--clr-accent);}
   }
 }
 #gallery-tab-state-1__page-2_sys:checked {
@@ -1774,6 +1780,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
     visibility: visible;
     transition: var(--tab-transition-open);
     & .chrome-lazyload-enforcer {height: 0; transition-delay: 0s;}
+    & .title-full {background-color: var(--clr-accent);}
   }
 }
 #gallery-tab-state-2_sys:checked {
@@ -1789,6 +1796,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
     visibility: visible;
     transition: var(--tab-transition-open);
     & .chrome-lazyload-enforcer {height: 0; transition-delay: 0s;}
+    & .title-full {background-color: var(--clr-accent-cyan);}
   }
 }
 #gallery-tab-state-3_sys:checked {
@@ -1803,6 +1811,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
     visibility: visible;
     transition: var(--tab-transition-open);
     & .chrome-lazyload-enforcer {height: 0; transition-delay: 0s;}
+    & .title-full {background-color: var(--clr-accent-green);}
   }
 }
   // ? Styles
