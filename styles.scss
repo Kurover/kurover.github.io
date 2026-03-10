@@ -67,8 +67,8 @@
   --clr-codeblock-bg-title: #211f2b;
   --clr-codeblock-bg: #302c3f;
   --clr-codeblock-text-title: var(--clr-text-fade);
-  --clr-codeblock-text: var(--clr-accent);
-  --clr-codeblock-border: var(--clr-secondary);
+  --clr-codeblock-text: #cbd585;
+  --clr-codeblock-border: var(--clr-codeblock-bg-title);
 
   --clr-warning: #d3646d;
   --clr-notice: #f99d7e;
@@ -2289,9 +2289,10 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   -webkit-font-smoothing: auto;
   -moz-osx-font-smoothing: auto;
   text-align: justify;
-  background-color: #526397;
+  background-color: #434b66;
   margin-bottom: 0;
   padding-top: 2rem;
+  border: 2px solid #acacac;
   & strong {
     color: var(--clr-notice);
   }
@@ -2363,6 +2364,9 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
     background-color: var(--clr-codeblock-bg-title);
     color: var(--clr-codeblock-text-title);
     font-size: small;
+  }
+  & a {
+    color: var(--clr-text-dim);
   }
 }
 .blog-post-footer-navigations {
