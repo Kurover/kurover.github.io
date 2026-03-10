@@ -6,13 +6,18 @@ no-css: true
 heresy: true
 ---
 <main>
+  <section class="wrapper">
+    <p class="title-full notice no-margin">&lt; This page contains embedded jquery! &gt;</p>
+    <blockquote class="compact" style="margin: 1rem auto 0 auto">"Didn't you say it's pure HTML & CSS?" <br> Sh-shut up!</blockquote>
+  </section>
+
   <article class="wrapper border">
     <h1>Lab</h1>
     <p>This is a place for tests and experimentation, although not everything made it into this section because it's either tested on the main site then I'm too lazy to document it or I just forgor.</p>
     <p>These are mostly here to remind myself how jank building website can be. Nevertheless, prepare yourself and terrastallize to dark type, lest you want to take the psychic damage trying to decode it.</p>
     <p>HTML comments are filtered out on live build. You'll have to look at the github source if you want to see if there's any. Most of the comments are inside .scss.</p>
     <h2>Index</h2>
-    <ul>
+    <ul style="font-size: 24px;">
       {%- assign index = site.lab | sort: 'alias' -%}
       {%- for list in index -%}
       {%- if list.alias -%}
@@ -55,12 +60,14 @@ heresy: true
         });
     </script>
     
-    <h2>Personal Server Test</h2>
+    <h2>Script Zone / Personal Server Test</h2>
     <p>If no image loaded, then it's offline</p>
     <p>GET: <a id="linkOut" href="">Loading..</a></p>
     <img id="image-target" src="" alt="" style="max-width: 256px; width: 100%; image-rendering: pixelated; border: 2px solid whitesmoke; aspect-ratio: 1/1;">
     <p id="pGet">Ping...</p>
     <p>Last Modified: <span id="pDate"></span></p>
+    <hr>
+    <p>It's here because there's a chance that I'll use it. It will be contained like this page so the rest of the webpage is clean. I tried using external image host but that has mixed result due to image cache being a thing and can only be used within .github link so it's very limited. If you want to change cache time, use script! Might as well full on scripting at that point.</p>
     
   </section>
 

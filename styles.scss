@@ -186,6 +186,10 @@ blockquote {
   padding: 4px;
   padding-left: 12px;
   box-shadow: 4px 0 0 0 inset var(--clr-text-dim);
+  &.compact {
+    width: fit-content;
+    padding: 8px 8px 8px 12px;
+  }
 }
 
 // ! @title # CSS Preloader
@@ -711,6 +715,7 @@ body::after {
   font-size: 2rem;
   padding: 8px;
   background-color: var(--clr-accent);
+  &.notice {background-color: unset;}
 }
 .title-full--no-bg {background-color: transparent;}
 @keyframes wip-popup {
