@@ -105,27 +105,27 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 h1 {
-  font-size: 2.25rem;
+  font-size: 40px;
   color: var(--clr-h1);
 }
 h2 {
-  font-size: 2rem;
+  font-size: 32px;
   color: var(--clr-h2);
 }
 h3 {
-  font-size: 1.5rem;
+  font-size: 24px;
   color: var(--clr-h3);
 }
 h4 {
-  font-size: 1.25rem;
+  font-size: 24px;
   color: var(--clr-h4);
 }
 h5 {
-  font-size: 1.25rem;
+  font-size: 24px;
   color: var(--clr-h5);
 }
 h6 {
-  font-size: 1.25rem;
+  font-size: 24px;
   color: var(--clr-h6);
 }
 button {
@@ -712,7 +712,7 @@ body::after {
   flex: 100%;
   display: block;
   text-align: center;
-  font-size: 2rem;
+  font-size: 32px;
   padding: 8px;
   background-color: var(--clr-accent);
   &.notice {background-color: unset;}
@@ -766,7 +766,7 @@ body::after {
   cursor: pointer;
   background: var(--clr-secondary);
   & > :not(.expandable-title-icon) {
-    font-size: 1.5rem;
+    font-size: 24px;
     color: var(--clr-link);
   }
 }
@@ -778,7 +778,7 @@ body::after {
   width: 48px;
   background: var(--icon-atlas-path) calc(3 * -48px + 48px) calc(4 * -48px + 48px);
   opacity: .5;
-  scale: .75;
+  // scale: .75;
   transition: opacity .25s;
 }
 .expandable-title-icon::after {
@@ -1174,7 +1174,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   --contact-padding-y: 16px;
   --contact-icon-y: 48px;
   padding: var(--contact-padding-y) 8px;
-  font-size: 1rem;
+  font-size: 16px;
   // width: min(100%, 110px);
   text-decoration: none;
   text-align: center;
@@ -2483,11 +2483,11 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
 }
 .error-title {
   margin-top: 1rem;
-  font-size: 3rem;
+  font-size: 48px;
 }
 .error-caption {
   margin-top: .25rem;
-  font-size: 1.5rem;
+  font-size: 24px;
   margin-bottom: 0;
 }
 .error-description {
