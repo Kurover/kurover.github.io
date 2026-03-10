@@ -103,7 +103,6 @@ body {
 }
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
-  font-smooth: never;
 }
 h1 {
   font-size: 40px;
@@ -1838,38 +1837,50 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
 .gallery-illith-state.normal {
   opacity: 1;
 }
+// Visiblity switch here to ensure no overlapping image when hovering between the image and text trigger. Hard to explain but try removing it and see yourself
 .gallery-illith-accordion:hover > .gallery-illith-state {
   opacity: 0;
   transition-delay: 0s;
+  visibility: hidden;
   &.glare {
     opacity: 1;
+    visibility: visible;
   }
 }
-.gallery-illith-anchor:has(> .tooltip--click-only:is(:hover)) .gallery-illith-state {
+.gallery-illith-anchor:has(> .tooltip--click-only:hover) .gallery-illith-state {
   opacity: 0;
   transition-delay: 0s;
   &.surprised {
     opacity: 1;
   }
 }
-.gallery-illith-anchor:has(> .tooltip--click-only:is(:focus-within)) .gallery-illith-state {
+.gallery-illith-anchor:has(> .tooltip--click-only:focus-within) .gallery-illith-state {
   opacity: 0;
   transition-delay: 0s;
   &.happy {
     opacity: 1;
+    visibility: visible; // prevent change when hovering the image while tooltip is open
   }
   &.surprised {
     opacity: 0;
   }
 }
+// .override is the drag imagery. !important is used since this take priority and the :not make sure it doesn't !important conflict hell with the other visible img. The glare get excluded because that make sure there's no blank image when you click & drag > release somewhere > hover back to accordion. All in the name of consistency...
 .gallery-illith-accordion:active {
+  // transition: .33s;
   transition-delay: 0s;
-  & > :not(.panic) {
-    visibility: hidden;
+  & > :not(.panic, .override, .glare) {
+    visibility: hidden!important;
   }
   & > .panic {
     visibility: visible;
     opacity: 1;
+  }
+  & > .override {
+    visibility: visible;
+  }
+  & > .glare {
+    opacity: 0!important;
   }
 }
 
