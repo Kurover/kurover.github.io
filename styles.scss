@@ -1664,7 +1664,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
 
 // * @section # Tabs
 .gallery-tab-buttons {
-  --height: 2.5rem;
+  --height: 40px;
   z-index: 7; // lower than main navigation [9] or else it will overlap. Mainly on Mobile mode. Also lower than 8 because Illith is a piece of sh-
   display: flex;
   position: sticky;
@@ -2217,6 +2217,9 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   }
 }
 @media (max-width: 768px) {
+  .gallery-tab-buttons {
+    --height: 3.25rem;
+  }
   .gallery-list {
     width: 144px;
   }
