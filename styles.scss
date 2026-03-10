@@ -86,7 +86,7 @@
 
 // ! @title # Global
 html {
-  font-family: 'Pixel04b03';
+  font-family: 'Pixel04b03', sans-serif;
   width: 100%;
   scroll-behavior: smooth;
   -webkit-font-smoothing: none;
@@ -180,7 +180,7 @@ input[id$=_sys] {
   height: 0;
 }
 blockquote {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Fira Code', monospace;
   background-color: #25202c;
   color: var(--clr-text-dim);
   padding: 4px;
@@ -2285,7 +2285,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
 // ? @section # Blog-Post Exclusive
 .blog-post {
   position: relative;
-  font-family: 'Rubik';
+  font-family: 'Rubik', sans-serif;
   -webkit-font-smoothing: auto;
   -moz-osx-font-smoothing: auto;
   text-align: justify;
