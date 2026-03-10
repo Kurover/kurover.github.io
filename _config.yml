@@ -3,6 +3,8 @@ sass:
 
 timezone: Asia/Jakarta
 
+exclude: ["Version-3.md", "README.md"]
+
 compress_html:
   clippings: all
   comments: all
