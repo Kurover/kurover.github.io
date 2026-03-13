@@ -881,21 +881,22 @@ body::after {
   
   color: var(--clr-tooltip-text);
   background: var(--clr-tooltip-background);
-  border-image: url(/img/border-2.png) 8 / 16px / 8px 0;
+  border-image: url(/img/border-2.png) 8 / 16px / 8px 0; // Border outset on vertical to make the hidden overflow work
   transform: var(--tooltip-position-start);
   transition:
     visibility var(--speed-end) .2s,
     opacity var(--speed-end) .2s,
     transform var(--speed-end) calc(.2s + var(--speed-end)); // Make it fade to close
-}
+    
   // ? @section ## Mod
-.tooltip-content--slow {--speed-start: 1s;--speed-end: .5s;}
-.tooltip-content--left {--tooltip-position:translateX(-20vw);}
-.tooltip-content--right {--tooltip-position:translateX(200px);}
-.tooltip-content--small {width: 20ch;}
-.tooltip-content--wide {width: unset;}
+  &.slow {--speed-start: 1s;--speed-end: .5s;}
+  &.left {--tooltip-position:translateX(-20vw);}
+  &.right {--tooltip-position:translateX(200px);}
+  &.small {width: 20ch;}
+  &.wide {width: unset;}
+}
 
-.tooltip:is(:hover, :focus-within) [class*=content] {
+.tooltip:is(:hover, :focus-within) > .tooltip-content {
   z-index: 2;
   visibility: visible;
   opacity: 1;
@@ -906,18 +907,23 @@ body::after {
     transform var(--speed-start);
   transition-delay: .1s;
 }
-.tooltip--click-only:hover [class*=content] {
+.tooltip--click-only:hover > .tooltip-content {
   visibility: hidden;
   opacity: 0;
   transform: var(--tooltip-position-start);
 }
-.tooltip--click-only:focus-within [class*=content] {
+.tooltip--click-only:focus-within > .tooltip-content {
   visibility: visible;
   opacity: 1;
   transform: var(--tooltip-position-end);
 }
 
 // @misc -@ Media
+@media (min-width: 769px) {
+  .tooltip-content.wide {
+    padding: 16px 24px;
+  }
+}
 @media (max-width: 768px) {
   .tooltip-content {
     --speed-end: .25s;
@@ -926,8 +932,9 @@ body::after {
     position: fixed;
     width: auto;
     margin: auto;
-    bottom: 64px;
-    padding-bottom: 3.5rem;
+    bottom: 90px;
+    border-image-outset: 8px 0;
+    padding-bottom: 1rem;
     transition-delay: 0s;
     & a {
       font-size: 1.1rem;
