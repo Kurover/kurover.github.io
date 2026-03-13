@@ -12,7 +12,8 @@ nav-more: applicable
   <div class="blog-font">
     <p>Starting now!</p>
     <ol class="blog-list">
-      {% for blog in site.blog %}
+      {% assign blogs = site.blog | where:"groups","blog" | sort:"order" %}
+      {% for blog in blogs %}
         <li>
           <a href="{{ blog.url }}">{{ blog.title-short }}</a>
           <p class="no-margin">{{ blog.description }}</p>
