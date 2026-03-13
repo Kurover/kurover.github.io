@@ -282,6 +282,9 @@ body::after {
 .no-margin-top {
   margin-top: 0;
 }
+.no-padding {
+  padding: 0;
+}
 .caption {
   margin-top: 0;
   color: var(--clr-text-dim);
@@ -356,6 +359,12 @@ body::after {
     &:first-child {margin-top: 0;}
     &:last-child {margin-bottom: 0;}
   }
+  &.no-padding {
+    padding: 0;
+  }
+  &.full {
+    max-width: unset;
+  }
 }
 .wrapper-alt {
   position: relative;
@@ -372,16 +381,12 @@ body::after {
     padding: 8px;
   }
 }
-.wrapper--no-padding {
-  max-width: 896px;
-  padding: 0;
-}
 .bg-color {
   background-color: var(--clr-secondary);
 }
 .border {
   // border-image: url(/img/border-1-active.png) 5 / 16px ;
-  border: 2px solid var(--clr-border);
+  border: 4px outset var(--clr-border);
   image-rendering: pixelated;
 }
 
