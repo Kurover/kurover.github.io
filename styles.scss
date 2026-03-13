@@ -82,6 +82,8 @@
 
   --icon-atlas-path: url(/img/icon-pack__px.png);
   // --icon-atlas-position: calc(1 * -48px + 48px) calc(1 * -48px + 48px);
+
+  --main-width: 896px;
 }
 
 // ! @title # Global
@@ -339,7 +341,8 @@ body::after {
 // ! @title ________ Core ________
 .wrapper {
   // position: relative;
-  max-width: 848px;
+  max-width: var(--main-width);
+  box-sizing: border-box;
   padding: 24px;
   margin: auto;
   margin-bottom: 1rem;
@@ -389,9 +392,10 @@ body::after {
   --clr-link-invert: var(--clr-primary);
   display: flex;
   padding: 12px 0;
-  // grid-template-columns: repeat(3, 196px);
   margin: 2rem auto 1rem auto;
-  max-width: 896px;
+  // grid-template-columns: repeat(3, 196px);
+  max-width: var(--main-width);
+  box-sizing: border-box;
   image-rendering: pixelated;
   // border: 1px solid white;
   border-image: url(/img/border-1-default-alt.png) 6 / 16px / 4px;
