@@ -34,7 +34,7 @@
   <div class="nav-list-expandable mobile-only">
     <div 
       class="nav-list nav-list--more nav-list-expandable__toggle  
-        {% if page.nav-more %}active{% endif %}"
+        {% if (page.nav-more) or (page.og-type == "blog") %}active{% endif %}"
       id="nav-more"
       tabindex="0"
     >
