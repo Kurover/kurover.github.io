@@ -13,6 +13,9 @@
 //
 // Everything should be automatically generated and I only need to add/edit cursor.yml and the keyframes in this css (not using data since it's pain af if each cursor is different)
 // Of course the live build will use their own files
+//
+// ? Design Choices
+// I tried making the Start Menu handler to use :focus mechanic to make it as close to windows Start as possible but the massive caveat is that when you click on an option inside the start menu, say cursor, it will move the focus outside of the element and the start menu will be deactivated when hovered out unless there's another click within the container. It's a bit hard to explain but simply put, Click Option > Hover out = Deactivate start menu. Which is arguably worse than having to click the start menu to deactivate it.
 
 // ! @title ____ New NEW ver. ____
 // ? @section . Container core styles
@@ -24,10 +27,11 @@
   --CSOS-window-title: 32px;
 }
 // For specific element with specific cursor mode
-.CSOS-cDefault {animation: var(--cursor-default) infinite;}
-.CSOS-cWait {animation: var(--cursor-wait) infinite;}
-.CSOS-cBusy {animation: var(--cursor-busy) infinite;}
-.CSOS-cPoint {animation: var(--cursor-pointer) infinite;}
+.CSOS-cDefault {animation: var(--cursor-default) infinite; cursor: default;}
+.CSOS-cWait {animation: var(--cursor-wait) infinite; cursor: progress;}
+.CSOS-cBusy {animation: var(--cursor-busy) infinite; cursor: wait;}
+.CSOS-cPoint {animation: var(--cursor-pointer) infinite; cursor: pointer;}
+.CSOS-cText {animation: var(--cursor-text) infinite; cursor: text;}
 
 .wrapper--CSOS {
   max-width: var(--CSOS-width);
@@ -65,7 +69,6 @@
   & p {
     display: inline-block; // prevent cursor changing beyond what the text suggest
     cursor: text;
-    color: var(--clr-text-dark);
     animation: var(--cursor-text) infinite;
   }
   & label, a {
@@ -157,6 +160,24 @@
     order: 3;
     &::before {
       content: "x";
+    }
+  }
+}
+.CSOS-win-container {
+  padding: 8px;
+  color: var(--clr-text);
+}
+#CSOS-win-busycorner > .CSOS-win-container {
+  display: flex;
+  gap: 8px;
+  & > div {
+    background-color: var(--clr-text-fade);
+    flex: 1;
+    & > span {
+      display: flex;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
     }
   }
 }
@@ -336,6 +357,7 @@
   left: 0;
   bottom: 0;
   width: 384px;
+  color: var(--clr-text-dark);
   background-color: var(--bg-start-menu);
 }
 .CSOS-start-menu-content {

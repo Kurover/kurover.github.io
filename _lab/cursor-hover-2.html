@@ -31,19 +31,14 @@ custom-css: /styles/file-cursor.css
   <!-- * BG States -->
 
   <!-- * Window States -->
-  <input type="checkbox" id="CSOS-win-v-busycorner" checked>
+  <input type="checkbox" id="CSOS-win-v-busycorner">
 
   <!-- ! MAIN CONTENT -->
   <div class="CSOS-container">
     <!-- @section . Desktop/canvas -->
     <div class="CSOS-canvas">
-      <p>lorem</p>
-      <p>lorem</p>
-      <p>lorem</p>
-      <p>lorem</p>
-      <p>lorem</p>
 
-      <div class="CSOS-window" id="CSOS-win-busycorner">
+      <div class="CSOS-window" id="CSOS-win-busycorner" style="bottom: unset; left: unset;">
         <div class="CSOS-win-topbar">
           <div class="CSOS-win-topbar--title">Busy Corner</div>
           <label for="CSOS-win-v-busycorner" class="CSOS-win-topbar--button minimize"></label>
@@ -51,10 +46,9 @@ custom-css: /styles/file-cursor.css
           <div class="CSOS-win-topbar--button close dim"></div>
         </div>
 
-        <div class="CSOS-cursor-contents">
-          <p>lorem 1</p>
-          <p>lorem 2</p>
-          <p>lorem 3</p>
+        <div class="CSOS-win-container">
+          <div class="CSOS-cWait"><span>Wait!!!</span></div>
+          <div class="CSOS-cBusy"><span>⚠ Busy ⚠</span></div>
         </div>
       </div>
 
@@ -93,8 +87,9 @@ custom-css: /styles/file-cursor.css
         <!-- ? @section . . Start Menu Content -->
         <div class="CSOS-start-menu-content CSOS-start-home">
           <div class="CSOS-start-menu-content--title center"><span>&gt; CSOS &lt;</span></div>
-          <p>Welcome to the Cascading Style Operating System or CSOS for short! Its feature is as terrible as you might expect but it's very servicable as long as you have a mouse pointer to navigate the sandbox.</p>
-          <p>Non-Chromium/webkit user will have a feature locked, which is larger draggable Rumia hitbox. If you are such user, try sneaking your cursor to the bottom left of the element!</p>
+          <p class="no-margin-bot">Welcome to the Cascading Style Operating System or CSOS for short! Its restriction is as terrible as you might expect but it's servicable as long as you have a mouse pointer to navigate the sandbox.</p>
+          <p>Archived files in this section has their own instruction to help you out. Otherwise you're on your own :3</p>
+          <div class="notice"><span class="CSOS-cText">Non-Chromium/webkit user will have a feature locked, which is larger draggable Rumia hitbox. If you are such user, try sneaking your cursor to one of the element's edge!</span></div>
         </div>
         <!-- ? ORB -->
         <div class="CSOS-start-menu-content CSOS-start-orb">
@@ -102,6 +97,7 @@ custom-css: /styles/file-cursor.css
             <label for="CSOS-start-content-0" class="CSOS-start-menu-menu-return"></label>
             <span>-ORB-</span>
           </div>
+          <div class="notice"><span class="CSOS-cText">"OSM" links are for <a href="https://github.com/Open-Shell/Open-Shell-Menu">Open-Shell Menu</a> with added in-between frame. This sandbox prioritize this version for the preview!</span></div>
           {% for orb-lists in site.data.file.orb.list %}
           {% assign orb = orb-lists[1] %}
           <div class="CSOS-start-orb-button" id="CSOS-div-orb-{{ orb.name }}">
@@ -111,19 +107,25 @@ custom-css: /styles/file-cursor.css
               <img src="{{ orb.preview }}" alt="" loading="lazy">
             </div>
             {% endif %}
-            {% if orb.link-generic %}
-            <div class="CSOS-start-orb-download generic">
-              <a href="{{ orb.link-generic }}" download>LINK</a>
-            </div>
-            {% endif %}
             {% if orb.link-openshell %}
             <div class="CSOS-start-orb-download openshell">
-              <a href="{{ orb.link-openshell }}" download>LINK</a>
+              <a href="{{ orb.link-openshell }}" download>OSM</a>
+            </div>
+            {% endif %}
+            {% if orb.link-generic %}
+            <div class="CSOS-start-orb-download generic">
+              <a href="{{ orb.link-generic }}" download>Link</a>
             </div>
             {% endif %}
           </div>
           {% endfor %}
-          <p>ORB ORB ORB</p>
+          <div class="CSOS-start-orb-button"><label for="CSOS-cursor-state-0" class="CSOS-start-cursor-list">PLACEHOLDER</label></div>
+          <div class="CSOS-start-orb-button"><label for="CSOS-cursor-state-0" class="CSOS-start-cursor-list">PLACEHOLDER</label></div>
+          <div class="CSOS-start-orb-button"><label for="CSOS-cursor-state-0" class="CSOS-start-cursor-list">PLACEHOLDER</label></div>
+          <div class="CSOS-start-orb-button"><label for="CSOS-cursor-state-0" class="CSOS-start-cursor-list">PLACEHOLDER</label></div>
+          <div class="CSOS-start-orb-button"><label for="CSOS-cursor-state-0" class="CSOS-start-cursor-list">PLACEHOLDER</label></div>
+          <div class="CSOS-start-orb-button"><label for="CSOS-cursor-state-0" class="CSOS-start-cursor-list">PLACEHOLDER</label></div>
+          <div class="CSOS-start-orb-button"><label for="CSOS-cursor-state-0" class="CSOS-start-cursor-list">PLACEHOLDER</label></div>
         </div>
         <!-- ? CURSOR -->
         <div class="CSOS-start-menu-content CSOS-start-cursor">
@@ -131,28 +133,29 @@ custom-css: /styles/file-cursor.css
             <label for="CSOS-start-content-0" class="CSOS-start-menu-menu-return"></label>
             <span>Change Cursor</span>
           </div>
-            <div class="CSOS-start-cursor-button" id="CSOS-div-cursor-default"><label for="CSOS-cursor-state-default" class="CSOS-start-cursor-list">@default</label></div>
-            {% for cursor-lists in site.data.file.cursor.list %}
-            {% assign cursor = cursor-lists[1] %}
-            <div class="CSOS-start-cursor-button" id="CSOS-div-cursor-{{ cursor.name }}">
-              <label for="CSOS-cursor-state-{{ cursor.name }}" class="CSOS-start-cursor-list">{% if cursor.icon %}<img src="{{ cursor.icon }}">{% endif %}{{ cursor.name }}<span>{{ cursor.rating }}</span></label>
-              {% if cursor.preview %}
-              <div class="CSOS-start-cursor-preview">
-                <img src="{{ cursor.preview }}" alt="" loading="lazy">
-              </div>
-              {% endif %}
-              {% if cursor.link-github %}
-              <div class="CSOS-start-cursor-download">
-                <a href="{{ cursor.link-github }}">LINK</a>
-              </div>
-              {% endif %}
+          <div class="notice"><span class="CSOS-cText">Changing new cursor might take a bit since we're downloading all frames individually.</span></div>
+          <div class="CSOS-start-cursor-button" id="CSOS-div-cursor-default"><label for="CSOS-cursor-state-default" class="CSOS-start-cursor-list">@default</label></div>
+          {% for cursor-lists in site.data.file.cursor.list %}
+          {% assign cursor = cursor-lists[1] %}
+          <div class="CSOS-start-cursor-button" id="CSOS-div-cursor-{{ cursor.name }}">
+            <label for="CSOS-cursor-state-{{ cursor.name }}" class="CSOS-start-cursor-list">{% if cursor.icon %}<img src="{{ cursor.icon }}">{% endif %}{{ cursor.name }}<span>{{ cursor.rating }}</span></label>
+            {% if cursor.preview %}
+            <div class="CSOS-start-cursor-preview">
+              <img src="{{ cursor.preview }}" alt="" loading="lazy">
             </div>
-            {% endfor %}
-            <div class="CSOS-start-cursor-button"><label for="CSOS-cursor-state-0" class="CSOS-start-cursor-list">PLACEHOLDER</label></div>
-            <div class="CSOS-start-cursor-button"><label for="CSOS-cursor-state-0" class="CSOS-start-cursor-list">PLACEHOLDER</label></div>
-            <div class="CSOS-start-cursor-button"><label for="CSOS-cursor-state-0" class="CSOS-start-cursor-list">PLACEHOLDER</label></div>
-            <div class="CSOS-start-cursor-button"><label for="CSOS-cursor-state-0" class="CSOS-start-cursor-list">PLACEHOLDER</label></div>
-            <div class="CSOS-start-cursor-button"><label for="CSOS-cursor-state-0" class="CSOS-start-cursor-list">PLACEHOLDER</label></div>
+            {% endif %}
+            {% if cursor.link-github %}
+            <div class="CSOS-start-cursor-download">
+              <a href="{{ cursor.link-github }}">LINK</a>
+            </div>
+            {% endif %}
+          </div>
+          {% endfor %}
+          <div class="CSOS-start-cursor-button"><label for="CSOS-cursor-state-0" class="CSOS-start-cursor-list">PLACEHOLDER</label></div>
+          <div class="CSOS-start-cursor-button"><label for="CSOS-cursor-state-0" class="CSOS-start-cursor-list">PLACEHOLDER</label></div>
+          <div class="CSOS-start-cursor-button"><label for="CSOS-cursor-state-0" class="CSOS-start-cursor-list">PLACEHOLDER</label></div>
+          <div class="CSOS-start-cursor-button"><label for="CSOS-cursor-state-0" class="CSOS-start-cursor-list">PLACEHOLDER</label></div>
+          <div class="CSOS-start-cursor-button"><label for="CSOS-cursor-state-0" class="CSOS-start-cursor-list">PLACEHOLDER</label></div>
         </div>
         <!-- ? BG -->
         <div class="CSOS-start-menu-content CSOS-start-bg">
