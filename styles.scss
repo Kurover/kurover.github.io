@@ -2526,15 +2526,20 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   padding: 8px 16px;
   line-height: 24px;
   text-decoration: none;
-  user-select: none;
-  color: var(--clr-text);
+  color: var(--clr-link-active);
   background-color: var(--clr-btn-download);
-  box-shadow: 0px -2px 0 0 inset var(--clr-link);
+  box-shadow: 0px -3px 0 0 inset var(--clr-link);
+
+  transition: box-shadow .5s .2s, background-color .1s, outline .1s;
   &:is(:hover, :focus) {
-    color: var(--clr-link-active);
+    color: inherit;
     background-color: var(--clr-btn-download-hover);
     outline: 2px outset var(--clr-text);
     box-shadow: unset;
+    transition-delay: 0s;
+  }
+  &:visited {
+    color: inherit;
   }
 }
 

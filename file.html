@@ -178,7 +178,7 @@ custom-css: /styles/file-cursor.css
 
   <section class="wrapper border">
     <h2>Misc.</h2>
-    <section class="wrapper border no-overflow">
+    <section class="wrapper border no-overflow" style="margin-bottom: 0;">
       {% assign vtuber = site.data.file.vtuber.list %}
       <div class="headshot headshot--float-left headshot--pos-first" style="--headshot-size: 256px; image-rendering: auto;">
         <img src="{{ vtuber.illith.preview }}" alt="">
@@ -187,8 +187,8 @@ custom-css: /styles/file-cursor.css
       <p class="caption">"Smells outdated..."</p>
       <p>My first VTuber model rig attempt with Live2D Cubism. <a href="/blog/create-live2d">Blog Post</a> for details. Quality is questionable so don't count on it.</p>
       <p>Free to use, modify, and distribute this work except for AI use. Crediting me is optional but appreciated.</p>
-      <a href="{{ vtuber.illith.link-dropbox }}" target="_blank" class="file-download-button">Dropbox</a>
-      <a href="{{ vtuber.illith.link-gdrive }}" target="_blank" class="file-download-button">GDrive</a>
+      <a href="{{ vtuber.illith.link-dropbox }}" target="_blank" class="file-download-button no-select">Dropbox</a>
+      <a href="{{ vtuber.illith.link-gdrive }}" target="_blank" class="file-download-button no-select">GDrive</a>
     </section>
   </section>
 
