@@ -44,3 +44,266 @@
   box-shadow: var(--button-outline-active);
 }
 {% endfor %}
+
+// @section KEYFRAME-DATA
+// @title Koakuma
+@keyframes Koakuma-default {
+  0% {cursor: url("/file/cursor/koakuma/default1.png"), auto}
+  9% {cursor: url("/file/cursor/koakuma/default2.png"), auto}
+  18% {cursor: url("/file/cursor/koakuma/default3.png"), auto}
+  27% {cursor: url("/file/cursor/koakuma/default4.png"), auto}
+  36% {cursor: url("/file/cursor/koakuma/default5.png"), auto}
+  45% {cursor: url("/file/cursor/koakuma/default6.png"), auto}
+  54% {cursor: url("/file/cursor/koakuma/default7.png"), auto}
+  63% {cursor: url("/file/cursor/koakuma/default8.png"), auto}
+  72% {cursor: url("/file/cursor/koakuma/default9.png"), auto}
+  81% {cursor: url("/file/cursor/koakuma/default10.png"), auto}
+  90% {cursor: url("/file/cursor/koakuma/default11.png"), auto}
+  100% {cursor: url("/file/cursor/koakuma/default12.png"), auto}
+}
+@keyframes Koakuma-wait {
+  0% {cursor: url("/file/cursor/koakuma/wait1.png"), auto}
+  4.3% {cursor: url("/file/cursor/koakuma/wait2.png"), auto}
+  8.6% {cursor: url("/file/cursor/koakuma/wait3.png"), auto}
+  13% {cursor: url("/file/cursor/koakuma/wait4.png"), auto}
+  17.3% {cursor: url("/file/cursor/koakuma/wait5.png"), auto}
+  21.6% {cursor: url("/file/cursor/koakuma/wait6.png"), auto}
+  26% {cursor: url("/file/cursor/koakuma/wait7.png"), auto}
+  30.3% {cursor: url("/file/cursor/koakuma/wait8.png"), auto}
+  34.6% {cursor: url("/file/cursor/koakuma/wait9.png"), auto}
+  39% {cursor: url("/file/cursor/koakuma/wait10.png"), auto}
+  43.3% {cursor: url("/file/cursor/koakuma/wait11.png"), auto}
+  47.6% {cursor: url("/file/cursor/koakuma/wait12.png"), auto}
+  52% {cursor: url("/file/cursor/koakuma/wait13.png"), auto}
+  56.3% {cursor: url("/file/cursor/koakuma/wait14.png"), auto}
+  60.6% {cursor: url("/file/cursor/koakuma/wait15.png"), auto}
+  65% {cursor: url("/file/cursor/koakuma/wait16.png"), auto}
+  69.3% {cursor: url("/file/cursor/koakuma/wait17.png"), auto}
+  73.6% {cursor: url("/file/cursor/koakuma/wait18.png"), auto}
+  78% {cursor: url("/file/cursor/koakuma/wait19.png"), auto}
+  82.3% {cursor: url("/file/cursor/koakuma/wait20.png"), auto}
+  86.6% {cursor: url("/file/cursor/koakuma/wait21.png"), auto}
+  91% {cursor: url("/file/cursor/koakuma/wait22.png"), auto}
+  95% {cursor: url("/file/cursor/koakuma/wait23.png"), auto}
+  100% {cursor: url("/file/cursor/koakuma/wait24.png"), auto}
+}
+@keyframes Koakuma-busy {
+  0% {cursor: url("/file/cursor/koakuma/busy1.png"), auto}
+  4.3% {cursor: url("/file/cursor/koakuma/busy2.png"), auto}
+  8.6% {cursor: url("/file/cursor/koakuma/busy3.png"), auto}
+  13% {cursor: url("/file/cursor/koakuma/busy4.png"), auto}
+  17.3% {cursor: url("/file/cursor/koakuma/busy5.png"), auto}
+  21.6% {cursor: url("/file/cursor/koakuma/busy6.png"), auto}
+  26% {cursor: url("/file/cursor/koakuma/busy7.png"), auto}
+  30.3% {cursor: url("/file/cursor/koakuma/busy8.png"), auto}
+  34.6% {cursor: url("/file/cursor/koakuma/busy9.png"), auto}
+  39% {cursor: url("/file/cursor/koakuma/busy10.png"), auto}
+  43.3% {cursor: url("/file/cursor/koakuma/busy11.png"), auto}
+  47.6% {cursor: url("/file/cursor/koakuma/busy12.png"), auto}
+  52% {cursor: url("/file/cursor/koakuma/busy13.png"), auto}
+  56.3% {cursor: url("/file/cursor/koakuma/busy14.png"), auto}
+  60.6% {cursor: url("/file/cursor/koakuma/busy15.png"), auto}
+  65% {cursor: url("/file/cursor/koakuma/busy16.png"), auto}
+  69.3% {cursor: url("/file/cursor/koakuma/busy17.png"), auto}
+  73.6% {cursor: url("/file/cursor/koakuma/busy18.png"), auto}
+  78% {cursor: url("/file/cursor/koakuma/busy19.png"), auto}
+  82.3% {cursor: url("/file/cursor/koakuma/busy20.png"), auto}
+  86.6% {cursor: url("/file/cursor/koakuma/busy21.png"), auto}
+  91% {cursor: url("/file/cursor/koakuma/busy22.png"), auto}
+  95% {cursor: url("/file/cursor/koakuma/busy23.png"), auto}
+  100% {cursor: url("/file/cursor/koakuma/busy24.png"), auto}
+}
+@keyframes Koakuma-pointer {
+  0% {cursor: url("/file/cursor/koakuma/pointer1.png") 4 0, auto}
+  4.3% {cursor: url("/file/cursor/koakuma/pointer2.png") 4 0, auto}
+  8.6% {cursor: url("/file/cursor/koakuma/pointer3.png") 4 0, auto}
+  13% {cursor: url("/file/cursor/koakuma/pointer4.png") 4 0, auto}
+  17.3% {cursor: url("/file/cursor/koakuma/pointer5.png") 4 0, auto}
+  21.6% {cursor: url("/file/cursor/koakuma/pointer6.png") 4 0, auto}
+  26% {cursor: url("/file/cursor/koakuma/pointer7.png") 4 0, auto}
+  30.3% {cursor: url("/file/cursor/koakuma/pointer8.png") 4 0, auto}
+  34.6% {cursor: url("/file/cursor/koakuma/pointer9.png") 4 0, auto}
+  39% {cursor: url("/file/cursor/koakuma/pointer10.png") 4 0, auto}
+  43.3% {cursor: url("/file/cursor/koakuma/pointer11.png") 4 0, auto}
+  47.6% {cursor: url("/file/cursor/koakuma/pointer12.png") 4 0, auto}
+  52% {cursor: url("/file/cursor/koakuma/pointer13.png") 4 0, auto}
+  56.3% {cursor: url("/file/cursor/koakuma/pointer14.png") 4 0, auto}
+  60.6% {cursor: url("/file/cursor/koakuma/pointer15.png") 4 0, auto}
+  65% {cursor: url("/file/cursor/koakuma/pointer16.png") 4 0, auto}
+  69.3% {cursor: url("/file/cursor/koakuma/pointer17.png") 4 0, auto}
+  73.6% {cursor: url("/file/cursor/koakuma/pointer18.png") 4 0, auto}
+  78% {cursor: url("/file/cursor/koakuma/pointer19.png") 4 0, auto}
+  82.3% {cursor: url("/file/cursor/koakuma/pointer20.png") 4 0, auto}
+  86.6% {cursor: url("/file/cursor/koakuma/pointer21.png") 4 0, auto}
+  91% {cursor: url("/file/cursor/koakuma/pointer22.png") 4 0, auto}
+  95% {cursor: url("/file/cursor/koakuma/pointer23.png") 4 0, auto}
+  100% {cursor: url("/file/cursor/koakuma/pointer24.png") 4 0, auto}
+}
+
+// @title Koishi
+@keyframes Koishi-default {
+  0% {cursor: url("/file/cursor/koishi/default1.png"), auto}
+  6.6% {cursor: url("/file/cursor/koishi/default2.png"), auto}
+  13.3% {cursor: url("/file/cursor/koishi/default3.png"), auto}
+  19% {cursor: url("/file/cursor/koishi/default4.png"), auto}
+  25.6% {cursor: url("/file/cursor/koishi/default5.png"), auto}
+  33.3% {cursor: url("/file/cursor/koishi/default6.png"), auto}
+  40% {cursor: url("/file/cursor/koishi/default7.png"), auto}
+  46.6% {cursor: url("/file/cursor/koishi/default8.png"), auto}
+  53.3% {cursor: url("/file/cursor/koishi/default9.png"), auto}
+  60% {cursor: url("/file/cursor/koishi/default10.png"), auto}
+  66.6% {cursor: url("/file/cursor/koishi/default11.png"), auto}
+  73.3% {cursor: url("/file/cursor/koishi/default12.png"), auto}
+  80% {cursor: url("/file/cursor/koishi/default13.png"), auto}
+  86.6% {cursor: url("/file/cursor/koishi/default14.png"), auto}
+  93.3% {cursor: url("/file/cursor/koishi/default15.png"), auto}
+  100% {cursor: url("/file/cursor/koishi/default16.png"), auto}
+}
+@keyframes Koishi-wait {
+  0% {cursor: url("/file/cursor/koishi/wait1.png"), auto}
+  6.6% {cursor: url("/file/cursor/koishi/wait2.png"), auto}
+  13.3% {cursor: url("/file/cursor/koishi/wait3.png"), auto}
+  19% {cursor: url("/file/cursor/koishi/wait4.png"), auto}
+  25.6% {cursor: url("/file/cursor/koishi/wait5.png"), auto}
+  33.3% {cursor: url("/file/cursor/koishi/wait6.png"), auto}
+  40% {cursor: url("/file/cursor/koishi/wait7.png"), auto}
+  46.6% {cursor: url("/file/cursor/koishi/wait8.png"), auto}
+  53.3% {cursor: url("/file/cursor/koishi/wait9.png"), auto}
+  60% {cursor: url("/file/cursor/koishi/wait10.png"), auto}
+  66.6% {cursor: url("/file/cursor/koishi/wait11.png"), auto}
+  73.3% {cursor: url("/file/cursor/koishi/wait12.png"), auto}
+  80% {cursor: url("/file/cursor/koishi/wait13.png"), auto}
+  86.6% {cursor: url("/file/cursor/koishi/wait14.png"), auto}
+  93.3% {cursor: url("/file/cursor/koishi/wait15.png"), auto}
+  100% {cursor: url("/file/cursor/koishi/wait16.png"), auto}
+}
+@keyframes Koishi-busy {
+  0% {cursor: url("/file/cursor/koishi/busy1.png"), auto}
+  6.6% {cursor: url("/file/cursor/koishi/busy2.png"), auto}
+  13.3% {cursor: url("/file/cursor/koishi/busy3.png"), auto}
+  19% {cursor: url("/file/cursor/koishi/busy4.png"), auto}
+  25.6% {cursor: url("/file/cursor/koishi/busy5.png"), auto}
+  33.3% {cursor: url("/file/cursor/koishi/busy6.png"), auto}
+  40% {cursor: url("/file/cursor/koishi/busy7.png"), auto}
+  46.6% {cursor: url("/file/cursor/koishi/busy8.png"), auto}
+  53.3% {cursor: url("/file/cursor/koishi/busy9.png"), auto}
+  60% {cursor: url("/file/cursor/koishi/busy10.png"), auto}
+  66.6% {cursor: url("/file/cursor/koishi/busy11.png"), auto}
+  73.3% {cursor: url("/file/cursor/koishi/busy12.png"), auto}
+  80% {cursor: url("/file/cursor/koishi/busy13.png"), auto}
+  86.6% {cursor: url("/file/cursor/koishi/busy14.png"), auto}
+  93.3% {cursor: url("/file/cursor/koishi/busy15.png"), auto}
+  100% {cursor: url("/file/cursor/koishi/busy16.png"), auto}
+}
+@keyframes Koishi-pointer {
+  0% {cursor: url("/file/cursor/koishi/pointer1.png") 6 0, auto}
+  6.6% {cursor: url("/file/cursor/koishi/pointer2.png") 6 0, auto}
+  13.3% {cursor: url("/file/cursor/koishi/pointer3.png") 6 0, auto}
+  19% {cursor: url("/file/cursor/koishi/pointer4.png") 6 0, auto}
+  25.6% {cursor: url("/file/cursor/koishi/pointer5.png") 6 0, auto}
+  33.3% {cursor: url("/file/cursor/koishi/pointer6.png") 6 0, auto}
+  40% {cursor: url("/file/cursor/koishi/pointer7.png") 6 0, auto}
+  46.6% {cursor: url("/file/cursor/koishi/pointer8.png") 6 0, auto}
+  53.3% {cursor: url("/file/cursor/koishi/pointer9.png") 6 0, auto}
+  60% {cursor: url("/file/cursor/koishi/pointer10.png") 6 0, auto}
+  66.6% {cursor: url("/file/cursor/koishi/pointer11.png") 6 0, auto}
+  73.3% {cursor: url("/file/cursor/koishi/pointer12.png") 6 0, auto}
+  80% {cursor: url("/file/cursor/koishi/pointer13.png") 6 0, auto}
+  86.6% {cursor: url("/file/cursor/koishi/pointer14.png") 6 0, auto}
+  93.3% {cursor: url("/file/cursor/koishi/pointer15.png") 6 0, auto}
+  100% {cursor: url("/file/cursor/koishi/pointer16.png") 6 0, auto}
+}
+
+// @title Youmu
+@keyframes Youmu-default {
+  0% {cursor: url("/file/cursor/youmu/default1.png"), auto}
+  9% {cursor: url("/file/cursor/youmu/default2.png"), auto}
+  18% {cursor: url("/file/cursor/youmu/default3.png"), auto}
+  27% {cursor: url("/file/cursor/youmu/default4.png"), auto}
+  36% {cursor: url("/file/cursor/youmu/default5.png"), auto}
+  45% {cursor: url("/file/cursor/youmu/default6.png"), auto}
+  54% {cursor: url("/file/cursor/youmu/default7.png"), auto}
+  63% {cursor: url("/file/cursor/youmu/default8.png"), auto}
+  72% {cursor: url("/file/cursor/youmu/default9.png"), auto}
+  81% {cursor: url("/file/cursor/youmu/default10.png"), auto}
+  90% {cursor: url("/file/cursor/youmu/default11.png"), auto}
+  100% {cursor: url("/file/cursor/youmu/default12.png"), auto}
+}
+@keyframes Youmu-wait {
+  0% {cursor: url("/file/cursor/youmu/wait1.png"), auto}
+  4.3% {cursor: url("/file/cursor/youmu/wait2.png"), auto}
+  8.6% {cursor: url("/file/cursor/youmu/wait3.png"), auto}
+  13% {cursor: url("/file/cursor/youmu/wait4.png"), auto}
+  17.3% {cursor: url("/file/cursor/youmu/wait5.png"), auto}
+  21.6% {cursor: url("/file/cursor/youmu/wait6.png"), auto}
+  26% {cursor: url("/file/cursor/youmu/wait7.png"), auto}
+  30.3% {cursor: url("/file/cursor/youmu/wait8.png"), auto}
+  34.6% {cursor: url("/file/cursor/youmu/wait9.png"), auto}
+  39% {cursor: url("/file/cursor/youmu/wait10.png"), auto}
+  43.3% {cursor: url("/file/cursor/youmu/wait11.png"), auto}
+  47.6% {cursor: url("/file/cursor/youmu/wait12.png"), auto}
+  52% {cursor: url("/file/cursor/youmu/wait13.png"), auto}
+  56.3% {cursor: url("/file/cursor/youmu/wait14.png"), auto}
+  60.6% {cursor: url("/file/cursor/youmu/wait15.png"), auto}
+  65% {cursor: url("/file/cursor/youmu/wait16.png"), auto}
+  69.3% {cursor: url("/file/cursor/youmu/wait17.png"), auto}
+  73.6% {cursor: url("/file/cursor/youmu/wait18.png"), auto}
+  78% {cursor: url("/file/cursor/youmu/wait19.png"), auto}
+  82.3% {cursor: url("/file/cursor/youmu/wait20.png"), auto}
+  86.6% {cursor: url("/file/cursor/youmu/wait21.png"), auto}
+  91% {cursor: url("/file/cursor/youmu/wait22.png"), auto}
+  95% {cursor: url("/file/cursor/youmu/wait23.png"), auto}
+  100% {cursor: url("/file/cursor/youmu/wait24.png"), auto}
+}
+@keyframes Youmu-busy {
+  0% {cursor: url("/file/cursor/youmu/busy1.png"), auto}
+  4.3% {cursor: url("/file/cursor/youmu/busy2.png"), auto}
+  8.6% {cursor: url("/file/cursor/youmu/busy3.png"), auto}
+  13% {cursor: url("/file/cursor/youmu/busy4.png"), auto}
+  17.3% {cursor: url("/file/cursor/youmu/busy5.png"), auto}
+  21.6% {cursor: url("/file/cursor/youmu/busy6.png"), auto}
+  26% {cursor: url("/file/cursor/youmu/busy7.png"), auto}
+  30.3% {cursor: url("/file/cursor/youmu/busy8.png"), auto}
+  34.6% {cursor: url("/file/cursor/youmu/busy9.png"), auto}
+  39% {cursor: url("/file/cursor/youmu/busy10.png"), auto}
+  43.3% {cursor: url("/file/cursor/youmu/busy11.png"), auto}
+  47.6% {cursor: url("/file/cursor/youmu/busy12.png"), auto}
+  52% {cursor: url("/file/cursor/youmu/busy13.png"), auto}
+  56.3% {cursor: url("/file/cursor/youmu/busy14.png"), auto}
+  60.6% {cursor: url("/file/cursor/youmu/busy15.png"), auto}
+  65% {cursor: url("/file/cursor/youmu/busy16.png"), auto}
+  69.3% {cursor: url("/file/cursor/youmu/busy17.png"), auto}
+  73.6% {cursor: url("/file/cursor/youmu/busy18.png"), auto}
+  78% {cursor: url("/file/cursor/youmu/busy19.png"), auto}
+  82.3% {cursor: url("/file/cursor/youmu/busy20.png"), auto}
+  86.6% {cursor: url("/file/cursor/youmu/busy21.png"), auto}
+  91% {cursor: url("/file/cursor/youmu/busy22.png"), auto}
+  95% {cursor: url("/file/cursor/youmu/busy23.png"), auto}
+  100% {cursor: url("/file/cursor/youmu/busy24.png"), auto}
+}
+@keyframes Youmu-pointer {
+  0% {cursor: url("/file/cursor/youmu/pointer1.png"), auto}
+  4.3% {cursor: url("/file/cursor/youmu/pointer2.png"), auto}
+  8.6% {cursor: url("/file/cursor/youmu/pointer3.png"), auto}
+  13% {cursor: url("/file/cursor/youmu/pointer4.png"), auto}
+  17.3% {cursor: url("/file/cursor/youmu/pointer5.png"), auto}
+  21.6% {cursor: url("/file/cursor/youmu/pointer6.png"), auto}
+  26% {cursor: url("/file/cursor/youmu/pointer7.png"), auto}
+  30.3% {cursor: url("/file/cursor/youmu/pointer8.png"), auto}
+  34.6% {cursor: url("/file/cursor/youmu/pointer9.png"), auto}
+  39% {cursor: url("/file/cursor/youmu/pointer10.png"), auto}
+  43.3% {cursor: url("/file/cursor/youmu/pointer11.png"), auto}
+  47.6% {cursor: url("/file/cursor/youmu/pointer12.png"), auto}
+  52% {cursor: url("/file/cursor/youmu/pointer13.png"), auto}
+  56.3% {cursor: url("/file/cursor/youmu/pointer14.png"), auto}
+  60.6% {cursor: url("/file/cursor/youmu/pointer15.png"), auto}
+  65% {cursor: url("/file/cursor/youmu/pointer16.png"), auto}
+  69.3% {cursor: url("/file/cursor/youmu/pointer17.png"), auto}
+  73.6% {cursor: url("/file/cursor/youmu/pointer18.png"), auto}
+  78% {cursor: url("/file/cursor/youmu/pointer19.png"), auto}
+  82.3% {cursor: url("/file/cursor/youmu/pointer20.png"), auto}
+  86.6% {cursor: url("/file/cursor/youmu/pointer21.png"), auto}
+  91% {cursor: url("/file/cursor/youmu/pointer22.png"), auto}
+  95% {cursor: url("/file/cursor/youmu/pointer23.png"), auto}
+  100% {cursor: url("/file/cursor/youmu/pointer24.png"), auto}
+}

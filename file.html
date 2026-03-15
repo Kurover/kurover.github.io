@@ -5,67 +5,177 @@ description: Windows customization and other project for downloads.
 og-title: File Repository
 og-type: download
 nav-more: true
-custom-css: /styles/cursor-preview.css
+custom-css: /styles/file-cursor.css
 ---
 <main>
   <section class="wrapper border bg-color" tabindex="-1" id="main">
 
     <h1>Files</h1>
 
-    <p>Unfinished, other content is available on <a href="/v2/download.html">old download page</a></p>
+    <p>Welcome to the file repository page. All things listed in here are free for <span class="warning">PERSONAL</span> use, unless stated otherwise. If there's any broken link, please contact me so I can fix it as soon as possible.</p>
+    <p>Files are served on Github by default. Bigger stuff (more than 10mb) will be served externally. Archived file has instruction attached to help you out. Otherwise you're on your own :3</p>
   
   </section>
-  <section class="wrapper cursor-preview-master">
-    <h2 class="title-full title-full--no-bg">Cursor</h2>
-    <p class="caption center">"Clicky companion"</p>
-    <div class="separator"></div>
+
+  <!-- @main # CSOS MAIN -->
+  <section class="wrapper wrapper--CSOS CSOS-root">
     
-    <!-- Disable tab nav with 'tabindex -1'. I mean keyboard only ain't using cursor, right? -->
-    <input type="radio" name="cursor-options" class="cursor-option" tabindex="-1" id="cursor-option-none" checked>
-    <input type="radio" name="cursor-options" class="cursor-option" tabindex="-1" id="cursor-option-koakuma">
-    <input type="radio" name="cursor-options" class="cursor-option" tabindex="-1" id="cursor-option-koishi">
-    <input type="radio" name="cursor-options" class="cursor-option" tabindex="-1" id="cursor-option-youmu">
-    
-    <input type="radio" name="background-options" class="cursor-option" tabindex="-1" id="cursor-bg-option-1" checked>
-    <input type="radio" name="background-options" class="cursor-option" tabindex="-1" id="cursor-bg-option-2">
-    <input type="radio" name="background-options" class="cursor-option" tabindex="-1" id="cursor-bg-option-3">
+    <!-- * Core States -->
+    <input type="checkbox" id="CSOS-start-menu-state" tabindex="-1" checked>
 
-    <div class="cursor-selectors">
-      <div class="cursor-selector btn-cursor-koakuma">
-        <label class="btn-cursor main" for="cursor-option-koakuma">Koakuma</label>
-        <label class="btn-cursor overlay" for="cursor-option-none">Koakuma</label>
-      </div>
-      <div class="cursor-selector btn-cursor-koishi">
-        <label class="btn-cursor main" for="cursor-option-koishi">Koishi</label>
-        <label class="btn-cursor overlay" for="cursor-option-none">Koishi</label>
-      </div>
-      <div class="cursor-selector btn-cursor-youmu">
-        <label class="btn-cursor main" for="cursor-option-youmu">Youmu</label>
-        <label class="btn-cursor overlay" for="cursor-option-none">Youmu</label>
-      </div>
-    </div>
+    <!-- * Orb States -->
+    <!-- <input type="radio" name="CSOS-current-orb" class="CSOS-orb-basic" tabindex="-1" id="CSOS-orb-state-default"> -->
+    {% for orb-lists in site.data.file.orb.list %}
+    {% assign orb = orb-lists[1] %}
+    <input type="radio" name="CSOS-current-orb" {% if orb.basic %}class="CSOS-orb-basic"{% endif %}tabindex="-1" id="CSOS-orb-state-{{ orb.name }}" {% if orb.default %}checked{% endif %}>
+    {% endfor %}
 
-    <div class="cursor-selectors background">
-      <label for="cursor-bg-option-1" class="cursor-selector btn-cursor btn-bg-cursor-1">BG 1</label>
-      <label for="cursor-bg-option-2" class="cursor-selector btn-cursor btn-bg-cursor-2">BG 2</label>
-      <label for="cursor-bg-option-3" class="cursor-selector btn-cursor btn-bg-cursor-3">BG 3</label>
-    </div>
+    <!-- * Cursor States -->
+    <input type="radio" name="CSOS-current-cursor" tabindex="-1" id="CSOS-cursor-state-default" checked>
+    {% for cursor-lists in site.data.file.cursor.list %}
+    {% assign cursor = cursor-lists[1] %}
+    <input type="radio" name="CSOS-current-cursor" tabindex="-1" id="CSOS-cursor-state-{{ cursor.name }}">
+    {% endfor %}
 
-    <div class="cursor-test-field cursor-obj-default">
-      <div class="cursor-test-field-boxes">
-        <div class="cursor-obj-wait">WAIT</div>
-        <div class="cursor-obj-busy">BUSY</div>
-        <div class="cursor-obj-pointer">POINTER</div>
+    <!-- * BG States -->
+
+    <!-- * Window States -->
+    <input type="checkbox" id="CSOS-win-v-busycorner" tabindex="-1">
+
+    <!-- ! MAIN CONTENT -->
+    <div class="CSOS-container">
+      <!-- @section . Desktop/canvas -->
+      <div class="CSOS-canvas">
+
+        <div class="CSOS-window" id="CSOS-win-busycorner" style="bottom: unset; left: unset;">
+          <div class="CSOS-win-topbar">
+            <div class="CSOS-win-topbar--title">Busy Corner</div>
+            <label for="CSOS-win-v-busycorner" class="CSOS-win-topbar--button minimize"></label>
+            <div class="CSOS-win-topbar--button maximize dim"></div>
+            <div class="CSOS-win-topbar--button close dim"></div>
+          </div>
+
+          <div class="CSOS-win-container">
+            <div class="CSOS-cWait"><span>Wait!!!</span></div>
+            <div class="CSOS-cBusy"><span>⚠ Busy ⚠</span></div>
+          </div>
+        </div>
+
+        <div class="CSOS-resizable" style="--scrollbar-size:180px;">
+          <div class="CSOS-resizable-anchor" style="overflow: clip;">
+            <div class="CSOS-resizable-content" style="width: 244px; left: -32px; top: -32px;">
+              <img src="/img/file/rumia-alt__px.gif" class="decor" alt="">
+            </div>
+          </div>
+          <div class="CSOS-resizable-controller" style="width: 9999px; height: 9999px;"></div>
+
+          <div class="CSOS-resizable-dummy"></div>
+          <div class="CSOS-resizable-dummy"></div>
+        </div>
+
+        <div class="CSOS-start-menu">
+          
+          <input type="radio" name="CSOS-start-menu-select" tabindex="-1" id="CSOS-start-content-0" checked>
+          <input type="radio" name="CSOS-start-menu-select" tabindex="-1" id="CSOS-start-content-1">
+          <input type="radio" name="CSOS-start-menu-select" tabindex="-1" id="CSOS-start-content-2">
+          <input type="radio" name="CSOS-start-menu-select" tabindex="-1" id="CSOS-start-content-3">
+          
+          <!-- ? Controller -->
+          <div class="CSOS-start-menu-menus">
+            <div class="CSOS-start-menu-menu" id="start-select-orb">
+              <label for="CSOS-start-content-1"><span>Orb Select</span></label>
+            </div>
+            <div class="CSOS-start-menu-menu" id="start-select-cursor">
+              <label for="CSOS-start-content-2"><span>Cursor Select</span></label>
+            </div>
+            <div class="CSOS-start-menu-menu" id="start-select-bg">
+              <label for="CSOS-start-content-3"><span>Background Select</span></label>
+            </div>
+          </div>
+
+          <!-- ? @section . . Start Menu Content -->
+          <div class="CSOS-start-menu-content CSOS-start-home">
+            <div class="CSOS-start-menu-content--title center"><span>&gt; CSOS &lt;</span></div>
+            <p>Welcome to the Cascading Style Operating System or CSOS. This is a one-stop corner for (windows) customization! The "OS" or sandbox restriction is as terrible as you might expect but it's servicable as long as you have a mouse pointer to navigate the sandbox.</p>
+            <div class="notice"><span class="CSOS-cText">Non-Chromium/webkit user will have a feature locked, which is larger draggable Rumia hitbox. If you are such user, try sneaking your cursor to one of the element's edge!</span></div>
+          </div>
+          <!-- ? ORB -->
+          <div class="CSOS-start-menu-content CSOS-start-orb">
+            <div class="CSOS-start-menu-content--title">
+              <label for="CSOS-start-content-0" class="CSOS-start-menu-menu-return"></label>
+              <span>-ORB-</span>
+            </div>
+            <div class="notice"><span class="CSOS-cText">"OSM" links are for <a href="https://github.com/Open-Shell/Open-Shell-Menu">Open-Shell Menu</a> with added in-between frame. This sandbox prioritize this version for the preview!</span></div>
+            {% for orb-lists in site.data.file.orb.list %}
+            {% assign orb = orb-lists[1] %}
+            <div class="CSOS-start-orb-button" id="CSOS-div-orb-{{ orb.name }}">
+              <label for="CSOS-orb-state-{{ orb.name }}" class="CSOS-start-orb-list">{{ orb.name }}</label>
+              {% if orb.preview %}
+              <div class="CSOS-start-orb-preview">
+                <img src="{{ orb.preview }}" alt="" loading="lazy">
+              </div>
+              {% endif %}
+              {% if orb.link-openshell %}
+              <div class="CSOS-start-orb-download openshell">
+                <a href="{{ orb.link-openshell }}" download>OSM</a>
+              </div>
+              {% endif %}
+              {% if orb.link-generic %}
+              <div class="CSOS-start-orb-download generic">
+                <a href="{{ orb.link-generic }}" download>LINK</a>
+              </div>
+              {% endif %}
+            </div>
+            {% endfor %}
+          </div>
+          <!-- ? CURSOR -->
+          <div class="CSOS-start-menu-content CSOS-start-cursor">
+            <div class="CSOS-start-menu-content--title">
+              <label for="CSOS-start-content-0" class="CSOS-start-menu-menu-return"></label>
+              <span>Change Cursor</span>
+            </div>
+            <div class="notice"><span class="CSOS-cText">Changing new cursor might take a bit since we're downloading all frames individually.</span></div>
+            <div class="CSOS-start-cursor-button" id="CSOS-div-cursor-default"><label for="CSOS-cursor-state-default" class="CSOS-start-cursor-list">@default</label></div>
+            {% for cursor-lists in site.data.file.cursor.list %}
+            {% assign cursor = cursor-lists[1] %}
+            <div class="CSOS-start-cursor-button" id="CSOS-div-cursor-{{ cursor.name }}">
+              <label for="CSOS-cursor-state-{{ cursor.name }}" class="CSOS-start-cursor-list">{% if cursor.icon %}<img src="{{ cursor.icon }}">{% endif %}{{ cursor.name }}<span>{{ cursor.rating }}</span></label>
+              {% if cursor.preview %}
+              <div class="CSOS-start-cursor-preview">
+                <img src="{{ cursor.preview }}" alt="" loading="lazy">
+              </div>
+              {% endif %}
+              {% if cursor.link-github %}
+              <div class="CSOS-start-cursor-download">
+                <a href="{{ cursor.link-github }}">LINK</a>
+              </div>
+              {% endif %}
+            </div>
+            {% endfor %}
+          </div>
+          <!-- ? BG -->
+          <div class="CSOS-start-menu-content CSOS-start-bg">
+            <div class="CSOS-start-menu-content--title">
+              <label for="CSOS-start-content-0" class="CSOS-start-menu-menu-return"></label>
+              <span>Change Background</span>
+            </div>
+            <p>Under construction! (aka wip unless worked otherwise) since it's a fluff and time-waster of a content, very cool!</p>
+          </div>
+
+        </div>
       </div>
-      <div class="cursor-obj-download">
-        <div class="btn-cursor-download none">Download</div>
-        <a href="/file/cursor/Koakuma Cursor v0.1c.zip" class="cursor-obj-pointer btn-cursor-download koakuma">Download</a>
-        <a href="/file/cursor/Koishi Cursor v0.1.zip" class="cursor-obj-pointer btn-cursor-download koishi">Download</a>
-        <a href="/file/cursor/Youmu Cursor v0.1.zip" class="cursor-obj-pointer btn-cursor-download youmu">Download</a>
+      <!-- @section . Taskbar -->
+      <div class="CSOS-taskbar">
+        <label for="CSOS-start-menu-state" class="CSOS-start-menu-bar">
+          <div class="CSOS-start-orb-bar"></div>
+          <div class="CSOS-start-orb-bar active"></div>
+        </label>
+        <label for="CSOS-win-v-busycorner" class="CSOS-window-bar">Busy Corner</label>
+        <div class="CSOS-start-time-bar"><span>xx:xx</span></div>
       </div>
     </div>
   </section>
-  <div class="separator" style="border-top: 25vh solid transparent;"></div>
 
-  {% include page-wip.html %}
+  <hr class="separator huge">
+
 </main>
