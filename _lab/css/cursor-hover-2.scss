@@ -21,6 +21,7 @@
   --CSOS-width: 896px;
   --CSOS-height: 576px;
   --CSOS-height-taskbar: 40px; 
+  --CSOS-window-title: 32px;
 }
 // For specific element with specific cursor mode
 .CSOS-cDefault {animation: var(--cursor-default) infinite;}
@@ -41,7 +42,8 @@
   --orb-link: url(/img/file/Start-Menu-Illith-64x.png);
   --orb-link-openshell: /img/file/Start-Menu-Illith-64x.png;
   --orb-link-generic: /img/file/Start-Menu-Illith-Generic-64x.png;
-  --bg-start-menu: #98d1b5;
+  --secondary-start-menu: #c4eddf;
+  --bg-start-menu: #2b515d;
   --bg-button: linear-gradient(180deg, #fff 65%, transparent 65%, #d1f3ff 0);
   --bg-button2: linear-gradient(180deg, #fff 65%, transparent 65%, #f3ffd1 0);
   --bg-button-active: #beffa9;
@@ -63,7 +65,7 @@
   & p {
     display: inline-block; // prevent cursor changing beyond what the text suggest
     cursor: text;
-    color: var(--clr-text-fade);
+    color: var(--clr-text-dark);
     animation: var(--cursor-text) infinite;
   }
   & label, a {
@@ -82,11 +84,152 @@
   image-rendering: pixelated;
 }
 
+// @section . , Window
+.CSOS-window {
+  background-color: gray;
+  border: 2px solid white;
+  box-sizing: border-box;
+  position: absolute;
+  display: grid; // Easiest way to prevent content overflow
+  grid-template-rows: calc(var(--CSOS-window-title) + 2px) auto; // +2px for title bar bottom border
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 420px;
+  height: 240px;
+
+  visibility: hidden; // Controlled by states
+  transform: translateY(20px);
+  opacity: 0;
+  transition: transform .3s ease, opacity .25s, visibility .25s;
+}
+#CSOS-orb-window {
+  left: 32px;
+  top: 32px;
+}
+.CSOS-win-topbar {
+  background-color: white;
+  display: grid;
+  grid-template-columns: 75% auto auto auto;
+  line-height: var(--CSOS-window-title);
+  border-bottom: 2px solid white;
+}
+.CSOS-win-topbar--title {
+  color: var(--clr-text-dark);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-wrap: nowrap;
+  max-width: 28ch;
+  padding: 1px 0 4px 6px;
+  pointer-events: none;
+  user-select: none;
+}
+.CSOS-win-topbar--button {
+  color: var(--clr-accent);
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+  &:hover {
+    color: var(--clr-text);
+    background-color: var(--clr-accent);
+  }
+  &.dim {
+    color: var(--clr-text-dim);
+    background-color: var(--clr-text-fade);
+    cursor: not-allowed;
+  }
+  &.minimize {
+    order: 1;
+    &::before {
+      content: "-";
+    }
+  }
+  &.maximize {
+    order: 2;
+    &::before {
+      content: "o";
+    }
+  }
+  &.close {
+    order: 3;
+    &::before {
+      content: "x";
+    }
+  }
+}
+// ? Resizables mechanic
+.CSOS-resizable {
+  --scrollbar-size: 32px;
+  z-index: 2;
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  max-width: var(--CSOS-width);
+  max-height: calc(var(--CSOS-height) - var(--CSOS-height-taskbar));
+}
+.CSOS-resizable-anchor {
+  position: absolute;
+  pointer-events: auto;
+  bottom: 0;
+  right: 0;
+  width: var(--scrollbar-size);
+  height: var(--scrollbar-size);
+}
+.CSOS-resizable-content {
+  position: absolute;
+  pointer-events: auto;
+  // top: 20px;
+  // left: -8px;
+}
+.CSOS-resizable-controller {
+  resize: both;
+  overflow: scroll;
+  opacity: 0.1;
+  opacity: 0;
+  width: calc(var(--CSOS-width) / 2);
+  height: calc(var(--CSOS-height) / 2);
+  max-width: var(--CSOS-width);
+  max-height: calc(var(--CSOS-height) - var(--CSOS-height-taskbar));
+
+  // Chrome only but it is what it is
+  &::-webkit-scrollbar {
+    height: var(--scrollbar-size);
+    width: var(--scrollbar-size);
+  }
+}
+// * a way to add and remove the pointer-event status on certain range of the container
+.CSOS-resizable-anchor:hover ~ .CSOS-resizable-controller,
+.CSOS-resizable-controller:hover {
+  pointer-events: auto;
+}
+.CSOS-resizable-dummy {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  &:nth-child(even) {
+    bottom: var(--scrollbar-size);
+  }
+  &:nth-child(odd) {
+    right: var(--scrollbar-size);
+  }
+}
+// Activates the dummy when controller is hovered, making sure if the cursor go away from controller, it focuses to the dummy (if user goes to top/left) and deactivate pointer-event again, making the thing behind it clickable
+.CSOS-resizable-controller:hover ~ .CSOS-resizable-dummy {
+  pointer-events: auto;
+}
+
 // @section . , Taskbar
 .CSOS-taskbar {
   // height is taken care by container grid size
+  z-index: 100;
   display: flex;
-  background-color: cornsilk;
+  background-color: white;
   // height: 100%;
   & > * {
     line-height: var(--CSOS-height-taskbar);
@@ -97,6 +240,7 @@
   // animation: var(--cursor-pointer) infinite;
   // background-color: darkmagenta;
   width: var(--orb-size);
+  margin-right: 16px;
 }
 .CSOS-start-orb-bar {
   position: absolute;
@@ -150,6 +294,18 @@
     background-position: 0px calc(-1px - (var(--orb-size) * 1));
   }
 }
+.CSOS-window-bar {
+  display: flex;
+  flex-grow: .1;
+  padding: 0 8px;
+  text-align: center;
+  box-shadow: var(--clr-text-fade) inset 0 -4px 0 0px;
+  // background-color: #43acb7;
+  transition: box-shadow .25s, background-color .1s;
+  &:hover {
+    background-color: var(--clr-text-dim);
+  }
+}
 .CSOS-start-time-bar {
   pointer-events: none;
   width: 72px;
@@ -173,9 +329,10 @@
   to {opacity: 1;}
 }
 .CSOS-start-menu {
+  z-index: 10;
   display: none; // see above
   position: absolute;
-  top: 16px;
+  top: 32px;
   left: 0;
   bottom: 0;
   width: 384px;
@@ -202,7 +359,7 @@
   height: 32px;
   line-height: 32px;
   width: 100%;
-  background-color: #c4eddf;
+  background-color: var(--secondary-start-menu);
 }
 // yes im naming this this
 .CSOS-start-menu-menus {
@@ -218,7 +375,7 @@
   right: 0;
   box-shadow: 0 0 0 4px inset var(--clr-border);
   grid-template-columns: repeat(3, 1fr);
-  background-color: var(--bg-start-menu);
+  background-color: var(--secondary-start-menu);
 }
 .CSOS-start-menu-menu {
   position: relative;
@@ -462,6 +619,18 @@
   & ~ .CSOS-start-menu-menus #start-select-bg::before {
     background-color: var(--bg-button-active);
     outline: 2px solid var(--clr-secondary);
+  }
+}
+
+// Taskbar
+#CSOS-win-v-busycorner:checked ~ .CSOS-container {
+  & > .CSOS-canvas > #CSOS-win-busycorner {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  & > .CSOS-taskbar > [for="CSOS-win-v-busycorner"] {
+    box-shadow: var(--clr-accent) inset 0 -4px 0 0px;
   }
 }
 

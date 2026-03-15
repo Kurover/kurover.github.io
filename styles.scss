@@ -29,6 +29,7 @@
 :root {
   --clr-text: #E7E6EB;
   --clr-text-dim: #cac7d4;
+  --clr-text-dark: #2b2b2b;
   --clr-text-fade: #5d5b63;
   --clr-text-invert: #3D3D43;
   --clr-background-old: #0A0C10;
@@ -258,6 +259,13 @@ body::after {
   border: 0;
 }
 .no-select {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+.decor {
+  pointer-events: none;
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;

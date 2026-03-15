@@ -11,28 +11,64 @@ custom-css: /styles/file-cursor.css
 <!-- @main ____ CSOS MAIN -->
 <section class="wrapper wrapper--CSOS CSOS-root">
   
+  <!-- * Core States -->
   <input type="checkbox" id="CSOS-start-menu-state" checked>
 
-  <!-- * Cursor state -->
-  <input type="radio" name="CSOS-current-cursor" tabindex="-1" id="CSOS-cursor-state-default" checked>
-  {% for cursor-lists in site.data.file.cursor.list %}
-  {% assign cursor = cursor-lists[1] %}
-  <input type="radio" name="CSOS-current-cursor" tabindex="-1" id="CSOS-cursor-state-{{ cursor.name }}">
-  {% endfor %}
-  
-  <!-- * Orb state -->
+  <!-- * Orb States -->
   <!-- <input type="radio" name="CSOS-current-orb" class="CSOS-orb-basic" tabindex="-1" id="CSOS-orb-state-default"> -->
   {% for orb-lists in site.data.file.orb.list %}
   {% assign orb = orb-lists[1] %}
   <input type="radio" name="CSOS-current-orb" {% if orb.basic %}class="CSOS-orb-basic"{% endif %}tabindex="-1" id="CSOS-orb-state-{{ orb.name }}" {% if orb.default %}checked{% endif %}>
   {% endfor %}
 
+  <!-- * Cursor States -->
+  <input type="radio" name="CSOS-current-cursor" tabindex="-1" id="CSOS-cursor-state-default" checked>
+  {% for cursor-lists in site.data.file.cursor.list %}
+  {% assign cursor = cursor-lists[1] %}
+  <input type="radio" name="CSOS-current-cursor" tabindex="-1" id="CSOS-cursor-state-{{ cursor.name }}">
+  {% endfor %}
+
+  <!-- * BG States -->
+
+  <!-- * Window States -->
+  <input type="checkbox" id="CSOS-win-v-busycorner" checked>
+
   <!-- ! MAIN CONTENT -->
   <div class="CSOS-container">
     <!-- @section . Desktop/canvas -->
     <div class="CSOS-canvas">
-      <p>lorem ipsum 1</p>
-      <p>lorem ipsum 2</p>
+      <p>lorem</p>
+      <p>lorem</p>
+      <p>lorem</p>
+      <p>lorem</p>
+      <p>lorem</p>
+
+      <div class="CSOS-window" id="CSOS-win-busycorner">
+        <div class="CSOS-win-topbar">
+          <div class="CSOS-win-topbar--title">Busy Corner</div>
+          <label for="CSOS-win-v-busycorner" class="CSOS-win-topbar--button minimize"></label>
+          <div class="CSOS-win-topbar--button maximize dim"></div>
+          <div class="CSOS-win-topbar--button close dim"></div>
+        </div>
+
+        <div class="CSOS-cursor-contents">
+          <p>lorem 1</p>
+          <p>lorem 2</p>
+          <p>lorem 3</p>
+        </div>
+      </div>
+
+      <div class="CSOS-resizable" style="--scrollbar-size:180px;">
+        <div class="CSOS-resizable-anchor" style="overflow: clip;">
+          <div class="CSOS-resizable-content" style="width: 244px; left: -32px; top: -32px;">
+            <img src="/img/file/rumia-alt__px.gif" class="decor" alt="">
+          </div>
+        </div>
+        <div class="CSOS-resizable-controller" style="width: 9999px; height: 9999px;"></div>
+
+        <div class="CSOS-resizable-dummy"></div>
+        <div class="CSOS-resizable-dummy"></div>
+      </div>
 
       <div class="CSOS-start-menu">
         
@@ -56,9 +92,9 @@ custom-css: /styles/file-cursor.css
 
         <!-- ? @section . . Start Menu Content -->
         <div class="CSOS-start-menu-content CSOS-start-home">
-          <div class="CSOS-start-menu-content--title center"><span>WELCOME TO: Cascading Style OS</span></div>
-          <p>lorem ipsum</p>
-          <p>Welcome to start menu, menu!</p>
+          <div class="CSOS-start-menu-content--title center"><span>&gt; CSOS &lt;</span></div>
+          <p>Welcome to the Cascading Style Operating System or CSOS for short! Its feature is as terrible as you might expect but it's very servicable as long as you have a mouse pointer to navigate the sandbox.</p>
+          <p>Non-Chromium/webkit user will have a feature locked, which is larger draggable Rumia hitbox. If you are such user, try sneaking your cursor to the bottom left of the element!</p>
         </div>
         <!-- ? ORB -->
         <div class="CSOS-start-menu-content CSOS-start-orb">
@@ -135,6 +171,7 @@ custom-css: /styles/file-cursor.css
         <div class="CSOS-start-orb-bar"></div>
         <div class="CSOS-start-orb-bar active"></div>
       </label>
+      <label for="CSOS-win-v-busycorner" class="CSOS-window-bar">Busy Corner</label>
       <div class="CSOS-start-time-bar"><span>xx:xx</span></div>
     </div>
   </div>
