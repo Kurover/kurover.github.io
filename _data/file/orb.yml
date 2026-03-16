@@ -4,7 +4,7 @@ list:
     size: 54px
     basic: true
     align-bottom: -5px
-    link: url(/img/orb-windows.png)
+    link: url(/img/file/orb-windows.png)
     link-generic: /img/file/orb-windows.png
   start-orb-illith:
     name: Illith
