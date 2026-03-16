@@ -17,7 +17,7 @@ custom-css: /styles/file-cursor.css
   
   </section>
 
-  <!-- @main # CSOS MAIN -->
+  <!-- ! @main # CSOS MAIN -->
   <section class="wrapper wrapper--CSOS CSOS-root">
     <p class="notice mobile-only">This section is not built for mobile &/ cursor-less device! Sorry~!</p>
     <!-- * Core States -->
@@ -42,25 +42,12 @@ custom-css: /styles/file-cursor.css
     <!-- * Window States -->
     <input type="checkbox" id="CSOS-win-v-busycorner" tabindex="-1">
 
-    <!-- ! MAIN CONTENT -->
+    <!-- ! CSOS Content -->
     <div class="CSOS-container">
       <!-- @section . Desktop/canvas -->
       <div class="CSOS-canvas">
 
-        <div class="CSOS-window" id="CSOS-win-busycorner" style="bottom: unset; left: unset;">
-          <div class="CSOS-win-topbar">
-            <div class="CSOS-win-topbar--title">Busy Corner</div>
-            <label for="CSOS-win-v-busycorner" class="CSOS-win-topbar--button minimize"></label>
-            <div class="CSOS-win-topbar--button maximize dim"></div>
-            <div class="CSOS-win-topbar--button close dim"></div>
-          </div>
-
-          <div class="CSOS-win-container">
-            <div class="CSOS-cWait"><span>Wait!!!</span></div>
-            <div class="CSOS-cBusy"><span>⚠ Busy ⚠</span></div>
-          </div>
-        </div>
-
+        <!-- Rumia stress ball -->
         <div class="CSOS-resizable" style="--scrollbar-size:180px;">
           <div class="CSOS-resizable-anchor">
             <div class="CSOS-resizable-content" style="width: 244px; left: -32px; top: -32px; pointer-events: none;">
@@ -73,14 +60,31 @@ custom-css: /styles/file-cursor.css
           <div class="CSOS-resizable-dummy"></div>
         </div>
 
+        <!-- Busy tester Window -->
+        <div class="CSOS-window" id="CSOS-win-busycorner" style="bottom: unset; left: unset;">
+          <div class="CSOS-win-topbar">
+            <div class="CSOS-win-topbar__title">Busy Corner</div>
+            <label for="CSOS-win-v-busycorner" class="CSOS-win-topbar__button minimize"></label>
+            <div class="CSOS-win-topbar__button maximize dim"></div>
+            <div class="CSOS-win-topbar__button close dim"></div>
+          </div>
+
+          <div class="CSOS-win-container">
+            <div class="CSOS-cWait"><span>Wait!!!</span></div>
+            <div class="CSOS-cBusy"><span>⚠ Busy ⚠</span></div>
+          </div>
+        </div>
+
+        <!--! Start Menu Container -->
         <div class="CSOS-start-menu">
           
+          <!-- ? Controller -->
           <input type="radio" name="CSOS-start-menu-select" tabindex="-1" id="CSOS-start-content-0" checked>
           <input type="radio" name="CSOS-start-menu-select" tabindex="-1" id="CSOS-start-content-1">
           <input type="radio" name="CSOS-start-menu-select" tabindex="-1" id="CSOS-start-content-2">
           <input type="radio" name="CSOS-start-menu-select" tabindex="-1" id="CSOS-start-content-3">
           
-          <!-- ? Controller -->
+          <!-- ? Menu Select -->
           <div class="CSOS-start-menu-menus">
             <div class="CSOS-start-menu-menu" id="start-select-orb">
               <label for="CSOS-start-content-1"><span>Orb Select</span></label>
@@ -95,17 +99,23 @@ custom-css: /styles/file-cursor.css
 
           <!-- ? @section . . Start Menu Content -->
           <div class="CSOS-start-menu-content CSOS-start-home">
-            <div class="CSOS-start-menu-content--title center"><span>&gt; CSOS &lt;</span></div>
+            <div class="CSOS-start-menu-content__title center"><span>&gt; CSOS &lt;</span></div>
             <p>Welcome to the Cascading Style Operating System or CSOS. This is a one-stop corner for (windows) customization! The "OS" or sandbox restriction is as terrible as you might expect but it's servicable as long as you have a mouse pointer to navigate the sandbox.</p>
             <div class="notice"><span class="CSOS-cText">Non-Chromium/webkit user will have a feature locked, which is larger draggable Rumia hitbox. If you are such user, try sneaking your cursor to one of the element's edge!</span></div>
           </div>
           <!-- ? ORB -->
           <div class="CSOS-start-menu-content CSOS-start-orb">
-            <div class="CSOS-start-menu-content--title">
+            <div class="CSOS-start-menu-content__title">
               <label for="CSOS-start-content-0" class="CSOS-start-menu-menu-return"></label>
               <span>-ORB-</span>
+              <div class="CSOS-start-menu-hint" tabindex="-1">
+                <div class="CSOS-start-menu-hint__content">
+                  <p>These are Start Orb customization file. Windows don't really allow you to customize it so you have to use 3rd party program for it.</p>
+                  <hr class="separator no-margin"> <!-- using styled separator since we want to keep the cursor change within the text (we change p to inline). BR doesn't work in Chrome somehow -->
+                  <p>"OSM" links are for <a href="https://github.com/Open-Shell/Open-Shell-Menu">Open-Shell Menu</a> with added in-between frame. The sandbox prioritize this version for the preview!.</p>
+                </div>
+              </div>
             </div>
-            <div class="notice"><span class="CSOS-cText">"OSM" links are for <a href="https://github.com/Open-Shell/Open-Shell-Menu">Open-Shell Menu</a> with added in-between frame. This sandbox prioritize this version for the preview!</span></div>
             {% for orb-lists in site.data.file.orb.list %}
             {% assign orb = orb-lists[1] %}
             <div class="CSOS-start-orb-button" id="CSOS-div-orb-{{ orb.name }}">
@@ -130,11 +140,17 @@ custom-css: /styles/file-cursor.css
           </div>
           <!-- ? CURSOR -->
           <div class="CSOS-start-menu-content CSOS-start-cursor">
-            <div class="CSOS-start-menu-content--title">
+            <div class="CSOS-start-menu-content__title">
               <label for="CSOS-start-content-0" class="CSOS-start-menu-menu-return"></label>
               <span>Change Cursor</span>
+              <div class="CSOS-start-menu-hint" tabindex="-1">
+                <div class="CSOS-start-menu-hint__content">
+                  <p>Clicky companion~! You will be able to test out the cursor in this sandbox, sans the Rumia element since that has jank mechanics.</p>
+                  <hr class="separator no-margin">
+                  <p>Changing new cursor will have slight delay since we're downloading all frames individually! The star rating is my creator satisfaction with the result in hindsight! Lots of 2's eh?</p>
+                </div>
+              </div>
             </div>
-            <div class="notice"><span class="CSOS-cText">Changing new cursor might take a bit since we're downloading all frames individually.</span></div>
             <div class="CSOS-start-cursor-button" id="CSOS-div-cursor-default"><label for="CSOS-cursor-state-default" class="CSOS-start-cursor-list">@default</label></div>
             {% for cursor-lists in site.data.file.cursor.list %}
             {% assign cursor = cursor-lists[1] %}
@@ -155,7 +171,7 @@ custom-css: /styles/file-cursor.css
           </div>
           <!-- ? BG -->
           <div class="CSOS-start-menu-content CSOS-start-bg">
-            <div class="CSOS-start-menu-content--title">
+            <div class="CSOS-start-menu-content__title">
               <label for="CSOS-start-content-0" class="CSOS-start-menu-menu-return"></label>
               <span>Change Background</span>
             </div>
@@ -176,6 +192,7 @@ custom-css: /styles/file-cursor.css
     </div>
   </section>
 
+  <!-- ! Misc Corner -->
   <section class="wrapper no-padding">
     <h2 class="title-full" style="background-color: var(--clr-btn-download);">Misc.</h2>
     <section class="wrapper border bg-color no-overflow" style="margin-bottom: 0;">

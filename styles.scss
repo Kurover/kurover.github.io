@@ -2560,6 +2560,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
 .CSOS-cBusy {animation: var(--cursor-busy) infinite; cursor: wait;}
 .CSOS-cPoint {animation: var(--cursor-pointer) infinite; cursor: pointer;}
 .CSOS-cText {animation: var(--cursor-text) infinite; cursor: text;}
+.CSOS-cHelp {animation: var(--cursor-help) infinite; cursor: help;}
 
 .wrapper--CSOS {
   max-width: var(--CSOS-width);
@@ -2654,7 +2655,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   line-height: var(--CSOS-window-title);
   border-bottom: 2px solid white;
 }
-.CSOS-win-topbar--title {
+.CSOS-win-topbar__title {
   color: var(--clr-text-dark);
   overflow: hidden;
   text-overflow: ellipsis;
@@ -2664,7 +2665,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   pointer-events: none;
   user-select: none;
 }
-.CSOS-win-topbar--button {
+.CSOS-win-topbar__button {
   color: var(--clr-accent);
   height: 100%;
   width: 100%;
@@ -2719,13 +2720,14 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
 // ? Resizables mechanic
 .CSOS-resizable {
   --scrollbar-size: 32px;
-  z-index: 2;
+  // z-index: 2;
   position: absolute;
   pointer-events: none;
   top: 0;
   left: 0;
   max-width: var(--CSOS-width);
   max-height: calc(var(--CSOS-height) - var(--CSOS-height-taskbar));
+  &:focus-within {z-index: 11;}
 }
 .CSOS-resizable-anchor {
   position: absolute;
@@ -2796,7 +2798,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   // animation: var(--cursor-pointer) infinite;
   // background-color: darkmagenta;
   width: var(--orb-size);
-  margin-right: 16px;
+  margin-right: 10px;
 }
 .CSOS-start-orb-bar {
   position: absolute;
@@ -2852,14 +2854,33 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
 }
 .CSOS-window-bar {
   display: flex;
+  position: relative;
   flex-grow: .1;
-  padding: 0 8px;
+  padding: 0 16px;
   text-align: center;
-  box-shadow: var(--clr-text-fade) inset 0 -4px 0 0px;
+  // box-shadow: var(--clr-text-fade) inset 0 -4px 0 0px;
   // background-color: #43acb7;
-  transition: box-shadow .25s, background-color .1s;
+  transition: background-color .1s;
+  user-select: none;
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    height: 4px;
+    width: calc(100% - 24px);
+    background-color: var(--clr-text-fade);
+
+    transition: width .2s;
+  }
   &:hover {
     background-color: var(--clr-text-dim);
+    transition-delay: .1s;
+    &::after {
+      width: 100%;
+    }
   }
 }
 .CSOS-start-time-bar {
@@ -2894,6 +2915,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   width: 384px;
   color: var(--clr-text-dark);
   background-color: var(--bg-start-menu);
+  box-shadow: 0 0 4px 2px white;
 }
 .CSOS-start-menu-content {
   --CSOS-start-content-margin: 16px;
@@ -2907,16 +2929,58 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   width: 100%;
   margin: var(--CSOS-start-content-margin);
   padding: 8px;
-  overflow-y: scroll;
+  overflow: visible scroll;
   scrollbar-width: thin;
   padding-bottom: 64px; // compensate menu
   background-color: white;
 }
-.CSOS-start-menu-content--title {
+.CSOS-start-menu-content__title {
   height: 32px;
   line-height: 32px;
   width: 100%;
   background-color: var(--secondary-start-menu);
+}
+.CSOS-start-menu-hint {
+  float: right;
+  &::before {
+    content: "?";
+    display: block;
+    padding: 0 16px;
+    box-shadow: 0 0 0 2px inset var(--clr-border);
+    user-select: none;
+    cursor: help;
+    animation: var(--cursor-help) infinite;
+  }
+}
+.CSOS-start-menu-hint__content {
+  visibility: hidden;
+  position: absolute;
+  left: 100%;
+  top: 16px;
+  width: max-content;
+  max-width: 384px;
+  line-height: 1.2em;
+  padding: 8px;
+  word-wrap: break-word;
+  background-color: white;
+  border: 2px solid var(--clr-border);
+
+  transform: translateX(4px);
+  opacity: 0;
+  transition: transform .2s, opacity .1s, visibility .1s;
+  & > p {
+    display: inline;
+  }
+  // Apparently these doesn't work in chrome, TIL
+  & > br {
+    display: block;
+    margin-top: 1em;
+  }
+}
+.CSOS-start-menu-hint:is(:hover, :focus) > .CSOS-start-menu-hint__content {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(8px);
 }
 // yes im naming this this
 .CSOS-start-menu-menus {
@@ -3043,7 +3107,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
 }
 .CSOS-start-cursor-preview {
   pointer-events: none;
-  visibility: hidden;
+  visibility: hidden; // Controlled above, on button:hover
   opacity: 0;
   // display: none; 
   position: absolute;
@@ -3186,8 +3250,8 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
     opacity: 1;
     transform: translateY(0px);
   }
-  & > .CSOS-taskbar > [for="CSOS-win-v-busycorner"] {
-    box-shadow: var(--clr-accent) inset 0 -4px 0 0px;
+  & > .CSOS-taskbar > [for="CSOS-win-v-busycorner"]::after {
+    background-color: var(--clr-accent);
   }
 }
 
