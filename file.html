@@ -38,6 +38,16 @@ custom-css: /styles/file-cursor.css
     {% endfor %}
 
     <!-- * BG States -->
+    <input type="radio" name="CSOS-current-bg" tabindex="-1" id="CSOS-bg-state-1" checked>
+    <input type="radio" name="CSOS-current-bg" tabindex="-1" id="CSOS-bg-state-2">
+    <input type="radio" name="CSOS-current-bg" tabindex="-1" id="CSOS-bg-state-3">
+    <input type="radio" name="CSOS-current-bg" tabindex="-1" id="CSOS-bg-state-4">
+    <!-- Size Selector -->
+    <input type="radio" name="CSOS-bg-s" id="CSOS-bg-s-raw" tabindex="-1">
+    <input type="radio" name="CSOS-bg-s" id="CSOS-bg-s-contain" tabindex="-1">
+    <input type="radio" name="CSOS-bg-s" id="CSOS-bg-s-cover" tabindex="-1" checked>
+    <input type="radio" name="CSOS-bg-r" id="CSOS-bg-r-true" tabindex="-1">
+    <input type="radio" name="CSOS-bg-r" id="CSOS-bg-r-false" tabindex="-1" checked>
 
     <!-- * Window States -->
     <input type="checkbox" id="CSOS-win-v-busycorner" tabindex="-1">
@@ -103,6 +113,7 @@ custom-css: /styles/file-cursor.css
             <p>Welcome to the Cascading Style Operating System or CSOS. This is a one-stop corner for (windows) customization! The "OS" or sandbox restriction is as terrible as you might expect but it's servicable as long as you have a mouse pointer to navigate the sandbox.</p>
             <div class="notice"><span class="CSOS-cText">Non-Chromium/webkit user will have a feature locked, which is larger draggable Rumia hitbox. If you are such user, try sneaking your cursor to one of the element's edge!</span></div>
           </div>
+
           <!-- ? ORB -->
           <div class="CSOS-start-menu-content CSOS-start-orb">
             <div class="CSOS-start-menu-content__title">
@@ -138,6 +149,7 @@ custom-css: /styles/file-cursor.css
             </div>
             {% endfor %}
           </div>
+
           <!-- ? CURSOR -->
           <div class="CSOS-start-menu-content CSOS-start-cursor">
             <div class="CSOS-start-menu-content__title">
@@ -169,13 +181,45 @@ custom-css: /styles/file-cursor.css
             </div>
             {% endfor %}
           </div>
+
           <!-- ? BG -->
           <div class="CSOS-start-menu-content CSOS-start-bg">
             <div class="CSOS-start-menu-content__title">
               <label for="CSOS-start-content-0" class="CSOS-start-menu-menu-return"></label>
               <span>Change Background</span>
             </div>
-            <p>Under construction! (aka wip unless worked otherwise) since it's a fluff and time-waster of a content, very cool!</p>
+            <div class="CSOS-start-bg-buttons controller">
+              <div class="CSOS-start-bg-control">
+                <span>Size: </span>
+                <label for="CSOS-bg-s-raw">Raw</label>
+                <label for="CSOS-bg-s-contain">Contain</label>
+                <label for="CSOS-bg-s-cover">Cover</label>
+              </div>
+              <div class="CSOS-start-bg-control">
+                <span>Repeat: </span>
+                <label for="CSOS-bg-r-false">No-Repeat</label>
+                <label for="CSOS-bg-r-true">Repeat</label>
+              </div>
+            </div>
+            <div class="CSOS-start-bg-buttons bg-selector">
+              <div class="CSOS-start-bg-button selection-1">
+                <img src="/img/wallpaper-yama__px.png" alt="">
+                <label for="CSOS-bg-state-1"></label>
+              </div>
+              <div class="CSOS-start-bg-button selection-2">
+                <img src="/img/gallery/touhou_marisa__px.png" alt="">
+                <label for="CSOS-bg-state-2"></label>
+              </div>
+              <hr class="br-flex">
+              <div class="CSOS-start-bg-button selection-3">
+                <img src="/img/gallery/touhou_grassroot2__px.gif" alt="">
+                <label for="CSOS-bg-state-3"></label>
+              </div>
+              <div class="CSOS-start-bg-button selection-4">
+                <img src="/img/gallery/touhou_youmu2__px.gif" alt="">
+                <label for="CSOS-bg-state-4"></label>
+              </div>
+            </div>
           </div>
 
         </div>

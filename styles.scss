@@ -2575,6 +2575,10 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
 }
 .CSOS-container {
   // This variable is the same as the data, for redundancy
+  --background-image: unset;
+  --background-render: pixelated;
+  --background-size: unset;
+  --background-repeat: unset;
   --orb-name: NO_DATA;
   --orb-size: 64px;
   --orb-align-bottom: 0px;
@@ -2617,10 +2621,11 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
 .CSOS-canvas {
   position: relative;
   overflow: hidden;
-  background-image: url(/img/wallpaper-yama.png);
-  background-size: cover;
+  background-image: var(--background-image);
+  background-size: var(--background-size);
   background-position: center;
-  image-rendering: pixelated;
+  background-repeat: var(--background-repeat);
+  image-rendering: var(--background-render);
 }
 
 // @section . , Window
@@ -3206,8 +3211,133 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
     height: 100%;
   }
 }
+// @section . , . BG
+.CSOS-start-bg {
+  gap: 8px;
+}
+.CSOS-start-bg-buttons {
+  display: flex;
+  gap: 4px 8px; // using dummy full width as separator so the vertical gap doubles
+  flex-direction: row;
+  flex-wrap: wrap;
+  &.controller {
+    flex-direction: column;
+    gap: 4px;
+  }
+}
+.CSOS-start-bg-control {
+  display: flex;
+  gap: 8px;
+  padding: 0 8px; // let content decide vertical padding
+  border: 1px solid var(--clr-accent);
+  align-items: center;
+  & > label {
+    flex: auto;
+    padding: 8px;
+    box-shadow: 0 -4px 0 0 inset var(--clr-border);
+    text-align: center;
+    &:hover {
+      background-color: var(--clr-text);
+    }
+  }
+}
+.CSOS-start-bg-button {
+  --img-filter: grayscale(100%);
+  --img-shadow: 0 0 4px 4px var(--clr-accent-green);
+  position: relative;
+  overflow: hidden;
+  flex: 1;
+  height: 128px;
+  background-color: var(--clr-background);
+  box-shadow: none;
+  transition: box-shadow .2s;
+  & > label {
+    display: block;
+    height: 100%;
+    width: 100%;
+  }
+  & > img {
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 100%;
+    height: 150%;
+    pointer-events: none;
+    filter: var(--img-filter);
+  }
+  &:hover {
+    --img-filter: unset;
+  }
+}
 
 // @misc . , . Mechs
+// The rest of mechs are in styles/file-cursor.scss
+
+// Background select. Very specific as usual for micro performance and not like we're editing much of these
+#CSOS-bg-state-1:checked ~ .CSOS-container {
+  --background-image: url(/img/wallpaper-yama__px.png);
+  & > .CSOS-canvas > .CSOS-start-menu > .CSOS-start-bg > .bg-selector > .selection-1 {
+    box-shadow: var(--img-shadow);
+    --img-filter: unset;
+  }
+}
+#CSOS-bg-state-2:checked ~ .CSOS-container {
+  --background-image: url(/img/gallery/touhou_marisa__px.png);
+  & > .CSOS-canvas > .CSOS-start-menu > .CSOS-start-bg > .bg-selector > .selection-2 {
+    box-shadow: var(--img-shadow);
+    --img-filter: unset;
+  }
+}
+#CSOS-bg-state-3:checked ~ .CSOS-container {
+  --background-image: url(/img/gallery/touhou_grassroot2__px.gif);
+  & > .CSOS-canvas > .CSOS-start-menu > .CSOS-start-bg > .bg-selector > .selection-3 {
+    box-shadow: var(--img-shadow);
+    --img-filter: unset;
+  }
+}
+#CSOS-bg-state-4:checked ~ .CSOS-container {
+  --background-image: url(/img/gallery/touhou_youmu2__px.gif);
+  & > .CSOS-canvas > .CSOS-start-menu > .CSOS-start-bg > .bg-selector > .selection-4 {
+    box-shadow: var(--img-shadow);
+    --img-filter: unset;
+  }
+}
+#CSOS-bg-s-raw:checked ~ .CSOS-container {
+  --background-size: initial;
+  & > .CSOS-canvas > .CSOS-start-menu > .CSOS-start-bg > .controller [for="CSOS-bg-s-raw"] {
+    --clr-border: var(--clr-accent-green);
+  }
+}
+#CSOS-bg-s-contain:checked ~ .CSOS-container {
+  --background-size: contain;
+  & > .CSOS-canvas > .CSOS-start-menu > .CSOS-start-bg > .controller [for="CSOS-bg-s-contain"] {
+    --clr-border: var(--clr-accent-green);
+  }
+}
+#CSOS-bg-s-cover:checked ~ .CSOS-container {
+  --background-size: cover;
+  & > .CSOS-canvas > .CSOS-start-menu > .CSOS-start-bg > .controller [for="CSOS-bg-s-cover"] {
+    --clr-border: var(--clr-accent-green);
+  }
+}
+#CSOS-bg-r-true:checked ~ .CSOS-container {
+  --background-repeat: repeat;
+  & > .CSOS-canvas > .CSOS-start-menu > .CSOS-start-bg > .controller [for="CSOS-bg-r-true"] {
+    --clr-border: var(--clr-accent-green);
+  }
+}
+#CSOS-bg-r-false:checked ~ .CSOS-container {
+  --background-repeat: no-repeat;
+  & > .CSOS-canvas > .CSOS-start-menu > .CSOS-start-bg > .controller [for="CSOS-bg-r-false"] {
+    --clr-border: var(--clr-accent-green);
+  }
+}
+
+// Start Menu Category
 #CSOS-start-content-0:checked ~ .CSOS-start-home {
   visibility: visible;
   position: initial;
