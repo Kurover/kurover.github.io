@@ -3279,7 +3279,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
 
 // Background select. Very specific as usual for micro performance and not like we're editing much of these
 #CSOS-bg-state-1:checked ~ .CSOS-container {
-  --background-image: url(/img/wallpaper-yama__px.png);
+  --background-image: url(/file/wallpaper-yama__px.png);
   & > .CSOS-canvas > .CSOS-start-menu > .CSOS-start-bg > .bg-selector > .selection-1 {
     box-shadow: var(--img-shadow);
     --img-filter: unset;
