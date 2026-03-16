@@ -45,6 +45,24 @@
 }
 {% endfor %}
 
+{% for bg in site.data.file.background.list %}
+#{{ bg.id }}:checked ~ .CSOS-container {
+  --background-image: url({{ bg.link }});
+  & > .CSOS-canvas > .CSOS-start-menu > .CSOS-start-bg > .bg-selector > .{{ bg.class }} {
+    box-shadow: var(--img-shadow);
+    --img-filter: unset;
+  }
+}
+{% endfor %}
+{% for bg in site.data.file.background.config %}
+#{{ bg.id }}:checked ~ .CSOS-container {
+  --background-{{ bg.type }}: {{ bg.data }};
+  & > .CSOS-canvas > .CSOS-start-menu > .CSOS-start-bg > .controller [for="{{ bg.id }}"] {
+    --clr-border: var(--clr-accent-green);
+  }
+}
+{% endfor %}
+
 // @section KEYFRAME-DATA
 // @title Koakuma
 @keyframes Koakuma-default {

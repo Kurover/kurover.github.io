@@ -3312,7 +3312,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   }
 }
 
-// Background select. Very specific as usual for micro performance and not like we're editing much of these
+// Background select. Very specific as usual for micro performance and not like we're editing much of these. The rest are on file-cursor.scss
 #CSOS-bg-state-b:checked ~ .CSOS-container {
   background-color: black;
   & > .CSOS-canvas > .CSOS-start-menu > .CSOS-start-bg > .bg-selector > .selection-b {
@@ -3323,78 +3323,6 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   background-color: white;
   & > .CSOS-canvas > .CSOS-start-menu > .CSOS-start-bg > .bg-selector > .selection-w {
     box-shadow: var(--img-shadow);
-  }
-}
-#CSOS-bg-state-1:checked ~ .CSOS-container {
-  --background-image: url(/file/wallpaper-yama__px.png);
-  & > .CSOS-canvas > .CSOS-start-menu > .CSOS-start-bg > .bg-selector > .selection-1 {
-    box-shadow: var(--img-shadow);
-    --img-filter: unset;
-  }
-}
-#CSOS-bg-state-2:checked ~ .CSOS-container {
-  --background-image: url(/img/gallery/touhou_marisa__px.png);
-  & > .CSOS-canvas > .CSOS-start-menu > .CSOS-start-bg > .bg-selector > .selection-2 {
-    box-shadow: var(--img-shadow);
-    --img-filter: unset;
-  }
-}
-#CSOS-bg-state-3:checked ~ .CSOS-container {
-  --background-image: url(/img/gallery/touhou_grassroot2__px.gif);
-  & > .CSOS-canvas > .CSOS-start-menu > .CSOS-start-bg > .bg-selector > .selection-3 {
-    box-shadow: var(--img-shadow);
-    --img-filter: unset;
-  }
-}
-#CSOS-bg-state-4:checked ~ .CSOS-container {
-  --background-image: url(/img/gallery/touhou_youmu2__px.gif);
-  & > .CSOS-canvas > .CSOS-start-menu > .CSOS-start-bg > .bg-selector > .selection-4 {
-    box-shadow: var(--img-shadow);
-    --img-filter: unset;
-  }
-}
-#CSOS-bg-state-5:checked ~ .CSOS-container {
-  --background-image: url(/img/gallery/oc_16x16sprite__px.png);
-  & > .CSOS-canvas > .CSOS-start-menu > .CSOS-start-bg > .bg-selector > .selection-5 {
-    box-shadow: var(--img-shadow);
-    --img-filter: unset;
-  }
-}
-#CSOS-bg-state-6:checked ~ .CSOS-container {
-  --background-image: url(/img/gallery/touhou_youmu3__px.png);
-  & > .CSOS-canvas > .CSOS-start-menu > .CSOS-start-bg > .bg-selector > .selection-6 {
-    box-shadow: var(--img-shadow);
-    --img-filter: unset;
-  }
-}
-#CSOS-bg-s-raw:checked ~ .CSOS-container {
-  --background-size: initial;
-  & > .CSOS-canvas > .CSOS-start-menu > .CSOS-start-bg > .controller [for="CSOS-bg-s-raw"] {
-    --clr-border: var(--clr-accent-green);
-  }
-}
-#CSOS-bg-s-contain:checked ~ .CSOS-container {
-  --background-size: contain;
-  & > .CSOS-canvas > .CSOS-start-menu > .CSOS-start-bg > .controller [for="CSOS-bg-s-contain"] {
-    --clr-border: var(--clr-accent-green);
-  }
-}
-#CSOS-bg-s-cover:checked ~ .CSOS-container {
-  --background-size: cover;
-  & > .CSOS-canvas > .CSOS-start-menu > .CSOS-start-bg > .controller [for="CSOS-bg-s-cover"] {
-    --clr-border: var(--clr-accent-green);
-  }
-}
-#CSOS-bg-r-true:checked ~ .CSOS-container {
-  --background-repeat: repeat;
-  & > .CSOS-canvas > .CSOS-start-menu > .CSOS-start-bg > .controller [for="CSOS-bg-r-true"] {
-    --clr-border: var(--clr-accent-green);
-  }
-}
-#CSOS-bg-r-false:checked ~ .CSOS-container {
-  --background-repeat: no-repeat;
-  & > .CSOS-canvas > .CSOS-start-menu > .CSOS-start-bg > .controller [for="CSOS-bg-r-false"] {
-    --clr-border: var(--clr-accent-green);
   }
 }
 
