@@ -3273,11 +3273,31 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
     --img-filter: unset;
   }
 }
+.CSOS-start-bg-button.selection-b {
+  background-color: black;
+  border-image: url(/img/border-1-default.png) 8 / 16px / 0 0;
+}
+.CSOS-start-bg-button.selection-w {
+  background-color: white;
+  border-image: url(/img/border-1-default.png) 8 / 16px / 0 0;
+}
 
 // @misc . , . Mechs
 // The rest of mechs are in styles/file-cursor.scss
 
 // Background select. Very specific as usual for micro performance and not like we're editing much of these
+#CSOS-bg-state-b:checked ~ .CSOS-container {
+  background-color: black;
+  & > .CSOS-canvas > .CSOS-start-menu > .CSOS-start-bg > .bg-selector > .selection-b {
+    box-shadow: var(--img-shadow);
+  }
+}
+#CSOS-bg-state-w:checked ~ .CSOS-container {
+  background-color: white;
+  & > .CSOS-canvas > .CSOS-start-menu > .CSOS-start-bg > .bg-selector > .selection-w {
+    box-shadow: var(--img-shadow);
+  }
+}
 #CSOS-bg-state-1:checked ~ .CSOS-container {
   --background-image: url(/file/wallpaper-yama__px.png);
   & > .CSOS-canvas > .CSOS-start-menu > .CSOS-start-bg > .bg-selector > .selection-1 {
@@ -3302,6 +3322,20 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
 #CSOS-bg-state-4:checked ~ .CSOS-container {
   --background-image: url(/img/gallery/touhou_youmu2__px.gif);
   & > .CSOS-canvas > .CSOS-start-menu > .CSOS-start-bg > .bg-selector > .selection-4 {
+    box-shadow: var(--img-shadow);
+    --img-filter: unset;
+  }
+}
+#CSOS-bg-state-5:checked ~ .CSOS-container {
+  --background-image: url(/img/gallery/oc_16x16sprite__px.png);
+  & > .CSOS-canvas > .CSOS-start-menu > .CSOS-start-bg > .bg-selector > .selection-5 {
+    box-shadow: var(--img-shadow);
+    --img-filter: unset;
+  }
+}
+#CSOS-bg-state-6:checked ~ .CSOS-container {
+  --background-image: url(/img/gallery/touhou_youmu3__px.png);
+  & > .CSOS-canvas > .CSOS-start-menu > .CSOS-start-bg > .bg-selector > .selection-6 {
     box-shadow: var(--img-shadow);
     --img-filter: unset;
   }

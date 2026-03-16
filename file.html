@@ -38,10 +38,15 @@ custom-css: /styles/file-cursor.css
     {% endfor %}
 
     <!-- * BG States -->
+    <!-- ermm idk why i didn't data drive this, oh well! -->
+    <input type="radio" name="CSOS-current-bg" tabindex="-1" id="CSOS-bg-state-b">
+    <input type="radio" name="CSOS-current-bg" tabindex="-1" id="CSOS-bg-state-w">
     <input type="radio" name="CSOS-current-bg" tabindex="-1" id="CSOS-bg-state-1" checked>
     <input type="radio" name="CSOS-current-bg" tabindex="-1" id="CSOS-bg-state-2">
     <input type="radio" name="CSOS-current-bg" tabindex="-1" id="CSOS-bg-state-3">
     <input type="radio" name="CSOS-current-bg" tabindex="-1" id="CSOS-bg-state-4">
+    <input type="radio" name="CSOS-current-bg" tabindex="-1" id="CSOS-bg-state-5">
+    <input type="radio" name="CSOS-current-bg" tabindex="-1" id="CSOS-bg-state-6">
     <!-- Size Selector -->
     <input type="radio" name="CSOS-bg-s" id="CSOS-bg-s-raw" tabindex="-1">
     <input type="radio" name="CSOS-bg-s" id="CSOS-bg-s-contain" tabindex="-1">
@@ -202,22 +207,41 @@ custom-css: /styles/file-cursor.css
               </div>
             </div>
             <div class="CSOS-start-bg-buttons bg-selector">
+              <div class="CSOS-start-bg-button selection-b">
+                <label for="CSOS-bg-state-b"></label>
+              </div>
+              <div class="CSOS-start-bg-button selection-w">
+                <label for="CSOS-bg-state-w"></label>
+              </div>
+              <hr class="br-flex">
+
               <div class="CSOS-start-bg-button selection-1">
-                <img src="/file/wallpaper-yama__px.png" alt="">
+                <img src="/file/wallpaper-yama__px.png" alt="" loading="lazy">
                 <label for="CSOS-bg-state-1"></label>
               </div>
               <div class="CSOS-start-bg-button selection-2">
-                <img src="/img/gallery/touhou_marisa__px.png" alt="">
+                <img src="/img/gallery/touhou_marisa__px.png" alt="" loading="lazy">
                 <label for="CSOS-bg-state-2"></label>
               </div>
               <hr class="br-flex">
+
               <div class="CSOS-start-bg-button selection-3">
-                <img src="/img/gallery/touhou_grassroot2__px.gif" alt="">
+                <img src="/img/gallery/touhou_grassroot2__px.gif" alt="" loading="lazy">
                 <label for="CSOS-bg-state-3"></label>
               </div>
               <div class="CSOS-start-bg-button selection-4">
-                <img src="/img/gallery/touhou_youmu2__px.gif" alt="">
+                <img src="/img/gallery/touhou_youmu2__px.gif" alt="" loading="lazy">
                 <label for="CSOS-bg-state-4"></label>
+              </div>
+              <hr class="br-flex">
+              
+              <div class="CSOS-start-bg-button selection-5">
+                <img src="/img/gallery/oc_16x16sprite__px.png" alt="" loading="lazy">
+                <label for="CSOS-bg-state-5"></label>
+              </div>
+              <div class="CSOS-start-bg-button selection-6">
+                <img src="/img/gallery/touhou_youmu3__px.png" alt="" loading="lazy">
+                <label for="CSOS-bg-state-6"></label>
               </div>
             </div>
           </div>
