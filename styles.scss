@@ -7,7 +7,8 @@
 * No longer trying to overboard with SEO, which is true on the HTML as well, as it's more hassle than worth.
 * Hopeful that I create more wacky spectacle this time around~
 * 
-* Also this SCSS is just by name (ignoring the double slash for comments), mainly to minify with Jekyll on build. It's actually just normal CSS with LESS, painted with BEM sprinkled with OOCS for modifiers. Wow, for naming conventions, they do nail their own huh.
+* Also this SCSS is just by name (ignoring the double slash for comments), mainly to minify with Jekyll on build. It's actually just normal CSS painted with BEM and a sprinkle of OOCS for modifiers. Wow, for naming conventions, they do nail their own huh.
+* GOD OF HTML, PLEASE LET <label> ACTIVATE MULTIPLE <input> AND MY LIFE IS YOURS!!
 * */
 
 /* 
@@ -2806,6 +2807,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   margin-right: 10px;
 }
 .CSOS-start-orb-bar {
+  user-select: none;
   position: absolute;
   bottom: var(--orb-align-bottom);
   left: 0;
@@ -2813,44 +2815,46 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   width: var(--orb-size);
   background-image: var(--orb-link);
   background-position: 0px -1px; // openshell (default) has 1 pixel on top for animation
-  animation: start-menu-orb-hover .4s steps(1, end) reverse; // requires steps timing as it's just moving the image asset position
+  animation: CSOS-orb-hover .4s steps(1, end) reverse; // requires steps timing as it's just moving the image asset position
+}
+// Using another div for the active image, so we deactivate the original when start menu is shown
+.CSOS-start-orb-bar.active {
+  pointer-events: none;
+  animation: unset;
+  opacity: 0;
+  background-position: 0px calc(-1px - (var(--orb-size) * var(--orb-active-y-coordinate)));
+}
+// I could set new class for non active but uhh too lazy atp
+.CSOS-start-orb-bar:not(.active) {
   &:hover {
     animation: none;
     background-image: none;
-    &::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      height: var(--orb-size);
-      width: var(--orb-size);
-      background-image: var(--orb-link);
-      background-position: 0px calc(-1px - (var(--orb-size) * 2)); // considered as 3rd frame as the 2nd one is on animation
-      animation: start-menu-orb-hover .2s steps(1, end);
-    }
   }
-  &.active {
-    pointer-events: none;
-    animation: none;
-    opacity: 0;
-    background-position: 0px calc(-1px - (var(--orb-size) * var(--orb-active-y-coordinate)));
+  &::after {
+    content: "";
+    visibility: hidden;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: var(--orb-size);
+    width: var(--orb-size);
+    background-image: var(--orb-link);
+    background-position: 0px calc(-1px - (var(--orb-size) * 2)); // considered as 3rd frame as the 2nd one is on animation
   }
 }
-@keyframes start-menu-orb-hover {
+// Trigger on parent hover to make sure the animation doesn't reset when the :hover get overriden by .active
+.CSOS-start-menu-bar:hover > .CSOS-start-orb-bar:not(.active)::after {
+  visibility: visible;
+  animation: CSOS-orb-hover .2s steps(1, end);
+}
+@keyframes CSOS-orb-hover {
   0% {background-position: 0px -1px}
   50% {background-position: 0px calc(-1px - (var(--orb-size) * 1))}
   100% {background-position: 0px calc(-1px - (var(--orb-size) * 2))}
 }
-// using another div for the active image, so we deactivate the original by setting its opacity to 0
-#CSOS-start-menu-state:checked ~ .CSOS-container .CSOS-start-orb-bar {
-  opacity: 0;
-  & ~ .active {
-    opacity: 1;
-  }
-}
 // for the variable, check the file-cursor.scss
 // fun fact, this background calc works but if it's only targetting .CSOS-start-orb-bar.active the calc don't work. This is why I have to add the coordinate variable. It's hella jaaank broo wtf is this?? am I just missing something?
-.CSOS-orb-basic:checked ~ .CSOS-container .CSOS-start-orb-bar {
+.CSOS-orb-basic:checked ~ .CSOS-container > .CSOS-taskbar .CSOS-start-orb-bar {
   animation: none;
   &:hover::after {
     animation: none;
@@ -2901,18 +2905,9 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
 }
 
 // @section . , Start Menu Container
-#CSOS-start-menu-state:checked ~ .CSOS-container .CSOS-start-menu {
-  display: flex; // using flex because holy heck absolute content are so annoying to layout
-  flex-wrap: wrap;
-  animation: CSOS-start-menu-open .25s;
-}
-@keyframes CSOS-start-menu-open {
-  from {opacity: 0;}
-  to {opacity: 1;}
-}
 .CSOS-start-menu {
   z-index: 10;
-  display: none; // see above
+  display: none; // Only need opening transition like Windows so display is better!
   position: absolute;
   top: 32px;
   left: 0;
@@ -2936,7 +2931,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   padding: 8px;
   overflow: visible scroll;
   scrollbar-width: thin;
-  padding-bottom: 64px; // compensate menu
+  padding-bottom: 80px; // compensate menu
   background-color: white;
 }
 .CSOS-start-menu-content__title {
@@ -3221,8 +3216,15 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   flex-direction: row;
   flex-wrap: wrap;
   &.controller {
+    z-index: 1;
+    background-color: white;
+    position: sticky;
+    top: -8px; // gap * 2
     flex-direction: column;
     gap: 4px;
+  }
+  &.bg-selector {
+    padding: 0 8px; // to hide box shadow when controller container override it
   }
 }
 .CSOS-start-bg-control {
@@ -3284,6 +3286,31 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
 
 // @misc . , . Mechs
 // The rest of mechs are in styles/file-cursor.scss
+
+// Start Menu display mech
+@keyframes CSOS-start-menu-open {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+// VERY specific because :has is heavy on large container
+.CSOS-container:has(> .CSOS-taskbar > .CSOS-start-menu-bar:focus-within) > .CSOS-canvas > .CSOS-start-menu,
+.CSOS-start_sys:focus ~ .CSOS-container > .CSOS-canvas > .CSOS-start-menu,
+.CSOS-start-menu:is(:focus-within, :hover)
+{
+  display: flex; // using flex because holy heck absolute content are so annoying to layout
+  flex-wrap: wrap;
+  animation: CSOS-start-menu-open .2s;
+}
+.CSOS-start_sys:focus ~ .CSOS-container > .CSOS-taskbar > .CSOS-start-menu-bar > .CSOS-start-orb-bar,
+.CSOS-container:has(> .CSOS-canvas > .CSOS-start-menu:focus-within) > .CSOS-taskbar > .CSOS-start-menu-bar > .CSOS-start-orb-bar,
+.CSOS-start-menu-bar:focus-within > .CSOS-start-orb-bar
+{
+  opacity: 0;
+  &.active {
+    opacity: 1;
+    pointer-events: auto; // If clicked again in same spot, it will cancel the :focus since this class has no tabindex
+  }
+}
 
 // Background select. Very specific as usual for micro performance and not like we're editing much of these
 #CSOS-bg-state-b:checked ~ .CSOS-container {

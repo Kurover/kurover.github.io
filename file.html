@@ -21,38 +21,39 @@ custom-css: /styles/file-cursor.css
   <section class="wrapper wrapper--CSOS CSOS-root">
     <p class="notice mobile-only">This section is not built for mobile &/ cursor-less device! Sorry~!</p>
     <!-- * Core States -->
-    <input type="checkbox" id="CSOS-start-menu-state" tabindex="-1">
-
+    <!-- Remnants of the past. With just a few shower session, we figured out how to make the :focus mechanism smooth! -->
+    <!-- <input type="checkbox" id="CSOS-start-menu-state" tabindex="-1"> -->
+    
     <!-- * Orb States -->
     <!-- <input type="radio" name="CSOS-current-orb" class="CSOS-orb-basic" tabindex="-1" id="CSOS-orb-state-default"> -->
     {% for orb-lists in site.data.file.orb.list %}
     {% assign orb = orb-lists[1] %}
-    <input type="radio" name="CSOS-current-orb" {% if orb.basic %}class="CSOS-orb-basic"{% endif %}tabindex="-1" id="CSOS-orb-state-{{ orb.name }}" {% if orb.default %}checked{% endif %}>
+    <input type="radio" name="CSOS-current-orb" class="CSOS-start_sys{% if orb.basic %} CSOS-orb-basic{% endif %}" tabindex="-1" id="CSOS-orb-state-{{ orb.name }}" {% if orb.default %}checked{% endif %}>
     {% endfor %}
 
     <!-- * Cursor States -->
-    <input type="radio" name="CSOS-current-cursor" tabindex="-1" id="CSOS-cursor-state-default" checked>
+    <input type="radio" name="CSOS-current-cursor" tabindex="-1" class="CSOS-start_sys" id="CSOS-cursor-state-default" checked>
     {% for cursor-lists in site.data.file.cursor.list %}
     {% assign cursor = cursor-lists[1] %}
-    <input type="radio" name="CSOS-current-cursor" tabindex="-1" id="CSOS-cursor-state-{{ cursor.name }}">
+    <input type="radio" name="CSOS-current-cursor" tabindex="-1" class="CSOS-start_sys" id="CSOS-cursor-state-{{ cursor.name }}">
     {% endfor %}
 
     <!-- * BG States -->
     <!-- ermm idk why i didn't data drive this, oh well! -->
-    <input type="radio" name="CSOS-current-bg" tabindex="-1" id="CSOS-bg-state-b">
-    <input type="radio" name="CSOS-current-bg" tabindex="-1" id="CSOS-bg-state-w">
-    <input type="radio" name="CSOS-current-bg" tabindex="-1" id="CSOS-bg-state-1" checked>
-    <input type="radio" name="CSOS-current-bg" tabindex="-1" id="CSOS-bg-state-2">
-    <input type="radio" name="CSOS-current-bg" tabindex="-1" id="CSOS-bg-state-3">
-    <input type="radio" name="CSOS-current-bg" tabindex="-1" id="CSOS-bg-state-4">
-    <input type="radio" name="CSOS-current-bg" tabindex="-1" id="CSOS-bg-state-5">
-    <input type="radio" name="CSOS-current-bg" tabindex="-1" id="CSOS-bg-state-6">
+    <input type="radio" name="CSOS-current-bg" tabindex="-1" class="CSOS-start_sys" id="CSOS-bg-state-b">
+    <input type="radio" name="CSOS-current-bg" tabindex="-1" class="CSOS-start_sys" id="CSOS-bg-state-w">
+    <input type="radio" name="CSOS-current-bg" tabindex="-1" class="CSOS-start_sys" id="CSOS-bg-state-1" checked>
+    <input type="radio" name="CSOS-current-bg" tabindex="-1" class="CSOS-start_sys" id="CSOS-bg-state-2">
+    <input type="radio" name="CSOS-current-bg" tabindex="-1" class="CSOS-start_sys" id="CSOS-bg-state-3">
+    <input type="radio" name="CSOS-current-bg" tabindex="-1" class="CSOS-start_sys" id="CSOS-bg-state-4">
+    <input type="radio" name="CSOS-current-bg" tabindex="-1" class="CSOS-start_sys" id="CSOS-bg-state-5">
+    <input type="radio" name="CSOS-current-bg" tabindex="-1" class="CSOS-start_sys" id="CSOS-bg-state-6">
     <!-- Size Selector -->
-    <input type="radio" name="CSOS-bg-s" id="CSOS-bg-s-raw" tabindex="-1">
-    <input type="radio" name="CSOS-bg-s" id="CSOS-bg-s-contain" tabindex="-1">
-    <input type="radio" name="CSOS-bg-s" id="CSOS-bg-s-cover" tabindex="-1" checked>
-    <input type="radio" name="CSOS-bg-r" id="CSOS-bg-r-true" tabindex="-1">
-    <input type="radio" name="CSOS-bg-r" id="CSOS-bg-r-false" tabindex="-1" checked>
+    <input type="radio" name="CSOS-bg-s" class="CSOS-start_sys" id="CSOS-bg-s-raw" tabindex="-1">
+    <input type="radio" name="CSOS-bg-s" class="CSOS-start_sys" id="CSOS-bg-s-contain" tabindex="-1">
+    <input type="radio" name="CSOS-bg-s" class="CSOS-start_sys" id="CSOS-bg-s-cover" tabindex="-1" checked>
+    <input type="radio" name="CSOS-bg-r" class="CSOS-start_sys" id="CSOS-bg-r-true" tabindex="-1">
+    <input type="radio" name="CSOS-bg-r" class="CSOS-start_sys" id="CSOS-bg-r-false" tabindex="-1" checked>
 
     <!-- * Window States -->
     <input type="checkbox" id="CSOS-win-v-busycorner" tabindex="-1">
@@ -91,7 +92,7 @@ custom-css: /styles/file-cursor.css
         </div>
 
         <!--! Start Menu Container -->
-        <div class="CSOS-start-menu">
+        <div class="CSOS-start-menu" tabindex="-1">
           
           <!-- ? Controller -->
           <input type="radio" name="CSOS-start-menu-select" tabindex="-1" id="CSOS-start-content-0" checked>
@@ -250,10 +251,11 @@ custom-css: /styles/file-cursor.css
       </div>
       <!-- @section . Taskbar -->
       <div class="CSOS-taskbar">
-        <label for="CSOS-start-menu-state" class="CSOS-start-menu-bar">
-          <div class="CSOS-start-orb-bar"></div>
+        <div for="CSOS-start-menu-state" class="CSOS-start-menu-bar CSOS-cPoint">
+          <!-- The first one get tabindex so when the start menu is shown with :focus, the .active one will take place and when clicked again, deactivate since you no longer click on focusable element  -->
+          <div class="CSOS-start-orb-bar" tabindex="-1"></div>
           <div class="CSOS-start-orb-bar active"></div>
-        </label>
+        </div>
         <label for="CSOS-win-v-busycorner" class="CSOS-window-bar">Busy Corner</label>
         <div class="CSOS-start-time-bar"><span>xx:xx</span></div>
       </div>
