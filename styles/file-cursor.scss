@@ -58,7 +58,7 @@
 #{{ bg.id }}:checked ~ .CSOS-container {
   --background-{{ bg.type }}: {{ bg.data }};
   & > .CSOS-canvas > .CSOS-start-menu > .CSOS-start-bg > .controller [for="{{ bg.id }}"] {
-    --clr-border: var(--clr-accent-green);
+    --clr-control: var(--clr-accent-green);
   }
 }
 {% endfor %}
