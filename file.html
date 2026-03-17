@@ -42,7 +42,7 @@ custom-css: /styles/file-cursor.css
     <input type="radio" name="CSOS-current-bg" tabindex="-1" class="CSOS-start_sys" id="CSOS-bg-state-b">
     <input type="radio" name="CSOS-current-bg" tabindex="-1" class="CSOS-start_sys" id="CSOS-bg-state-w">
     {% for bg in site.data.file.background.list %}
-    <input type="radio" name="CSOS-current-bg" tabindex="-1" class="{{ bg.class }}" id="{{ bg.id }}"{% if bg.default %} checked{% endif %}>
+    <input type="radio" name="CSOS-current-bg" tabindex="-1" class="CSOS-start_sys" id="{{ bg.id }}"{% if bg.default %} checked{% endif %}>
     {% endfor %}
     
     <!-- Size Selector -->
