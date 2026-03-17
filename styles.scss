@@ -2567,6 +2567,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   max-width: var(--CSOS-width);
   padding: unset;
   position: relative;
+  z-index: 0; // Prevent taskbar from overflowing with bottom navbar on mobile view... anything for mobile view *gulp*
   & input {
     position: absolute;
     z-index: -1;
@@ -2575,7 +2576,6 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   }
 }
 .CSOS-container {
-  // This variable is the same as the data, for redundancy
   --background-image: unset;
   --background-render: pixelated;
   --background-size: unset;
