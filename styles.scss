@@ -2,12 +2,14 @@
 ---
 /* 
 ! CSS 2nd Iteration
-? More personal, self-efficient, and likely more annoying to read (for you)!
+? More personal, self-efficient, and likely more annoying to read (for you)! If you hate nesting, you should turn away as fast as you can. I mean it, I'm addicted to it.
 * Recreating this to learn other ways of specifying class and clean up the gibberish naming convention, maybe add new shiny gibberish in the process. Will try to explain whatever I write here via comments
 * No longer trying to overboard with SEO, which is true on the HTML as well, as it's more hassle than worth.
 * Hopeful that I create more wacky spectacle this time around~
-* 
+*
+* Explanation can also unexplain stuff since it's not always linear... it might even assume you've read the next one.
 * Also this SCSS is just by name (ignoring the double slash for comments), mainly to minify with Jekyll on build. It's actually just normal CSS painted with BEM and a sprinkle of OOCS for modifiers. Wow, for naming conventions, they do nail their own huh.
+*
 * GOD OF HTML, PLEASE LET <label> ACTIVATE MULTIPLE <input> AND MY LIFE IS YOURS!!
 * */
 
@@ -3294,6 +3296,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   to {opacity: 1;}
 }
 // VERY specific because :has is heavy on large container
+// We are doing it like this because :focus mechanism on various location AND the container has a bunch of label, which throws the focus away from the container to the input which is outside the container. Previously we use :checked trigger but that has limit on trying to make it identical to Windows start menu
 .CSOS-container:has(> .CSOS-taskbar > .CSOS-start-menu-bar:focus-within) > .CSOS-canvas > .CSOS-start-menu,
 .CSOS-start_sys:focus ~ .CSOS-container > .CSOS-canvas > .CSOS-start-menu,
 .CSOS-start-menu:is(:focus-within, :hover)
