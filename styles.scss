@@ -2163,7 +2163,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
 // @misc @ Media
 @media (min-width: 769px) {
   .gallery-image-wrapper {
-    flex-direction: column-reverse;
+    flex-direction: column;
     overflow-y: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -2251,7 +2251,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
     height: var(--list-height);
   }
   .gallery-image-wrapper {
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
   .gallery-image-topbar {
     position: relative!important;
