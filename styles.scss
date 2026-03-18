@@ -2175,15 +2175,10 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
     width: fit-content;
     }
   }
-  .gallery-list.landscape:focus-within {
-    & > .gallery-image-wrapper {
-      width: auto;
-      & > .gallery-image {
-        min-height: unset;
-        height: auto;
-        width: auto;
-      }
-    }
+  .gallery-list.landscape:focus-within > .gallery-image-wrapper > .gallery-image {
+    min-height: unset;
+    height: auto;
+    width: calc(100vw - 32px); // Compensate scrollbar
   }
   .gallery-close {
     float: right;
