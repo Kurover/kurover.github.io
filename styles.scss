@@ -784,6 +784,7 @@ body::after {
   gap: 16px;
 } This make the expandable vertical lmao. Saving it for future maybe */
 .expandable {
+  --icon-size: 48px;
   margin: .75rem 0; 
   position: relative;
 }
@@ -796,6 +797,11 @@ body::after {
   cursor: pointer;
   background: var(--clr-secondary);
   & > :not(.expandable-title-icon) {
+    display: block;
+    width: calc(100% - var(--icon-size));
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
     font-size: 24px;
     color: var(--clr-link);
   }
@@ -804,8 +810,8 @@ body::after {
   content: "";
   image-rendering: auto;
   float: left;
-  height: 48px;
-  width: 48px;
+  height: var(--icon-size);
+  width: var(--icon-size);
   background: var(--icon-atlas-path) calc(3 * -48px + 48px) calc(4 * -48px + 48px);
   opacity: .5;
   // scale: .75;
@@ -814,8 +820,8 @@ body::after {
 .expandable-title-icon::after {
   content: "";
   position: absolute;
-  height: 48px;
-  width: 48px;
+  height: var(--icon-size);
+  width: var(--icon-size);
   background: var(--icon-atlas-path) calc(3 * -48px + 48px) calc(5 * -48px + 48px);
   transition: transform .25s;
 }
