@@ -67,11 +67,13 @@ og-type: gallery
               <div class="gallery-image">
                 <img {% unless item.no-lazy %}loading="lazy"{% endunless %} src="{{ item.link }}" alt="{{ item.name }}">
                 {% if item.link-alt %}<img loading="lazy" class="gallery-image__alt" src="{{ item.link-alt }}" alt="Alternative image">{% endif %}
-                <div class="gallery-image__link">
+              </div>
+              <div class="gallery-image-topbar">
+                <label for="gal-close_sys" class="gallery-close"></label>
+                <div class="gallery-image-link">
                   {% if item.link-alt %}<a href="{{ item.link-alt }}" download tabindex="-1">Download Alt</a>{% endif %}
                   <a href="{{ item.link }}" download tabindex="-1">Download</a>
                 </div>
-                <label for="gal-close_sys" class="gallery-close"></label>
               </div>
             </div>
           </div>

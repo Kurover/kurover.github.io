@@ -62,11 +62,13 @@ og-type: website
         <div class="gallery-image-wrapper">
           <div class="gallery-image">
             <img src="{{ item-sample.link }}" alt="{{ item-sample.name }}"{% if item-sample.ratio %} style="aspect-ratio: {{ item-sample.ratio }}"{% endif %}>
-            <div class="gallery-image__link">
-              {% if item.link-2 %}<a href="{{ item.link-2 }}" download tabindex="-1">Download Alt</a>{% endif %}
-              <a href="{{ item-sample.link }}" download tabindex="-1">Download</a>
-            </div>
+          </div>
+          <div class="gallery-image-topbar">
             <label for="gal-close_sys" class="gallery-close"></label>
+            <div class="gallery-image-link">
+              {% if item.link-alt %}<a href="{{ item.link-alt }}" download tabindex="-1">Download Alt</a>{% endif %}
+              <a href="{{ item.link }}" download tabindex="-1">Download</a>
+            </div>
           </div>
         </div>
       </div>

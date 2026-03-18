@@ -1924,6 +1924,9 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
 // * @section # EntryLists
 // Im lookin at this years later and the organization sucks ass, but hey, search bar anyone?
 .gallery-lists {
+  --list-height: 320px;
+  --list-width: 196px;
+  --image-topbar-height: 32px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -1943,8 +1946,8 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   align-content: center;
   justify-content: center;
   flex: 1;
-  width: 196px;
-  height: 320px;
+  width: var(--list-width);
+  height: var(--list-height);
   border: 2px solid transparent;
   box-sizing: border-box;
   cursor: pointer;
@@ -1970,7 +1973,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
     transition: visibility .25s, opacity .25s, transform .25s;
     transition-delay: .2s;
   }
-  &:is(:hover, :focus) {
+  &:is(:hover, :focus-within) {
     border: 2px solid var(--clr-border-select);
     flex: 1.75;
     transition-delay: 0s; // disable flex delay when hover
@@ -1982,11 +1985,10 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
       transition: 0s;
     }
   }
-  // dim background, especially that is not fullscreen zoom, see the mod in @media
-  &:focus::before {
+  // Dim background, especially that is not fullscreen zoom, see the mod in @media
+  &::before {
     pointer-events: none;
-    z-index: 8;
-    content: "";
+    z-index: 9;
     position: fixed;
     background-color: var(--clr-background);
     opacity: .8;
@@ -1994,6 +1996,9 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
     right: 0;
     bottom: 0;
     left: 0;
+  }
+  &:focus-within::before {
+    content: "";
   }
   // ? @section ## Mod
   // Using OOCS because I don't want to bloat the html with BEM
@@ -2004,7 +2009,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   }
   &.wide {
     flex: 1.75;
-    &:is(:hover, :focus) {
+    &:is(:hover, :focus-within) {
       flex: 2.75;
     }
   }
@@ -2019,7 +2024,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
     &:hover {
       background-color: whitesmoke;
     }
-    &:focus img {
+    &:focus-within img {
       background-color: whitesmoke;
     }
   }
@@ -2029,6 +2034,21 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
 }
 .gallery-image-wrapper {
   display: contents;
+}
+.gallery-image-topbar {
+  display: none;
+  line-height: var(--image-topbar-height);
+  height: var(--image-topbar-height);
+
+  outline: 2px solid var(--clr-border);
+  background-color: var(--clr-codeblock-bg-title);
+  color: var(--clr-codeblock-text-title);
+  cursor: default;
+  &::before {
+    content: "vieVVer.bat";
+    pointer-events: none;
+    padding-left: 6px;
+  }
 }
 .gallery-image {
   height: 100%;
@@ -2041,51 +2061,44 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
 }
 .gallery-list--custom-1 {
   height: fit-content;
+  &:focus-within {
+    height: var(--list-height); // Prevent canvas shift on click
+  }
   & .gallery-image > img {
     object-position: 85%;
   }
 }
-.gallery-image__link {
+.gallery-image-link {
   visibility: hidden;
-  position: fixed;
-  z-index: 2; // override skip to top for mobile
-  bottom: 1rem;
-  right: 1rem;
-  line-height: 32px;
-  transition: visibility 1ms; // Give time for focus-within to work
+  display: flex;
+  flex-direction: row;
+  float: right;
   & > a {
-    // color: var(--clr-tooltip-link-hover);
+    display: inline-block;
     text-align: center;
     text-decoration: none;
-    background: var(--clr-btn-download);
-    // border-image: url(/img/border-2.png) 8 / 16px / 4px;
-    border-image: url(/img/border-1-default-alt.png) 6 / 16px / 4px;
-    image-rendering: pixelated;
-    padding: 12px;
-    margin: 2px;
-    opacity: .33;
+    padding: 0 12px;
+
+    outline: 2px solid var(--clr-border);
+    background-color: var(--clr-btn-download);
+    color: var(--clr-link-active);
     transition: opacity .2s;
     transition-delay: .1s;
+    &:visited {
+      color: var(--clr-link-active);
+    }
     &:hover {
-      color: var(--clr-tooltip-text);
-      opacity: 1;
+      background-color: var(--clr-btn-download-hover);
+      color: var(--clr-btn-download);
       transition-delay: 0s;
     }
   }
 }
-// .gallery-image__link:focus-within {
-//   visibility: visible;
-// }
 .gallery-image__alt {
   display: none;
 }
 .gallery-close {
   display: none;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
 }
 // Class below is for label, which forces the focus outside (to input) of this element, very cool!
 .gallery-close-bg {
@@ -2097,7 +2110,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   bottom: 0;
   left: 0;
 }
-.gallery-list:focus {
+.gallery-list:focus-within {
   & .gallery-close-bg {
     display: block;
   } 
@@ -2105,47 +2118,28 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
     background-color: black;
   }
 }
-
-// The :is:has :active is to make sure mobile download button works because of course it is.
-// I might just split the css between 2 screen but hmmmmm
-.gallery-list:is(:focus, :has( .gallery-image__link:active)) {
+.gallery-list:focus-within {
   & .gallery-image-wrapper {
-    display: block;
-    pointer-events: none;
     z-index: 9;
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-  }
-  & .gallery-image {
-    pointer-events: auto;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    margin: auto;
-    cursor: default;
+    display: flex;
     // pointer-events: none;
-    // Add background color on empty spaces // Ermm why did I do this? lol. I'm sure there's an explanation but it's no longer valid now, just add bg color
-    // &::before {
-    //   z-index: -1;
-    //   content: "";
-    //   position: absolute;
-    //   background-color: var(--clr-background);
-    //   top: 0;
-    //   right: 0;
-    //   bottom: 0;
-    //   left: 0;
-    // }
+    position: fixed;
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+    outline: 2px solid var(--clr-border);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    cursor: default;
   }
-  & img {
-    object-fit: contain !important;
-    object-position: unset !important;
+  & .gallery-image-topbar {
+    display: block;
+    position: sticky;
+    top: 0;
   }
-  & .gallery-image__link {
+  & .gallery-image-link {
     visibility: visible;
   }
   & .gallery-close {
@@ -2163,97 +2157,64 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
 // @misc @ Media
 @media (min-width: 769px) {
   .gallery-image-wrapper {
+    flex-direction: column-reverse;
     overflow-y: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
-  .gallery-list:is(:focus, :has( .gallery-image__link:active)) .gallery-image {
-    // left: calc(10vw - (100vw - 100%)); // scrollbar made this way too complicated // say no more, gutter is here to rescue
-    // top: 5vh;
-    min-height: 86vh; // respect zoom level
+  .gallery-list:focus-within {
+    & .gallery-image {
+    min-height: 86vh; // Respect zoom out level
     height: 896px;
     width: fit-content;
-    // max-width: 1600px; // for the 4k bros out there... // actually, beat the purpose of ZOOMing
-    // max-height: 1080px; // irrelevant with such high min-height
-    border: 2px solid var(--clr-border);
-    // overflow: auto; // might not need this anymore (?)
-    &::before {
-      display: block;
-      position: absolute;
-      content: "vieVVer.bat";
-      padding-left: 6px;
-      line-height: 32px;
-      top: -34px;
-      left: 0;
-      right: 0;
-
-      outline: 2px solid var(--clr-border);
-      background-color: var(--clr-codeblock-bg-title);
-      color: var(--clr-codeblock-text-title);
     }
   }
-  .gallery-list.landscape:is(:focus, :has( .gallery-image__link:active)) {
-    // & .gallery-image-wrapper {
-    //   overflow-y: unset;
-    //   overflow-x: scroll;
-    // }
-    & .gallery-image {
-      top: 34px;
-      min-height: unset;
-      max-height: calc(100% - 38px);
-      // height: fit-content;
-      // width: auto;
+  .gallery-list.landscape:focus-within {
+    & > .gallery-image-wrapper {
+      width: auto;
+      & > .gallery-image {
+        min-height: unset;
+        height: auto;
+        width: auto;
+      }
     }
   }
   .gallery-close {
+    float: right;
     cursor: pointer;
-    top: -36px;
-    right: -1px;
-    bottom: unset;
-    left: unset;
     padding: 0 1.5rem;
-    border: 2px solid var(--clr-border);
-    transition: background .1s;
+    outline: 2px solid var(--clr-border);
+    transition: background-color .1s;
     &::before {
       content: "X";
-      line-height: 32px;
+      line-height: var(--image-topbar-height);
       display: block;
     }
     &:hover {
       background-color: var(--clr-warning);
     }
   }
-  // i don't want to talk about these buttons on top ok, mobile support makes me lazy af
-  .gallery-image__link {
-    position: absolute;
-    display: flex;
-    bottom: unset;
-    top: -36px;
-    right: 60px;
-    & > a {
-      border-image: unset;
-      margin: unset;
-      padding: 6px 8px;
-      line-height: 20px;
-      opacity: 1;
-      border: 2px solid var(--clr-border);
-      color: var(--clr-text-fade);
-      &:hover {
-        background-color: var(--clr-btn-download-hover);
-      }
-    }
-  }
 }
-// (Desktop) max-height is the max-height of zoomed image, modify the wrapper content since the wrapper itself has overflow bar already. If not set like this, the image will be centered and cannot be scrolled up. Very niche situtation eh?
-@media (min-width: 769px) and (max-height: 970px) {
-  .gallery-list:not(.landscape):is(:focus, :has( .gallery-image__link:active)) {
-  & .gallery-image {
-    top: 32px!important;
+// (Desktop) For zoomed zoomed-image (yes you read that right, zooming during zoom mode), modify the wrapper content since the wrapper itself has overflow bar already. If not set like this, the image will be centered and cannot be scrolled up. Very niche situtation eh? Also doesn't really benefit landscape image.
+@media (min-width: 769px) and (max-height: 929px) {
+  .gallery-list:not(.landscape):focus-within {
+  & > .gallery-image-wrapper {
     bottom: unset!important;
+    height: 100%; // Make sure the container doesn't overflow (due to image size) and make the container scrollable (if the image itself overflow). The border will expand to empty space though so adjust @media height accordingly, 896 (image height) + 32 (topbar)
+    }
+  & .gallery-image {
+    min-height: unset;
+    width: 100%; // Will prioritize maximizing width to the container so the vertical overflows and become scrollable!
     }
   }
 }
 @media (max-width: 768px) {
+  .gallery-list {
+    --image-topbar-height: 64px;
+    &::before {
+      opacity: 1;
+    }
+  }
   .gallery-tab-buttons {
     --height: 3.25rem;
   }
@@ -2271,14 +2232,6 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
     transform: none;
     transition: bottom .25s, opacity .25s, visibility .25s;
   }
-  .gallery-list:is(:hover, :focus) > p {
-    animation: none;
-  }
-  .gallery-list:focus > p {
-    bottom: 0;
-    opacity: .5;
-    transition: bottom 0s, opacity .5s 1.5s, visibility 0s;
-  }
   .gallery-lists--horizontal {
     flex-direction: row;
     flex-wrap: nowrap;
@@ -2293,26 +2246,63 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
       }
     }
   }
-  .gallery-list:is(:focus, :has( .gallery-image__link:active)) img {
-    width: 100%;
+  .gallery-list--custom-1 {
+    height: var(--list-height);
   }
-  .gallery-image__link {
-    bottom: 2rem;
-    right: 1.5rem;
-    & > a {
-      opacity: .5;
-      color: var(--clr-text-dim);
+  .gallery-image-wrapper {
+    flex-direction: column;
+  }
+  .gallery-image-topbar {
+    position: relative!important;
+    &::before {
+      padding-left: unset;
+      padding-right: 16px;
+      float: right;
+      content: "Close < ";
     }
   }
-  .gallery-list:has(p) .gallery-image__link {
-    bottom: calc(1rem + 48px);
+  .gallery-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    &::before {
+      all: unset;
+    }
   }
-  .gallery-list--custom-1 {
-    height: 320px;
+  .gallery-image-link {
+    float: unset;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    & > a {
+      background-color: var(--clr-secondary-old);
+    }
   }
-  // .gallery-close {
-  //   display: fixed;
-  // }
+  .gallery-list:is(:hover, :focus-within) > p {
+    animation: none;
+  }
+  .gallery-list:focus-within {
+    & > p {
+      bottom: calc(var(--image-topbar-height) + 2px); // 2 is the outline/border
+      opacity: .5;
+      transition: opacity .5s 1.5s;
+    } 
+    & > .gallery-image-wrapper {
+      height: 100%;
+      width: 100%;
+    }
+    & .gallery-image {
+      flex: 1;
+      height: 0;
+    }
+    & img {
+      object-fit: contain;
+      width: 100%;
+      height: 100%;
+    }
+  }
 }
 @media (max-width: 450px) {
   .gallery-list.head .gallery-image {
