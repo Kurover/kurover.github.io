@@ -2079,7 +2079,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   display: flex;
   flex-direction: row;
   float: right;
-  & > a {
+  & > a, label {
     display: inline-block;
     text-align: center;
     text-decoration: none;
@@ -2094,14 +2094,19 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
       color: var(--clr-link-active);
     }
     &:hover {
-      background-color: var(--clr-btn-download-hover);
+      background-color: var(--clr-btn-secondary);
       color: var(--clr-btn-download);
       transition-delay: 0s;
     }
   }
 }
-.gallery-image__alt {
+.gallery-image__alt,
+.gallery-image__toggle {
   display: none;
+}
+.gallery-image-link > .gallery-image-link__toggle {
+  display: none;
+  background-color: var(--clr-accent);
 }
 .gallery-close {
   display: none;
@@ -2157,6 +2162,29 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   }
   & .gallery-image__alt {
     display: block;
+  }
+}
+.gallery-toggle-button {
+  cursor: pointer;
+}
+.gallery-toggle:checked ~ .gallery-image-topbar > .gallery-image-link {
+  & > .gallery-toggle-button {
+    background-color: var(--clr-warning);
+    color: var(--clr-text);
+  }
+  & > .gallery-image-link__toggle {
+    display: inline-block;
+    & ~ * {
+      display: none; // Hide the next DL button
+    }
+  }
+}
+.gallery-toggle:checked ~ .gallery-image {
+  & > .gallery-image__toggle {
+    display: block;
+  }
+  & > :not(.gallery-image__toggle) {
+    display: none;
   }
 }
 

@@ -30,6 +30,8 @@ list:
 
 - name: Reimu standing and spinning her stick animation
   link: /img/gallery/touhou_reimu1__px.gif
+  link-toggle: /img/gallery/touhou_reimu1-loop__px.gif
+  id: reimu1
   caption:
   class:
   separate:
@@ -40,6 +42,8 @@ list:
   separate: 
 - name: Marisa standing and changing her broom lantern with a new one animation
   link: /img/gallery/touhou_marisa1__px.gif
+  link-toggle: /img/gallery/touhou_marisa1-loop__px.gif
+  id: marisa1
   caption:
   class:
   separate: true
