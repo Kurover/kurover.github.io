@@ -2206,6 +2206,13 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   }
   .gallery-list.landscape:focus-within > .gallery-image-wrapper > .gallery-image {
     max-height: calc(100vh - var(--image-topbar-height));
+    min-height: unset;
+    height: fit-content;
+    overflow: auto;
+    scrollbar-width: none;
+    & > img {
+      width: calc(100vw - 15px);
+    }
   }
   .gallery-close {
     float: right;
