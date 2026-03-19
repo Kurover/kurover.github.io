@@ -242,6 +242,9 @@ body::after {
 .select-all {
   user-select: all;
 }
+.select-all-span span {
+  user-select: all;
+}
 .center {
   text-align: center;
   align-content: center;
@@ -784,6 +787,8 @@ body::after {
   gap: 16px;
 } This make the expandable vertical lmao. Saving it for future maybe */
 .expandable {
+  --speed-start: .5s;
+  --speed-end: .5s;
   --icon-size: 48px;
   margin: .75rem 0; 
   position: relative;
@@ -826,8 +831,6 @@ body::after {
   transition: transform .25s;
 }
 .expandable-content {
-  --speed-start: .5s;
-  --speed-end: .5s;
   display: grid;
   grid-template-rows: 0fr;
   padding: 0 16px;
@@ -843,8 +846,8 @@ body::after {
   // Hide tooltip entry to prevent tab-navigation from selecting it when it's not expanded
 }
 // ? @section ## Mod
-.expandable-content--slow {--speed-start: 1s;--speed-end: 1s;}
-.expandable-content--fast {--speed-start: .25s;--speed-end: .25s;}
+.expandable.slow {--speed-start: 1s;--speed-end: 1s;}
+.expandable.fast {--speed-start: .25s;--speed-end: .25s;}
 
   // ? Styles
 .expandable-title:hover > :not(.expandable-title-icon) {
@@ -880,6 +883,12 @@ body::after {
 
 // * @main # Tooltip
 .tooltip {
+  --speed-start: .25s;
+  --speed-end: .1s;
+  --tooltip-width: fit-content;
+  --tooltip-position: translateX(0);
+  --tooltip-position-start: translateY(20px) var(--tooltip-position); // Using pixel otherwise coma result break the border
+  --tooltip-position-end: translateY(28px) var(--tooltip-position); 
   color: var(--clr-tooltip-link);
   display: inline;
   &:is(:hover, :focus-within) {
@@ -889,16 +898,14 @@ body::after {
     cursor: pointer;
     text-decoration: underline;
   }
-  &:has(.small) {
-    position: relative;
-  }
+  // ? @section ## Mod
+  &.slow {--speed-start: 1s;--speed-end: .5s;}
+  &.left {--tooltip-position:translateX(-20vw);}
+  &.right {--tooltip-position:translateX(200px);}
+  &.small {--tooltip-width: 20ch; position: relative;}
+  &.wide {--tooltip-width: unset;}
 }
 .tooltip-content {
-  --speed-start: .25s;
-  --speed-end: .1s;
-  --tooltip-position: translateX(0);
-  --tooltip-position-start: translateY(20px) var(--tooltip-position); // Using pixel otherwise coma result break the border
-  --tooltip-position-end: translateY(28px) var(--tooltip-position); 
   z-index: 1;
   visibility: hidden;
   opacity: 0;
@@ -907,7 +914,7 @@ body::after {
   right: 0;
   max-width: 848px;
   max-height: 50vh;
-  width: fit-content;
+  width: var(--tooltip-width);
   padding: 8px 16px;
   margin-left: auto;
   margin-right: auto;
@@ -924,12 +931,6 @@ body::after {
     opacity var(--speed-end) .2s,
     transform var(--speed-end) calc(.2s + var(--speed-end)); // Make it fade to close
     
-  // ? @section ## Mod
-  &.slow {--speed-start: 1s;--speed-end: .5s;}
-  &.left {--tooltip-position:translateX(-20vw);}
-  &.right {--tooltip-position:translateX(200px);}
-  &.small {width: 20ch;}
-  &.wide {width: unset;}
 }
 
 .tooltip:is(:hover, :focus-within) > .tooltip-content {
@@ -2512,29 +2513,44 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   position: relative;
   outline: 1px solid var(--clr-codeblock-border);
   box-sizing: border-box;
-  background-color: #302c3f;
+  background-color: var(--clr-codeblock-bg);
   color: var(--clr-codeblock-text);
 }
 // Pre is generated when using triple tilde
 .highlighter-rouge:has(pre),
 .codeblock-full {
+  --title: "txt.md";
   outline: none;
   border: 2px solid var(--clr-codeblock-border);
   padding-top: 1rem;
   &::before {
-    content: "real_terminal.md";
+    content: var(--title);
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     line-height: 1rem;
-    background-color: #211f2b;
+    background-color: var(--clr-codeblock-bg-title);
     color: var(--clr-codeblock-text-title);
   }
   & pre {
     padding: 0 1rem;
     margin: 0;
     overflow: auto;
+  }
+  & code {
+    font-family: 'Fira Code', monospace;
+    font-size: small;
+  }
+}
+.codeblock-full {
+  position: relative;
+  outline: 1px solid var(--clr-codeblock-border);
+  margin: 1rem 0;
+  box-sizing: border-box;
+  background-color: var(--clr-codeblock-bg);
+  & pre {
+    padding-bottom: 1rem;
   }
 }
 

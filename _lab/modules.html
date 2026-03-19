@@ -5,108 +5,263 @@ alias: Template - Modules
 no-css: true
 ---
 <main>
-  <section class="wrapper border">
-    <h2>Expandables</h2>
-    <!--! Expandable -->
-    <section class="expandable slow" id="content-1">
-      <input id="IDHERE_sys" type="checkbox" class="expandable-control">
-      <label for="IDHERE_sys" class="expandable-title">
-        <div class="expandable-title-icon"></div>
-        <p>HEADER Title</p>
-      </label>
-      <div class="expandable-content">  
-        <div>
-          <div class="chrome-lazyload-enforcer"></div>
-          <p>Content Here</p>
-          <p>Make sure to not have object with fixed height or else your layout will be destroyed (empty space on bottom). Fixable by adding "overflow: hidden" on its parent.</p>
-        </div>
+
+<!--! @main Wrapper -->
+<section class="wrapper border bg-color select-all-span">
+<h2>Wrapper</h2>
+<div class="codeblock-full" style="--title:'mods'">
+<pre><code>
+.wrapper | <span>.border</span>
+           <span>.bg-color</span>
+</code></pre></div>
+<p>This section raw HTML has no indentation because it's easier this way, trust.</p>
+</section>
+
+<!--! @main Expandable -->
+<!-- * COPY ZONE
+<section class="expandable slow">
+  <input id="IDHERE_sys" type="checkbox" class="expandable-control">
+  <label for="IDHERE_sys" class="expandable-title">
+    <div class="expandable-title-icon"></div>
+    <p>HEADER Title</p>
+  </label>
+  <div class="expandable-content">  
+    <div>
+      <div class="chrome-lazyload-enforcer"></div>
+      <p>Content Here</p>
+    </div>
+  </div>
+</section>
+-->
+<section class="wrapper border select-all-span" id="expandable">
+<h2>Expandables</h2>
+<p>Id of input and label must be same, put anything there.</p>
+<p>Make sure to not have object with fixed height or else your layout will be destroyed (empty space on bottom). Fixable by adding "overflow: hidden" on its parent.</p>
+
+<section class="expandable slow">
+  <input id="IDHERE_sys" type="checkbox" class="expandable-control">
+  <label for="IDHERE_sys" class="expandable-title">
+    <div class="expandable-title-icon"></div>
+    <p>Example</p>
+  </label>
+  <div class="expandable-content">  
+    <div>
+      <div class="chrome-lazyload-enforcer"></div>
+      <p>Content Here</p>
+      <p>Content Here</p>
+      <p>Content Here</p>
+      <p>Content Here</p>
+      <p>Content Here</p>
+    </div>
+  </div>
+</section>
+
+<div class="codeblock-full" style="--title:'snippet'">
+<pre><code>
+<span>&lt;section class=&quot;expandable slow&quot;&gt;
+  &lt;input id=&quot;IDHERE_sys&quot; type=&quot;checkbox&quot; class=&quot;expandable-control&quot;&gt;
+  &lt;label for=&quot;IDHERE_sys&quot; class=&quot;expandable-title&quot;&gt;
+    &lt;div class=&quot;expandable-title-icon&quot;&gt;&lt;/div&gt;
+    &lt;p&gt;HEADER Title&lt;/p&gt;
+  &lt;/label&gt;
+  &lt;div class=&quot;expandable-content&quot;&gt;
+    &lt;div&gt;
+      &lt;p&gt;Content Here&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</span>
+</code></pre></div>  
+
+<div class="codeblock-full" style="--title:'mods'">
+<pre><code>
+.expandable | <span>.slow</span> - slow toggle speed
+              <span>.fast</span> - fast toggle speed
+
+Add empty tag like div with this class if there's image needed to be lazy loaded.
+  <span>.chrome-lazyload-enforcer</span>
+</code></pre></div> 
+</section>
+
+<!--! @main Gallery Lists -->
+<section class="wrapper border">
+<h2>Gallery Lists</h2>
+<p>This section is WIP!</p>
+<p>Kinda hard to translate into modular, see gallery.html for full example.</p>
+
+<input type="checkbox" id="gal-close_sys">
+<div class="gallery-lists">
+  <div class="gallery-list" tabindex="-1">
+    <p>Tooltip here</p>
+    <div class="gallery-image-wrapper">
+      <div class="gallery-image-topbar">
+        <label for="gal-close_sys" class="gallery-close"></label>
       </div>
-    </section>
-    <h3>Snippet</h2>
-      <blockquote>
-        &lt;section class=&quot;expandable slow&quot; id=&quot;content-1&quot;&gt;
-          &lt;input id=&quot;IDHERE_sys&quot; type=&quot;checkbox&quot; class=&quot;expandable-control&quot;&gt;
-          &lt;label for=&quot;IDHERE_sys&quot; class=&quot;expandable-title&quot;&gt;
-            &lt;div class=&quot;expandable-title-icon&quot;&gt;&lt;/div&gt;
-            &lt;p&gt;HEADER Title&lt;/p&gt;
-          &lt;/label&gt;
-          &lt;div class=&quot;expandable-content&quot;&gt;  
-            &lt;div&gt;
-              &lt;p&gt;Content Here&lt;/p&gt;
-            &lt;/div&gt;
-          &lt;/div&gt;
-        &lt;/section&gt;
-      </blockquote>
-    <h3>Mods</h3>
-    <blockquote>class <br>
-      .expandable-content--slow <br>
-      .expandable-content--fast <br>
-    </blockquote>
-  </section>
+      <div class="gallery-image" tabindex="0">
+        <img loading="lazy" src="/img/404.gif">
+      </div>
+    </div>
+  </div>
+  <div class="gallery-list" tabindex="-1">
+    <div class="gallery-image-wrapper">
+      <div class="gallery-image-topbar">
+        <label for="gal-close_sys" class="gallery-close"></label>
+      </div>
+      <div class="gallery-image" tabindex="0">
+        <img loading="lazy" src="/img/illith-normal.png">
+      </div>
+    </div>
+  </div>
+  <div class="gallery-list landscape" tabindex="-1">
+    <div class="gallery-image-wrapper">
+      <div class="gallery-image-topbar">
+        <label for="gal-close_sys" class="gallery-close"></label>
+      </div>
+      <div class="gallery-image" tabindex="0">
+        <img loading="lazy" src="/img/icon-pack__px.png">
+      </div>
+    </div>
+  </div>
+  <div class="gallery-list landscape" tabindex="-1">
+    <div class="gallery-image-wrapper">
+      <div class="gallery-image-topbar">
+        <label for="gal-close_sys" class="gallery-close"></label>
+      </div>
+      <div class="gallery-image" tabindex="0">
+        <img loading="lazy" src="/img/status_maintenance.png">
+      </div>
+    </div>
+  </div>
+</div>
 
-  <section class="wrapper border">
-    <!--! Tooltip -->
-    <h2>Tooltips</h2>
-    <p> Usable inline text, click on this
-      <span class="tooltip" tabindex="0"><span>Tooltip</span>
-      <span class="tooltip-content" style="--tooltip-position:translateX(-50%)">Tooltip content</span></span>
-    to expand its content</p>
-    <h3>Snippet</h3>
-    <blockquote>
-      &lt;span class=&quot;tooltip&quot; tabindex=&quot;0&quot;&gt;&lt;span&gt;Tooltip&lt;/span&gt;
-      &lt;span class=&quot;tooltip-content&quot;&gt;Tooltip content&lt;/span&gt;&lt;/span&gt;
-    </blockquote>
-    <h3>Mods</h3>
-    <blockquote>class <br>
-      .tooltip--click-only (on .tooltip) <br>
-      .slow <br>
-      .left <br>
-      .right <br>
-      .small <br>
-      .wide <br>
-    </blockquote>
-    <blockquote>style <br>
-      --tooltip-position:translateX(NUM)
-    </blockquote>
-  </section>
+</section>
 
-  <section class="wrapper border">
-    <h2>Avatar Picture</h2>
-    <p class="mobile-only notice">Mobile view does not float, all is centered.</p>
-    <div class="headshot headshot--float-left">
-      <img src="/img/gallery/oc_tw10k__px.png" alt="">
-      <p class="headshot__name">Left</p>
-    </div>
-    <div class="headshot headshot--float-left">
-      <img src="/img/gallery/oc_tw10k__px.png" alt="">
-    </div>
-    <div class="headshot headshot--float-right">
-      <img src="/img/profile-picture-2__px.png" alt="">
-      <p class="headshot__name">Right</p>
-    </div>
-    <div class="headshot">
-      <img src="/img/illith.png" alt="">
-      <p class="headshot__name">Default</p>
-    </div>
-    <hr>
-    <div class="headshot">
-      <img src="/img/illith.png" alt="">
-      <p class="headshot__name">Default</p>
-    </div>
-    <p>The name is optional. Use float if need to be stacked, be warned it will overlap with other container outside if there's not enough content below it.</p>
-    <h3>Mods</h3>
-    <blockquote>
-      .headshot--float-left <br>
-      .headshot--float-right <br>
-      .headshot--pos-first <br>
-      .headshot--pos-middle <br>
-    </blockquote>
-    <p>Don't stack default with floating, it's broken as you can see.</p>
-    <p>--pos-first and middle modifier is used to modify its margin, mainly if it's floating.</p>
-  </section>
+<!--! @main Codeblock -->
+<!-- * COPY ZONE
+<div class="codeblock-full" style="--title:'mods'">
+<pre><code>
+.codeblock-full | <span>style="--title:'TITLE_HERE'"</span>
+</code></pre></div>    
+-->
+<section class="wrapper border select-all-span" id="codeblock">
+<h2>Codeblocks</h2>
+<p>Stylish code blocks using pre and code tags, not so stylish in the raw html... The most important is that the pre and code tags doesnt have indentation. The current iteration uses empty whitespace for top padding because having pre-code-text in a single line is too much for my own sanity.</p>
 
-  <section class="wrapper border">
-    <p>Template Wrapper</p>
-  </section>
+
+<div class="codeblock-full" style="--title:'snippet'">
+<pre><code>
+<span>&lt;div class=&quot;codeblock-full&quot;&gt;&lt;pre&gt;&lt;code&gt;
+Text Here with no indentation
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+</span></code></pre></div>
+
+<div class="codeblock-full" style="--title:'mods'">
+<pre><code>
+.codeblock-full | <span>style="--title:'TITLE_HERE'"</span>
+</code></pre></div>
+
+<div class="codeblock-full" style="--title:'more example'">
+<pre><code>
+  You can
+          do this
+                  without too much
+                                   trouble.
+                                            Overflow will just scrollbar, so add break manually! -----------------------------------------
+</code></pre></div>
+
+<h3>Alternative / Old</h3>
+<blockquote>
+  Very simple blockquote tag that is styled so you can put it quick and easy. Overflow will wrap itself so it can get nasty for long text.
+</blockquote>
+</section>
+
+<!--! @main Tooltip -->
+<!-- * COPY ZONE
+<span class="tooltip" tabindex="0"><span>Tooltip Title</span>
+<span class="tooltip-content">
+  Tooltip content
+</span></span>
+-->
+<section class="wrapper border" id="tooltip">
+<h2>Tooltips</h2>
+<p> Usable inline text, click on this
+  <span class="tooltip small" tabindex="0"><span>Tooltip</span>
+  <span class="tooltip-content">Tooltip content</span></span>
+to expand its content</p>
+
+
+<div class="codeblock-full select-all-span" style="--title:'snippet'">
+<pre><code>
+<span>&lt;span class=&quot;tooltip&quot; tabindex=&quot;0&quot;&gt;&lt;span&gt;Tooltip Title&lt;/span&gt;
+&lt;span class=&quot;tooltip-content&quot;&gt;
+  Tooltip content
+&lt;/span&gt;&lt;/span&gt;</span>
+</code></pre></div>    
+    
+<div class="codeblock-full select-all-span" style="--title:'mods'">
+<pre><code>
+.tooltip | <span>.slow</span>   - transition speed
+           <span>.left</span>   - align left
+           <span>.small</span>  - will make tooltip parent relative so it follow the text position
+           <span>.right</span>  - align right
+           <span>.wide</span>   - force full wide
+           <span>style="--tooltip-position:translateX(NUM)"</span> - manual align
+</code></pre></div>
+
+</section>
+
+<!-- ! @main Avatar Picture -->
+<!-- * Copy Zone
+<div class="headshot headshot--float-left headshot--pos-first">
+  <img src="/img/illith.png" alt="">
+  <p class="headshot__name">Default</p>
+</div>
+-->
+<section class="wrapper border select-all-span" id="avatar">
+<h2>Avatar Picture</h2>
+
+    
+<p class="mobile-only notice">Mobile view does not float, all is centered.</p>
+<div class="headshot headshot--float-left">
+  <img src="/img/gallery/oc_tw10k__px.png" alt="">
+  <p class="headshot__name">Left</p>
+</div>
+<div class="headshot headshot--float-left">
+  <img src="/img/gallery/oc_tw10k__px.png" alt="">
+</div>
+<div class="headshot headshot--float-right">
+  <img src="/img/profile-picture-2__px.png" alt="">
+  <p class="headshot__name">Right</p>
+</div>
+<div class="headshot">
+  <img src="/img/illith.png" alt="">
+  <p class="headshot__name">Default</p>
+</div>
+<hr>
+<div class="headshot">
+  <img src="/img/illith.png" alt="">
+  <p class="headshot__name">Default</p>
+</div>
+    
+<div class="codeblock-full" style="--title:'snippet'">
+<pre><code>
+<span>&lt;div class=&quot;headshot&quot;&gt;
+  &lt;img src=&quot;/img/illith.png&quot; alt=&quot;&quot;&gt;
+  &lt;p class=&quot;headshot&lowbar;&lowbar;name&quot;&gt;Default&lt;/p&gt;
+&lt;/div&gt;</span>
+</code></pre></div>    
+<p>The name is optional. Use float if need to be stacked, be warned it will overlap with other container outside if there's not enough content below it.</p>
+<div class="codeblock-full" style="--title:'mods'">
+<pre><code>
+<span>.headshot--float-left</span>    - make it float left so you can fill content on the empty space beside it
+<span>.headshot--float-right</span>   - 
+<span>.headshot--pos-first</span>     - modify margin, mainly for float, use on first object in the container
+<span>.headshot--pos-middle</span>    -                                  use in-between objects in the container
+</code></pre></div>
+<p>Don't stack default (no modifier) with floating, it's broken as you can see from example above.</p>
+</section>
+
+<section class="wrapper border">
+<p>Empty Wrapper</p>
+</section>
 
 </main>

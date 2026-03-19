@@ -8,13 +8,24 @@
 }
 @font-face {
   font-family: 'Rubik';
-  src: url('styles/Rubik-Regular.ttf');
-  font-style: normal;
-  font-display: block;
+  src: url('styles/Rubik-Regular.woff2');
+}
+@font-face {
+  font-family: 'Rubik';
+  src: url('styles/Rubik-Bold.woff2');
+  font-weight: bold;
+}
+@font-face {
+  font-family: 'Rubik';
+  src: url('styles/Rubik-Italic.woff2');
+  font-style: italic;
 }
 @font-face {
   font-family: 'Fira Code';
-  src: url('styles/FiraCode-Regular.ttf');
-  font-style: normal;
-  font-display: block;
+  src: url('styles/FiraCode-Regular.woff2');
+}
+@font-face {
+  font-family: 'Fira Code';
+  src: url('styles/FiraCode-Bold.woff2');
+  font-weight: bold;
 }
