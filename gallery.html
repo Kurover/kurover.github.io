@@ -60,7 +60,7 @@ og-type: gallery
         <div class="gallery-lists">
           <h2 class="title-full margin">{{ section.name }}</h2>
           {% for item in section.list %}
-          <div class="gallery-list{% if item.class %} {{ item.class }}{% endif %}">
+          <div class="gallery-list{% if item.class %} {{ item.class }}{% endif %}" tabindex="-1">
             <label for="gal-close_sys" class="gallery-close-bg"></label>
             {% if item.caption %}<p>{{ item.caption }}</p>{% endif %}
             <div class="gallery-image-wrapper">
