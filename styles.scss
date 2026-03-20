@@ -250,8 +250,19 @@ body::after {
   align-content: center;
   justify-content: center;
 }
+.dynamic-font-size {
+  font-size: max(2vw, 1em);
+}
 .relative {
   position: relative;
+}
+.absolute {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
 }
 .notice {
   color: var(--clr-notice);
@@ -364,6 +375,11 @@ body::after {
     display: none;
   }
 }
+@media (max-width: 2400px) {
+  .super-wide-only {
+    display: none;
+  }
+}
 
 // ! @title ________ Core ________
 .wrapper {
@@ -393,7 +409,7 @@ body::after {
 .wrapper-alt {
   position: relative;
   padding: 12px;
-  width: min(90vw, 120ch);
+  width: min(90vw, calc(var(--main-width) * 2));
   margin: auto;
 }
 @media (max-width: 768px) {
