@@ -32,6 +32,14 @@ no-css: true
     </div>
   </div>
 </section>
+
+<details style="--max-height: 300px">
+  <summary>TITLE</summary>
+  <div>
+    CONTENT
+  </div>
+</details>
+
 -->
 <section class="wrapper border select-all-span" id="expandable">
 <h2>Expandables</h2>
@@ -80,6 +88,28 @@ no-css: true
 Add empty tag like div with this class if there's image needed to be lazy loaded.
   <span>.chrome-lazyload-enforcer</span>
 </code></pre></div> 
+
+<h3>Alternative Ver.</h3>
+<details>
+  <summary>Details-Summary Version</summary>
+  <div>
+    <p>Very simple but has no closing animation and when the height doesn't overflow, the transition stop abruptly.</p>
+    <p>Possible because when details is opened, they get [open=""] tag which we apply style there!</p>
+    <p>Add <span>style="--max-height: xpx;"</span> to adjust max-height in-html</p>
+    <hr class="separator large">
+    <p>lorem</p>
+    <p>lorem</p>
+    <p>lorem</p>
+    <p>lorem</p>
+    <p>lorem</p>
+    <p>lorem</p>
+    <p>lorem</p>
+    <p>lorem</p>
+    <p>lorem</p>
+  </div>
+</details>
+
+
 </section>
 
 <!--! @main Gallery Lists -->

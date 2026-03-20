@@ -197,6 +197,32 @@ blockquote {
     padding: 8px 8px 8px 12px;
   }
 }
+details {
+  --max-height: 420px;
+  max-height: 3rem;
+  outline: 1px solid var(--clr-border);
+  box-sizing: border-box;
+  overflow-y: auto;
+  scrollbar-width: none;
+
+  transition: max-height .5s ease-in-out;
+  & > div {
+    padding: 1rem;
+  }
+}
+summary {
+  position: sticky; // Since the summary is inside the details, it will get scrolled if max-height is set
+  top: 0;
+  background-color: var(--clr-secondary);
+  line-height: 3rem;
+  font-size: 1.5rem;
+  padding-left: 1rem;
+  user-select: none;
+  cursor: pointer;
+}
+[open=""] {
+  max-height: var(--max-height);
+}
 
 // ! @title # CSS Preloader
 body::after {
