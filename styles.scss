@@ -1739,12 +1739,14 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
 }
 .gallery-tab-content {
   // Transition delays are used for open & close sequencing.
+  // Some variable are edited in html, the value is in _data "extra-style"
   --speed-open-delay: calc(var(--speed-close) + .5s);
-  --speed-open: 1.5s var(--speed-open-delay);
+  --speed-open: 1.5s;
+  --speed-open-calc: var(--speed-open) var(--speed-open-delay);
   --speed-close: .55s;
   --speed-fade-open: 1.5s cubic-bezier(0.99, 0.01, 0.72, 0.18);
-  --speed-fade-close: .6s .2s;
-  --tab-transition-open: grid-template-rows var(--speed-open) cubic-bezier(0.24, 0.09, 1, 0.35), opacity var(--speed-fade-open), visibility var(--speed-fade-open);
+  --speed-fade-close: .5s .45s;
+  --tab-transition-open: grid-template-rows var(--speed-open-calc) cubic-bezier(0.24, 0.09, 1, 0.35), opacity var(--speed-fade-open), visibility var(--speed-fade-open);
   --tab-transition-close: grid-template-rows var(--speed-close) linear .4s, opacity var(--speed-fade-close), visibility var(--speed-fade-close);
   display: grid;
   grid-template-rows: 0fr;

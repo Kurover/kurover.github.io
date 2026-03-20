@@ -54,7 +54,7 @@ og-type: gallery
     </div>
     {% for sections in site.data.gallery %}
     {% assign section = sections[1] %}
-    <section class="gallery-tab-content" id="{{ section.id }}">
+    <section class="gallery-tab-content" id="{{ section.id }}" {{ section.extra-style }}>
       <div>
         <div class="chrome-lazyload-enforcer"></div>
         <div class="gallery-lists">
