@@ -931,6 +931,16 @@ body::after {
   &.right {--tooltip-position:translateX(200px);}
   &.small {--tooltip-width: 20ch; position: relative;}
   &.wide {--tooltip-width: unset;}
+  &.click-only:hover > .tooltip-content {
+    visibility: hidden;
+    opacity: 0;
+    transform: var(--tooltip-position-start);
+  }
+  &.click-only:focus-within > .tooltip-content {
+    visibility: visible;
+    opacity: 1;
+    transform: var(--tooltip-position-end);
+  }
 }
 .tooltip-content {
   z-index: 1;
@@ -957,9 +967,7 @@ body::after {
     visibility var(--speed-end) .2s,
     opacity var(--speed-end) .2s,
     transform var(--speed-end) calc(.2s + var(--speed-end)); // Make it fade to close
-    
 }
-
 .tooltip:is(:hover, :focus-within) > .tooltip-content {
   z-index: 2;
   visibility: visible;
@@ -970,16 +978,6 @@ body::after {
     opacity .25s,
     transform var(--speed-start);
   transition-delay: .1s;
-}
-.tooltip--click-only:hover > .tooltip-content {
-  visibility: hidden;
-  opacity: 0;
-  transform: var(--tooltip-position-start);
-}
-.tooltip--click-only:focus-within > .tooltip-content {
-  visibility: visible;
-  opacity: 1;
-  transform: var(--tooltip-position-end);
 }
 
 // @misc -@ Media
@@ -1916,14 +1914,14 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
     visibility: visible;
   }
 }
-.gallery-illith-anchor:has(> .tooltip--click-only:hover) .gallery-illith-state {
+.gallery-illith-anchor:has(> .click-only:hover) .gallery-illith-state {
   opacity: 0;
   transition-delay: 0s;
   &.surprised {
     opacity: 1;
   }
 }
-.gallery-illith-anchor:has(> .tooltip--click-only:focus-within) .gallery-illith-state {
+.gallery-illith-anchor:has(> .click-only:focus-within) .gallery-illith-state {
   opacity: 0;
   transition-delay: 0s;
   &.happy {
