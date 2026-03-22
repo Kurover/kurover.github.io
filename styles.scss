@@ -80,12 +80,15 @@
   --clr-btn-download: #304679;
   --clr-btn-download-hover: #477761;
 
-  --sprite-icon-width: 336px;
-  --sprite-icon-height: 288px;
-  --sprite-icon-size: 48px;
+  --icon-atlas-width: 336px;
+  --icon-atlas-height: 288px;
+  --icon-atlas-size: 48px;
 
+  --icon-atlas-x: 1;
+  --icon-atlas-y: 1;
   --icon-atlas-path: url(/img/icon-pack__px.png);
-  // --icon-atlas-position: calc(1 * -48px + 48px) calc(1 * -48px + 48px);
+  
+  // --icon-atlas-position: calc(var(--icon-atlas-x) * -48px + 48px) calc(var(--icon-atlas-y) * -48px + 48px); // Not useful. Redefine the calc outside the root instead!
 
   --main-width: 896px;
 }
@@ -492,23 +495,23 @@ body::after {
   padding: 4px;
 }
 // ? Icon and border */
-// Using ::before,after for icon-hover with opacity because sprite transition slides
+// Using ::before,after for icon-hover with opacity because sprite transition slides. The pseudo selector is just to save a couple of bytes on the html lol. Terrible idea for the naming honestly
 .nav-list__icon::before,
 .nav-list__icon::after {
   content: "";
   position: absolute;
   width: 48px;
   height: 48px;
+  background-image: var(--icon-atlas-path);
+  background-position: calc(var(--icon-atlas-x) * -48px + 48px) calc(var(--icon-atlas-y) * -48px + 48px);;
   transition: opacity .5s;
 }
 // Default state. .active item has its own class
 .nav-list__icon::before {
-  background-image: var(--icon-atlas-path);
-  background-position: var(--ico-nav-default);
+  --icon-atlas-y: 1;
 }
 .nav-list__icon::after {
-  background-image: var(--icon-atlas-path);
-  background-position: var(--ico-nav-active);
+  --icon-atlas-y: 2;
   opacity: 0;
 }
 @keyframes navigation-active-start {
@@ -548,20 +551,17 @@ body::after {
       transition-duration: .75s;
     }
     &::after {
-      // background: var(--icon-atlas-path) var(--ico-nav-active);
-      background-position: var(--ico-nav-active);
+      --icon-atlas-y: 2;
       opacity: 1;
     }
   }
   // ACTIVE VERSION
   &.active > [class$=icon] {
     &::before {
-      // background: var(--icon-atlas-path) var(--ico-nav-active);
-      background-position: var(--ico-nav-active);
+      --icon-atlas-y: 2;
     }
     &::after {
-      // background: var(--icon-atlas-path) var(--ico-nav-hover);
-      background-position: var(--ico-nav-hover);
+      --icon-atlas-y: 3;
     }
   }
   &.active:is(:hover, :focus-within) > [class$=icon]::after {
@@ -657,29 +657,24 @@ body::after {
     transition: background 0s .5s, opacity .5s; // Make it so it transition smoothly between various states to default. Change the selector target to no delay. IDK how to explain this..
   }
   &:hover > [class$=icon]::after {
-    // background: var(--icon-atlas-path) var(--ico-nav-hover);
-    background-position: var(--ico-nav-hover);
+    --icon-atlas-y: 3;
     transition-delay: 0s;
   }
   &:focus-within > [class$=icon]::before {
-    // background: var(--icon-atlas-path) var(--ico-nav-default);
-    background-position: var(--ico-nav-default);
+    --icon-atlas-y: 1;
     opacity: 0;
   }
   &:focus-within > [class$=icon]::after {
-    // background: var(--icon-atlas-path) var(--ico-nav-active);
-    background-position: var(--ico-nav-active);
+    -ico-nav-y: 2;
     opacity: 1;
     transition-delay: 0s;
   }
   &.active > [class$=icon] {
     &::before {
-      // background: var(--icon-atlas-path) var(--ico-nav-hover);
-      background-position: var(--ico-nav-hover);
+      --icon-atlas-y: 3;
     }
     &::after {
-      // background: var(--icon-atlas-path) var(--ico-nav-active);
-      background-position: var(--ico-nav-active);
+      --icon-atlas-y: 2;
     }
   }
   &.active:hover > [class$=icon] {
@@ -700,36 +695,23 @@ body::after {
   }
 }
 // @misc @ Icon Position
-// I tried to automate the formula, but I can't figure it out.. Might be structural problem honestly
 .nav-list--home {
-  --ico-nav-default:  calc(1 * -48px + 48px) calc(1 * -48px + 48px);
-  --ico-nav-active:   calc(1 * -48px + 48px) calc(2 * -48px + 48px);
-  --ico-nav-hover:    calc(1 * -48px + 48px) calc(3 * -48px + 48px);
+  --icon-atlas-x: 1;
 }
 .nav-list--gallery {
-  --ico-nav-default:  calc(2 * -48px + 48px) calc(1 * -48px + 48px);
-  --ico-nav-active:   calc(2 * -48px + 48px) calc(2 * -48px + 48px);
-  --ico-nav-hover:    calc(2 * -48px + 48px) calc(3 * -48px + 48px);
+  --icon-atlas-x: 2;
 }
 .nav-list--blog {
-  --ico-nav-default:  calc(3 * -48px + 48px) calc(1 * -48px + 48px);
-  --ico-nav-active:   calc(3 * -48px + 48px) calc(2 * -48px + 48px);
-  --ico-nav-hover:    calc(3 * -48px + 48px) calc(3 * -48px + 48px);
+  --icon-atlas-x: 3;
 }
 .nav-list--file {
-  --ico-nav-default:  calc(4 * -48px + 48px) calc(1 * -48px + 48px);
-  --ico-nav-active:   calc(4 * -48px + 48px) calc(2 * -48px + 48px);
-  --ico-nav-hover:    calc(4 * -48px + 48px) calc(3 * -48px + 48px);
+  --icon-atlas-x: 4;
 }
 .nav-list--contact {
-  --ico-nav-default:  calc(5 * -48px + 48px) calc(1 * -48px + 48px);
-  --ico-nav-active:   calc(5 * -48px + 48px) calc(2 * -48px + 48px);
-  --ico-nav-hover:    calc(5 * -48px + 48px) calc(3 * -48px + 48px);
+  --icon-atlas-x: 5;
 }
 .nav-list--more {
-  --ico-nav-default:  calc(6 * -48px + 48px) calc(1 * -48px + 48px);
-  --ico-nav-active:   calc(6 * -48px + 48px) calc(2 * -48px + 48px);
-  --ico-nav-hover:    calc(6 * -48px + 48px) calc(3 * -48px + 48px);
+  --icon-atlas-x: 6;
 }
 // @misc @ Media
 @media (max-width: 768px) {
@@ -1190,40 +1172,34 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 
 // * @main # Contact List
 .contact--home {
-  --ico-contact-default:  calc(1 * -48px + 48px) calc(2 * -48px + 48px);
-  --ico-contact-hover:    calc(1 * -48px + 48px) calc(2 * -48px + 48px);
+  --icon-atlas-x: 1;
 }
 .contact--old {
-  --ico-contact-default:  calc(7 * -48px + 48px) calc(1 * -48px + 48px);
-  --ico-contact-hover:    calc(7 * -48px + 48px) calc(2 * -48px + 48px);
+  --icon-atlas-x: 7;
 }
 .contact--lab {
-  --ico-contact-default:  calc(8 * -48px + 48px) calc(1 * -48px + 48px);
-  --ico-contact-hover:    calc(8 * -48px + 48px) calc(2 * -48px + 48px);
+  --icon-atlas-x: 8;
 }
 .contact--mail {
-  --ico-contact-default:  calc(9 * -48px + 48px) calc(1 * -48px + 48px);
-  --ico-contact-hover:    calc(9 * -48px + 48px) calc(2 * -48px + 48px);
+  --icon-atlas-x: 9;
 }
 .contact--twitter {
-  --ico-contact-default:  calc(10 * -48px + 48px) calc(1 * -48px + 48px);
-  --ico-contact-hover:    calc(10 * -48px + 48px) calc(2 * -48px + 48px);
+  --icon-atlas-x: 10;
 }
 .contact--misskey {
-  --ico-contact-default:  calc(11 * -48px + 48px) calc(1 * -48px + 48px);
-  --ico-contact-hover:    calc(11 * -48px + 48px) calc(2 * -48px + 48px);
+  --icon-atlas-x: 11;
 }
 .contact--github {
-  --ico-contact-default:  calc(12 * -48px + 48px) calc(1 * -48px + 48px);
-  --ico-contact-hover:    calc(12 * -48px + 48px) calc(2 * -48px + 48px);
+  --icon-atlas-x: 12;
 }
 .contact--discord {
-  --ico-contact-default:  calc(13 * -48px + 48px) calc(1 * -48px + 48px);
-  --ico-contact-hover:    calc(13 * -48px + 48px) calc(2 * -48px + 48px);
+  --icon-atlas-x: 13;
 }
+// Probably should make it in same y level
 .contact--bluesky {
-  --ico-contact-default:  calc(7 * -48px + 48px) calc(3 * -48px + 48px);
-  --ico-contact-hover:    calc(7 * -48px + 48px) calc(4 * -48px + 48px);
+  --icon-atlas-x: 7;
+  --icon-atlas-y: 3;
+
 }
 .contact-lists {
   --clr-link: var(--clr-text);
@@ -1310,16 +1286,18 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   display: block;
   margin: auto;
   margin-bottom: .5rem;
-  background: var(--icon-atlas-path) var(--ico-contact-default);
   width: 48px;
   height: var(--contact-icon-y);
+
+  background-image: var(--icon-atlas-path);
+  background-position: calc(var(--icon-atlas-x) * -48px + 48px) calc(var(--icon-atlas-y) * -48px + 48px);
   &[src$=svg] {
     filter: invert(1) brightness(90%);
   }
-  &:hover {
-    background: var(--icon-atlas-path) var(--ico-contact-default); // placeholder
-    // background: var(--icon-atlas-path) var(--ico-contact-hover);
-  }
+  // Placeholder, hover asset doesn't exist
+  // &:hover {
+  //   --icon-atlas-y: 2;
+  // }
 }
 .contact-list-tooltip {
   user-select: all;
