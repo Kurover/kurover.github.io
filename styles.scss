@@ -225,8 +225,12 @@ summary {
   padding-left: 1rem;
   user-select: none;
   cursor: pointer;
+  &:focus {
+    box-shadow: 0 0 0 2px inset var(--clr-text);
+    outline: none;
+  }
 }
-[open=""] {
+details[open] {
   max-height: var(--max-height);
 }
 
@@ -819,6 +823,8 @@ body::after {
   --icon-size: 48px;
   margin: .75rem 0; 
   position: relative;
+  &.slow {--speed-start: 1s;--speed-end: 1s;}
+  &.fast {--speed-start: .25s;--speed-end: .25s;}
 }
   // ? Title of content with icon */
 .expandable-title {
@@ -827,7 +833,7 @@ body::after {
   line-height: 48px;
   height: 48px;
   cursor: pointer;
-  background: var(--clr-secondary);
+  background-color: var(--clr-secondary);
   & > :not(.expandable-title-icon) {
     display: block;
     width: calc(100% - var(--icon-size));
@@ -838,24 +844,24 @@ body::after {
     color: var(--clr-link);
   }
 }
-.expandable-title-icon {
-  content: "";
-  image-rendering: auto;
-  float: left;
+.expandable-title-icon,
+.expandable-title-icon::after {
   height: var(--icon-size);
   width: var(--icon-size);
-  background: var(--icon-atlas-path) calc(3 * -48px + 48px) calc(4 * -48px + 48px);
+  background-image: var(--icon-atlas-path);
+}
+.expandable-title-icon {
+  float: left;
+  background-position: calc(3 * -48px + 48px) calc(4 * -48px + 48px);
   opacity: .5;
   // scale: .75;
-  transition: opacity .25s;
+  transition: opacity var(--speed-start);
 }
 .expandable-title-icon::after {
   content: "";
   position: absolute;
-  height: var(--icon-size);
-  width: var(--icon-size);
-  background: var(--icon-atlas-path) calc(3 * -48px + 48px) calc(5 * -48px + 48px);
-  transition: transform .25s;
+  background-position: calc(3 * -48px + 48px) calc(5 * -48px + 48px);
+  transition: transform var(--speed-start);
 }
 .expandable-content {
   display: grid;
@@ -870,12 +876,7 @@ body::after {
     visibility: hidden;
     transition: visibility .25s;
   }
-  // Hide tooltip entry to prevent tab-navigation from selecting it when it's not expanded
 }
-// ? @section ## Mod
-.expandable.slow {--speed-start: 1s;--speed-end: 1s;}
-.expandable.fast {--speed-start: .25s;--speed-end: .25s;}
-
   // ? Styles
 .expandable-title:hover > :not(.expandable-title-icon) {
   color: var(--clr-text);
