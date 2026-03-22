@@ -669,7 +669,7 @@ body::after {
     opacity: 0;
   }
   &:focus-within > [class$=icon]::after {
-    -ico-nav-y: 2;
+    --icon-atlas-y: 2;
     opacity: 1;
     transition-delay: 0s;
   }
