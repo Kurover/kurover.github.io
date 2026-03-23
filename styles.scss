@@ -1195,11 +1195,8 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 .contact--discord {
   --icon-atlas-x: 13;
 }
-// Probably should make it in same y level
 .contact--bluesky {
-  --icon-atlas-x: 7;
-  --icon-atlas-y: 3;
-
+  --icon-atlas-x: 14;
 }
 .contact-lists {
   --clr-link: var(--clr-text);
