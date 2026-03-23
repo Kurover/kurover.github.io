@@ -1965,6 +1965,10 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   flex-wrap: wrap;
   gap: 2px 4px;
   // margin-bottom: 8px;
+  &.compact {
+    width: fit-content;
+    margin: auto;
+  }
 }
 @keyframes gallery-caption-start {
   0% {transform: translateY(-20px); transform-origin: top; opacity: .5;}
