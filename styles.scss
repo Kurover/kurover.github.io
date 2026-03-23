@@ -80,13 +80,14 @@
   --clr-btn-download: #304679;
   --clr-btn-download-hover: #477761;
 
-  --icon-atlas-width: 336px;
-  --icon-atlas-height: 288px;
-  --icon-atlas-size: 48px;
+  // --icon-atlas-width: 336px;
+  // --icon-atlas-height: 288px;
+  // --icon-atlas-size: 48px;
 
   --icon-atlas-x: 1;
   --icon-atlas-y: 1;
-  --icon-atlas-path: url(/img/icon-pack__px.png);
+  --icon-atlas24-path: url(/img/icon-pack24__px.png);
+  --icon-atlas48-path: url(/img/icon-pack48__px.png);
   
   // --icon-atlas-position: calc(var(--icon-atlas-x) * -48px + 48px) calc(var(--icon-atlas-y) * -48px + 48px); // Not useful. Redefine the calc outside the root instead!
 
@@ -506,7 +507,7 @@ body::after {
   position: absolute;
   width: 48px;
   height: 48px;
-  background-image: var(--icon-atlas-path);
+  background-image: var(--icon-atlas48-path);
   background-position: calc(var(--icon-atlas-x) * -48px + 48px) calc(var(--icon-atlas-y) * -48px + 48px);;
   transition: opacity .5s;
 }
@@ -848,7 +849,7 @@ body::after {
 .expandable-title-icon::after {
   height: var(--icon-size);
   width: var(--icon-size);
-  background-image: var(--icon-atlas-path);
+  background-image: var(--icon-atlas48-path);
 }
 .expandable-title-icon {
   float: left;
@@ -1288,7 +1289,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   width: 48px;
   height: var(--contact-icon-y);
 
-  background-image: var(--icon-atlas-path);
+  background-image: var(--icon-atlas48-path);
   background-position: calc(var(--icon-atlas-x) * -48px + 48px) calc(var(--icon-atlas-y) * -48px + 48px);
   &[src$=svg] {
     filter: invert(1) brightness(90%);
@@ -3081,7 +3082,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
     top: 0;
     bottom: 0;
     margin: auto;
-    background-image: var(--icon-atlas-path);
+    background-image: var(--icon-atlas48-path);
     background-color: white;
   }
   & > label {
