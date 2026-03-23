@@ -88,8 +88,10 @@
   --icon-atlas-y: 1;
   --icon-atlas24-path: url(/img/icon-pack24__px.png);
   --icon-atlas48-path: url(/img/icon-pack48__px.png);
+  --icon-atlas-size: 48px; // Redefine this alongside background-position if using other atlas size
   
-  // --icon-atlas-position: calc(var(--icon-atlas-x) * -48px + 48px) calc(var(--icon-atlas-y) * -48px + 48px); // Not useful. Redefine the calc outside the root instead!
+  // Calc must be redefined on every background-position as the variable in the calc won't be updated outside of :root
+  // --icon-atlas-position: calc(var(--icon-atlas-x) * (var(--icon-atlas-size) * -1) + var(--icon-atlas-size)) calc(var(--icon-atlas-y) * (var(--icon-atlas-size) * -1) + var(--icon-atlas-size));
 
   --main-width: 896px;
 }
@@ -508,7 +510,7 @@ body::after {
   width: 48px;
   height: 48px;
   background-image: var(--icon-atlas48-path);
-  background-position: calc(var(--icon-atlas-x) * -48px + 48px) calc(var(--icon-atlas-y) * -48px + 48px);;
+  background-position: calc(var(--icon-atlas-x) * (var(--icon-atlas-size) * -1) + var(--icon-atlas-size)) calc(var(--icon-atlas-y) * (var(--icon-atlas-size) * -1) + var(--icon-atlas-size));
   transition: opacity .5s;
 }
 // Default state. .active item has its own class
@@ -821,7 +823,7 @@ body::after {
 .expandable {
   --speed-start: .5s;
   --speed-end: .5s;
-  --icon-size: 48px;
+  // --icon-atlas-size: 48px;
   margin: .75rem 0; 
   position: relative;
   &.slow {--speed-start: 1s;--speed-end: 1s;}
@@ -837,7 +839,7 @@ body::after {
   background-color: var(--clr-secondary);
   & > :not(.expandable-title-icon) {
     display: block;
-    width: calc(100% - var(--icon-size));
+    width: calc(100% - var(--icon-atlas-size));
     text-wrap: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -847,21 +849,23 @@ body::after {
 }
 .expandable-title-icon,
 .expandable-title-icon::after {
-  height: var(--icon-size);
-  width: var(--icon-size);
+  --icon-atlas-x: 3;
+  height: var(--icon-atlas-size);
+  width: var(--icon-atlas-size);
   background-image: var(--icon-atlas48-path);
+  background-position: calc(var(--icon-atlas-x) * (var(--icon-atlas-size) * -1) + var(--icon-atlas-size)) calc(var(--icon-atlas-y) * (var(--icon-atlas-size) * -1) + var(--icon-atlas-size));
 }
 .expandable-title-icon {
+  --icon-atlas-y: 4;
   float: left;
-  background-position: calc(3 * -48px + 48px) calc(4 * -48px + 48px);
   opacity: .5;
   // scale: .75;
   transition: opacity var(--speed-start);
 }
 .expandable-title-icon::after {
+  --icon-atlas-y: 5;
   content: "";
   position: absolute;
-  background-position: calc(3 * -48px + 48px) calc(5 * -48px + 48px);
   transition: transform var(--speed-start);
 }
 .expandable-content {
@@ -1287,7 +1291,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   height: var(--contact-icon-y);
 
   background-image: var(--icon-atlas48-path);
-  background-position: calc(var(--icon-atlas-x) * -48px + 48px) calc(var(--icon-atlas-y) * -48px + 48px);
+  background-position: calc(var(--icon-atlas-x) * (var(--icon-atlas-size) * -1) + var(--icon-atlas-size)) calc(var(--icon-atlas-y) * (var(--icon-atlas-size) * -1) + var(--icon-atlas-size));
   &[src$=svg] {
     filter: invert(1) brightness(90%);
   }
