@@ -113,6 +113,19 @@ Add empty tag like div with this class if there's image needed to be lazy loaded
   </div>
 </details>
 
+<div class="codeblock-full select-all-span" style="--title:'snippet'">
+<pre><code>
+<span>&lt;details&gt;
+    &lt;summary&gt;TITLE&lt;/summary&gt;
+    &lt;div&gt;
+      CONTENT
+    &lt;/div&gt;
+  &lt;/details&gt;</span>
+</code></pre></div>    
+<div class="codeblock-full select-all-span" style="--title:'mods'">
+<pre><code>
+details | <span>style="--max-height: 300px"</span> - adjust max height manually
+</code></pre></div>    
 
 </section>
 
@@ -214,6 +227,9 @@ Text Here with no indentation
 <span class="tooltip-content">
   Tooltip content
 </span></span>
+
+- ALT 
+<span class="tooltip-alt">Tooltip Parent</span><span class="tooltip-alt-content">Tooltip Content</span>
 -->
 <section class="wrapper border" id="tooltip">
 <h2>Tooltips</h2>
@@ -221,7 +237,6 @@ Text Here with no indentation
   <span class="tooltip small" tabindex="0"><span>Tooltip</span>
   <span class="tooltip-content">Tooltip content</span></span>
 to expand its content</p>
-
 
 <div class="codeblock-full select-all-span" style="--title:'snippet'">
 <pre><code>
@@ -241,6 +256,13 @@ to expand its content</p>
            <span>.click-only</span> - disable hover, so show on click only
            <span>style="--tooltip-position:translateX(NUM)"</span> - manual align
 </code></pre></div>
+
+<h3>Alternate</h3>
+<p>A dead simple <span class="tooltip-alt">alternative</span><span class="tooltip-alt-content">I'm a span of text</span> that simply unhides element next to it. In case you missed it, hover the "alternative" text (the first one).</p>
+<div class="codeblock-full select-all-span" style="--title:'snippet'">
+<pre><code>
+<span>&lt;span class=&quot;tooltip-alt&quot;&gt;Tooltip Parent&lt;/span&gt;&lt;span class=&quot;tooltip-alt-content&quot;&gt;Tooltip Content&lt;/span&gt;</span>
+</code></pre></div>    
 
 </section>
 
