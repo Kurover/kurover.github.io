@@ -985,6 +985,26 @@ body::after {
     transform var(--speed-start);
   transition-delay: .1s;
 }
+.tooltip-alt-content {
+  visibility: hidden;
+  position: absolute;
+  line-height: 1.5rem;
+  opacity: 0;
+  color: var(--clr-text);
+  background-color: var(--clr-codeblock-bg);
+  border: 2px solid var(--clr-accent);
+  padding: 4px 8px 2px 8px;
+
+  transform: translate(4px, -.5rem); // Also compensate border and top padding
+  transition: visibility .25s, opacity .25s;
+  transition-delay: .25s;
+}
+.tooltip-alt:hover + .tooltip-alt-content,
+.tooltip-alt-content:hover {
+  visibility: visible;
+  opacity: 1;
+  transition-delay: 0s;
+}
 
 // @misc -@ Media
 @media (min-width: 769px) {
