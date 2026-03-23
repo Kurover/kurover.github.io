@@ -986,6 +986,7 @@ body::after {
   transition-delay: .1s;
 }
 .tooltip-alt-content {
+  z-index: 0;
   visibility: hidden;
   position: absolute;
   line-height: 1.5rem;
@@ -996,14 +997,14 @@ body::after {
   padding: 4px 8px 2px 8px;
 
   transform: translate(4px, -.5rem); // Also compensate border and top padding
-  transition: visibility .25s, opacity .25s;
-  transition-delay: .25s;
+  transition: visibility .1s .2s, opacity .1s .2s;
 }
 .tooltip-alt:hover + .tooltip-alt-content,
 .tooltip-alt-content:hover {
+  z-index: 1;
   visibility: visible;
   opacity: 1;
-  transition-delay: 0s;
+  transition: visibility .25s, opacity .25s;
 }
 
 // @misc -@ Media
