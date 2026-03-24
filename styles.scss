@@ -2411,6 +2411,172 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
 }
 
 // ! @title ________ Blog ________
+
+// ? @section # MD to HTML Defaults
+// Pre is generated when using triple tilde
+.highlighter-rouge:has(pre),
+.codeblock-full {
+  --title: "txt.md";
+  outline: none;
+  border: 2px solid var(--clr-codeblock-border);
+  padding-top: 1rem;
+  &::before {
+    content: var(--title);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    line-height: 1rem;
+    background-color: var(--clr-codeblock-bg-title);
+    color: var(--clr-codeblock-text-title);
+  }
+  & pre {
+    padding: 0 1rem;
+    margin: 0;
+    overflow: auto;
+  }
+  & code {
+    font-family: 'Fira Code', monospace;
+    font-size: small;
+  }
+}
+.codeblock-full {
+  position: relative;
+  outline: 1px solid var(--clr-codeblock-border);
+  margin: 1rem 0;
+  box-sizing: border-box;
+  background-color: var(--clr-codeblock-bg);
+  & pre {
+    padding-bottom: 1rem;
+  }
+}
+
+// ? @section # ToC
+@keyframes blog-toc-hover {
+  0% {transform: translateX(calc(-96px - (var(--offset)))); width: 96px;}
+  33% {transform: translateX(calc(-178px - (var(--offset)))); width: 178px;}
+  100% {transform: translateX(-160px); width: 256px;}
+}
+@keyframes blog-toc-hover-out {
+  0% {transform: translateX(-160px); width: 256px;}
+  40% {transform: translateX(calc(-180px - (var(--offset)))); width: 180px;}
+  100% {transform: translateX(calc(-96px - (var(--offset)))); width: 96px;}
+}
+.blog-toc {
+  --offset: 28px; // Compensate padding and border alike
+  z-index: 1;
+  // transition: width .4s ease-in-out;
+}
+.blog-toc-content {
+  position: relative;
+  outline: 2px solid var(--clr-codeblock-border);
+  background-color: var(--clr-codeblock-bg);
+  color: var(--clr-codeblock-border);
+  & > h2 {
+    padding-left: .25rem;
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.5rem;
+    background-color: var(--clr-codeblock-bg-title);
+    color: var(--clr-codeblock-text-title);
+  }
+}
+@media (min-width: 769px) {
+  .blog-toc-content > h2::before {
+    content: "> ";
+  }
+}
+@media (min-width: 1200px) {
+  .blog-toc {
+    position: sticky;
+    top: 48px;
+    width: 96px;
+    height: 0;
+    opacity: .5;
+    cursor: grab;
+
+    transform: translateX(calc(-96px - (var(--offset))));
+    animation: blog-toc-hover-out ease .5s forwards;
+    transition: opacity .2s .125s;
+  }
+  .blog-toc-content {
+    transition: box-shadow .25s;
+    transition-delay: .1s;
+  }
+  // Shadow
+  .blog-toc-content::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    opacity: 1;
+    background: linear-gradient(90deg, transparent 80%, var(--clr-background) 95%);
+    transition: opacity .3s;
+    transition-delay: .125s;
+  }
+  .blog-toc:focus-within {
+    cursor: default;
+    opacity: 1;
+    width: 256px;
+    animation: blog-toc-hover ease .5s forwards;
+    & > .blog-toc-content {
+      box-shadow: 4px 4px 8px 2px var(--clr-background);
+      transition-delay: .16s;
+    }
+    & > .blog-toc-content::after {
+      pointer-events: none;
+      transition-delay: .1s;
+      opacity: 0;
+    }
+  }
+}
+#markdown-toc {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style-position: inside;
+  // list-style: none;
+  color: var(--clr-text);
+  & > li {
+    outline: 1px solid var(--clr-codeblock-border);
+    padding-left: 4px;
+  }
+  & li {
+    overflow: hidden;
+  }
+  & ol {
+    // display: grid;
+    padding-left: 1.2rem;
+    padding-bottom: 4px;
+    list-style-type: "♦";
+    // font-size: .8rem;
+    & li a {
+      margin-left: 2px;
+    }
+  }
+  & a {
+    padding: 5px 4px;
+    display: inline-block;
+    width: calc(100% - 3ch);
+    overflow: clip;
+    text-overflow: ellipsis;
+    text-wrap: nowrap;
+    text-decoration: none;
+    color: var(--clr-text);
+  }
+  & a:visited {
+    color: var(--clr-text);
+  }
+  & a:is(:hover, :focus) {
+    color: var(--clr-accent);
+    outline: none;
+    background-color: var(--clr-background);
+  }
+}
+
 // ? @section # List
 .blog-list {
   & > a {
@@ -2447,8 +2613,8 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
 .blog-post-index-container {
   display: none;
   position: sticky;
+  float: right;
   top: 4rem;
-  left: 0;
   height: 0;
   // width: 96px;
   & a {
@@ -2479,7 +2645,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
 @media (min-width: 1200px) {
   .blog-post-index-container {
     display: block;
-    transform: translate(-170px, 0);
+    transform: translate(170px, 0);
   }
 }
 .blog-post-index {
@@ -2573,43 +2739,6 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   box-sizing: border-box;
   background-color: var(--clr-codeblock-bg);
   color: var(--clr-codeblock-text);
-}
-// Pre is generated when using triple tilde
-.highlighter-rouge:has(pre),
-.codeblock-full {
-  --title: "txt.md";
-  outline: none;
-  border: 2px solid var(--clr-codeblock-border);
-  padding-top: 1rem;
-  &::before {
-    content: var(--title);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    line-height: 1rem;
-    background-color: var(--clr-codeblock-bg-title);
-    color: var(--clr-codeblock-text-title);
-  }
-  & pre {
-    padding: 0 1rem;
-    margin: 0;
-    overflow: auto;
-  }
-  & code {
-    font-family: 'Fira Code', monospace;
-    font-size: small;
-  }
-}
-.codeblock-full {
-  position: relative;
-  outline: 1px solid var(--clr-codeblock-border);
-  margin: 1rem 0;
-  box-sizing: border-box;
-  background-color: var(--clr-codeblock-bg);
-  & pre {
-    padding-bottom: 1rem;
-  }
 }
 
 // ! @title ________ File ________
