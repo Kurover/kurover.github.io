@@ -393,6 +393,10 @@ body::after {
   font-size: small;
   color: var(--clr-text-dim);
 }
+@keyframes key-opacity {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
 // @misc @ Media
 @media (max-width: 768px) {
   // To compensate sticky nav bar
@@ -2485,6 +2489,8 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
     font-size: 1rem;
     font-weight: normal;
     line-height: 1.5rem;
+    overflow: hidden;
+    text-wrap: nowrap;
     background-color: var(--clr-codeblock-bg-title);
     color: var(--clr-codeblock-text-title);
   }
@@ -2505,11 +2511,12 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
 
     transform: translateX(calc(-96px - (var(--offset))));
     animation: blog-toc-hover-out ease .5s forwards;
-    transition: opacity .2s .125s;
+    transition: opacity .33s .16s;
   }
   .blog-toc-content {
     transition: box-shadow .25s;
-    transition-delay: .1s;
+    transition-delay: .16s;
+    animation: key-opacity 1s .5s backwards; // "Hide" the content to hide the starting animation
   }
   // Shadow
   .blog-toc-content::after {
@@ -2530,6 +2537,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
     opacity: 1;
     width: 256px;
     animation: blog-toc-hover ease .5s forwards;
+    transition: opacity .2s .125s;
     & > .blog-toc-content {
       box-shadow: 4px 4px 8px 2px var(--clr-background);
       transition-delay: .16s;
@@ -3518,11 +3526,6 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
 // @misc . , . Mechs
 // The rest of mechs are in styles/file-cursor.scss
 
-// Start Menu display mech
-@keyframes CSOS-start-menu-open {
-  from {opacity: 0;}
-  to {opacity: 1;}
-}
 // VERY specific because :has is heavy on large container
 // We are doing it like this because :focus mechanism on various location AND the container has a bunch of label, which throws the focus away from the container to the input which is outside the container. Previously we use :checked trigger but that has limit on trying to make it identical to Windows start menu
 .CSOS-container:has(> .CSOS-taskbar > .CSOS-start-menu-bar:focus-within) > .CSOS-canvas > .CSOS-start-menu,
@@ -3531,7 +3534,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
 {
   display: flex; // using flex because holy heck absolute content are so annoying to layout
   flex-wrap: wrap;
-  animation: CSOS-start-menu-open .2s;
+  animation: key-opacity .2s;
 }
 .CSOS-start_sys:focus ~ .CSOS-container > .CSOS-taskbar > .CSOS-start-menu-bar > .CSOS-start-orb-bar,
 .CSOS-container:has(> .CSOS-canvas > .CSOS-start-menu:focus-within) > .CSOS-taskbar > .CSOS-start-menu-bar > .CSOS-start-orb-bar,
