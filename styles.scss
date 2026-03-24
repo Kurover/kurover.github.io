@@ -1014,7 +1014,8 @@ body::after {
   }
 }
 @media (max-width: 768px) {
-  .tooltip-content {
+  .tooltip-content,
+  .tooltip-alt-content {
     --speed-end: .25s;
     --tooltip-position-start: translateY(32px);
     --tooltip-position-end: translateY(0);
@@ -1028,6 +1029,13 @@ body::after {
     & a {
       font-size: 1.1rem;
     }
+  }
+  .tooltip-alt-content {
+    transform: unset;
+    left: 0;
+    right: 0;
+    padding-bottom: 8px;
+    bottom: 82px;
   }
 }
 
