@@ -5,4 +5,5 @@
 1. TOC
 {:toc}
 </div>
+<div class="blog-toc-expander mobile-only" tabindex="0"></div>
 </div>
