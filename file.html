@@ -18,8 +18,8 @@ custom-css: /styles/file-cursor.css
   </section>
 
   <!-- ! @main # CSOS MAIN -->
+  <p class="wrapper notice mobile-only">The section below is not built for mobile and cursor-less device! Sorry~!</p>
   <section class="wrapper wrapper--CSOS CSOS-root">
-    <p class="notice mobile-only">This section is not built for mobile &/ cursor-less device! Sorry~!</p>
     <!-- * Core States -->
     <!-- Remnants of the past. With just a few shower session, we figured out how to make the :focus mechanism smooth! -->
     <!-- <input type="checkbox" id="CSOS-start-menu-state" tabindex="-1"> -->
@@ -61,6 +61,9 @@ custom-css: /styles/file-cursor.css
       <!-- @section . Desktop/canvas -->
       <div class="CSOS-canvas">
 
+        <!-- Lack of support warning. Look at these "Tailwind" classes gaming -->
+        <p class="notice desktop-only tab-container absolute center bg-color fit decor" style="top: 1rem" tabindex="0">This section has no tab-nav support! Sorry~!</p>
+
         <!-- Rumia stress ball -->
         <div class="CSOS-resizable" style="--scrollbar-size:180px;">
           <div class="CSOS-resizable-anchor">
@@ -68,8 +71,8 @@ custom-css: /styles/file-cursor.css
               <img src="/file/rumia-alt__px.gif" class="decor" alt="">
             </div>
           </div>
-          <div class="CSOS-resizable-controller" style="width: 180px; height: 9999px;"></div>
-
+          <div class="CSOS-resizable-controller" style="height: calc(var(--CSOS-height) - var(--CSOS-height-taskbar)); width: 180px"></div> <!-- width is for Firefox as it don't have resizable scrollbar size -->
+          <!-- Dummies to deactivate pointer-event when scrolling through the empty invisible container on top-left side -->
           <div class="CSOS-resizable-dummy"></div>
           <div class="CSOS-resizable-dummy"></div>
         </div>
@@ -239,6 +242,11 @@ custom-css: /styles/file-cursor.css
       </div>
     </div>
   </section>
+
+  <div class="CSOS-warning notice center">
+    <p>Resizing minorly breaks Rumia mechanism.</p>
+    <p>She simply doesn't respect the height limit!</p>
+  </div>
 
   <!-- ! Misc Corner -->
   <section class="wrapper no-padding">

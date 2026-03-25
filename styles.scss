@@ -338,6 +338,10 @@ body::after {
 .img-px {
   image-rendering: pixelated;
 }
+.fit {
+  height: fit-content;
+  width: fit-content;
+}
 .margin {
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -1481,6 +1485,17 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   .skip-to-main {left: 2rem;}
   .skip-to-top {bottom: calc(72px + 2rem);}
   .skip-to-top--hidden::before {width: calc(52px + 25vw); top: -1rem}
+}
+
+// @main # Tab-nav-only container
+.tab-container {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity .25s, transform .5s ease;
+}
+.tab-container:focus-within {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 // ! @title ________ Home ________
@@ -2802,10 +2817,14 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
 .CSOS-cHelp {animation: var(--cursor-help) infinite; cursor: help;}
 
 .wrapper--CSOS {
-  max-width: var(--CSOS-width);
+  width: min(var(--CSOS-width), 100%);
+  height: var(--CSOS-height);
+  max-width: unset; // Allow it to be resizable
   padding: unset;
   position: relative;
   z-index: 0; // Prevent taskbar from overflowing with bottom navbar on mobile view... anything for mobile view *gulp*
+  resize: both;
+  overflow: hidden;
   & input {
     position: absolute;
     z-index: -1;
@@ -2841,7 +2860,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   position: relative;
   box-sizing: border-box;
   border: solid gray 1px;
-  height: var(--CSOS-height);
+  height: 100%;
   animation: var(--cursor-default) infinite;
 
   color: black;
@@ -2865,6 +2884,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   background-position: center;
   background-repeat: var(--background-repeat);
   image-rendering: var(--background-render);
+  height: 100%; // When container resized, it will follow because canvas has auto grid size
 }
 
 // @section . , Window
@@ -2969,8 +2989,11 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   pointer-events: none;
   top: 0;
   left: 0;
-  max-width: var(--CSOS-width);
-  max-height: calc(var(--CSOS-height) - var(--CSOS-height-taskbar));
+  // Why did I do this? Maybe because I didn't set the container size before
+  // max-width: var(--CSOS-width);
+  // max-height: calc(var(--CSOS-height) - var(--CSOS-height-taskbar));
+  max-width: 100%;
+  max-height: unset; // Can't figure out to make .controller respect its parent height... so we unset the max-height with .CSOS-root class below
   &:focus-within {z-index: 11;}
 }
 .CSOS-resizable-anchor {
@@ -2990,11 +3013,10 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
 .CSOS-resizable-controller {
   resize: both;
   overflow: scroll;
-  opacity: 0.1;
   opacity: 0;
-  width: calc(var(--CSOS-width) / 2);
-  height: calc(var(--CSOS-height) / 2);
-  max-width: var(--CSOS-width);
+  // width: calc(var(--CSOS-width) / 2);
+  // height: calc(var(--CSOS-height) / 2);
+  max-width: inherit;
   max-height: calc(var(--CSOS-height) - var(--CSOS-height-taskbar));
 
   // Chrome only but it is what it is
@@ -3003,6 +3025,9 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
     width: var(--scrollbar-size);
   }
 }
+.CSOS-root[style*="height"] > .CSOS-container > .CSOS-canvas > .CSOS-resizable > .CSOS-resizable-controller {
+  max-height: unset;
+} 
 // * a way to add and remove the pointer-event status on certain range of the container
 .CSOS-resizable-anchor:hover ~ .CSOS-resizable-controller,
 .CSOS-resizable-controller:hover {
@@ -3609,6 +3634,31 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   }
 }
 
+// @misc . Misc
+// Resize warning
+.CSOS-warning {
+  display: none;
+}
+@media (min-width: 769px) {
+  .CSOS-root[style*="height"] + .CSOS-warning {
+    animation: wip-popup 3.5s .5s ease forwards;
+  }
+  .CSOS-warning {
+    display: block;
+    pointer-events: none;
+    z-index: 8;
+    position: fixed;
+    visibility: hidden;
+    right: 2rem;
+    bottom: 2rem;
+    padding: 1rem;
+  
+    box-sizing: border-box;
+    border: 2px solid var(--clr-border);
+    background-color: var(--clr-secondary);
+    font-size: 2rem;
+  }
+}
 
 // ! @title ________ 404 Page ________
 .error-page {
