@@ -13,7 +13,7 @@ layout: default
         {% endfor %}
       </div>
     </nav>
-    <div class="top-right-note" id="main">Title: {{ page.title }}</div>
+    <div class="top-right-note" id="main">{% if page.modified-at %}Edit: {{ page.modified-at }} |{% endif %} Title: {{ page.title }}</div>
     {{ content }}
   </section>
   <div class="blog-post-footer-navigations">

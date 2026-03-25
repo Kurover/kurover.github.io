@@ -393,6 +393,7 @@ body::after {
   position: absolute;
   top: .5rem;
   right: .5rem;
+  margin-left: .5rem;
   font-style: italic;
   font-size: small;
   color: var(--clr-text-dim);
@@ -2743,7 +2744,11 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
     list-style: none;
   }
 }
-// @media (max-width: 768px)
+@media (max-width: 768px) {
+  .blog-post {
+    margin-top: 2rem!important;
+  }
+}
 @media (min-width: 1200px) {
   .blog-post-index-container {
     display: block;
@@ -2814,6 +2819,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
 }
 // Taken from contact list
 .blog-nav-tooltip {
+  z-index: 1;
   pointer-events: none;
   visibility: hidden;
   position: absolute;
