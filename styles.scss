@@ -2041,12 +2041,11 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   overflow: visible;
   background-color: var(--clr-secondary);
   transition: flex .8s .1s ease-in-out, background .5s;
-  & p {
+  & > p {
     z-index: 1;
     position: absolute;
     visibility: hidden;
     opacity: 0;
-    // display: none; // Breaks layout if else. Mainly on the gallery with its hidden entries. Same with popups but we throw them above instead, but it's too hacky i don't want to overuse that strat.
     bottom: -48px;
     margin: 0;
     padding: 16px;
@@ -2059,34 +2058,21 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
     transition: visibility .25s, opacity .25s, transform .25s;
     transition-delay: .2s;
   }
-  &:is(:hover, :focus-within) {
-    border: 2px solid var(--clr-border-select);
-    flex: 1.75;
-    transition-delay: 0s; // disable flex delay when hover
-    & p {
-      visibility: visible;
-      opacity: 1;
-      transform: none;
-      animation: gallery-caption-start .5s;
-      transition: 0s;
-    }
+}
+.gallery-list:is(:hover, :focus-within) {
+  border: 2px solid var(--clr-border-select);
+  flex: 1.75;
+  transition-delay: 0s; // disable flex delay when hover
+  & > p {
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+    animation: gallery-caption-start .5s;
+    transition: 0s;
   }
-  // Dim background, especially that is not fullscreen zoom, see the mod in @media
-  &::before {
-    pointer-events: none;
-    z-index: 9;
-    position: fixed;
-    background-color: var(--clr-background);
-    opacity: .8;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-  }
-  &:focus-within::before {
-    content: "";
-  }
-  // ? @section ## Mod
+}
+// ? @section ## Mod
+.gallery-list {
   // Using OOCS because I don't want to bloat the html with BEM
   &.left img {object-position: left;}
   &.right img {object-position: right;}
@@ -2119,7 +2105,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   }
 }
 .gallery-image-wrapper {
-  display: contents;
+  display: contents; // Since the wrapper is added late, this is a quick easy patch in for the content styles! Try removing this and see what happen
 }
 .gallery-image-topbar {
   display: none;
@@ -2143,15 +2129,6 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
     object-fit: cover;
     width: 100%;
     height: 100%;
-  }
-}
-.gallery-list--custom-1 {
-  height: fit-content;
-  &:focus-within {
-    height: var(--list-height); // Prevent canvas shift on click
-  }
-  & .gallery-image > img {
-    object-position: 85%;
   }
 }
 .gallery-image-link {
@@ -2193,7 +2170,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
 }
 // Class below is for label, which forces the focus outside (to input) of this element, very cool!
 .gallery-close-bg {
-  z-index: 7;
+  z-index: 9;
   display: none;
   position: fixed;
   top: 0;
@@ -2277,9 +2254,25 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
     scrollbar-width: none;
   }
   .gallery-list:focus-within {
+    // Poor-man's ::backdrop
+    &::before {
+      content: "";
+      pointer-events: none;
+      z-index: 9;
+      position: fixed;
+      background-color: var(--clr-background);
+      opacity: .8;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
     & .gallery-image {
-    // min-height: 86vh; // Respect zoom out level // How about let the user zoom the page or download the image? This declaration alone give so many headache!
-    height: min(896px, 95vh);
+      // min-height: 86vh; // Respect zoom out level // How about let the user zoom the page or download the image? This declaration alone give so many headache!
+      height: min(896px, 95vh);
+      & > img {
+        object-fit: contain; // For landscape to not overflow
+      }
     }
   }
   .gallery-close {
@@ -2297,13 +2290,13 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
       background-color: var(--clr-warning);
     }
   }
+  .gallery-list--custom-1 {
+    height: fit-content;
+  }
 }
 @media (max-width: 768px) {
   .gallery-list {
     --image-topbar-height: 64px;
-    &::before {
-      opacity: 1;
-    }
   }
   .gallery-tab-buttons {
     --height: 3.25rem;
@@ -2320,7 +2313,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
     left: 0;
     right: 0;
     transform: none;
-    transition: bottom .25s, opacity .25s, visibility .25s;
+    transition: opacity .25s, visibility .25s;
   }
   .gallery-lists--horizontal {
     flex-direction: row;
@@ -2335,9 +2328,6 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
         width: auto;
       }
     }
-  }
-  .gallery-list--custom-1 {
-    height: var(--list-height);
   }
   .gallery-image-wrapper {
     flex-direction: column-reverse;
@@ -2376,8 +2366,8 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   .gallery-list:focus-within {
     & > p {
       bottom: calc(var(--image-topbar-height) + 2px); // 2 is the outline/border
-      opacity: .5;
-      transition: opacity .5s 1.5s;
+      opacity: 0;
+      transition: opacity 1.5s 2s;
     } 
     & > .gallery-image-wrapper {
       height: 100%;
@@ -2392,6 +2382,9 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
       width: 100%;
       height: 100%;
     }
+  }
+  .gallery-list--custom-1 .gallery-image > img {
+    object-position: 85%;
   }
 }
 @media (max-width: 450px) {
