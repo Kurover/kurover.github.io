@@ -2278,19 +2278,8 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   }
   .gallery-list:focus-within {
     & .gallery-image {
-    min-height: 86vh; // Respect zoom out level
-    height: 896px;
-    width: fit-content;
-    }
-  }
-  .gallery-list.landscape:focus-within > .gallery-image-wrapper > .gallery-image {
-    max-height: calc(100vh - var(--image-topbar-height));
-    min-height: unset;
-    height: fit-content;
-    overflow: auto;
-    scrollbar-width: none;
-    & > img {
-      width: calc(100vw - 15px);
+    // min-height: 86vh; // Respect zoom out level // How about let the user zoom the page or download the image? This declaration alone give so many headache!
+    height: min(896px, 95vh);
     }
   }
   .gallery-close {
@@ -2306,19 +2295,6 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
     }
     &:hover {
       background-color: var(--clr-warning);
-    }
-  }
-}
-// (Desktop) For zoomed zoomed-image (yes you read that right, zooming during zoom mode), modify the wrapper content since the wrapper itself has overflow bar already. If not set like this, the image will be centered and cannot be scrolled up. Very niche situtation eh? Also doesn't really benefit landscape image.
-@media (min-width: 769px) and (max-height: 929px) {
-  .gallery-list:not(.landscape):focus-within {
-  & > .gallery-image-wrapper {
-    bottom: unset!important;
-    height: 100%; // Make sure the container doesn't overflow (due to image size) and make the container scrollable (if the image itself overflow). The border will expand to empty space though so adjust @media height accordingly, 896 (image height) + 32 (topbar)
-    }
-  & .gallery-image {
-    min-height: unset;
-    width: 100%; // Will prioritize maximizing width to the container so the vertical overflows and become scrollable!
     }
   }
 }
