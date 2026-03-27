@@ -13,6 +13,8 @@ og-type: website
   <!-- ! Main Header -->
   <!-- Has hidden overflow to prevent scrollbar jitter, mainly for firefox -->
   <section class="wrapper border bg-color no-overflow relative" tabindex="-1" id="main"> 
+    <!-- Last rebuild text -->
+    <a href="https://github.com/Kurover/kurover.github.io/commits/main/?{{ site.time | date: "%s" }}" target="_blank" class="top-right-note" style="opacity: .25; font-size: 8px;">Last rebuild: {{ site.time | date_to_rfc822 }}</a>
     <!-- ! Profile System -->
     <input id="profile-headshot-1_sys" type="radio" name="profile-accordion" checked>
     <input id="profile-headshot-2_sys" type="radio" name="profile-accordion">
@@ -31,7 +33,6 @@ og-type: website
     </div>
     <!-- ! Content Start -->
     <h1>Hello!</h1>
-    <a href="https://github.com/Kurover/kurover.github.io/commits/main/?{{ site.time | date: "%s" }}" target="_blank" class="top-right-note" style="opacity: .25; font-size: 8px;">Last rebuild: {{ site.time | date_to_rfc822 }}</a>
     <!-- ? Section 1 -->
     <div class="profile-headshot-section" data-target="1">
       <p class="caption">"Welcome, make yourself comfy!"</p>
