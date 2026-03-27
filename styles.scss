@@ -98,7 +98,7 @@
 
 // ! @title # Global
 html {
-  font-family: 'Pixel04b03', sans-serif;
+  font-family: 'Pixel04b03', monospace, system-ui;
   width: 100%;
   scroll-behavior: smooth;
   -webkit-font-smoothing: none;
@@ -195,7 +195,7 @@ input[id$=_sys] {
   height: 0;
 }
 blockquote {
-  font-family: 'Fira Code', monospace;
+  font-family: 'Fira Code', monospace, system-ui;
   background-color: #25202c;
   color: var(--clr-text-dim);
   padding: 4px;
@@ -378,12 +378,12 @@ body::after {
   }
 }
 .font-alternative {
-  font-family: 'Rubik';
+  font-family: 'Rubik', sans-serif, system-ui;
   -webkit-font-smoothing: auto;
   -moz-osx-font-smoothing: auto;
 }
 .font-mono {
-  font-family: 'Fira Code';
+  font-family: 'Fira Code', monospace, system-ui;
   -webkit-font-smoothing: auto;
   -moz-osx-font-smoothing: auto;
 }
@@ -2433,7 +2433,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
     overflow: auto;
   }
   & code {
-    font-family: 'Fira Code', monospace;
+    font-family: 'Fira Code', monospace, system-ui;
     font-size: small;
   }
 }
@@ -2664,7 +2664,7 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
 // ? @section # Blog-Post Exclusive
 .blog-post {
   position: relative;
-  font-family: 'Rubik', sans-serif;
+  font-family: 'Rubik', sans-serif, system-ui;
   -webkit-font-smoothing: auto;
   -moz-osx-font-smoothing: auto;
   text-align: justify;
