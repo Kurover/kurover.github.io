@@ -1050,17 +1050,21 @@ body::after {
 }
 
 // * @main # ProfilePicture
+// Looking at it again, the accordion is so confusing lol
 .headshot {
   --headshot-size: 128px;
-  --headshot-border: 2px solid white;
+  --headshot-border: 2px solid var(--clr-text);
+  display: grid;
+  gap: 2px; // For border as the image has absolute positioning
   position: relative;
-  box-sizing: border-box;
+  width: fit-content;
   margin: auto;
+  background-color: var(--clr-background);
+  border: var(--headshot-border);
   & > img {
     margin: auto;
     height: auto;
     width: var(--headshot-size);
-    border: var(--headshot-border);
   }
 }
 .headshot__name {
@@ -1068,40 +1072,33 @@ body::after {
   text-align: center;
   padding: 4px 0;
   width: var(--headshot-size);
-  border: var(--headshot-border);
+  outline: var(--headshot-border);
 }
   // ? @section ## Mod
 .headshot--float-left {float: left;}
 .headshot--float-right {float: right;}
-.headshot--pos-first {margin: 0 1rem .5rem 0;}
-.headshot--pos-middle {margin: 1rem 1rem .5rem 0;}
+.headshot--pos-first {margin: 0 1rem 0 0;}
+.headshot--pos-middle {margin: 1rem 1rem 0 0;}
 // * ProfileAccordion
-.headshot-accordion {
-  position: relative;
+.headshot-accordion__images {
   width: var(--headshot-size);
   height: var(--headshot-size);
-  margin-bottom: 32px;
-  margin-right: 1rem;
-  border: var(--headshot-border);
-  background-color: var(--clr-background);
   & > img {
     position: absolute;
     transition: visibility .25s, opacity .25s, transform .5s;
+    visibility: hidden;
     opacity: 0;
   }
 }
-.headshot-accordion-toggle {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  position: absolute;
-  width: 100%;
-  bottom: -26px;
+.headshot-accordion__toggle {
+  display: flex;
+  flex-direction: row;
   line-height: 24px;
   text-align: center;
-  background-color: var(--clr-background);
   & label {
     cursor: pointer;
     outline: var(--headshot-border);
+    flex: 1;
   }
 }
 @keyframes profile-transition-1 {
@@ -1130,18 +1127,19 @@ body::after {
 // ? Toggles
 // Tell you what, this is much more readable than the previous / old one
 // edit me on future, why don't I use classes??
-.headshot-accordion-toggle > label {
+.headshot-accordion__toggle > label {
   color: var(--clr-link-active);
   &:hover {
     color: var(--clr-link);
   }
 }
-input[id^=profile-headshot-1]:checked ~ .headshot > .headshot-accordion {
+input[id^=profile-headshot-1]:checked ~ .headshot-accordion {
   animation: profile-transition-1 .5s ease 0s 1;
-  & > img:nth-of-type(1) {
+  & .headshot-accordion__images > img:nth-of-type(1) {
     opacity: 1;
+    visibility: visible;
   }
-  & > .headshot-accordion-toggle > label {
+  & > .headshot-accordion__toggle > label {
     &:nth-of-type(1) {
       color: var(--clr-link-hover);
       &:hover {
@@ -1150,12 +1148,13 @@ input[id^=profile-headshot-1]:checked ~ .headshot > .headshot-accordion {
     }
   }
 }
-input[id^=profile-headshot-2]:checked ~ .headshot > .headshot-accordion {
+input[id^=profile-headshot-2]:checked ~ .headshot-accordion {
   animation: profile-transition-2 .5s;
-  & > img:nth-of-type(2) {
+  & .headshot-accordion__images > img:nth-of-type(2) {
     opacity: 1;
+    visibility: visible;
   }
-  & > .headshot-accordion-toggle > label {
+  & > .headshot-accordion__toggle > label {
     &:nth-of-type(2) {
       color: var(--clr-link-hover);
       &:hover {
@@ -1164,16 +1163,13 @@ input[id^=profile-headshot-2]:checked ~ .headshot > .headshot-accordion {
     }
   }
 }
-.profile-home-youmu {
-  visibility: hidden;
-}
-input[id^=profile-headshot-3]:checked ~ .headshot > .headshot-accordion {
+input[id^=profile-headshot-3]:checked ~ .headshot-accordion {
   animation: profile-transition-3 .5s;
-  & > img:nth-of-type(3) {
+  & .headshot-accordion__images > img:nth-of-type(3) {
     opacity: 1;
     visibility: visible;
   }
-  & > .headshot-accordion-toggle > label {
+  & > .headshot-accordion__toggle > label {
     &:nth-of-type(3) {
       color: var(--clr-link-hover);
       &:hover {
@@ -1182,11 +1178,18 @@ input[id^=profile-headshot-3]:checked ~ .headshot > .headshot-accordion {
     }
   }
 }
-input[id^=profile-headshot-1]:is(:hover, :focus) ~ .headshot > .headshot-accordion > .headshot-accordion-toggle > 
+.profile-accordion-backdoor:checked ~ .headshot-accordion {
+  box-shadow: 0 0 8px 2px var(--clr-text);
+  transition: .5s;
+  & > .headshot-accordion__toggle > label:not(:nth-of-type(3)) {
+    color: var(--clr-text-fade);
+  }
+}
+input[id^=profile-headshot-1]:is(:hover, :focus) ~ .headshot-accordion > .headshot-accordion__toggle > 
 label:nth-of-type(1) {text-decoration: underline;}
-input[id^=profile-headshot-2]:is(:hover, :focus) ~ .headshot > .headshot-accordion > .headshot-accordion-toggle > 
+input[id^=profile-headshot-2]:is(:hover, :focus) ~ .headshot-accordion > .headshot-accordion__toggle > 
 label:nth-of-type(2) {text-decoration: underline;}
-input[id^=profile-headshot-3]:is(:hover, :focus) ~ .headshot > .headshot-accordion > .headshot-accordion-toggle > 
+input[id^=profile-headshot-3]:is(:hover, :focus) ~ .headshot-accordion > .headshot-accordion__toggle > 
 label:nth-of-type(3) {text-decoration: underline;}
 
 // Text Switcher
@@ -1209,7 +1212,8 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     margin-bottom: 1rem;
   }
   .headshot-accordion {
-    margin: auto auto calc(1rem + 24px) auto;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
@@ -1950,15 +1954,16 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
 }
 
 // * @section # Illith avatar stuff
-.gallery-illith-accordion > img {
+.gallery-illith-headshot img {
   transition: 0s;
   transition-delay: .33s;
+  visibility: visible;
 }
 .gallery-illith-state.normal {
   opacity: 1;
 }
 // Visiblity switch here to ensure no overlapping image when hovering between the image and text trigger. Hard to explain but try removing it and see yourself
-.gallery-illith-accordion:hover > .gallery-illith-state {
+.gallery-illith-headshot:hover .gallery-illith-state {
   opacity: 0;
   transition-delay: 0s;
   visibility: hidden;
@@ -1967,14 +1972,14 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
     visibility: visible;
   }
 }
-.gallery-illith-anchor:has(> .click-only:hover) .gallery-illith-state {
+.gallery-illith-anchor:has(> .click-only:hover) > .gallery-illith-headshot .gallery-illith-state {
   opacity: 0;
   transition-delay: 0s;
   &.surprised {
     opacity: 1;
   }
 }
-.gallery-illith-anchor:has(> .click-only:focus-within) .gallery-illith-state {
+.gallery-illith-anchor:has(> .click-only:focus-within) > .gallery-illith-headshot .gallery-illith-state {
   opacity: 0;
   transition-delay: 0s;
   &.happy {
@@ -1986,20 +1991,20 @@ div.contact-list--alt::before { // Dummy content for the tooltip one to fix layo
   }
 }
 // .override is the drag imagery. !important is used since this take priority and the :not make sure it doesn't !important conflict hell with the other visible img. The glare get excluded because that make sure there's no blank image when you click & drag > release somewhere > hover back to accordion. All in the name of consistency...
-.gallery-illith-accordion:active {
+.gallery-illith-headshot:active {
   // transition: .33s;
   transition-delay: 0s;
-  & > :not(.panic, .override, .glare) {
+  & .gallery-illith-state:not(.panic, .override, .glare) {
     visibility: hidden!important;
   }
-  & > .panic {
+  & .panic {
     visibility: visible;
     opacity: 1;
   }
-  & > .override {
+  & .override {
     visibility: visible;
   }
-  & > .glare {
+  & .glare {
     opacity: 0!important;
   }
 }

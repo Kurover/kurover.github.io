@@ -306,7 +306,7 @@ to expand its content</p>
   &lt;p class=&quot;headshot&lowbar;&lowbar;name&quot;&gt;Default&lt;/p&gt;
 &lt;/div&gt;</span>
 </code></pre></div>    
-<p>The name is optional. Use float if need to be stacked, be warned it will overlap with other container outside if there's not enough content below it.</p>
+<p>The name is optional. Use float if need to be stacked, be warned it will overlap with other container outside if there's not enough content below it. Fixable by adding overflow:hidden on parent container</p>
 <div class="codeblock-full" style="--title:'mods'">
 <pre><code>
 <span>.headshot--float-left</span>    - make it float left so you can fill content on the empty space beside it
@@ -314,7 +314,6 @@ to expand its content</p>
 <span>.headshot--pos-first</span>     - modify margin, mainly for float, use on first object in the container
 <span>.headshot--pos-middle</span>    -                                  use in-between objects in the container
 </code></pre></div>
-<p>Don't stack default (no modifier) with floating, it's broken as you can see from example above.</p>
 </section>
 
 <section class="wrapper border">
