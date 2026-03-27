@@ -1,0 +1,37 @@
+---
+layout: lab
+name: Image and Sprites
+alias: CSS - Image and Sprites
+---
+<section class="wrapper border bg-color">
+  <h1>Img & Sprite</h1>
+  <p>This section actually only covers the Sprite.. for now. Too lazy to write about img stuff... <span class="font-alternative">:P</span></p>
+  <hr>
+  <p>Images using background-image and positioning class! This way we also reduce requests and on top of it, we can roleplay making a game, amazing!</p>
+  <img src="/img/icon-pack48__px.png" alt="" style="background-color: var(--clr-background);">
+  <p>The individual size of these icons are 48px. To determine the "sprite position" we use "background-position: X Y;", where 0 | 0 is the first image in a container of 48px size.</p>
+  <p>To point to the next image, add 48px to the coordinate value. The value is reversed than you would expect. So if you want to point to the 3rd column | 2nd row, the value would be -96px | -48px.</p>
+</section>
+
+<section class="wrapper border bg-color atlas">
+  <h2>Sprite</h2>
+  <p>Example container with "background:" sprite</p>
+  <div class="no-overflow">
+    <div class="container-test too-large"></div>
+    <p class="no-margin">This is a 64px container with the 48px sprites. As you can see, it's overflow-ed. If you want to put the sprite in a larger container, you must separate it into a container with 48 px height and width.</p>
+  </div>
+
+  <hr class="separator">
+  <div class="no-overflow">
+    <div class="container-test large"></div>
+    <div class="container-test large" style="--sprite-position-x: 4;"></div>
+    <div class="container-test large atlas" style="--sprite-position-x: 4;"></div>
+    <p class="no-margin">The main 48px sprite in exact container size. The 2nd and 3rd actually has the same inline style value edit in html but because the positioning class use calc and that calc contains variable, it couldn't apply the variable into the calculation for the 2nd one (since it doesn't have all related variable set). It's a bit hard to explain so you'll have to check the css file yourself.</p>
+  </div>
+
+  <hr class="separator">
+  <div class="no-overflow">
+    <div class="container-test small"></div>
+    <p class="no-margin">Smaller, 24px sprite. A new addition to the mix. Will probably use it for button icon and such.</p>
+  </div>
+</section>
