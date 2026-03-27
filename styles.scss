@@ -889,6 +889,7 @@ body::after {
     
     visibility: hidden;
     transition: visibility .25s;
+    & > p:first-child {margin-top: revert;}
   }
 }
   // ? Styles
