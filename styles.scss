@@ -1354,6 +1354,11 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   opacity: 1;
   visibility: visible;
 }
+@media (max-width: 768px) {
+  .contact-list-tooltip.m-right {
+    left: unset;
+  }
+}
 
 // @main # More Link Popup
 .more-link-popup {
