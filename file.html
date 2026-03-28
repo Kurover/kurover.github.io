@@ -19,7 +19,7 @@ custom-css: /styles/file-cursor.css
 
   <!-- ! @main # CSOS MAIN -->
   <p class="wrapper notice mobile-only">The section below is not built for mobile and cursor-less device! Sorry~!</p>
-  <section class="wrapper wrapper--CSOS CSOS-root">
+  <div class="wrapper wrapper--CSOS CSOS-root">
     <!-- * Core States -->
     <!-- Remnants of the past. With just a few shower session, we figured out how to make the :focus mechanism smooth! -->
     <!-- <input type="checkbox" id="CSOS-start-menu-state" tabindex="-1"> -->
@@ -176,7 +176,7 @@ custom-css: /styles/file-cursor.css
             {% for cursor-lists in site.data.file.cursor.list %}
             {% assign cursor = cursor-lists[1] %}
             <div class="CSOS-start-cursor-button" id="CSOS-div-cursor-{{ cursor.name }}">
-              <label for="CSOS-cursor-state-{{ cursor.name }}" class="CSOS-start-cursor-list">{% if cursor.icon %}<img src="{{ cursor.icon }}">{% endif %}{{ cursor.name }}<span>{{ cursor.rating }}</span></label>
+              <label for="CSOS-cursor-state-{{ cursor.name }}" class="CSOS-start-cursor-list">{% if cursor.icon %}<img src="{{ cursor.icon }}" alt="">{% endif %}{{ cursor.name }}<span>{{ cursor.rating }}</span></label>
               {% if cursor.preview %}
               <div class="CSOS-start-cursor-preview">
                 <img src="{{ cursor.preview }}" alt="" loading="lazy">
@@ -220,7 +220,7 @@ custom-css: /styles/file-cursor.css
               <hr class="br-flex">
               {% for bg in site.data.file.background.list %}
               <div class="CSOS-start-bg-button {{bg.class}}">
-                {% if bg.link %}<img src="{{ bg.link }}" loading="lazy">{% endif %}
+                {% if bg.link %}<img src="{{ bg.link }}" alt="" loading="lazy">{% endif %}
                 <label for="{{ bg.id }}"></label>
               </div>
               {% if bg.separate %}<hr class="br-flex">{% endif %}
@@ -232,7 +232,7 @@ custom-css: /styles/file-cursor.css
       </div>
       <!-- @section . Taskbar -->
       <div class="CSOS-taskbar">
-        <div for="CSOS-start-menu-state" class="CSOS-start-menu-bar CSOS-cPoint">
+        <div class="CSOS-start-menu-bar CSOS-cPoint">
           <!-- The first one get tabindex so when the start menu is shown with :focus, the .active one will take place and when clicked again, deactivate since you no longer click on focusable element  -->
           <div class="CSOS-start-orb-bar" tabindex="-1"></div>
           <div class="CSOS-start-orb-bar active"></div>
@@ -241,7 +241,7 @@ custom-css: /styles/file-cursor.css
         <div class="CSOS-start-time-bar"><span>xx:xx</span></div>
       </div>
     </div>
-  </section>
+  </div>
 
   <div class="CSOS-warning notice center">
     <p>Resizing minorly breaks Rumia mechanism.</p>

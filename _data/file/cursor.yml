@@ -6,7 +6,7 @@ list:
     rating: ★★
     icon: /file/cursor/koakuma/default1.png
     preview: /file/cursor/cursor_koakuma.gif
-    link-github: /file/cursor/Koakuma Cursor v0.1c.zip
+    link-github: /file/cursor/Koakuma_Cursor-v0.1c.zip
     link-dropbox: https://www.dropbox.com/s/p79izy2rh86zozq/KoakumaCursor_0.1c.zip?dl=0
     speed-default: 1.2s
     speed-wait: 2s
@@ -17,7 +17,7 @@ list:
     rating: ★★★★
     icon: /file/cursor/koishi/default1.png
     preview: /file/cursor/cursor_koishi.gif
-    link-github: /file/cursor/Koishi Cursor v0.1.zip
+    link-github: /file/cursor/Koishi_Cursor-v0.1.zip
     link-dropbox: https://www.dropbox.com/s/okg9qsozm2pwu7c/KoishiCursor_0.1.zip?dl=0
     speed-default: 1s
     speed-wait: 1.5s
@@ -28,7 +28,7 @@ list:
     rating: ★★
     icon: /file/cursor/youmu/default1.png
     preview: /file/cursor/cursor_youmu.gif
-    link-github: /file/cursor/Youmu Cursor v0.1.zip
+    link-github: /file/cursor/Youmu_Cursor-v0.1.zip
     link-dropbox: https://www.dropbox.com/s/na5jlhg6c0l3ug1/YoumuCursor_0.1.zip?dl=0
     speed-default: 2.5s
     speed-wait: 2.5s
