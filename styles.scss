@@ -1840,7 +1840,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   background-color: var(--clr-text);
   transition: background-color 2s 1.5s;
 }
-[data-btn-anim|="sub"] {
+.gallery-tab-button.sub {
   display: flex;
   justify-content: center;
   height: var(--height);
@@ -1864,13 +1864,13 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 }
 #gallery-tab-state-1__page-1_sys:checked,
 #gallery-tab-state-1__page-2_sys:checked {
-  & ~ .gallery-tab-buttons > [data-btn-anim="parent"] {
+  & ~ .gallery-tab-buttons > .nested {
     flex: 2.5;
-    & > label[data-btn-anim="main"] {
+    & > .main {
       flex: 0;
       overflow: hidden;
     }
-    & > label[data-btn-anim|="sub"] {
+    & > .sub {
       flex: 1;
     }
   }
@@ -1968,18 +1968,18 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   }
 }
   // ? Styles
-#gallery-tab-state-1__page-1_sys:focus-visible ~ [class$=buttons] > div[data-btn-anim="parent"] > label[data-btn-anim="sub-1"]  {
+#gallery-tab-state-1__page-1_sys:focus-visible ~ .gallery-tab-buttons > .nested > .tab-1-1  {
   box-shadow: 0 0 0 4px var(--clr-text);
   z-index: 3;
 }
-#gallery-tab-state-1__page-2_sys:focus-visible ~ [class$=buttons] > div[data-btn-anim="parent"] > label[data-btn-anim="sub-2"] {
+#gallery-tab-state-1__page-2_sys:focus-visible ~ .gallery-tab-buttons > .nested > .tab-1-2 {
   box-shadow: 0 0 0 4px var(--clr-text);
   z-index: 3;
 }
-#gallery-tab-state-2_sys:focus-visible ~ [class$=buttons] > label[for$=state-2_sys] {
+#gallery-tab-state-2_sys:focus-visible ~ .gallery-tab-buttons > .tab-2 {
   box-shadow: 0 0 0 4px var(--clr-text);
 }
-#gallery-tab-state-3_sys:focus-visible ~ [class$=buttons] > label[for$=state-3_sys] {
+#gallery-tab-state-3_sys:focus-visible ~ .gallery-tab-buttons > .tab-3 {
   box-shadow: 0 0 0 4px var(--clr-text);
 }
 
