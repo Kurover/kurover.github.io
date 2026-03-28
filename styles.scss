@@ -453,6 +453,9 @@ body::after {
   &.full {
     max-width: unset;
   }
+  &.flow {
+    display: flow-root;
+  }
 }
 .wrapper-alt {
   position: relative;
