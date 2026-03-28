@@ -1785,6 +1785,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   padding: 4px;
   gap: 4px;
   width: 100%;
+  user-select: none;
 
   background-color: var(--clr-background);
   transition: flex .5s;
@@ -1803,6 +1804,10 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   transition: flex .5s;
   &:hover {
     box-shadow: 0 0 0 2px inset var(--clr-accent);
+  }
+  &:active {
+    box-shadow: 0 0 0 4px inset var(--clr-text);
+    background-color: var(--clr-codeblock-bg);
   }
 }
 .gallery-tab-content {
@@ -1928,18 +1933,18 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   }
 }
   // ? Styles
-#gallery-tab-state-1__page-1_sys:focus ~ [class$=buttons] > div[data-btn-anim="parent"] > label[data-btn-anim="sub-1"]  {
+#gallery-tab-state-1__page-1_sys:focus-visible ~ [class$=buttons] > div[data-btn-anim="parent"] > label[data-btn-anim="sub-1"]  {
   box-shadow: 0 0 0 4px var(--clr-text);
   z-index: 1;
 }
-#gallery-tab-state-1__page-2_sys:focus ~ [class$=buttons] > div[data-btn-anim="parent"] > label[data-btn-anim="sub-2"] {
+#gallery-tab-state-1__page-2_sys:focus-visible ~ [class$=buttons] > div[data-btn-anim="parent"] > label[data-btn-anim="sub-2"] {
   box-shadow: 0 0 0 4px var(--clr-text);
   z-index: 1;
 }
-#gallery-tab-state-2_sys:focus ~ [class$=buttons] > label[for$=state-2_sys] {
+#gallery-tab-state-2_sys:focus-visible ~ [class$=buttons] > label[for$=state-2_sys] {
   box-shadow: 0 0 0 4px var(--clr-text);
 }
-#gallery-tab-state-3_sys:focus ~ [class$=buttons] > label[for$=state-3_sys] {
+#gallery-tab-state-3_sys:focus-visible ~ [class$=buttons] > label[for$=state-3_sys] {
   box-shadow: 0 0 0 4px var(--clr-text);
 }
 
@@ -2108,7 +2113,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   line-height: var(--image-topbar-height);
   height: var(--image-topbar-height);
 
-  outline: 2px solid var(--clr-border);
+  // outline: 2px solid var(--clr-border); // Set as border in each media query instead
   background-color: var(--clr-codeblock-bg-title);
   color: var(--clr-codeblock-text-title);
   cursor: default;
@@ -2128,28 +2133,31 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   }
 }
 .gallery-image-link {
-  visibility: hidden;
   display: flex;
   flex-direction: row;
   float: right;
+  user-select: none;
   & > a, label {
     display: inline-block;
     text-align: center;
     text-decoration: none;
     padding: 0 12px;
 
-    outline: 2px solid var(--clr-border);
+    border-inline: 1px solid var(--clr-border);
     background-color: var(--clr-btn-download);
-    color: var(--clr-link-active);
-    transition: opacity .2s;
-    transition-delay: .1s;
+    color: var(--clr-text);
+    transition: background-color .1s , color .1s;
     &:visited {
-      color: var(--clr-link-active);
+      color: var(--clr-text);
     }
     &:hover {
-      background-color: var(--clr-btn-secondary);
+      background-color: var(--clr-text);
       color: var(--clr-btn-download);
-      transition-delay: 0s;
+    }
+    &:active {
+      background-color: var(--clr-codeblock-bg);
+      color: var(--clr-text);
+      transition: unset;
     }
   }
 }
@@ -2157,12 +2165,10 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 .gallery-image__toggle {
   display: none;
 }
+// For specificity
 .gallery-image-link > .gallery-image-link__toggle {
   display: none;
   background-color: var(--clr-accent);
-}
-.gallery-close {
-  display: none;
 }
 // Class below is for label, which forces the focus outside (to input) of this element, very cool!
 .gallery-close-bg {
@@ -2203,12 +2209,6 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     position: sticky;
     top: 0;
   }
-  & .gallery-image-link {
-    visibility: visible;
-  }
-  & .gallery-close {
-    display: block;
-  }
   // System to do alt imagery
   &:has( .gallery-image__alt) img:first-of-type {
     display: none;
@@ -2219,6 +2219,9 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 }
 .gallery-toggle-button {
   cursor: pointer;
+}
+.gallery-toggle:focus-visible ~ .gallery-image-topbar > .gallery-image-link > .gallery-toggle-button {
+  box-shadow: 0 0 0 4px inset var(--clr-text);
 }
 .gallery-toggle:checked ~ .gallery-image-topbar > .gallery-image-link {
   & > .gallery-toggle-button {
@@ -2240,6 +2243,9 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     display: none;
   }
 }
+.gallery-image-wrapper:has(>.gallery-toggle) > .gallery-image:focus-visible {
+  box-shadow: 0 0 0 4px inset var(--clr-border);
+}
 
 // @misc @ Media
 @media (min-width: 769px) {
@@ -2248,6 +2254,9 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     overflow-y: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+  .gallery-image-topbar {
+    border-bottom: 2px solid var(--clr-border);
   }
   .gallery-list:focus-within {
     // Poor-man's ::backdrop
@@ -2276,6 +2285,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     cursor: pointer;
     padding: 0 1.5rem;
     outline: 2px solid var(--clr-border);
+    color: var(--clr-text);
     transition: background-color .1s;
     &::before {
       content: "X";
@@ -2284,6 +2294,10 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     }
     &:hover {
       background-color: var(--clr-warning);
+    }
+    &:active {
+      background-color: var(--clr-codeblock-bg);
+      transition: unset;
     }
   }
   .gallery-list--custom-1 {
@@ -2330,6 +2344,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   }
   .gallery-image-topbar {
     position: relative!important;
+    border-top: 2px solid var(--clr-border);
     &::before {
       padding-left: unset;
       padding-right: 16px;
