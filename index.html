@@ -57,33 +57,9 @@ og-type: website
   </section>
 
   <!-- ! Sample -->
+  <!-- Content is separated because HTML linting error due to liquid. You'll see this issue in other part as well. Setting up the formats in VSCode was not worth it so this is easier for me lol -->
   <section class="wrapper no-padding">
-    <input type="checkbox" id="gal-close_sys" tabindex="-1"> <!-- ! Explanation on gallery page -->
-    <h2 class="margin title-full">Work Sample</h2>
-    <div class="gallery-lists gallery-lists--horizontal">
-      {% for item-sample in site.data.home-sample %}
-      <div class="gallery-list{% if item-sample.size == "full" %} wide-hover{% endif %}" tabindex="-1">
-        <label for="gal-close_sys" class="gallery-close-bg"></label>
-        <div class="gallery-image-wrapper">
-          {% if item-sample.link-toggle %}<input type="checkbox" class="gallery-toggle" id="{{ item-sample.id }}_sys">{% endif %}
-          <div class="gallery-image-topbar">
-            <label for="gal-close_sys" class="gallery-close"></label>
-            <div class="gallery-image-link">
-              {% if item-sample.link-toggle %}<label for="{{ item-sample.id }}_sys" class="gallery-toggle-button">Loop</label>{% endif %}
-              {% if item-sample.link-alt %}<a href="{{ item-sample.link-alt }}" download tabindex="-1">Grab X</a>{% endif %}
-              {% if item-sample.link-toggle %}<a href="{{ item-sample.link-toggle }}" download tabindex="-1" class="gallery-image-link__toggle">Grab</a>{% endif %}
-              <a href="{{ item-sample.link }}" download tabindex="-1">Grab</a>
-            </div>
-          </div>
-          <div class="gallery-image" tabindex="0">
-            <img src="{{ item-sample.link }}" alt="{{ item-sample.name }}"{% if item-sample.ratio %} style="aspect-ratio: {{ item-sample.ratio }}"{% endif %}>
-            {% if item-sample.link-alt %}<img loading="lazy" class="gallery-image__alt" src="{{ item-sample.link-alt }}" alt="Alternative image">{% endif %}
-            {% if item-sample.link-toggle %}<img loading="lazy" class="gallery-image__toggle" src="{{ item-sample.link-toggle }}" alt="Alternative image">{% endif %}
-          </div>
-        </div>
-      </div>
-      {% endfor %}
-    </div>
+    {% include home-sample.html %}
   </section>
 
   <div class="wrapper bg-color">
