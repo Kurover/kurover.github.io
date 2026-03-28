@@ -1938,7 +1938,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   & ~ .gallery-tab-buttons {
     & .tab-3 {
       flex: 2;
-      background-color: var(--clr-accent-cyan);
+      background-color: var(--clr-accent-green);
       box-shadow: 0 0 0 2px inset var(--clr-secondary);
     }
     & label:not(.tab-3) {
