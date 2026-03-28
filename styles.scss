@@ -1877,9 +1877,14 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 }
 // Content toggle
 #gallery-tab-state-1__page-1_sys:checked {
-  & ~ .gallery-tab-buttons > .multiple > .tab-1-1 {
-    background-color: var(--clr-accent);
-    box-shadow: 0 0 0 2px inset var(---clr-secondary);
+  & ~ .gallery-tab-buttons {
+    & .tab-1-1 {
+      background-color: var(--clr-accent);
+      box-shadow: 0 0 0 2px inset var(---clr-secondary);
+    }
+    & label:not(.tab-1-1) {
+      z-index: 2;
+    }
   }
   & ~ #gallery-tab-1__page-1 {
     grid-template-rows: 1fr;
@@ -1891,9 +1896,14 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   }
 }
 #gallery-tab-state-1__page-2_sys:checked {
-  & ~ .gallery-tab-buttons > .multiple > .tab-1-2 {
-    background-color: var(--clr-accent);
-    box-shadow: 0 0 0 2px inset var(--clr-secondary);
+  & ~ .gallery-tab-buttons {
+    & .tab-1-2 {
+      background-color: var(--clr-accent);
+      box-shadow: 0 0 0 2px inset var(---clr-secondary);
+    }
+    & label:not(.tab-1-2) {
+      z-index: 2;
+    }
   }
   & ~ #gallery-tab-1__page-2 {
     grid-template-rows: 1fr;
@@ -1905,11 +1915,15 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   }
 }
 #gallery-tab-state-2_sys:checked {
-  & ~ .gallery-tab-buttons > .tab-2 {
-    flex: 2;
-    background-color: var(--clr-accent-cyan);
-    // box-shadow: 0 0 0 2px inset var(--clr-accent);
-    box-shadow: 0 0 0 2px inset var(--clr-secondary);
+  & ~ .gallery-tab-buttons {
+    & .tab-2 {
+      flex: 2;
+      background-color: var(--clr-accent-cyan);
+      box-shadow: 0 0 0 2px inset var(--clr-secondary);
+    }
+    & label:not(.tab-2) {
+      z-index: 2;
+    }
   }
   & ~ #gallery-tab-2 {
     grid-template-rows: 1fr;
@@ -1921,10 +1935,15 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   }
 }
 #gallery-tab-state-3_sys:checked {
-  & ~ .gallery-tab-buttons > .tab-3 {
-    flex: 2;
-    background-color: var(--clr-accent-green);
-    box-shadow: 0 0 0 2px inset var(--clr-secondary);
+  & ~ .gallery-tab-buttons {
+    & .tab-3 {
+      flex: 2;
+      background-color: var(--clr-accent-cyan);
+      box-shadow: 0 0 0 2px inset var(--clr-secondary);
+    }
+    & label:not(.tab-3) {
+      z-index: 2;
+    }
   }
   & ~ #gallery-tab-3 {
     grid-template-rows: 1fr;
@@ -1935,14 +1954,27 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     & .title-full {background-color: var(--clr-accent-green);}
   }
 }
+  // ? QoL
+// Skip transition when the same category is clicked twice. This system means the other class has to adjust z-index (simpler this way)
+.gallery-tab-skipper { // has .absolute
+  z-index: 1;
+  margin: 4px;
+}
+.gallery-tab-buttons:has(> .gallery-tab-skipper:active) ~ .gallery-tab-content {
+  --tab-transition-close: none;
+  --tab-transition-open: none;
+  & .title-full {
+    transition: none;
+  }
+}
   // ? Styles
 #gallery-tab-state-1__page-1_sys:focus-visible ~ [class$=buttons] > div[data-btn-anim="parent"] > label[data-btn-anim="sub-1"]  {
   box-shadow: 0 0 0 4px var(--clr-text);
-  z-index: 1;
+  z-index: 3;
 }
 #gallery-tab-state-1__page-2_sys:focus-visible ~ [class$=buttons] > div[data-btn-anim="parent"] > label[data-btn-anim="sub-2"] {
   box-shadow: 0 0 0 4px var(--clr-text);
-  z-index: 1;
+  z-index: 3;
 }
 #gallery-tab-state-2_sys:focus-visible ~ [class$=buttons] > label[for$=state-2_sys] {
   box-shadow: 0 0 0 4px var(--clr-text);
