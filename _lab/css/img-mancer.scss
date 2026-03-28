@@ -8,8 +8,8 @@ Hello world {}
   // --sprite-position-x: 1;
   // --sprite-position-y: 1;
   // --sprite-size: 48px;
-  --sprite24-path: url(/img/icon-pack24__px.png);
-  --sprite48-path: url(/img/icon-pack48__px.png);
+  --sprite24-path: url(/img/icon-pack24--px.png);
+  --sprite48-path: url(/img/icon-pack48--px.png);
 
   --sprite-position: calc(var(--sprite-position-x) * -48px + 48px) calc(var(--sprite-position-y) * -48px + 48px);
   // Must be defined in the container or else the variable is unreadable
@@ -22,8 +22,8 @@ Hello world {}
   --sprite-size: 48px;
   --sprite-position-x: 1;
   --sprite-position-y: 1;
-  --sprite24-path: url(/img/icon-pack24__px.png);
-  --sprite48-path: url(/img/icon-pack48__px.png);
+  --sprite24-path: url(/img/icon-pack24--px.png);
+  --sprite48-path: url(/img/icon-pack48--px.png);
   --sprite-position: calc(var(--sprite-position-x) * (var(--sprite-size) * -1) + var(--sprite-size)) calc(var(--sprite-position-y) * (var(--sprite-size) * -1) + var(--sprite-size));
 }
 

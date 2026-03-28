@@ -2,64 +2,64 @@ name: Animation
 id: gallery-tab-1__page-1
 list:
 - name: Mystia and Kyouko hanging together animation
-  link: /img/gallery/touhou_mystia__px.gif
+  link: /img/gallery/touhou-mystia--px.gif
   caption:
   class:
   separate: 
 - name: Patchouli's magician trick animation
-  link: /img/gallery/touhou_patchy__px.gif
+  link: /img/gallery/touhou-patchy--px.gif
   caption: Magician's Trick
   class:
   separate: true
 
 - name: Sekibanki with her cape fluttering, each side of it has mirage of her companion, Wakasagihime and Kagerou animation
-  link: /img/gallery/touhou_grassroot2__px.gif
+  link: /img/gallery/touhou-grassroot2--px.gif
   caption: Head of the pack
   class: full
   separate: 
 - name: Grassroot trio resting at night time animation
-  link: /img/gallery/touhou_grassroot1__px.gif
+  link: /img/gallery/touhou-grassroot1--px.gif
   caption: The girls are resting
   class:
   separate: 
 - name: Sekibanki and Kogasa under the parasol while raining animation
-  link: /img/gallery/touhou_grassroot3__px.gif
+  link: /img/gallery/touhou-grassroot3--px.gif
   caption: Warmth under the parasol
   class: wide
   separate: true
 
 - name: Reimu standing and spinning her stick animation
-  link: /img/gallery/touhou_reimu1__px.gif
-  link-toggle: /img/gallery/touhou_reimu1-loop__px.gif
+  link: /img/gallery/touhou-reimu1--px.gif
+  link-toggle: /img/gallery/touhou-reimu1-loop--px.gif
   id: reimu1
   caption:
   class:
   separate:
 - name: Kyouko drooling from food animation
-  link: /img/gallery/touhou_kyouko-2__px.gif
+  link: /img/gallery/touhou-kyouko-2--px.gif
   caption: 
   class: 
   separate: 
 - name: Marisa standing and changing her broom lantern with a new one animation
-  link: /img/gallery/touhou_marisa1__px.gif
-  link-toggle: /img/gallery/touhou_marisa1-loop__px.gif
+  link: /img/gallery/touhou-marisa1--px.gif
+  link-toggle: /img/gallery/touhou-marisa1-loop--px.gif
   id: marisa1
   caption:
   class:
   separate: true
 
 - name: Yamame and Kisume chatting with each other animation
-  link: /img/gallery/touhou_spood2__px.gif
+  link: /img/gallery/touhou-spood2--px.gif
   caption: Hangout Cavern
   class: full
   separate:
 - name: Yamame and Kisume doing arts and craft with a skull animation
-  link: /img/gallery/touhou_spood-x1__px.gif
+  link: /img/gallery/touhou-spood-x1--px.gif
   caption:
   class:
   separate:
 - name: Yamame creating an object with her thread animation
-  link: /img/gallery/touhou_spood1__px.gif
+  link: /img/gallery/touhou-spood1--px.gif
   caption: Don't ask where the web comes from
   class:
   separate: true

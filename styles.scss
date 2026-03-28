@@ -86,8 +86,8 @@
 
   --icon-atlas-x: 1;
   --icon-atlas-y: 1;
-  --icon-atlas24-path: url(/img/icon-pack24__px.png);
-  --icon-atlas48-path: url(/img/icon-pack48__px.png);
+  --icon-atlas24-path: url(/img/icon-pack24--px.png);
+  --icon-atlas48-path: url(/img/icon-pack48--px.png);
   --icon-atlas-size: 48px; // Redefine this alongside background-position if using other atlas size
   
   // Calc must be redefined on every background-position as the variable in the calc won't be updated outside of :root
@@ -181,10 +181,10 @@ img {
   min-height: 1px;
   min-width: 1px;
 }
-img[src*=__px] {
+img[src*=--px] {
   image-rendering: pixelated;
 }
-img[src*=__hd] {
+img[src*=--hd] {
   image-rendering: auto;
 }
 input[id$=_sys] {

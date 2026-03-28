@@ -2,92 +2,92 @@ name: Raster Art
 id: gallery-tab-3
 list:
 - name: Clover sleeping in an open treasure chest on her room
-  link: /img/gallery/oc_clover2__hd.webp
+  link: /img/gallery/oc-clover2--hd.webp
   caption: Zzz~
   class: full
   no-lazy: true
   separate:
 - name: Black and white painting of Eternity Larva hugging her knees
-  link: /img/gallery/touhou_eternity__hd.webp
+  link: /img/gallery/touhou-eternity--hd.webp
   caption: "\"Eternity\""
   class:
   separate:
 - name: Stylla on a small magical ship storming the seas
-  link: /img/gallery/oc_stylla2__hd.webp
+  link: /img/gallery/oc-stylla2--hd.webp
   caption:
   class:
   separate:
 - name: Wriggle, Rumia, Medicine, and Mystia group photo lineart
-  link: /img/gallery/touhou_quadro__hd.webp
+  link: /img/gallery/touhou-quadro--hd.webp
   caption: Say cheese!
   class:
   separate:
 - name: Marisa photo-bombing Reimu with peace sign and a wink
-  link: /img/gallery/touhou_duo__hd.webp
+  link: /img/gallery/touhou-duo--hd.webp
   caption: Peace~
   class:
   separate: true
 
 - name: A girl opening christmas gift containing an used GPU for mining
-  link: /img/gallery/general_friend-oc__hd.webp
+  link: /img/gallery/general-friend-oc--hd.webp
   caption: Secret Santa collab
   class: full
   separate:
 - name: Clover on the knee festively with a giant chocolate on her back
-  link: /img/gallery/oc_clover-random-1__hd.webp
+  link: /img/gallery/oc-clover-random-1--hd.webp
   caption:
   class:
   separate:
 - name: Stylla portrait
-  link: /img/gallery/oc_stylla-portrait.webp
+  link: /img/gallery/oc-stylla-portrait.webp
   caption:
   class:
   separate:
 - name: A girl with ornate dress holding a staff made out of bones
-  link: /img/gallery/oc_random-collab-1__px.webp
+  link: /img/gallery/oc-random-collab-1--px.webp
   caption: Random DnD chara OC collab
   class:
   separate: true
 
 - name: Rumia tehee
-  link: /img/gallery/touhou_mystia-random-1__hd.webp
+  link: /img/gallery/touhou-mystia-random-1--hd.webp
   caption: Tehee~
   class:
   separate:
 - name: Koishi stills holding her knife and wearing a backpack
-  link: /img/gallery/touhou_koosh2__hd.webp
+  link: /img/gallery/touhou-koosh2--hd.webp
   caption: Looking for some wares, stranger?
   class:
   separate:
 - name: Mystia telling you to go to work (yes ma'am)
-  link: /img/gallery/touhou_mystia-random-2__hd.webp
+  link: /img/gallery/touhou-mystia-random-2--hd.webp
   caption:
   class:
   separate: true
 
 - name: Arknights-verse collab character, Mithril, leaning on her large sword with lantern-fish background
-  link: /img/gallery/oc_random-collab-ak__hd.webp
+  link: /img/gallery/oc-random-collab-ak--hd.webp
   caption: AKverse OC collab
   class: full
   separate:
 
 - name: Sussuro thigh-high portrait holding a cup
-  link: /img/gallery/arknights_sus1__hd.webp
+  link: /img/gallery/arknights-sus1--hd.webp
   caption:
   class:
   separate:
 - name: Sussurro grabbing tightly of a small yellow crewmate while threatening it with a knife because who's the sussy baka now? (sorry)
-  link: /img/gallery/arknights_sus2__hd.webp
+  link: /img/gallery/arknights-sus2--hd.webp
   caption: Style mimic of u/sharktuna
   class:
   separate:
 - name: Suzuran, our light, portrait. Smiling of course
-  link: /img/gallery/arknights_suzuran__hd.webp
+  link: /img/gallery/arknights-suzuran--hd.webp
   caption: Our light!
   class:
   separate:
 - name: Arknights assortment of favorite operator on each class from year 1 of the game lifespan
-  link: /img/gallery/arknights_fav-op__hd.webp
+  link: /img/gallery/arknights-fav-op--hd.webp
   caption:
   class:
   separate: true

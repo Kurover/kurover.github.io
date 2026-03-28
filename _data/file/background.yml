@@ -1,23 +1,23 @@
 list:
-- link: /file/wallpaper-yama__px.png
+- link: /file/wallpaper-yama--px.png
   class: selection-1
   id: CSOS-bg-state-1
   default: true
-- link: /img/gallery/touhou_marisa__px.png
+- link: /img/gallery/touhou-marisa--px.png
   class: selection-2
   id: CSOS-bg-state-2
   separate: true
-- link: /img/gallery/touhou_grassroot2__px.gif
+- link: /img/gallery/touhou-grassroot2--px.gif
   class: selection-3
   id: CSOS-bg-state-3
-- link: /img/gallery/touhou_youmu2__px.gif
+- link: /img/gallery/touhou-youmu2--px.gif
   class: selection-4
   id: CSOS-bg-state-4
   separate: true
-- link: /img/gallery/oc_16x16sprite__px.png
+- link: /img/gallery/oc-16x16sprite--px.png
   class: selection-5
   id: CSOS-bg-state-5
-- link: /img/gallery/touhou_youmu3__px.png
+- link: /img/gallery/touhou-youmu3--px.png
   class: selection-6
   id: CSOS-bg-state-6
   separate: true

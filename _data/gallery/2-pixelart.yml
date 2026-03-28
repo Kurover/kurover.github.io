@@ -3,157 +3,157 @@ id: gallery-tab-2
 extra-style: 'style="--speed-open: 2s; --speed-close: .65s"'
 list:
 - name: Clover and Stylla holding a pottery with thank you letter on it
-  link: /img/gallery/oc_tw10k-banner__px.png
-  link-alt: /img/gallery/oc_tw10k__px.png
+  link: /img/gallery/oc-tw10k-banner--px.png
+  link-alt: /img/gallery/oc-tw10k--px.png
   caption: Thank you for 1000 followers!
   class: full right gallery-list--custom-1
   no-lazy: true
   separate: true
 - name: 3 female character design that is unused
-  link: /img/gallery/oc_oldmc__px.png
+  link: /img/gallery/oc-oldmc--px.png
   caption: OCs legacy design
   class: wide
   separate:
 - name: A group logo of 2 Satori eyes mixed in a single picture
-  link: /img/gallery/oc_group-logo__px.png
+  link: /img/gallery/oc-group-logo--px.png
   caption: A certain group logo since 2019
   class:
   separate: true
 
 - name: Early design of Illith the website mascot
-  link: /img/gallery/oc_illith__px.png
+  link: /img/gallery/oc-illith--px.png
   caption: First iteration of Illith
   class:
   separate:
 - name: 3 characters in the middle of dark place fighting off creature of the night
-  link: /img/gallery/oc_trio__px.png
+  link: /img/gallery/oc-trio--px.png
   caption:
   class: wide
   separate: true
 
 - name: Koishi winking portrait
-  link: /img/gallery/touhou_koishi__px.png
+  link: /img/gallery/touhou-koishi--px.png
   caption: Sparkles~!
   class: full
   separate:
 - name: Koishi stills with festive hands out pose
-  link: /img/gallery/touhou_kooshy1__px.png
+  link: /img/gallery/touhou-kooshy1--px.png
   caption: First entry of Kooshy day
   class:
   separate:
 - name: Koishi stills on a flowery cut of land
-  link: /img/gallery/touhou_kooshy2__px.png
+  link: /img/gallery/touhou-kooshy2--px.png
   caption:
   class:
   separate:
 - name: Koishi portrait while listening to headphone
-  link: /img/gallery/touhou_kooshy3__px.png
+  link: /img/gallery/touhou-kooshy3--px.png
   caption:
   class:
   separate: true
 
 - name: Patchouli dreaming of her and Marisa bickering at each other
-  link: /img/gallery/touhou_patchy3__px.png
+  link: /img/gallery/touhou-patchy3--px.png
   caption: Mukyu!
   class:
   separate:
 - name: Yamame laying down on a spider web
-  link: /img/gallery/touhou_spood3__px.png
+  link: /img/gallery/touhou-spood3--px.png
   caption:
   class:
   separate: true
 
 - name: Yoshika stills doing a zombie pose
-  link: /img/gallery/touhou_yoshika__px.png
+  link: /img/gallery/touhou-yoshika--px.png
   caption:
   class:
   separate:
 - name: Kyouko happily rings a bell
-  link: /img/gallery/touhou_kyouko__px.png
+  link: /img/gallery/touhou-kyouko--px.png
   caption:
   class:
   separate:
 - name: Youmu portrait of her slashing with her katana
-  link: /img/gallery/touhou_youmu__px.png
+  link: /img/gallery/touhou-youmu--px.png
   caption:
   class:
   separate:
 - name: Youmu holding her mini hat
-  link: /img/gallery/touhou_youmu3__px.png
+  link: /img/gallery/touhou-youmu3--px.png
   caption:
   class:
   separate: true
 
 - name: Kogasa melancholically looking at a star in the muted night sky
-  link: /img/gallery/touhou_kogasa1__px.png
+  link: /img/gallery/touhou-kogasa1--px.png
   caption:
   class: left
   separate:
 - name: Miyoi hopping pose while holding drinks
-  link: /img/gallery/touhou_whale__px.png
+  link: /img/gallery/touhou-whale--px.png
   caption:
   class: white
   separate:
 - name: Nazrin treasure hunting and disappointed with what to come
-  link: /img/gallery/touhou_nazrin__px.png
+  link: /img/gallery/touhou-nazrin--px.png
   caption:
   class: right
   separate: true
 
 - name: Sannyo, Mike, and Takane jumping out pose
-  link: /img/gallery/touhou_trio18__px.png
+  link: /img/gallery/touhou-trio18--px.png
   caption:
   class: full
   separate:
 - name: Medicine Melancholy sitting silently in the middle of a field
-  link: /img/gallery/touhou_medicine__px.png
+  link: /img/gallery/touhou-medicine--px.png
   caption:
   class:
   separate:
 - name: Mokou standing in the bamboo forest with her fiery wings spread out
-  link: /img/gallery/touhou_mokou__px.png
+  link: /img/gallery/touhou-mokou--px.png
   caption:
   class:
   separate:
 - name: Marisa flying with broom on a flat ocean full of cosmic object and earth
-  link: /img/gallery/touhou_marisa__px.png
+  link: /img/gallery/touhou-marisa--px.png
   caption:
   class: right
   separate: true
   
 - name: Pokemon Sword and Shield main character with 3 starter pokemon on a field
-  link: /img/gallery/pokemon_gen8__px.png
+  link: /img/gallery/pokemon-gen8--px.png
   caption:
   class:
   separate:
 - name: Croque Diamondface portrait smiling with peace sign, so beautiful
-  link: /img/gallery/arknights_croque__px.png
+  link: /img/gallery/arknights-croque--px.png
   caption: Diamondface &#60;3
   class:
   separate:
 - name: A fruity stills
-  link: /img/gallery/oc_fruit__px.png
+  link: /img/gallery/oc-fruit--px.png
   caption: Obligatory fruit drawing
   class:
   separate:
 - name: 12 random offensive tool sprites
-  link: /img/gallery/oc_16x16sprite__px.png
+  link: /img/gallery/oc-16x16sprite--px.png
   caption:
   class:
   separate: true
 
 - name: A girl with alchemist outfit standing still
-  link: /img/gallery/oc_sprite1__px.png
+  link: /img/gallery/oc-sprite1--px.png
   caption:
   class:
   separate:
 - name: A monotone portrait of a girl smiling
-  link: /img/gallery/oc_melancholy__px.png
+  link: /img/gallery/oc-melancholy--px.png
   caption:
   class:
   separate:
 - name: A river-like and bubbly landscape with glowing towers in the distance
-  link: /img/gallery/oc_f2__px.png
+  link: /img/gallery/oc-f2--px.png
   caption: One of the first big pixel art background I've made
   class: right wide
   separate: true

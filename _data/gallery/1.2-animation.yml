@@ -2,65 +2,65 @@ name: Animation 2
 id: gallery-tab-1__page-2
 list:
 - name: Koishi using a telephone with no reply animation
-  link: /img/gallery/touhou_kooshy__px.gif
+  link: /img/gallery/touhou-kooshy--px.gif
   caption: Ring ring?
   class:
   separate:
 - name: Alice training her doll to float animation
-  link: /img/gallery/touhou_alice__px.gif
+  link: /img/gallery/touhou-alice--px.gif
   caption:
   class:
   separate:
 - name: Youmu under the night sky watching star fall animation
-  link: /img/gallery/touhou_youmu2__px.gif
+  link: /img/gallery/touhou-youmu2--px.gif
   caption:
   class:
   separate: true
 
 - name: Rumia idle inside her dark bubble animation
-  link: /img/gallery/touhou_rumia__px.gif
+  link: /img/gallery/touhou-rumia--px.gif
   caption:
   class:
   separate:
 - name: Cirno charging animation
-  link: /img/gallery/touhou_cirno__px.gif
+  link: /img/gallery/touhou-cirno--px.gif
   caption:
   class:
   separate: 
 - name: Rumia sitting inside her dark bubble full of cracks animation
-  link: /img/gallery/touhou_rumia-2__px.gif
+  link: /img/gallery/touhou-rumia-2--px.gif
   caption:
   class:
   separate: true
 
 - name: Clover standing while holding a poleaxe animation
-  link: /img/gallery/oc_clover1__px.gif
+  link: /img/gallery/oc-clover1--px.gif
   caption:
   class:
   separate:
 - name: Stylla jolly idle pose animation
-  link: /img/gallery/oc_stylla1__px.gif
+  link: /img/gallery/oc-stylla1--px.gif
   caption:
   class:
   separate:
 - name: Stylla cold still sitting pose animation
-  link: /img/gallery/oc_stylla1b__px.gif
+  link: /img/gallery/oc-stylla1b--px.gif
   caption:
   class:
   separate: true
 
 - name: A girl sitting on top of a large harp while swinging her legs animation
-  link: /img/gallery/oc_abd-1__px.gif
+  link: /img/gallery/oc-abd-1--px.gif
   caption:
   class:
   separate:
 - name: Clover standing while holding a comically large scythe animation
-  link: /img/gallery/oc_old1__px.gif
+  link: /img/gallery/oc-old1--px.gif
   caption:
   class:
   separate:
 - name: A girl standing with eyes closed and her left hand pulsing with power animation
-  link: /img/gallery/oc_abd-2__px.gif
+  link: /img/gallery/oc-abd-2--px.gif
   caption:
   class:
   separate: true

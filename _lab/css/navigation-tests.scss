@@ -27,10 +27,10 @@
   transition: opacity .5s;
 }
 .nav-lab-float__icon::before {
-  background: url(/img/icon-pack48__px.png) calc(6 * -48px + 48px) calc(3 * -48px + 48px);;
+  background: url(/img/icon-pack48--px.png) calc(6 * -48px + 48px) calc(3 * -48px + 48px);;
 }
 .nav-lab-float__icon::after {
-  background: url(/img/icon-pack48__px.png) calc(6 * -48px + 48px) calc(2 * -48px + 48px);
+  background: url(/img/icon-pack48--px.png) calc(6 * -48px + 48px) calc(2 * -48px + 48px);
   opacity: 0;
 }
 .nav-lab-float__tooltip {

@@ -1303,7 +1303,7 @@
 	height: 420px;
 	padding: 1rem;
 	image-rendering: pixelated;
-	// background-image: url(/img/gallery/touhou_grassroot3__px.gif); set below
+	// background-image: url(/img/gallery/touhou-grassroot3--px.gif); set below
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -1356,9 +1356,9 @@
 
 // CSS State Styling
 // I forgor that this is pain, peko.
-.cursor-preview-master:has(> #cursor-bg-option-1:checked) > .cursor-test-field {background-image: url(/img/gallery/touhou_grassroot3__px.gif);}
-.cursor-preview-master:has(> #cursor-bg-option-2:checked) > .cursor-test-field {background-image: url(/img/gallery/touhou_trio18__px.png);}
-.cursor-preview-master:has(> #cursor-bg-option-3:checked) > .cursor-test-field {background-image: url(/img/gallery/oc_clover2__hd.webp); image-rendering: auto;}
+.cursor-preview-master:has(> #cursor-bg-option-1:checked) > .cursor-test-field {background-image: url(/img/gallery/touhou-grassroot3--px.gif);}
+.cursor-preview-master:has(> #cursor-bg-option-2:checked) > .cursor-test-field {background-image: url(/img/gallery/touhou-trio18--px.png);}
+.cursor-preview-master:has(> #cursor-bg-option-3:checked) > .cursor-test-field {background-image: url(/img/gallery/oc-clover2--hd.webp); image-rendering: auto;}
 #cursor-bg-option-1:checked ~ .cursor-selectors.background > .btn-bg-cursor-1 {
 	background-color: var(--clr-background);
 	box-shadow: var(--border-active);
