@@ -44,13 +44,13 @@ og-type: gallery
     <input id="gallery-tab-state-2_sys" name="gallery-tab-states" type="radio" checked>
     <input id="gallery-tab-state-3_sys" name="gallery-tab-states" type="radio">
     <div class="gallery-tab-buttons">
-      <div class="gallery-tab-button" data-btn-anim="parent">
-        <label for="gallery-tab-state-1__page-1_sys" class="gallery-tab-button" data-btn-anim="sub-1">Page 1</label>
+      <div class="gallery-tab-button multiple" data-btn-anim="parent">
+        <label for="gallery-tab-state-1__page-1_sys" class="gallery-tab-button tab-1-1" data-btn-anim="sub-1">Page 1</label>
         <label for="gallery-tab-state-1__page-1_sys" class="gallery-tab-button" data-btn-anim="main">Animation</label>
-        <label for="gallery-tab-state-1__page-2_sys" class="gallery-tab-button" data-btn-anim="sub-2">Page 2</label>
+        <label for="gallery-tab-state-1__page-2_sys" class="gallery-tab-button tab-1-2" data-btn-anim="sub-2">Page 2</label>
       </div>
-      <label for="gallery-tab-state-2_sys" class="gallery-tab-button">Pixelart</label>
-      <label for="gallery-tab-state-3_sys" class="gallery-tab-button">Raster</label>
+      <label for="gallery-tab-state-2_sys" class="gallery-tab-button tab-2">Pixelart</label>
+      <label for="gallery-tab-state-3_sys" class="gallery-tab-button tab-3">Raster</label>
     </div>
     {% for sections in site.data.gallery %}
     {% assign section = sections[1] %}
