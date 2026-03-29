@@ -39,7 +39,7 @@ layout: compress
   
   <body{% if page.landing-page %} class="body--home"{% endif %}>
     {% unless page.landing-page %} 
-    <a href="#main" class="skip-to-main" aria-label="Skip navigation"></a>
+    {% include navigation-skip-to-content.html %} 
     {% include navigation.html %} 
     {% endunless %}
     {{ content }}
