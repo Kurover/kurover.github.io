@@ -1413,6 +1413,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     top: unset;
     left: unset;
     bottom: 83px;
+    width: 300px;
 
     border-image: url(/img/border-1-default-alt.png) 6 / 16px 0 0 16px / 8px 0 0 8px; // Remove right and bottom border image + outset. Affected by .nav-main and .nav-list size
     border-bottom: 0; // This remove the invisible border
