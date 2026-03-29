@@ -1431,7 +1431,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 }
 
 // @main # Skip to
-.skip-to-main {
+.skip-to-content {
   z-index: 9;
   position: fixed;
   top: 0;
@@ -1500,7 +1500,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   transform: none;
 }
 @media (max-width: 768px) {
-  .skip-to-main {left: 2rem;}
+  .skip-to-content {left: 2rem;}
   .jump-to-top {bottom: 90px;}
 }
 
