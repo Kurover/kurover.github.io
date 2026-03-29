@@ -3472,7 +3472,8 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   }
   & > span { // rating
     opacity: .25;
-    margin-left: 8px;
+    float: right;
+    width: 7ch;
     &::before {
       content: "☆☆☆☆☆";
       position: absolute;
