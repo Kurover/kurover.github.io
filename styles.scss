@@ -2230,23 +2230,8 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   display: none;
   background-color: var(--clr-accent);
 }
-// Class below is for label, which forces the focus outside (to input) of this element, very cool!
-.gallery-close-bg {
-  z-index: var(--layer-zoomy);
-  display: none;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-.gallery-list:focus-within {
-  & .gallery-close-bg {
-    display: block;
-  } 
-  & .gallery-image {
-    background-color: black;
-  }
+.gallery-list:focus-within .gallery-image {
+  background-color: black;
 }
 .gallery-list:focus-within {
   & .gallery-image-wrapper {

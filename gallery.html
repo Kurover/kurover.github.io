@@ -63,7 +63,6 @@ og-type: gallery
           <h2 class="title-full margin">{{ section.name }}</h2>
           {% for item in section.list %}
           <div class="gallery-list{% if item.class %} {{ item.class }}{% endif %}" tabindex="-1">
-            <label for="gal-close_sys" class="gallery-close-bg"></label>
             {% if item.caption %}<p>{{ item.caption }}</p>{% endif %}
             <div class="gallery-image-wrapper">
               {% if item.link-toggle %}<input type="checkbox" class="gallery-toggle" id="{{ item.id }}_sys">{% endif %}

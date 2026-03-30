@@ -3,7 +3,6 @@
 <div class="gallery-lists gallery-lists--horizontal">
   {% for item-sample in site.data.home-sample %}
   <div class="gallery-list{% if item-sample.size == "full" %} wide-hover{% endif %}" tabindex="-1">
-    <label for="gal-close_sys" class="gallery-close-bg"></label>
     <div class="gallery-image-wrapper">
       {% if item-sample.link-toggle %}<input type="checkbox" class="gallery-toggle" id="{{ item-sample.id }}_sys">{% endif %}
       <div class="gallery-image-topbar">
