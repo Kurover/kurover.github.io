@@ -94,6 +94,14 @@
   // --icon-atlas-position: calc(var(--icon-atlas-x) * (var(--icon-atlas-size) * -1) + var(--icon-atlas-size)) calc(var(--icon-atlas-y) * (var(--icon-atlas-size) * -1) + var(--icon-atlas-size));
 
   --main-width: 896px;
+
+  --layer-navigation-expand: 9;
+  --layer-navigation-mobile: 9;
+  --layer-navigation-sticky: 7;
+  --layer-jump-to-top: 4;
+  --layer-tooltip: 5;
+  --layer-popup: 8;
+  --layer-zoomy: 9; // Same as navigation but because it comes later in the content, it's "higher"
 }
 
 // ! @title # Global
@@ -735,7 +743,7 @@ body::after {
 // @misc @ Media
 @media (max-width: 768px) {
   .nav-main {
-    z-index: 9;
+    z-index: var(--layer-navigation-mobile);
     position: fixed;
     bottom: 0;
     gap: 0;
@@ -804,7 +812,7 @@ body::after {
   100% {transform: rotateX(80deg) scale(1.1); opacity: 0; visibility: hidden;}
 }
 .wip-popup {
-  z-index: 8;
+  z-index: var(--layer-popup);
   position: fixed;
   visibility: hidden;
   image-rendering: pixelated;
@@ -962,7 +970,7 @@ body::after {
   }
 }
 .tooltip-content {
-  z-index: 1;
+  z-index: var(--layer-tooltip);
   visibility: hidden;
   opacity: 0;
   position: absolute;
@@ -988,7 +996,7 @@ body::after {
     transform var(--speed-end) calc(.2s + var(--speed-end)); // Make it fade to close
 }
 .tooltip:is(:hover, :focus-within) > .tooltip-content {
-  z-index: 2;
+  z-index: calc(var(--layer-tooltip) + 1);
   visibility: visible;
   opacity: 1;
   transform: var(--tooltip-position-end);
@@ -999,7 +1007,6 @@ body::after {
   transition-delay: .1s;
 }
 .tooltip-alt-content {
-  z-index: 0;
   visibility: hidden;
   position: absolute;
   line-height: 1.5rem;
@@ -1014,7 +1021,7 @@ body::after {
 }
 .tooltip-alt:hover + .tooltip-alt-content,
 .tooltip-alt-content:hover {
-  z-index: 1;
+  z-index: var(--layer-tooltip);
   visibility: visible;
   opacity: 1;
   transition: visibility .25s, opacity .25s;
@@ -1365,7 +1372,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 
 // @main # More Link Popup
 .more-link-popup {
-  z-index: 9;
+  z-index: var(--layer-navigation-expand);
   background: var(--clr-secondary);
   position: absolute;
   visibility: hidden;
@@ -1432,7 +1439,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 
 // @main # Skip to
 .skip-to-content {
-  z-index: 9;
+  z-index: var(--layer-navigation-expand);
   position: fixed;
   top: 0;
   left: 10%;
@@ -1460,7 +1467,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   width: 48px;
 }
 .jump-to-top {
-  z-index: 5;
+  z-index: var(--layer-jump-to-top);
   position: fixed;
   bottom: 0;
   right: 0;
@@ -1798,7 +1805,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 // * @section # Tabs
 .gallery-tab-buttons {
   --height: 40px;
-  z-index: 7; // lower than main navigation [9] or else it will overlap. Mainly on Mobile mode. Also lower than 8 because Illith is a piece of sh-
+  z-index: var(--layer-navigation-sticky);
   display: flex;
   position: sticky;
   top: 0;
@@ -2225,7 +2232,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 }
 // Class below is for label, which forces the focus outside (to input) of this element, very cool!
 .gallery-close-bg {
-  z-index: 9;
+  z-index: var(--layer-zoomy);
   display: none;
   position: fixed;
   top: 0;
@@ -2243,7 +2250,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 }
 .gallery-list:focus-within {
   & .gallery-image-wrapper {
-    z-index: 9;
+    z-index: var(--layer-zoomy);
     display: flex;
     // pointer-events: none;
     position: fixed;
@@ -2316,7 +2323,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     &::before {
       content: "";
       pointer-events: none;
-      z-index: 9;
+      z-index: var(--layer-zoomy);
       position: fixed;
       background-color: var(--clr-background);
       opacity: .8;
@@ -2368,7 +2375,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     width: 144px;
   }
   .gallery-list > p {
-    z-index: 11;
+    z-index: calc(var(--layer-zoomy) + 1);
     position: fixed;
     text-align: center;
     bottom: 90px;
@@ -2525,7 +2532,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 }
 .blog-toc {
   --offset: 28px; // Compensate padding and border alike
-  z-index: 7;
+  z-index: var(--layer-navigation-sticky);
   // transition: width .4s ease-in-out;
 }
 .blog-toc-content {
