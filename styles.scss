@@ -2166,6 +2166,9 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     transition: 0s;
   }
 }
+.gallery-lists:has(> .gallery-list:focus-within) > .gallery-list {
+  transition: none;
+}
 // ? @section ## Mod
 .gallery-list {
   // Using OOCS because I don't want to bloat the html with BEM
