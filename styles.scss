@@ -2234,7 +2234,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   flex-direction: row;
   float: right;
   user-select: none;
-  & > a, label {
+  & > a, > label {
     display: inline-block;
     text-align: center;
     text-decoration: none;
@@ -2249,8 +2249,8 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
       color: var(--clr-text);
     }
     &:hover {
-      background-color: var(--clr-text);
-      color: var(--clr-btn-download);
+      background-color: var(--clr-accent);
+      color: var(--clr-text);
     }
     &:active {
       background-color: var(--clr-codeblock-bg);
