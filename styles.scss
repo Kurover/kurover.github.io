@@ -2392,7 +2392,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     }
   }
   .gallery-list--custom-1 {
-    height: fit-content;
+    height: 297px; // Fit content rounded down. Doing it like this to prevent layout shift when zoomy active
   }
 }
 @media (max-width: 768px) {
