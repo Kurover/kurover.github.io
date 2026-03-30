@@ -2380,15 +2380,14 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     width: 144px;
   }
   .gallery-list > p {
-    z-index: calc(var(--layer-zoomy) + 1);
     position: fixed;
     text-align: center;
-    bottom: 90px;
-    padding-bottom: 16px;
+    bottom: var(--navigation-height-mobile);
+    opacity: 0;
     left: 0;
     right: 0;
     transform: none;
-    transition: opacity .25s, visibility .25s;
+    transition: none;
   }
   .gallery-lists--horizontal {
     flex-direction: row;
@@ -2437,14 +2436,16 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
       background-color: var(--clr-secondary-old);
     }
   }
-  .gallery-list:is(:hover, :focus-within) > p {
+  .gallery-list:hover > p {
+    transition: none;
     animation: none;
+    opacity: 0;
   }
   .gallery-list:focus-within {
     & > p {
+      z-index: calc(var(--layer-zoomy) + 1);
       bottom: calc(var(--image-topbar-height) + 2px); // 2 is the outline/border
-      opacity: 0;
-      transition: opacity 1.5s 2s;
+      animation: key-opacity 1s 2s reverse both;
     } 
     & > .gallery-image-wrapper {
       height: 100%;
