@@ -2112,6 +2112,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     padding: 16px;
     background-color: var(--clr-tooltip-background);
     border-image: url(/img/border-2.png) 8 / 16px;
+    image-rendering: pixelated;
     pointer-events: none; // prevent hover conflict with other lists
 
     transform: translateY(4px) rotateZ(4deg);
