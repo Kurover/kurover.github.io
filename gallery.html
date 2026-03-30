@@ -70,9 +70,10 @@ og-type: gallery
                 <label for="gal-close_sys" class="gallery-close"></label>
                 <div class="gallery-image-link">
                   {% if item.link-toggle %}<label for="{{ item.id }}_sys" class="gallery-toggle-button">Loop</label>{% endif %}
-                  {% if item.link-alt %}<a href="{{ item.link-alt }}" download tabindex="-1">Grab X</a>{% endif %}
+                  {% if item.link-alt %}<a href="{{ item.link }}" download tabindex="-1">Grab X</a>{% endif %}
                   {% if item.link-toggle %}<a href="{{ item.link-toggle }}" download tabindex="-1" class="gallery-image-link__toggle">Grab</a>{% endif %}
-                  <a href="{{ item.link }}" download tabindex="-1">Grab</a>
+                  {% if item.link-alt %}<a href="{{ item.link-alt }}" download tabindex="-1">Grab</a>{% endif %}
+                  {% unless item.link-alt %}<a href="{{ item.link }}" download tabindex="-1">Grab</a>{% endunless %}
                 </div>
               </div>
               <div class="gallery-image" tabindex="0">
