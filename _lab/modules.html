@@ -56,10 +56,10 @@ no-css: true
     <div>
       <div class="chrome-lazyload-enforcer"></div>
       <p>Content Here</p>
-      <span class="tooltip small" tabindex="0"><span>Sometip.md</span>
-      <span class="tooltip-content">
+      <span class="tooltip compact" tabindex="0"><span class="tooltip-content">
         Hover or click me!
-      </span></span>
+      </span>
+      <span>Sometip.md</span></span>
       <p>Content Here</p>
       <p>Content Here</p>
       <p>Content Here</p>
@@ -223,10 +223,9 @@ Text Here with no indentation
 
 <!--! @main Tooltip -->
 <!-- * COPY ZONE
-<span class="tooltip" tabindex="0"><span>Tooltip Title</span>
-<span class="tooltip-content">
+<span class="tooltip" tabindex="0"><span class="tooltip-content">
   Tooltip content
-</span></span>
+</span><span>Tooltip Title</span></span>
 
 - ALT 
 <span class="tooltip-alt">Tooltip Parent</span><span class="tooltip-alt-content">Tooltip Content</span>
@@ -234,27 +233,24 @@ Text Here with no indentation
 <section class="wrapper border" id="tooltip">
 <h2>Tooltips</h2>
 <p> Usable inline text, click on this
-  <span class="tooltip small" tabindex="0"><span>Tooltip</span>
-  <span class="tooltip-content">Tooltip content</span></span>
+  <span class="tooltip compact" tabindex="0"><span class="tooltip-content">
+    Tooltip content
+  </span><span>Tooltip</span></span>
 to expand its content</p>
 
 <div class="codeblock-full select-all-span" style="--title:'snippet'">
 <pre><code>
-<span>&lt;span class=&quot;tooltip&quot; tabindex=&quot;0&quot;&gt;&lt;span&gt;Tooltip Title&lt;/span&gt;
-&lt;span class=&quot;tooltip-content&quot;&gt;
+<span>&lt;span class=&quot;tooltip&quot; tabindex=&quot;0&quot;&gt;&lt;span class=&quot;tooltip-content&quot;&gt;
   Tooltip content
-&lt;/span&gt;&lt;/span&gt;</span>
+&lt;/span&gt;&lt;span&gt;Tooltip Title&lt;/span&gt;&lt;/span&gt;</span>
 </code></pre></div>    
     
 <div class="codeblock-full select-all-span" style="--title:'mods'">
 <pre><code>
 .tooltip | <span>.slow</span>       - transition speed
-           <span>.left</span>       - align left
-           <span>.small</span>      - will make tooltip parent relative so it follow the text position
-           <span>.right</span>      - align right
+           <span>.compact</span>    - similar to default but will align to the left title and width can be smaller than 320px
            <span>.wide</span>       - force full wide
            <span>.click-only</span> - disable hover, so show on click only
-           <span>style="--tooltip-position:translateX(NUM)"</span> - manual align
 </code></pre></div>
 
 <h3>Alternate</h3>
