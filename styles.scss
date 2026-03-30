@@ -2370,6 +2370,9 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   }
 }
 @media (max-width: 768px) {
+  .gallery-lists:focus-within:before {
+    opacity: 1; // This make sure when user quickly pinch-zoom out, the content behind is black background. Very specific case, eh?
+  }
   .gallery-list {
     --image-topbar-height: 64px;
   }
