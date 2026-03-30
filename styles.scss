@@ -2081,7 +2081,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   }
 }
 // Outer container color when zoomed and serves as anti-misclick of content outside
-.gallery-lists:has(> .gallery-list:focus-within)::before {
+.gallery-lists:focus-within::before {
   content: "";
   z-index: var(--layer-zoomy);
   position: fixed;
