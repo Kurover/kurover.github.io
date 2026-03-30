@@ -2080,6 +2080,18 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     margin: auto;
   }
 }
+// Outer container color when zoomed and serves as anti-misclick of content outside
+.gallery-lists:has(> .gallery-list:focus-within)::before {
+  content: "";
+  z-index: var(--layer-zoomy);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: var(--clr-background);
+  opacity: .8;
+}
 @keyframes gallery-caption-start {
   0% {transform: translateY(-20px); transform-origin: top; opacity: .5;}
   25% {transform: translateY(8px) rotate(4deg); opacity: 1;}
@@ -2305,26 +2317,11 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   .gallery-image-topbar {
     border-bottom: 2px solid var(--clr-border);
   }
-  .gallery-list:focus-within {
-    // Poor-man's ::backdrop
-    &::before {
-      content: "";
-      pointer-events: none;
-      z-index: var(--layer-zoomy);
-      position: fixed;
-      background-color: var(--clr-background);
-      opacity: .8;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-    }
-    & .gallery-image {
-      // min-height: 86vh; // Respect zoom out level // How about let the user zoom the page or download the image? This declaration alone give so many headache!
-      height: min(896px, 95vh);
-      & > img {
-        object-fit: contain; // For landscape to not overflow
-      }
+  .gallery-list:focus-within .gallery-image {
+    // min-height: 86vh; // Respect zoom out level // How about let the user zoom the page or download the image? This declaration alone give so many headache!
+    height: min(896px, 95vh);
+    & > img {
+      object-fit: contain; // For landscape to not overflow
     }
   }
   .gallery-close {
