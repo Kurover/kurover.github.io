@@ -998,7 +998,6 @@ body::after {
     transform var(--speed-end) calc(.2s + var(--speed-end)); // Make it fade to close
 }
 .tooltip:is(:hover, :focus-within) > .tooltip-content {
-  z-index: calc(var(--layer-tooltip) + 1);
   visibility: visible;
   opacity: 1;
   transform: var(--tooltip-position-end);
@@ -1007,6 +1006,9 @@ body::after {
     opacity .25s,
     transform var(--speed-start);
   transition-delay: .1s;
+}
+.tooltip:hover > .tooltip-content {
+  z-index: calc(var(--layer-tooltip) + 1);
 }
 .tooltip-alt-content {
   visibility: hidden;
