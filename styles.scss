@@ -2014,6 +2014,9 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   z-index: 1;
   margin: 4px;
 }
+#gallery-tab-skip_sys {
+  position: absolute;
+}
 .gallery-tab-buttons:has(> .gallery-tab-skipper:active) ~ .gallery-tab-content {
   --tab-transition-close: none;
   --tab-transition-open: none;
