@@ -945,7 +945,6 @@ body::after {
 .tooltip {
   --speed-start: .25s;
   --speed-end: .1s;
-  --tooltip-width: fit-content;
   --tooltip-position: translateX(0);
   --tooltip-position-start: translateY(20px) var(--tooltip-position); // Using pixel otherwise coma result break the border
   --tooltip-position-end: translateY(28px) var(--tooltip-position); 
@@ -960,7 +959,7 @@ body::after {
   }
   // ? @section ## Mod
   &.slow {--speed-start: 1s;--speed-end: .5s;}
-  &.wide {--tooltip-width: unset;}
+  &.wide {width: unset;}
   &.click-only:hover > .tooltip-content {
     visibility: hidden;
     opacity: 0;
@@ -981,8 +980,8 @@ body::after {
   right: 0;
   max-width: 848px;
   max-height: 50vh;
-  width: var(--tooltip-width);
-  padding: 8px 16px;
+  width: fit-content;
+  padding: 6px 16px;
   margin: auto;
   box-sizing: border-box;
   // pointer-events: none;
@@ -1042,20 +1041,23 @@ body::after {
     }
   }
 }
-// main-width + half tooltip width + 1, to prevent body overflow
-@media (min-width: 1057px) {
+// main-width + tooltip width (320px) + 1, to prevent body overflow. It has a bit of space left even in worst condition (a dot on rightmost wrapper with padding), better be safe than overflown
+// Using left - right as the "width", this method guarantee the content to be centered on the tooltip title text, make sure it's relative of course. Relative means the minimum width is the width of the title, so we must add max-width unless you want overflow-fest
+@media (min-width: 1217px) {
   .tooltip {
     position: relative;
   }
   .tooltip-content {
-    width: 320px;
-    left: calc((100% / 2) - 160px);
+    left: -160px;
+    right: -160px;
+    max-width: 320px;
   }
   .tooltip.wide {
     position: static;
     & > .tooltip-content {
-      width: unset;
+      max-width: 848px;
       left: 0;
+      right: 0;
       padding: 16px 24px;
     }
   }
@@ -1068,7 +1070,9 @@ body::after {
     --tooltip-position-end: translateY(0);
     position: fixed;
     width: auto;
-    bottom: var(--navigation-height-mobile);
+    bottom: calc(var(--navigation-height-mobile) + 2px); // For the bottom border color to pop a bit
+    right: 0;
+    left: 0;
     padding-bottom: 1rem;
     transition-delay: 0s;
     & a {
@@ -1077,8 +1081,6 @@ body::after {
   }
   .tooltip-alt-content {
     transform: unset;
-    left: 0;
-    right: 0;
     padding-bottom: 8px;
     bottom: calc(var(--navigation-height-mobile) - 8px);
   }
