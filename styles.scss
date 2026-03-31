@@ -2338,27 +2338,44 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   box-shadow: 0 0 0 4px inset var(--clr-border);
 }
 // ? I love CSS hacks, these are the previous/next image system lol
-.gallery-lists:focus-within > .gallery-list::before {
-  content: "";
+// .gallery-lists:focus-within > .gallery-list::before {
+//   content: "";
+//   z-index: calc(var(--layer-zoomy) + 1);
+//   position: fixed;
+//   bottom: 0;
+//   left: 0;
+//   height: 20vh;
+//   width: max(48px, 3vw);
+// }
+// // Moderate performance difference (in term of CSS only) between display and visiblity. It's like 40-50ms difference in style category, very cool. I thought visibility would be better, I guess not!
+// .gallery-lists > .gallery-list:focus-within::before,
+// .gallery-list:focus-within ~ .gallery-list::before {
+//   display: none;
+//   // visibility: hidden;
+// }
+// .gallery-list:focus-within + hr + .gallery-list::before,
+// .gallery-list:focus-within + .gallery-list::before {
+//   display: block;
+//   // visibility: visible;
+//   right: 0;
+//   left: unset;
+// }
+// :has edition. Performance difference are surprisingly negligible as profiler shows similar results. Using this for :has propaganda
+.gallery-list::before {
   z-index: calc(var(--layer-zoomy) + 1);
   position: fixed;
   bottom: 0;
-  left: 0;
   height: 20vh;
   width: max(48px, 3vw);
 }
-// Moderate performance difference (in term of CSS only) between display and visiblity. It's like 40-50ms difference in style category, very cool. I thought visibility would be better, I guess not!
-.gallery-lists > .gallery-list:focus-within::before,
-.gallery-list:focus-within ~ .gallery-list::before {
-  display: none;
-  // visibility: hidden;
+.gallery-list:has(+ .gallery-list:focus-within, + hr + .gallery-list:focus-within)::before {
+  content: "";
+  left: 0;
 }
 .gallery-list:focus-within + hr + .gallery-list::before,
 .gallery-list:focus-within + .gallery-list::before {
-  display: block;
-  // visibility: visible;
+  content: "";
   right: 0;
-  left: unset;
 }
 
 // @misc @ Media
@@ -2407,7 +2424,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   .gallery-lists:focus-within:before {
     opacity: 1; // This make sure when user quickly pinch-zoom out, the content behind is black background. Very specific case, eh?
   }
-  .gallery-lists:focus-within > .gallery-list::before {
+  .gallery-list::before {
     top: 0;
     bottom: var(--image-topbar-height);
     width: max(48px, 10vw);
