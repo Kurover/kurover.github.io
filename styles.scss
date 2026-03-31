@@ -2427,7 +2427,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   .gallery-list::before {
     top: 0;
     bottom: var(--image-topbar-height);
-    width: max(48px, 10vw);
+    width: max(64px, 12.5vw);
     height: unset;
   }
   .gallery-list {
