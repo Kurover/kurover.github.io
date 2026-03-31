@@ -411,6 +411,10 @@ body::after {
   from {opacity: 0;}
   to {opacity: 1;}
 }
+@keyframes key-visibility {
+  from {opacity: 0; visibility: hidden;}
+  to {opacity: 1; visibility: visible;}
+}
 // @misc @ Media
 @media (max-width: 768px) {
   // To compensate sticky nav bar
@@ -432,7 +436,7 @@ body::after {
     display: none;
   }
 }
-@media (max-width: 2400px) {
+@media (max-width: 2600px) {
   .super-wide-only {
     display: none;
   }
