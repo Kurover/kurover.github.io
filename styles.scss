@@ -2700,19 +2700,21 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   .blog-toc {
     position: sticky;
     top: 48px;
-    width: 96px;
-    height: 0;
-    opacity: .5;
+    float: left;
+    width: 0;
+    height: auto;
     cursor: grab;
 
-    transform: translateX(calc(-96px - (var(--offset))));
-    animation: blog-toc-hover-out ease .5s forwards;
+    animation: key-opacity 1s .5s backwards; // "Hide" the content to hide the starting animation
     transition: opacity .33s .16s;
   }
   .blog-toc-content {
-    transition: box-shadow .25s;
-    transition-delay: .16s;
-    animation: key-opacity 1s .5s backwards; // "Hide" the content to hide the starting animation
+    // width: 96px;
+    // transform: translateX(calc(-96px - (var(--offset))));
+    opacity: .5;
+
+    transition: box-shadow .25s .16s, opacity .33s .16s;
+    animation: blog-toc-hover-out ease .5s forwards
   }
   // Shadow
   .blog-toc-content::after {
@@ -2730,13 +2732,12 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   }
   .blog-toc:focus-within {
     cursor: default;
-    opacity: 1;
-    width: 256px;
-    animation: blog-toc-hover ease .5s forwards;
-    transition: opacity .2s .125s;
     & > .blog-toc-content {
+      opacity: 1;
       box-shadow: 4px 4px 8px 2px var(--clr-background);
-      transition-delay: .16s;
+
+      transition: box-shadow .25s .16s, opacity .2s .125s;
+      animation: blog-toc-hover ease .5s forwards;
     }
     & > .blog-toc-content::after {
       pointer-events: none;
