@@ -1500,6 +1500,16 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   position: fixed;
   bottom: 0;
   right: 0;
+  width: calc(90px + 10vw);
+  height: 96px;
+  transform: translateX(50%);
+  transition: transform .25s;
+  &:hover {
+    transform: none;
+  }
+  &:focus {
+    pointer-events: none;
+  }
   & > a {
     pointer-events: auto;
     padding: 16px;
@@ -1520,19 +1530,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     }
   }
 }
-.jump-to-top.hidden {
-  width: calc(90px + 10vw);
-  height: 96px;
-  transform: translateX(50%);
-  transition: transform .25s;
-  &:hover {
-    transform: none;
-  }
-  &:focus {
-    pointer-events: none;
-  }
-}
-.jump-to-top.hidden:has(a:focus) {
+.jump-to-top:has(a:focus) {
   transform: none;
 }
 @media (max-width: 768px) {
