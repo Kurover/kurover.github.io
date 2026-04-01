@@ -385,6 +385,12 @@ body::after {
   &.huge {
     border-top-width: 128px;
   }
+  &.half {
+    border-top-width: 50vh;
+  }
+  &.full {
+    border-top-width: 100vh;
+  }
 }
 .font-alternative {
   font-family: 'Rubik', sans-serif, system-ui;
