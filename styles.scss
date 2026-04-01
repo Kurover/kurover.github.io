@@ -1539,6 +1539,11 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 .jump-to-top:has(a:focus) {
   transform: none;
 }
+@media (min-width: 769px) {
+  .jump-to-top.blog {
+    transform: none;
+  }
+}
 @media (max-width: 768px) {
   .skip-to-content {left: 2rem;}
   .jump-to-top {bottom: 90px;}
@@ -2588,6 +2593,40 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   background-color: var(--clr-codeblock-bg);
   & pre {
     padding-bottom: 1rem;
+  }
+}
+
+// ? @section # Blog
+.body--blog {
+  &::before {
+    content: "";
+    pointer-events: none;
+    z-index: -10;
+    position: fixed;
+    // top: 25vh;
+    right: 0;
+    bottom: -128px;
+    left: 0;
+    height: 100vh;
+
+    opacity: .03;
+    // transform: scale(1.5);
+    background-image: url(/img/blog/banki-solo--px.gif);
+    // background-attachment: fixed;
+    background-position-x: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    image-rendering: pixelated;
+  }
+}
+.blog-wrapper {
+  position: relative;
+  box-shadow: 0 0 16px 4px var(--clr-background);
+  background-color: color-mix(in srgb, var(--clr-secondary), transparent 50%);
+}
+@media (max-width: 768px) {
+  .blog-wrapper:first-child {
+    margin-top: 2rem;
   }
 }
 
