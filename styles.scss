@@ -2698,7 +2698,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     left: 0;
     height: 100vh;
 
-    opacity: .05;
+    opacity: .055;
     // transform: scale(1.5);
     background-image: url(/img/blog/banki-solo--px.gif);
     // background-attachment: fixed;
@@ -2740,6 +2740,10 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   }
 }
 @media (max-width: 768px) {
+  .main--blog::before {
+    bottom: -40px;
+    background-position-x: 45%;
+  }
   .blog-wrapper:first-child { // For the top ToC so the title not overlap with it
     margin-top: 2rem;
   }
