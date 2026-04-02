@@ -126,6 +126,18 @@ body {
 main {
   margin-bottom: 5rem;
 }
+::selection {
+  color: var(--clr-text);
+  background-color: rgb(88, 84, 199);
+  text-shadow: 1px 1px var(--clr-secondary);
+}
+img::selection {
+  background-color: white;
+}
+:target {
+  background: linear-gradient(45deg, var(--clr-accent), transparent);
+  color: var(--clr-text);
+}
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
