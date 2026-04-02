@@ -2715,6 +2715,9 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   }
 }
 .blog-wrapper {
+  h1, h2 {
+    border-bottom: 2px solid var(--clr-text-fade);
+  }
   h1, h2, h3, h4, h5, h6 {
     margin-top: 2rem; 
     margin-bottom: .25rem;
@@ -2737,8 +2740,13 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     margin-top: 2rem;
   }
   .blog-wrapper {
-    h1, h2, h3, h4, h5, h6 {
-      background: linear-gradient(0deg, var(--clr-text) 2px, transparent 2px);
+    h1, h2 {
+      // background: linear-gradient(0deg, var(--clr-text) 2px, transparent 2px);
+      background: none;
+    }
+    h3, h4, h5, h6 {
+      background: none;
+      text-decoration: underline;
     }
     & :target {
       background: var(--clr-accent);
@@ -2767,18 +2775,58 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   // outline: 2px solid var(--clr-codeblock-border);
   background-color: var(--clr-codeblock-bg);
   color: var(--clr-codeblock-border);
-  & .blog-toc-header {
-    user-select: none;
-    padding-left: .25rem;
-    margin: 0;
-    font-size: 1rem;
-    font-weight: normal;
-    line-height: 1.5rem;
+}
+.blog-toc-header {
+  user-select: none;
+  padding-left: .25rem;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: 1.5rem;
+  overflow: hidden;
+  text-wrap: nowrap;
+  background-color: var(--clr-codeblock-bg-title);
+  color: var(--clr-codeblock-text-title);
+  transition: .33s .16s;
+}
+#markdown-toc {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--clr-text);
+  & > li {
+    border: 2px solid var(--clr-codeblock-border);
+  }
+  & li {
     overflow: hidden;
+  }
+  & ol {
+    padding: 0;
+    margin-left: 12px;
+    box-shadow: 4px 0 0 inset var(--clr-text-fade);
+    & li a {
+      padding-left: 12px;
+    }
+  }
+  & a {
+    padding: 5px 8px;
+    display: block;
+    overflow: clip;
+    text-overflow: ellipsis;
     text-wrap: nowrap;
-    background-color: var(--clr-codeblock-bg-title);
-    color: var(--clr-codeblock-text-title);
-    transition: .33s .16s;
+    text-decoration: none;
+    color: var(--clr-text);
+  }
+  & a:visited {
+    color: var(--clr-text);
+  }
+  & a:is(:hover, :focus) {
+    color: var(--clr-accent);
+    outline: none;
+    background-color: var(--clr-background);
   }
 }
 @media (max-width: 768px) {
@@ -2807,11 +2855,15 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     grid-template-rows: auto 1.5rem;
     overflow: auto;
     max-height: 50vh;
-    & > h2 {
-      order: 99;
-      position: sticky;
-      bottom: 0;
-    }
+  }
+  .blog-toc-header {
+    order: 99;
+    position: sticky;
+    bottom: 0;
+    text-align: center;
+  }
+  #markdown-toc a {
+    padding: 8px;
   }
   .blog-toc-expander {
     --icon-atlas-x: 3;
@@ -2856,9 +2908,9 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 }
 @media (min-width: 769px) {
   .blog-toc {
-    margin: 1rem 0;
+    margin-bottom: 1rem;
   }
-  .blog-toc-content > .blog-toc-header::before {
+  .blog-toc-header::before {
     content: "> ";
   }
 }
@@ -2914,46 +2966,6 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
       transition-delay: .1s;
       opacity: 0;
     }
-  }
-}
-#markdown-toc {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  color: var(--clr-text);
-  & > li {
-    border: 2px solid var(--clr-codeblock-border);
-  }
-  & li {
-    overflow: hidden;
-  }
-  & ol {
-    padding: 0;
-    margin-left: 12px;
-    box-shadow: 4px 0 0 inset var(--clr-text-fade);
-    & li a {
-      padding-left: 12px;
-    }
-  }
-  & a {
-    padding: 5px 8px;
-    display: block;
-    overflow: clip;
-    text-overflow: ellipsis;
-    text-wrap: nowrap;
-    text-decoration: none;
-    color: var(--clr-text);
-  }
-  & a:visited {
-    color: var(--clr-text);
-  }
-  & a:is(:hover, :focus) {
-    color: var(--clr-accent);
-    outline: none;
-    background-color: var(--clr-background);
   }
 }
 
