@@ -7,7 +7,7 @@ groups: blog-post
 title: HTML Popover Tag
 description: Talking about the current image Zoom Popup mechanism
 created-at: 2026-03-24T00:48:54+0700
-modified-at:
+modified-at: 2-April-2026 18:06:35
 ---
 
 # A Popup I Cannot Posses
@@ -23,7 +23,7 @@ During the Gallery Zoom Title rewrite. I was mulling about the zoom/pop mechanis
         <label for="gal-close_sys" class="gallery-close"></label>
       </div>
       <div class="gallery-image" tabindex="0">
-        <img src="/img/illith-flustered.png">
+        <img src="/img/illith-flustered--px.png">
       </div>
     </div>
   </div>
@@ -34,7 +34,7 @@ During the Gallery Zoom Title rewrite. I was mulling about the zoom/pop mechanis
         <label for="gal-close_sys" class="gallery-close"></label>
       </div>
       <div class="gallery-image" tabindex="0">
-        <img src="/img/illith-3.png">
+        <img src="/img/illith-3--px.png">
       </div>
     </div>
   </div>
