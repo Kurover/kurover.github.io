@@ -855,6 +855,56 @@ body::after {
   }
 }
 
+// * @main # Generic Buttons
+.button {
+  --size: 2.5rem;
+  user-select: none;
+  display: inline-block;
+  line-height: var(--size);
+  padding: 0 calc(var(--size) / 2);
+  
+  color: var(--clr-text-dim);
+  background-color: var(--clr-secondary);
+  transition: .2s;
+  text-decoration: none;
+  &:is(:hover, :focus-within) {
+    color: var(--clr-text);
+    background-color: var(--clr-accent);
+  }
+}
+.button--underline {
+  --clr-underline-idle: var(--clr-text-fade);
+  --clr-underline: var(--clr-accent);
+  box-shadow: 0 calc(var(--size) / -8) 0 0 inset var(--clr-underline-idle);
+  &:is(:hover, :focus-within) {
+    box-shadow: 0 -12px 0 0 inset var(--clr-underline);
+  }
+}
+.button--download {
+  --clr-underline-idle: var(--clr-primary);
+  color: var(--clr-link-active);
+  background-color: var(--clr-btn-download);
+  transition-delay: .1s;
+  &:is(:hover, :focus) {
+    color: inherit;
+    background-color: var(--clr-btn-download-hover);
+    outline: 2px outset var(--clr-text);
+    box-shadow: unset;
+    transition-delay: 0s;
+  }
+}
+.button {
+  &:visited {
+    color: inherit;
+  }
+  &:active {
+    background-color: var(--clr-codeblock-bg);
+    color: var(--clr-codeblock-text);
+    box-shadow: 0 0 0 2px inset var(--clr-codeblock-text);
+    transition: none;
+  }
+}
+
 // * @main # Expandable
 /* .expandable-column .expandable {
   display: flex;
@@ -3014,30 +3064,6 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 }
 
 // ! @title ________ File ________
-// ? @section # General
-.file-download-button {
-  display: inline-block;
-  width: fit-content;
-  padding: 8px 16px;
-  line-height: 24px;
-  text-decoration: none;
-  color: var(--clr-link-active);
-  background-color: var(--clr-btn-download);
-  box-shadow: 0px -3px 0 0 inset var(--clr-link);
-
-  transition: box-shadow .5s .2s, background-color .1s, outline .1s;
-  &:is(:hover, :focus) {
-    color: inherit;
-    background-color: var(--clr-btn-download-hover);
-    outline: 2px outset var(--clr-text);
-    box-shadow: unset;
-    transition-delay: 0s;
-  }
-  &:visited {
-    color: inherit;
-  }
-}
-
 // ? @section # Cascading OS
 // Comments are copied from lab itself, any new addition will be prioritized in this CSS instead
 
