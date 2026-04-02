@@ -37,6 +37,7 @@
   --clr-text-invert: #3D3D43;
   --clr-background-old: #0A0C10;
   --clr-background: #191a24;
+  --clr-background-blog: #434b66;
   --clr-primary: #78BB52;
   --clr-secondary-old: #141624;
   --clr-secondary: #242532;
@@ -52,8 +53,8 @@
   --clr-link-hover: #89f86f;
   --clr-link-dark: #38571b;
   --clr-link-dark-hover: #7fb9ce;
-  --clr-link-visited: #a067e0;
-  --clr-link-visited-bright: #b185eb;
+  --clr-link-visited: #b185eb;
+  // --clr-link-visited-bright: #b185eb;
   
   --clr-h1: var(--clr-text);
   --clr-h2: var(--clr-text);
@@ -65,7 +66,7 @@
   --clr-tooltip-background: #3b2e22;
   --clr-tooltip-text: #e5d6d2;
   --clr-tooltip-link: #ead053;
-  --clr-tooltip-link-visited: var(--clr-link-visited-bright);
+  --clr-tooltip-link-visited: var(--clr-link-visited);
   --clr-tooltip-link-hover: #c6792a;
 
   --clr-codeblock-bg-title: #211f2b;
