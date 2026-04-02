@@ -891,9 +891,9 @@ body::after {
 .button--underline {
   --clr-underline-idle: var(--clr-text-fade);
   --clr-underline: var(--clr-accent);
-  box-shadow: 0 calc(var(--size) / -8) 0 0 inset var(--clr-underline-idle);
+  box-shadow: 0 -3px 0 0 inset var(--clr-underline-idle);
   &:is(:hover, :focus-within) {
-    box-shadow: 0 -12px 0 0 inset var(--clr-underline);
+    box-shadow: 0 -6px 0 0 inset var(--clr-underline);
   }
 }
 .button--download {
