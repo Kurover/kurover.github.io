@@ -2675,6 +2675,12 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     padding-bottom: 1rem;
   }
 }
+strong {
+  color: rgb(231, 173, 178);
+}
+strong::selection {
+  background-color: rgb(168, 110, 195);
+}
 
 // ? @section # Blog Index
 .blog-page-section {
@@ -2718,21 +2724,22 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   // background-color: color-mix(in srgb, var(--clr-secondary), transparent 33%);
   background-color: color-mix(in srgb, var(--clr-background-blog), transparent 60%);
   & :target {
-    background: linear-gradient(270deg, var(--clr-accent), transparent);
+    background: var(--clr-accent);
   }
 }
 .blog-wrapper {
-  h1, h2 {
+  h1 {
+    border-bottom: 4px double var(--clr-text-fade);
+  }
+  h2 {
     border-bottom: 2px solid var(--clr-text-fade);
   }
   h1, h2, h3, h4, h5, h6 {
-    margin-top: 2rem; 
+    margin-top: 2.5rem; 
     margin-bottom: .25rem;
   }
-  h1, h2, h3, h4, h5, h6 {
-    &:first-of-type {
-      margin-top: 0;
-    }
+  h1:first-of-type {
+    margin-top: 0;
   }
 }
 @media (min-width: 769px) {
@@ -2750,7 +2757,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     bottom: -40px;
     background-position-x: 45%;
   }
-  .blog-wrapper:first-child { // For the top ToC so the title not overlap with it
+  .blog-wrapper:first-of-type { // For the top ToC so the title not overlap with it
     margin-top: 2rem;
   }
   .blog-wrapper {
@@ -2761,9 +2768,6 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     h3, h4, h5, h6 {
       background: none;
       text-decoration: underline;
-    }
-    & :target {
-      background: var(--clr-accent);
     }
   }
 }
