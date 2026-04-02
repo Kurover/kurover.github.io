@@ -505,7 +505,10 @@ body::after {
 .border {
   // border-image: url(/img/border-1-active.png) 5 / 16px ;
   border: 4px outset var(--clr-border);
-  image-rendering: pixelated;
+  // image-rendering: pixelated;
+}
+.border-dash {
+  border: 4px dashed var(--clr-border);
 }
 
 // ! @main # Navigation
