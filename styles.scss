@@ -1061,7 +1061,7 @@ body::after {
   max-width: 848px;
   max-height: 50vh;
   width: fit-content;
-  padding: 6px 16px;
+  padding: 6px 8px;
   margin: auto;
   box-sizing: border-box;
   // pointer-events: none;
@@ -1071,6 +1071,7 @@ body::after {
   color: var(--clr-tooltip-text);
   background: var(--clr-tooltip-background);
   border-image: url(/img/border-2.png) 8 / 16px / 8px 0; // Border outset on vertical to make the hidden overflow work
+  image-rendering: pixelated;
   transform: var(--tooltip-position-start);
   transition:
     visibility var(--speed-end) .2s,
@@ -1122,6 +1123,9 @@ body::after {
       right: unset;
     }
   }
+  .tooltip-content {
+    border-image-outset: 8px;
+  }
 }
 // main-width + tooltip width (320px) + 1, to prevent body overflow. It has a bit of space left even in worst condition (a dot on rightmost wrapper with padding), better be safe than overflown
 // Using left - right as the "width", this method guarantee the content to be centered on the tooltip title text, make sure it's relative of course. Relative means the minimum width is the width of the title, so we must add max-width unless you want overflow-fest
@@ -1140,7 +1144,7 @@ body::after {
       max-width: 848px;
       left: 0;
       right: 0;
-      padding: 16px 24px;
+      padding: 16px 20px;
     }
   }
 }
@@ -1155,7 +1159,7 @@ body::after {
     bottom: calc(var(--navigation-height-mobile) + 2px); // For the bottom border color to pop a bit
     right: 0;
     left: 0;
-    padding-bottom: 1rem;
+    padding: 6px 1rem 1rem 1rem;
     transition-delay: 0s;
     & a {
       font-size: 1.1rem;
