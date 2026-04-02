@@ -122,6 +122,9 @@ body {
   width: 100%;
   margin: 0;
 }
+main {
+  margin-bottom: 5rem;
+}
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
@@ -316,6 +319,9 @@ body::after {
   color: var(--clr-notice);
   box-shadow: 0 0 0 1px inset var(--clr-notice);
   padding: .5rem;
+  &.compact {
+    padding: 0.1rem .25rem;
+  }
 }
 .warning {
   padding: 4px 4px 0 4px;
@@ -392,6 +398,11 @@ body::after {
     border-top-width: 100vh;
   }
 }
+.font-default {
+  font-family: 'Pixel04b03', monospace, system-ui;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: initial;
+}
 .font-alternative {
   font-family: 'Rubik', sans-serif, system-ui;
   -webkit-font-smoothing: auto;
@@ -456,9 +467,6 @@ body::after {
   padding: 24px;
   margin: auto;
   margin-bottom: 1rem;
-  &:last-child {
-    margin-bottom: 2rem;
-  }
   &:first-of-type {
     margin-top: 1rem;
   }
@@ -1027,14 +1035,14 @@ body::after {
   padding: 4px 8px 2px 8px;
 
   transform: translate(4px, -.5rem); // Also compensate border and top padding
-  transition: visibility .1s .2s, opacity .1s .2s;
+  transition: visibility .1s, opacity .1s;
 }
 .tooltip-alt:hover + .tooltip-alt-content,
 .tooltip-alt-content:hover {
   z-index: var(--layer-tooltip);
   visibility: visible;
   opacity: 1;
-  transition: visibility .25s, opacity .25s;
+  transition: 0s;
 }
 
 // @misc -@ Media
