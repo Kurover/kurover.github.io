@@ -135,7 +135,7 @@ img::selection {
   background-color: white;
 }
 :target {
-  background: linear-gradient(45deg, var(--clr-accent), transparent);
+  background: linear-gradient(270deg, rgba(65, 130, 154, 0.5), transparent 10%);
   color: var(--clr-text);
 }
 h1, h2, h3, h4, h5, h6 {
