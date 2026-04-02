@@ -134,6 +134,9 @@ main {
 img::selection {
   background-color: white;
 }
+a::selection {
+  background-color: rgb(71, 127, 106);
+}
 :target {
   background: linear-gradient(270deg, rgba(65, 130, 154, 0.5), transparent 10%);
   color: var(--clr-text);
