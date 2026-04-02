@@ -2713,7 +2713,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   text-align: justify;
   box-shadow: 0 0 16px 4px var(--clr-background);
   // background-color: color-mix(in srgb, var(--clr-secondary), transparent 33%);
-  background-color: color-mix(in srgb, var(--clr-background-blog), transparent 66%);
+  background-color: color-mix(in srgb, var(--clr-background-blog), transparent 60%);
   & :target {
     background: linear-gradient(270deg, var(--clr-accent), transparent);
   }
@@ -2734,8 +2734,11 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 }
 @media (min-width: 769px) {
   .blog-wrapper {
+    &:first-of-type {
+      margin-top: calc(-1rem + 4px);
+    }
     h1, h2, h3, h4, h5, h6 {
-      background: linear-gradient(270deg, var(--clr-background-blog), transparent 5rem);
+      background: linear-gradient(330deg, var(--clr-background-blog) 2rem, transparent 2rem);
     }
   }
 }
