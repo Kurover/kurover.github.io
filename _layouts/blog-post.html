@@ -2,7 +2,7 @@
 layout: default
 ---
 <main>
-  <section class="wrapper blog-post">
+  <section class="wrapper blog-post" id="main">
     <nav class="blog-post-index-container">
       <div class="blog-post-index">
         {% assign blog-posts = site.blog | where: "groups", "blog-post" %}
@@ -13,21 +13,12 @@ layout: default
         {% endfor %}
       </div>
     </nav>
-    <div class="top-right-note" id="main">{% if page.modified-at %}Edit: {{ page.modified-at }} |{% endif %} Title: {{ page.title }}</div>
+    <div class="top-right-note">{% if page.modified-at %}Edit: {{ page.modified-at }} |{% endif %}</div>
     {{ content }}
   </section>
-  <div class="blog-post-footer-navigations">
-    {% if page.previous.groups == "blog-post" %}
-    <div class="blog-post-footer-navigation previous">
-      <a href="{{ page.previous.url }}">Prev.</a>
-      <span class="blog-nav-tooltip">{{ page.previous.title }}</span>
+  <div class="wrapper no-padding">
+    <div class="blog-return-button">
+      <a href="/blog" class="button button--underline">&lt; Return</a>
     </div>
-    {% endif %}
-    {% if page.next.groups == "blog-post" %}
-    <div class="blog-post-footer-navigation next">
-      <a href="{{ page.next.url }}">Next</a>
-      <span class="blog-nav-tooltip">{{ page.next.title }}</span>
-    </div>
-    {% endif %}
   </div>
 </main>

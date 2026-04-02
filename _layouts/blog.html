@@ -32,13 +32,17 @@ layout: compress
     <link rel="stylesheet" href="/font.css">
   </head>
   
-  <body class="body--blog">
+  <body>
     {% include navigation-skip-to-content.html %} 
     {% include navigation.html %}
-    <main>
+    <main class="main--blog">
       {{ content }}
+      <div class="wrapper no-padding">
+        <div class="blog-return-button">
+          <a href="/blog" class="button button--underline">Return</a>
+        </div>
+      </div>
     </main>
     {% include navigation-skip-to-top.html class="blog" %} 
   </body>
-  
 </html>

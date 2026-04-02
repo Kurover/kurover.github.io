@@ -1,0 +1,14 @@
+<div class="blog-post-footer-navigations">
+  {% if page.previous.groups == "blog-post" %}
+  <div class="blog-post-footer-navigation previous">
+    <a href="{{ page.previous.url }}">Prev.</a>
+    <span class="blog-nav-tooltip">{{ page.previous.title }}</span>
+  </div>
+  {% endif %}
+  {% if page.next.groups == "blog-post" %}
+  <div class="blog-post-footer-navigation next">
+    <a href="{{ page.next.url }}">Next</a>
+    <span class="blog-nav-tooltip">{{ page.next.title }}</span>
+  </div>
+  {% endif %}
+</div>

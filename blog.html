@@ -7,13 +7,42 @@ og-type: blog
 nav-more: true
 ---
 <main>
-  <section class="wrapper border bg-color" tabindex="-1" id="main">
-
+  <section class="wrapper border-dash bg-color" tabindex="-1" id="main">
     <h1>Blog Posts</h1>
-    
-    <p><span class="notice">Notice!</span> These links will redirect you to old site.</p>
+    <p>You are entering the yap corner! All posts will use Rubik font for readability. We don't want to pixelize your eyes now do we? Very messy here right now, it'll be a much fancier place eventually!</p>
+  </section>
 
-    <ol class="blog-lists">
+  <section class="wrapper blog-page-section">
+    <h2>Main Posts</h2>
+    <p class="caption">Large and chunky, will take at least a minute to digest.</p>
+    <ol class="blog-lists" reversed>
+      {% assign blogs = site.blog | where:"groups","blog" | reverse %}
+      {% for blog in blogs %}
+        <li class="blog-list">
+          <a href="{{ blog.url }}">{{ blog.alias }}</a>
+          <p>{{ blog.description }}</p>
+        </li>
+      {% endfor %}
+    </ol>
+  </section>
+
+  <section class="wrapper blog-page-section">
+    <h2>Mini Posts</h2>
+    <p class="caption">The yappening, short and loud, possibly sweet.</p>
+    {% assign blog-posts = site.blog | where: "groups", "blog-post" | reverse %}
+    <ol class="blog-lists" reversed>
+      {% for post in blog-posts %}
+      <li>
+        <p><a href="{{ post.url }}" class="tooltip-alt">{{ post.title }}</a><span class="tooltip-alt-content">{{ post.created-at }}</span></p>
+      </li>
+      {% endfor %}
+    </ol>
+  </section>
+
+  <section class="wrapper blog-page-section">
+    <h2>Legacy List</h2>
+    <p><span class="notice compact">Notice!</span> These links will redirect you to old site.</p>
+    <ol class="blog-lists" reversed>
       {% assign blogs = site.blog | where:"groups","blog-legacy" | sort:"order" %}
       {% for blog in blogs %}
         <li class="blog-list">
@@ -22,7 +51,7 @@ nav-more: true
         </li>
       {% endfor %}
     </ol>
-
   </section>
-  {% include page-wip.html %}
 </main>
+
+{% include page-wip.html %}

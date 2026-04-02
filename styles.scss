@@ -2630,7 +2630,6 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 }
 
 // ! @title ________ Blog ________
-
 // ? @section # MD to HTML Defaults
 // Pre is generated when using triple tilde
 .highlighter-rouge:has(pre),
@@ -2670,8 +2669,20 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   }
 }
 
+// ? @section # Blog Index
+.blog-page-section {
+  border: 8px double var(--clr-border);
+  padding: 1rem .5rem;
+  margin-bottom: .5rem;
+}
+@media (min-width: 769px) {
+  .blog-page-section {
+    padding: 1.25rem;
+  }
+}
+
 // ? @section # Blog
-.body--blog {
+.main--blog {
   &::before {
     content: "";
     pointer-events: none;
@@ -2683,7 +2694,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     left: 0;
     height: 100vh;
 
-    opacity: .03;
+    opacity: .05;
     // transform: scale(1.5);
     background-image: url(/img/blog/banki-solo--px.gif);
     // background-attachment: fixed;
@@ -2695,12 +2706,43 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 }
 .blog-wrapper {
   position: relative;
+  text-align: justify;
   box-shadow: 0 0 16px 4px var(--clr-background);
-  background-color: color-mix(in srgb, var(--clr-secondary), transparent 50%);
+  // background-color: color-mix(in srgb, var(--clr-secondary), transparent 33%);
+  background-color: color-mix(in srgb, var(--clr-background-blog), transparent 66%);
+  & :target {
+    background: linear-gradient(270deg, var(--clr-accent), transparent);
+  }
+}
+.blog-wrapper {
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 2rem; 
+    margin-bottom: .25rem;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+}
+@media (min-width: 769px) {
+  .blog-wrapper {
+    h1, h2, h3, h4, h5, h6 {
+      background: linear-gradient(270deg, var(--clr-background-blog), transparent 5rem);
+    }
+  }
 }
 @media (max-width: 768px) {
-  .blog-wrapper:first-child {
+  .blog-wrapper:first-child { // For the top ToC so the title not overlap with it
     margin-top: 2rem;
+  }
+  .blog-wrapper {
+    h1, h2, h3, h4, h5, h6 {
+      background: linear-gradient(0deg, var(--clr-text) 2px, transparent 2px);
+    }
+    & :target {
+      background: var(--clr-accent);
+    }
   }
 }
 
@@ -2725,9 +2767,10 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   // outline: 2px solid var(--clr-codeblock-border);
   background-color: var(--clr-codeblock-bg);
   color: var(--clr-codeblock-border);
-  & > h2 {
+  & .blog-toc-header {
     user-select: none;
     padding-left: .25rem;
+    margin: 0;
     font-size: 1rem;
     font-weight: normal;
     line-height: 1.5rem;
@@ -2735,6 +2778,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     text-wrap: nowrap;
     background-color: var(--clr-codeblock-bg-title);
     color: var(--clr-codeblock-text-title);
+    transition: .33s .16s;
   }
 }
 @media (max-width: 768px) {
@@ -2811,18 +2855,22 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   }
 }
 @media (min-width: 769px) {
-  .blog-toc-content > h2::before {
+  .blog-toc {
+    margin: 1rem 0;
+  }
+  .blog-toc-content > .blog-toc-header::before {
     content: "> ";
   }
 }
 @media (min-width: 1200px) {
   .blog-toc {
     position: sticky;
-    top: 48px;
+    top: 96px;
     float: left;
     width: 0;
     height: auto;
     cursor: grab;
+    margin: 0;
 
     animation: key-opacity 1s .5s backwards; // "Hide" the content to hide the starting animation
     transition: opacity .33s .16s;
@@ -2851,6 +2899,9 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   }
   .blog-toc:focus-within {
     cursor: default;
+    & .blog-toc-header {
+      color: var(--clr-primary);
+    }
     & > .blog-toc-content {
       opacity: 1;
       box-shadow: 4px 4px 8px 2px var(--clr-background);
@@ -2888,7 +2939,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     }
   }
   & a {
-    padding: 5px 4px;
+    padding: 5px 8px;
     display: block;
     overflow: clip;
     text-overflow: ellipsis;
@@ -2907,15 +2958,17 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 }
 
 // ? @section # List
+.blog-lists {
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
 .blog-list {
   & > a {
     font-size: x-large;
   }
   & > p {
     margin-top: 0;
-    &:last-child {
-      margin-bottom: revert;
-    }
   }
 }
 // ? @section # Blog-Post Exclusive
@@ -2925,7 +2978,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   -webkit-font-smoothing: auto;
   -moz-osx-font-smoothing: auto;
   text-align: justify;
-  background-color: #434b66;
+  background-color: var(--clr-background-blog);
   margin-bottom: 0;
   padding-top: 2rem;
   border: 2px solid #acacac;
@@ -2944,7 +2997,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   position: sticky;
   float: right;
   top: 4rem;
-  height: 0;
+  width: 0;
   // width: 96px;
   & a {
     display: block;
@@ -2978,7 +3031,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 @media (min-width: 1200px) {
   .blog-post-index-container {
     display: block;
-    transform: translate(170px, 0);
+    transform: translate(26px, 0);
   }
 }
 .blog-post-index {
@@ -3015,7 +3068,6 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   max-width: 848px;
   margin: auto;
   margin-top: 2rem;
-  margin-bottom: 33vh;
 }
 .blog-post-footer-navigation {
   position: relative;
