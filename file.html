@@ -10,15 +10,6 @@ custom-css:
 - /styles/file-cursor-keyframe.css
 ---
 <main>
-  <section class="wrapper border bg-color" tabindex="-1" id="main">
-
-    <h1>Files</h1>
-
-    <p>Welcome to the file repository page. All things listed in here are free for <span class="warning">PERSONAL</span> use, unless stated otherwise. If there's any broken link, please contact me so I can fix it as soon as possible.</p>
-    <p>Files are served on Github by default. Bigger stuff (more than 10mb) will be served externally. Archived file has instruction attached to help you out. Otherwise you're on your own :3</p>
-  
-  </section>
-
   <!-- ! @main # CSOS MAIN -->
   <p class="wrapper notice mobile-only">The section below is not built for mobile and cursor-less device! Sorry~!</p>
   <div class="wrapper wrapper--CSOS CSOS-root">
@@ -250,9 +241,18 @@ custom-css:
     <p>She simply doesn't respect the height limit!</p>
   </div>
 
+  <section class="wrapper border-dash bg-color" tabindex="-1" id="main">
+
+    <h1>File Repository</h1>
+
+    <p>Welcome to the archive~! All things listed in here are free for <span class="warning">PERSONAL</span> use, unless stated otherwise. If there's any broken link, please contact me so I can fix it as soon as possible.</p>
+    <p>Files are served on Github by default. Bigger stuff (more than 10mb) will be served externally. Archived file has instruction attached to help you out. Otherwise you're on your own :3</p>
+  
+  </section>
+
   <!-- ! Misc Corner -->
   <section class="wrapper no-padding">
-    <h2 class="title-full" style="background-color: var(--clr-btn-download);">Misc.</h2>
+    <h2 class="title-full" style="background-color: var(--clr-btn-download);">Et cetera</h2>
     <section class="wrapper border bg-color no-overflow">
       {% assign vtuber = site.data.file.vtuber.list %}
       <div class="headshot headshot--float-left headshot--pos-first" style="--headshot-size: 256px; image-rendering: auto;">
