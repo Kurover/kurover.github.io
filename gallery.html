@@ -78,8 +78,8 @@ og-type: gallery
               </div>
               <div class="gallery-image" tabindex="0">
                 {% if item.link-alt %}<img class="gallery-image__alt" {% unless item.no-lazy %}loading="lazy" {% endunless %}src="{{ item.link-alt }}" alt="Alternative or thumbnail version of the next image">{% endif %}
-                <img {% unless item.no-lazy %}loading="lazy" {% endunless %}src="{{ item.link }}" alt="{{ item.name }}">
-                {% if item.link-toggle %}<img loading="lazy" class="gallery-image__toggle" src="{{ item.link-toggle }}" alt="Looped version of the previous image">{% endif %}
+                <img {% unless item.no-lazy %}loading="lazy" {% endunless %}src="{{ item.link }}" alt="{{ item.name }}"{% if item.ratio %} style="aspect-ratio: {{ item.ratio }}"{% endif %}>
+                {% if item.link-toggle %}<img loading="lazy" class="gallery-image__toggle" src="{{ item.link-toggle }}" alt="Looped version of the previous image" {% if item.ratio %} style="aspect-ratio: {{ item.ratio }}"{% endif %}>{% endif %}
               </div>
             </div>
           </div>

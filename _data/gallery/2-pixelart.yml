@@ -5,6 +5,7 @@ list:
 - name: Clover and Stylla holding a pottery with thank you letter on it
   link: /img/gallery/oc-tw10k--px.png
   link-alt: /img/gallery/oc-tw10k-banner--px.png
+  ratio: 224/192
   caption: Thank you for 1000 followers!
   class: full right gallery-list--custom-1
   no-lazy: true

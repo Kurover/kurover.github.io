@@ -14,6 +14,7 @@ list:
 - name: Youmu under the night sky watching star fall animation
   link: /img/gallery/touhou-youmu2--px.gif
   link-alt: /img/gallery/touhou-youmu2-thumb--px.gif
+  ratio: 1/1
   caption:
   class:
   separate: true
