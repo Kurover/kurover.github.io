@@ -13,6 +13,7 @@ list:
   separate:
 - name: Youmu under the night sky watching star fall animation
   link: /img/gallery/touhou-youmu2--px.gif
+  link-alt: /img/gallery/touhou-youmu2-thumb--px.gif
   caption:
   class:
   separate: true

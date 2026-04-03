@@ -14,6 +14,7 @@ list:
 
 - name: Sekibanki with her cape fluttering, each side of it has mirage of her companion, Wakasagihime and Kagerou animation
   link: /img/gallery/touhou-grassroot2--px.gif
+  link-alt: /img/gallery/touhou-grassroot2-thumb--px.gif
   caption: Head of the pack
   class: full
   separate: 
@@ -24,6 +25,7 @@ list:
   separate: 
 - name: Sekibanki and Kogasa under the parasol while raining animation
   link: /img/gallery/touhou-grassroot3--px.gif
+  link-alt: /img/gallery/touhou-grassroot3-thumb--px.gif
   caption: Warmth under the parasol
   class: wide
   separate: true
