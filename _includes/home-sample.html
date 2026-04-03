@@ -16,7 +16,7 @@
       </div>
       <div class="gallery-image" tabindex="0">
         {% if item.link-alt %}<img class="gallery-image__alt" {% unless item.no-lazy %}loading="lazy" {% endunless %}src="{{ item.link-alt }}" alt="Alternative or thumbnail version of the next image">{% endif %}
-        <img {% unless item.no-lazy %}loading="lazy" {% endunless %}src="{{ item.link }}" alt="{{ item.name }}">
+        <img {% unless item.no-lazy %}loading="lazy" {% endunless %}src="{{ item.link }}" alt="{{ item.name }}" style="aspect-ratio: {{ item.ratio }}">
         {% if item.link-toggle %}<img loading="lazy" class="gallery-image__toggle" src="{{ item.link-toggle }}" alt="Looped version of the previous image">{% endif %}
       </div>
     </div>
