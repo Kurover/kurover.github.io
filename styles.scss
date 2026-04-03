@@ -2360,8 +2360,10 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     }
   }
 }
-.gallery-image__alt,
 .gallery-image__toggle {
+  display: none;
+}
+.gallery-image__alt + img { // This should be always the original one
   display: none;
 }
 // For specificity
@@ -2394,10 +2396,10 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     top: 0;
   }
   // System to do alt imagery
-  &:has( .gallery-image__alt) img:first-of-type {
+  & .gallery-image__alt {
     display: none;
   }
-  & .gallery-image__alt {
+  & .gallery-image__alt + img {
     display: block;
   }
 }
