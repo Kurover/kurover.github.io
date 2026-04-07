@@ -483,7 +483,7 @@ body::after {
   padding: 24px;
   margin: auto;
   margin-bottom: 1rem;
-  &:first-of-type {
+  &:first-child {
     margin-top: 1rem;
   }
   & > p {
@@ -1587,7 +1587,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   position: fixed;
   bottom: 0;
   right: 0;
-  width: calc(90px + 10vw);
+  width: calc(128px + 12.5vw);
   height: 96px;
   transform: translateX(50%);
   transition: transform .25s;
