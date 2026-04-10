@@ -2460,21 +2460,43 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   z-index: calc(var(--layer-zoomy) + 1);
   position: fixed;
   bottom: 0;
-  height: 20vh;
-  width: max(48px, 3vw);
+  // height: 20vh;
+  // width: max(48px, 3vw);
 }
 .gallery-list:has(+ .gallery-list:focus-within, + hr + .gallery-list:focus-within)::before {
   content: "";
-  left: 0;
+  // left: 0;
+  // right: 50%;
 }
 .gallery-list:focus-within + hr + .gallery-list::before,
 .gallery-list:focus-within + .gallery-list::before {
   content: "";
-  right: 0;
+  // right: 0;
+  // left: 50%;
 }
 
 // @misc @ Media
 @media (min-width: 769px) {
+  .gallery-list::before {
+    width: 96px;
+    height: 48px;
+    opacity: .2;
+    transition: opacity .2s;
+  }
+  .gallery-list:hover::before { // Maybe these pseudo element isn't the brightest of ideas..
+    opacity: .6;
+  }
+  .gallery-list:has(+ .gallery-list:focus-within, + hr + .gallery-list:focus-within)::before {
+    right: 50%;
+    border-radius: 16px 0 0 0;
+    background-color: var(--clr-accent-green);
+  }
+  .gallery-list:focus-within + hr + .gallery-list::before,
+  .gallery-list:focus-within + .gallery-list::before {
+    left: 50%;
+    border-radius: 0 16px 0 0;
+    background-color: var(--clr-accent);
+  }
   .gallery-image-wrapper {
     flex-direction: column;
     overflow-y: scroll;
@@ -2524,6 +2546,15 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     bottom: var(--image-topbar-height);
     width: max(64px, 12.5vw);
     height: unset;
+  }
+  .gallery-list:has(+ .gallery-list:focus-within, + hr + .gallery-list:focus-within)::before {
+    left: 0;
+    // right: unset;
+  }
+  .gallery-list:focus-within + hr + .gallery-list::before,
+  .gallery-list:focus-within + .gallery-list::before {
+    right: 0;
+    // left: unset;
   }
   .gallery-list {
     --image-topbar-height: 64px;
