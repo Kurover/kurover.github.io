@@ -1,0 +1,61 @@
+---
+layout: lab
+name: Anchor Position
+alias: CSS - Anchor Position
+created-at: 10-April-2026
+---
+<div class="wrapper border">
+  <p>A peek of <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Anchor_positioning/Using">Anchor Positioning (MDN link)</a> function because holy heck that is a long documentation! The paragraph in this div is written in order. Treat it as a comment for each paragraph~</p>
+  <p>. This will take a while to digest... better tooltip mechanism, question mark. First impression. It's an extremely amazing feature.. if you have script, I think.</p>
+  <p>. . Nevermind, it's quite easy to use and goes to where you expect if configured properly! This might've been useful for CSOS if I learned it, who knows.</p>
+  <p>. Tooltip is superior with this as it doesn't mess with canvas width.</p>
+  <p>. . Will revisit this later, seems useful but I don't want to add shiny feature mid-way lol.</p>
+</div>
+
+<!-- ! -->
+<p class="title-full wrapper">Anchor Basic 1: Pilot</p>
+
+<div class="wrapper border">
+  <div class="childrens-a" style="transform:translatex(-96px)">Children Before</div>
+  <hr class="separator large">
+  <div class="anchor-a">Anchor A</div>
+  <div class="anchor-b">Anchor B</div>
+  <hr class="separator large">
+  <div class="childrens-a">Children After</div>
+</div>
+
+<div class="wrapper border"> <!-- class="target-a" -->
+  <div class="childrens-a">Children Outside</div>
+  <p>(There's a div object above) Erm doesn't work? I guess it can't get anchor object outside container.</p>
+  <p>. I guess not with absolute, fixed move it but not somewhere I expect.</p>
+  <p>. . So I guess the scope messes it. It's expecting an anchor from this div? Removing it will move the content outside of its div.</p>
+  <p>. . . Actually, fixed make it broken if this div has a scope. Ok, just don't declare scope if there's no anchor-name in the div!</p>
+</div>
+
+<!-- ! -->
+<p class="title-full wrapper">Anchor Basic 2: Tooltip</p>
+
+<div class="wrapper border tooltip-trigger-parent">
+  <p>Paragraph with a fancy <span class="anchor-b tooltip-trigger-target" tabindex="0">tooltip</span>, click it. This use :has because its content is somewhere else (ouside of p). Alternatively (and similar to old one), we can just use the trigger on the tooltip and add container content after the tooltip. Side note, centering the content is amazingly simple!</p>
+  <div class="childrens-b tooltip-content-ex">tooltip content somewhere</div>
+  <p>Try adding <span class="select-all">anchor-name: none;</span> to the tooltip parent, very cool! Technically can make a dedicated tooltip spot with fixed position without.. position: fixed;... 3 steps process to bypass 1 step process, my favorite!</p>
+</div>
+
+<div class="wrapper border">
+  <p>This one <span class="anchor-tooltip-parent" tabindex="0">tooltip</span> simply drags content that is somewhere in Narnia to here by setting the tooltip title container an anchor-name when hovered.</p>
+  <p>Only useful for common tooltip like warning and such because we can't really keep the anchor when cursor is on the tooltip content, which also mean we can't really transition it.</p>
+</div>
+
+<div class="wrapper childrens-c">
+  <p>this is a tooltip container, ready to be served.</p>
+</div>
+
+<!-- ! -->
+<p class="title-full wrapper">Anchor Jank 1: Gallery Next/Previous Style</p>
+
+<div class="wrapper bg-color">
+  <p>The next/previous mechanism is using a fixed pseudo element (from previous and next images) to be overlayed on top of the gallery zoomy viewer thingie. With fixed position, however, is only sensible on mobile with its fullscreen zoom so you can just tap left/right to cycle (honestly I can just do this to desktop and be done with it but ehh).</p>
+  <p>This one I tried to make it anchored on the image wrapper but it seems the previous container can't use anchor parent/name after it. Unfortunate but makes sense. The real non-jank solution would be adding input+label to replace the ::before to force focus but that is a super lame jekyll automated solution. The REAL jank solution is to position the ::before on center top as the zoomy only expands horizontally... you know what, I'll do that instead.</p>
+  {% include home-sample.html %}
+  <p class="caption">? This use home-sample from _includes.</p>
+</div>

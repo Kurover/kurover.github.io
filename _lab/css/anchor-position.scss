@@ -1,0 +1,123 @@
+---
+---
+
+[class^=anchor-] {
+  // line-height: 32px;
+  // display: block;
+  // margin: 1rem 0;
+  padding: .25rem;
+  outline: 1px solid white;
+}
+[class^=childrens-] {
+  position: absolute;
+  // height: 64px;
+  // width: 64px;
+  padding: .5rem;
+  border: 4px ridge var(--clr-accent);
+}
+
+// ? Anchor Basic 1
+// A single class can have multiple anchor name, separate with comma. It's like a class with multiple classes, lol.
+.anchor-a {
+  anchor-name: --anchor-a;
+  background-color: cornflowerblue;
+}
+.childrens-a {
+  position-anchor: --anchor-a;
+  position-area: right;
+  background-color: cornflowerblue;
+}
+// Container with scope need an object with anchor-name, otherwise it has no good use, I think
+.target-a {
+  anchor-scope: --anchor-a;
+}
+.target-b {
+  anchor-scope: --anchor-b;
+}
+
+// ? Anchor Basic 2
+.anchor-b {
+  anchor-name: --anchor-b;
+  background-color: palevioletred;
+}
+.childrens-b {
+  position-anchor: --anchor-b;
+  position-area: bottom;
+  background-color: palevioletred;
+}
+// Need different class/id if the content has multiple tooltip, hmm
+.tooltip-content-ex {
+  display: none;
+}
+// Alternatively for performance; put it on the paragraph and use + selector instead, which also mean multiple tooltip in a container, basically.
+.tooltip-trigger-parent:has(.tooltip-trigger-target:focus) .tooltip-content-ex,
+.tooltip-content-ex:hover {
+  display: block;
+}
+
+// Anchor setter tooltip
+.anchor-tooltip-parent {
+  background-color: thistle;
+  color: black;
+}
+.anchor-tooltip-parent:is(:hover, :focus) {
+  anchor-name: --anchor-c;
+}
+.childrens-c {
+  position-anchor: --anchor-c;
+  position-area: bottom;
+  width: fit-content;
+  padding: 8px;
+  position: absolute;
+  background-color: thistle;
+  color: black;
+  right: 100%;
+  left: anchor(left);
+}
+
+// ? Anchor Jank 1 - Gallery List
+// Alternative implementation with fixed position on bottom. It's on the main stylesheet now
+// .gallery-list::before {
+//   width: 96px;
+//   height: 48px;
+//   opacity: .33;
+// }
+// .gallery-list:has(+ .gallery-list:focus-within, + hr + .gallery-list:focus-within)::before {
+//   left: unset;
+//   right: 50%;
+//   background-color: salmon;
+// }
+// .gallery-list:focus-within + hr + .gallery-list::before,
+// .gallery-list:focus-within + .gallery-list::before {
+//   right: unset;
+//   left: 50%;
+//   background-color: cornflowerblue;
+// }
+
+// * Failed anchor edition
+.gallery-lists {
+  anchor-scope: --gallery-topbar;
+}
+.gallery-list:focus-within .gallery-image-topbar {
+  anchor-name: --gallery-topbar;
+}
+.gallery-list:focus-within {
+  anchor-name: --gallery-topbar, --gallery-parent;
+}
+.gallery-list:has(+ .gallery-list:focus-within, + hr + .gallery-list:focus-within)::before {
+  position-anchor: --gallery-parent;
+  left: anchor(left);
+  bottom: anchor(bottom);
+  top: anchor(top);
+  height: auto;
+  background-color: salmon;
+}
+.gallery-list:focus-within + hr + .gallery-list::before,
+.gallery-list:focus-within + .gallery-list::before {
+  position-anchor: --gallery-topbar;
+  right: anchor(right);
+  bottom: anchor(bottom);
+  top: anchor(top);
+  height: auto;
+  background-color: cornflowerblue;
+}
