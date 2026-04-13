@@ -1505,10 +1505,25 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   overflow: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  cursor: default;
   
   border-image: url(/img/border-1-default-alt.png) 6 / 16px / 8px;
   // transform: scale(.88) translate(0) rotateZ(4deg);
   transition: opacity .25s, transform .5s, visibility .5s;
+
+  & > hr {
+    border: 1px solid var(--clr-border);
+  }
+}
+.more-link-popup__txt-footer-left {
+  float: left;
+  margin: 0;
+  color: var(--clr-text-dim)
+}
+.more-link-popup__txt-footer-right {
+  float: right;
+  margin: 0;
+  color: var(--clr-text-fade)
 }
 .more-link-popups:focus-within > .more-link-popup {
   visibility: visible; 
