@@ -1098,25 +1098,32 @@ body::after {
 .tooltip:hover > .tooltip-content {
   z-index: calc(var(--layer-tooltip) + 1);
 }
+.tooltip-alt:hover {
+  anchor-name: --tooltip-alternative;
+}
 .tooltip-alt-content {
   visibility: hidden;
   position: absolute;
   line-height: 1.5rem;
-  opacity: 0;
+  // opacity: 0;
   color: var(--clr-text);
   background-color: var(--clr-codeblock-bg);
   border: 2px solid var(--clr-accent);
-  padding: 4px 8px 2px 8px;
+  padding: 6px 10px 4px 10px;
 
-  transform: translate(4px, -.5rem); // Also compensate border and top padding
-  transition: visibility .1s, opacity .1s;
+  transform: translate(0, .5rem);
+  // transition: visibility .1s, opacity .1s;
 }
 .tooltip-alt:hover + .tooltip-alt-content,
 .tooltip-alt-content:hover {
+  pointer-events: none;
   z-index: var(--layer-tooltip);
   visibility: visible;
-  opacity: 1;
-  transition: 0s;
+  // opacity: 1;
+  // transition: 0s;
+  
+  position-anchor: --tooltip-alternative;
+  position-area: bottom;
 }
 
 // @misc -@ Media
@@ -1176,6 +1183,10 @@ body::after {
     transform: unset;
     padding-bottom: 8px;
     bottom: calc(var(--navigation-height-mobile) - 8px);
+    transform: unset;
+
+    position-area: unset!important;
+    position-anchor: unset!important;
   }
 }
 
