@@ -558,6 +558,10 @@ body::after {
   margin: auto;
   background-color: var(--clr-background);
   padding: 4px;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 // ? Icon and border */
 // Using ::before,after for icon-hover with opacity because sprite transition slides. The pseudo selector is just to save a couple of bytes on the html lol. Terrible idea for the naming honestly
