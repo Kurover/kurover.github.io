@@ -95,7 +95,7 @@
   // --icon-atlas-position: calc(var(--icon-atlas-x) * (var(--icon-atlas-size) * -1) + var(--icon-atlas-size)) calc(var(--icon-atlas-y) * (var(--icon-atlas-size) * -1) + var(--icon-atlas-size));
 
   --main-width: 896px;
-  --navigation-height-mobile: 90px; // Take manually from .nav-main height + border outset!
+  --navigation-height-mobile: 90px; // Taken manually from .nav-main height (auto value) + border outset.
 
   --layer-navigation-expand: 9;
   --layer-navigation-mobile: 9;
@@ -787,7 +787,7 @@ body::after {
     gap: 0;
     padding: 0;
     width: 100%;
-    height: 84px; // This value is taken after all content is calculated. Check by removing this and see in dev tools
+    height: calc(var(--navigation-height-mobile) - 6px); // This value is taken after all content is calculated. Check by removing this and see in dev tools. 6px is to compensate border outset
     margin: initial;
     padding-left: initial;
     border-image-outset: 6px;
@@ -1535,7 +1535,8 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   .more-link-popup {
     top: unset;
     left: unset;
-    bottom: 83px;
+    // bottom: 83px;
+    bottom: calc(var(--navigation-height-mobile) - 7px);
     width: 300px;
 
     border-image: url(/img/border-1-default-alt.png) 6 / 16px 0 0 16px / 8px 0 0 8px; // Remove right and bottom border image + outset. Affected by .nav-main and .nav-list size
