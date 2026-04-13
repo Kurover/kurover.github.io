@@ -57,20 +57,35 @@ og-type: website
     {% include home-sample.html %}
   </section>
 
-  <div class="wrapper border bg-color">
-    <p>The website is under major (re)construction! You can view <a href="https://github.com/Kurover/kurover.github.io/blob/main/Version-3.md" target="_blank">V3 Notes</a> for what's being worked on and stuff.</p>
-    <p>On the meantime, try looking at <a href="/gallery">Gallery</a> or check out <a href="/v2">old website</a>.</p>
-    <div>
+  <!-- ! Recent Blog -->
+  <div class="wrapper no-padding home-blog-lists recent">
+    <div class="home-blog-list blog">
+      <h2>Recent Blog</h2>
+      <ul>
+        {% assign blogs = site.blog | where:"groups","blog" | reverse %}
+        {% for blog in blogs limit: 2 %}
+          <li class="blog-list">
+            <a href="{{ blog.url }}">{{ blog.alias }}</a>
+            <p tabindex="-1">{{ blog.description }}</p>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="home-blog-list">
       <h2>Recent Yap</h2>
-      {% assign blog-posts = site.blog | where: "groups", "blog-post" | reverse %}
-      <ul style="list-style: decimal;">
-        {% for post in blog-posts limit: 3 %}
+      <ul>
+        {% assign blogs = site.blog | where: "groups", "blog-post" | reverse %}
+        {% for blog in blogs limit: 3 %}
         <li>
-          <p><a href="{{ post.url }}" class="tooltip-alt">{{ post.title }}</a><span class="tooltip-alt-content">{{ post.created-at }}</span></p>
+          <p><a href="{{ blog.url }}" class="tooltip-alt">{{ blog.title }}</a><span class="tooltip-alt-content">{{ blog.created-at }}</span></p>
         </li>
         {% endfor %}
       </ul>
     </div>
+  </div>
+
+  <div class="wrapper border bg-color">
+    <p><span class="warning">[!]</span> The website is under major (re)construction! You can view <a href="https://github.com/Kurover/kurover.github.io/blob/main/Version-3.md" target="_blank">V3 Notes</a> for what's being worked on and stuff. On the meantime, try looking at <a href="/gallery">Gallery</a> or check out <a href="/v2">old website</a>.</p>
   </div>
 
 </main>

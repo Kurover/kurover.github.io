@@ -1,5 +1,6 @@
 ---
 ---
+// @section @Main
 .home-menu {
   flex: 1;
   display: flex;
@@ -203,4 +204,44 @@
   width: 100%;
   bottom: -240px;
   background-color: paleturquoise;
+}
+
+// @section @Media
+@media (max-width: 768px) {
+  .home-content {
+    flex-direction: column-reverse;
+    height: 100dvh;
+  }
+  .home-bar {
+    display: none;
+  }
+  .home-illith {
+    // position: unset;
+    width: 100%;
+    flex: 0;
+    // bottom: -24ch;
+    background: none;
+    pointer-events: none;
+  }
+  .ill-container {
+    flex: 1;
+  }
+  .home-illith__textbox {
+    margin: auto;
+    min-width: unset;
+  }
+  .home-menu {
+    margin-top: 1rem;
+  }
+  .home-menu-separator {
+    flex: 0; // pretty much display none
+  }
+  .home-menu-container {
+    height: calc(100dvh - 24ch);
+    flex-wrap: wrap;
+    align-content: flex-start;
+  }
+  // .home-menu__sample {
+  //   max-height: 40dvh;
+  // }
 }

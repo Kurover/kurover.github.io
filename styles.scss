@@ -1685,45 +1685,55 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 }
 
 // @section # Menu
+.home-blog-lists {
+  &.recent {
+    display: grid;
+    grid-template-columns: 1fr .66fr;
+    gap: .5rem;
+  }
+}
+.home-blog-list {
+  background-color: var(--clr-secondary);
+  border: 4px dashed var(--clr-border);
+  padding: .5rem 1rem;
+  height: fit-content;
+  margin: auto 0;
+  & h2::before {
+    content: "✦ ";
+  }
+  & ul, ol {
+    margin: 0;
+    padding-inline-start: 1rem;
+  }
+}
+.home-blog-list.blog {
+  overflow: hidden;
+  & ul {
+    list-style: none;
+    padding-inline-start: 0;
+  }
+  & p {
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    &:focus {
+      text-wrap: unset;
+    }
+  }
+}
 
 // @misc @ Media
 @media (max-width: 768px) {
-  .home-content {
-    flex-direction: column-reverse;
-    height: 100dvh;
+  .home-blog-lists.recent {
+    grid-template-columns: 1fr;
+    & > div {
+      padding: 1rem 1.25rem;
+    }
   }
-  .home-bar {
-    display: none;
+  .home-blog-list h2 {
+    text-align: left;
+    font-size: 24px;
   }
-  .home-illith {
-    // position: unset;
-    width: 100%;
-    flex: 0;
-    // bottom: -24ch;
-    background: none;
-    pointer-events: none;
-  }
-  .ill-container {
-    flex: 1;
-  }
-  .home-illith__textbox {
-    margin: auto;
-    min-width: unset;
-  }
-  .home-menu {
-    margin-top: 1rem;
-  }
-  .home-menu-separator {
-    flex: 0; // pretty much display none
-  }
-  .home-menu-container {
-    height: calc(100dvh - 24ch);
-    flex-wrap: wrap;
-    align-content: flex-start;
-  }
-  // .home-menu__sample {
-  //   max-height: 40dvh;
-  // }
 }
 
 // ! @title ________ Gallery ________
