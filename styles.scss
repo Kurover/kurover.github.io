@@ -1673,29 +1673,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 }
 
 // ! @title ________ Home ________
-.body--home {
-  margin: auto;
-}
-.home-bar {
-  content: "";
-  display: block;
-  line-height: 48px;
-  width: 100%;
-  background-color: black;
-}
-.home-content {
-  position: relative;
-  display: flex;
-  // height: 100%;
-  // top: 0;
-  // bottom: 0;
-  // left: 0;
-  // right: 0;
-  image-rendering: pixelated;
-  background-color: yellow;
-}
-
-// @section # Menu
+// @section # Sections
 .home-blog-lists {
   &.recent {
     display: grid;

@@ -1,6 +1,29 @@
 ---
 ---
-// @section @Main
+// @section # Core
+.body--home {
+  margin: auto;
+}
+.home-bar {
+  content: "";
+  display: block;
+  line-height: 48px;
+  width: 100%;
+  background-color: black;
+}
+.home-content {
+  position: relative;
+  display: flex;
+  // height: 100%;
+  // top: 0;
+  // bottom: 0;
+  // left: 0;
+  // right: 0;
+  image-rendering: pixelated;
+  background-color: yellow;
+}
+
+// @section # Main
 .home-menu {
   flex: 1;
   display: flex;
