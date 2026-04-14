@@ -2084,9 +2084,6 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     transition: 0s;
   }
 }
-.gallery-lists:has(> .gallery-list:focus-within) > .gallery-list {
-  transition: none;
-}
 // ? @section ## Mod
 .gallery-list {
   // Using OOCS because I don't want to bloat the html with BEM
@@ -2291,6 +2288,10 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   // right: 0;
   // left: 50%;
 }
+// Basically prevent hover stuff on other images when hovering the next/prev button. Jank bug requires jank band-aid
+.gallery-lists:has(> .gallery-list:focus-within) > .gallery-list {
+  transition: all 0s 999s!important;
+}
 
 // @misc @ Media
 @keyframes gallery-wrapper-start {
@@ -2317,6 +2318,9 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     left: 50%;
     border-radius: 0 16px 0 0;
     background-color: var(--clr-accent);
+  }
+  .gallery-lists:has(> .gallery-list:focus-within) > .gallery-list > p {
+    display: none;
   }
   .gallery-image-wrapper {
     flex-direction: column;
