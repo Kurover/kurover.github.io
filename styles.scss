@@ -1426,6 +1426,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   // cursor: pointer;
   --contact-padding-y: 16px;
   --contact-icon-y: 48px;
+  anchor-scope: --contact-link;
   padding: var(--contact-padding-y) 8px;
   font-size: 16px;
   // width: min(100%, 110px);
@@ -1436,13 +1437,16 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     background-color: var(--clr-secondary);
     box-shadow: 0 0 0 4px inset var(--clr-border);
   }
+  & > a {
+    anchor-name: --contact-link;
+  }
 }
 // Structural order mess up, should have done this first and name it container but eh it's fine
 .contact-list--alt {
   // z-index for tooltip shenanigan
   --tooltip-transition: .25s;
   z-index: 0;
-  position: relative;
+  // position: relative;
   padding: unset;
 
   transition: z-index var(--tooltip-transition);
@@ -1454,7 +1458,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     z-index: 2;
     transition: z-index 0s;
   }
-  & a {
+  & > a {
     display: block;
     padding: 16px 8px;
   }
@@ -1482,9 +1486,8 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   user-select: all;
   visibility: hidden;
   position: absolute;
-  width: fit-content;
-  left: 0;
-  right: 0;
+  position-anchor: --contact-link;
+  position-area: bottom;
   padding: .75rem 1rem;
   opacity: 0;
   
@@ -1497,11 +1500,6 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 .contact-list:is(:hover, :focus-within) > .contact-list-tooltip {
   opacity: 1;
   visibility: visible;
-}
-@media (max-width: 768px) {
-  .contact-list-tooltip.m-right {
-    left: unset;
-  }
 }
 
 // @main # More Link Popup
