@@ -2293,6 +2293,10 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
 }
 
 // @misc @ Media
+@keyframes gallery-wrapper-start {
+  from {transform: scale(0.98);}
+  to {transform: scale(1);}
+}
 @media (min-width: 769px) {
   .gallery-list::before {
     width: 96px;
@@ -2322,6 +2326,9 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   }
   .gallery-image-topbar {
     border-bottom: 2px solid var(--clr-border);
+  }
+  .gallery-list:focus-within .gallery-image-wrapper {
+    animation: gallery-wrapper-start .16s ease;
   }
   .gallery-list:focus-within .gallery-image {
     // min-height: 86vh; // Respect zoom out level // How about let the user zoom the page or download the image? This declaration alone give so many headache!
