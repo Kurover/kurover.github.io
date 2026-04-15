@@ -1767,11 +1767,17 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
   flex: 1;
   transition: flex .5s;
   &:hover {
-    box-shadow: 0 0 0 2px inset var(--clr-accent);
+    box-shadow: 0 0 0 3px inset var(--clr-accent);
   }
   &:active {
     box-shadow: 0 0 0 4px inset var(--clr-text);
     background-color: var(--clr-codeblock-bg);
+  }
+  &.tab-2:hover {
+    box-shadow: 0 0 0 3px inset var(--clr-accent-cyan);
+  }
+  &.tab-3:hover {
+    box-shadow: 0 0 0 3px inset var(--clr-accent-green);
   }
 }
 .gallery-tab-content {
