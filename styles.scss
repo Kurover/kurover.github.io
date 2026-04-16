@@ -880,6 +880,60 @@ body::after {
     width: 75vw
   }
 }
+.warn-browser {
+  height: 0;
+  width: 0;
+}
+.warn-browser__anchor {
+  anchor-name: --warn-browser;
+  position: absolute;
+  left: -9999px;
+  top: 0;
+}
+.warn-browser__content {
+  position-anchor: --warn-browser;
+  position-area: bottom;
+  position: fixed;
+  padding: .5rem;
+  border: 4px double var(--clr-border);
+  background-color: var(--clr-secondary);
+  cursor: help;
+
+  // For incompatible browser so it shows, pretend the anchor doesn't work
+  bottom: 2rem;
+  margin-right: auto;
+  margin-left: 2rem;
+
+  &:hover {
+    box-shadow: 0 0 0 2px;
+  }
+  & > div {
+    display: none;
+    color: var(--clr-text);
+  }
+  & p {
+    margin: 0;
+  }
+}
+.warn-browser:focus-within > .warn-browser__content {
+  cursor: default;
+  &:hover {
+    box-shadow: 0 0 0 1px inset var(--clr-notice);
+  }
+  & > .title {
+    display: none;
+  }
+  & > div {
+    display: block;
+  }
+}
+@media (max-width: 768px) {
+  .warn-browser__content {
+    top: 0;
+    bottom: unset;
+    margin-left: 0;
+  }
+}
 
 // * @main # Generic Buttons
 .button {
