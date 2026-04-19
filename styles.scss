@@ -2118,7 +2118,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     position: absolute;
     visibility: hidden;
     opacity: 0;
-    bottom: -48px;
+    bottom: 0; // Need this otherwise unloaded (?) images anchor position is wrong (?)
     margin: 0;
     padding: 16px;
     background-color: var(--clr-tooltip-background);
@@ -2379,9 +2379,6 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     border-radius: 0 16px 0 0;
     background-color: var(--clr-accent);
   }
-  .gallery-lists:has(> .gallery-list:focus-within) > .gallery-list > p {
-    display: none;
-  }
   .gallery-image-wrapper {
     flex-direction: column;
     overflow-y: scroll;
@@ -2401,6 +2398,28 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
       object-fit: contain; // For landscape to not overflow
     }
   }
+  // * Caption anchor
+  .gallery-list {
+    anchor-scope: --gallery-img;
+  }
+  .gallery-image {
+    anchor-name: --gallery-img;
+  }
+  .gallery-list > p {
+    position: fixed;
+    position-anchor: --gallery-img;
+    position-area: bottom;
+  }
+  .gallery-list:focus-within > p {
+    position-area: top;
+    z-index: var(--layer-zoomy);
+    position: fixed;
+    bottom: -32px;
+
+    pointer-events: all;
+    cursor: default;
+  }
+
   .gallery-close {
     float: right;
     cursor: pointer;

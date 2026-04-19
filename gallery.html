@@ -64,7 +64,6 @@ og-type: gallery
           <h2 class="title-full margin">{{ section.name }}</h2>
           {% for item in section.list %}
           <div class="gallery-list{% if item.class %} {{ item.class }}{% endif %}" tabindex="-1">
-            {% if item.caption %}<p>{{ item.caption }}</p>{% endif %}
             <div class="gallery-image-wrapper">
               {% if item.link-toggle %}<input type="checkbox" class="gallery-toggle" id="{{ item.id }}_sys">{% endif %}
               <div class="gallery-image-topbar">
@@ -82,6 +81,7 @@ og-type: gallery
                 {% if item.link-toggle %}<img loading="lazy" class="gallery-image__toggle" src="{{ item.link-toggle }}" alt="Loop - {{ item.name }}" {% if item.ratio %} style="aspect-ratio: {{ item.ratio }}"{% endif %}>{% endif %}
               </div>
             </div>
+            {% if item.caption %}<p>{{ item.caption }}</p>{% endif %}
           </div>
           {% if item.separate %}<hr class="br-flex">{% endif %}
           {% endfor %}

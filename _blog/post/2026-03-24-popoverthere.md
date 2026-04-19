@@ -7,7 +7,7 @@ groups: blog-post
 title: HTML Popover Tag
 description: Talking about the current image Zoom Popup mechanism
 created-at: 2026-03-24T00:48:54+0700
-modified-at: 2-April-2026 18:06:35
+modified-at: 19-April-2026 18:16:46
 ---
 
 # A Popup I Cannot Posses
@@ -17,7 +17,6 @@ During the Gallery Zoom Title rewrite. I was mulling about the zoom/pop mechanis
 <input type="checkbox" id="gal-close_sys">
 <div class="gallery-lists img-px compact">
   <div class="gallery-list" tabindex="-1">
-    <p>This thing's here</p>
     <div class="gallery-image-wrapper">
       <div class="gallery-image-topbar">
         <label for="gal-close_sys" class="gallery-close"></label>
@@ -26,9 +25,9 @@ During the Gallery Zoom Title rewrite. I was mulling about the zoom/pop mechanis
         <img src="/img/illith-flustered--px.png">
       </div>
     </div>
+    <p>This thing's here</p>
   </div>
   <div class="gallery-list" tabindex="-1">
-    <p>"Yes, I'm the cutest~"</p>
     <div class="gallery-image-wrapper">
       <div class="gallery-image-topbar">
         <label for="gal-close_sys" class="gallery-close"></label>
@@ -37,6 +36,7 @@ During the Gallery Zoom Title rewrite. I was mulling about the zoom/pop mechanis
         <img src="/img/illith-3--px.png">
       </div>
     </div>
+    <p>"Yes, I'm the cutest~"</p>
   </div>
 </div>
 
