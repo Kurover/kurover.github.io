@@ -2118,7 +2118,7 @@ input[id^=profile-headshot-3]:checked ~ [data-target="3"] {display: block;}
     position: absolute;
     visibility: hidden;
     opacity: 0;
-    bottom: 0; // Need this otherwise unloaded (?) images anchor position is wrong (?)
+    bottom: -48px; // Need this otherwise not yet loaded (?) images (anchor) position-area is invalid (?)
     margin: 0;
     padding: 16px;
     background-color: var(--clr-tooltip-background);
