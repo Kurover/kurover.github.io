@@ -934,6 +934,10 @@ body::after {
     margin-left: 0;
   }
 }
+.list-general {
+  padding-inline-start: 1rem;
+  margin: 0;
+}
 
 // * @main # Generic Buttons
 .button {
@@ -3963,6 +3967,56 @@ strong::selection {
     border: 2px solid var(--clr-border);
     background-color: var(--clr-secondary);
     font-size: 2rem;
+  }
+}
+
+// @misc # Lists
+.file-lists {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: .5rem;
+}
+.file-lists--half {
+  grid-template-columns: 1fr 1fr;
+  & > div {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: .5rem;
+    height: fit-content;
+  }
+}
+.file-list {
+  box-sizing: border-box;
+  border: 4px solid var(--clr-codeblock-border);
+  background: var(--clr-codeblock-bg);
+  padding: .75rem;
+  max-height: 420px;
+  overflow: auto;
+  scrollbar-width: thin;
+}
+.file-list > h3 {
+  text-align: center;
+}
+.file-img-preview {
+  box-sizing: border-box;
+  border: 3px solid var(--clr-border);
+  margin: .5rem 0;
+}
+
+@media (min-width: 769px) {
+  .full-desktop {
+    max-height: unset;
+  }
+}
+@media (max-width: 768px) {
+  .file-lists {
+    margin: 0 .75rem;
+  }
+  .file-list {
+    width: 100%;
+  }
+  .file-lists--half {
+    grid-template-columns: 1fr;
   }
 }
 

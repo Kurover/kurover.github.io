@@ -250,10 +250,64 @@ custom-css:
   
   </section>
 
+  <!-- ! CSS Corner -->
+  <section class="wrapper no-padding">
+    <h2 class="title-full" style="margin-bottom: .5rem;" id="file-css">CSS Hack Bundle</h2>
+    <div class="file-lists file-lists--half">
+      <div>
+        <div class="file-list border-dash">
+          <p>These are a collection of CSS hacks.. collection!</p>
+          <p>Most of the header link will redirect you to the Gist page, which will always point to the latest version. We can't embed it since it requires script and prefer updating it there for modularity.</p>
+        </div>
+        <div class="file-list border-dash full-desktop">
+          <h3><a href="https://gist.github.com/Kurover/5c6c93718881fa446a7b1f1fe507a629" target="_blank" rel="noopener">Discord Tweaks (gist)</a></h3>
+          <img src="/file/example-css-discord.webp" alt="Example of Discord CSS" class="file-img-preview">
+          <p>A collection of small CSS tweaks for Discord. This requires browser with CSS injection extension or 3rd party client.</p>
+          <p>It's personalized for my liking, so modify and remove feature by editing it yourself!</p>
+          <p class="no-margin-bot">Overview:</p>
+          <ul class="list-general">
+            <li>Remove user customization. i.e. custom font and nameplate background.</li>
+            <li>Remove border curve in most element.</li>
+            <li>Remove unnecessary buttons like help (press F1), gift, discover, and add app.</li>
+            <li>Shrink chat bar to eat less space.</li>
+            <li>Change "DM" button icon into Illith! Go to <a href="https://codepen.io/shshaw/full/XbxvNj" target="_blank" rel="noopener">@shshaw codepen</a> to make your own svg.</li>
+            <li>Other visual changes.</li>
+          </ul>
+        </div>
+
+      </div>
+      <div>
+        <div class="file-list border-dash">
+          <h3><a href="https://gist.github.com/Kurover/f545a9806df21b5569de7d33ebc73848" target="_blank" rel="noopener">Youtube CSS (gist)</a></h3>
+          <img src="/file/example-css-youtube.webp" alt="Example of YouTube CSS" class="file-img-preview">
+          <p>Mostly tweaks for description and comment view. Designed for dark theme but light theme has preset color in the css file. Use CSS inject extension or YouTube Enhancer (not sponsored) to use.</p>
+          <p>The background (and associated comment color) is disabled by default as it uses Steam for the wallpaper.</p>
+          <p>This also remove voice search button, just because.</p>
+        </div>
+        <div class="file-list border-dash">
+          <h3><a href="https://gist.github.com/Kurover/ca942171a725d98d5b81bf47940f33e5" target="_blank" rel="noopener">Old Reddit CSS (gist)</a></h3>
+          <p>A three in one hacks for old Reddit. It meant to be used with Reddit Enhancement Suite (RES) extension.</p>
+          <img src="/file/example-css-reddit-1.webp" alt="Example of Reddit CSS Spoiler Hider" class="file-img-preview">
+          <p>Hide spoiler by prefixing [SPOILER] and show first few character of the title. Expanded when hovered but also less visible with bad colors to make sure you don't accidentally see it when accidentally hover it. Doesn't work on search result.</p>
+          <img src="/file/example-css-reddit-2.webp" alt="Example of Reddit CSS Pin OP Comment" class="file-img-preview">
+          <p>Pin OP comment inside a thread. This has priority over admin pin. It modify comment display into flex so with some site-specific CSS it has potential to break!</p>
+          <p>Final mod is to make sure up and down vote button always shows. Not really useful if you disable site-specific CSS but it's there.</p>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+  
+  <!-- ! AHK/Script Corner -->
+  <!-- <section class="wrapper bg-color border">
+    <h2 id="file-ahk">AHK & Script Corner</h2>
+    <p>Currently empty~</p>
+  </section> -->
+
   <!-- ! Misc Corner -->
   <section class="wrapper no-padding">
-    <h2 class="title-full" style="background-color: var(--clr-btn-download);">Et cetera</h2>
-    <section class="wrapper border bg-color no-overflow">
+    <h2 class="title-full" style="background-color: var(--clr-btn-download);" id="file-misc">Et cetera</h2>
+    <div class="wrapper border bg-color no-overflow">
       {% assign vtuber = site.data.file.vtuber.list %}
       <div class="headshot headshot--float-left headshot--pos-first" style="--headshot-size: 256px; image-rendering: auto;">
         <img src="{{ vtuber.illith.preview }}" alt="">
@@ -264,7 +318,7 @@ custom-css:
       <p>Free to use, modify, and distribute this work except for AI use. Crediting me is optional but appreciated.</p>
       <a href="{{ vtuber.illith.link-dropbox }}" target="_blank" rel="noopener" class="button button--underline button--download">Dropbox</a>
       <a href="{{ vtuber.illith.link-gdrive }}" target="_blank" rel="noopener" class="button button--underline button--download">GDrive</a>
-    </section>
+    </div>
   </section>
 
 </main>
